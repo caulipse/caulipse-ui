@@ -3,9 +3,14 @@
     "baseUrl": "./",
     "paths": {
       "@src/*": ["src/*"],
-      "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
-      "@api/*": ["src/api/*"]
+      "@api/*": ["src/api/*"],
+      "@shared/*": ["src/app/shared/*"],
+
+      "@study/*": ["src/app/study/*"],
+      "@post/*": ["src/app/post/*"],
+      "@nonsubject/*": ["src/app/nonsubject/*"],
+      "@profile/*": ["src/app/profile/*"]
     }
   }
 }

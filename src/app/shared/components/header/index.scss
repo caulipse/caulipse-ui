@@ -10,5 +10,13 @@
   .header-wrap {
     max-width: 1280px;
     margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-user-bt {
+    display: flex;
   }
 }
+@include tablet {}
+@include mobile {}

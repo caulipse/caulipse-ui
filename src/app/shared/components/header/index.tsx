@@ -8,6 +8,18 @@ const Header: React.FC = () => (
       <div>
         <Link to="/">LOGO</Link>
       </div>
+      <div className="header-user-bt">
+        <div>
+          <Link to="/profile">profile</Link>
+        </div>
+        <div>
+          <Link to="/bookmark">Book Mark</Link>
+        </div>
+        <div>
+          <Link to="/note">Note</Link>
+        </div>
+        
+      </div>
     </div>
   </div>
 );

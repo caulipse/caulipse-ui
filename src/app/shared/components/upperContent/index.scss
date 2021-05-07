@@ -1,0 +1,13 @@
+@import "../../../../scss/mixins";
+
+@include desktop {
+  .upper-content-con {
+    width: 100%;
+    height: 200px;
+    background-color: blanchedalmond;
+    margin-bottom: 20px;
+  }
+  .upper-content-wrap {}
+}
+@include tablet {}
+@include mobile {}

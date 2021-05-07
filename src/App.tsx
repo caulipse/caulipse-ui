@@ -2,20 +2,22 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "@src/pages/Home";
 import { StudySearchPage, StudyListPage } from "@src/pages/Study";
-import Header from "./app/shared/components/header";
 import "./App.scss";
-import SideBar from "./app/shared/components/sidebar";
+import { Footer, Header, SideBar, UpperContent } from "./app/shared/components";
 
-const RoutePage: React.FC = () => (
+const MainContainer: React.FC = () => (
   <div className="router-con">
-    <SideBar/>
-    <Switch>
-      {/* 스터디 > 과목별 스터디 */}
-      <Route exact path="/study/list" component={StudyListPage} />
-      {/* 스터디 > 찾아보기 */}
-      <Route exact path="/study/search" component={StudySearchPage} />
-      <Route path="*" component={Home} />
-    </Switch>
+    <UpperContent/>
+    <div className="main-con">
+      <SideBar/>
+      <Switch>
+        {/* 스터디 > 과목별 스터디 */}
+        <Route exact path="/study/list" component={StudyListPage} />
+        {/* 스터디 > 찾아보기 */}
+        <Route exact path="/study/search" component={StudySearchPage} />
+        <Route path="*" component={Home} />
+      </Switch>
+    </div>
   </div>
 );
 
@@ -23,7 +25,8 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Header/>
-      <RoutePage/>
+      <MainContainer/>
+      <Footer/>
     </BrowserRouter>
   );
 };

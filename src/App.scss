@@ -1,11 +1,19 @@
-.router-con {
-  margin: auto;
-  margin-top: 50px;
+@import "./scss/mixins";
 
-  max-width: 1280px;
-  height: 1920px;
+@include desktop {
+  .router-con {
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
 
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr 5fr;
+    max-width: 1280px;
+  }
+  .main-con {
+    display: grid;
+    gap: 20px;
+
+    grid-template-columns: 1fr 5fr;
+  }
 }
+@include tablet {}
+@include mobile {}

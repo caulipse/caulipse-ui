@@ -1,0 +1,11 @@
+.router-con {
+  margin: auto;
+  margin-top: 50px;
+
+  max-width: 1280px;
+  height: 1920px;
+
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 5fr;
+}

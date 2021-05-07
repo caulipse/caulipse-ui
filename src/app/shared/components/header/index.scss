@@ -1,0 +1,14 @@
+@import "../../../../scss/mixins";
+
+@include desktop {
+  .header-con {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: beige;
+  }
+  .header-wrap {
+    max-width: 1280px;
+    margin: auto;
+  }
+}

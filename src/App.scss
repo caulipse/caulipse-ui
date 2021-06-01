@@ -3,10 +3,11 @@
 @include desktop {
   .router-con {
     margin: auto;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 50px;
 
-    max-width: 1280px;
+    max-width: 1440px;
+    min-height: 1080px;
   }
   .main-con {
     display: grid;

@@ -11,9 +11,7 @@ const MainContainer: React.FC = () => (
     <div className="main-con">
       <SideBar/>
       <Switch>
-        {/* 스터디 > 과목별 스터디 */}
         <Route exact path="/study/list" component={StudyListPage} />
-        {/* 스터디 > 찾아보기 */}
         <Route exact path="/study/search" component={StudySearchPage} />
         <Route path="*" component={Home} />
       </Switch>

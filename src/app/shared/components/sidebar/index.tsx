@@ -1,22 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import "./index.scss";
 
 const SideBar: React.FC = () => {
+
+  const history = useHistory();
+
+  const onClick = (route: string) => {
+    history.push(route);
+  }
   return (
     <div className="sidebar-con">
       <div>
-        <Link to="/study/list">스터디</Link>
-        <div>
-          <Link to="/study/search">찾아보기</Link>
-        </div>
+        <button type="button" onClick={() => onClick("/study/list")}>
+          <div>스터디</div>
+        </button>
+        <button type="button" onClick={() => onClick("/study/search")}>
+          <div>찾아보기</div>
+        </button>
       </div>
-      <div>
-        <Link to="/post">게시글</Link>
-      </div>
-      <div>
-        <Link to="/nonsub">비교과</Link>
-      </div>
+        <button type="button" onClick={() => onClick("/post")}>
+          <div>게시글</div>
+        </button>
+        <button type="button" onClick={() => onClick("/nonsub")}>
+          <div>비교과</div>
+        </button>
     </div>
   );
 };

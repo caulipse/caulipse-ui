@@ -1,9 +1,10 @@
+@import '../../../../scss/variables';
 .footer-con {
   width: 100%;
-  background-color: blanchedalmond;
-
+  height: 300px;
+  background-color: $footer-color;
 }
 .footer-wrap {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: auto;
 }

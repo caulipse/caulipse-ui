@@ -1,6 +1,4 @@
-import React from "react";
-
-const StudySearchPage:React.FC = () => {
+const StudySearchPage = () => {
   return <>StudySearchPage</>;
 };
 

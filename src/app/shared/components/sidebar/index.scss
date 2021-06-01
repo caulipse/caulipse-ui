@@ -1,3 +1,13 @@
-.sidebar-con {
-  background-color: blanchedalmond;
+@import '../../../../scss/mixins';
+@import '../../../../scss/variables';
+
+@include desktop {
+  .sidebar-con {
+    display: flex;
+    flex-direction: column;
+    background-color: $footer-color;
+
+  }
+  .sidebar-wrapper {
+  }
 }

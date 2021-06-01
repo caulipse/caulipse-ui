@@ -1,0 +1,14 @@
+@import "../../../../scss/mixins";
+@import "../../../../scss/variables";
+
+@include desktop {
+  .upper-content-con {
+    width: 100%;
+    height: 200px;
+    background-color: $footer-color;
+    margin-bottom: 20px;
+  }
+  .upper-content-wrap {}
+}
+@include tablet {}
+@include mobile {}

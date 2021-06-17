@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     history.push(route);
   }
   return (
-    <div className="header-con">
+    <header className="header-con">
       <div className="header-wrap">
         <div>
           <button type="button" onClick={() => onClick("/")}>
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
           </button>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

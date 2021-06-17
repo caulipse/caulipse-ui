@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import "./index.scss";
 
 const SideBar: React.FC = () => {
-  const [currentCategotyId, setCurrentCategoryId] = useState<string>("");
+  const [currentCategoryId, setCurrentCategoryId] = useState<string>("");
   const history = useHistory();
 
   const onClick = (route: string) => {
@@ -43,12 +43,7 @@ const SideBar: React.FC = () => {
       id: "post",
       name: "게시글",
       defaltRoute: "/post",
-      subCategories: [
-        {
-          name: "게시글",
-          route: "/post",
-        },
-      ]
+      subCategories: []
     },
     {
       id: "nonsub",
@@ -67,14 +62,12 @@ const SideBar: React.FC = () => {
               <button onClick={() => hhandleDefalutRoute(category.defaltRoute, category.id)} type="button">
                 <div>{category.name}</div>
               </button>
-              { currentCategotyId === category.id ? 
+              { currentCategoryId === category.id &&
                 category.subCategories.map((sub) => (
                   <button type="button" key={sub.name} onClick={() => onClick(sub.route)}>
                     <div>{sub.name}</div>
                   </button>
                 ))
-                :
-                <></>
               }
             </div>
           ))

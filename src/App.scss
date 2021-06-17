@@ -5,14 +5,11 @@
     margin: auto;
     margin-top: 100px;
     margin-bottom: 50px;
-
-    max-width: 1440px;
-    min-height: 1080px;
+    max-width: $maxContentWitdh;
   }
   .main-con {
     display: grid;
     gap: 20px;
-
     grid-template-columns: 1fr 5fr;
   }
 }

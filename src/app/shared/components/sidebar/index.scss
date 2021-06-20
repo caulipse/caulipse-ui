@@ -1,3 +1,24 @@
-.sidebar-con {
-  background-color: blanchedalmond;
+@import '/src/scss/mixins';
+@import '/src/scss/variables';
+
+@include desktop {
+  .sidebar-con {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .sidebar-wrapper {
+    padding: 0px 40px;
+  }
+  .sidebar-bts{
+    .category-bt {
+      font-size: 18px;
+    }
+    .sub-bts {
+      display: flex;
+      flex-direction: column;
+      .sub-bt {font-size: 16px;}
+    }
+    
+  }
 }

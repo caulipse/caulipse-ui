@@ -1,35 +1,30 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { HeaderButtonProps, headerButtons } from './headerList';
 import './index.scss';
 
 const Header: React.FC = () => {
-
   const history = useHistory();
-
-  const onClick = (route: string ) => {
-    history.push(route);
-  }
+  
   return (
-    <div className="header-con">
+    <header className="header-con">
       <div className="header-wrap">
         <div>
-          <button type="button" onClick={() => onClick("/")}>
+          <button type="button" onClick={() => history.push("/")}>
             <div className="header-logo">Caulips</div>
           </button>
         </div>
         <div className="header-user-bt">
-          <button type="button" onClick={() => onClick("/profile")}>
-            <div>profile</div>
-          </button>
-          <button type="button" onClick={() => onClick("/bookmark")}>
-            <div>book mark</div>
-          </button>
-          <button type="button" onClick={() => onClick("/bookmark")}>
-            <div>Note</div>
-          </button>
+          {
+            headerButtons.map((button: HeaderButtonProps) => (
+              <button key={button.title} type="button" onClick={() => history.push(button.route)}>
+                <div>{button.title}</div>
+              </button>
+            ))
+          }
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

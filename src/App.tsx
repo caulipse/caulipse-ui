@@ -1,21 +1,38 @@
+import { Container } from "@material-ui/core";
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "@src/pages/Home";
-import { StudySearchPage, StudyListPage } from "@src/pages/Study";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import "./App.scss";
+import { Footer, Header, SideBar } from "./app/shared/components";
 
-const App = () => {
+import HomePage from "./pages/Home";
+import NonsubjectPage from "./pages/Nonsubject";
+import PostPage from "./pages/Post";
+import ProfilePage from "./pages/Profile";
+import StudyPage from "./pages/Study";
+
+const MainContainer = (): JSX.Element => (
+  <div className="router-con">
+    <div className="main-con">
+      <SideBar/>
+      <Switch>
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/study" component={StudyPage}/>
+        <Route path="/post" component={PostPage}/>
+        <Route path="/nonsub" component={NonsubjectPage}/>
+        <Route path="/profile" component={ProfilePage}/>
+        <Redirect path="*" to="/"/>
+      </Switch>
+    </div>
+  </div>
+);
+
+const App = (): JSX.Element => {
   return (
-    <>
-      <BrowserRouter>
-        <Switch>
-          {/* 스터디 > 과목별 스터디 */}
-          <Route exact path="/study/list" component={StudyListPage} />
-          {/* 스터디 > 찾아보기 */}
-          <Route exact path="/study/search" component={StudySearchPage} />
-          <Route path="*" component={Home} />
-        </Switch>
-      </BrowserRouter>
-    </>
+    <Router>
+      <Header/>
+      <MainContainer/>
+      <Footer/>
+    </Router>
   );
 };
 

@@ -1,0 +1,14 @@
+@import "./scss/mixins";
+
+@include desktop {
+  .router-con {
+    margin-top: 60px;
+  }
+  .main-con {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 5fr;
+  }
+}
+@include tablet {}
+@include mobile {}

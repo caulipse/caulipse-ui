@@ -1,7 +1,7 @@
 import React from "react";
 
-const Home = () => {
-  return <>Home</>;
-};
+const HomePage = ():JSX.Element => (
+  <div>HOME</div>
+);
 
-export default Home;
+export default HomePage;

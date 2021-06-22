@@ -1,0 +1,54 @@
+@import '../../../scss/mixins';
+
+@mixin emptyButton($backgroundColor){
+    display: flex;
+
+    width: 160px;
+    height: 40px;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: $backgroundColor;
+}
+
+@include desktop {
+    .title {
+        font-size:24px;
+        color:#1a1a1a;
+        line-height: 35px;
+
+        margin-bottom: 1.9%;
+    }
+    .emptyContainer {
+        display: flex;
+        flex-direction: column;
+
+        width: 61.5%;
+        height:14.8%;
+        min-width: 1180px;
+        min-height: 160px;
+
+        background-color: #f7f8ff;
+
+        justify-content: center;
+        align-items: center;
+
+        margin-bottom: 4.2%;
+    }
+    .emptyText{
+        font-size: 18px;
+        color:#818181;
+        line-height: 26px;
+    }
+    
+    .emptyStudyButton{
+        @include emptyButton(#43b9be)
+    }
+    .emptyBoardButton{
+        @include emptyButton(#233dff)
+    }
+  }
+  @include tablet {}
+  @include mobile {}
+

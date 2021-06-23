@@ -10,9 +10,34 @@
     align-items: center;
 
     background-color: $backgroundColor;
+
+    border-radius: 28px;
+
+    margin-top: 18px;
+}
+
+@mixin emptyContainer(){
+    display: flex;
+    flex-direction: column;
+
+    width: 61.5%;
+    height:14.8%;
+    //min-width: 1180px;
+    min-height: 160px;
+
+    background-color: #f7f8ff;
+
+    justify-content: center;
+    align-items: center;
+
 }
 
 @include desktop {
+    .container {
+        display: flex;
+        flex:1;
+        flex-direction: column;
+    }
     .title {
         font-size:24px;
         color:#1a1a1a;
@@ -20,21 +45,13 @@
 
         margin-bottom: 1.9%;
     }
-    .emptyContainer {
-        display: flex;
-        flex-direction: column;
-
-        width: 61.5%;
-        height:14.8%;
-        min-width: 1180px;
-        min-height: 160px;
-
-        background-color: #f7f8ff;
-
-        justify-content: center;
-        align-items: center;
-
+    .emptyStudyContainer{
+        @include emptyContainer();
         margin-bottom: 4.2%;
+    }
+    .emptyBoardContainer{
+        @include emptyContainer();
+        margin-bottom: 19%;
     }
     .emptyText{
         font-size: 18px;
@@ -47,6 +64,12 @@
     }
     .emptyBoardButton{
         @include emptyButton(#233dff)
+    }
+
+    .emptyButtonText{
+        font-size: 16px;
+        line-height: 28px;
+        color: #ffffff;
     }
   }
   @include tablet {}

@@ -29,7 +29,14 @@
 
     justify-content: center;
     align-items: center;
+}
 
+@mixin title {
+    font-size:24px;
+    color:#1a1a1a;
+    line-height: 35px;
+
+    margin-bottom: 1.9%;
 }
 
 @include desktop {
@@ -38,13 +45,7 @@
         flex:1;
         flex-direction: column;
     }
-    .title {
-        font-size:24px;
-        color:#1a1a1a;
-        line-height: 35px;
-
-        margin-bottom: 1.9%;
-    }
+    
     .emptyStudyContainer{
         @include emptyContainer();
         margin-bottom: 4.2%;
@@ -58,6 +59,14 @@
         color:#818181;
         line-height: 26px;
     }
+
+    .studyTitle{
+        @include title();
+        margin-top: 3.7%;
+    }
+    .boardTitle{
+        @include title();
+    }
     
     .emptyStudyButton{
         @include emptyButton(#43b9be)
@@ -70,6 +79,10 @@
         font-size: 16px;
         line-height: 28px;
         color: #ffffff;
+    }
+    
+    button:active{
+        opacity: 0.3;
     }
   }
   @include tablet {}

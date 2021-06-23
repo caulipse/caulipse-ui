@@ -1,5 +1,5 @@
 import React from 'react';
-import './BookmarkPage.scss';
+import './EmptyBookmarkPage.scss';
 
 function EmptyBookmarkPage() {
     return (

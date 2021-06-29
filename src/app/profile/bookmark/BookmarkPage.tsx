@@ -55,8 +55,24 @@ function BookmarkPage() {
 
     return (
         <div className='container'>
-            <StudyHeader />
-            <StudyList studies={studies}/>
+            <div>
+                <StudyHeader />
+                <StudyList studies={studies}/>
+            </div>
+            <div style={{
+                marginTop:'93px'
+            }}>
+                <BoardHeader />
+            </div>
+        </div>
+    )
+}
+
+const BoardHeader=()=>{
+    return(
+        <div className='studyContainer'>
+            <div className='title'>게시글</div>
+            <hr className='borderLine'/>
         </div>
     )
 }

@@ -45,12 +45,35 @@ const getStudiesData=(iter:number)=>{
     return studyFactory.buildList(iter);
 }
 
+type Article={
+    id:number;
+    title:string;
+    author:string;
+    recommendation:number;
+    isBookmark:boolean;
+}
+
+const getArticles=(iter:number)=>{
+    const studyFactory=Factory.Sync.makeFactory<Article>({
+        id:Factory.each(i=>i),
+        title:'제목입니다.',
+        author:'작성자',
+        recommendation:11,
+        isBookmark:true,
+    })
+    return studyFactory.buildList(iter)
+}
+
 function BookmarkPage() {
 
     const [studies, setStudies]=useState<Study[]>([]);
+    const [articles, setArticles]=useState<Article[]>([]);
+
+    const [startPage, setStartPage]=useState(1);
 
     useEffect(()=>{
         setStudies(getStudiesData(10))
+        setArticles(getArticles(10))
     }, [])
 
     return (
@@ -60,19 +83,70 @@ function BookmarkPage() {
                 <StudyList studies={studies}/>
             </div>
             <div style={{
-                marginTop:'93px'
+                marginTop:'93px',
+                marginBottom:'50px'
             }}>
-                <BoardHeader />
+                <ArticleHeader />
+                <ArticleList articles={articles} />
+            </div>
+            <div className='paginationContainer'>
+                <div>이전</div>
+                {
+                    Array.from(Array(5).keys()).map(i=><div key={i}>{startPage+i}</div>)
+                }
+                <div>다음</div>
             </div>
         </div>
     )
 }
 
-const BoardHeader=()=>{
+const ArticleHeader=()=>{
     return(
         <div className='studyContainer'>
             <div className='title'>게시글</div>
             <hr className='borderLine'/>
+        </div>
+    )
+}
+
+type ArticleListProps={
+    articles:Article[]
+}
+
+const ArticleList=({
+    articles,
+}:ArticleListProps)=>{
+
+    const HeaderBar=()=>{
+        return(
+            <div className='articleHeaderContainer'>
+                <div style={{marginLeft:'140px'}} className='articleText'>제목</div>
+                <div className='articleInfoContainer'>
+                    <div style={{marginRight:'105px'}} className='articleText'>작성자</div>
+                    <div style={{marginRight:'55px'}} className='articleText'>추천수</div>
+                    <div style={{marginRight:'20px'}} className='articleText'>북마크</div>
+                </div>
+            </div>
+        )
+    }
+
+    return(
+        <div>
+            <HeaderBar />
+            {
+                articles.slice(0, 6).map(item=>{
+                    return(
+                        <div key={item.id} className='articleContainer'>
+                            <div style={{marginLeft:'30px', flexShrink:1,}} className='articleText'>{item.title}</div>
+                            <div className='articleInfoContainer'>
+                                <div style={{marginRight:'105px'}} className='articleText'>{item.author}</div>
+                                <div style={{marginRight:'55px'}} className='articleText'>{item.recommendation}</div>
+                                <div style={{marginRight:'20px'}} className='articleText'>북마크</div>
+                            </div>
+                        </div>
+                    )
+                })
+            }
         </div>
     )
 }

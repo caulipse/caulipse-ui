@@ -1,0 +1,110 @@
+@import '../../../../scss/mixins';
+
+@mixin paginationButton($color){
+    font-size: 16px;
+    line-height: 21px;
+    color:$color;
+}
+
+@include desktop{
+
+    
+
+    //articleList
+    .articleHeaderContainer{
+        width: 100%;
+        height: 45px;
+
+        display: flex;
+        flex-direction: row;
+        flex:1;
+
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: #f7f8ff;
+
+        margin-top: 20px;
+        
+    }
+    .articleInfoContainer{
+        display: flex;
+        flex-direction: row;
+
+        flex:3;
+    }
+    .articleText{
+        font-size: 16px;
+        line-height: 24px;
+        color: #1a1a1a;
+
+    }
+    .articleTitle{
+        flex:7;
+        // flex-shrink: 2;
+        overflow:hidden; //넘치는 경우 숨김
+        text-overflow: ellipsis;
+        white-space:nowrap; //한줄로 나오게 함
+
+    }
+    .articleInfo{
+        display: flex;
+        flex:1;
+        // background-color: red;
+
+        // border-right: solid;
+        // border-right-width: 2px;
+        // border-right-color: blue;
+
+        // align-self: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .articleContainer{
+        width: 100%;
+        height: 64px;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: #ffffff;
+
+        border-bottom: solid;
+        border-bottom-color: #e0e0e0;
+        border-bottom-width: 1px;
+
+        // margin-top: 20px;
+    }
+
+
+    .paginationContainer{
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+        align-self: center;
+
+        width: 20%;
+
+        margin-bottom: 50px;
+
+    }
+    .paginationText{
+        @include paginationButton(#05158b)
+    }
+    .paginationNumber{
+        @include paginationButton(#707070)
+    }
+
+    button:active{
+        opacity: 0.3;
+    }
+}
+
+@include tablet{}
+@include mobile{}
+

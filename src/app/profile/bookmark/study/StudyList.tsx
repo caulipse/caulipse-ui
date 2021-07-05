@@ -1,18 +1,9 @@
 import React from 'react'
 import './BookmarkStudy.scss';
-
-type Study={
-    id:number;
-    name:string;
-    title:string;
-    currentNumber:number;
-    maxNumber:number;
-    date:Date;
-    tags:string[]
-}
+import { StudyInterface } from '../interface/interface';
 
 type StudyListProps={
-    studies:Study[],
+    studies:StudyInterface[],
 }
 
 const StudyList=({

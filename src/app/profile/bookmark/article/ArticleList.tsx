@@ -2,16 +2,18 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import './BookmarkArticle.scss';
 
-type Article={
-    id:number;
-    title:string;
-    author:string;
-    recommendation:number;
-    isBookmark:boolean;
-}
+import { ArticleInterface } from '../interface/interface';
+
+// type Article={
+//     id:number;
+//     title:string;
+//     author:string;
+//     recommendation:number;
+//     isBookmark:boolean;
+// }
 
 type ArticleListProps={
-    articles:Article[]
+    articles:ArticleInterface[]
 }
 
 const ArticleList=({

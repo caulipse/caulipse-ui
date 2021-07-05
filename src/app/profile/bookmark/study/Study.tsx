@@ -8,20 +8,22 @@ import './BookmarkStudy.scss';
 import StudyHeader from './StudyHeader';
 import StudyList from './StudyList';
 
-type Study={
-    id:number;
-    name:string;
-    title:string;
-    currentNumber:number;
-    maxNumber:number;
-    date:Date;
-    tags:string[]
-}
+import { StudyInterface } from '../interface/interface';
+
+// type Study={
+//     id:number;
+//     name:string;
+//     title:string;
+//     currentNumber:number;
+//     maxNumber:number;
+//     date:Date;
+//     tags:string[]
+// }
 
 function Study() {
 
 
-    const [studies, setStudies]=useState<Study[]>([]);
+    const [studies, setStudies]=useState<StudyInterface[]>([]);
     
     const getStudiesData=(iter:number)=>{
         // const result=[];
@@ -41,7 +43,7 @@ function Study() {
         //     })
         // }
         // return result;
-        const studyFactory=Factory.Sync.makeFactory<Study>({
+        const studyFactory=Factory.Sync.makeFactory<StudyInterface>({
             id:Factory.each(i=>i),
             name:'이름',
             title:'제목입니다.',

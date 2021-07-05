@@ -7,22 +7,24 @@ import * as Factory from "factory.ts";
 import ArticleHeader from './ArticleHeader'
 import ArticleList from './ArticleList'
 
-type Article={
-    id:number;
-    title:string;
-    author:string;
-    recommendation:number;
-    isBookmark:boolean;
-}
+import { ArticleInterface } from '../interface/interface';
+
+// type Article={
+//     id:number;
+//     title:string;
+//     author:string;
+//     recommendation:number;
+//     isBookmark:boolean;
+// }
 
 function Article() {
     
-    const [articles, setArticles]=useState<Article[]>([]);
+    const [articles, setArticles]=useState<ArticleInterface[]>([]);
 
     const [startPage, setStartPage]=useState(1);
 
     const getArticles=(iter:number)=>{
-        const studyFactory=Factory.Sync.makeFactory<Article>({
+        const studyFactory=Factory.Sync.makeFactory<ArticleInterface>({
             id:Factory.each(i=>i),
             title:'제목입니다.',
             author:'작성자',

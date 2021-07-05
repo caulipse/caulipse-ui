@@ -1,0 +1,101 @@
+@import "../../../../scss/mixins";
+
+@mixin tabButton{
+    font-size: 18px;
+    line-height: 26px;
+    padding: 7px 42px;
+    border-radius: 25px;
+  }
+
+@include desktop {
+  .container{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+
+    width: 61.5%;
+    height: 100%;
+
+    margin-top: 40px;
+
+  }
+
+  .rowContainer{
+      display: flex;
+      flex-direction: row;
+      //flex:1;
+
+      width: 100%;
+  }
+  .columnContainer{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+  }
+  .marginContainer{
+      margin-left: 120px;
+      //background-color: red;
+  }
+
+  .title{
+      font-size: 24px;
+      line-height: 35px;
+      color:'#1a1a1a';
+  }
+  .profileImage{      
+      width: 280px;
+      height: 280px;
+      background-color: #ededed;
+      margin-top: 21px;
+  }
+
+  .mainTabButton{
+
+    @include tabButton();
+    background-color:'#0016bc';                         
+    color:'#ffffff';
+  }
+  .subTabButton{
+
+      @include tabButton();;
+      background-color: '#ffffff';
+      color:'#818181';
+  }
+
+  .nicknameText{
+      font-size: 20px;
+      line-height: 29px;
+      color:'#1a1a1a';
+  }
+  .nicknameExplainText{
+        display: flex;
+
+        font-size: 14px;
+        line-height: 20px;
+        color:'#1a1a1a';
+
+        margin-left: 20px;
+
+        //justify-content: flex-end;
+        align-items: flex-end;
+  }
+
+  .nicknameInput{
+      display: flex;
+      //height: 44px;
+      width: 100%;
+        padding-left: 12px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        color: black;
+        font-size: 16px;
+        line-height: 20px;
+
+        border-style: solid;
+        border-width: 1px;
+        border-color:'#c1c1c1';
+  }
+}
+@include tablet {}
+@include mobile {}

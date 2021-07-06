@@ -7,6 +7,8 @@ function MyPage() {
 
     // 본캐 부캐 여부
     const [isMain, setIsMain]=useState(true);
+    // 카테고리 목록
+    const [categories, setCategories]=useState<CategoryInterface[]>([]);
 
     console.log('isMain, ', isMain);
 
@@ -22,8 +24,6 @@ function MyPage() {
         })
         return categoryFactory.buildList(iter);
     }
-
-    const [categories, setCategories]=useState<CategoryInterface[]>([]);
 
     useEffect(()=>{
         setCategories(getCategoriesData(20));
@@ -62,7 +62,9 @@ function MyPage() {
             <div>
                 <div style={{marginTop:'30px', marginBottom:'10px'}} className='rowContainer'>
                     <div className='titleText'>닉네임</div>
-                    <div className='titleExplainText'>게시판에서 사용하는 닉네임이에요!</div>
+                    <div className='titleExplainText'>
+                        {isMain?'게시판에서 사용하는 닉네임이에요!':'스터디를 구할 때 익명성을 보장해주는 닉네임이에요!'}
+                    </div>
                 </div>
                 <div style={{
                     display:'flex',
@@ -104,8 +106,10 @@ function MyPage() {
         return(
             <div className='introductionContainer'>
                 <div className='rowContainer'>
-                    <div className='titleText'>{isShort?'프로필 소개문구':'자기소개 글'}</div>
-                    {isShort||<div className='titleExplainText'>프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!!</div>}
+                    <div className='titleText'>
+                        {isShort?'프로필 소개문구':`자기소개 글${isMain?'':' (부캐용)'}`}
+                    </div>
+                    {!isShort&&isMain&&<div className='titleExplainText'>프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!!</div>}
                 </div>
                 <textarea placeholder='나만의 소개글을 완성해주세요!' className='introductionTextArea' />
             </div>
@@ -127,10 +131,10 @@ function MyPage() {
                             )
                         })
                     }
-                    <div className='addItemContainer'>
+                    <button className='addItemContainer' type='button'>
                         <div className='addText'>추가하기</div>
                         <button className='addText' type='button'>+</button>
-                    </div>
+                    </button>
                 </div>
             </div>
         )
@@ -156,7 +160,7 @@ function MyPage() {
                     
                 </div>
             </div>
-            <Introduction isShort/>
+            {isMain&&<Introduction isShort/>}
             <Introduction isShort={false} />
             <Categories />
             <UpdateButton />

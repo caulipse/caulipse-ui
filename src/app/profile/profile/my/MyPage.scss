@@ -17,7 +17,6 @@
     height: 100%;
 
     margin-top: 40px;
-
   }
 
   .rowContainer{
@@ -40,8 +39,10 @@
   .title{
       font-size: 24px;
       line-height: 35px;
-      color:'#1a1a1a';
+      color:#1a1a1a;
   }
+
+  //프로필 이미지 
   .profileImage{      
       width: 280px;
       height: 280px;
@@ -49,30 +50,31 @@
       margin-top: 21px;
   }
 
+  //TabBar
   .mainTabButton{
 
     @include tabButton();
-    background-color:'#0016bc';                         
-    color:'#ffffff';
+    background-color:#0016bc;                         
+    color:#ffffff;
   }
   .subTabButton{
 
-      @include tabButton();;
-      background-color: '#ffffff';
-      color:'#818181';
+      @include tabButton();
+      background-color: #ffffff;
+      color:#818181;
   }
 
-  .nicknameText{
+  .titleText{
       font-size: 20px;
       line-height: 29px;
-      color:'#1a1a1a';
+      color:#1a1a1a;
   }
-  .nicknameExplainText{
+  .titleExplainText{
         display: flex;
 
         font-size: 14px;
         line-height: 20px;
-        color:'#1a1a1a';
+        color:#1a1a1a;
 
         margin-left: 20px;
 
@@ -80,21 +82,129 @@
         align-items: flex-end;
   }
 
+
+  //nicknameInput
   .nicknameInput{
       display: flex;
-      //height: 44px;
-      width: 100%;
-        padding-left: 12px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+      // height: 44px;
+      flex:1;
+      // width: 100%;
+      padding-left: 12px;
+      padding-top: 10px;
+      padding-bottom: 10px;
 
-        color: black;
-        font-size: 16px;
-        line-height: 20px;
+      color: black;
+      font-size: 16px;
+      line-height: 20px;
 
-        border-style: solid;
-        border-width: 1px;
-        border-color:'#c1c1c1';
+      border-style: solid;
+      border-width: 1px;
+      border-color:#c1c1c1;
+  }
+
+  .gradeSelection{
+    display: flex;
+    flex: 1;
+  }
+
+  //introduction
+  .introductionContainer{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 40px;
+  }
+  .introductionTextArea{
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px 12px;
+
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  //categories
+  .categoryContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .categoryListContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+  .categoryItemContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 16px;
+
+    border: solid;
+    border-radius: 20px;
+    border-color: #0016bc;
+    border-width: 1px;
+
+    margin-right: 20px;
+    margin-top: 20px;
+
+  }
+  .categoryText{
+    font-size: 16px;
+    line-height: 28px;
+
+    color:#0016bc;
+    
+  }
+  .addItemContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 16px;
+
+    // border: solid;
+    border-radius: 20px;
+    // border-color: #0016bc;
+    // border-width: 1px;
+
+    margin-right: 20px;
+    margin-top: 20px;
+
+    background-color: #ededed;
+  }
+  .addText{
+    font-size: 16px;
+    line-height: 28px;
+    color:#818181;
+  }
+
+  //updateButton
+  .updateButton{
+    width: 380px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #0016bc;
+
+    margin-top: 100px;
+    margin-bottom: 118px;
+
+    border-radius: 28px;
+
+    align-self: center;
+  }
+  .updateButtonText{
+    font-size: 18px;
+    line-height: 28px;
+    color: #ffffff;
   }
 }
 @include tablet {}

@@ -79,12 +79,12 @@ function MyPage() {
     const MajorInput=()=>{
         return(
             <div>
-                <div style={{marginTop:'40px', marginBottom:'10px'}} className='nicknameText'>학과</div>
+                <div className={['nicknameText', 'majorContainer'].join(' ')}>학과</div>
                 <div className='rowContainer'>
-                    <div style={{display:'flex',flex:1,height:'44px', marginRight:'20px'}}>
+                    <div className='majorInputContainer'>
                         <input type="text" className='nicknameInput'/>
                     </div>
-                    <div style={{display:'flex',flex:1,height:'44px'}}>
+                    <div className='gradeSelectionContainer'>
                         <select name="grade" className='gradeSelection'>
                             <option value={1}>1학년</option>
                             <option value={2}>2학년</option>

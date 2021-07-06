@@ -102,6 +102,22 @@
       border-color:#c1c1c1;
   }
 
+  //majorInputContainer
+  .majorContainer{
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  .majorInputContainer{
+    display: flex;
+    flex:1;
+    height: 44px;
+    margin-right: 20px;
+  }
+  .gradeSelectionContainer{
+    display: flex;
+    flex:1;
+    height: 44px;
+  }
   .gradeSelection{
     display: flex;
     flex: 1;

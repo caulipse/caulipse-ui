@@ -25,7 +25,7 @@ function Article() {
 
     const getArticles=(iter:number)=>{
         const studyFactory=Factory.Sync.makeFactory<ArticleInterface>({
-            id:Factory.each(i=>i),
+            articleId:Factory.each(i=>i),
             title:'제목입니다.',
             author:'작성자',
             recommendation:11,

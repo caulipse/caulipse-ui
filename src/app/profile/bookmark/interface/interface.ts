@@ -1,5 +1,5 @@
 export interface StudyInterface{
-    id:number;
+    studyId:number;
     name:string;
     title:string;
     currentNumber:number;
@@ -9,7 +9,7 @@ export interface StudyInterface{
 }
 
 export interface ArticleInterface{
-    id:number;
+    articleId:number;
     title:string;
     author:string;
     recommendation:number;

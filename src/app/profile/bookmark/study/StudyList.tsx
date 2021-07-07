@@ -16,7 +16,7 @@ const StudyList=({
             {
                 studies.slice(0, 5).map((item, index)=>{
                     return(
-                        <div style={{marginRight:index===4?0:'20px'}} className='studyItemContainer' key={item.id}>
+                        <div style={{marginRight:index===4?0:'20px'}} className='studyItemContainer' key={item.studyId}>
                             <div className='studyItemName'>{item.name}</div>
                             <div className='studyItemTitle'>{item.title}</div>
                             <div className='studyItemInfoContainer'>

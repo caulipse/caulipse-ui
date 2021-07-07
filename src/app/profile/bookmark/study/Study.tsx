@@ -44,7 +44,7 @@ function Study() {
         // }
         // return result;
         const studyFactory=Factory.Sync.makeFactory<StudyInterface>({
-            id:Factory.each(i=>i),
+            studyId:Factory.each(i=>i),
             name:'이름',
             title:'제목입니다.',
             currentNumber:10,

@@ -3,6 +3,11 @@ import './MyPage.scss';
 
 import * as Factory from "factory.ts";
 
+interface CategoryInterface{
+    id:number;
+    category:string;
+}
+
 function MyPage() {
 
     // 본캐 부캐 여부
@@ -11,11 +16,6 @@ function MyPage() {
     const [categories, setCategories]=useState<CategoryInterface[]>([]);
 
     console.log('isMain, ', isMain);
-
-    interface CategoryInterface{
-        id:number;
-        category:string;
-    }
 
     const getCategoriesData=(iter:number)=>{
         const categoryFactory=Factory.Sync.makeFactory<CategoryInterface>({

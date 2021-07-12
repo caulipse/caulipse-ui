@@ -1,0 +1,211 @@
+@import '../../../../scss/mixins';
+
+@mixin paginationButton($color){
+    font-size: 16px;
+    line-height: 21px;
+    color:$color;
+}
+
+@mixin progressBar{
+    background:linear-gradient(to right, #009fbc, #0016bc);
+
+    display: block;
+
+    width: 680/980*100%;
+    height: 18px;
+
+    // box-sizing: border-box;
+    // border: solid;
+    // border-width: 1px;
+    // border-color: #c1c1c1;
+    
+    // justify-content: flex-start;
+}
+
+@include desktop{
+    .container{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        width: 61.5%;
+
+        // justify-content: space-around;
+        // align-items: stretch;
+        // background-color: green;
+    }
+    
+    //header
+    .headerText{
+        font-size: 24px;
+        line-height: 35px;
+        color:#1a1a1a;
+    }
+
+    .contentContainer{
+        display: flex;
+        flex-direction: column;
+
+        width: 51/61.5*100%;
+        height: 209px;
+
+        justify-content: space-around;
+        align-items: center;
+        align-self: center;
+
+        // margin-top: 21px;
+
+        border: solid;
+        border-color: #c1c1c1;
+        border-width: 1px;
+        border-radius: 30px;
+
+
+    }
+
+    // progress{
+    //     // color: red;
+    //     // background-color: blue;
+    //     @include progressBar()
+    // }
+    // progress::-webkit-progress-bar{
+    //     @include progressBar()
+
+    // }
+    // progress::-webkit-progress-value{
+    //     // @include progressBar()
+
+    // }
+    // progress::-moz-progress-bar{
+    //     // @include progressBar()
+
+    // }
+    .progressContainer{
+        display: flex;
+        // height: 18px;
+        // flex:1;
+        width: 100%;
+        
+        justify-content: center;
+        align-items: center;
+
+        // background-color: red;
+    }
+
+    progress {
+        // display:inline-block;
+        // width:190px;
+        // height:20px;
+        width: 680/980*100%;
+        height: 18px;
+        
+        // padding:15px 0 0 0;
+        margin:0;
+        // background:red;
+        border: 0;
+        // border-radius: 15px;
+        // text-align: left;
+        // position:relative;
+        // font-family: Arial, Helvetica, sans-serif;
+        // font-size: 0.8em;
+    }
+    progress::-webkit-progress-bar {
+        display: inline-block;
+        height: 18px;
+        // margin:0 auto;
+        background-color: #ffffff;
+
+        border: solid;
+        border-width: 1px;
+        border-color: #c1c1c1;
+        // align-self: center;
+        // border-radius: 15px;
+        // box-shadow:0px 0px 6px #777 inset;
+    }
+    progress::-webkit-progress-value {
+        display:inline-block;
+        float:left;
+        height: 18px;
+        // margin:0px -10px 0 0;
+        background:linear-gradient(to right, #009fbc, #0016bc);
+        // border-radius: 15px;
+        // box-shadow:0px 0px 6px #777 inset;
+    }
+    progress:after {
+        // margin:-26px 0 0 -7px;
+        // padding:0;
+        // display:inline-block;
+        // float:left;
+        // content: attr(value) '%';
+    }
+
+    .achievementsContainer{
+        // display: flex;
+        // flex-direction: row;
+
+        width: 100%;
+        height: 1053px;
+
+        // flex-wrap: wrap;
+        // columns:5 auto;
+
+        -webkit-column-count: 5; /* Chrome, Safari, Opera */
+        -moz-column-count: 5; /* Firefox */        
+        column-count: 5;
+        overflow: scroll;
+        // overflow-y: scroll;
+        // overflow-x: hidden;
+
+
+        background-color: #f7f8ff;
+
+        margin-top: 49px;
+
+        // padding: 22px 90px;
+
+    }
+    .achievementMargin{
+        display: flex;
+        flex-direction: row;
+
+        margin: 22px 90px;
+
+        flex-wrap: wrap;
+        // background-color: red;
+    }
+    .achievementItemContainer{
+        display: flex;
+        flex-direction: column;
+
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 41px;
+
+    }
+    .achievementItemCircle{
+        display: flex;
+        width: 180px;
+        height: 180px;
+        // width: 15.3vw;
+        // height: 15.3vh;
+
+        border: solid;
+        border-radius: 90px;
+        border-width: 1px;
+        border-color: #c1c1c1;
+
+        background-color: #ffffff;
+    }
+    .achievementItemText{
+        margin-top: 20px;
+
+        font-size: 18px;
+        line-height: 26px;
+        color:#1a1a1a;
+
+        text-align: center;
+    }
+}
+
+@include tablet{}
+@include mobile{}

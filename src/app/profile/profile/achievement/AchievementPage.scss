@@ -60,6 +60,20 @@
         border-width: 1px;
         border-radius: 30px;
 
+        // overflow: hidden;
+        // background-color: red;
+    }
+
+    .bannerContainer{
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100%;
+
+        justify-content: space-around;
+        align-items: center;
+        align-self: center;
 
     }
 
@@ -80,6 +94,15 @@
     //     // @include progressBar()
 
     // }
+
+    .pagination{
+        background-color: red;
+        width: 10px;
+        height: 10px;
+
+        z-index: 10;
+    }
+
     .progressContainer{
         display: flex;
         // height: 18px;

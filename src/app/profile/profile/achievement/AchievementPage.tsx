@@ -5,14 +5,18 @@ import * as Factory from "factory.ts";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, {Navigation, Pagination} from 'swiper';
 
 // Import Swiper styles
-import 'swiper/swiper.scss';
+// import 'swiper/swiper.scss';
+import 'swiper/swiper-bundle.css'
 
 interface AchievementInterface{
     id:number;
     achievementName:string;
 }
+
+SwiperCore.use([Navigation, Pagination]);
 
 function AchievementPage() {
 
@@ -67,7 +71,7 @@ function AchievementPage() {
                     
                 > */}
                 <Swiper
-                    // className="contentContainer"
+                    className="mySwiper"
                     style={{
                         height:'100%',
                     }}
@@ -77,17 +81,32 @@ function AchievementPage() {
                     // spaceBetween={8}
                     // initialSlide={1}
                     centeredSlides
-                    
-                    navigation
+                    // pagination={{
+                    //     clickable:true,
+                    //     el:'.swiper-bullet'
+                    // }}
                     pagination={{
-                        clickable: true,
+                        clickable:true,
+                        renderBullet:(index, className)=>{
+                            console.log('className and index, ', className, index);
+
+                            return `<span class="${className}"></span>`;
+                  
+                          }
                     }}
+                    // tag="ul"
+                    
+                    // navigation
+                    // pagination={{
+                    //     clickable: true,
+                    // }}
                 >
                     {
                         Array.from(Array(5).keys()).map(i=>{
                             return(
                                 <SwiperSlide 
                                     key={i} 
+                                    // tag="li"
                                     // style={{
                                     //     // backgroundColor:'blue',
                                     //     width:'100%', 

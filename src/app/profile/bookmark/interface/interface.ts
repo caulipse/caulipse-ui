@@ -21,7 +21,9 @@ export interface ArticleInterface{
 export interface EmptyComponentInterface{
     title:string;
     description:string;
-    buttonText:string;
+    buttonText?:string;
     buttonColor?:string;
     onClick?:(event: React.MouseEvent<HTMLButtonElement>)=>void;
+
+    myBackgroundColor?:string;
 }

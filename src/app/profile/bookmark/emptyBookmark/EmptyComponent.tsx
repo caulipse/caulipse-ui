@@ -8,13 +8,15 @@ function EmptyComponent({
     buttonText,
     buttonColor,
     onClick,
+
+    myBackgroundColor,
 }:EmptyComponentInterface){
     return (
         <div>
             <div className='studyTitle'>{title}</div>
-            <div className='emptyStudyContainer'>
+            <div style={{backgroundColor:myBackgroundColor}} className='emptyStudyContainer'>
                 <div className='emptyText'>{description}</div>
-                <button style={{backgroundColor:buttonColor}} className='emptyStudyButton' type="button" onClick={onClick}><div className='emptyButtonText'>{buttonText}</div></button>
+                {buttonText&&<button style={{backgroundColor:buttonColor}} className='emptyStudyButton' type="button" onClick={onClick}><div className='emptyButtonText'>{buttonText}</div></button>}
             </div> 
         </div>
     )

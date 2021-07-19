@@ -40,7 +40,7 @@ const ArticleList=({
             {
                 articles.slice(0, 6).map(item=>{
                     return(
-                        <div key={item.articleId} className='articleContainer'>
+                        <div key={item.articleId} className='articleItemContainer'>
                             <div className={['articleText', 'articleTitle'].join(' ')}><div style={{marginLeft:'30px'}}>{item.title}</div></div>
                             <div className='articleInfoContainer'>
                                 <div className={['articleText', 'articleInfo'].join(' ')}>{item.author}</div>

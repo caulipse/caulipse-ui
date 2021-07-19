@@ -8,6 +8,9 @@ import ArticleHeader from './ArticleHeader'
 import ArticleList from './ArticleList'
 
 import { ArticleInterface } from '../interface/interface';
+import EmptyComponent from '../emptyBookmark/EmptyComponent';
+
+import './BookmarkArticle.scss';
 
 // type Article={
 //     id:number;
@@ -38,6 +41,18 @@ function Article() {
         setArticles(getArticles(10))
     }, [])
 
+    if(articles.length===0){
+        return(
+            <EmptyComponent 
+                title='게시글'
+                description='이런, 아직 북마크된 게시물이 없네요!'
+                buttonText='게시판 바로가기'
+                buttonColor='#233dff'
+                // onClick={()=>{console.log('버튼 클릭')}}
+            />
+        )
+    }
+
     return (
         <div style={{
             display:'flex',
@@ -50,15 +65,23 @@ function Article() {
                 <ArticleHeader />
                 <ArticleList articles={articles} />
             </div>
-            <div className='paginationContainer'>
-                <button type="button" className='paginationText'>이전</button>
-                {
-                    Array.from(Array(5).keys()).map(i=><button key={i} type="button" className='paginationNumber
-                    '>{startPage+i}</button>)
-                }
-                <button type="button" className='paginationText'>다음</button>
-            </div>
-            
+            <Pagination startPage={startPage} />
+        </div>
+    )
+}
+
+const Pagination=({
+    startPage
+}:{
+    startPage:number,
+})=>{
+    return(
+        <div className='paginationContainer'>
+            <button type="button" className='paginationText'>이전</button>
+            {
+                Array.from(Array(5).keys()).map(i=><button key={i} type="button" className='paginationNumber'>{startPage+i}</button>)
+            }
+            <button type="button" className='paginationText'>다음</button>
         </div>
     )
 }

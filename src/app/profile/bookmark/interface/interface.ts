@@ -1,3 +1,5 @@
+import { ReactSVG } from "react";
+
 export interface StudyInterface{
     studyId:number;
     name:string;
@@ -14,4 +16,12 @@ export interface ArticleInterface{
     author:string;
     recommendation:number;
     isBookmark:boolean;
+}
+
+export interface EmptyComponentInterface{
+    title:string;
+    description:string;
+    buttonText:string;
+    buttonColor?:string;
+    onClick?:(event: React.MouseEvent<HTMLButtonElement>)=>void;
 }

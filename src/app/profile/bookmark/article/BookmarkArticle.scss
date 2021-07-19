@@ -8,7 +8,18 @@
 
 @include desktop{
 
-    
+    //article
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .articleContainer{
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 93px;
+        margin-bottom: 50px;
+    }
 
     //articleList
     .articleHeaderContainer{
@@ -61,7 +72,7 @@
         align-items: center;
     }
 
-    .articleContainer{
+    .articleItemContainer{
         width: 100%;
         height: 64px;
 

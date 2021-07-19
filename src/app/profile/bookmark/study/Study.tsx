@@ -9,6 +9,7 @@ import StudyHeader from './StudyHeader';
 import StudyList from './StudyList';
 
 import { StudyInterface } from '../interface/interface';
+import EmptyComponent from '../emptyBookmark/EmptyComponent';
 
 // type Study={
 //     id:number;
@@ -59,6 +60,18 @@ function Study() {
     useEffect(()=>{
         setStudies(getStudiesData(10))
     }, [])
+
+    if(studies.length===0){
+        return(
+            <EmptyComponent 
+                title='스터디'
+                description='이런, 아직 북마크된 스터디가 없네요!'
+                buttonText='스터디 찾아보기'
+                buttonColor='#43b9be'
+                // onClick={()=>{console.log('버튼 클릭')}}
+            />
+        )
+    }
 
     return (
         <div>

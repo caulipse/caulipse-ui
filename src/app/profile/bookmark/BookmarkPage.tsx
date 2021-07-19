@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Factory from "factory.ts";
 
-import EmptyBookmarkPage from './emptyBookmark/EmptyBookmarkPage';
+// import EmptyBookmarkPage from './emptyBookmark/EmptyBookmarkPage';
 import './BookmarkPage.scss';
 
 import Study from './study/Study';
@@ -16,12 +16,6 @@ function BookmarkPage() {
         </div>
     )
 }
-
-
-
-
-
-
 
 export default BookmarkPage
 

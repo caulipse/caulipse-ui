@@ -1,7 +1,11 @@
 @import '../../../../scss/mixins';
 
 @include desktop{
-
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 61.5%;
+    }
 }
 
 @include tablet{}

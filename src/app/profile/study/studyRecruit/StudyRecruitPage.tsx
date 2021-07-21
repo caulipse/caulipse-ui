@@ -6,7 +6,7 @@ import './StudyRecruitPage.scss';
 
 function StudyRecruitPage() {
     return (
-        <div>
+        <div className='container'>
             <Recruiting />
             <Recruited />
         </div>

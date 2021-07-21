@@ -8,7 +8,7 @@ import './BookmarkStudy.scss';
 import StudyHeader from './StudyHeader';
 import StudyList from './StudyList';
 
-import { StudyInterface } from '../interface/interface';
+import { RecruitedStudyInterface } from '../../interface/interface';
 import EmptyComponent from '../emptyBookmark/EmptyComponent';
 
 // type Study={
@@ -24,7 +24,7 @@ import EmptyComponent from '../emptyBookmark/EmptyComponent';
 function Study() {
 
 
-    const [studies, setStudies]=useState<StudyInterface[]>([]);
+    const [studies, setStudies]=useState<RecruitedStudyInterface[]>([]);
     
     const getStudiesData=(iter:number)=>{
         // const result=[];
@@ -44,7 +44,7 @@ function Study() {
         //     })
         // }
         // return result;
-        const studyFactory=Factory.Sync.makeFactory<StudyInterface>({
+        const studyFactory=Factory.Sync.makeFactory<RecruitedStudyInterface>({
             studyId:Factory.each(i=>i),
             name:'이름',
             title:'제목입니다.',

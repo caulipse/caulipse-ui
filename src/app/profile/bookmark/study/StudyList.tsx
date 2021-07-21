@@ -1,9 +1,9 @@
 import React from 'react'
 import './BookmarkStudy.scss';
-import { StudyInterface } from '../interface/interface';
+import { RecruitedStudyInterface } from '../../interface/interface';
 
 type StudyListProps={
-    studies:StudyInterface[],
+    studies:RecruitedStudyInterface[],
 }
 
 const StudyList=({

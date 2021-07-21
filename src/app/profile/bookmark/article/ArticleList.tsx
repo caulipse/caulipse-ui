@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import './BookmarkArticle.scss';
 
-import { ArticleInterface } from '../interface/interface';
+import { ArticleInterface } from '../../interface/interface';
 
 // type Article={
 //     id:number;

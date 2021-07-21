@@ -1,5 +1,5 @@
 import React from 'react'
-import { EmptyComponentInterface } from '../interface/interface'
+import { EmptyComponentInterface } from '../../interface/interface'
 import './EmptyBookmarkPage.scss';
 
 function EmptyComponent({

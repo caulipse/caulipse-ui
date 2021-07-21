@@ -2,12 +2,12 @@ import { ReactSVG } from "react";
 
 export interface StudyInterface{
     studyId:number;
-    name:string;
+    // name?:string;
     title:string;
     currentNumber:number;
     maxNumber:number;
-    date:Date;
-    tags:string[]
+    // date?:Date;
+    // tags?:string[]
 }
 
 export interface ArticleInterface{
@@ -26,4 +26,16 @@ export interface EmptyComponentInterface{
     onClick?:(event: React.MouseEvent<HTMLButtonElement>)=>void;
 
     myBackgroundColor?:string;
+}
+
+export interface RecruitingStudyInterface extends StudyInterface{
+    category:string;
+    newInquiry:number;
+    newApplicant:number;
+}
+
+export interface RecruitedStudyInterface extends StudyInterface{
+    date:Date;
+    name:string;
+    tags:string[]
 }

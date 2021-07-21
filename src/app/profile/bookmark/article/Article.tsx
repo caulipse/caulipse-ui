@@ -7,7 +7,7 @@ import * as Factory from "factory.ts";
 import ArticleHeader from './ArticleHeader'
 import ArticleList from './ArticleList'
 
-import { ArticleInterface } from '../interface/interface';
+import { ArticleInterface } from '../../interface/interface';
 import EmptyComponent from '../emptyBookmark/EmptyComponent';
 
 import './BookmarkArticle.scss';

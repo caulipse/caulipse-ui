@@ -1,0 +1,80 @@
+@import '../../../../../scss/mixins';
+
+@mixin columnContainer($flexNumber){
+    display: flex;
+    flex-direction: column;
+    // align-items: stretch;
+    // justify-content: space-between;
+
+    flex:$flexNumber;
+}
+
+@include desktop{
+    .container{
+        // display: flex;
+        // flex-direction: column;
+
+        // width: 100%;
+        // flex:1;
+
+        margin-top: 48px;
+
+        // background-color: blue;
+    }
+    .headerText{
+        margin-top: 48px;
+
+
+        font-size: 20px;
+        line-height: 29px;
+        color:#1a1a1a;
+
+        // background-color: red;
+
+        // width: 200%;
+    }
+
+    //recruitingStudy
+    .recruitingStudyItemContainer{
+        display: flex;
+        flex-direction: row;
+        // justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        // width: 100%;
+        // width: 1180px;
+        background: linear-gradient(to right, #c55151, #fbd124);
+
+        // background-color: cadetblue;
+        border-radius: 8px;
+    }
+    .columnContainer_flex1{
+        @include columnContainer(1)
+    }
+    .columnContainer_flex2{
+        @include columnContainer(2)
+    }
+    .rowContainer{
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-around;
+
+        flex:1
+    }
+
+    .recruitingStudyItemHeader{
+        font-size: 16px;
+        line-height: 24px;
+        color:#f7f7f7;
+    }
+    .recruitingStudyItemBody{
+        font-size: 24px;
+        line-height: 35px;
+        color:#f7f7f7;
+        max-lines: 1;
+    }
+}
+
+@include tablet{}
+@include mobile{}

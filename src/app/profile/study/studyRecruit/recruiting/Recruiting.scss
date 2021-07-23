@@ -47,9 +47,17 @@
 
         // background-color: cadetblue;
         border-radius: 8px;
+
+        padding: 10px 20px;
+
     }
     .columnContainer_flex1{
-        @include columnContainer(1)
+        @include columnContainer(1);
+        border-right: solid;
+        border-right-color: #f2f3f9;
+        border-right-width: 1px;
+        
+        margin-right: 13px;
     }
     .columnContainer_flex2{
         @include columnContainer(2)
@@ -58,21 +66,36 @@
         display: flex;
         flex-direction: row;
 
-        justify-content: space-around;
+        justify-content: space-between;
 
-        flex:1
+        flex:1;
+
+        margin-left: 13px;
     }
 
     .recruitingStudyItemHeader{
         font-size: 16px;
         line-height: 24px;
         color:#f7f7f7;
+
     }
     .recruitingStudyItemBody{
+        
+        // display: -webkit-flex;
         font-size: 24px;
         line-height: 35px;
         color:#f7f7f7;
-        max-lines: 1;
+
+        min-width: 0;
+        // max-lines: 1;
+        // white-space: nowrap;
+        // flex-shrink: 1;
+        text-overflow: ellipsis;
+        // overflow: hidden;
+        // -webkit-line-clamp: 1;
+
+        
+        
     }
 }
 

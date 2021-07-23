@@ -18,7 +18,7 @@ function Recruiting() {
             currentNumber:6,
             maxNumber:8,
 
-            category:'자격증->어학',
+            category:'자격증 > 어학',
             newInquiry:2,
             newApplicant:10,
         })
@@ -49,11 +49,11 @@ function Recruiting() {
                             </div>
                             <div className='columnContainer_flex1'>
                                 <div className='recruitingStudyItemHeader'>문의글 New!</div>
-                                <div className='recruitingStudyItemBody'>{item.newInquiry} 개의 새로운 문의글</div>
+                                <div className='recruitingStudyItemBody'>{item.newInquiry}<div className='recruitingStudyItemHeader'> 개의 새로운 문의글</div></div>
                             </div>
                             <div className='columnContainer_flex1'>
                                 <div className='recruitingStudyItemHeader'>문의글 New!</div>
-                                <div className='recruitingStudyItemBody'>{item.newApplicant} 명의 새로운 신청자</div>
+                                <div className='recruitingStudyItemBody'>{item.newApplicant}<div className='recruitingStudyItemHeader'> 명의 새로운 신청자</div></div>
                             </div>
                             <div className='rowContainer'>
                                 <button type='button'>수정하기</button>

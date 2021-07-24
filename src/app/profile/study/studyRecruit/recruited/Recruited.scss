@@ -2,7 +2,20 @@
 
 
 @include desktop{
-    
+    .headerText{
+        margin-top: 72px;
+        color: #1a1a1a;
+        font-size: 20px;
+        line-height: 29px;
+    }
+
+    .studyListContainer{
+        display: flex;
+        flex-direction: row;
+
+        margin-top: 20px;
+        margin-bottom: 256px;
+    }
 }
 
 @include tablet{}

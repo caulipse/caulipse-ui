@@ -2,6 +2,7 @@ import React from 'react'
 
 import './Recruited.scss';
 import { RecruitedStudyInterface } from '@src/app/profile/interface/interface'
+import StudyItem from '@src/app/profile/bookmark/study/StudyItem';
 
 function RecruitedList({
     recruitedStudies
@@ -10,7 +11,22 @@ function RecruitedList({
 }) {
     return (
         <div>
-            모집 완료된 스터디 리스트가 표시됩니다. 
+            <div className='headerText'>모집완료</div>
+            <div className='studyListContainer'>
+                {
+                    recruitedStudies.slice(0, 5).map((item, index)=>{
+                        return(
+                            <StudyItem 
+                                key={item.studyId}
+                                item={item}
+                                index={index}
+                            />
+                        )
+                    })
+                }
+            </div>
+
+            
         </div>
     )
 }

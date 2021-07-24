@@ -1,6 +1,7 @@
 import React from 'react'
 import './BookmarkStudy.scss';
 import { RecruitedStudyInterface } from '../../interface/interface';
+import StudyItem from './StudyItem';
 
 type StudyListProps={
     studies:RecruitedStudyInterface[],
@@ -16,25 +17,11 @@ const StudyList=({
             {
                 studies.slice(0, 5).map((item, index)=>{
                     return(
-                        <div style={{marginRight:index===4?0:'20px'}} className='studyItemContainer' key={item.studyId}>
-                            <div className='studyItemName'>{item.name}</div>
-                            <div className='studyItemTitle'>{item.title}</div>
-                            <div className='studyItemInfoContainer'>
-                                <div className='studyItemInfo'>{item.currentNumber}/{item.maxNumber}명</div>
-                                <div className='studyItemInfo'>{item.date.getFullYear()}.{item.date.getMonth()}.{item.date.getDate()}</div>
-                            </div>
-                            <div className='tagContainer'>
-                                {
-                                    item.tags.map((tagItem, tagIndex)=>{
-                                        return(
-                                            <div key={`${tagItem}`} className='tagItemText'>
-                                                {tagItem}
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
+                        <StudyItem
+                            key={item.studyId} 
+                            item={item}
+                            index={index}
+                        />
                     )
                 })
             }

@@ -1,12 +1,13 @@
 @import '../../../../../scss/mixins';
 
-@mixin columnContainer($flexNumber){
+@mixin columnContainer(){
     display: flex;
     flex-direction: column;
     // align-items: stretch;
     // justify-content: space-between;
 
-    flex:$flexNumber;
+    // flex:$flexNumber;
+    // width: calc(20%);
 }
 
 @include desktop{
@@ -48,29 +49,34 @@
         // background-color: cadetblue;
         border-radius: 8px;
 
-        padding: 10px 20px;
+        padding: 10px 0px 10px 20px;
+        
 
     }
     .columnContainer_flex1{
-        @include columnContainer(1);
+        @include columnContainer();
         border-right: solid;
         border-right-color: #f2f3f9;
         border-right-width: 1px;
         
         margin-right: 13px;
+
+        width: calc(1/6*100%);
     }
     .columnContainer_flex2{
-        @include columnContainer(2)
+        @include columnContainer();
+        width: calc(2/6*100%);
+
     }
     .rowContainer{
         display: flex;
         flex-direction: row;
 
-        justify-content: space-between;
+        // justify-content: space-between;
 
         flex:1;
 
-        margin-left: 13px;
+        // margin-left: 13px;
     }
 
     .recruitingStudyItemHeader{
@@ -86,16 +92,48 @@
         line-height: 35px;
         color:#f7f7f7;
 
-        min-width: 0;
+        // min-width: 0;
         // max-lines: 1;
-        // white-space: nowrap;
+        white-space: nowrap;
         // flex-shrink: 1;
         text-overflow: ellipsis;
-        // overflow: hidden;
+        overflow: hidden;
         // -webkit-line-clamp: 1;
 
         
         
+    }
+
+    .newText{
+        margin-left: 7px;
+
+        padding: 1px 9px;
+        background-color: #ffffff;
+        color: #1a1a1a;
+        font-size: 13px;
+        line-height: 19px;
+
+        border-radius: 9px;
+    }
+    // .buttonContainer{
+    //     background-color: #eeccec; 
+    //     opacity: 0.15;
+    // }
+    .buttonText{
+        // display: flex;
+        // flex-direction: row;
+        text-orientation:sideways-right;
+
+        padding: 8px 11px;
+        border-radius: 6px;
+        // background-color: #eeccec; 
+        // opacity: 0.15;
+        background-color:rgba(238,204,236, 0.15);
+
+        color:#f7f7f7;
+        // color:red;
+        font-size: 16px;
+        // line-height: 24px;
     }
 }
 

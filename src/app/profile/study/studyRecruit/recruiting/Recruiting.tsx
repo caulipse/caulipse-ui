@@ -6,6 +6,7 @@ import React,{
 import * as Factory from "factory.ts";
 import { useEffect } from 'react';
 import './Recruiting.scss';
+import RecruitingList from './RecruitingList';
 
 function Recruiting() {
 
@@ -29,49 +30,22 @@ function Recruiting() {
         setRecruitingStudies(getRecruitingStudies(3));
     }, [])
 
-    return (
-        <div>
-            <div className='headerText'>모집중</div>
-            {
-                recruitingStudies.map(item=>{
-                    return(
-                        <div 
-                            key={item.studyId}
-                            className='recruitingStudyItemContainer' 
-                        >
-                            <div className='columnContainer_flex2'>
-                                <div className='recruitingStudyItemHeader'>{item.category}</div>
-                                <div className='recruitingStudyItemBody'>{item.title}</div>
-                            </div>
-                            <div className='columnContainer_flex1'>
-                                <div className='recruitingStudyItemHeader'>모집된 인원</div>
-                                <div className='recruitingStudyItemBody'>{item.currentNumber}/{item.maxNumber}명</div>
-                            </div>
-                            <div className='columnContainer_flex1'>
-                                <div className='recruitingStudyItemHeader'>문의글 New!</div>
-                                <div className='recruitingStudyItemBody'>{item.newInquiry}<div className='recruitingStudyItemHeader'> 개의 새로운 문의글</div></div>
-                            </div>
-                            <div className='columnContainer_flex1'>
-                                <div className='recruitingStudyItemHeader'>문의글 New!</div>
-                                <div className='recruitingStudyItemBody'>{item.newApplicant}<div className='recruitingStudyItemHeader'> 명의 새로운 신청자</div></div>
-                            </div>
-                            <div className='rowContainer'>
-                                <button type='button'>수정하기</button>
-                                <button type='button'>메뉴</button>
-                            </div>
-                        </div>
-                    )
-                })
-            }
-            
-            {/* <EmptyComponent 
+    if(recruitingStudies.length===0){
+        return(
+            <EmptyComponent 
                 title='모집 중'
                 description='이런! 모집 중인 스터디가 없네요 :('
                 buttonText='스터디 등록하러 가기'
                 buttonColor='#06529d'
 
                 myBackgroundColor='#faf9fa'
-            /> */}
+            />
+        )
+    }
+
+    return (
+        <div>
+            <RecruitingList recruitingStudies={recruitingStudies}/>
         </div>
     )
 }

@@ -27,7 +27,7 @@ function Recruiting() {
     }
 
     useEffect(()=>{
-        setRecruitingStudies(getRecruitingStudies(3));
+        setRecruitingStudies(getRecruitingStudies(0));
     }, [])
 
     if(recruitingStudies.length===0){

@@ -2,12 +2,11 @@
 
 @include desktop {
   .router-con {
-    margin-top: 60px;
+    margin-top: $main-top-margin;
   }
   .main-con {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 5fr;
+    display: flex;
+    justify-content: center;
   }
 }
 @include tablet {}

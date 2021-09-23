@@ -3,9 +3,12 @@
 
 @include desktop {
   .sidebar-con {
+    position: fixed;
+    top: 100px;
+    width: $sideBarWidth;
     display: flex;
     flex-direction: column;
-
+    background-color: $background-color;
   }
   .sidebar-wrapper {
     padding: 0px 40px;

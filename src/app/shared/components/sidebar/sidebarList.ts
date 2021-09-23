@@ -15,12 +15,20 @@ export const sidebarCategoriesInMain: SidebarCategoryType[] = [
     defaltRoute: "/study/list",
     subCategories: [
       {
-        name: "스터디",
+        name: "취업, 면접",
         route: "/study/list",
       },
       {
-        name: "찾아보기",
-        route: "/study/search",
+        name: "자격증",
+        route: "/study/list",
+      },
+      {
+        name: "프로그래밍",
+        route: "/study/list",
+      },
+      {
+        name: "생활 기타",
+        route: "/study/list",
       },
     ]
   },

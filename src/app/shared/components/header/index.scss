@@ -7,8 +7,7 @@
     position: fixed;
     top: 0;
 
-    background-color: white;
-    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+    background-color: $header-color;
   }
   .header-wrap {
     height: 100%;
@@ -23,7 +22,7 @@
     display: flex;
   }
   .header-logo {
-    color: $main-color;
+    color: white;
     font-size: 24px;
     font-weight: bold;
   }

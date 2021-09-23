@@ -1,0 +1,14 @@
+.studyList-con {
+  margin-top: 60px;
+}
+.studyList-dropdown {
+  display: flex;
+  justify-content: end;
+
+}
+.studyList-wrap{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20%, auto));
+  gap: 12px;
+}

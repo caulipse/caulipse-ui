@@ -12,8 +12,8 @@ import StudyPage from "./pages/Study";
 
 const MainContainer = (): JSX.Element => (
   <div className="router-con">
+    <SideBar/>
     <div className="main-con">
-      <SideBar/>
       <Switch>
         <Route exact path="/" component={HomePage}/>
         <Route path="/study" component={StudyPage}/>

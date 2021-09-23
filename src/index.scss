@@ -1,9 +1,12 @@
+@import "./scss/mixins";
+
 body {
   @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
   font-family: "Noto Sans KR", sans-serif !important;
   margin: 0px;
   font-size: 18px;
+  background-color: #fafafa;
   button {
     border: none;
     background-color: transparent;

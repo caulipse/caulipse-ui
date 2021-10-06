@@ -1,4 +1,4 @@
-$breakpoint-mobile: 335px;
+$breakpoint-mobile: 360px;
 $breakpoint-tablet: 758px;
 $breakpoint-desktop: 1024px;
 $background-color: #FAFAFA;
@@ -7,19 +7,35 @@ $background-color: #FAFAFA;
 $footer-color: #f7f8ff;
 $main-color: #0016bc;
 $header-color: #06529d;
-
+$searchBarRequestInfoBackColor: #efeeee;
 
 //witdh
-$maxContentWitdh: 1920;
+$maxContentWitdh: 1200px;
 
 //header
 $header-height: 60px;
+$headerMaxWitdh: 1200px;
 
 //side bar
 $side-bar-top-margin: 40px;
 $sideBarWidth: 16.1vw;
+$categoryColor: #06529d;
+$subCategoryColorOn:#06529d;
+$subCategoryColorOff:#818181;
+
 
 //main
 $main-top-margin: 100px;
 $mainContentMaxWidth: 1192px;
-$mainContentWitdh: 62.1vw;
+$mainContentWitdh: 1200px;
+
+$studyTitleColor: #173868;
+$studyCategoryTexteColor: #06529d;
+
+//study
+$studySubCategoryListBackgroundColor: #5b81a4;
+
+//togglr button
+$studySubCategroyButtonOnTextColor:#184ea1;
+$studySubCategroyButtonOffTextColor: #fafafa;
+$studySubCategroyButtonOnBackColor:#fafafa;

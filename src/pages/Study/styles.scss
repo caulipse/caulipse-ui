@@ -1,6 +1,29 @@
 @import "../../scss/variables";
 
 .studyPage-con {
-  width: $mainContentWitdh;
+  // width: $mainContentMaxWidth;
+
+}
+.studyPage-title {
+  display: flex;
+  align-items: flex-end;
+}
+.studyPage-Toolbar-con {
+  background-color: #f2f3f5;
+  display: flex;
+  justify-content: center;
+}
+.studyPage-Toolbar-wrap {
+  width: 100%;
   max-width: $mainContentMaxWidth;
+}
+.studyPage-text {
+  font-size: 40px;
+  font-weight: bold;
+  margin-right: 8px;
+  color: $studyTitleColor;
+}
+.studyPage-category {
+  font-size: 24px;
+  color: $studyCategoryTexteColor;
 }

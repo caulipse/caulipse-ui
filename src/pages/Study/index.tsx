@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import StudyListPage from "@src/app/study/StudyListPage";
 import './styles.scss';
+import SubCategoryBarContainer from "@src/app/study/SubCategoryBar/SubCategoryBarContainer";
+import StudySearchBarContainer from "@src/app/study/StudySearchBar/StudySearchBarContainer";
+import StudyListContainter from "@src/app/study/StudyList/StudyListContainer";
+import StudyCategoryBarContainer from "@src/app/study/StudyCategoryBar/StudyCategoryBarContainer";
 
 const CategoryObj = {
   employment: "취업, 면접",
@@ -11,25 +14,46 @@ const CategoryObj = {
 }
 const StudyPage = (): JSX.Element => {
   const location = useLocation();
+  const [studyCategory, setStudyCategory] = useState<string>('');
+  const [selectedList, setSelectedList] = useState<string[]>([]);
   
   const getValueFromCategoryObj = (key: string) => {
     const path = key.split('/')[2];
     const result = Object.keys(CategoryObj).indexOf(path);
-    return Object.values(CategoryObj)[result];
+    setStudyCategory(Object.values(CategoryObj)[result]);
   }
+  const addSubCategory = (c: string) => {
+    setSelectedList(() => [...selectedList, c]);
+  }
+  const rmSubCategory = (c: string) => {
+    const newSelectedList = selectedList.filter((item) => item !== c );
+    setSelectedList(newSelectedList);
+  };
+  const handleRemoveSubCategory = (c: string) => {
+    const newSelectedList = selectedList.filter((item) => item !== c );
+    setSelectedList(newSelectedList);
+  }
+  useEffect(() => {
+    if (studyCategory === '') {
+      getValueFromCategoryObj(location.pathname);
+    }
+  }, [studyCategory])
 
   return (
     <div className="studyPage-con">
-      <div className="studyPage-title">
-        <span className="studyPage-text">스터디</span>
-        <span className="studyPage-category">&gt; {getValueFromCategoryObj(location.pathname)}</span>
+
+      <div>
+        <StudyCategoryBarContainer/>
       </div>
-      <Switch>
-        <Route exact path='/study/employment'component={StudyListPage}/>
-        <Route exact path='/study/certificate'component={StudyListPage}/>
-        <Route exact path='/study/programming'component={StudyListPage}/>
-        <Route exact path='/study/etc'component={StudyListPage}/>
-      </Switch>
+      <div className="studyPage-Toolbar-con">
+        <div className="studyPage-Toolbar-wrap">
+          <SubCategoryBarContainer addSubCategory={addSubCategory} rmSubCategory={rmSubCategory}/>
+          <StudySearchBarContainer studyCategory={studyCategory} selectedList={selectedList} rmSubCategory={handleRemoveSubCategory}/>
+        </div>
+      </div>
+      
+      <StudyListContainter/>
+
     </div>
   );
 };

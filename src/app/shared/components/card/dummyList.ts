@@ -33,7 +33,7 @@ export const Lists: PostResponseDto[] = [
   },
   {
     id: 'asdfsgqwg423g343g',
-    title: 'post 1',
+    title: 'post 1fhf ',
     about: 'about 1',
     capacity: 10,
     vacancy: 9,

@@ -35,12 +35,13 @@ const SideBar: React.FC = () => {
                 <div className="category-bt">{category.name}</div>
               </button>
               <div className="sub-bts">
-                { currentCategoryId === category.id &&
-                  category.subCategories.map((sub) => (
-                    <button type="button" key={sub.name} onClick={() => history.push(sub.route)}>
-                      <div className="sub-bt">{sub.name}</div>
-                    </button>
-                  ))
+                { 
+                  currentCategoryId === category.id &&
+                    category.subCategories.map((sub) => (
+                      <button type="button" key={sub.name} onClick={() => history.push(sub.route)}>
+                        <div className="sub-bt">{sub.name}</div>
+                      </button>
+                    ))
                 }
               </div>
             </div>

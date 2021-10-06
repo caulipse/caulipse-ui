@@ -2,11 +2,10 @@
 
 @include desktop {
   .router-con {
-    margin-top: $main-top-margin;
+    margin-top: $header-height;
   }
   .main-con {
-    display: flex;
-    justify-content: center;
+   
   }
 }
 @include tablet {}

@@ -31,7 +31,7 @@ function MyPage() {
 	const NicknameInput = () => {
 		return (
 			<div>
-				<div style={{ marginTop: '30px', marginBottom: '10px' }} className="rowContainer">
+				<div style={{ marginBottom: '10px' }} className="rowContainer">
 					<div className="titleText">닉네임</div>
 				</div>
 				<div
@@ -49,18 +49,23 @@ function MyPage() {
 	const MajorInput = () => {
 		return (
 			<div>
-				<div className={['nicknameText', 'majorContainer'].join(' ')}>학과</div>
-				<div className="rowContainer">
-					<div className="majorInputContainer">
-						<input type="text" className="nicknameInput" />
+				<div className={['rowContainer', 'flex1'].join(' ')}>
+					<div className={['columnContainer', 'flex1'].join(' ')}>
+						<div className={['nicknameText', 'majorContainer'].join(' ')}>학과</div>
+						<div className="majorInputContainer">
+							<input type="text" className="nicknameInput" />
+						</div>
 					</div>
-					<div className="gradeSelectionContainer">
-						<select name="grade" className="gradeSelection">
-							<option value={1}>1학년</option>
-							<option value={2}>2학년</option>
-							<option value={3}>3학년</option>
-							<option value={4}>4학년</option>
-						</select>
+					<div className="columnContainer">
+						<div className={['nicknameText', 'majorContainer'].join(' ')}>학년 <span className='subTitleText'>(선택)</span></div>
+						<div className="gradeSelectionContainer">
+							<select name="grade" className="gradeSelection">
+								<option value={1}>1학년</option>
+								<option value={2}>2학년</option>
+								<option value={3}>3학년</option>
+								<option value={4}>4학년</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -114,10 +119,10 @@ function MyPage() {
 
 	return (
 		<div className="container">
-			<div className="title">프로필 설정</div>
-			<div className="rowContainer">
+			<div className="title">내 프로필</div>
+			<div className="imageNameContainer">
 				<ProfileImage />
-				<div className={['columnContainer', 'marginContainer'].join(' ')}>
+				<div className={['flex1', 'columnContainer', 'marginContainer'].join(' ')}>
 					<NicknameInput />
 					<MajorInput />
 				</div>

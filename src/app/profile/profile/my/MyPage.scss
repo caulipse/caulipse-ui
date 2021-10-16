@@ -17,52 +17,58 @@
   .rowContainer{
       display: flex;
       flex-direction: row;
-      //flex:1;
-
       width: 100%;
   }
   .columnContainer{
     display: flex;
     flex-direction: column;
+    // flex:1;
+  }
+  .flex1{
+    display: flex;
     flex:1;
   }
   .marginContainer{
       margin-left: 24px;
       //background-color: red;
   }
-
+  .imageNameContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+  }
   .title{
-      font-size: 24px;
+      font-size: 32px;
       line-height: 35px;
       color:#1a1a1a;
   }
-
   //프로필 이미지 
   .profileImage{      
       width: 280px;
       height: 280px;
       background-color: #ededed;
-      margin-top: 21px;
   }
-
   //TabBar
   .mainTabButton{
-
     @include tabButton();
     background-color:#0016bc;                         
     color:#ffffff;
   }
   .subTabButton{
-
       @include tabButton();
       background-color: #ffffff;
       color:#818181;
   }
-
   .titleText{
       font-size: 20px;
       line-height: 29px;
       color:#1a1a1a;
+  }
+  .subTitleText{
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 20px;
   }
   .titleExplainText{
         display: flex;
@@ -110,7 +116,8 @@
   }
   .gradeSelectionContainer{
     display: flex;
-    flex:1;
+    // flex:1;
+    width: 180px;
     height: 44px;
   }
   .gradeSelection{

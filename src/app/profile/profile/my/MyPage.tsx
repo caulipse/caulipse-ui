@@ -122,7 +122,6 @@ function MyPage() {
 					<MajorInput />
 				</div>
 			</div>
-			{/* {isMain && <Introduction isShort />} */}
 			<Introduction isShort={false} />
 			<Categories />
 			<UpdateButton />

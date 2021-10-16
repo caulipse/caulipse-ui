@@ -9,17 +9,11 @@
 
 @include desktop {
   .container{
-    display: flex;
-    flex:1;
+    display:flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    // width: 61.5%;
-    width: 100%;
-    height: 100%;
-    margin-top: 40px;
+    width: 41.25%;
+    margin: auto;
   }
-
   .rowContainer{
       display: flex;
       flex-direction: row;
@@ -33,7 +27,7 @@
     flex:1;
   }
   .marginContainer{
-      margin-left: 120px;
+      margin-left: 24px;
       //background-color: red;
   }
 

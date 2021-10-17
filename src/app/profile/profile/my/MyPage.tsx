@@ -57,7 +57,9 @@ function MyPage() {
 						</div>
 					</div>
 					<div className="columnContainer">
-						<div className={['nicknameText', 'majorContainer'].join(' ')}>학년 <span className='subTitleText'>(선택)</span></div>
+						<div className={['nicknameText', 'majorContainer'].join(' ')}>
+							학년 <span className="subTitleText">(선택)</span>
+						</div>
 						<div className="gradeSelectionContainer">
 							<select name="grade" className="gradeSelection">
 								<option value={1}>1학년</option>
@@ -76,9 +78,13 @@ function MyPage() {
 		return (
 			<div className="introductionContainer">
 				<div className="rowContainer">
-					<div className="titleText">{isShort ? '프로필 소개문구' : '자기소개 글'}</div>
+					<div className="titleText">{isShort ? '한줄 소개' : '자기소개 글'}</div>
 				</div>
-				<textarea placeholder="나만의 소개글을 완성해주세요!" className="introductionTextArea" />
+				{isShort ? (
+					<input type="text" className="introductionInputText" placeholder="프로필 상단에 보이는 소개글입니다." />
+				) : (
+					<textarea placeholder="나만의 소개글을 완성해주세요!" className="introductionTextArea" />
+				)}
 			</div>
 		);
 	};
@@ -127,8 +133,9 @@ function MyPage() {
 					<MajorInput />
 				</div>
 			</div>
-			<Introduction isShort={false} />
+			<Introduction isShort />
 			<Categories />
+			<Introduction isShort={false} />
 			<UpdateButton />
 		</div>
 	);

@@ -129,20 +129,21 @@
   .introductionContainer{
     display: flex;
     flex-direction: column;
-
     width: 100%;
-
     margin-top: 40px;
   }
   .introductionTextArea{
     height: 100px;
     margin-top: 10px;
     padding: 10px 12px;
-
     font-size: 16px;
     line-height: 20px;
   }
-
+  .introductionInputText{
+    // height:44px;
+    padding: 10px 12px 10px 12px;
+    margin-top: 30px;
+  }
   //categories
   .categoryContainer{
     display: flex;

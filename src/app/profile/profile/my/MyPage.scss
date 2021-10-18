@@ -161,47 +161,34 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    padding: 8px 16px;
-
+    padding: 8px 10px 8px 16px;
     border: solid;
     border-radius: 20px;
-    border-color: #0016bc;
+    border-color: #e5e5e5;
     border-width: 1px;
-
     margin-right: 20px;
     margin-top: 20px;
-
   }
   .categoryText{
     font-size: 16px;
     line-height: 28px;
-
-    color:#0016bc;
-    
+    color:#1a1a1a;
   }
   .addItemContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    padding: 8px 16px;
-
-    // border: solid;
+    padding: 8px 10px 8px 16px;
     border-radius: 20px;
-    // border-color: #0016bc;
-    // border-width: 1px;
-
     margin-right: 20px;
     margin-top: 20px;
-
-    background-color: #ededed;
+    background-color: #025db5;
   }
   .addText{
     font-size: 16px;
     line-height: 28px;
-    color:#818181;
+    color:#ffffff;
   }
 
   //updateButton

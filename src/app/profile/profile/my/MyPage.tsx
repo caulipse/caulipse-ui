@@ -78,7 +78,13 @@ function MyPage() {
 		return (
 			<div className="introductionContainer">
 				<div className="rowContainer">
-					<div className="titleText">{isShort ? '한줄 소개' : '자기소개 글'}</div>
+					{isShort ? (
+						<div className="titleText">한줄 소개</div>
+					) : (
+						<div className="titleText">
+							자기소개 글 <span className="subTitleText">(선택)</span>
+						</div>
+					)}
 				</div>
 				{isShort ? (
 					<input type="text" className="introductionInputText" placeholder="프로필 상단에 보이는 소개글입니다." />

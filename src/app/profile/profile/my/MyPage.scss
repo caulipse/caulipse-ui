@@ -7,6 +7,15 @@
   border-radius: 25px;
 }
 
+textarea{
+  border:none;
+}
+textarea:focus{
+  outline:none;
+}
+input{
+  border: none;
+}
 input::placeholder {
   color: #b1b1b1;
 }
@@ -97,20 +106,13 @@ input:focus{
   //nicknameInput
   .nicknameInput{
       display: flex;
-      // height: 44px;
       flex:1;
-      // width: 100%;
       padding-left: 12px;
       padding-top: 10px;
       padding-bottom: 10px;
-
       color: black;
       font-size: 16px;
       line-height: 20px;
-
-      border-style: solid;
-      border-width: 1px;
-      border-color:#c1c1c1;
   }
 
   //majorInputContainer
@@ -171,10 +173,7 @@ input:focus{
     justify-content: space-between;
     align-items: center;
     padding: 8px 10px 8px 16px;
-    border: solid;
     border-radius: 20px;
-    border-color: #e5e5e5;
-    border-width: 1px;
     margin-right: 20px;
     margin-top: 20px;
   }
@@ -206,14 +205,10 @@ input:focus{
     height: 56px;
     justify-content: center;
     align-items: center;
-
     background-color: #0016bc;
-
     margin-top: 100px;
     margin-bottom: 118px;
-
     border-radius: 28px;
-
     align-self: center;
   }
   .updateButtonText{
@@ -258,8 +253,8 @@ input:focus{
     padding: 10px 12px 10px 12px;
     font-size: 16px;
     line-height: 20px;
-    border: none;
-    border-width: 0px;
+    // border: none;
+    // border-width: 0px;
   }
   .urlRemoveButton{
     width: 24px;
@@ -267,6 +262,7 @@ input:focus{
     align-items: center;
     justify-content: center;
     background-color: #e5e5e5;
+    margin-right: 12px;
   }
 }
 @include tablet {}

@@ -1,11 +1,18 @@
 @import "../../../../scss/mixins";
 
 @mixin tabButton{
-    font-size: 18px;
-    line-height: 26px;
-    padding: 7px 42px;
-    border-radius: 25px;
-  }
+  font-size: 18px;
+  line-height: 26px;
+  padding: 7px 42px;
+  border-radius: 25px;
+}
+
+input::placeholder {
+  color: #b1b1b1;
+}
+input:focus{
+  outline: none;
+}
 
 @include desktop {
   .container{
@@ -154,7 +161,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
   }
   .categoryItemContainer{
     display: flex;
@@ -211,6 +217,53 @@
     font-size: 18px;
     line-height: 28px;
     color: #ffffff;
+  }
+
+  // urls
+  .urlContainer{
+    margin-top: 54px;
+  }
+  .urlTitle{
+    color:#636363;
+    font-size: 20px;
+    line-height: 29px;
+    margin-bottom: 20px;
+  }
+  .urlSubtitle{
+    color:#1e71c0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+  }
+  .urlAddButton{
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  .urlItemContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .urlItemInput{
+    flex:1;
+    padding: 10px 12px 10px 12px;
+    font-size: 16px;
+    line-height: 20px;
+    border: none;
+    border-width: 0px;
+  }
+  .urlRemoveButton{
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e5e5;
   }
 }
 @include tablet {}

@@ -11,6 +11,11 @@ interface CategoryInterface {
 function MyPage() {
 	// 카테고리 목록
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
+	const [urls, setUrls] = useState<string[]>([]);
+
+	const addUrl = () => {
+		setUrls([...urls, '']);
+	};
 
 	const getCategoriesData = (iter: number) => {
 		const categoryFactory = Factory.Sync.makeFactory<CategoryInterface>({
@@ -129,6 +134,31 @@ function MyPage() {
 		);
 	};
 
+	const Urls = () => {
+		return (
+			<div className="urlContainer">
+				<div className="urlTitle">
+					URL 추가<span className="urlSubtitle">포트폴리오 사이트나 작업용 sns를 추가해보세요</span>
+				</div>
+				{urls.map((urlItem, urlIndex) => {
+					return (
+						<div key={`${urlItem}`} className="urlItemContainer">
+							<input
+								type="text"
+								className="urlItemInput"
+								placeholder="자신을 잘 나타낼 수록 스터디 구하기가 쉬워져요!"
+							/>
+							<button type="button" className='urlRemoveButton'>x</button>
+						</div>
+					);
+				})}
+				<button type="button" className="urlAddButton" onClick={addUrl}>
+					+
+				</button>
+			</div>
+		);
+	};
+
 	return (
 		<div className="container">
 			<div className="title">내 프로필</div>
@@ -141,6 +171,7 @@ function MyPage() {
 			</div>
 			<Introduction isShort />
 			<Categories />
+			<Urls />
 			<Introduction isShort={false} />
 			<UpdateButton />
 		</div>

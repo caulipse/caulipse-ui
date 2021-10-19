@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 import './styles.scss';
 import SubCategoryBarContainer from "@src/app/study/SubCategoryBar/SubCategoryBarContainer";
 import StudySearchBarContainer from "@src/app/study/StudySearchBar/StudySearchBarContainer";
@@ -14,6 +14,8 @@ const CategoryObj = {
 }
 const StudyPage = (): JSX.Element => {
   const location = useLocation();
+  const history = useHistory();
+  const { category } = useParams<any>();
   const [studyCategory, setStudyCategory] = useState<string>('');
   const [selectedList, setSelectedList] = useState<string[]>([]);
   
@@ -37,11 +39,13 @@ const StudyPage = (): JSX.Element => {
     if (studyCategory === '') {
       getValueFromCategoryObj(location.pathname);
     }
+    if (category === undefined) {
+      history.push('/study/employment')
+    }
   }, [studyCategory])
 
   return (
     <div className="studyPage-con">
-
       <div>
         <StudyCategoryBarContainer/>
       </div>
@@ -51,9 +55,7 @@ const StudyPage = (): JSX.Element => {
           <StudySearchBarContainer studyCategory={studyCategory} selectedList={selectedList} rmSubCategory={handleRemoveSubCategory}/>
         </div>
       </div>
-      
       <StudyListContainter/>
-
     </div>
   );
 };

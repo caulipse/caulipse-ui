@@ -9,9 +9,9 @@ const MainContainer = (): JSX.Element => (
   <div className="router-con">
     <div className="main-con">
         <Switch>
-          <Route exact path="/" component={StudyPage}/>
+          <Route exact path="/study/:category" component={StudyPage}/>
           <Route path="/profile" component={ProfilePage}/>
-          <Redirect path="*" to="/"/>
+          <Redirect path="*" to="/study/employment"/>
         </Switch>
     </div>
   </div>

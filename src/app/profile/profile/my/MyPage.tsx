@@ -148,7 +148,9 @@ function MyPage() {
 								className="urlItemInput"
 								placeholder="자신을 잘 나타낼 수록 스터디 구하기가 쉬워져요!"
 							/>
-							<button type="button" className='urlRemoveButton'>x</button>
+							<button type="button" className="urlRemoveButton">
+								x
+							</button>
 						</div>
 					);
 				})}
@@ -160,20 +162,22 @@ function MyPage() {
 	};
 
 	return (
-		<div className="container">
-			<div className="title">내 프로필</div>
-			<div className="imageNameContainer">
-				<ProfileImage />
-				<div className={['flex1', 'columnContainer', 'marginContainer'].join(' ')}>
-					<NicknameInput />
-					<MajorInput />
+		<div className='backgroundColorContainer'>
+			<div className="container">
+				<div className="title">내 프로필</div>
+				<div className="imageNameContainer">
+					<ProfileImage />
+					<div className={['flex1', 'columnContainer', 'marginContainer'].join(' ')}>
+						<NicknameInput />
+						<MajorInput />
+					</div>
 				</div>
+				<Introduction isShort />
+				<Categories />
+				<Urls />
+				<Introduction isShort={false} />
+				<UpdateButton />
 			</div>
-			<Introduction isShort />
-			<Categories />
-			<Urls />
-			<Introduction isShort={false} />
-			<UpdateButton />
 		</div>
 	);
 }

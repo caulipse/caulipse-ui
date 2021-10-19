@@ -22,6 +22,12 @@ input::placeholder {
 input:focus{
   outline: none;
 }
+select{
+  border:none;
+}
+select:focus{
+  outline:none;
+}
 
 @include desktop {
   .backgroundColorContainer{

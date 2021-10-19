@@ -206,19 +206,23 @@ select:focus{
     color:#ffffff;
   }
 
-  //updateButton
-  .updateButton{
-    width: 380px;
+  //saveButton
+  .saveButton{
+    // display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 588/1920*100%;
     height: 56px;
     justify-content: center;
     align-items: center;
-    background-color: #0016bc;
-    margin-top: 100px;
-    margin-bottom: 118px;
+    background-color: #1a1a1a;
+    // margin-top: 100px;
+    // margin-bottom: 118px;
     border-radius: 28px;
     align-self: center;
+    margin-bottom: 51px;
   }
-  .updateButtonText{
+  .saveButtonText{
     font-size: 18px;
     line-height: 28px;
     color: #ffffff;
@@ -270,6 +274,9 @@ select:focus{
     justify-content: center;
     background-color: #e5e5e5;
     margin-right: 12px;
+  }
+  .mb58{
+    margin-bottom: 58px;
   }
 }
 @include tablet {}

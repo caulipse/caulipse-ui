@@ -126,10 +126,10 @@ function MyPage() {
 		);
 	};
 
-	const UpdateButton = () => {
+	const SaveButton = () => {
 		return (
-			<button type="button" className="updateButton">
-				<div className="updateButtonText">수정하기</div>
+			<button type="button" className="saveButton">
+				<div className="saveButtonText">내 프로필 저장</div>
 			</button>
 		);
 	};
@@ -162,7 +162,7 @@ function MyPage() {
 	};
 
 	return (
-		<div className='backgroundColorContainer'>
+		<div className="backgroundColorContainer">
 			<div className="container">
 				<div className="title">내 프로필</div>
 				<div className="imageNameContainer">
@@ -175,8 +175,10 @@ function MyPage() {
 				<Introduction isShort />
 				<Categories />
 				<Urls />
-				<Introduction isShort={false} />
-				<UpdateButton />
+				<div className='mb58'>
+					<Introduction isShort={false} />
+				</div>
+				<SaveButton />
 			</div>
 		</div>
 	);

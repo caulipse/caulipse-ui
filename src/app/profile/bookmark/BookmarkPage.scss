@@ -8,13 +8,25 @@
 
 @include desktop{
     .container{
-        display: flex;
-        flex: 1;
+        display:flex;
         flex-direction: column;
-
-        width: 61.5%;
+        width: 41.25%;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
     }
-    
+    .bookmarkTitle{
+        font-size: 24px;
+        line-height: 35px;
+        color: #b1b1b1;
+        margin-top: 64px;
+    }
+    .bookmarkCount{
+        font-size: 72px;
+        line-height: 67px;
+        color: #c7d6e5;
+        margin-top: 2px;
+    }
 }
 
 @include tablet{}

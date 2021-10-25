@@ -16,7 +16,16 @@ function BookmarkPage() {
 	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
 
 	const RecruitingStudies = () => {
-		return <div>RecruitingStudies</div>;
+		return (
+			<div className="recruitingStudiesHeader">
+				<button type="button">
+					<span className="recruitingShowText">마감항목 표시</span>
+				</button>
+				<button type="button" className="deleteAllButtonBlurred">
+					<span className="deleteAllTextBlurred">모두 삭제</span>
+				</button>
+			</div>
+		);
 	};
 
 	const RecruitedStudies = () => {

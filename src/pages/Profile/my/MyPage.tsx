@@ -81,7 +81,7 @@ function MyPage() {
 
 	const Introduction = ({ isShort }: { isShort: boolean }) => {
 		return (
-			<div className="introductionContainer">
+			<div className="introductionContainer" style={{marginBottom:isShort?'0px':'58px'}}>
 				<div className="rowContainer">
 					{isShort ? (
 						<div className="titleText">한줄 소개</div>
@@ -175,9 +175,7 @@ function MyPage() {
 				<Introduction isShort />
 				<Categories />
 				<Urls />
-				<div className='mb58'>
-					<Introduction isShort={false} />
-				</div>
+				<Introduction isShort={false} />
 				<SaveButton />
 			</div>
 		</div>

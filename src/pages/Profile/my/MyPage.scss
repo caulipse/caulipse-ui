@@ -233,6 +233,9 @@ select:focus{
   // urls
   .urlContainer{
     margin-top: 54px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
   }
   .urlTitle{
     color:#636363;
@@ -266,8 +269,6 @@ select:focus{
     padding: 10px 12px 10px 12px;
     font-size: 16px;
     line-height: 20px;
-    // border: none;
-    // border-width: 0px;
   }
   .urlRemoveButton{
     width: 24px;

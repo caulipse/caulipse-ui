@@ -1,4 +1,4 @@
-import BookmarkPage from "./bookmark/BookmarkPage";
+import BookmarkPage from "../../pages/Profile/bookmark/BookmarkPage";
 import AchievementPage from "./profile/achievement/AchievementPage";
 import MyPage from "./profile/my/MyPage";
 import SettingPage from "./profile/SettingPage";

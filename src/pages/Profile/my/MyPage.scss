@@ -38,6 +38,8 @@ select:focus{
     flex-direction: column;
     width: 41.25%;
     margin: auto;
+    align-items: flex-start;
+    padding-top: 46px;
   }
   .rowContainer{
       display: flex;
@@ -47,7 +49,6 @@ select:focus{
   .columnContainer{
     display: flex;
     flex-direction: column;
-    // flex:1;
   }
   .flex1{
     display: flex;
@@ -55,7 +56,6 @@ select:focus{
   }
   .marginContainer{
       margin-left: 24px;
-      //background-color: red;
   }
   .imageNameContainer{
     display: flex;
@@ -67,6 +67,8 @@ select:focus{
       font-size: 32px;
       line-height: 35px;
       color:#1a1a1a;
+      display: flex;
+      justify-content: flex-start;
   }
   //프로필 이미지 
   .profileImage{      

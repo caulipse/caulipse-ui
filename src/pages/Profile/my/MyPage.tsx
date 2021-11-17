@@ -164,7 +164,7 @@ function MyPage() {
 	return (
 		<div className="backgroundColorContainer">
 			<div className="container">
-				<div className="title">내 프로필</div>
+			<div className="title">내 프로필</div>
 				<div className="imageNameContainer">
 					<ProfileImage />
 					<div className={['flex1', 'columnContainer', 'marginContainer'].join(' ')}>

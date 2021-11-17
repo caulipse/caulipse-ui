@@ -1,5 +1,5 @@
 import BookmarkPage from "../../pages/Profile/bookmark/BookmarkPage";
-import MyPage from "./profile/my/MyPage";
+import MyPage from "../../pages/Profile/my/MyPage";
 import SettingPage from "./profile/SettingPage";
 import StudyPage from "./study/study/StudyPage";
 import StudyRecruitPage from "./study/studyRecruit/StudyRecruitPage";

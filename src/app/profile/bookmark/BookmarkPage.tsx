@@ -22,13 +22,22 @@ function BookmarkPage() {
 			setRecruitingShow(!recruitingShow);
 		};
 
+		const deleteAll = () => {
+			console.log('deleteAll called');
+		};
+
 		return (
 			<>
 				<div className="recruitingStudiesHeader">
 					<button type="button" onClick={toggleShow}>
 						<span className="recruitingShowText">마감항목 표시</span>
 					</button>
-					<button type="button" className="deleteAllButtonBlurred">
+					<button
+						type="button"
+						className="deleteAllButtonBlurred"
+						onClick={deleteAll}
+						disabled={recruitingStudies.length === 0}
+					>
 						<span className="deleteAllTextBlurred">모두 삭제</span>
 					</button>
 				</div>

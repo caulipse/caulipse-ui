@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
 
-// import EmptyBookmarkPage from './emptyBookmark/EmptyBookmarkPage';
 import './BookmarkPage.scss';
-
-import Study from '../../../app/profile/bookmark/study/Study';
-import Article from '../../../app/profile/bookmark/article/Article';
 
 const toFormattedCount = (count: number) => {
 	if (count < 10) return `0${count}`;

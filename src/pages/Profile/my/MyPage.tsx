@@ -8,7 +8,7 @@ interface CategoryInterface {
 	category: string;
 }
 
-function MyPage() {
+const MyPage = () => {
 	// 카테고리 목록
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
 	const [urls, setUrls] = useState<string[]>([]);
@@ -81,7 +81,7 @@ function MyPage() {
 
 	const Introduction = ({ isShort }: { isShort: boolean }) => {
 		return (
-			<div className="introductionContainer" style={{marginBottom:isShort?'0px':'58px'}}>
+			<div className="introductionContainer" style={{ marginBottom: isShort ? '0px' : '58px' }}>
 				<div className="rowContainer">
 					{isShort ? (
 						<div className="titleText">한줄 소개</div>
@@ -164,7 +164,7 @@ function MyPage() {
 	return (
 		<div className="backgroundColorContainer">
 			<div className="container">
-			<div className="title">내 프로필</div>
+				<div className="title">내 프로필</div>
 				<div className="imageNameContainer">
 					<ProfileImage />
 					<div className={['flex1', 'columnContainer', 'marginContainer'].join(' ')}>
@@ -180,6 +180,6 @@ function MyPage() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default MyPage;

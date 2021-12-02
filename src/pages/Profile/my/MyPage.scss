@@ -1,0 +1,286 @@
+@import '../../../scss/mixins';
+
+@mixin tabButton{
+  font-size: 18px;
+  line-height: 26px;
+  padding: 7px 42px;
+  border-radius: 25px;
+}
+
+textarea{
+  border:none;
+}
+textarea:focus{
+  outline:none;
+}
+input{
+  border: none;
+}
+input::placeholder {
+  color: #b1b1b1;
+}
+input:focus{
+  outline: none;
+}
+select{
+  border:none;
+}
+select:focus{
+  outline:none;
+}
+
+@include desktop {
+  .backgroundColorContainer{
+    background-color: #f2f3f9;
+  }
+  .container{
+    display:flex;
+    flex-direction: column;
+    width: 41.25%;
+    margin: auto;
+    align-items: flex-start;
+    padding-top: 46px;
+  }
+  .rowContainer{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+  }
+  .columnContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .flex1{
+    display: flex;
+    flex:1;
+  }
+  .marginContainer{
+      margin-left: 24px;
+  }
+  .imageNameContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .title{
+      font-size: 32px;
+      line-height: 35px;
+      color:#1a1a1a;
+      display: flex;
+      justify-content: flex-start;
+  }
+  //프로필 이미지 
+  .profileImage{      
+      width: 280px;
+      height: 280px;
+      background-color: #ededed;
+  }
+  //TabBar
+  .mainTabButton{
+    @include tabButton();
+    background-color:#0016bc;                         
+    color:#ffffff;
+  }
+  .subTabButton{
+      @include tabButton();
+      background-color: #ffffff;
+      color:#818181;
+  }
+  .titleText{
+      font-size: 20px;
+      line-height: 29px;
+      color:#1a1a1a;
+  }
+  .subTitleText{
+    font-size: 14px;
+    color: #6c757d;
+    line-height: 20px;
+  }
+  .titleExplainText{
+        display: flex;
+
+        font-size: 14px;
+        line-height: 20px;
+        color:#1a1a1a;
+
+        margin-left: 20px;
+
+        //justify-content: flex-end;
+        align-items: flex-end;
+  }
+
+
+  //nicknameInput
+  .nicknameInput{
+      display: flex;
+      flex:1;
+      padding-left: 12px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: black;
+      font-size: 16px;
+      line-height: 20px;
+  }
+
+  //majorInputContainer
+  .majorContainer{
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  .majorInputContainer{
+    display: flex;
+    flex:1;
+    height: 44px;
+    margin-right: 20px;
+  }
+  .gradeSelectionContainer{
+    display: flex;
+    // flex:1;
+    width: 180px;
+    height: 44px;
+  }
+  .gradeSelection{
+    display: flex;
+    flex: 1;
+  }
+
+  //introduction
+  .introductionContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 40px;
+  }
+  .introductionTextArea{
+    height: 100px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .introductionInputText{
+    // height:44px;
+    padding: 10px 12px 10px 12px;
+    margin-top: 30px;
+  }
+  //categories
+  .categoryContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+  .categoryListContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .categoryItemContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px 8px 16px;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: white;
+  }
+  .categoryText{
+    font-size: 16px;
+    line-height: 28px;
+    color:#1a1a1a;
+  }
+  .addItemContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px 8px 16px;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: #025db5;
+  }
+  .addText{
+    font-size: 16px;
+    line-height: 28px;
+    color:#ffffff;
+  }
+
+  //saveButton
+  .saveButton{
+    // display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 588/1920*100%;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    // margin-top: 100px;
+    // margin-bottom: 118px;
+    border-radius: 28px;
+    align-self: center;
+    margin-bottom: 51px;
+  }
+  .saveButtonText{
+    font-size: 18px;
+    line-height: 28px;
+    color: #ffffff;
+  }
+
+  // urls
+  .urlContainer{
+    margin-top: 54px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .urlTitle{
+    color:#636363;
+    font-size: 20px;
+    line-height: 29px;
+    margin-bottom: 20px;
+  }
+  .urlSubtitle{
+    color:#1e71c0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 10px;
+  }
+  .urlAddButton{
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  .urlItemContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .urlItemInput{
+    flex:1;
+    padding: 10px 12px 10px 12px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .urlRemoveButton{
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e5e5;
+    margin-right: 12px;
+  }
+  .mb58{
+    margin-bottom: 58px;
+  }
+}
+@include tablet {}
+@include mobile {}

@@ -3,21 +3,28 @@
 
 @include desktop {
   .sidebar-con {
+    position: fixed;
+    top: 148px + 64px;
+    width: $sideBarWidth;
     display: flex;
     flex-direction: column;
-
+    background-color: $background-color;
   }
   .sidebar-wrapper {
     padding: 0px 40px;
   }
   .sidebar-bts{
     .category-bt {
-      font-size: 18px;
+      font-size: 24px;
+      font-weight: bold;
+
+      
     }
     .sub-bts {
       display: flex;
       flex-direction: column;
-      .sub-bt {font-size: 16px;}
+      .sub-bt {
+        font-size: 16px;}
     }
     
   }

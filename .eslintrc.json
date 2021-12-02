@@ -28,11 +28,12 @@
         "react-hooks"
     ],
     "rules": {
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "error",
         "prettier/prettier":0,
         "import/no-unresolved": "off",
-        "no-use-before-define": ["error", { "functions": true, "classes": true }],
-        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "no-use-before-define": "off",
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "import/extensions": [
             "error",
             "ignorePackages",

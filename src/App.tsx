@@ -1,27 +1,20 @@
-import { Container } from "@material-ui/core";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.scss";
-import { Footer, Header, SideBar } from "./app/shared/components";
-
-import HomePage from "./pages/Home";
-import NonsubjectPage from "./pages/Nonsubject";
-import PostPage from "./pages/Post";
+import { Footer, Header } from "./app/shared/components";
 import ProfilePage from "./pages/Profile";
 import StudyPage from "./pages/Study";
+import StudyDetailPage from "./pages/StudyDetail";
 
 const MainContainer = (): JSX.Element => (
   <div className="router-con">
     <div className="main-con">
-      <SideBar/>
-      <Switch>
-        <Route exact path="/" component={HomePage}/>
-        <Route path="/study" component={StudyPage}/>
-        <Route path="/post" component={PostPage}/>
-        <Route path="/nonsub" component={NonsubjectPage}/>
-        <Route path="/profile" component={ProfilePage}/>
-        <Redirect path="*" to="/"/>
-      </Switch>
+        <Switch>
+          <Route exact path="/study/:category" component={StudyPage}/>
+          <Route path="/profile" component={ProfilePage}/>
+          <Route path="/study/detail/:studyId" component={StudyDetailPage}/>
+          <Redirect path="*" to="/study/employment"/>
+        </Switch>
     </div>
   </div>
 );

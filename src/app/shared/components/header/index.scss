@@ -7,12 +7,13 @@
     position: fixed;
     top: 0;
 
+    border-bottom: solid 2px #e5e5e5;
+
     background-color: white;
-    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
   }
   .header-wrap {
     height: 100%;
-    max-width: $maxContentWitdh;
+    max-width: $headerMaxWitdh;
     margin: auto;
     padding: 0px 40px;
     display: flex;
@@ -23,10 +24,18 @@
     display: flex;
   }
   .header-logo {
-    color: $main-color;
+    color: #393939;
     font-size: 24px;
     font-weight: bold;
   }
 }
 @include tablet {}
-@include mobile {}
+@include mobile {
+  .header-con {
+    height: 40px;
+  }
+  .header-wrap {
+    display: flex;
+    
+  }
+}

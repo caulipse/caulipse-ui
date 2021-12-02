@@ -8,33 +8,30 @@ export interface SidebarCategoryType {
   defaltRoute: string;
   subCategories: SidebarSubCategoryType[];
 }
+
 export const sidebarCategoriesInMain: SidebarCategoryType[] = [
   {
     id: "study",
     name: "스터디",
-    defaltRoute: "/study/list",
+    defaltRoute: "/study/employment",
     subCategories: [
       {
-        name: "스터디",
-        route: "/study/list",
+        name: "취업, 면접",
+        route: "/study/employment",
       },
       {
-        name: "찾아보기",
-        route: "/study/search",
+        name: "자격증",
+        route: "/study/certificate",
+      },
+      {
+        name: "프로그래밍",
+        route: "/study/programming",
+      },
+      {
+        name: "생활 기타",
+        route: "/study/etc",
       },
     ]
-  },
-  {
-    id: "post",
-    name: "게시글",
-    defaltRoute: "/post",
-    subCategories: []
-  },
-  {
-    id: "nonsub",
-    name: "중앙대 비교과",
-    defaltRoute: "/nonsub",
-    subCategories: []
   },
 ];
 export const sidebarCategoriesInProfile: SidebarCategoryType[] = [

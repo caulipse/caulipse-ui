@@ -4,6 +4,7 @@ import "./App.scss";
 import { Footer, Header } from "./app/shared/components";
 import ProfilePage from "./pages/Profile";
 import StudyPage from "./pages/Study";
+import StudyDetailPage from "./pages/StudyDetail";
 
 const MainContainer = (): JSX.Element => (
   <div className="router-con">
@@ -11,6 +12,7 @@ const MainContainer = (): JSX.Element => (
         <Switch>
           <Route exact path="/study/:category" component={StudyPage}/>
           <Route path="/profile" component={ProfilePage}/>
+          <Route path="/study/detail/:studyId" component={StudyDetailPage}/>
           <Redirect path="*" to="/study/employment"/>
         </Switch>
     </div>

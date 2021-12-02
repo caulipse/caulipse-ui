@@ -30,4 +30,12 @@
   }
 }
 @include tablet {}
-@include mobile {}
+@include mobile {
+  .header-con {
+    height: 40px;
+  }
+  .header-wrap {
+    display: flex;
+    
+  }
+}

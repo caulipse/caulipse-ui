@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import './styles.scss';
 import SubCategoryBarContainer from "@src/app/study/SubCategoryBar/SubCategoryBarContainer";
-import StudySearchBarContainer from "@src/app/study/StudySearchBar/StudySearchBarContainer";
 import StudyListContainter from "@src/app/study/StudyList/StudyListContainer";
 import StudyCategoryBarContainer from "@src/app/study/StudyCategoryBar/StudyCategoryBarContainer";
 
@@ -52,7 +51,6 @@ const StudyPage = (): JSX.Element => {
       <div className="studyPage-Toolbar-con">
         <div className="studyPage-Toolbar-wrap">
           <SubCategoryBarContainer addSubCategory={addSubCategory} rmSubCategory={rmSubCategory}/>
-          <StudySearchBarContainer studyCategory={studyCategory} selectedList={selectedList} rmSubCategory={handleRemoveSubCategory}/>
         </div>
       </div>
       <StudyListContainter/>

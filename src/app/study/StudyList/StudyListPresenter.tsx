@@ -18,10 +18,6 @@ const StudyListPresenter = ():JSX.Element => (
             ))
           }
         </div>
-        <div className="studyList-borad-con">
-          <div>ff</div>
-          <div>ff</div>
-        </div>
       </div>
     </div>
   </div>

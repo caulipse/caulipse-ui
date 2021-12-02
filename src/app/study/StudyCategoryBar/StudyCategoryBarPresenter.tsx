@@ -10,15 +10,15 @@ const data: routeCategory[] = [
   },
   {
     name: "자격증",
-    route: "a"
+    route: "certification"
   },
   {
     name: "프로그래밍",
-    route: "s"
+    route: "programming"
   },
   {
     name: "생활 / 기타",
-    route: "c"
+    route: "etc"
   },
 ]
 

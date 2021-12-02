@@ -5,7 +5,7 @@ import MyPage from "./my/MyPage";
 
 const ProfilePage = (): JSX.Element => (
   <Switch>
-    <Route exact path='/profile/my' component={MyPage}/>
+    <Route exact path='/profile' component={MyPage}/>
     <Route exact path='/profile/bookmark' component={BookmarkPage} />
   </Switch>
 );

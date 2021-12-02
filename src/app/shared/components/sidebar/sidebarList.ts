@@ -38,11 +38,11 @@ export const sidebarCategoriesInProfile: SidebarCategoryType[] = [
   {
     id: "my profile",
     name: "내 정보",
-    defaltRoute: "/profile/my",
+    defaltRoute: "/profile",
     subCategories: [
       {
         name: "프로필 설정",
-        route: "/profile/my",
+        route: "/profile",
       },
       {
         name: "업적",

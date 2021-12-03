@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
 
 import './BookmarkPage.scss';
+import { StudyInterface } from '../../../app/profile/interface/interface';
 
 const toFormattedCount = (count: number) => {
 	if (count < 10) return `0${count}`;
@@ -10,6 +11,20 @@ const toFormattedCount = (count: number) => {
 
 const BookmarkPage = () => {
 	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
+
+	const getBookmarkData = (iter: number) => {
+		const bookmarkFactory = Factory.Sync.makeFactory<StudyInterface>({
+			studyId: iter,
+			title: '제목입니다.',
+			currentNumber: 1,
+			maxNumber: 10,
+		});
+		return bookmarkFactory.buildList(iter);
+	};
+
+	useEffect(()=>{
+		setRecruitingStudies(getBookmarkData(10));
+	}, [])
 
 	const RecruitingStudies = () => {
 		const [recruitingShow, setRecruitingShow] = useState<boolean>(true);

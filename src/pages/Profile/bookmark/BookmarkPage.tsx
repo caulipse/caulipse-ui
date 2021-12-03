@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
 
 import './BookmarkPage.scss';
-import { StudyInterface } from '../../../app/profile/interface/interface';
+import { BookmarkInterface, StudyInterface } from '../../../app/profile/interface/interface';
 
 const toFormattedCount = (count: number) => {
 	if (count < 10) return `0${count}`;
@@ -13,11 +13,15 @@ const BookmarkPage = () => {
 	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
 
 	const getBookmarkData = (iter: number) => {
-		const bookmarkFactory = Factory.Sync.makeFactory<StudyInterface>({
+		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
 			studyId: iter,
 			title: '제목입니다.',
 			currentNumber: 1,
 			maxNumber: 10,
+			date: new Date(),
+			hits:10,
+			stars:10,
+			category:'어학->토익'
 		});
 		return bookmarkFactory.buildList(iter);
 	};

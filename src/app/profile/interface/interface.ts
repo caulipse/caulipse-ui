@@ -24,7 +24,6 @@ export interface EmptyComponentInterface{
     buttonText?:string;
     buttonColor?:string;
     onClick?:(event: React.MouseEvent<HTMLButtonElement>)=>void;
-
     myBackgroundColor?:string;
 }
 
@@ -38,4 +37,11 @@ export interface RecruitedStudyInterface extends StudyInterface{
     date:Date;
     name:string;
     tags:string[]
+}
+
+export interface BookmarkInterface extends StudyInterface{
+    date:Date;
+    hits:number;
+    stars:number;
+    category:string;
 }

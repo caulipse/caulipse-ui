@@ -8,7 +8,7 @@ const toFormattedCount = (count: number) => {
 	return count;
 };
 
-function BookmarkPage() {
+const BookmarkPage = () => {
 	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
 
 	const RecruitingStudies = () => {
@@ -65,6 +65,6 @@ function BookmarkPage() {
 			{recruitingStudies.length === 0 || <RecruitedStudies />}
 		</div>
 	);
-}
+};
 
 export default BookmarkPage;

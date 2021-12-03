@@ -8,7 +8,7 @@ const toFormattedCount = (count: number) => {
 	return count;
 };
 
-const BookmarkPage = () => {
+const BookmarkPage = (): JSX.Element => {
 	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
 
 	const RecruitingStudies = () => {

@@ -8,7 +8,7 @@ const Header: React.FC = () => {
 	const location = useLocation();
 
 	return (
-		<header>
+		<header className='headerContainer'>
 			{headerButtons.map((button: HeaderButtonProps) => (
 				<button
 					className={location.pathname === button.route ? 'tagSelected' : 'tagUnselected'}

@@ -6,6 +6,9 @@
     line-height: 25px;
     border-radius: 15px;
 }
+.headerContainer{
+    margin: 8px
+}
 .tagSelected{
     @extend %tag;
     color: #ffffff;

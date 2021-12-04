@@ -5,11 +5,6 @@ import './BookmarkPage.scss';
 import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
 import { BookmarkInterface, StudyInterface } from '../../../app/profile/interface/interface';
 
-const toFormattedCount = (count: number) => {
-	if (count < 10) return `0${count}`;
-	return count;
-};
-
 const BookmarkPage = () => {
 	const [recruitingStudies, setRecruitingStudies] = useState<BookmarkInterface[]>([]);
 
@@ -20,8 +15,8 @@ const BookmarkPage = () => {
 			currentNumber: 1,
 			maxNumber: 10,
 			date: new Date(),
-			hits: 10,
-			stars: 10,
+			hits: 5,
+			stars: 5,
 			category: '어학->토익',
 		});
 		return bookmarkFactory.buildList(iter);

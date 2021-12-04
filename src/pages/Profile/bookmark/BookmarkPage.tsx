@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
 
 import './BookmarkPage.scss';
+import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
 import { BookmarkInterface, StudyInterface } from '../../../app/profile/interface/interface';
 
 const toFormattedCount = (count: number) => {
@@ -19,51 +20,16 @@ const BookmarkPage = () => {
 			currentNumber: 1,
 			maxNumber: 10,
 			date: new Date(),
-			hits:10,
-			stars:10,
-			category:'어학->토익'
+			hits: 10,
+			stars: 10,
+			category: '어학->토익',
 		});
 		return bookmarkFactory.buildList(iter);
 	};
 
-	useEffect(()=>{
+	useEffect(() => {
 		setRecruitingStudies(getBookmarkData(10));
-	}, [])
-
-	const RecruitingStudies = () => {
-		const [recruitingShow, setRecruitingShow] = useState<boolean>(true);
-
-		const toggleShow = () => {
-			setRecruitingShow(!recruitingShow);
-		};
-
-		const deleteAll = () => {
-			console.log('deleteAll called');
-		};
-
-		return (
-			<>
-				<div className="recruitingStudiesHeader">
-					<button type="button" onClick={toggleShow}>
-						<span className="recruitingShowText">마감항목 표시</span>
-					</button>
-					<button
-						type="button"
-						className="deleteAllButtonBlurred"
-						onClick={deleteAll}
-						disabled={recruitingStudies.length === 0}
-					>
-						<span className="deleteAllTextBlurred">모두 삭제</span>
-					</button>
-				</div>
-				{recruitingStudies.length === 0 && recruitingShow && <EmptyRecruitingStudies />}
-			</>
-		);
-	};
-
-	const RecruitedStudies = () => {
-		return <div>RecruitedStudies</div>;
-	};
+	}, []);
 
 	const EmptyRecruitingStudies = () => {
 		return (
@@ -78,10 +44,10 @@ const BookmarkPage = () => {
 
 	return (
 		<div className="container">
-			<div className="bookmarkTitle">북마크</div>
-			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div>
-			<RecruitingStudies />
-			{recruitingStudies.length === 0 || <RecruitedStudies />}
+			{/* <div className="bookmarkTitle">북마크</div>
+			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div> */}
+			<BookmarkList />
+			<BookmarkList />
 		</div>
 	);
 };

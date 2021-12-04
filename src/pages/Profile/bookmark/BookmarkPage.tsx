@@ -28,7 +28,7 @@ const BookmarkPage = () => {
 	};
 
 	useEffect(() => {
-		setRecruitingStudies(getBookmarkData(10));
+		setRecruitingStudies(getBookmarkData(5));
 	}, []);
 
 	const EmptyRecruitingStudies = () => {

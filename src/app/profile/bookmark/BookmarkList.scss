@@ -4,12 +4,14 @@
     display: flex;
     flex-direction: column;
     background-color: #f7f7f7;
+    padding-top: 48px;
 }
 .headerContainer{
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 9px;
+    margin-bottom: 32px;
 }
 .horizontalBar{
     width: 6px;
@@ -26,4 +28,56 @@
     font-size: 17px;
     line-height: 24px;
     color:#025db5;
+}
+.bookmarkItemContainer{
+    display: flex;
+    padding: 20px 8px 20px 14px;
+    background-color: #ffffff;
+    flex-direction: column;
+    border-bottom: solid;
+    border-bottom-color: #e5e5e5;
+    border-bottom-width: 2px;
+}
+.bookmarkItemCategory{
+    font-size: 10px;
+    line-height: 15px;
+    color: #025db5;
+    font-weight: bold;
+}
+.bookmarkItemMidContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4px;
+}
+.bookmarkItemTitle{
+    font-size: 14px;
+    line-height: 20px;
+    color: #636363;
+    flex-shrink: 1;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.bookmarkItemCount{
+    font-size: 14px;
+    line-height: 20px;
+    color: #929699;
+    padding-right: 34.5px;
+    padding-left: 28px;
+}
+.bookmarkItemBottomContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 4px;
+    font-size: 11px;
+    line-height: 16px;
+    color:#b1b1b1
+}
+.bookmarkItemDividerDot{
+    margin-left: 5px;
+    margin-right: 5px;
+    color:#c1c1c1;
 }

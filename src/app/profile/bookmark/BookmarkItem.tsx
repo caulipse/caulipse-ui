@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 import { BookmarkInterface } from '../interface/interface';
 
@@ -17,7 +18,7 @@ const Bookmarkitem = ({ item }: BookmarkItemProps) => {
 				<button type="button">X</button>
 			</div>
             <div className='bookmarkItemBottomContainer'>
-                <div>{item.date.toDateString()}</div>
+                <div>{moment(item.date).format('YYYY-MM-DD HH:MM')}</div>
                 <div className='bookmarkItemDividerDot'>·</div>
                 <div>조회 {item.hits}</div>
                 <div className='bookmarkItemDividerDot'>·</div>

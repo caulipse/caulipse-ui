@@ -1,5 +1,5 @@
 import React from 'react';
-import reactRouter, { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { HeaderButtonProps, headerButtons } from './headerList';
 
 const Header: React.FC = () => {

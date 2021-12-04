@@ -1,0 +1,17 @@
+@import "../../../scss/mixins";
+
+%tag{
+    padding: 8px 7px 8px 7px;
+    font-size: 11px;
+    line-height: 25px;
+    border-radius: 15px;
+}
+.tagSelected{
+    @extend %tag;
+    color: #ffffff;
+    background-color: #212b36;
+}
+.tagUnselected{
+    @extend %tag;
+    color: #212b36;
+}

@@ -1,14 +1,21 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { HeaderButtonProps, headerButtons } from './headerList';
+import './index.scss';
 
 const Header: React.FC = () => {
 	const history = useHistory();
+	const location = useLocation();
 
 	return (
 		<header>
 			{headerButtons.map((button: HeaderButtonProps) => (
-				<button key={button.title} type="button" onClick={() => history.push(button.route)}>
+				<button
+					className={location.pathname === button.route ? 'tagSelected' : 'tagUnselected'}
+					key={button.title}
+					type="button"
+					onClick={() => history.push(button.route)}
+				>
 					<div>{button.title}</div>
 				</button>
 			))}

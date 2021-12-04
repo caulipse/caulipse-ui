@@ -42,7 +42,7 @@ const BookmarkPage = () => {
 			{/* <div className="bookmarkTitle">북마크</div>
 			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div> */}
 			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
-			<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} />
+			<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} isBlurred />
 		</div>
 	);
 };

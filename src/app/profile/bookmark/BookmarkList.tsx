@@ -6,21 +6,26 @@ import './BookmarkList.scss';
 interface BookmarkListProps {
 	title: string;
 	bookmarkList: BookmarkInterface[] | [];
+	isBlurred?: boolean;
 }
 
-const BookmarkList = ({ title, bookmarkList }: BookmarkListProps) => {
+const BookmarkList = ({ title, bookmarkList, isBlurred }: BookmarkListProps) => {
 	return (
 		<div className="container">
-			<div className="headerContainer">
-				<div className="horizontalBar" />
-				<div className="title">{title}</div>
-				<div className="count">&nbsp;({bookmarkList?.length ?? 0})</div>
+			<div className="headerContainer" >
+				<div className="horizontalBar" style={isBlurred?{backgroundColor:'#929699'}:undefined}/>
+				<div className="title" style={isBlurred?{color:'#929699'}:undefined}>{title}</div>
+				{isBlurred || <div className="count">&nbsp;({bookmarkList?.length ?? 0})</div>}
 			</div>
 			{bookmarkList.map((item: BookmarkInterface) => (
-				<Bookmarkitem key={item.studyId} item={item} />
+				<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred}/>
 			))}
 		</div>
 	);
+};
+
+BookmarkList.defaultProps = {
+	isBlurred: false,
 };
 
 export default BookmarkList;

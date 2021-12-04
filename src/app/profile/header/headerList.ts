@@ -10,10 +10,10 @@ export const headerButtons: HeaderButtonProps[] = [
 	},
 	{
 		title: '신청 스터디',
-		route: '/apply',
+		route: '/appliedStudies',
 	},
 	{
-		title: '북마크',
-		route: '/bookmark',
+		title: '모집 스터디',
+		route: '/recruitingStudies',
 	},
 ];

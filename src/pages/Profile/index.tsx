@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import BookmarkPage from './bookmark/BookmarkPage';
 import MyPage from './my/MyPage';
+import ProfileHeader from '../../app/profile/header';
 
 const ProfileContainer = (): JSX.Element => (
 	<Switch>
@@ -13,6 +14,7 @@ const ProfileContainer = (): JSX.Element => (
 const ProfilePage = (): JSX.Element => {
 	return (
 		<BrowserRouter>
+			<ProfileHeader />
 			<ProfileContainer />
 		</BrowserRouter>
 	);

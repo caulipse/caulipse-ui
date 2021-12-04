@@ -1,8 +1,22 @@
 import React from 'react';
-import './BookmarkList.scss'
+import { BookmarkInterface } from '../interface/interface';
+import './BookmarkList.scss';
 
-const BookmarkList = () => {
-	return <div>북마크</div>;
+interface BookmarkListProps {
+	title: string;
+	bookmarkList: BookmarkInterface[]|[];
+}
+
+const BookmarkList = ({ title, bookmarkList }: BookmarkListProps) => {
+	return (
+		<div className="container">
+			<div className="headerContainer">
+				<div className="horizontalBar" />
+				<div className="title">{title}</div>
+				<div className="count">&nbsp;({bookmarkList?.length ?? 0})</div>
+			</div>
+		</div>
+	);
 };
 
 export default BookmarkList;

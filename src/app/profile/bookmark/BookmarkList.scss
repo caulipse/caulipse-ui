@@ -1,2 +1,28 @@
 @import '../../../scss/mixins';
 
+.container{
+    display: flex;
+    flex-direction: column;
+}
+.headerContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 9px;
+}
+.horizontalBar{
+    width: 6px;
+    height: 22px;
+    background-color: #1a1a1a;
+}
+.title{
+    margin-left: 5px;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+}
+.count{
+    font-size: 17px;
+    line-height: 24px;
+    color:#025db5;
+}

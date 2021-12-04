@@ -11,7 +11,7 @@ const toFormattedCount = (count: number) => {
 };
 
 const BookmarkPage = () => {
-	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
+	const [recruitingStudies, setRecruitingStudies] = useState<BookmarkInterface[]>([]);
 
 	const getBookmarkData = (iter: number) => {
 		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
@@ -46,8 +46,8 @@ const BookmarkPage = () => {
 		<div className="container">
 			{/* <div className="bookmarkTitle">북마크</div>
 			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div> */}
-			<BookmarkList />
-			<BookmarkList />
+			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
+			<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} />
 		</div>
 	);
 };

@@ -7,6 +7,7 @@ import { BookmarkInterface, StudyInterface } from '../../../app/profile/interfac
 
 const BookmarkPage = () => {
 	const [recruitingStudies, setRecruitingStudies] = useState<BookmarkInterface[]>([]);
+	const [recruitedStudiesVisible, setRecruitedStudiesVisible] = useState<boolean>(false);
 
 	const getBookmarkData = (iter: number) => {
 		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
@@ -39,11 +40,23 @@ const BookmarkPage = () => {
 
 	return (
 		<div className="container">
-			{/* <div className="bookmarkTitle">북마크</div>
-			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div> */}
 			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
-			<div className="recruitedStudiesTitle">마감된 스터디</div>
-			<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} isBlurred />
+			<button
+				type="button"
+				className="recruitedAccordian"
+				onClick={() => {
+					setRecruitedStudiesVisible(!recruitedStudiesVisible);
+				}}
+			>
+				<div>마감된 항목</div>
+				<div>^</div>
+			</button>
+			{recruitedStudiesVisible && (
+				<>
+					<div className="recruitedStudiesTitle">마감된 스터디</div>
+					<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} isBlurred />
+				</>
+			)}
 		</div>
 	);
 };

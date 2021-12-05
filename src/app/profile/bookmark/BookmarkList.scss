@@ -94,6 +94,17 @@
 .recruitedStudiesTitle{
     font-size: 11px;
     color: #637381;
-    margin-top: 36px;
     margin-left: 12px;
+}
+.recruitedAccordian{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 8px 5px 16px;
+    align-self: center;
+    margin-top: 24px;
+    border-radius: 15px;
+    border: solid;
+    border-width: 1px;
+    border-color: #e5e5e5;
+    margin-bottom: 32px;
 }

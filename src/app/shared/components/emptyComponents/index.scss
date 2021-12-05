@@ -1,0 +1,27 @@
+.emptyContainer{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    margin-top: 16px;
+    margin-bottom: 460px;
+}
+.emptyText{
+    font-size: 18px;
+    line-height: 26px;
+    color: #818181;
+    margin-bottom: 32px;
+}
+.emptyButton{
+    background-color: #0186c8;
+    border-radius: 28px;
+}
+.emptyButtonText{
+    font-size: 16px;
+    line-height: 28px;
+    color: #ffffff;
+    padding: 8px 27px 8px 27px;
+}

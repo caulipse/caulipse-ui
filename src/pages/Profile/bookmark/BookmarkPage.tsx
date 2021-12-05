@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
 
 import './BookmarkPage.scss';
+import EmptyComponent from '@src/app/shared/components/emptyComponents';
 
 const toFormattedCount = (count: number) => {
 	if (count < 10) return `0${count}`;
@@ -62,6 +63,13 @@ const BookmarkPage = () => {
 			<div className="bookmarkTitle">북마크</div>
 			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div>
 			<RecruitingStudies />
+			<EmptyComponent
+				title="이런, 북마크한 스터디가 없어요."
+				buttonText="스터디 찾아보기"
+				onClick={() => {
+					console.log('스터디 찾아보기 클릭');
+				}}
+			/>
 			{recruitingStudies.length === 0 || <RecruitedStudies />}
 		</div>
 	);

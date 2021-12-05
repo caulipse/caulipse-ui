@@ -29,7 +29,7 @@ const BookmarkList = ({ title, bookmarkList, isBlurred }: BookmarkListProps) => 
 			{isBlurred||Array.from(sectionedBookmarkList).map(([key, value]) => {
 				return (
 					<div key={key}>
-						<div  className='bookmarkItemCategory'>{key}</div>
+						<div className='bookmarkItemCategory'>{key}</div>
 						{value.map((item: BookmarkInterface) => (
 							<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
 						))}

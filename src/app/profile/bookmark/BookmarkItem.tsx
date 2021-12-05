@@ -10,9 +10,11 @@ interface BookmarkItemProps {
 
 const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps) => {
 	return (
-		<div className="bookmarkItemContainer" style={isBlurred ? { backgroundColor: '#e5e5e5' } : undefined}>
+		<div className={isBlurred ? 'blurredBookmarkItemContainer' : 'bookmarkItemContainer'}>
 			<div className="bookmarkItemMidContainer">
-				<div className="bookmarkItemTitle">{item.title}</div>
+				<div className="bookmarkItemTitle" style={isBlurred ? { color: '#929699' } : undefined}>
+					{item.title}
+				</div>
 				<div className="bookmarkItemCount">
 					{item.currentNumber}/{item.maxNumber} 명
 				</div>

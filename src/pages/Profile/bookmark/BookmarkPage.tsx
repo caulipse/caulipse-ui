@@ -17,7 +17,7 @@ const BookmarkPage = () => {
 			date: new Date(),
 			hits: 5,
 			stars: 5,
-			category: Factory.each((i) => i>2?'어학->토익':'프로그래밍'),
+			category: Factory.each((i) => (i > 2 ? '어학->토익' : '프로그래밍')),
 		});
 		return bookmarkFactory.buildList(iter);
 	};
@@ -42,6 +42,7 @@ const BookmarkPage = () => {
 			{/* <div className="bookmarkTitle">북마크</div>
 			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div> */}
 			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
+			<div className="recruitedStudiesTitle">마감된 스터디</div>
 			<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} isBlurred />
 		</div>
 	);

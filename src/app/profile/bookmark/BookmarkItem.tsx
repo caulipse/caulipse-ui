@@ -21,7 +21,7 @@ const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps) => {
 				<button type="button">X</button>
 			</div>
 			<div className="bookmarkItemBottomContainer">
-				<div>{moment(item.date).format('YYYY-MM-DD HH:MM')}</div>
+				<div>{moment(item.date).format('YY.MM.DD HH:MM')}</div>
 				<div className="bookmarkItemDividerDot">·</div>
 				<div>조회 {NumberUtils.toFormattedCount(item.hits)}</div>
 				<div className="bookmarkItemDividerDot">·</div>

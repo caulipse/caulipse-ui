@@ -11,9 +11,6 @@ interface BookmarkItemProps {
 const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps) => {
 	return (
 		<div className="bookmarkItemContainer" style={isBlurred ? { backgroundColor: '#e5e5e5' } : undefined}>
-			<div className="bookmarkItemCategory" style={isBlurred ? { color: '#636363' } : undefined}>
-				{item.category}
-			</div>
 			<div className="bookmarkItemMidContainer">
 				<div className="bookmarkItemTitle">{item.title}</div>
 				<div className="bookmarkItemCount">

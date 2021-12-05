@@ -1,3 +1,4 @@
+import { val } from 'factory.ts/lib/async';
 import React, { useMemo } from 'react';
 import { BookmarkInterface } from '../interface/interface';
 import Bookmarkitem from './BookmarkItem';
@@ -9,25 +10,33 @@ interface BookmarkListProps {
 	isBlurred?: boolean;
 }
 
+interface sectionedBookMarkListItemProps {
+	key: string;
+	value: BookmarkInterface[] | [];
+}
+
 const BookmarkList = ({ title, bookmarkList, isBlurred }: BookmarkListProps) => {
-	const sectionedBookMarkList = useMemo(() => {
-		const map = new Map();
+	const sectionedBookmarkList = useMemo(() => {
+		const map = new Map<string, BookmarkInterface[] | []>();
 		bookmarkList.forEach((bookmarkItem) => {
-			map.set(bookmarkItem.category, [...(map.get(bookmarkItem.category) ?? []), bookmarkItem.title]);
+			map.set(bookmarkItem.category, [...(map.get(bookmarkItem.category) ?? []), bookmarkItem]);
 		});
 		return map;
 	}, [bookmarkList]);
 
 	return (
 		<div className="container">
-			<div className="headerContainer">
-				<div className="horizontalBar" style={isBlurred ? { backgroundColor: '#929699' } : undefined} />
-				<div className="title" style={isBlurred ? { color: '#929699' } : undefined}>
-					{title}
-				</div>
-				{isBlurred || <div className="count">&nbsp;({bookmarkList?.length ?? 0})</div>}
-			</div>
-			{bookmarkList.map((item: BookmarkInterface) => (
+			{isBlurred||Array.from(sectionedBookmarkList).map(([key, value]) => {
+				return (
+					<div key={key}>
+						<div  className='bookmarkItemCategory'>{key}</div>
+						{value.map((item: BookmarkInterface) => (
+							<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
+						))}
+					</div>
+				);
+			})}
+			{isBlurred&&bookmarkList.map((item: BookmarkInterface) => (
 				<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
 			))}
 		</div>

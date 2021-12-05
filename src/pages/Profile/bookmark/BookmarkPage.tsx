@@ -27,17 +27,6 @@ const BookmarkPage = () => {
 		setRecruitingStudies(getBookmarkData(5));
 	}, []);
 
-	const EmptyRecruitingStudies = () => {
-		return (
-			<div className="emptyRecruitingStudiesContainer">
-				<div className="emptyRecruitingStudiesText">이런, 아직 북마크 된 스터기가 없네요!</div>
-				<button type="button" className="emptyRecruitingStudiesButton">
-					<span className="emptyRecruitingStudiesButtonText">스터디 찾아보기</span>
-				</button>
-			</div>
-		);
-	};
-
 	return (
 		<div className="container">
 			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />

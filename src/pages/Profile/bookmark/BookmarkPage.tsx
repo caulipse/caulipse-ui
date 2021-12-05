@@ -10,14 +10,14 @@ const BookmarkPage = () => {
 
 	const getBookmarkData = (iter: number) => {
 		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
-			studyId: iter,
+			studyId: Factory.each((i) => i),
 			title: '제목입니다.',
 			currentNumber: 1,
 			maxNumber: 10,
 			date: new Date(),
 			hits: 5,
 			stars: 5,
-			category: '어학->토익',
+			category: Factory.each((i) => i>2?'어학->토익':'프로그래밍'),
 		});
 		return bookmarkFactory.buildList(iter);
 	};

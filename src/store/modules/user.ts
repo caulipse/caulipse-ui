@@ -12,13 +12,13 @@ export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		setUserInfo: (state, action: PayloadAction<any>) => {
+		fetchUserInfo: (state, action: PayloadAction<any>) => {
             /* eslint-disable no-param-reassign */
 			state.userInfo = action.payload;
 		},
 	},
 });
 
-export const { setUserInfo } = userSlice.actions;
+export const { fetchUserInfo } = userSlice.actions;
 
 export default userSlice.reducer;

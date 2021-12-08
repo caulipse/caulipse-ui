@@ -18,6 +18,15 @@ export interface ArticleInterface{
     isBookmark:boolean;
 }
 
+export interface EmptyComponentInterface{
+    title:string;
+    description:string;
+    buttonText?:string;
+    buttonColor?:string;
+    onClick?:(event: React.MouseEvent<HTMLButtonElement>)=>void;
+    myBackgroundColor?:string;
+}
+
 export interface RecruitingStudyInterface extends StudyInterface{
     category:string;
     newInquiry:number;
@@ -28,4 +37,11 @@ export interface RecruitedStudyInterface extends StudyInterface{
     date:Date;
     name:string;
     tags:string[]
+}
+
+export interface BookmarkInterface extends StudyInterface{
+    date:Date;
+    hits:number;
+    stars:number;
+    category:string;
 }

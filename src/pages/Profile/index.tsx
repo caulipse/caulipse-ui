@@ -1,13 +1,23 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
-import BookmarkPage from "./bookmark/BookmarkPage";
-import MyPage from "./my/MyPage";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import BookmarkPage from './bookmark/BookmarkPage';
+import MyPage from './my/MyPage';
+import ProfileHeader from '../../app/profile/header';
 
-const ProfilePage = (): JSX.Element => (
-  <Switch>
-    <Route exact path='/profile' component={MyPage}/>
-    <Route exact path='/profile/bookmark' component={BookmarkPage} />
-  </Switch>
+const ProfileContainer = (): JSX.Element => (
+	<Switch>
+		<Route exact path="/profile" component={MyPage} />
+		<Route exact path="/bookmark" component={BookmarkPage} />
+	</Switch>
 );
+
+const ProfilePage = (): JSX.Element => {
+	return (
+		<BrowserRouter>
+			<ProfileHeader />
+			<ProfileContainer />
+		</BrowserRouter>
+	);
+};
 
 export default ProfilePage;

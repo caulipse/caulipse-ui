@@ -58,7 +58,7 @@ export const sidebarCategoriesInProfile: SidebarCategoryType[] = [
   {
     id: "bookmark",
     name: "북마크",
-    defaltRoute: "/profile/bookmark",
+    defaltRoute: "/bookmark",
     subCategories: []
   },
   {

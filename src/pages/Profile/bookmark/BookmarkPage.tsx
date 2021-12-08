@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
-
 import './BookmarkPage.scss';
-
-const toFormattedCount = (count: number) => {
-	if (count < 10) return `0${count}`;
-	return count;
-};
+import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
+import { BookmarkInterface, StudyInterface } from '../../../app/profile/interface/interface';
 
 const BookmarkPage = (): JSX.Element => {
 	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
@@ -42,27 +38,29 @@ const BookmarkPage = (): JSX.Element => {
 		);
 	};
 
-	const RecruitedStudies = () => {
-		return <div>RecruitedStudies</div>;
-	};
-
-	const EmptyRecruitingStudies = () => {
-		return (
-			<div className="emptyRecruitingStudiesContainer">
-				<div className="emptyRecruitingStudiesText">이런, 아직 북마크 된 스터기가 없네요!</div>
-				<button type="button" className="emptyRecruitingStudiesButton">
-					<span className="emptyRecruitingStudiesButtonText">스터디 찾아보기</span>
-				</button>
-			</div>
-		);
-	};
+	useEffect(() => {
+		setRecruitingStudies(getBookmarkData(5));
+	}, []);
 
 	return (
 		<div className="container">
-			<div className="bookmarkTitle">북마크</div>
-			<div className="bookmarkCount">{toFormattedCount(recruitingStudies.length)}</div>
-			<RecruitingStudies />
-			{recruitingStudies.length === 0 || <RecruitedStudies />}
+			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
+			<button
+				type="button"
+				className="recruitedAccordian"
+				onClick={() => {
+					setRecruitedStudiesVisible(!recruitedStudiesVisible);
+				}}
+			>
+				<div>마감된 항목</div>
+				<div>^</div>
+			</button>
+			{recruitedStudiesVisible && (
+				<>
+					<div className="recruitedStudiesTitle">마감된 스터디</div>
+					<BookmarkList title="마감된 스터디" bookmarkList={recruitingStudies} isBlurred />
+				</>
+			)}
 		</div>
 	);
 };

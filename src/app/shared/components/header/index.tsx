@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <div className="header-wrap">
         <div>
           <button type="button" onClick={() => history.push("/")}>
-            <div className="header-logo">Caulips</div>
+            <div className="header-logo">Caulipse</div>
           </button>
         </div>
         <div className="header-user-bt">

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import * as Factory from 'factory.ts';
-
 import './BookmarkPage.scss';
 import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
 import { BookmarkInterface, StudyInterface } from '../../../app/profile/interface/interface';
+import EmptyComponent from '@src/app/shared/components/emptyComponents';
+
+const toFormattedCount = (count: number) => {
+	if (count < 10) return `0${count}`;
+	return count;
+};
 
 const BookmarkPage = () => {
 	const [recruitingStudies, setRecruitingStudies] = useState<BookmarkInterface[]>([]);

@@ -10,6 +10,7 @@
     border-bottom: solid 2px #e5e5e5;
 
     background-color: white;
+   
   }
   .header-wrap {
     height: 100%;
@@ -33,6 +34,9 @@
 @include mobile {
   .header-con {
     height: 40px;
+    position: sticky;
+    top: 0px;
+    background-color: white;
   }
   .header-wrap {
     display: flex;

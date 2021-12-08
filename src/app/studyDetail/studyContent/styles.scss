@@ -1,0 +1,48 @@
+@import '../../../scss/mixins';
+
+@include mobile{
+  .studyContentContainer {
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+
+    .studyContentButtons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0px 12px 0px 12px;
+
+      position: sticky;
+      top: $headerHeight_m + $backButtonHeight;
+
+      background-color: white;
+      button {
+        height: 44px;
+        flex-grow: 1;
+        border-bottom: solid #e5e5e5 2px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #e5e5e5;
+      }
+      .clicked {
+        color: black;
+        border-bottom: solid black 2px;
+      }
+    }
+    .content {
+      padding: 0 32px;
+      .studyTimeViewedAnd {
+        display: flex;
+        flex-direction: row;
+        font-size: 11px;
+      }
+      .studyTitle {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 8px;
+      }
+      .studyContent {
+        margin-top: 32px;
+      }
+    }
+  }
+}

@@ -4,22 +4,38 @@ import './BookmarkPage.scss';
 import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
 import { BookmarkInterface, StudyInterface } from '../../../app/profile/interface/interface';
 
-const BookmarkPage = () => {
-	const [recruitingStudies, setRecruitingStudies] = useState<BookmarkInterface[]>([]);
-	const [recruitedStudiesVisible, setRecruitedStudiesVisible] = useState<boolean>(false);
+const BookmarkPage = (): JSX.Element => {
+	const [recruitingStudies, setRecruitingStudies] = useState<any[]>([]);
 
-	const getBookmarkData = (iter: number) => {
-		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
-			studyId: Factory.each((i) => i),
-			title: '제목입니다.',
-			currentNumber: 1,
-			maxNumber: 10,
-			date: new Date(),
-			hits: 5,
-			stars: 5,
-			category: Factory.each((i) => (i > 2 ? '어학->토익' : '프로그래밍')),
-		});
-		return bookmarkFactory.buildList(iter);
+	const RecruitingStudies = () => {
+		const [recruitingShow, setRecruitingShow] = useState<boolean>(true);
+
+		const toggleShow = () => {
+			setRecruitingShow(!recruitingShow);
+		};
+
+		const deleteAll = () => {
+			console.log('deleteAll called');
+		};
+
+		return (
+			<>
+				<div className="recruitingStudiesHeader">
+					<button type="button" onClick={toggleShow}>
+						<span className="recruitingShowText">마감항목 표시</span>
+					</button>
+					<button
+						type="button"
+						className="deleteAllButtonBlurred"
+						onClick={deleteAll}
+						disabled={recruitingStudies.length === 0}
+					>
+						<span className="deleteAllTextBlurred">모두 삭제</span>
+					</button>
+				</div>
+				{recruitingStudies.length === 0 && recruitingShow && <EmptyRecruitingStudies />}
+			</>
+		);
 	};
 
 	useEffect(() => {

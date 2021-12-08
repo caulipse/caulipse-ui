@@ -8,7 +8,7 @@ interface CategoryInterface {
 	category: string;
 }
 
-const MyPage = () => {
+const MyPage = (): JSX.Element => {
 	// 카테고리 목록
 	const [categories, setCategories] = useState<CategoryInterface[]>([]);
 	const [urls, setUrls] = useState<string[]>([]);

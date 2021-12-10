@@ -23,52 +23,23 @@ const BookmarkPage = (): JSX.Element => {
 		return bookmarkFactory.buildList(iter);
 	};
 
-	const RecruitingStudies = () => {
-		const [recruitingShow, setRecruitingShow] = useState<boolean>(true);
-
-		const toggleShow = () => {
-			setRecruitingShow(!recruitingShow);
-		};
-
-		const deleteAll = () => {
-			console.log('deleteAll called');
-		};
-
-		return (
-			<>
-				<div className="recruitingStudiesHeader">
-					<button type="button" onClick={toggleShow}>
-						<span className="recruitingShowText">마감항목 표시</span>
-					</button>
-					<button
-						type="button"
-						className="deleteAllButtonBlurred"
-						onClick={deleteAll}
-						disabled={recruitingStudies.length === 0}
-					>
-						<span className="deleteAllTextBlurred">모두 삭제</span>
-					</button>
-				</div>
-				{recruitingStudies.length === 0 && recruitingShow && (
-					<EmptyComponent
-						title="이런, 북마크한 스터디가 없어요."
-						buttonText="스터디 찾아보기"
-						onClick={() => {
-							console.log('스터디 찾아보기 클릭');
-						}}
-					/>
-				)}
-			</>
-		);
-	};
-
 	useEffect(() => {
 		setRecruitingStudies(getBookmarkData(5));
 	}, []);
 
 	return (
 		<div className="container">
-			<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
+			{recruitingStudies.length === 0 ? (
+				<EmptyComponent
+					title="이런, 북마크한 스터디가 없어요."
+					buttonText="스터디 찾아보기"
+					onClick={() => {
+						console.log('스터디 찾아보기 클릭');
+					}}
+				/>
+			) : (
+				<BookmarkList title="북마크" bookmarkList={recruitingStudies} />
+			)}
 			<button
 				type="button"
 				className="recruitedAccordian"

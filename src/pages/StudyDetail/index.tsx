@@ -1,4 +1,4 @@
-import { GetStudyResponse, GetStudyUserResponse } from '@src/api/resposne/study';
+import { GetStudyResponse, GetStudyUserResponse } from '@src/api/response/study';
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React from 'react';

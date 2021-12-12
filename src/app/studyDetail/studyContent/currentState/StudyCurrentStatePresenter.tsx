@@ -1,18 +1,31 @@
+import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
+import StudyUserItemContainer from './studyUserItem/StudyUserItemContainer';
 import './styles.scss';
 
-const StudyCurrentStatePresenter = (): JSX.Element => (
+interface StudyCurrentStatePresenterProps {
+  studyUsers: [] | GetStudyUserResponse[],
+  host: GetStudyUserResponse,
+}
+
+const StudyCurrentStatePresenter = ({
+  studyUsers,
+  host
+}: StudyCurrentStatePresenterProps): JSX.Element => (
   <div className="studyCurrentStateContainer">
     <div className="studyCurrentUserContainer">
       <div className="studyCurrentStateTitle">참여인원</div>
-      <div className="studyCurrentState">(6/8)</div>
+      <div className="studyCurrentState">({studyUsers.length + 1}/10)</div>
     </div>
-    <div className="studyHost">스터디 모집자</div>
+    <div className="studyHost">
+      <StudyUserItemContainer studyUser={host}/>
+    </div>
     <div className="studyUserListContainer">
-     <div>1</div>
-     <div>1</div>
-     <div>1</div>
-     <div>1</div>
+      {studyUsers.map((studyUser: GetStudyUserResponse) => {
+        return (
+          <StudyUserItemContainer key={studyUser.userId} studyUser={studyUser}/>
+        )
+      })}
     </div>
   </div>
 )

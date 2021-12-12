@@ -1,9 +1,13 @@
+import { GetStudyResponse } from '@src/api/response/study';
 import React from 'react';
 import StudyInfoPresenter from './StudyInfoPresenter';
 
-const StudyInfoContainer = (): JSX.Element => {
+interface StudyInfoContainerProps {
+  study: GetStudyResponse
+}
+const StudyInfoContainer = ({ study }: StudyInfoContainerProps): JSX.Element => {
   return (
-    <StudyInfoPresenter/>
+    <StudyInfoPresenter study={study}/>
   );
 }
 

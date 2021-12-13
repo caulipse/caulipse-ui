@@ -10,7 +10,9 @@ interface StudyContentContainerProps {
   studyData: GetStudyResponse
 }
 
-const StudyContentContainer = ({studyData}: StudyContentContainerProps): JSX.Element => {
+const StudyContentContainer = ({
+  studyData,
+}: StudyContentContainerProps): JSX.Element => {
   const [index, setIndex] = useState<number>(1);
   const [study, setStudy] = useState<GetStudyResponse>();
   const [loading, setLoadingState] = useState<boolean>(true);

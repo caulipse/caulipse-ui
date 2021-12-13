@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StudyAskPresenter from './StudyAskPresenter';
 
 const StudyAskContainer = (): JSX.Element => {
+  const [content, setContent] = useState<string>('');
+
   return (
-    <StudyAskPresenter/>
+    <StudyAskPresenter content={content} setContent={setContent}/>
   );
 }
 

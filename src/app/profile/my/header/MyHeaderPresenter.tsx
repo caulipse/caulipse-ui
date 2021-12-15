@@ -2,7 +2,7 @@ import React from 'react';
 import { IoClose, IoSettingsSharp, IoChevronForwardOutline } from 'react-icons/io5';
 import './index.scss';
 
-const sampleImgUrl='https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
+const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 
 interface MyHeaderPresenterProps {
 	userName: string;
@@ -19,11 +19,13 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 					<IoSettingsSharp size={24} fill="#f7f7f7" />
 				</button>
 			</div>
-            <div className='profilePhotoContainer'>
-                <img className='profilePhoto' src={sampleImgUrl} alt='사용자 프로필 사진'/>
+			<img className="profilePhoto" src={sampleImgUrl} alt="사용자 프로필 사진" />
+			<div className="userName">
+				{userName}
+				<span className="userNameSuffix"> 님</span>
+			</div>
+            <span className='myProfileBtnText'>내 프로필 보기 {'>'}</span>
 
-            </div>
-			{userName}
 		</div>
 	);
 };

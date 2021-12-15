@@ -1,0 +1,16 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+.container{
+    display: flex;
+    max-width: $maxContentWitdh;
+    background-color: red;
+    padding: 0px $horizontalPadding;
+    padding-top: 50px;
+}
+.iconsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

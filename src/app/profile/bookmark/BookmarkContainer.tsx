@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import * as Factory from 'factory.ts';
+import { setBookmarks } from '@src/store/modules/user';
+import { useAppDispatch, useAppSelector } from '@src/hooks/appRedux';
 import BookmarkPresenter from './BookmarkPresenter';
 import { BookmarkInterface } from '../interface/interface';
 
 const BookmarkContainer = (): JSX.Element => {
-	const [bookmarks, setBookmarks] = useState<BookmarkInterface[]>([]);
+	const dispatch = useAppDispatch();
+	const bookmarks = useAppSelector((state) => state.user.bookmarks);
 
 	const getBookmarkData = (iter: number) => {
 		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
@@ -21,12 +24,20 @@ const BookmarkContainer = (): JSX.Element => {
 	};
 
 	useEffect(() => {
-		setBookmarks(getBookmarkData(5));
+		dispatch(
+			setBookmarks({
+				recruitingBookmarks: getBookmarkData(5),
+				recruitedBookmarks: getBookmarkData(3),
+			})
+		);
 	}, []);
 
 	return (
 		<div>
-			<BookmarkPresenter recruitedBookmarks={bookmarks} recruitingBookmarks={bookmarks} />
+			<BookmarkPresenter
+				recruitedBookmarks={bookmarks?.recruitedBookmarks}
+				recruitingBookmarks={bookmarks?.recruitingBookmarks}
+			/>
 		</div>
 	);
 };

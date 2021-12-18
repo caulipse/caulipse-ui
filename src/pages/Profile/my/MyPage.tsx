@@ -1,3 +1,4 @@
+import MyBtns from '@src/app/profile/my/btns';
 import MyHeaderContainer from '@src/app/profile/my/header/MyHeaderContainer';
 import NotificationsContainer from '@src/app/profile/my/notifications/NotificationsContainer';
 import PreviewContainer from '@src/app/profile/my/preview/PreviewContainer';
@@ -12,6 +13,7 @@ const MyPage = (): JSX.Element => {
 			<MyHeaderContainer />
 			<PreviewContainer />
 			<NotificationsContainer />
+			<MyBtns />
 		</div>
 	);
 };

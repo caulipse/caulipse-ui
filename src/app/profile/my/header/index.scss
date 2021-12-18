@@ -6,9 +6,9 @@
     flex-direction: column;
     max-width: $maxContentWitdh;
     background: linear-gradient(#176ddd, #a1c5ee);
-    padding: 0px $horizontalPadding;
     padding-top: 50px;
     align-items: center;
+    margin:0px -12px;
 }
 .iconsContainer{
     display: flex;

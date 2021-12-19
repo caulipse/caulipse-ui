@@ -10,26 +10,24 @@ interface MyHeaderPresenterProps {
 }
 
 const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element => {
+	const history = useHistory();
 
-    const history=useHistory();
-    
 	return (
-		<div className="container">
-			<div className="iconsContainer">
-				<button type="button" onClick={()=>history.goBack()}>
+		<div className="my-header-container">
+			<div className="my-header-icons-container">
+				<button type="button" onClick={() => history.goBack()}>
 					<IoClose size={24} fill="#f7f7f7" />
 				</button>
 				<button type="button">
 					<IoSettingsSharp size={24} fill="#f7f7f7" />
 				</button>
 			</div>
-			<img className="profilePhoto" src={sampleImgUrl} alt="사용자 프로필 사진" />
-			<div className="userName">
+			<img className="my-header-profile-photo" src={sampleImgUrl} alt="사용자 프로필 사진" />
+			<div className="my-header-user-name">
 				{userName}
-				<span className="userNameSuffix"> 님</span>
+				<span className="my-header-user-name-suffix"> 님</span>
 			</div>
-            <span className='myProfileBtnText'>내 프로필 보기 {'>'}</span>
-
+			<span className="my-header-my-profile-btn-text">내 프로필 보기 {'>'}</span>
 		</div>
 	);
 };

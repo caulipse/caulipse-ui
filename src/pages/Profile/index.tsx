@@ -6,7 +6,7 @@ import ProfileHeader from '../../app/profile/header';
 
 const ProfileContainer = (): JSX.Element => (
 	<Switch>
-		<Route exact path="/profile" component={MyPage} />
+		<Route exact path="/profile/:userId" component={MyPage} />
 		<Route exact path="/bookmark" component={BookmarkPage} />
 	</Switch>
 );

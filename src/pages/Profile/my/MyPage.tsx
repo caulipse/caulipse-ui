@@ -11,9 +11,12 @@ const MyPage = (): JSX.Element => {
 	return (
 		<div className="my-page-container">
 			<MyHeaderContainer />
-			<PreviewContainer />
-			<NotificationsContainer />
-			<MyBtns />
+			<div className='my-page-boxes'>
+				<PreviewContainer />
+				<NotificationsContainer />
+				<MyBtns />
+			</div>
+			
 		</div>
 	);
 };

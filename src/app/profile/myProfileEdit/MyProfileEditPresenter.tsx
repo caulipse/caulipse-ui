@@ -18,7 +18,7 @@ const MyProfileEditPresenter = (): JSX.Element => {
 			<div className="profile-edit-row-container mt8">
 				<div className="profile-edit-column-container flex-grow-1">
 					<div className="profile-edit-major-title">학과</div>
-					<input className="profile-edit-major-input" type="text" placeholder="닉네임을 입력해 주세요." />
+					<input className="profile-edit-major-input" type="text" placeholder="ex. 컴퓨터공학" />
 				</div>
 				<div className="profile-edit-column-container ml16">
 					<div className="profile-edit-major-title">

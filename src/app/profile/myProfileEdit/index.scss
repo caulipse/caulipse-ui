@@ -1,1 +1,101 @@
 @import '../../../scss/variables';
+
+@mixin title{
+    font-size: 14px;
+    color: #4c4c4c;
+    font-weight: bold;
+}
+@mixin input{
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 12px;
+    color: #1a1a1a;
+    padding: 10px 12px;
+}
+@mixin subtitle {
+    font-size: 11px;
+    color: #929699; 
+    font-weight: normal;
+}
+@mixin select{
+    font-size: 12px;
+    color:#1a1a1a;
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+
+.profile-edit{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        background-color: #f2f3f5;
+        padding:40px 20px 80px 20px;
+    }
+    &-image{
+        border-radius: 104px;
+        align-self: center;
+    }
+    &-nickname{
+        &-title{
+            @include title;
+            margin-top: 32px;
+        }
+        &-input{
+            @include input;
+            margin-top: 8px;
+        }
+    }
+    &-row-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    &-column-container{
+        display: flex;
+        flex-direction: column;
+    }
+    &-major{
+        &-title{
+            @include title;
+        }
+        &-input{
+            @include input;
+            margin-top: 8px;
+        }
+    }
+    &-grade{
+        &-subtitle{
+            @include subtitle;
+        }
+        &-select{
+            @include select;
+            margin-top: 8px;
+        }
+    }
+    &-status{
+        &-title{
+            @include title;
+            margin-top: 32px;
+        }
+        &-select{
+            @include select;
+            margin-top: 8px;
+        }
+    }
+}
+.divider{
+    height: 1px;
+    background-color: #e5e5e5;
+}
+.mt8{
+    margin-top: 8px;
+}
+.mt40{
+    margin-top: 40px;
+}
+.ml16{
+    margin-left: 16px;
+}
+.flex-grow-1{
+    flex-grow:1;
+}

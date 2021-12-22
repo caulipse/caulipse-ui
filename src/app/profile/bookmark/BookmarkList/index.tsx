@@ -1,6 +1,5 @@
-import { val } from 'factory.ts/lib/async';
 import React, { useMemo } from 'react';
-import { BookmarkInterface } from '../interface/interface';
+import { BookmarkInterface } from '../../interface/interface';
 import Bookmarkitem from './BookmarkItem';
 import './BookmarkList.scss';
 

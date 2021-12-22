@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import NumberUtils from '@src/app/shared/utils/number';
-import { BookmarkInterface } from '../interface/interface';
+import { BookmarkInterface } from '../../interface/interface';
 
 interface BookmarkItemProps {
 	item: BookmarkInterface;

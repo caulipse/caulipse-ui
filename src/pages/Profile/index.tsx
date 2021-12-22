@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import BookmarkPage from './bookmark/BookmarkPage';
+import BookmarkPage from './bookmark';
 import MyPage from './my/MyPage';
 import ProfileHeader from '../../app/profile/header';
 

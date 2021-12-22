@@ -116,6 +116,20 @@
             white-space: nowrap;
         }
     }
+    &-short-intro{
+        &-title{
+            @include title;
+            margin-top: 40px;
+        }
+        &-input{
+            @include input;
+            margin-top: 8px;
+        }
+        &-subtitle{
+            @include subtitle;
+            margin-left: 8px;
+        }
+    }
 }
 .divider{
     height: 1px;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.scss';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
@@ -12,6 +12,8 @@ const sampleCategories = [
 ];
 
 const MyProfileEditPresenter = (): JSX.Element => {
+	const [shortIntro, setShortIntro] = useState<string>('');
+
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
 	};
@@ -58,6 +60,16 @@ const MyProfileEditPresenter = (): JSX.Element => {
 					<div>수정하기</div>
 				</button>
 			</div>
+			<div className="profile-edit-short-intro-title">
+				한줄소개<span className="profile-edit-short-intro-subtitle">{shortIntro?.length}/60</span>
+			</div>
+			<input
+				className="profile-edit-short-intro-input"
+				placeholder="프로필 상단에 보이는 소개글입니다."
+				maxLength={60}
+				onChange={(e) => setShortIntro(e.target.value)}
+				value={shortIntro}
+			/>
 		</div>
 	);
 };

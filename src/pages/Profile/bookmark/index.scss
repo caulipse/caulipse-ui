@@ -1,0 +1,14 @@
+@import '../../../scss/variables';
+
+.bookmark-page{
+    &-bg{
+        display: flex;
+        flex-direction: column;
+        background-color: #f7f7f7;
+    }
+    &-container{
+        align-self: center;
+        width: 100%;
+        max-width: $maxContentWitdh;
+    }
+}

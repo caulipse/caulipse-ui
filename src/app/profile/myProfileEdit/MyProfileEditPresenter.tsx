@@ -15,9 +15,9 @@ const MyProfileEditPresenter = (): JSX.Element => {
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
 	};
-    const changeCategories=()=>{
-        console.log('changeCategories')
-    }
+	const changeCategories = () => {
+		console.log('changeCategories');
+	};
 
 	return (
 		<div className="profile-edit-container">
@@ -54,8 +54,8 @@ const MyProfileEditPresenter = (): JSX.Element => {
 				<div className="profile-edit-category-text">
 					{sampleCategories?.map((item, index, { length }) => `${item}${index === length - 1 ? '' : ', '}`)}
 				</div>
-				<button type="button" onClick={changeCategories}>
-					<div className='profile-edit-category-edit'>수정하기</div>
+				<button type="button" className="profile-edit-category-edit" onClick={changeCategories}>
+					<div>수정하기</div>
 				</button>
 			</div>
 		</div>

@@ -27,7 +27,9 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 				{userName}
 				<span className="my-header-user-name-suffix"> 님</span>
 			</div>
-			<span className="my-header-my-profile-btn-text">내 프로필 보기 {'>'}</span>
+			<button type="button" onClick={()=>history.push('/profile/edit')}>
+				<div className="my-header-my-profile-btn-text">내 프로필 보기 {'>'}</div>
+			</button>
 		</div>
 	);
 };

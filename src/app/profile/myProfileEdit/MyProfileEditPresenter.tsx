@@ -2,11 +2,22 @@ import React from 'react';
 import './index.scss';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
+const sampleCategories = [
+	'항목 텍스트 1',
+	'항목 텍스트 2',
+	'항목 테스트 3',
+	'항목 테스트 4',
+	'항목 테스트 5',
+	'항목 테스트 6',
+];
 
 const MyProfileEditPresenter = (): JSX.Element => {
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
 	};
+    const changeCategories=()=>{
+        console.log('changeCategories')
+    }
 
 	return (
 		<div className="profile-edit-container">
@@ -38,6 +49,15 @@ const MyProfileEditPresenter = (): JSX.Element => {
 				<option>휴학중</option>
 			</select>
 			<div className="divider mt40" />
+			<div className="profile-edit-category-title">관심 카테고리</div>
+			<div className="profile-edit-category-text-container">
+				<div className="profile-edit-category-text">
+					{sampleCategories?.map((item, index, { length }) => `${item}${index === length - 1 ? '' : ', '}`)}
+				</div>
+				<button type="button" onClick={changeCategories}>
+					<div className='profile-edit-category-edit'>수정하기</div>
+				</button>
+			</div>
 		</div>
 	);
 };

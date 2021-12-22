@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.scss';
+import { IoAdd, IoClose } from 'react-icons/io5';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 const sampleCategories = [
@@ -11,8 +12,15 @@ const sampleCategories = [
 	'항목 테스트 6',
 ];
 
+interface UrlInterface {
+	urlId: number;
+	url: string;
+}
+
 const MyProfileEditPresenter = (): JSX.Element => {
 	const [shortIntro, setShortIntro] = useState<string>('');
+	const [urls, setUrls] = useState<UrlInterface[]>([]);
+	const [accUrlId, setAccUrlId] = useState<number>(0);
 
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
@@ -20,6 +28,48 @@ const MyProfileEditPresenter = (): JSX.Element => {
 	const changeCategories = () => {
 		console.log('changeCategories');
 	};
+	const addUrl = () => {
+		if (urls?.length >= 3) return;
+		setUrls([
+			...urls,
+			{
+				urlId: accUrlId,
+				url: '',
+			},
+		]);
+		setAccUrlId(accUrlId + 1);
+	};
+	const deleteUrl = (paramId: number) => {
+		if (urls?.length === 0) return;
+		const resultUrls = [...urls].filter((item) => item.urlId !== paramId);
+		setUrls(resultUrls);
+	};
+
+	const renderUrls = (item: UrlInterface) => (
+		<div className="profile-edit-url-container" key={item.urlId}>
+			<input
+				className="profile-edit-url-input"
+				placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
+				value={item.url}
+				onChange={(e) => {
+					const text = e.target.value;
+					const result = [...urls].map((selectedItem) => {
+						if (item.urlId === selectedItem.urlId) {
+							return {
+								urlId: item.urlId,
+								url: text,
+							};
+						}
+						return selectedItem;
+					});
+					setUrls(result);
+				}}
+			/>
+			<button type="button" onClick={() => deleteUrl(item.urlId)}>
+				<IoClose size={24} color="#929699" />
+			</button>
+		</div>
+	);
 
 	return (
 		<div className="profile-edit-container">
@@ -70,6 +120,14 @@ const MyProfileEditPresenter = (): JSX.Element => {
 				onChange={(e) => setShortIntro(e.target.value)}
 				value={shortIntro}
 			/>
+			<div className="profile-edit-short-intro-title">
+				URL 추가
+				<span className="profile-edit-short-intro-subtitle">포트폴리오 사이트나 작업용 sns를 추가해보세요!</span>
+			</div>
+			{urls.map(renderUrls)}
+			<button type="button" onClick={addUrl}>
+				<IoAdd className="profile-edit-url-add-icon" size={24} color="#929699" />
+			</button>
 		</div>
 	);
 };

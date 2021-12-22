@@ -151,6 +151,17 @@
             margin-top: 8px;
         }
     }
+    &-long-intro{
+        &-textarea{
+            border:none;
+            border-radius: 4px;
+            background-color: #ffffff;
+            margin-top: 8px;
+            padding: 10px 12px;
+            font-size: 11px;
+            min-height: 120px;
+        }
+    }
 }
 .divider{
     height: 1px;
@@ -158,6 +169,9 @@
 }
 .mt8{
     margin-top: 8px;
+}
+.mt24{
+    margin-top: 24px;
 }
 .mt40{
     margin-top: 40px;

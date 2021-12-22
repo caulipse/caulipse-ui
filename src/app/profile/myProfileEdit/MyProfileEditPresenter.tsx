@@ -128,6 +128,15 @@ const MyProfileEditPresenter = (): JSX.Element => {
 			<button type="button" onClick={addUrl}>
 				<IoAdd className="profile-edit-url-add-icon" size={24} color="#929699" />
 			</button>
+			<div className="divider mt24" />
+			<div className="profile-edit-short-intro-title mt40">
+				자기소개글
+				<span className="profile-edit-short-intro-subtitle">(선택)</span>
+			</div>
+			<textarea
+				className="profile-edit-long-intro-textarea"
+				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
+			/>
 		</div>
 	);
 };

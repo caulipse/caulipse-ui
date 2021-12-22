@@ -2,16 +2,6 @@ import React, { useState } from 'react';
 import './index.scss';
 import { IoAdd, IoClose } from 'react-icons/io5';
 
-const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
-const sampleCategories = [
-	'항목 텍스트 1',
-	'항목 텍스트 2',
-	'항목 테스트 3',
-	'항목 테스트 4',
-	'항목 테스트 5',
-	'항목 테스트 6',
-];
-
 interface UrlInterface {
 	urlId: number;
 	url: string;
@@ -131,7 +121,7 @@ const MyProfileEditPresenter = ({
 			<div className="profile-edit-category-title">관심 카테고리</div>
 			<div className="profile-edit-category-text-container">
 				<div className="profile-edit-category-text">
-					{sampleCategories?.map((item, index, { length }) => `${item}${index === length - 1 ? '' : ', '}`)}
+					{categories?.map((item, index, { length }) => `${item}${index === length - 1 ? '' : ', '}`)}
 				</div>
 				<button type="button" className="profile-edit-category-edit" onClick={changeCategories}>
 					<div>수정하기</div>

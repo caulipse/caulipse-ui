@@ -1,14 +1,8 @@
 @import '../../../scss/mixins';
 
-@mixin paginationButton($color){
-    font-size: 16px;
-    line-height: 21px;
-    color:$color;
-}
-.container{
+.bookmark-presenter-container{
     display: flex;
     flex: 1;
-    background-color: #f7f7f7;
     flex-direction: column;
 }
 .recruitedStudiesTitle{

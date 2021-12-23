@@ -13,7 +13,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 	const [recruitedStudiesVisible, setRecruitedStudiesVisible] = useState<boolean>(false);
 
 	return (
-		<div className="container">
+		<div className="bookmark-presenter-container">
 			{recruitingBookmarks?.length === 0 ? (
 				<EmptyComponent
 					title="이런, 북마크한 스터디가 없어요."

@@ -1,18 +1,15 @@
 @import '../../../scss/variables';
 
-.my-page{
-    &-container{
+.my-profile-edit-page{
+    &-bg{
         display: flex;
         flex-direction: column;
-        flex: 1;
-        background-color: #f2f4f7;
-        margin: 0px $horizontalPadding;
+        background-color: #f2f3f5;
     }
-    &-boxes{
-        display: flex;
-        flex-direction: column;
+    &-container{
         align-self: center;
         width: 100%;
         max-width: $maxContentWidth;
     }
+    
 }

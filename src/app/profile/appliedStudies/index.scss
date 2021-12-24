@@ -1,1 +1,21 @@
 @import '../../../scss/variables';
+
+.applied-studies{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: 0px 20px;
+    }
+    &-title{
+        font-size: 11px;
+        font-weight: bold;
+        color: #212b36;
+    }
+}
+.mt40{
+    margin-top: 40px;
+}
+.mb16{
+    margin-bottom: 16px;
+}

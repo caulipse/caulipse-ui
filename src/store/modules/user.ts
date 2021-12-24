@@ -40,6 +40,6 @@ export const userSlice = createSlice({
 	},
 });
 
-export const { fetchUserInfo, setBookmarks } = userSlice.actions;
+export const { fetchUserInfo, setBookmarks, setAppliedStudies } = userSlice.actions;
 
 export default userSlice.reducer;

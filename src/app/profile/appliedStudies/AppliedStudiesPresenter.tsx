@@ -1,6 +1,11 @@
 import React from 'react';
+import { BookmarkInterface } from '../interface/interface';
 
-const AppliedStudiesPresenter = ():JSX.Element => {
+interface AppliedStudiesPresenterProps {
+	appliedStudies: BookmarkInterface[];
+}
+
+const AppliedStudiesPresenter = ({ appliedStudies }: AppliedStudiesPresenterProps): JSX.Element => {
 	return <div>AppliedStudiesPresenter</div>;
 };
 

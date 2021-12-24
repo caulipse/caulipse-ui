@@ -2,5 +2,28 @@
 
 
 @include mobile {
-  
+  .studyAskContainer {
+    background-color: $BodyBackgroundColor;
+    .studyAskInputContainer {
+      height: 96px;
+      background-color: #fefefe;
+    }
+    .StudyCommentsListContainer{
+      margin-top: 24px;
+      background-color: #fefefe;
+      .StudyCommentsListInfo {
+        padding: 0 20px;
+        display: flex;
+        .StudyCommentListTitle {
+          font-size: 16px;
+          font-weight: bold;
+          margin-right: 8px;
+        }
+        .StudyCommentListCount {
+          font-size: 12px;
+          color: #636363;
+        }
+      }
+    }
+  }
 }

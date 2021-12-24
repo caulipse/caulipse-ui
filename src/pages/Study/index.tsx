@@ -30,10 +30,6 @@ const StudyPage = (): JSX.Element => {
     const newSelectedList = selectedList.filter((item) => item !== c );
     setSelectedList(newSelectedList);
   };
-  const handleRemoveSubCategory = (c: string) => {
-    const newSelectedList = selectedList.filter((item) => item !== c );
-    setSelectedList(newSelectedList);
-  }
   useEffect(() => {
     if (studyCategory === '') {
       getValueFromCategoryObj(location.pathname);

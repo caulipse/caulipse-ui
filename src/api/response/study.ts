@@ -12,7 +12,7 @@ export interface GetStudyResponse {
   membersCount: number
   vacancy: number
   isOpen: boolean
-  category: number
+  categoryCode: number
   views: number
 }
 
@@ -22,4 +22,11 @@ export interface GetStudyUserResponse {
   isAccepted: boolean,
   tempBio: string,
 }
-
+export interface StudyUser {
+  userId: string,
+  studyId: string,
+  isAccepted: boolean,
+  tempBio: string,
+  profilePicture: string,
+  userName: string,
+}

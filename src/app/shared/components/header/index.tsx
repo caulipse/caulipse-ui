@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     <header className="header-con">
       <div className="header-wrap">
         <div>
-          <button type="button" onClick={() => history.push("/")}>
+          <button type="button" onClick={() => history.push("/study/employment")}>
             <div className="header-logo">Caulipse</div>
           </button>
         </div>

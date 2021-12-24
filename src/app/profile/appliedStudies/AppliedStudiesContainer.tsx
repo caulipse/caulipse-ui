@@ -24,12 +24,20 @@ const AppliedStudiesContainer = (): JSX.Element => {
 	};
 
 	useEffect(() => {
-		dispatch(setAppliedStudies(getAppliedStudiesData(5)));
+		dispatch(
+			setAppliedStudies({
+				openedAppliedStudies: getAppliedStudiesData(5),
+				closedAppliedStudies: getAppliedStudiesData(5),
+			})
+		);
 	}, []);
 
 	return (
 		<div>
-			<AppliedStudiesPresenter appliedStudies={appliedStudies} />
+			<AppliedStudiesPresenter
+				openedAppliedStudies={appliedStudies?.openedAppliedStudies}
+				closedAppliedStudies={appliedStudies?.closedAppliedStudies}
+			/>
 		</div>
 	);
 };

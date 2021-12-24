@@ -2,10 +2,14 @@ import React from 'react';
 import { BookmarkInterface } from '../interface/interface';
 
 interface AppliedStudiesPresenterProps {
-	appliedStudies: BookmarkInterface[];
+	openedAppliedStudies: BookmarkInterface[];
+	closedAppliedStudies: BookmarkInterface[];
 }
 
-const AppliedStudiesPresenter = ({ appliedStudies }: AppliedStudiesPresenterProps): JSX.Element => {
+const AppliedStudiesPresenter = ({
+	openedAppliedStudies,
+	closedAppliedStudies,
+}: AppliedStudiesPresenterProps): JSX.Element => {
 	return <div>AppliedStudiesPresenter</div>;
 };
 

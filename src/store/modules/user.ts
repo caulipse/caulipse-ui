@@ -5,10 +5,16 @@ interface BookmarkStateType {
 	recruitingBookmarks: BookmarkInterface[];
 	recruitedBookmarks: BookmarkInterface[];
 }
+
+interface AppliedStudiesStateType {
+	openedAppliedStudies: BookmarkInterface[];
+	closedAppliedStudies: BookmarkInterface[];
+}
+
 export interface UserType {
 	userInfo: UserInfoInterface | Record<string, never>;
 	bookmarks: BookmarkStateType;
-	appliedStudies: BookmarkInterface[];
+	appliedStudies: AppliedStudiesStateType;
 }
 
 const initialState: UserType = {
@@ -17,7 +23,10 @@ const initialState: UserType = {
 		recruitingBookmarks: [],
 		recruitedBookmarks: [],
 	},
-	appliedStudies: [],
+	appliedStudies: {
+		openedAppliedStudies: [],
+		closedAppliedStudies: [],
+	},
 };
 
 export const userSlice = createSlice({
@@ -34,8 +43,11 @@ export const userSlice = createSlice({
 				recruitedBookmarks: action.payload.recruitedBookmarks,
 			};
 		},
-		setAppliedStudies: (state, action: PayloadAction<BookmarkInterface[]>) => {
-			state.appliedStudies = action.payload;
+		setAppliedStudies: (state, action: PayloadAction<AppliedStudiesStateType>) => {
+			state.appliedStudies = {
+				openedAppliedStudies: action.payload.openedAppliedStudies,
+				closedAppliedStudies: action.payload.closedAppliedStudies,
+			};
 		},
 	},
 });

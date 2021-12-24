@@ -1,5 +1,19 @@
 @import 'scss/variables';
 
+@mixin status-container($bgColor){
+    display: flex;
+    background-color: $bgColor;
+    border-radius: 17px;
+    justify-content: center;
+    align-items: center;
+    margin: 12px 0px;
+}
+@mixin status-text($color){
+    font-size: 11px;
+    color: $color;
+    padding: 9px 0px;
+}
+
 .opened-applied-study-item{
     &-container{
         display: flex;
@@ -42,17 +56,18 @@
     &-status{
         &-accepted{
             &-container{
-                display: flex;
-                background-color: #4790db;
-                border-radius: 17px;
-                justify-content: center;
-                align-items: center;
-                margin: 12px 0px;
+                @include status-container(#4790db);
             }
             &-text{
-                font-size: 11px;
-                color: #ffffff;
-                padding: 9px 0px;
+                @include status-text(#ffffff);
+            }
+        }
+        &-waiting{
+            &-container{
+                @include status-container(#f2f3f5);
+            }
+            &-text{
+                @include status-text(#6c757d);
             }
         }
     }

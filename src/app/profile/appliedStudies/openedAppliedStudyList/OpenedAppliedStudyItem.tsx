@@ -34,9 +34,16 @@ const OpenedAppliedStudyItem = ({ openedAppliedStudyItem }: OpenedAppliedStudyIt
 						북마크 {NumberUtils.toFormattedCount(openedAppliedStudyItem.bookmarks)}
 					</div>
 				</div>
-				<div className="opened-applied-study-item-status-accepted-container">
-					<div className="opened-applied-study-item-status-accepted-text">참여 수락됨</div>
-				</div>
+				{openedAppliedStudyItem.status === 'accepted' && (
+					<div className="opened-applied-study-item-status-accepted-container">
+						<div className="opened-applied-study-item-status-accepted-text">참여 수락됨</div>
+					</div>
+				)}
+				{openedAppliedStudyItem.status === 'waiting' && (
+					<div className="opened-applied-study-item-status-waiting-container">
+						<div className="opened-applied-study-item-status-waiting-text">수락 대기중</div>
+					</div>
+				)}
 			</button>
 		</div>
 	);

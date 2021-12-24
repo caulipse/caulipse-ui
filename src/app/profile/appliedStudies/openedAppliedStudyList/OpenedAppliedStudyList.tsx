@@ -1,10 +1,10 @@
 import React from 'react';
-import { BookmarkInterface } from '../../interface/interface';
+import { AppliedStudyInterface } from '../../interface/interface';
 import './index.scss';
 import OpenedAppliedStudyItem from './OpenedAppliedStudyItem';
 
 interface OpenedAppliedStudyListProps {
-	openedAppliedStudies: BookmarkInterface[];
+	openedAppliedStudies: AppliedStudyInterface[];
 }
 
 const OpenedAppliedStudyList = ({ openedAppliedStudies }: OpenedAppliedStudyListProps): JSX.Element => {

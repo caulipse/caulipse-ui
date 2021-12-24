@@ -1,12 +1,12 @@
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React from 'react';
-import { BookmarkInterface } from '../interface/interface';
+import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 import OpenedAppliedStudyList from './openedAppliedStudyList/OpenedAppliedStudyList';
 
 interface AppliedStudiesPresenterProps {
-	openedAppliedStudies: BookmarkInterface[];
-	closedAppliedStudies: BookmarkInterface[];
+	openedAppliedStudies: AppliedStudyInterface[];
+	closedAppliedStudies: AppliedStudyInterface[];
 }
 
 const AppliedStudiesPresenter = ({

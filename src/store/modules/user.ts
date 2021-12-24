@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { BookmarkInterface, UserInfoInterface } from '@src/app/profile/interface/interface';
+import { BookmarkInterface, AppliedStudyInterface, UserInfoInterface } from '@src/app/profile/interface/interface';
 
 interface BookmarkStateType {
 	recruitingBookmarks: BookmarkInterface[];
@@ -7,8 +7,8 @@ interface BookmarkStateType {
 }
 
 interface AppliedStudiesStateType {
-	openedAppliedStudies: BookmarkInterface[];
-	closedAppliedStudies: BookmarkInterface[];
+	openedAppliedStudies: AppliedStudyInterface[];
+	closedAppliedStudies: AppliedStudyInterface[];
 }
 
 export interface UserType {

@@ -2,11 +2,11 @@ import moment from 'moment';
 import React from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
 import { IoEllipsisVertical } from 'react-icons/io5';
-import { BookmarkInterface } from '../../interface/interface';
+import { AppliedStudyInterface } from '../../interface/interface';
 import './index.scss';
 
 interface OpenedAppliedStudyItemProps {
-	openedAppliedStudyItem: BookmarkInterface;
+	openedAppliedStudyItem: AppliedStudyInterface;
 }
 
 const OpenedAppliedStudyItem = ({ openedAppliedStudyItem }: OpenedAppliedStudyItemProps): JSX.Element => {
@@ -31,7 +31,7 @@ const OpenedAppliedStudyItem = ({ openedAppliedStudyItem }: OpenedAppliedStudyIt
 					</div>
 					<div className="opened-applied-study-item-divider-dot">·</div>
 					<div className="opened-applied-study-item-mid-text">
-						북마크 {NumberUtils.toFormattedCount(openedAppliedStudyItem.stars)}
+						북마크 {NumberUtils.toFormattedCount(openedAppliedStudyItem.bookmarks)}
 					</div>
 				</div>
 				<div className="opened-applied-study-item-status-accepted-container">

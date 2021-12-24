@@ -8,6 +8,7 @@ interface BookmarkStateType {
 export interface UserType {
 	userInfo: UserInfoInterface | Record<string, never>;
 	bookmarks: BookmarkStateType;
+	appliedStudies: BookmarkInterface[];
 }
 
 const initialState: UserType = {
@@ -16,13 +17,14 @@ const initialState: UserType = {
 		recruitingBookmarks: [],
 		recruitedBookmarks: [],
 	},
+	appliedStudies: [],
 };
 
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		fetchUserInfo: (state, action: PayloadAction<UserInfoInterface>) => {
+		fetchUserInfo: (state, action: PayloadAction<any>) => {
 			/* eslint-disable no-param-reassign */
 			state.userInfo = action.payload;
 		},
@@ -31,6 +33,9 @@ export const userSlice = createSlice({
 				recruitingBookmarks: action.payload.recruitingBookmarks,
 				recruitedBookmarks: action.payload.recruitedBookmarks,
 			};
+		},
+		setAppliedStudies: (state, action: PayloadAction<BookmarkInterface[]>) => {
+			state.appliedStudies = action.payload;
 		},
 	},
 });

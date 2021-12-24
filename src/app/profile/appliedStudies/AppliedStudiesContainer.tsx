@@ -26,7 +26,7 @@ const AppliedStudiesContainer = (): JSX.Element => {
 	useEffect(() => {
 		dispatch(
 			setAppliedStudies({
-				openedAppliedStudies: getAppliedStudiesData(0),
+				openedAppliedStudies: getAppliedStudiesData(5),
 				closedAppliedStudies: getAppliedStudiesData(5),
 			})
 		);

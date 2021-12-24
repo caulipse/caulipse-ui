@@ -2,6 +2,7 @@ import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React from 'react';
 import { BookmarkInterface } from '../interface/interface';
 import './index.scss';
+import OpenedAppliedStudyList from './openedAppliedStudyList/OpenedAppliedStudyList';
 
 interface AppliedStudiesPresenterProps {
 	openedAppliedStudies: BookmarkInterface[];
@@ -22,7 +23,9 @@ const AppliedStudiesPresenter = ({
 			{openedAppliedStudies?.length === 0 ? (
 				<EmptyComponent title="신청중인 스터디가 없습니다" buttonText="스터디 찾아보기" onClick={findStudies} />
 			) : (
-				<div />
+				<div>
+					<OpenedAppliedStudyList openedAppliedStudies={openedAppliedStudies} />
+				</div>
 			)}
 		</div>
 	);

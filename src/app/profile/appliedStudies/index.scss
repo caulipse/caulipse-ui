@@ -41,6 +41,11 @@
             @include title(#637381);
             margin-top: 32px;
         }
+        &-list-container{
+            display: flex;
+            flex-direction: column;
+            margin: 16px -20px;
+        }
     }
 }
 .mt40{

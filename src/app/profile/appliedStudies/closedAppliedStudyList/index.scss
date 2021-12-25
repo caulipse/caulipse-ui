@@ -12,4 +12,37 @@
         border-color: #e5e5e5;
         border-width: 1px;
     }
+    &-column-container{
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 1;
+    }
+    &-row-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    &-title{
+        font-size: 14px;
+        color:#929699;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;  
+    }
+    &-subtext{
+        font-size: 11px;
+        color:#b1b1b1;
+    }
+    &-divider-dot{
+        margin: 0px 5px;
+        color: #e5e5e5;
+    }
+    &-status{
+        padding: 9px 12px;
+        background-color: #4790d8;
+        border-radius: 18px;
+        font-size: 11px;
+        color: #f9f9f9;
+        margin-right: 44px;
+    }
 }

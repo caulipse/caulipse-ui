@@ -12,6 +12,26 @@
         font-weight: bold;
         color: #212b36;
     }
+    &-accordian{
+        &-container{
+            display: flex;
+            flex-direction: row;
+            padding: 4px 8px 4px 16px;
+            justify-content: space-between;
+            align-items: center;
+            align-self: center;
+            border: solid;
+            border-radius: 15px;
+            border-width: 1px;
+            border-color: #e5e5e5;
+            background-color: #ffffff;
+            margin-top: 32px;
+        }
+        &-text{
+            font-size: 11px;
+            color: #929699,
+        }
+    }
 }
 .mt40{
     margin-top: 40px;

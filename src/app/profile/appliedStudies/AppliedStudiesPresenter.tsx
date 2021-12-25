@@ -1,5 +1,6 @@
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
-import React from 'react';
+import React, { useState } from 'react';
+import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 import OpenedAppliedStudyList from './openedAppliedStudyList/OpenedAppliedStudyList';
@@ -13,6 +14,8 @@ const AppliedStudiesPresenter = ({
 	openedAppliedStudies,
 	closedAppliedStudies,
 }: AppliedStudiesPresenterProps): JSX.Element => {
+	const [showClosedAppliedStudies, setShowClosedAppliedStudies] = useState<boolean>(false);
+
 	const findStudies = () => {
 		console.log('findStudies');
 	};
@@ -27,6 +30,16 @@ const AppliedStudiesPresenter = ({
 					<OpenedAppliedStudyList openedAppliedStudies={openedAppliedStudies} />
 				</div>
 			)}
+			<div className="applied-studies-accordian-container">
+				<div className="applied-studies-accordian-text">마감된 항목</div>
+				<button type="button" onClick={() => setShowClosedAppliedStudies(!showClosedAppliedStudies)}>
+					{showClosedAppliedStudies ? (
+						<IoChevronDown size={24} color="#929699" />
+					) : (
+						<IoChevronUp size={24} color="#929699" />
+					)}
+				</button>
+			</div>
 		</div>
 	);
 };

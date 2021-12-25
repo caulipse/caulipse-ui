@@ -1,5 +1,11 @@
 @import '../../../scss/variables';
 
+@mixin title($color){
+    font-size: 11px;
+    font-weight: bold;
+    color: $color;
+}
+
 .applied-studies{
     &-container{
         display: flex;
@@ -8,9 +14,7 @@
         margin: 0px 20px;
     }
     &-title{
-        font-size: 11px;
-        font-weight: bold;
-        color: #212b36;
+        @include title(#212b36);
     }
     &-accordian{
         &-container{
@@ -30,6 +34,12 @@
         &-text{
             font-size: 11px;
             color: #929699,
+        }
+    }
+    &-closed{
+        &-title{
+            @include title(#637381);
+            margin-top: 32px;
         }
     }
 }

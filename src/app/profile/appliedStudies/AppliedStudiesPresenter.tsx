@@ -2,6 +2,7 @@ import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React, { useState } from 'react';
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import { AppliedStudyInterface } from '../interface/interface';
+import ClosedAppliedStudyList from './closedAppliedStudyList/ClosedAppliedStudyList';
 import './index.scss';
 import OpenedAppliedStudyList from './openedAppliedStudyList/OpenedAppliedStudyList';
 
@@ -40,6 +41,12 @@ const AppliedStudiesPresenter = ({
 					)}
 				</button>
 			</div>
+			{showClosedAppliedStudies && (
+				<>
+					<div className="applied-studies-closed-title">마감된 스터디</div>
+					<ClosedAppliedStudyList closedAppliedStudies={closedAppliedStudies} />
+				</>
+			)}
 		</div>
 	);
 };

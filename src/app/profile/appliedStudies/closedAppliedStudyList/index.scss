@@ -1,1 +1,15 @@
 @import 'scss/variables';
+
+.closed-applied-study-item{
+    &-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 16px 20px;
+        border: solid;
+        border-color: #e5e5e5;
+        border-width: 1px;
+    }
+}

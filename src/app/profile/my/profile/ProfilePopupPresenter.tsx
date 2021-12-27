@@ -37,12 +37,19 @@ const ProfilePopupPresenter = ({
 				<div className="profile-bottom-sheet-short-about">{shortUserAbout}</div>
 				<div className="profile-bottom-sheet-tag-container">
 					{tags.map((tagItem, tagIndex) => (
-						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex===0?'':'ml12'}`}>
+						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>
 							{tagItem}
 						</div>
 					))}
 				</div>
-                <div className="profile-bottom-sheet-divider" />
+				<div className="profile-bottom-sheet-divider" />
+				<div className="profile-bottom-sheet-hashtag-container">
+					<div className="profile-bottom-sheet-hashtag-bold-text">
+						#{dept} <span className="profile-bottom-sheet-hashtag-regular-text">전공</span>&nbsp;
+					</div>
+					<div className="profile-bottom-sheet-hashtag-bold-text">#{grade}학년&nbsp;</div>
+					<div className="profile-bottom-sheet-hashtag-bold-text">#{status}</div>
+				</div>
 			</div>
 		</BottomSheet>
 	);

@@ -13,6 +13,7 @@ interface ProfilePopupPresenterProps {
 	status: string;
 	links: string[];
 	userAbout: string;
+	tags: string[];
 }
 
 const ProfilePopupPresenter = ({
@@ -26,6 +27,7 @@ const ProfilePopupPresenter = ({
 	status,
 	links,
 	userAbout,
+	tags,
 }: ProfilePopupPresenterProps): JSX.Element => {
 	return (
 		<BottomSheet open={profileSheetVisible} onDismiss={() => setProfileSheetVisible(false)}>
@@ -33,6 +35,14 @@ const ProfilePopupPresenter = ({
 				<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
 				<div className="profile-bottom-sheet-name">{userName}</div>
 				<div className="profile-bottom-sheet-short-about">{shortUserAbout}</div>
+				<div className="profile-bottom-sheet-tag-container">
+					{tags.map((tagItem, tagIndex) => (
+						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex===0?'':'ml12'}`}>
+							{tagItem}
+						</div>
+					))}
+				</div>
+                <div className="profile-bottom-sheet-divider" />
 			</div>
 		</BottomSheet>
 	);

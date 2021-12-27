@@ -30,6 +30,30 @@
         color:#6c757d;
         margin-top: 8px;
     }
+    &-tag{
+        &-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 24px;
+        }
+        &-item{
+            padding: 8px 12px;
+            border-radius: 16px;
+            background-color: #f1f6fb;
+            font-size: 11px;
+            color: #126bb7;
+        }
+    }
+    &-divider{
+        background-color: #e5e5e5;
+        height: 1px;
+        width: calc(100vw - 118*2px);
+        margin: 32px 118px 0px 118px;
+    }
+}
+.ml12{
+    margin-left: 12px;
 }
 :root {
     --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);

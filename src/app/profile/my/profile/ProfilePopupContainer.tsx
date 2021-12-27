@@ -20,13 +20,14 @@ const ProfilePopupContainer = ({
 			profileSheetVisible={profileSheetVisible}
 			setProfileSheetVisible={setProfileSheetVisible}
 			profilePicture={profilePicture}
-            shortUserAbout={shortUserAbout}
-            userName={userName}
-            dept={dept}
-            grade={grade}
-            status={status}
-            links={links}
-            userAbout={userAbout}
+			shortUserAbout={shortUserAbout}
+			userName={userName}
+			dept={dept}
+			grade={grade}
+			status={status}
+			links={links}
+			userAbout={userAbout}
+			tags={['CPA', '토익 스피킹', '면접']}
 		/>
 	);
 };

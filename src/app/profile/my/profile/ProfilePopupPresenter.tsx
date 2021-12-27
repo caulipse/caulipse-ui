@@ -50,6 +50,14 @@ const ProfilePopupPresenter = ({
 					<div className="profile-bottom-sheet-hashtag-bold-text">#{grade}학년&nbsp;</div>
 					<div className="profile-bottom-sheet-hashtag-bold-text">#{status}</div>
 				</div>
+				<div className="profile-bottom-sheet-link-container">
+					{links.map((linkItem) => (
+						<div key={linkItem}>{linkItem}</div>
+					))}
+				</div>
+				<div className="profile-bottom-sheet-divider" />
+				<div className="profile-bottom-sheet-about-title">저는요..</div>
+				<div className="profile-bottom-sheet-about-text">{userAbout}</div>
 			</div>
 		</BottomSheet>
 	);

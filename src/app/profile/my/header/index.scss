@@ -49,3 +49,8 @@
         margin-bottom: 68px;
     }
 }
+.profile-bottom-sheet{
+    &-container{
+        height: calc(100vh - 102px);
+    }
+}

@@ -1,38 +1,37 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { BookmarkInterface } from '@src/app/profile/interface/interface';
+import { BookmarkInterface, UserInfoInterface } from '@src/app/profile/interface/interface';
 
-
-interface BookmarkStateType{
+interface BookmarkStateType {
 	recruitingBookmarks: BookmarkInterface[];
-	recruitedBookmarks:BookmarkInterface[];
+	recruitedBookmarks: BookmarkInterface[];
 }
 export interface UserType {
-	userInfo: any;
+	userInfo: UserInfoInterface | Record<string, never>;
 	bookmarks: BookmarkStateType;
 }
 
 const initialState: UserType = {
 	userInfo: {},
-	bookmarks:{
-		recruitingBookmarks:[],
-		recruitedBookmarks:[],
-	}
+	bookmarks: {
+		recruitingBookmarks: [],
+		recruitedBookmarks: [],
+	},
 };
 
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		fetchUserInfo: (state, action: PayloadAction<any>) => {
-            /* eslint-disable no-param-reassign */
+		fetchUserInfo: (state, action: PayloadAction<UserInfoInterface>) => {
+			/* eslint-disable no-param-reassign */
 			state.userInfo = action.payload;
 		},
-		setBookmarks:(state, action:PayloadAction<BookmarkStateType>)=>{
-			state.bookmarks={
-				recruitingBookmarks:action.payload.recruitingBookmarks,
-				recruitedBookmarks:action.payload.recruitedBookmarks,
-			}
-		}
+		setBookmarks: (state, action: PayloadAction<BookmarkStateType>) => {
+			state.bookmarks = {
+				recruitingBookmarks: action.payload.recruitingBookmarks,
+				recruitedBookmarks: action.payload.recruitedBookmarks,
+			};
+		},
 	},
 });
 

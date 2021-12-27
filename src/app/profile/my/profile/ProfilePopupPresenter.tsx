@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { BottomSheet, BottomSheetProps } from 'react-spring-bottom-sheet';
 import './index.scss';
 
@@ -30,7 +30,7 @@ const ProfilePopupPresenter = ({
 	return (
 		<BottomSheet open={profileSheetVisible} onDismiss={() => setProfileSheetVisible(false)}>
 			<div className="profile-bottom-sheet-container">
-				<div>hi!</div>
+				<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
 			</div>
 		</BottomSheet>
 	);

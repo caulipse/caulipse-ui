@@ -1,0 +1,7 @@
+@import 'scss/variables';
+
+.profile-bottom-sheet{
+    &-container{
+        height: calc(100vh - 102px);
+    }
+}

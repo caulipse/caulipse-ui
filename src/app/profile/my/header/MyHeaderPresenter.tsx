@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './index.scss';
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css';
+import ProfilePopupContainer from '../profile/ProfilePopupContainer';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 
@@ -41,14 +42,10 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 			<button type="button" onClick={showProfileSheet}>
 				<div className="my-header-my-profile-btn-text">내 프로필 보기 {'>'}</div>
 			</button>
-			<BottomSheet open={profileSheetVisible} ref={sheetRef} onDismiss={closeProfileSheet}>
-				<div className="profile-bottom-sheet-container">
-					<div>hi!</div>
-					<button type="button" onClick={() => setProfileSheetVisible(false)}>
-						닫기
-					</button>
-				</div>
-			</BottomSheet>
+			<ProfilePopupContainer
+				profileSheetVisible={profileSheetVisible}
+				setProfileSheetVisible={setProfileSheetVisible}
+			/>
 		</div>
 	);
 };

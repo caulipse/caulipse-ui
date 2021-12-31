@@ -33,12 +33,7 @@ const ProfilePopupPresenter = ({
 	tags,
 }: ProfilePopupPresenterProps): JSX.Element => {
 	const { width: windowWidth } = useWindowDimensions();
-	console.log('window width', windowWidth);
-
-	const Container = () => {
-		return windowWidth > 1024 ? Popup : BottomSheet;
-	};
-
+	
 	const Content = () => (
 		<div className="profile-bottom-sheet-container">
 			<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />

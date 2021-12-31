@@ -30,13 +30,13 @@ const ProfilePopupPresenter = ({
 	tags,
 }: ProfilePopupPresenterProps): JSX.Element => {
 	return (
-		<BottomSheet open={profileSheetVisible} onDismiss={() => setProfileSheetVisible(false)}>
+		<BottomSheet open={profileSheetVisible} onDismiss={() => setProfileSheetVisible(false)} scrollLocking>
 			<div className="profile-bottom-sheet-container">
 				<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
 				<div className="profile-bottom-sheet-name">{userName}</div>
 				<div className="profile-bottom-sheet-short-about">{shortUserAbout}</div>
 				<div className="profile-bottom-sheet-tag-container">
-					{tags.map((tagItem, tagIndex) => (
+					{tags?.map((tagItem, tagIndex) => (
 						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>
 							{tagItem}
 						</div>
@@ -51,7 +51,7 @@ const ProfilePopupPresenter = ({
 					<div className="profile-bottom-sheet-hashtag-bold-text">#{status}</div>
 				</div>
 				<div className="profile-bottom-sheet-link-container">
-					{links.map((linkItem) => (
+					{links?.map((linkItem) => (
 						<div key={linkItem}>{linkItem}</div>
 					))}
 				</div>

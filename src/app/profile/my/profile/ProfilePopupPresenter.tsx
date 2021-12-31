@@ -1,3 +1,4 @@
+import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import React, { useCallback, useMemo } from 'react';
 import { BottomSheet, BottomSheetProps } from 'react-spring-bottom-sheet';
 import './index.scss';
@@ -29,6 +30,9 @@ const ProfilePopupPresenter = ({
 	userAbout,
 	tags,
 }: ProfilePopupPresenterProps): JSX.Element => {
+	const { width: windowWidth } = useWindowDimensions();
+	console.log('window width', windowWidth);
+
 	return (
 		<BottomSheet open={profileSheetVisible} onDismiss={() => setProfileSheetVisible(false)} scrollLocking>
 			<div className="profile-bottom-sheet-container">

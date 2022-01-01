@@ -33,7 +33,7 @@ const ProfilePopupPresenter = ({
 	tags,
 }: ProfilePopupPresenterProps): JSX.Element => {
 	const { width: windowWidth } = useWindowDimensions();
-	
+
 	const Content = () => (
 		<div className="profile-bottom-sheet-container">
 			<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
@@ -67,11 +67,7 @@ const ProfilePopupPresenter = ({
 
 	if (windowWidth > 1024) {
 		return (
-			<Popup
-				open={profileSheetVisible}
-				onClose={()=>setProfileSheetVisible(false)}
-				position="center center"
-			>
+			<Popup open={profileSheetVisible} onClose={() => setProfileSheetVisible(false)} position="center center">
 				<Content />
 			</Popup>
 		);

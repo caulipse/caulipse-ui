@@ -1,0 +1,183 @@
+@import '../../../scss/variables';
+
+@mixin title{
+    font-size: 14px;
+    color: #4c4c4c;
+    font-weight: bold;
+}
+@mixin input{
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 12px;
+    color: #1a1a1a;
+    padding: 10px 12px;
+    border: none;
+}
+@mixin subtitle {
+    font-size: 11px;
+    color: #929699; 
+    font-weight: normal;
+}
+@mixin select{
+    font-size: 12px;
+    color:#1a1a1a;
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: none;
+}
+
+.profile-edit{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        padding:40px 20px 80px 20px;
+    }
+    &-image{
+        border-radius: 104px;
+        align-self: center;
+    }
+    &-nickname{
+        &-title{
+            @include title;
+            margin-top: 32px;
+        }
+        &-input{
+            @include input;
+            margin-top: 8px;
+        }
+    }
+    &-row-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    &-column-container{
+        display: flex;
+        flex-direction: column;
+    }
+    &-major{
+        &-title{
+            @include title;
+        }
+        &-input{
+            @include input;
+            margin-top: 8px;
+        }
+    }
+    &-grade{
+        &-subtitle{
+            @include subtitle;
+        }
+        &-select{
+            @include select;
+            margin-top: 8px;
+        }
+    }
+    &-status{
+        &-title{
+            @include title;
+            margin-top: 32px;
+        }
+        &-select{
+            @include select;
+            margin-top: 8px;
+        }
+    }
+    &-category{
+        &-title{
+            @include title;
+            margin-top: 24px;
+        }
+        &-text-container{
+            display: flex;
+            padding: 12px 10px;
+            background-color: #ffffff;
+            margin-top: 8px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-text{
+            flex-shrink: 1;
+            font-size: 11px;
+            color: #126bb7;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1; 
+            -webkit-box-orient: vertical;
+        }
+        &-edit{
+            font-size: 11px;
+            font-weight: bold;
+            color:#212b36;
+            margin-left: 50px;
+            white-space: nowrap;
+        }
+    }
+    &-short-intro{
+        &-title{
+            @include title;
+            margin-top: 40px;
+        }
+        &-input{
+            @include input;
+            margin-top: 8px;
+        }
+        &-subtitle{
+            @include subtitle;
+            margin-left: 8px;
+        }
+    }
+    &-url{
+        &-add-icon{
+            padding: 6px;
+            background-color: #ffffff;
+            align-self: center;
+            margin-top: 16px;
+        }
+        &-input{
+            @include input;
+            flex:1;
+        }
+        &-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex:1;
+            background-color: #ffffff;
+            margin-top: 8px;
+        }
+    }
+    &-long-intro{
+        &-textarea{
+            border:none;
+            border-radius: 4px;
+            background-color: #ffffff;
+            margin-top: 8px;
+            padding: 10px 12px;
+            font-size: 11px;
+            min-height: 120px;
+        }
+    }
+}
+.divider{
+    height: 1px;
+    background-color: #e5e5e5;
+}
+.mt8{
+    margin-top: 8px;
+}
+.mt24{
+    margin-top: 24px;
+}
+.mt40{
+    margin-top: 40px;
+}
+.ml16{
+    margin-left: 16px;
+}
+.flex-grow-1{
+    flex-grow:1;
+}

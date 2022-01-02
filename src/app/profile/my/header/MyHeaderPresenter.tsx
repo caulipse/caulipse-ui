@@ -30,7 +30,7 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 				<button type="button" onClick={() => history.goBack()}>
 					<IoClose size={24} fill="#f7f7f7" />
 				</button>
-				<button type="button">
+				<button type="button" onClick={()=>history.push('/profile/edit')}>
 					<IoSettingsSharp size={24} fill="#f7f7f7" />
 				</button>
 			</div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
+import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import './index.scss';
 import { BookmarkInterface } from '../interface/interface';
 
@@ -33,7 +34,11 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 				}}
 			>
 				<div>마감된 항목</div>
-				<div>^</div>
+				{recruitedStudiesVisible ? (
+					<IoChevronDown size={24} color="#929699" />
+				) : (
+					<IoChevronUp size={24} color="#929699" />
+				)}
 			</button>
 			{recruitedStudiesVisible && (
 				<>

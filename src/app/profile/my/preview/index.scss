@@ -1,0 +1,28 @@
+@import "../../../../scss/variables";
+@import "../../../../scss/mixins";
+
+.preview-container{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 16px 41px;
+    border-radius: 8px;
+    margin-top: -39px; 
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+}
+.preview-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.preview-item-number{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 27px;
+    color:#212b36;
+}
+.preview-item-title{
+    font-size: 11px;
+    line-height: 20px;
+    color:#929699;
+}

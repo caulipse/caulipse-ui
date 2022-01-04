@@ -7,7 +7,7 @@ export interface EmptyComponentInterface {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const EmptyComponent = ({ title, buttonText, onClick }: EmptyComponentInterface) => {
+const EmptyComponent = ({ title, buttonText, onClick }: EmptyComponentInterface): JSX.Element => {
 	return (
 		<div className="emptyContainer">
 			<div className="emptyText">{title}</div>

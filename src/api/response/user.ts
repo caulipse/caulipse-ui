@@ -14,3 +14,8 @@ export interface GetUserProfileResponse {
   link1: string 
   link2: string
 }
+export interface UserPreview {
+  id: string,
+  profilePicture: string,
+  userName: string,
+}

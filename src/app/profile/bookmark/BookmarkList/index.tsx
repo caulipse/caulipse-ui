@@ -1,6 +1,5 @@
-import { val } from 'factory.ts/lib/async';
 import React, { useMemo } from 'react';
-import { BookmarkInterface } from '../interface/interface';
+import { BookmarkInterface } from '../../interface/interface';
 import Bookmarkitem from './BookmarkItem';
 import './BookmarkList.scss';
 
@@ -25,20 +24,22 @@ const BookmarkList = ({ title, bookmarkList, isBlurred }: BookmarkListProps) => 
 	}, [bookmarkList]);
 
 	return (
-		<div className="container">
-			{isBlurred||Array.from(sectionedBookmarkList).map(([key, value]) => {
-				return (
-					<div key={key}>
-						<div className='bookmarkItemCategory'>{key}</div>
-						{value.map((item: BookmarkInterface) => (
-							<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
-						))}
-					</div>
-				);
-			})}
-			{isBlurred&&bookmarkList.map((item: BookmarkInterface) => (
-				<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
-			))}
+		<div className="bookmarkList-container">
+			{isBlurred ||
+				Array.from(sectionedBookmarkList).map(([key, value]) => {
+					return (
+						<div key={key}>
+							<div className="bookmarkItem-category">{key}</div>
+							{value.map((item: BookmarkInterface) => (
+								<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
+							))}
+						</div>
+					);
+				})}
+			{isBlurred &&
+				bookmarkList.map((item: BookmarkInterface) => (
+					<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
+				))}
 		</div>
 	);
 };

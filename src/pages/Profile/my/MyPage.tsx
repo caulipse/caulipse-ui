@@ -1,182 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import './MyPage.scss';
+import MyBtns from '@src/app/profile/my/btns';
+import MyHeaderContainer from '@src/app/profile/my/header/MyHeaderContainer';
+import NotificationsContainer from '@src/app/profile/my/notifications/NotificationsContainer';
+import PreviewContainer from '@src/app/profile/my/preview/PreviewContainer';
+import { useAppDispatch } from '@src/hooks/appRedux';
+import { fetchUserInfo } from '@src/store/modules/user';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import './index.scss';
 
-import * as Factory from 'factory.ts';
-
-interface CategoryInterface {
-	id: number;
-	category: string;
+const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
+const sampleUserInfo = {
+	userId: 'myId',
+	profilePicture: sampleImgUrl,
+	userName: 'jason',
+	dept: '전자전기공학부',
+	grade: 3,
+	bio: '남',
+	shortUserAbout:'짧은 자기소개글',
+	userAbout: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,`,
+	links: ['https://www.naver.com/', 'https://github.com/'],
+	status: '휴학중',
+};
+interface MyPageParamsInterface {
+	userId: string;
 }
 
 const MyPage = (): JSX.Element => {
-	// 카테고리 목록
-	const [categories, setCategories] = useState<CategoryInterface[]>([]);
-	const [urls, setUrls] = useState<string[]>([]);
-
-	const addUrl = () => {
-		setUrls([...urls, '']);
-	};
-
-	const getCategoriesData = (iter: number) => {
-		const categoryFactory = Factory.Sync.makeFactory<CategoryInterface>({
-			id: Factory.each((i) => i),
-			category: '카테고리',
-		});
-		return categoryFactory.buildList(iter);
-	};
+	const params = useParams<MyPageParamsInterface>();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		setCategories(getCategoriesData(20));
+		dispatch(fetchUserInfo(sampleUserInfo));
 	}, []);
 
-	const ProfileImage = () => {
-		return <div className="profileImage" />;
-	};
-
-	const NicknameInput = () => {
-		return (
-			<div>
-				<div style={{ marginBottom: '10px' }} className="rowContainer">
-					<div className="titleText">닉네임</div>
-				</div>
-				<div
-					style={{
-						display: 'flex',
-						width: '100%',
-					}}
-				>
-					<input className="nicknameInput" type="text" placeholder="닉네임을 입력해주세요." />
-				</div>
-			</div>
-		);
-	};
-
-	const MajorInput = () => {
-		return (
-			<div>
-				<div className={['rowContainer', 'flex1'].join(' ')}>
-					<div className={['columnContainer', 'flex1'].join(' ')}>
-						<div className={['nicknameText', 'majorContainer'].join(' ')}>학과</div>
-						<div className="majorInputContainer">
-							<input type="text" className="nicknameInput" />
-						</div>
-					</div>
-					<div className="columnContainer">
-						<div className={['nicknameText', 'majorContainer'].join(' ')}>
-							학년 <span className="subTitleText">(선택)</span>
-						</div>
-						<div className="gradeSelectionContainer">
-							<select name="grade" className="gradeSelection">
-								<option value={1}>1학년</option>
-								<option value={2}>2학년</option>
-								<option value={3}>3학년</option>
-								<option value={4}>4학년</option>
-							</select>
-						</div>
-					</div>
-				</div>
-			</div>
-		);
-	};
-
-	const Introduction = ({ isShort }: { isShort: boolean }) => {
-		return (
-			<div className="introductionContainer" style={{ marginBottom: isShort ? '0px' : '58px' }}>
-				<div className="rowContainer">
-					{isShort ? (
-						<div className="titleText">한줄 소개</div>
-					) : (
-						<div className="titleText">
-							자기소개 글 <span className="subTitleText">(선택)</span>
-						</div>
-					)}
-				</div>
-				{isShort ? (
-					<input type="text" className="introductionInputText" placeholder="프로필 상단에 보이는 소개글입니다." />
-				) : (
-					<textarea placeholder="나만의 소개글을 완성해주세요!" className="introductionTextArea" />
-				)}
-			</div>
-		);
-	};
-
-	const Categories = () => {
-		return (
-			<div className="categoryContainer">
-				<div className="titleText">관심 카테고리</div>
-				<div className="categoryListContainer">
-					{categories.map((item) => {
-						return (
-							<div key={item.id} className="categoryItemContainer">
-								<div className="categoryText">{item.category}</div>
-								<button className="categoryText" type="button">
-									x
-								</button>
-							</div>
-						);
-					})}
-					<button className="addItemContainer" type="button">
-						<div className="addText">추가하기</div>
-						<button className="addText" type="button">
-							+
-						</button>
-					</button>
-				</div>
-			</div>
-		);
-	};
-
-	const SaveButton = () => {
-		return (
-			<button type="button" className="saveButton">
-				<div className="saveButtonText">내 프로필 저장</div>
-			</button>
-		);
-	};
-
-	const Urls = () => {
-		return (
-			<div className="urlContainer">
-				<div className="urlTitle">
-					URL 추가<span className="urlSubtitle">포트폴리오 사이트나 작업용 sns를 추가해보세요</span>
-				</div>
-				{urls.map((urlItem, urlIndex) => {
-					return (
-						<div key={`${urlItem}`} className="urlItemContainer">
-							<input
-								type="text"
-								className="urlItemInput"
-								placeholder="자신을 잘 나타낼 수록 스터디 구하기가 쉬워져요!"
-							/>
-							<button type="button" className="urlRemoveButton">
-								x
-							</button>
-						</div>
-					);
-				})}
-				<button type="button" className="urlAddButton" onClick={addUrl}>
-					+
-				</button>
-			</div>
-		);
-	};
-
 	return (
-		<div className="backgroundColorContainer">
-			<div className="container">
-				<div className="title">내 프로필</div>
-				<div className="imageNameContainer">
-					<ProfileImage />
-					<div className={['flex1', 'columnContainer', 'marginContainer'].join(' ')}>
-						<NicknameInput />
-						<MajorInput />
-					</div>
-				</div>
-				<Introduction isShort />
-				<Categories />
-				<Urls />
-				<Introduction isShort={false} />
-				<SaveButton />
+		<div className="my-page-container">
+			<MyHeaderContainer />
+			<div className="my-page-boxes">
+				<PreviewContainer />
+				<NotificationsContainer />
+				<MyBtns />
 			</div>
 		</div>
 	);

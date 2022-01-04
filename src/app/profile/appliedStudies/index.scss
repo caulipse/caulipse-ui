@@ -1,0 +1,56 @@
+@import '../../../scss/variables';
+
+@mixin title($color){
+    font-size: 11px;
+    font-weight: bold;
+    color: $color;
+}
+
+.applied-studies{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: 0px 20px;
+    }
+    &-title{
+        @include title(#212b36);
+    }
+    &-accordian{
+        &-container{
+            display: flex;
+            flex-direction: row;
+            padding: 4px 8px 4px 16px;
+            justify-content: space-between;
+            align-items: center;
+            align-self: center;
+            border: solid;
+            border-radius: 15px;
+            border-width: 1px;
+            border-color: #e5e5e5;
+            background-color: #ffffff;
+            margin-top: 32px;
+        }
+        &-text{
+            font-size: 11px;
+            color: #929699,
+        }
+    }
+    &-closed{
+        &-title{
+            @include title(#637381);
+            margin-top: 32px;
+        }
+        &-list-container{
+            display: flex;
+            flex-direction: column;
+            margin: 16px -20px;
+        }
+    }
+}
+.mt40{
+    margin-top: 40px;
+}
+.mb16{
+    margin-bottom: 16px;
+}

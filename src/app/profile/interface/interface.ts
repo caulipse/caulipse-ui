@@ -1,3 +1,4 @@
+import number from '@src/app/shared/utils/number';
 import { ReactSVG } from 'react';
 
 export interface StudyInterface {
@@ -56,5 +57,11 @@ export interface UserInfoInterface {
 	userAbout: string;
     shortUserAbout: string;
 	links: string[];
+	status: string;
+}
+export interface AppliedStudyInterface extends StudyInterface {
+	date: Date;
+	hits: number;
+	bookmarks: number;
 	status: string;
 }

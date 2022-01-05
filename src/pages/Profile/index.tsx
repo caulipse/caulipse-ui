@@ -4,6 +4,7 @@ import BookmarkPage from './bookmark';
 import MyPage from './my/MyPage';
 import MyProfileEditPage from './myProfileEdit/MyProfileEditPage';
 import AppliedStudiesPage from './appliedStudies/AppliedStudiesPage';
+import RecruitingStudiesPage from './recruitingStudies/RecruitingStudiesPage';
 
 const ProfileContainer = (): JSX.Element => (
 	<Switch>
@@ -11,6 +12,7 @@ const ProfileContainer = (): JSX.Element => (
 		<Route exact path="/profile/:userId" component={MyPage} />
 		<Route exact path="/bookmark" component={BookmarkPage} />
 		<Route exact path="/appliedStudies" component={AppliedStudiesPage} />
+		<Route exact path="/recruitingStudies" component={RecruitingStudiesPage} />
 	</Switch>
 );
 

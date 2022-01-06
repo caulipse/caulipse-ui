@@ -45,7 +45,7 @@ const AppliedStudiesPresenter = ({
 				<>
 					<div className="applied-studies-closed-title">마감된 스터디</div>
 					<div className="applied-studies-closed-list-container">
-						<ClosedStudyList closedAppliedStudies={closedAppliedStudies} />
+						<ClosedStudyList closedStudies={closedAppliedStudies} />
 					</div>
 				</>
 			)}

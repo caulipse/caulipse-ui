@@ -4,13 +4,13 @@ import ClosedStudyItem from './ClosedStudyItem';
 import './index.scss';
 
 interface closedStudyListProps {
-	closedAppliedStudies: AppliedStudyInterface[];
+	closedStudies: AppliedStudyInterface[];
 }
 
-const closedStudyList = ({ closedAppliedStudies }: closedStudyListProps): JSX.Element => {
+const closedStudyList = ({ closedStudies }: closedStudyListProps): JSX.Element => {
 	return (
 		<div>
-			{closedAppliedStudies?.map((item) => (
+			{closedStudies?.map((item) => (
 				<ClosedStudyItem key={item.studyId} closedStudyItem={item} />
 			))}
 		</div>

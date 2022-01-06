@@ -12,7 +12,7 @@ interface AppliedStudiesStateType {
 }
 
 interface RecruitingStudiesStateType {
-	openedRecruitngStudies: AppliedStudyInterface[];
+	openedRecruitingStudies: AppliedStudyInterface[];
 	closedRecruitingStudies: AppliedStudyInterface[];
 }
 
@@ -34,7 +34,7 @@ const initialState: UserType = {
 		closedAppliedStudies: [],
 	},
 	recruitingStudies: {
-		openedRecruitngStudies: [],
+		openedRecruitingStudies: [],
 		closedRecruitingStudies: [],
 	},
 };
@@ -61,7 +61,7 @@ export const userSlice = createSlice({
 		},
 		setRecruitingStudies: (state, action: PayloadAction<RecruitingStudiesStateType>) => {
 			state.recruitingStudies = {
-				openedRecruitngStudies: action.payload.openedRecruitngStudies,
+				openedRecruitingStudies: action.payload.openedRecruitingStudies,
 				closedRecruitingStudies: action.payload.closedRecruitingStudies,
 			};
 		},

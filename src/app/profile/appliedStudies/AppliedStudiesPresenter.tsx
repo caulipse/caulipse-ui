@@ -4,7 +4,7 @@ import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import { AppliedStudyInterface } from '../interface/interface';
 import ClosedStudyList from '../closedStudyList/ClosedStudyList';
 import './index.scss';
-import OpenedAppliedStudyList from '../openedAppliedStudyList/OpenedAppliedStudyList';
+import OpenedStudyList from '../openedStudyList/OpenedStudyList';
 
 interface AppliedStudiesPresenterProps {
 	openedAppliedStudies: AppliedStudyInterface[];
@@ -28,7 +28,7 @@ const AppliedStudiesPresenter = ({
 				<EmptyComponent title="신청중인 스터디가 없습니다" buttonText="스터디 찾아보기" onClick={findStudies} />
 			) : (
 				<div>
-					<OpenedAppliedStudyList openedAppliedStudies={openedAppliedStudies} />
+					<OpenedStudyList openedStudies={openedAppliedStudies} />
 				</div>
 			)}
 			<div className="applied-studies-accordian-container">

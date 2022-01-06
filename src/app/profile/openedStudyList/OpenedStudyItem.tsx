@@ -5,16 +5,16 @@ import { IoEllipsisVertical } from 'react-icons/io5';
 import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 
-interface OpenedAppliedStudyItemProps {
-	openedAppliedStudyItem: AppliedStudyInterface;
+interface OpenedStudyItemProps {
+	openedStudyItem: AppliedStudyInterface;
 }
 
-const OpenedAppliedStudyItem = ({ openedAppliedStudyItem }: OpenedAppliedStudyItemProps): JSX.Element => {
+const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element => {
 	return (
 		<div className="opened-applied-study-item-container">
 			<button type="button">
 				<div className="opened-applied-study-item-top-container">
-					<div className="opened-applied-study-item-title">{openedAppliedStudyItem.title}</div>
+					<div className="opened-applied-study-item-title">{openedStudyItem.title}</div>
 					<div>
 						<button type="button">
 							<IoEllipsisVertical size={24} color="#b1b1b1" />
@@ -23,23 +23,23 @@ const OpenedAppliedStudyItem = ({ openedAppliedStudyItem }: OpenedAppliedStudyIt
 				</div>
 				<div className="opened-applied-study-item-mid-container">
 					<div className="opened-applied-study-item-mid-text">
-						{moment(openedAppliedStudyItem.date).format('YY.MM.DD HH:MM')}
+						{moment(openedStudyItem.date).format('YY.MM.DD HH:MM')}
 					</div>
 					<div className="opened-applied-study-item-divider-dot">·</div>
 					<div className="opened-applied-study-item-mid-text">
-						조회 {NumberUtils.toFormattedCount(openedAppliedStudyItem.hits)}
+						조회 {NumberUtils.toFormattedCount(openedStudyItem.hits)}
 					</div>
 					<div className="opened-applied-study-item-divider-dot">·</div>
 					<div className="opened-applied-study-item-mid-text">
-						북마크 {NumberUtils.toFormattedCount(openedAppliedStudyItem.bookmarks)}
+						북마크 {NumberUtils.toFormattedCount(openedStudyItem.bookmarks)}
 					</div>
 				</div>
-				{openedAppliedStudyItem.status === 'accepted' && (
+				{openedStudyItem.status === 'accepted' && (
 					<div className="opened-applied-study-item-status-accepted-container">
 						<div className="opened-applied-study-item-status-accepted-text">참여 수락됨</div>
 					</div>
 				)}
-				{openedAppliedStudyItem.status === 'waiting' && (
+				{openedStudyItem.status === 'waiting' && (
 					<div className="opened-applied-study-item-status-waiting-container">
 						<div className="opened-applied-study-item-status-waiting-text">수락 대기중</div>
 					</div>
@@ -49,4 +49,4 @@ const OpenedAppliedStudyItem = ({ openedAppliedStudyItem }: OpenedAppliedStudyIt
 	);
 };
 
-export default OpenedAppliedStudyItem;
+export default OpenedStudyItem;

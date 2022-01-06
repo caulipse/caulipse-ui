@@ -13,6 +13,9 @@ const ClosedStudyItem = ({ closedStudyItem }: ClosedStudyItemProps): JSX.Element
 	const onClickMenu = () => {
 		console.log('onClickMenu');
 	};
+	const reRegister=()=>{
+		console.log('reRegister');
+	}
 
 	return (
 		<div className="closed-applied-study-item-container">
@@ -34,7 +37,12 @@ const ClosedStudyItem = ({ closedStudyItem }: ClosedStudyItemProps): JSX.Element
 			</div>
 			<div className="closed-applied-study-item-row-container">
 				{closedStudyItem.status === 'accepted' && (
-					<div className="closed-applied-study-item-status">참여완료</div>
+					<div className="closed-applied-study-item-status-accepted">참여완료</div>
+				)}
+				{closedStudyItem.status === 'closed' && (
+					<div className="closed-applied-study-item-status-closed">
+						<button type="button" onClick={reRegister}>재등록</button>
+					</div>
 				)}
 				<button type="button" onClick={onClickMenu}>
 					<IoEllipsisHorizontal size={24} color="#b1b1b1" />

@@ -7,7 +7,7 @@ interface closedStudyListProps {
 	closedStudies: AppliedStudyInterface[];
 }
 
-const closedStudyList = ({ closedStudies }: closedStudyListProps): JSX.Element => {
+const ClosedStudyList = ({ closedStudies }: closedStudyListProps): JSX.Element => {
 	return (
 		<div>
 			{closedStudies?.map((item) => (
@@ -17,4 +17,4 @@ const closedStudyList = ({ closedStudies }: closedStudyListProps): JSX.Element =
 	);
 };
 
-export default closedStudyList;
+export default ClosedStudyList;

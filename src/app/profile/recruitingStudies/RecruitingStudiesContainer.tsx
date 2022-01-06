@@ -9,7 +9,7 @@ const RecruitingStudiesContainer = (): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const recruitingStudies = useAppSelector((state) => state.user.recruitingStudies);
 
-	const getRecruitingStudiesData = (iter: number) => {
+	const getRecruitingStudiesData = (iter: number, status: string) => {
 		const recruitingStudiesFactory = Factory.Sync.makeFactory<AppliedStudyInterface>({
 			studyId: Factory.each((i) => i),
 			title: '제목입니다.',
@@ -18,7 +18,7 @@ const RecruitingStudiesContainer = (): JSX.Element => {
 			date: new Date(),
 			hits: 5,
 			bookmarks: 5,
-			status: 'recruiting',
+			status,
 		});
 		return recruitingStudiesFactory.buildList(iter);
 	};
@@ -26,8 +26,8 @@ const RecruitingStudiesContainer = (): JSX.Element => {
 	useEffect(() => {
 		dispatch(
 			setRecruitingStudies({
-				openedRecruitingStudies: getRecruitingStudiesData(5),
-				closedRecruitingStudies: getRecruitingStudiesData(3),
+				openedRecruitingStudies: getRecruitingStudiesData(5, 'recruiting'),
+				closedRecruitingStudies: getRecruitingStudiesData(3, 'closed'),
 			})
 		);
 	}, []);

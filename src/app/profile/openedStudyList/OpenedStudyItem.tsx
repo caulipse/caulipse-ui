@@ -10,6 +10,10 @@ interface OpenedStudyItemProps {
 }
 
 const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element => {
+	const closeStudy = () => {
+		console.log('closeStudy');
+	};
+
 	return (
 		<div className="opened-applied-study-item-container">
 			<button type="button">
@@ -46,9 +50,11 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 				)}
 				{openedStudyItem.status === 'recruiting' && (
 					<div className="opened-applied-study-item-status-recruiting-container">
-						<div className="opened-applied-study-item-status-recruiting-text">
-							마감하기 ({openedStudyItem?.currentNumber}/{openedStudyItem?.maxNumber})
-						</div>
+						<button type="button" onClick={closeStudy}>
+							<div className="opened-applied-study-item-status-recruiting-text">
+								마감하기 ({openedStudyItem?.currentNumber}/{openedStudyItem?.maxNumber})
+							</div>
+						</button>
 					</div>
 				)}
 			</button>

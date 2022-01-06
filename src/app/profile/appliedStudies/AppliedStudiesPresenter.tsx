@@ -2,9 +2,9 @@ import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React, { useState } from 'react';
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import { AppliedStudyInterface } from '../interface/interface';
-import ClosedAppliedStudyList from './closedAppliedStudyList/ClosedAppliedStudyList';
+import ClosedStudyList from '../closedStudyList/ClosedStudyList';
 import './index.scss';
-import OpenedAppliedStudyList from './openedAppliedStudyList/OpenedAppliedStudyList';
+import OpenedAppliedStudyList from '../openedAppliedStudyList/OpenedAppliedStudyList';
 
 interface AppliedStudiesPresenterProps {
 	openedAppliedStudies: AppliedStudyInterface[];
@@ -45,7 +45,7 @@ const AppliedStudiesPresenter = ({
 				<>
 					<div className="applied-studies-closed-title">마감된 스터디</div>
 					<div className="applied-studies-closed-list-container">
-						<ClosedAppliedStudyList closedAppliedStudies={closedAppliedStudies} />
+						<ClosedStudyList closedAppliedStudies={closedAppliedStudies} />
 					</div>
 				</>
 			)}

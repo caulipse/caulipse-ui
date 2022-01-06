@@ -2,7 +2,7 @@ import moment from 'moment';
 import React from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
 import { IoEllipsisVertical } from 'react-icons/io5';
-import { AppliedStudyInterface } from '../../interface/interface';
+import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 
 interface OpenedAppliedStudyItemProps {

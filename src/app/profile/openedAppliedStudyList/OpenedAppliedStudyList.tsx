@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppliedStudyInterface } from '../../interface/interface';
+import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 import OpenedAppliedStudyItem from './OpenedAppliedStudyItem';
 

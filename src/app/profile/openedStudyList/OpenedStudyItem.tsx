@@ -44,6 +44,13 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 						<div className="opened-applied-study-item-status-waiting-text">수락 대기중</div>
 					</div>
 				)}
+				{openedStudyItem.status === 'recruiting' && (
+					<div className="opened-applied-study-item-status-recruiting-container">
+						<div className="opened-applied-study-item-status-recruiting-text">
+							마감하기 ({openedStudyItem?.currentNumber}/{openedStudyItem?.maxNumber})
+						</div>
+					</div>
+				)}
 			</button>
 		</div>
 	);

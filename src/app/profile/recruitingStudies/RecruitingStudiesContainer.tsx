@@ -18,7 +18,7 @@ const RecruitingStudiesContainer = (): JSX.Element => {
 			date: new Date(),
 			hits: 5,
 			bookmarks: 5,
-			status: Factory.each((i) => (i > 2 ? 'accepted' : 'waiting')),
+			status: 'recruiting',
 		});
 		return recruitingStudiesFactory.buildList(iter);
 	};

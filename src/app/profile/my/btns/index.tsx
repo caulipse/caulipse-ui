@@ -19,18 +19,16 @@ const navigations = [
 
 const MyBtns = (): JSX.Element => {
 	return (
-		<button type="button">
-			<div className="my-btns-container">
-				{navigations?.map((item) => (
-					<button type="button" key={item.label}>
-						<div className="navigation-item-container">
-							<div className="navigation-item-label">{item.label}</div>
-							<IoChevronForward size={24} color="#b1b1b1" />
-						</div>
-					</button>
-				))}
-			</div>
-		</button>
+		<div className="my-btns-container">
+			{navigations?.map((item) => (
+				<button type="button" key={item.label}>
+					<div className="navigation-item-container">
+						<div className="navigation-item-label">{item.label}</div>
+						<IoChevronForward size={24} color="#b1b1b1" />
+					</div>
+				</button>
+			))}
+		</div>
 	);
 };
 

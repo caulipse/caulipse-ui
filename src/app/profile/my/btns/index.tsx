@@ -22,10 +22,17 @@ const MyBtns = (): JSX.Element => {
 		<div className="my-btns-container">
 			{navigations?.map((item) => (
 				<button type="button" key={item.label}>
-					<div className="navigation-item-container">
-						<div className="navigation-item-label">{item.label}</div>
-						<IoChevronForward size={24} color="#b1b1b1" />
-					</div>
+					{item.label === '문의하기' ? (
+						<a href="mailto:caulipse814@gmail.com" className="navigation-item-container">
+							<div className="navigation-item-label">{item.label}</div>
+							<IoChevronForward size={24} color="#b1b1b1" />
+						</a>
+					) : (
+						<div className="navigation-item-container">
+							<div className="navigation-item-label">{item.label}</div>
+							<IoChevronForward size={24} color="#b1b1b1" />
+						</div>
+					)}
 				</button>
 			))}
 		</div>

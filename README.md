@@ -1,5 +1,10 @@
 # caulipse-ui
 
+## URL
+
+* https://objective-panini-302b8b.netlify.app
+<br><br><br>
+
 ## Conventions
 
 ### Naming
@@ -18,10 +23,6 @@
 
 ### Redux
 * [Redux Style Guide](https://redux.js.org/style-guide/style-guide)
-
-## URL
-
-* https://objective-panini-302b8b.netlify.app/study/employment
 
 ## Getting Started
 

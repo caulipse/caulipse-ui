@@ -4,6 +4,7 @@ import { BottomSheet, BottomSheetProps } from 'react-spring-bottom-sheet';
 import './index.scss';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import ProfileLink from './profileLink/ProfileLink';
 
 interface ProfilePopupPresenterProps {
 	profileSheetVisible: boolean;
@@ -56,7 +57,7 @@ const ProfilePopupPresenter = ({
 			</div>
 			<div className="profile-bottom-sheet-link-container">
 				{links?.map((linkItem) => (
-					<div key={linkItem}>{linkItem}</div>
+					<ProfileLink key={linkItem} link={linkItem} />
 				))}
 			</div>
 			<div className="profile-bottom-sheet-divider" />

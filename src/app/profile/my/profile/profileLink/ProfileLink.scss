@@ -1,2 +1,33 @@
 @import '@src/scss/variables';
 
+@mixin title(){
+    font-size: 12px;
+    line-height: 18px;
+    color:#101010;
+    text-align: left;
+}
+
+.profile-link{
+    &-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f9f9f9;
+        border-radius: 15px;
+        padding: 6px 16px;
+    }
+    &-domain{
+        @include title();
+        font-weight: bold;
+    }
+    &-link{
+        @include title();
+    }
+}
+.mr8{
+    margin-right: 8px;
+}
+.mr16{
+    margin-right: 16px;
+}

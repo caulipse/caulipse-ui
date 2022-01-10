@@ -76,6 +76,7 @@
             display: flex;
             flex-direction: column;
             margin-top: 32px;
+            align-items: center;
         }
     }
     &-about{
@@ -92,6 +93,9 @@
             color:#636363;
         }
     }
+}
+.mt8{
+  margin-top: 8px;
 }
 .ml12{
     margin-left: 12px;

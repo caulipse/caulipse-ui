@@ -56,8 +56,10 @@ const ProfilePopupPresenter = ({
 				<div className="profile-bottom-sheet-hashtag-bold-text">#{status}</div>
 			</div>
 			<div className="profile-bottom-sheet-link-container">
-				{links?.map((linkItem) => (
-					<ProfileLink key={linkItem} link={linkItem} />
+				{links?.map((linkItem, linkIndex) => (
+					<div key={linkItem} className={linkIndex === 0 ? '' : 'mt8'}>
+						<ProfileLink link={linkItem} />
+					</div>
 				))}
 			</div>
 			<div className="profile-bottom-sheet-divider" />

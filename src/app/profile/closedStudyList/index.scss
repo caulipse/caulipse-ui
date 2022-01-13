@@ -1,5 +1,14 @@
 @import 'scss/variables';
 
+@mixin status($backgroundColor, $textColor){
+    padding: 9px 12px;
+    background-color: $backgroundColor;
+    border-radius: 18px;
+    font-size: 11px;
+    color: $textColor;
+    margin-right: 44px;
+}
+
 .closed-applied-study-item{
     &-container{
         display: flex;
@@ -38,11 +47,11 @@
         color: #e5e5e5;
     }
     &-status{
-        padding: 9px 12px;
-        background-color: #4790d8;
-        border-radius: 18px;
-        font-size: 11px;
-        color: #f9f9f9;
-        margin-right: 44px;
+        &-accepted{
+            @include status(#4790d8, #f9f9f9);
+        }
+        &-closed{
+            @include status(#f2f3f5, #212b36);
+        }
     }
 }

@@ -11,10 +11,16 @@ interface AppliedStudiesStateType {
 	closedAppliedStudies: AppliedStudyInterface[];
 }
 
+interface RecruitingStudiesStateType {
+	openedRecruitingStudies: AppliedStudyInterface[];
+	closedRecruitingStudies: AppliedStudyInterface[];
+}
+
 export interface UserType {
 	userInfo: UserInfoInterface | Record<string, never>;
 	bookmarks: BookmarkStateType;
 	appliedStudies: AppliedStudiesStateType;
+	recruitingStudies: RecruitingStudiesStateType;
 }
 
 const initialState: UserType = {
@@ -26,6 +32,10 @@ const initialState: UserType = {
 	appliedStudies: {
 		openedAppliedStudies: [],
 		closedAppliedStudies: [],
+	},
+	recruitingStudies: {
+		openedRecruitingStudies: [],
+		closedRecruitingStudies: [],
 	},
 };
 
@@ -49,9 +59,15 @@ export const userSlice = createSlice({
 				closedAppliedStudies: action.payload.closedAppliedStudies,
 			};
 		},
+		setRecruitingStudies: (state, action: PayloadAction<RecruitingStudiesStateType>) => {
+			state.recruitingStudies = {
+				openedRecruitingStudies: action.payload.openedRecruitingStudies,
+				closedRecruitingStudies: action.payload.closedRecruitingStudies,
+			};
+		},
 	},
 });
 
-export const { fetchUserInfo, setBookmarks, setAppliedStudies } = userSlice.actions;
+export const { fetchUserInfo, setBookmarks, setAppliedStudies, setRecruitingStudies } = userSlice.actions;
 
 export default userSlice.reducer;

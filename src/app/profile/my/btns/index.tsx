@@ -19,16 +19,23 @@ const navigations = [
 
 const MyBtns = (): JSX.Element => {
 	return (
-		<button type="button">
-			<div className="my-btns-container">
-				{navigations?.map((item) => (
-					<div key={item.label} className="navigation-item-container">
-						<div className='navigation-item-label'>{item.label}</div>
-						<IoChevronForward size={24} color="#b1b1b1" />
-					</div>
-				))}
-			</div>
-		</button>
+		<div className="my-btns-container">
+			{navigations?.map((item) => (
+				<button type="button" key={item.label}>
+					{item.label === '문의하기' ? (
+						<a href="mailto:caulipse814@gmail.com" className="navigation-item-container">
+							<div className="navigation-item-label">{item.label}</div>
+							<IoChevronForward size={24} color="#b1b1b1" />
+						</a>
+					) : (
+						<div className="navigation-item-container">
+							<div className="navigation-item-label">{item.label}</div>
+							<IoChevronForward size={24} color="#b1b1b1" />
+						</div>
+					)}
+				</button>
+			))}
+		</div>
 	);
 };
 

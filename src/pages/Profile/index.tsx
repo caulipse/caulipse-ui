@@ -9,6 +9,7 @@ import RecruitingStudiesPage from './recruitingStudies/RecruitingStudiesPage';
 const ProfileContainer = (): JSX.Element => (
 	<Switch>
 		<Route exact path="/profile/edit" component={MyProfileEditPage} />
+		<Route path="/profile/studies" component={ProfileStudies} />
 		<Route exact path="/profile/:userId" component={MyPage} />
 		<Route exact path="/bookmark" component={BookmarkPage} />
 		<Route exact path="/appliedStudies" component={AppliedStudiesPage} />

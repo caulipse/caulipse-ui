@@ -12,15 +12,15 @@ const PreviewPresenter = ({ bookmarkNum, applyNum, recruitNum }: PreviewPresente
 	const history = useHistory();
 
 	const navigateToBookmark = () => {
-		history.push('/bookmark');
+		history.push('/profile/studies/bookmark');
 	};
 
 	const navigateToAppliedStudies = () => {
-		history.push('/appliedStudies');
+		history.push('/profile/studies/appliedStudies');
 	};
 
 	const navigateToRecruitingStudies = () => {
-		history.push('/recruitingStudies');
+		history.push('/profile/studies/recruitingStudies');
 	};
 
 	return (

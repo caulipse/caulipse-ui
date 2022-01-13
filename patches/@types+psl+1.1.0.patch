@@ -1,0 +1,13 @@
+diff --git a/node_modules/@types/psl/index.d.ts b/node_modules/@types/psl/index.d.ts
+index 0898ed9..2b0f7ac 100644
+--- a/node_modules/@types/psl/index.d.ts
++++ b/node_modules/@types/psl/index.d.ts
+@@ -6,7 +6,7 @@
+ 
+ export as namespace psl;
+ 
+-export function parse(domain: string): ParsedDomain | ParseError;
++export function parse(domain: string): ParsedDomain;
+ 
+ export function get(domain: null | undefined): null;
+ export function get(domain: string): string | null;

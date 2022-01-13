@@ -5,6 +5,7 @@ import MyPage from './my/MyPage';
 import MyProfileEditPage from './myProfileEdit/MyProfileEditPage';
 import AppliedStudiesPage from './appliedStudies/AppliedStudiesPage';
 import RecruitingStudiesPage from './recruitingStudies/RecruitingStudiesPage';
+import ProfileStudies from './studies';
 
 const ProfileContainer = (): JSX.Element => (
 	<Switch>

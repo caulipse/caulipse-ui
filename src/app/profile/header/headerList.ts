@@ -6,14 +6,14 @@ export interface HeaderButtonProps {
 export const headerButtons: HeaderButtonProps[] = [
 	{
 		title: '북마크',
-		route: '/bookmark',
+		route: '/profile/studies/bookmark',
 	},
 	{
 		title: '신청 스터디',
-		route: '/appliedStudies',
+		route: '/profile/studies/appliedStudies',
 	},
 	{
 		title: '모집 스터디',
-		route: '/recruitingStudies',
+		route: '/profile/studies/recruitingStudies',
 	},
 ];

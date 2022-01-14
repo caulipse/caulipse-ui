@@ -39,8 +39,8 @@ const ProfilePopupPresenter = ({
 	const [bottomSheetHeight, setBottomSheetHeight] = useState<number>(334);
 
 	const closeProfileSheet = () => {
-		console.log('closeProfileSheet');
 		setProfileSheetVisible(false);
+		setBottomSheetHeight(BOTTOMSHEET_MINHEIGHT);
 	};
 
 	const Content = () => {
@@ -100,10 +100,7 @@ const ProfilePopupPresenter = ({
 		<BottomSheet
 			ref={bottomSheetRef}
 			open={profileSheetVisible}
-			onDismiss={() => {
-				closeProfileSheet();
-				setBottomSheetHeight(BOTTOMSHEET_MINHEIGHT);
-			}}
+			onDismiss={closeProfileSheet}
 		>
 			<Content />
 		</BottomSheet>

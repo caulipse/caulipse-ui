@@ -38,6 +38,11 @@ const ProfilePopupPresenter = ({
 	const bottomSheetRef = useRef<BottomSheetRef>(null);
 	const [bottomSheetHeight, setBottomSheetHeight] = useState<number>(334);
 
+	const closeProfileSheet = () => {
+		console.log('closeProfileSheet');
+		setProfileSheetVisible(false);
+	};
+
 	const Content = () => {
 		const handleScroll = (e: React.UIEvent<HTMLElement>) => {
 			if (e.currentTarget.scrollTop > 10) {
@@ -77,13 +82,16 @@ const ProfilePopupPresenter = ({
 				<div className="profile-bottom-sheet-divider" />
 				<div className="profile-bottom-sheet-about-title">저는요..</div>
 				<div className="profile-bottom-sheet-about-text">{userAbout}</div>
+				<button type="button" className="profile-bottom-sheet-close-cta-btn" onClick={closeProfileSheet}>
+					닫기
+				</button>
 			</div>
 		);
 	};
 
 	if (windowWidth > 1024) {
 		return (
-			<Popup open={profileSheetVisible} onClose={() => setProfileSheetVisible(false)} position="center center">
+			<Popup open={profileSheetVisible} onClose={closeProfileSheet} position="center center">
 				<Content />
 			</Popup>
 		);
@@ -93,7 +101,7 @@ const ProfilePopupPresenter = ({
 			ref={bottomSheetRef}
 			open={profileSheetVisible}
 			onDismiss={() => {
-				setProfileSheetVisible(false);
+				closeProfileSheet();
 				setBottomSheetHeight(BOTTOMSHEET_MINHEIGHT);
 			}}
 		>

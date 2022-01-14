@@ -92,6 +92,26 @@
             color:#636363;
         }
     }
+    &-close-cta-btn{
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 32px !important;
+      background-color: #006ed9;
+      border-radius: 24px;
+      padding: 14px 0px;
+      margin: 0px 72px;
+      width: calc(100vw - 144px);
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #ffffff;
+      font-weight: bold;
+      box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.16);
+      z-index: 2;
+    }
 }
 .mt8{
   margin-top: 8px;

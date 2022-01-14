@@ -54,6 +54,7 @@ const ProfilePopupPresenter = ({
 
 		return (
 			<div className="profile-bottom-sheet-container" style={{ height: bottomSheetHeight }} onScroll={handleScroll}>
+				<div className="profile-bottom-sheet-top-short-about">{shortUserAbout}</div>
 				<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
 				<div className="profile-bottom-sheet-name">{userName}</div>
 				<div className="profile-bottom-sheet-short-about">{shortUserAbout}</div>

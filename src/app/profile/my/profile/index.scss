@@ -8,6 +8,16 @@
         padding: 0px 24px;
         overflow: scroll;
     }
+    &-top-short-about{
+      position: absolute;
+      margin-top: calc((100vh - 350px)/(-2)) !important;
+      z-index: 2;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 28px;
+      color: #ffffff;
+      margin: 0px 32px;
+    }
     &-profile-img{
         display: flex;
         position: absolute;

@@ -7,8 +7,8 @@ interface StudyInfoPresenterProps {
 }
 const StudyInfoPresenter = ({ study }: StudyInfoPresenterProps): JSX.Element => (
   <div className="StudyInfoContainer">
-    <div className="categotyTextContainer">
-      <div className="categoty">카테고리</div>
+    <div className="categoryTextContainer">
+      <div className="category">카테고리</div>
       <div className="categoryDetail">
         <span>{study.categoryCode}</span>
       </div>

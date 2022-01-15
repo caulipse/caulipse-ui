@@ -14,6 +14,7 @@ export interface GetStudyResponse {
   isOpen: boolean
   categoryCode: number
   views: number
+  bookmarks?: number
 }
 
 export interface GetStudyUserResponse {

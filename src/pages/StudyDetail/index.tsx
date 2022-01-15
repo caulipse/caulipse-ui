@@ -27,6 +27,7 @@ const study: GetStudyResponse = {
 	isOpen: true,
 	categoryCode: 3,
 	views: 10,
+	bookmarks: 2,
 };
 
 const comments: GetCommentResponse[] = [

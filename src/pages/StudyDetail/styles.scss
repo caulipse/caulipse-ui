@@ -1,11 +1,18 @@
 @import '../../scss/mixins';
+@import '/src/scss/variables';
 
 .studyDetailContainer {
   background-color: #0e5dd3;
   .backButtonContainer {
-    height: $backButtonHeight;
     position: sticky;
-    top: $headerHeight_m;
-    background-color: #0e5dd3;
+    padding-top: 54px;
+    margin: 0px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
+}
+.mr11{
+  margin-right: 11px;
 }

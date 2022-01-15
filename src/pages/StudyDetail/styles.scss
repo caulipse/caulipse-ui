@@ -1,13 +1,11 @@
 @import '../../scss/mixins';
 
-@include mobile {
-  .studyDetailContainer {
+.studyDetailContainer {
+  background-color: #0e5dd3;
+  .backButtonContainer {
+    height: $backButtonHeight;
+    position: sticky;
+    top: $headerHeight_m;
     background-color: #0e5dd3;
-    .backButtonContainer {
-      height: $backButtonHeight;
-      position: sticky;
-      top: $headerHeight_m;
-      background-color: #0e5dd3;
-    }
   }
 }

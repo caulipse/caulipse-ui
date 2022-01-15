@@ -1,26 +1,24 @@
 @import '../../../scss/mixins';
 
-@include mobile {
-  .StudyInfoContainer {
-    padding-left: 20px;
-    color: white;
-    .categotyTextContainer {
-      padding-top: 40px;
-      margin-bottom: 32px;
-      .categoty {
-        font-size: 11px;
-        margin-bottom: 8px;
-      }
-      .categoryDetail {
-        font-size: 18px;
-        font-weight: bold;
-      }
+.StudyInfoContainer {
+  padding-left: 20px;
+  color: white;
+  .categotyTextContainer {
+    padding-top: 40px;
+    margin-bottom: 32px;
+    .categoty {
+      font-size: 11px;
+      margin-bottom: 8px;
     }
-    .StudySubInfoContainer {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 48px;
+    .categoryDetail {
+      font-size: 18px;
+      font-weight: bold;
     }
-    
   }
+  .StudySubInfoContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 48px;
+  }
+  
 }

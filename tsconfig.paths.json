@@ -6,7 +6,7 @@
       "@pages/*": ["src/pages/*"],
       "@api/*": ["src/api/*"],
       "@shared/*": ["src/app/shared/*"],
-
+      "@studyDetail/*": ["src/app/studyDetail/*"],
       "@study/*": ["src/app/study/*"],
       "@post/*": ["src/app/post/*"],
       "@nonsubject/*": ["src/app/nonsubject/*"],

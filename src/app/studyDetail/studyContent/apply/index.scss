@@ -11,23 +11,23 @@
         position: relative;
     }
 }
-.titleContainer {
+.title-container {
   margin-bottom: 40px;
 }
 .title {
   font-size: 24px;
   font-weight: bold;
 }
-.subTitleContainer {
+.sub-title-container {
   margin-bottom: 8px;
   text-align: left;
   width: 100%;
 }
-.subTitle {
+.sub-title {
   font-size: 20px;
   font-weight: bold;
 }
-.textArea {
+.text-area {
   width: calc(100% - 40px);
   border: 1px solid #e2e2e2;
   border-radius: 4px;
@@ -39,19 +39,19 @@
   resize: none;
   color: #929699;
 }
-.textArea:focus-visible {
+.text-area:focus-visible {
   outline: none;
 }
-.closeIcon {
+.close-icon {
   cursor: pointer;
   position: absolute;
   right: 20px;
 }
-.helperText {
+.helper-text {
   width: 100%;
   color: #929699;
 }
-.applyButton {
+.apply-button {
   width: calc(100% - 40px);
   height: 48px;
   position: absolute !important;

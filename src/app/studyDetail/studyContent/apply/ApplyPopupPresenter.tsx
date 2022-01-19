@@ -38,25 +38,25 @@ const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyP
 
 	const Content = () => (
 		<div className="profile-bottom-sheet-container">
-			<div className="titleContainer">
+			<div className="title-container">
 				<span className="title">스터디 신청</span>
-				<IoCloseOutline onClick={handleClose} size={24} className="closeIcon" />
+				<IoCloseOutline onClick={handleClose} size={24} className="close-icon" />
 			</div>
-			<div className="subTitleContainer">
-				<span className="subTitle">한줄 소개글</span>
+			<div className="sub-title-container">
+				<span className="sub-title">한줄 소개글</span>
 			</div>
-			<textarea maxLength={60} onChange={onChange} className="textArea" value={value} />
+			<textarea maxLength={60} onChange={onChange} className="text-area" value={value} />
 			<div
-				className="subTitleContainer"
+				className="sub-title-container"
 				style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
 			>
-				<span className="subTitle">학과정보 공개</span>
+				<span className="sub-title">학과정보 공개</span>
 				<Switch onChange={handleChange} checked={isPublic} />
 			</div>
-			<div className="helperText">
+			<div className="helper-text">
 				<span>이 부분 유도 텍스트 들어가는 곳</span>
 			</div>
-			<Button className="applyButton" disabled={disabled}>
+			<Button className="apply-button" disabled={disabled}>
 				신청하기!
 			</Button>
 		</div>

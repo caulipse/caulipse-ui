@@ -45,7 +45,7 @@ const ProfilePopupPresenter = ({
 
 	const Content = () => {
 		const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-			if (e.currentTarget.scrollTop > 10) {
+			if (e.currentTarget.scrollTop > 0) {
 				setBottomSheetHeight(windowHeight - 102);
 			} else {
 				setBottomSheetHeight(BOTTOMSHEET_MINHEIGHT);

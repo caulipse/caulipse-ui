@@ -3,6 +3,7 @@ import { GetStudyResponse } from '@src/api/response/study';
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useRef, useState } from 'react';
+import { IoArrowBack, IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import './styles.scss';
 import { Button } from '@material-ui/core';
@@ -26,6 +27,7 @@ const study: GetStudyResponse = {
 	isOpen: true,
 	categoryCode: 3,
 	views: 10,
+	bookmarks: 2,
 };
 
 const comments: GetCommentResponse[] = [
@@ -71,13 +73,28 @@ const StudyDetailPage = (): JSX.Element => {
 		<div className="studyDetailContainer">
 			<div className="backButtonContainer">
 				<button onClick={() => history.goBack()} type="button">
-					back
+					<IoArrowBack size={16} color="#ffffff" />
 				</button>
+				<div>
+					<button type="button" className="mr11">
+						<IoBookmarkOutline size={16} color="#ffffff" />
+					</button>
+					<button type="button" className="mr11">
+						<IoShareSocialOutline size={16} color="#ffffff" />
+					</button>
+					<button type="button">
+						<IoEllipsisVertical size={16} color="#ffffff" />
+					</button>
+				</div>
 			</div>
 			<StudyInfoContainer study={study} />
 			<StudyContentContainer studyData={study} />
-			<Button onClick={onClick}>신청하기</Button>
 			<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
+			<div className="study-apply-btn-container">
+				<button type="button" className="study-apply-btn-content" onClick={onClick}>
+					신청하기
+				</button>
+			</div>
 		</div>
 	);
 };

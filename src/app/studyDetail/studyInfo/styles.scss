@@ -1,26 +1,45 @@
 @import '../../../scss/mixins';
 
-@include mobile {
-  .StudyInfoContainer {
-    padding-left: 20px;
-    color: white;
-    .categotyTextContainer {
-      padding-top: 40px;
-      margin-bottom: 32px;
-      .categoty {
-        font-size: 11px;
-        margin-bottom: 8px;
-      }
-      .categoryDetail {
-        font-size: 18px;
-        font-weight: bold;
-      }
+.StudyInfoContainer {
+  padding-left: 20px;
+  color: white;
+  .categoryTextContainer {
+    padding-top: 58px;
+    margin-bottom: 32px;
+    .category {
+      font-size: 11px;
+      margin-bottom: 8px;
+      line-height: 20px;
     }
-    .StudySubInfoContainer {
+    .categoryDetail {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 13px;
+    }
+  }
+  .study-sub-info{
+    &-container{
       display: flex;
       flex-direction: row;
-      margin-bottom: 48px;
+      margin-bottom: 56px;
+      margin-top: 32px;
     }
-    
-  }
+    &-title{
+      font-size: 12px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+    &-content{
+      font-size: 14px;
+      color: #ffffff;
+      padding: 5px 12px;
+      border: solid;
+      border-width: 1px;
+      border-color: #bfdaf4;
+      border-radius: 20px;
+    }
+  } 
+}
+.mr16{
+  margin-right: 16px;
 }

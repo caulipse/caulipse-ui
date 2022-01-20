@@ -1,33 +1,31 @@
 @import '../../../../scss/mixins';
 
-@include mobile {
-  .studyCurrentStateContainer {
-    margin-top: 40px;
-    padding: 0 20px 80px 20px;
+.studyCurrentStateContainer {
+  margin-top: 40px;
+  padding: 0 20px 80px 20px;
 
-    .studyCurrentUserContainer {
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
-      .studyCurrentStateTitle {
-        font-size: 18px;
-        font-weight: bold;
-        margin-right: 8px;
-      }
-      .studyCurrentState {
-        font-size: 11px;
-        color: #636363;
-      }
+  .studyCurrentUserContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    .studyCurrentStateTitle {
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+    .studyCurrentState {
+      font-size: 11px;
+      color: #636363;
+    }
 
+  }
+  .studyHost {
+    margin-bottom: 32px;
+    .studyUserName {
+      color: #0e5dd3;
     }
-    .studyHost {
-      margin-bottom: 32px;
-      .studyUserName {
-        color: #0e5dd3;
-      }
-    }
-    .studyUserListContainer {
+  }
+  .studyUserListContainer {
 
-    }
   }
 }

@@ -1,13 +1,38 @@
 @import '../../scss/mixins';
+@import '/src/scss/variables';
 
-@include mobile {
-  .studyDetailContainer {
-    background-color: #0e5dd3;
-    .backButtonContainer {
-      height: $backButtonHeight;
-      position: sticky;
-      top: $headerHeight_m;
-      background-color: #0e5dd3;
-    }
+.studyDetailContainer {
+  background-color: #0e5dd3;
+  .backButtonContainer {
+    position: sticky;
+    padding-top: 54px;
+    margin: 0px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
+}
+.study-apply-btn{
+  &-container{
+    display: flex;
+    position: absolute;
+    bottom: 48px;
+    width: 100%;
+    align-self: center;
+  }
+  &-content{
+    margin: 0px 24px;
+    background-color: #006ed9;
+    padding: 12px 0px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px 0px rgba(18, 73, 155, 0.35);
+    width: calc(100vw - 48px);
+  }
+}
+.mr11{
+  margin-right: 11px;
 }

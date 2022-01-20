@@ -2,8 +2,12 @@
 
 ## URL
 
-* https://objective-panini-302b8b.netlify.app
-<br><br><br>
+https://objective-panini-302b8b.netlify.app
+<br><br>
+
+## Design
+https://app.zeplin.io/project/60ab2c1eda632a27c275f616
+<br><br>
 
 ## Conventions
 

@@ -20,9 +20,6 @@ const StudyInfoContentPresenter = ({ study }: StudyInfoContentPresenterProps): J
 		<div className="studyContent">
 			<span>{study.studyAbout}</span>
 		</div>
-		<button type="button" className="study-apply-btn">
-			신청하기
-		</button>
 	</div>
 );
 

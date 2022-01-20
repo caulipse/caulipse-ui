@@ -68,7 +68,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const onClick = () => {
 		setApplySheetVisible(true);
 	};
-	
+
 	return (
 		<div className="studyDetailContainer">
 			<div className="backButtonContainer">
@@ -90,6 +90,11 @@ const StudyDetailPage = (): JSX.Element => {
 			<StudyInfoContainer study={study} />
 			<StudyContentContainer studyData={study} />
 			<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
+			<div className="study-apply-btn-container">
+				<button type="button" className="study-apply-btn-content" onClick={onClick}>
+					신청하기
+				</button>
+			</div>
 		</div>
 	);
 };

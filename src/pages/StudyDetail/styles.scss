@@ -1,16 +1,23 @@
-@import '../../scss/mixins';
+@import 'src/scss/mixins';
 @import '/src/scss/variables';
 
 .studyDetailContainer {
-  background-color: #0e5dd3;
-  .backButtonContainer {
-    position: sticky;
-    padding-top: 54px;
-    margin: 0px 12px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  .studyDetailBg{
+    background-color: #0e5dd3;
+    max-width: $maxContentWidth;
+    .backButtonContainer {
+      position: sticky;
+      padding-top: 54px;
+      margin: 0px 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
 .study-apply-btn{
@@ -19,6 +26,7 @@
     position: absolute;
     bottom: 48px;
     width: 100%;
+    max-width: $maxContentWidth;
     align-self: center;
   }
   &-content{

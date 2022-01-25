@@ -1,10 +1,15 @@
+import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
 import StudyUserHostItemPresenter from './StudyUserHostItemPresenter';
 
-const StudyUserHostItemContainer = (): JSX.Element => {
+interface StudyUserHostItemContainerProps {
+	user: GetStudyUserResponse;
+}
+
+const StudyUserHostItemContainer = ({ user }: StudyUserHostItemContainerProps): JSX.Element => {
 	return (
 		<div>
-			<StudyUserHostItemPresenter />
+			<StudyUserHostItemPresenter user={user} />
 		</div>
 	);
 };

@@ -19,8 +19,12 @@ const StudyCurrentStatePresenter = ({ studyUsers, host }: StudyCurrentStatePrese
 			<StudyUserHostItemContainer user={host} />
 		</div>
 		<div className="studyUserListContainer">
-			{studyUsers.map((studyUser: GetStudyUserResponse) => {
-				return <StudyUserItemContainer key={studyUser.userId} studyUser={studyUser} />;
+			{studyUsers.map((studyUser: GetStudyUserResponse, studyUserIndex: number) => {
+				return (
+					<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
+						<StudyUserItemContainer studyUser={studyUser} />
+					</div>
+				);
 			})}
 		</div>
 	</div>

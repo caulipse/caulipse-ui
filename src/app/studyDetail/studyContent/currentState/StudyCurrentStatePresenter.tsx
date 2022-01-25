@@ -1,5 +1,6 @@
 import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
+import StudyUserHostItemContainer from './studyUserHostItem/StudyUserHostItemContainer';
 import StudyUserItemContainer from './studyUserItem/StudyUserItemContainer';
 import './styles.scss';
 
@@ -18,7 +19,7 @@ const StudyCurrentStatePresenter = ({
       <div className="studyCurrentState">({studyUsers.length + 1}/10)</div>
     </div>
     <div className="studyHost">
-      <StudyUserItemContainer studyUser={host}/>
+      <StudyUserHostItemContainer />
     </div>
     <div className="studyUserListContainer">
       {studyUsers.map((studyUser: GetStudyUserResponse) => {

@@ -1,4 +1,4 @@
-import InputBase from '@src/app/shared/components/input/InputBaseContainer';
+import InputBase from '@src/app/shared/components/input/InputBase';
 import React from 'react';
 import './styles.scss';
 

@@ -9,6 +9,8 @@ const comments: GetCommentResponse[] = [
 	{
 		id: '11',
 		userId: 'dfdf',
+    userName:'이름',
+    profilePicture:sampleImgUrl,
 		studyId: 'asdfasdf234efawe32fd',
 		createdAt: '2021-09-18',
 		isNested: false,
@@ -16,8 +18,10 @@ const comments: GetCommentResponse[] = [
 		nestedComments: [],
 	},
 	{
-		id: '11',
+		id: '12',
 		userId: 'dfdfefef',
+    userName:'이름',
+    profilePicture:sampleImgUrl,
 		studyId: 'asdfasdf234efawe32fd',
 		createdAt: '2021-09-18',
 		isNested: false,
@@ -25,8 +29,10 @@ const comments: GetCommentResponse[] = [
 		nestedComments: [],
 	},
 	{
-		id: '11',
+		id: '13',
 		userId: 'dfdfaefadfe',
+    userName:'이름',
+    profilePicture:sampleImgUrl,
 		studyId: 'asdfasdf234efawe32fd',
 		createdAt: '2021-09-18',
 		isNested: false,

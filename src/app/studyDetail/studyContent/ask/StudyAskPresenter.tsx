@@ -17,7 +17,7 @@ const StudyAskPresenter = ({ content, setContent, comments }: StudyAskPresenterP
 		<div className="StudyCommentsListContainer">
 			<div className="StudyCommentsListInfo">
 				<div className="StudyCommentListTitle">문의글</div>
-				<div className="StudyCommentListCount">(6)</div>
+				<div className="StudyCommentListCount">({comments?.length})</div>
 			</div>
 			<div>
 				<CommentList comments={comments} />

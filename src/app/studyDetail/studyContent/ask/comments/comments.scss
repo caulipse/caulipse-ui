@@ -1,0 +1,57 @@
+.comment-item{
+    &-container{
+        display: flex;
+        flex-direction: row;
+        padding: 16px 20px 24px 20px;
+        width: 100%;
+    }
+    &-img{
+        border-radius: 50px;
+        margin-right: 16px;
+    }
+    &-column-container{
+        display: flex;
+        flex-direction: column;
+    }
+    &-row-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    &-username{
+        font-size: 0.875rem;
+        color:#212b36;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+    &-leader{
+        font-size: 0.625rem;
+        color: #0e5dd3;
+        background-color: #e9eff8;
+        border-radius: 10px;
+        padding: 2px 8px;
+        margin-right: 8px;
+    }
+    &-createdat{
+        font-size: 0.625rem;
+        color:#b4b4b4;
+    }
+    &-content{
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        color:#212b36;
+        margin-top: 8px;
+    }
+    &-comment-write{
+        font-size: 0.75rem;
+        color:#212b36;
+    }
+    &-divider-dot{
+        color:#b4b4b4;
+        margin: 0px 5px;
+    }
+    &-report{
+        font-size: 0.75rem;
+        color:#b4b4b4
+    }
+}

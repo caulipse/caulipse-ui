@@ -51,7 +51,7 @@ const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyP
 				style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
 			>
 				<span className="sub-title">학과정보 공개</span>
-				<Switch onChange={handleChange} checked={isPublic} />
+				<Switch className="switch" onChange={handleChange} checked={isPublic} />
 			</div>
 			<div className="helper-text">
 				<span>이 부분 유도 텍스트 들어가는 곳</span>

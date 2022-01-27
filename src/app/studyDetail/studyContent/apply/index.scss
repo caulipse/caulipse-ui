@@ -61,6 +61,27 @@
   color: #006ed9 !important;
   font-weight: bold !important;
 }
+.switch {
+  width: 64px !important;
+  height: 48px !important;
+} 
+.switch .MuiSwitch-switchBase {
+  top: 3px !important;
+}
+.switch .MuiSwitch-thumb {
+  width: 24px !important;
+  height: 24px !important;
+}
+.switch .MuiSwitch-track {
+  border-radius: 15px !important;
+}
+.switch .MuiSwitch-colorSecondary.Mui-checked {
+  color:  #fff;
+}
+.switch .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: #006ed9;
+  opacity: 1;
+}
 .mt8{
   margin-top: 8px;
 }

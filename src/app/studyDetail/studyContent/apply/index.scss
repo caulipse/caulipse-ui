@@ -61,6 +61,10 @@
   color: #006ed9 !important;
   font-weight: bold !important;
 }
+.apply-button.MuiButton-root.Mui-disabled {
+  background: #ececec !important;
+  color: #b4b4b4 !important;
+}
 .switch {
   width: 64px !important;
   height: 48px !important;

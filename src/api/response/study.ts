@@ -36,10 +36,12 @@ export interface StudyUser {
 }
 
 export interface InquiryResponse {
+	inquiryId: number;
 	profilePicture: string;
 	username: string;
 	isLeader: boolean;
 	createdAt: Date;
-	content: boolean;
+	content: string;
 	likes: number;
+	comments: InquiryResponse[];
 }

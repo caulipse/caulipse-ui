@@ -37,8 +37,8 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 							신고
 						</button>
 					</div>
-					<button type="button" className="comment-item-like">
-						저도 궁금해요 {comment.likes}
+					<button type="button" className={isNested ? 'comment-item-helpful' : 'comment-item-curious'}>
+						{isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes}
 					</button>
 				</div>
 			</div>

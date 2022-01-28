@@ -1,3 +1,14 @@
+@mixin comment-item-like($color){
+    color:$color;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: solid;
+    border-width: 1px;
+    border-color: $color;
+}
+
 .comment-item{
     &-container{
         display: flex;
@@ -67,15 +78,11 @@
         justify-content: space-between;
         align-items: center;
     }
-    &-like{
-        color:#006ed9;
-        font-size: 0.75rem;
-        font-weight: bold;
-        padding: 6px 12px;
-        border-radius: 15px;
-        border: solid;
-        border-width: 1px;
-        border-color: #006ed9;
+    &-curious{
+        @include comment-item-like(#006ed9);
+    }
+    &-helpful{
+        @include comment-item-like(#f78819);
     }
 }
 .comment-list-item{

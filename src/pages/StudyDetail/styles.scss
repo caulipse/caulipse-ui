@@ -24,7 +24,7 @@
 .study-apply-btn{
   &-container{
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 48px;
     width: 100%;
     max-width: $maxContentWidth;

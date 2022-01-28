@@ -29,7 +29,7 @@ const CommentItem = ({ comment }: CommentItem): JSX.Element => {
 						</button>
 					</div>
 					<button type="button" className="comment-item-like">
-						저도 궁금해요 (0)
+						저도 궁금해요 {comment.likes}
 					</button>
 				</div>
 			</div>

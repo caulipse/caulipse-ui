@@ -5,7 +5,6 @@
         padding: 16px 20px 24px 20px;
         border-bottom: solid;
         border-bottom-color: #e2e2e2;
-        border-bottom-width: 4px;
     }
     &-img{
         border-radius: 50px;
@@ -69,6 +68,7 @@
     &-like{
         color:#006ed9;
         font-size: 0.75rem;
+        font-weight: bold;
         padding: 6px 12px;
         border-radius: 15px;
         border: solid;

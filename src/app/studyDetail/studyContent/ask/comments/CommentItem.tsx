@@ -18,10 +18,19 @@ const CommentItem = ({ comment }: CommentItem): JSX.Element => {
 					<div className="comment-item-createdat">{moment(comment.createdAt).format('YY.MM.DD HH:MM')}</div>
 				</div>
 				<div className="comment-item-content">{comment.content}</div>
-				<div className="comment-item-row-container">
-					<div className="comment-item-comment-write">댓글달기</div>
-					<div className="comment-item-divider-dot">・</div>
-					<div className="comment-item-report">신고</div>
+				<div className="comment-item-bottom-container">
+					<div className="comment-item-row-container">
+						<button className="comment-item-comment-write" type="button">
+							댓글달기
+						</button>
+						<div className="comment-item-divider-dot">・</div>
+						<button className="comment-item-report" type="button">
+							신고
+						</button>
+					</div>
+					<button type="button" className="comment-item-like">
+						저도 궁금해요 (0)
+					</button>
 				</div>
 			</div>
 		</div>

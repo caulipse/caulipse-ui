@@ -3,7 +3,9 @@
         display: flex;
         flex-direction: row;
         padding: 16px 20px 24px 20px;
-        width: 100%;
+        border-bottom: solid;
+        border-bottom-color: #e2e2e2;
+        border-bottom-width: 4px;
     }
     &-img{
         border-radius: 50px;
@@ -12,6 +14,7 @@
     &-column-container{
         display: flex;
         flex-direction: column;
+        flex:1;
     }
     &-row-container{
         display: flex;
@@ -43,8 +46,10 @@
         margin-top: 8px;
     }
     &-comment-write{
+        display: flex;
         font-size: 0.75rem;
         color:#212b36;
+        padding:0px;
     }
     &-divider-dot{
         color:#b4b4b4;
@@ -52,6 +57,22 @@
     }
     &-report{
         font-size: 0.75rem;
-        color:#b4b4b4
+        color:#b4b4b4;
+        padding: 0px;
+    }
+    &-bottom-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-like{
+        color:#006ed9;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        border-radius: 15px;
+        border: solid;
+        border-width: 1px;
+        border-color: #006ed9;
     }
 }

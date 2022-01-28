@@ -3,13 +3,14 @@ import moment from 'moment';
 import React from 'react';
 import './comments.scss';
 
-interface CommentItem {
+interface CommentItemProps {
 	comment: GetCommentResponse;
+	isNested?: boolean;
 }
 
-const CommentItem = ({ comment }: CommentItem): JSX.Element => {
+const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 	return (
-		<div className="comment-item-container">
+		<div className={`comment-item-container ${isNested ? 'comment-item-nested-bg' : ''}`}>
 			<img className="comment-item-img" src={comment.profilePicture} width={32} height={32} alt="" />
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">
@@ -20,10 +21,10 @@ const CommentItem = ({ comment }: CommentItem): JSX.Element => {
 				<div className="comment-item-content">{comment.content}</div>
 				<div className="comment-item-bottom-container">
 					<div className="comment-item-row-container">
-						<button className="comment-item-comment-write" type="button">
+						{comment.isNested||<button className="comment-item-comment-write" type="button">
 							댓글달기
-						</button>
-						<div className="comment-item-divider-dot">・</div>
+						</button>}
+						{comment.isNested||<div className="comment-item-divider-dot">・</div>}
 						<button className="comment-item-report" type="button">
 							신고
 						</button>
@@ -35,6 +36,10 @@ const CommentItem = ({ comment }: CommentItem): JSX.Element => {
 			</div>
 		</div>
 	);
+};
+
+CommentItem.defaultProps = {
+	isNested: false,
 };
 
 export default CommentItem;

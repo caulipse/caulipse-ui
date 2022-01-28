@@ -11,7 +11,13 @@ interface CommentItemProps {
 const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 	return (
 		<div className={`comment-item-container ${isNested ? 'comment-item-nested-bg' : ''}`}>
-			<img className="comment-item-img" src={comment.profilePicture} width={32} height={32} alt="" />
+			<img
+				className="comment-item-img"
+				src={comment.profilePicture}
+				width={isNested ? 24 : 32}
+				height={isNested ? 24 : 32}
+				alt=""
+			/>
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">
 					<div className="comment-item-username">{comment.userName}</div>
@@ -21,10 +27,12 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 				<div className="comment-item-content">{comment.content}</div>
 				<div className="comment-item-bottom-container">
 					<div className="comment-item-row-container">
-						{comment.isNested||<button className="comment-item-comment-write" type="button">
-							댓글달기
-						</button>}
-						{comment.isNested||<div className="comment-item-divider-dot">・</div>}
+						{comment.isNested || (
+							<button className="comment-item-comment-write" type="button">
+								댓글달기
+							</button>
+						)}
+						{comment.isNested || <div className="comment-item-divider-dot">・</div>}
 						<button className="comment-item-report" type="button">
 							신고
 						</button>

@@ -1,18 +1,17 @@
-@import '../../../scss/mixins';
+@import '@src/scss/mixins';
+@import '@src/scss/variables';
 
 .studyContentContainer {
   background-color: white;
   border-radius: 10px 10px 0 0;
-
+  
   .studyContentButtons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 0px 12px 0px 12px;
-
     position: sticky;
     top: $headerHeight_m + $backButtonHeight;
-
     background-color: white;
     button {
       height: 44px;
@@ -28,7 +27,9 @@
     }
   }
   .content {
-    padding: 0 24px;
+    width: 100vw;
+    max-width: $maxContentWidth !important;
+
     .studyTimeViewedAnd {
       display: flex;
       flex-direction: row;

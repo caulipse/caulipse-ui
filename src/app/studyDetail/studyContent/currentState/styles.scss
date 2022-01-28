@@ -1,9 +1,13 @@
-@import '../../../../scss/mixins';
+@import '@src/scss/mixins';
+@import '@src/scss/variables';
 
 .studyCurrentStateContainer {
+  display: flex;
+  flex-direction: column;
+  flex:1;
   margin-top: 40px;
-  padding: 0 20px 0px 20px;
-
+  width: 100vw;
+  max-width: $maxContentWidth !important;
   .studyCurrentUserContainer {
     display: flex;
     align-items: center;
@@ -35,4 +39,7 @@
 }
 .ml8{
   margin-left: 8px;
+}
+.mh20{
+  padding: 0px 20px;
 }

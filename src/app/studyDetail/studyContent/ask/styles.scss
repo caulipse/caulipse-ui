@@ -1,8 +1,10 @@
-@import '../../../../scss/mixins';
-
+@import '@src/scss/mixins';
+@import '@src/scss/variables';
 
 .studyAskContainer {
   background-color: $BodyBackgroundColor;
+  width: 100vw;
+  max-width: $maxContentWidth !important;
   .studyAskInputContainer {
     background-color: #fefefe;
   }

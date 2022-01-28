@@ -1,3 +1,7 @@
 export interface CreateStudyRequest {
-  tempBio: string
+	tempBio: string;
+}
+
+export interface ApplyStudyRequest {
+	tempBio: string;
 }

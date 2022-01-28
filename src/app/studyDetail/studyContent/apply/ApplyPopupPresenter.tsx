@@ -36,6 +36,14 @@ const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyP
 		setIsPublic(evt.target.checked);
 	};
 
+	const handleClick = () => {
+		const request = {
+			tempBio: value,
+		};
+		// TODO 스터디 신청 API 연동
+		console.info(request);
+	};
+
 	const Content = () => (
 		<div className="profile-bottom-sheet-container">
 			<div className="title-container">
@@ -56,7 +64,7 @@ const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyP
 			<div className="helper-text">
 				<span>이 부분 유도 텍스트 들어가는 곳</span>
 			</div>
-			<Button className="apply-button" disabled={disabled}>
+			<Button className="apply-button" disabled={disabled} onClick={handleClick}>
 				신청하기!
 			</Button>
 		</div>

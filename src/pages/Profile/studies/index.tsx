@@ -3,10 +3,10 @@ import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
 import AppliedStudiesPage from '../appliedStudies/AppliedStudiesPage';
 import BookmarkPage from '../bookmark';
 import ProfileStudiesHeader from '../../../app/profile/header';
+import RecruitingStudiesPage from '../recruitingStudies/RecruitingStudiesPage';
 
 const ProfileStudies = (): JSX.Element => {
 	const {path, url}=useRouteMatch()
-	console.log('path: ', path, 'url: ', url);
 
 	return (
 		<BrowserRouter>
@@ -14,6 +14,7 @@ const ProfileStudies = (): JSX.Element => {
 			<Switch>
 				<Route exact path={`${path}/bookmark`} component={BookmarkPage} />
 				<Route exact path={`${path}/appliedStudies`} component={AppliedStudiesPage} />
+				<Route exact path={`${path}/recruitingStudies`} component={RecruitingStudiesPage} />
 			</Switch>
 		</BrowserRouter>
 	);

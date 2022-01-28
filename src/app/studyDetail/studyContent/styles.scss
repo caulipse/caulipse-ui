@@ -27,9 +27,7 @@
     }
   }
   .content {
-    width: 100vw;
-    max-width: $maxContentWidth !important;
-
+    width: 100%;
     .studyTimeViewedAnd {
       display: flex;
       flex-direction: row;

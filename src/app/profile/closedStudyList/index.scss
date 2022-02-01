@@ -4,7 +4,7 @@
     padding: 9px 12px;
     background-color: $backgroundColor;
     border-radius: 18px;
-    font-size: 11px;
+    font-size: 0.688rem;
     color: $textColor;
     margin-right: 44px;
 }
@@ -32,14 +32,14 @@
         align-items: center;
     }
     &-title{
-        font-size: 14px;
+        font-size: 0.875rem;
         color:#929699;
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;  
     }
     &-subtext{
-        font-size: 11px;
+        font-size: 0.688rem;
         color:#b1b1b1;
     }
     &-divider-dot{

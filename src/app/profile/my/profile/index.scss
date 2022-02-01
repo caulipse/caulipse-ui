@@ -12,7 +12,7 @@
       position: absolute;
       margin-top: calc((100vh - 350px)/(-2)) !important;
       z-index: 2;
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: bold;
       line-height: 28px;
       color: #ffffff;
@@ -29,14 +29,14 @@
         box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.16);
     }
     &-name{
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: bold;
         line-height: 11px;
         color: #212b36;
         margin-top: 48px;
     }
     &-short-about{
-        font-size: 11px;
+        font-size: 0.688rem;
         line-height: 20px;
         color:#6c757d;
         margin-top: 8px;
@@ -52,7 +52,8 @@
             padding: 8px 12px;
             border-radius: 16px;
             background-color: #f1f6fb;
-            font-size: 11px;
+            font-size: 0.75rem;
+            font-weight: bold;
             color: #126bb7;
         }
     }
@@ -70,12 +71,12 @@
             flex-flow: row wrap;
         }
         &-bold-text{
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: bold;
             color: #212b36;
         }
         &-regular-text{
-            font-size: 14px;
+            font-size: 0.875rem;
             font-weight: normal;
             color:#929699;
         }
@@ -90,14 +91,14 @@
     }
     &-about{
         &-title{
-            font-size: 16px;
+            font-size: 1.125rem;
             font-weight: bold;
             color:#212b36;
             margin-top: 32px;
         }
         &-text{
             margin-top: 32px;
-            font-size: 12px;
+            font-size: 0.75rem;
             line-height: 18px;
             color:#636363;
         }
@@ -116,7 +117,7 @@
       width: calc(100vw - 144px);
       justify-content: center;
       align-items: center;
-      font-size: 14px;
+      font-size: 0.875rem;
       color: #ffffff;
       font-weight: bold;
       box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.16);

@@ -16,3 +16,19 @@ body {
     color: black;
   }
 }
+
+@include desktop {
+  html{
+     font-size: 20px;
+  }
+}
+@include tablet {
+  html{
+    font-size: 16px;
+ }
+}
+@include mobile {
+  html{
+    font-size: 16px;
+ }
+}

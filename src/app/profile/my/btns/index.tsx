@@ -2,27 +2,30 @@ import React from 'react';
 import { IoChevronForward } from 'react-icons/io5';
 import './index.scss';
 
+const ACCOUNT_INFO = '계정 정보';
+const ASK = '문의하기';
+const NOTICE = '공지사항';
+
 const navigations = [
 	{
-		label: '계정 정보',
-		navigateTo: '1',
+		label: ACCOUNT_INFO,
 	},
 	{
-		label: '문의하기',
-		navigateTo: '2',
+		label: ASK,
 	},
 	{
-		label: '공지사항',
-		navigateTo: '3',
+		label: NOTICE,
 	},
 ];
 
 const MyBtns = (): JSX.Element => {
+
+
 	return (
 		<div className="my-btns-container">
 			{navigations?.map((item) => (
 				<button type="button" key={item.label}>
-					{item.label === '문의하기' ? (
+					{item.label === ASK ? (
 						<a href="mailto:caulipse814@gmail.com" className="navigation-item-container">
 							<div className="navigation-item-label">{item.label}</div>
 							<IoChevronForward size={24} color="#b1b1b1" />

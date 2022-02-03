@@ -87,8 +87,12 @@ const ProfilePopupPresenter = ({
 				</div>
 				<div className="profile-bottom-sheet-divider" />
 				<div className="profile-bottom-sheet-about-title">저는요..</div>
-				<div className="profile-bottom-sheet-about-text">{userAbout}</div>
-				<button type="button" className="profile-bottom-sheet-close-cta-btn" onClick={closeProfileSheet}>
+				<div className="profile-bottom-sheet-about-text pb150">{userAbout}</div>
+				<button
+					type="button"
+					className="profile-bottom-sheet-close-cta-btn"
+					onClick={closeProfileSheet}
+				>
 					닫기
 				</button>
 			</div>

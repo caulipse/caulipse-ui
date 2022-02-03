@@ -1,0 +1,103 @@
+@mixin comment-item-like($color){
+    color:$color;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: solid;
+    border-width: 1px;
+    border-color: $color;
+}
+
+.comment-item{
+    &-container{
+        display: flex;
+        flex-direction: row;
+        padding: 16px 20px 24px 20px;
+    }
+    &-nested-bg{
+        background-color: #f9f9f9;
+        padding-left: 32px;
+    }
+    &-img{
+        border-radius: 50px;
+        margin-right: 16px;
+    }
+    &-column-container{
+        display: flex;
+        flex-direction: column;
+        flex:1;
+    }
+    &-row-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    &-username{
+        font-size: 0.875rem;
+        color:#212b36;
+        font-weight: bold;
+        margin-right: 8px;
+    }
+    &-leader{
+        font-size: 0.625rem;
+        color: #0e5dd3;
+        background-color: #e9eff8;
+        border-radius: 10px;
+        padding: 2px 8px;
+        margin-right: 8px;
+    }
+    &-createdat{
+        font-size: 0.625rem;
+        color:#b4b4b4;
+    }
+    &-content{
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        color:#212b36;
+        margin-top: 8px;
+    }
+    &-comment-write{
+        display: flex;
+        font-size: 0.75rem;
+        color:#212b36;
+        padding:0px;
+    }
+    &-divider-dot{
+        color:#b4b4b4;
+        margin: 0px 5px;
+    }
+    &-report{
+        font-size: 0.75rem;
+        color:#b4b4b4;
+        padding: 0px;
+    }
+    &-bottom-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-curious{
+        @include comment-item-like(#006ed9);
+    }
+    &-helpful{
+        @include comment-item-like(#f78819);
+    }
+}
+.comment-list-item{
+    &-container{
+        border-bottom: solid;
+        border-bottom-width: 4px;
+        border-bottom-color: #f9f9f9;
+    }
+    &-more-btn{
+        background-color: white;
+        width: 100%;
+        color: #929699;
+        font-size: 0.75rem;
+        align-self: center;
+        text-align: center;
+        padding: 12px 0px;
+    }
+}

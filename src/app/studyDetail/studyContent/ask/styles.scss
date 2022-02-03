@@ -1,26 +1,28 @@
-@import '../../../../scss/mixins';
-
+@import '@src/scss/mixins';
+@import '@src/scss/variables';
 
 .studyAskContainer {
   background-color: $BodyBackgroundColor;
+  width:100%;
   .studyAskInputContainer {
-    height: 96px;
     background-color: #fefefe;
   }
   .StudyCommentsListContainer{
-    margin-top: 24px;
+    margin-top: 10px;
     background-color: #fefefe;
     .StudyCommentsListInfo {
-      padding: 0 20px;
       display: flex;
+      align-items: flex-end;
+      padding: 16px 20px 8px 20px;
       .StudyCommentListTitle {
-        font-size: 16px;
+        font-size: 1.125rem;
         font-weight: bold;
         margin-right: 8px;
+        color:#212b36;
       }
       .StudyCommentListCount {
-        font-size: 12px;
-        color: #636363;
+        font-size: 0.75rem;
+        color: #929699;
       }
     }
   }

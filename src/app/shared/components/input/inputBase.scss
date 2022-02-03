@@ -1,0 +1,21 @@
+.inputbase{
+    &-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 24px 20px 16px 20px;
+        width: auto;
+    }
+    &-img{
+        border-radius: 50px;
+        margin-right: 16px;
+    }
+    &-input{
+        flex-grow: 1;
+        font-size: 0.75rem;
+        padding: 12px;
+        background-color: #f2f3f5;
+        border-radius: 6px;
+        border: none;
+    }
+}

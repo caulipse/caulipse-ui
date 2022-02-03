@@ -28,37 +28,7 @@ const study: GetStudyResponse = {
 	categoryCode: 3,
 	views: 10,
 	bookmarks: 2,
-};
-
-const comments: GetCommentResponse[] = [
-	{
-		id: '11',
-		userId: 'dfdf',
-		studyId: 'asdfasdf234efawe32fd',
-		nestedCommentId: '',
-		createdAt: '2021-09-18',
-		isNested: false,
-		content: 'jfjfjfjf03n2n jsandi',
-	},
-	{
-		id: '11',
-		userId: 'dfdfefef',
-		studyId: 'asdfasdf234efawe32fd',
-		nestedCommentId: '',
-		createdAt: '2021-09-18',
-		isNested: false,
-		content: 'jfjfjfffjfj',
-	},
-	{
-		id: '11',
-		userId: 'dfdfaefadfe',
-		studyId: 'asdfasdf234efawe32fd',
-		nestedCommentId: '',
-		createdAt: '2021-09-18',
-		isNested: false,
-		content: 'jfjfjfjf030n3j',
-	},
-];
+}
 
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();

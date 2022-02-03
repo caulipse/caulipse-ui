@@ -34,3 +34,14 @@ export interface StudyUser {
 	profilePicture: string;
 	userName: string;
 }
+
+export interface InquiryResponse {
+	inquiryId: number;
+	profilePicture: string;
+	username: string;
+	isLeader: boolean;
+	createdAt: Date;
+	content: string;
+	likes: number;
+	comments: InquiryResponse[];
+}

@@ -8,7 +8,8 @@
   align-items: center;
   .studyDetailBg{
     background-color: #0e5dd3;
-    max-width: $maxContentWidth;
+    max-width: $maxContentWidth !important;
+    width:100%;
     .backButtonContainer {
       position: sticky;
       padding-top: 54px;
@@ -23,7 +24,7 @@
 .study-apply-btn{
   &-container{
     display: flex;
-    position: absolute;
+    position: fixed;
     bottom: 48px;
     width: 100%;
     max-width: $maxContentWidth;

@@ -45,6 +45,7 @@ const ProfilePopupPresenter = ({
 
 	const Content = () => {
 		const handleScroll = (e: React.UIEvent<HTMLElement>) => {
+			if (windowWidth > 1024) return;
 			if (e.currentTarget.scrollTop > 0) {
 				setBottomSheetHeight(windowHeight - 102);
 			} else {
@@ -53,7 +54,11 @@ const ProfilePopupPresenter = ({
 		};
 
 		return (
-			<div className="profile-bottom-sheet-container" style={{ height: bottomSheetHeight }} onScroll={handleScroll}>
+			<div
+				className="profile-bottom-sheet-container"
+				style={{ height: windowWidth > 1024 ? 'auto' : bottomSheetHeight }}
+				onScroll={handleScroll}
+			>
 				<div className="profile-bottom-sheet-top-short-about">{shortUserAbout}</div>
 				<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
 				<div className="profile-bottom-sheet-name">{userName}</div>
@@ -98,11 +103,7 @@ const ProfilePopupPresenter = ({
 		);
 	}
 	return (
-		<BottomSheet
-			ref={bottomSheetRef}
-			open={profileSheetVisible}
-			onDismiss={closeProfileSheet}
-		>
+		<BottomSheet ref={bottomSheetRef} open={profileSheetVisible} onDismiss={closeProfileSheet}>
 			<Content />
 		</BottomSheet>
 	);

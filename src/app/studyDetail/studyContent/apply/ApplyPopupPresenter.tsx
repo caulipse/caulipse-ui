@@ -1,6 +1,6 @@
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { BottomSheet, BottomSheetProps } from 'react-spring-bottom-sheet';
+import { BottomSheet } from 'react-spring-bottom-sheet';
 import './index.scss';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -12,14 +12,11 @@ interface ApplyPopupPresenterProps {
 	setApplySheetVisible: (param: boolean) => void;
 }
 
-const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyPopupPresenterProps): JSX.Element => {
-	const { width: windowWidth } = useWindowDimensions();
-
+const Content = ({ setApplySheetVisible }: Omit<ApplyPopupPresenterProps, 'applySheetVisible'>): JSX.Element => {
 	const [disabled, setDisabled] = useState(false);
 
 	const [value, setValue] = useState('시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.');
 	const [isPublic, setIsPublic] = useState(false);
-
 	const handleClose = () => {
 		setApplySheetVisible(false);
 	};
@@ -36,7 +33,14 @@ const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyP
 		setIsPublic(evt.target.checked);
 	};
 
-	const Content = () => (
+	const handleClick = () => {
+		const request = {
+			tempBio: value,
+		};
+		// TODO 스터디 신청 API 연동
+		console.info(request);
+	};
+	return (
 		<div className="profile-bottom-sheet-container">
 			<div className="title-container">
 				<span className="title">스터디 신청</span>
@@ -45,33 +49,37 @@ const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyP
 			<div className="sub-title-container">
 				<span className="sub-title">한줄 소개글</span>
 			</div>
-			<textarea maxLength={60} onChange={onChange} className="text-area" value={value} />
+			<textarea maxLength={60} className="text-area" value={value} onChange={onChange} />
 			<div
 				className="sub-title-container"
 				style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
 			>
 				<span className="sub-title">학과정보 공개</span>
-				<Switch onChange={handleChange} checked={isPublic} />
+				<Switch className="switch" onChange={handleChange} checked={isPublic} />
 			</div>
 			<div className="helper-text">
 				<span>이 부분 유도 텍스트 들어가는 곳</span>
 			</div>
-			<Button className="apply-button" disabled={disabled}>
+			<Button className="apply-button" disabled={disabled} onClick={handleClick}>
 				신청하기!
 			</Button>
 		</div>
 	);
+};
+
+const ApplyPopupPresenter = ({ applySheetVisible, setApplySheetVisible }: ApplyPopupPresenterProps): JSX.Element => {
+	const { width: windowWidth } = useWindowDimensions();
 
 	if (windowWidth > 1024) {
 		return (
 			<Popup open={applySheetVisible} onClose={() => setApplySheetVisible(false)} position="center center">
-				<Content />
+				<Content setApplySheetVisible={setApplySheetVisible} />
 			</Popup>
 		);
 	}
 	return (
 		<BottomSheet open={applySheetVisible} onDismiss={() => setApplySheetVisible(false)}>
-			<Content />
+			<Content setApplySheetVisible={setApplySheetVisible} />
 		</BottomSheet>
 	);
 };

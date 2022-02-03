@@ -17,7 +17,7 @@
       height: 44px;
       flex-grow: 1;
       border-bottom: solid #e5e5e5 2px;
-      font-size: 12px;
+      font-size: 0.75rem;
       font-weight: bold;
       color: #929699;
     }
@@ -31,19 +31,19 @@
     .studyTimeViewedAnd {
       display: flex;
       flex-direction: row;
-      font-size: 11px;
+      font-size: 0.688rem;
       margin-top: 32px;
       color: $StudyDetailInfoColor;
     }
     .studyTitle {
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: bold;
       margin-top: 8px;
       color: $StudyDetailTitleTextColor;
     }
     .studyContent {
       margin-top: 32px;
-      font-size: 12px;
+      font-size: 0.75rem;
       color: $StudyDetailContentTextColor;
       line-height: 1.67;
       text-align: left;

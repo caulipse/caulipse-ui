@@ -1,11 +1,15 @@
-const SAMPLE_ID='sample-id';
+const SAMPLE_ID = 'sample-id';
 export interface HeaderButtonProps {
-  title: string;
-  route: string;
+	title: string;
+	route: string;
 }
 export const headerButtons: HeaderButtonProps[] = [
-  {
-    title: "profile",
-    route: `/profile/${SAMPLE_ID}`,
-  },
+	{
+		title: 'profile',
+		route: `/profile/${SAMPLE_ID}`,
+	},
+	{
+		title: 'login',
+		route: '/login',
+	},
 ];

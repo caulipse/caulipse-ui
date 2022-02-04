@@ -4,38 +4,38 @@
     &-container{
         display: flex;
         flex-direction: column;
-        height: calc(100vh - 102px);
+        height: calc(100vh - 6.375rem);
         align-items: center;
-        padding: 24px 20px;
+        padding: 1.5rem 1.25rem;
         overflow: scroll;
         position: relative;
     }
 }
 .title-container {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 .title {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .sub-title-container {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   text-align: left;
   width: 100%;
 }
 .sub-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 .text-area {
-  width: calc(100% - 40px);
+  width: calc(100% - 2.5rem);
   border: 1px solid #e2e2e2;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background-color: #ffffff;
-  padding: 10px 12px;
-  font-size: 11px;
-  min-height: 120px;
-  margin-bottom: 32px;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.688rem;
+  min-height: 7.5rem;
+  margin-bottom: 2rem;
   resize: none;
   color: #929699;
 }
@@ -45,18 +45,18 @@
 .close-icon {
   cursor: pointer;
   position: absolute;
-  right: 20px;
+  right: 1.25rem;
 }
 .helper-text {
   width: 100%;
   color: #929699;
 }
 .apply-button {
-  width: calc(100% - 40px);
-  height: 48px;
+  width: calc(100% - 2.5rem);
+  height: 3rem;
   position: absolute !important;
-  bottom: 56px;
-  border-radius: 12px !important;
+  bottom: 3.5rem;
+  border-radius: 0.75rem !important;
   background-color: #e5f0fb !important;
   color: #006ed9 !important;
   font-weight: bold !important;
@@ -66,18 +66,18 @@
   color: #b4b4b4 !important;
 }
 .switch {
-  width: 64px !important;
-  height: 48px !important;
+  width: 4rem !important;
+  height: 3rem !important;
 } 
 .switch .MuiSwitch-switchBase {
-  top: 3px !important;
+  top: 0.188rem !important;
 }
 .switch .MuiSwitch-thumb {
-  width: 24px !important;
-  height: 24px !important;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
 }
 .switch .MuiSwitch-track {
-  border-radius: 15px !important;
+  border-radius: 0.938rem !important;
 }
 .switch .MuiSwitch-colorSecondary.Mui-checked {
   color:  #fff;
@@ -87,10 +87,10 @@
   opacity: 1;
 }
 .mt8{
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 .ml12{
-  margin-left: 12px;
+  margin-left: 0.75rem;
 }
 :root {
     --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);

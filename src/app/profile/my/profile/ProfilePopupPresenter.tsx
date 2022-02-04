@@ -37,6 +37,7 @@ const ProfilePopupPresenter = ({
 	const { width: windowWidth, height: windowHeight } = useWindowDimensions();
 	const bottomSheetRef = useRef<BottomSheetRef>(null);
 	const [bottomSheetHeight, setBottomSheetHeight] = useState<number>(334);
+	const isPopup = windowWidth > 1024;
 
 	const closeProfileSheet = () => {
 		setProfileSheetVisible(false);
@@ -45,6 +46,7 @@ const ProfilePopupPresenter = ({
 
 	const Content = () => {
 		const handleScroll = (e: React.UIEvent<HTMLElement>) => {
+			if (isPopup) return;
 			if (e.currentTarget.scrollTop > 0) {
 				setBottomSheetHeight(windowHeight - 102);
 			} else {
@@ -53,9 +55,17 @@ const ProfilePopupPresenter = ({
 		};
 
 		return (
-			<div className="profile-bottom-sheet-container" style={{ height: bottomSheetHeight }} onScroll={handleScroll}>
+			<div
+				className="profile-bottom-sheet-container"
+				style={{ height: isPopup ? 'auto' : bottomSheetHeight }}
+				onScroll={handleScroll}
+			>
 				<div className="profile-bottom-sheet-top-short-about">{shortUserAbout}</div>
-				<img className="profile-bottom-sheet-profile-img" src={profilePicture} alt="프로필 이미지" />
+				<img
+					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
+					src={profilePicture}
+					alt="프로필 이미지"
+				/>
 				<div className="profile-bottom-sheet-name">{userName}</div>
 				<div className="profile-bottom-sheet-short-about">{shortUserAbout}</div>
 				<div className="profile-bottom-sheet-tag-container">
@@ -82,7 +92,7 @@ const ProfilePopupPresenter = ({
 				</div>
 				<div className="profile-bottom-sheet-divider" />
 				<div className="profile-bottom-sheet-about-title">저는요..</div>
-				<div className="profile-bottom-sheet-about-text">{userAbout}</div>
+				<div className="profile-bottom-sheet-about-text pb150">{userAbout}</div>
 				<button type="button" className="profile-bottom-sheet-close-cta-btn" onClick={closeProfileSheet}>
 					닫기
 				</button>
@@ -90,7 +100,7 @@ const ProfilePopupPresenter = ({
 		);
 	};
 
-	if (windowWidth > 1024) {
+	if (isPopup) {
 		return (
 			<Popup open={profileSheetVisible} onClose={closeProfileSheet} position="center center">
 				<Content />
@@ -98,11 +108,7 @@ const ProfilePopupPresenter = ({
 		);
 	}
 	return (
-		<BottomSheet
-			ref={bottomSheetRef}
-			open={profileSheetVisible}
-			onDismiss={closeProfileSheet}
-		>
+		<BottomSheet ref={bottomSheetRef} open={profileSheetVisible} onDismiss={closeProfileSheet}>
 			<Content />
 		</BottomSheet>
 	);

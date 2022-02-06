@@ -1,0 +1,20 @@
+.notice-presenter{
+    &-header{
+        &-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #006ed9;
+            padding: 52px 12px 10px 12px;
+            border-bottom: solid;
+            border-bottom-width: 8px;
+            border-bottom-color: #f2f3f5;
+        }
+        &-title{
+            font-size: 1.125rem;
+            font-weight: bold;
+            color:#f2f2f2;
+        }
+    }
+}

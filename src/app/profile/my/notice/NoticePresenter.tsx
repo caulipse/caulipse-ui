@@ -21,9 +21,13 @@ const NoticePresenter = ({ notices }: NoticePresenterProps): JSX.Element => {
 				<div className="notice-presenter-header-title">공지사항</div>
 				<div />
 			</div>
-			{notices.map((item) => (
-				<NoticeItem key={item.noticeId} noticeItem={item} />
-			))}
+			<div className="notice-presenter-list-container">
+				<div className="notice-presenter-list-max-width">
+					{notices.map((item) => (
+						<NoticeItem key={item.noticeId} noticeItem={item} />
+					))}
+				</div>
+			</div>
 		</>
 	);
 };

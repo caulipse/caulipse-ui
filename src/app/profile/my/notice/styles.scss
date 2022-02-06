@@ -1,3 +1,6 @@
+@import "@src/scss/variables";
+@import "@src/scss/variables";
+
 .notice-presenter{
     &-header{
         &-container{
@@ -15,6 +18,17 @@
             font-size: 1.125rem;
             font-weight: bold;
             color:#f2f2f2;
+        }
+    }
+    &-list{
+        &-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        &-max-width{
+           max-width: $maxContentWidth; 
         }
     }
 }

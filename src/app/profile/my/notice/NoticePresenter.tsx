@@ -3,6 +3,7 @@ import React from 'react';
 import './styles.scss';
 import { IoArrowBack } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
+import NoticeItem from './NoticeItem';
 
 interface NoticePresenterProps {
 	notices: NoticeInterface[];
@@ -20,6 +21,9 @@ const NoticePresenter = ({ notices }: NoticePresenterProps): JSX.Element => {
 				<div className="notice-presenter-header-title">공지사항</div>
 				<div />
 			</div>
+			{notices.map((item) => (
+				<NoticeItem key={item.noticeId} noticeItem={item} />
+			))}
 		</>
 	);
 };

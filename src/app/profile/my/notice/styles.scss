@@ -18,3 +18,40 @@
         }
     }
 }
+.notice-item{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        background-color: #ffffff;
+        padding: 16px 24px;
+        border-bottom: solid;
+        border-bottom-color: #e2e2e2;
+        border-bottom-width: 0.5px;
+    }
+    &-title{
+        font-size: 0.875rem;
+        color:#101010;
+        font-weight: bold;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    &-content{
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+        color:#929699;
+        margin-top: 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    &-created-at{
+        margin-top: 8px;
+        font-size: 0.625rem;
+        line-height: 1.125rem;
+        color:#929699;
+    }
+}

@@ -13,14 +13,14 @@ const NoticeDetailPresenter = ({ notice }: NoticeDetailPresenterProps): JSX.Elem
 	const history = useHistory();
 
 	return (
-		<div>
+		<div className="notice-detail-container">
 			<div className="notice-detail-header">
 				<button type="button" onClick={() => history.goBack()}>
 					<IoArrowBack size={24} color="#f7f7f7" />
 				</button>
 			</div>
 			<div className="notice-detail-content-container">
-				<div className="notice-detail-created-at">{moment(notice.createdAt).format('YY-MM-DD')}</div>
+				<div className="notice-detail-created-at">{moment(notice.createdAt).format('YYYY-MM-DD')}</div>
 				<div className="notice-detail-title">{notice.title}</div>
 				<div className="notice-detail-content">{notice.content}</div>
 			</div>

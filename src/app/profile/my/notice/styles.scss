@@ -70,6 +70,10 @@
     }
 }
 .notice-detail{
+    &-container{
+        display: flex;
+        flex-direction: column;
+    }
     &-header{
         background-color: #006ed9;
         padding: 3.375rem 0.75rem 0.625rem 0.75rem;
@@ -77,9 +81,14 @@
         border-bottom-width: 0.5rem;
         border-bottom-color: #f2f3f5;
     }
-    &-content-container{
-        padding: 2.5rem 1.5rem 2.625rem 2.5rem;
-        background-color: #ffffff;
+    &-content{
+        &-container{
+            padding: 2.5rem 1.5rem 2.625rem 2.5rem;
+            background-color: #ffffff;
+            max-width: $maxContentWidth; 
+            width: 100%;
+            align-self: center;
+        }
     }
     &-created-at{
         font-size: 0.688rem;

@@ -1,19 +1,30 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { BookmarkInterface, AppliedStudyInterface, UserInfoInterface } from '@src/app/profile/interface/interface';
 
-interface BookmarkStateType {
+export interface BookmarkStateType {
 	recruitingBookmarks: BookmarkInterface[];
 	recruitedBookmarks: BookmarkInterface[];
 }
 
-interface AppliedStudiesStateType {
+export interface AppliedStudiesStateType {
 	openedAppliedStudies: AppliedStudyInterface[];
 	closedAppliedStudies: AppliedStudyInterface[];
 }
 
-interface RecruitingStudiesStateType {
+export interface RecruitingStudiesStateType {
 	openedRecruitingStudies: AppliedStudyInterface[];
 	closedRecruitingStudies: AppliedStudyInterface[];
+}
+
+export interface NoticeInterface {
+	noticeId: string;
+	title: string;
+	content: string;
+	createdAt: Date;
+}
+
+export interface NoticeStateType{
+	notices:NoticeInterface[]
 }
 
 export interface UserType {
@@ -21,6 +32,7 @@ export interface UserType {
 	bookmarks: BookmarkStateType;
 	appliedStudies: AppliedStudiesStateType;
 	recruitingStudies: RecruitingStudiesStateType;
+	notices: NoticeInterface[];
 }
 
 const initialState: UserType = {
@@ -37,6 +49,7 @@ const initialState: UserType = {
 		openedRecruitingStudies: [],
 		closedRecruitingStudies: [],
 	},
+	notices: [],
 };
 
 export const userSlice = createSlice({
@@ -65,9 +78,12 @@ export const userSlice = createSlice({
 				closedRecruitingStudies: action.payload.closedRecruitingStudies,
 			};
 		},
+		setNotices: (state, action: PayloadAction<NoticeStateType>) => {
+			state.notices = action.payload.notices;
+		},
 	},
 });
 
-export const { fetchUserInfo, setBookmarks, setAppliedStudies, setRecruitingStudies } = userSlice.actions;
+export const { fetchUserInfo, setBookmarks, setAppliedStudies, setRecruitingStudies, setNotices } = userSlice.actions;
 
 export default userSlice.reducer;

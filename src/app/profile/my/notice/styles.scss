@@ -1,0 +1,109 @@
+@import "@src/scss/variables";
+@import "@src/scss/variables";
+
+.notice-presenter{
+    &-header{
+        &-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #006ed9;
+            padding: 3.375rem 0.75rem 0.625rem 0.75rem;
+            border-bottom: solid;
+            border-bottom-width: 0.5rem;
+            border-bottom-color: #f2f3f5;
+        }
+        &-title{
+            font-size: 1.125rem;
+            font-weight: bold;
+            color:#f2f2f2;
+        }
+    }
+    &-list{
+        &-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        &-max-width{
+           max-width: $maxContentWidth; 
+        }
+    }
+}
+.notice-item{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        background-color: #ffffff;
+        padding: 1rem 1.5rem;
+        border-bottom: solid;
+        border-bottom-color: #e2e2e2;
+        border-bottom-width: 0.5px;
+    }
+    &-title{
+        font-size: 0.875rem;
+        color:#101010;
+        font-weight: bold;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    &-content{
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+        color:#929699;
+        margin-top: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    &-created-at{
+        margin-top: 0.5rem;
+        font-size: 0.625rem;
+        line-height: 1.125rem;
+        color:#929699;
+    }
+}
+.notice-detail{
+    &-container{
+        display: flex;
+        flex-direction: column;
+    }
+    &-header{
+        background-color: #006ed9;
+        padding: 3.375rem 0.75rem 0.625rem 0.75rem;
+        border-bottom: solid;
+        border-bottom-width: 0.5rem;
+        border-bottom-color: #f2f3f5;
+    }
+    &-content{
+        &-container{
+            padding: 2.5rem 1.5rem 2.625rem 2.5rem;
+            background-color: #ffffff;
+            max-width: $maxContentWidth; 
+            width: 100%;
+            align-self: center;
+        }
+    }
+    &-created-at{
+        font-size: 0.688rem;
+        color:#b4b4b4;
+    }
+    &-title{
+        font-size: 1rem;
+        font-weight: bold;
+        color:#101010;
+        margin-top: 0.5rem;
+    }
+    &-content{
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        color:#212b36;
+        margin-top: 1.5rem;
+    }
+}

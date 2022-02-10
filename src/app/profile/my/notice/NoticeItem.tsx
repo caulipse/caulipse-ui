@@ -1,7 +1,7 @@
-import { NoticeInterface } from '@src/store/modules/user';
 import moment from 'moment';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { NoticeInterface } from '../../interface/interface';
 import './styles.scss';
 
 interface NoticeItemProps {

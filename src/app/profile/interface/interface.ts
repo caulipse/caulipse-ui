@@ -65,3 +65,10 @@ export interface AppliedStudyInterface extends StudyInterface {
 	bookmarks: number;
 	status: string;
 }
+
+export interface NoticeInterface {
+	noticeId: string;
+	title: string;
+	content: string;
+	createdAt: Date;
+}

@@ -1,12 +1,9 @@
-import { useAppDispatch, useAppSelector } from '@src/hooks/appRedux';
 import React, { useEffect } from 'react';
 import * as Factory from 'factory.ts';
-import { NoticeInterface, setNotices } from '@src/store/modules/user';
 import NoticePresenter from './NoticePresenter';
+import { NoticeInterface } from '../../interface/interface';
 
 const NoticeContainer = (): JSX.Element => {
-	const dispatch = useAppDispatch();
-	const notices = useAppSelector((state) => state.user.notices);
 
 	const getNotices = (iter: number) => {
 		const appliedStudiesFactory = Factory.Sync.makeFactory<NoticeInterface>({
@@ -19,11 +16,7 @@ const NoticeContainer = (): JSX.Element => {
 		return appliedStudiesFactory.buildList(iter);
 	};
 
-	useEffect(() => {
-		dispatch(setNotices({ notices: getNotices(5) }));
-	}, []);
-
-	return <NoticePresenter notices={notices} />;
+	return <NoticePresenter notices={getNotices(5)} />;
 };
 
 export default NoticeContainer;

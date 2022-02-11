@@ -1,9 +1,9 @@
-import { NoticeInterface } from '@src/store/modules/user';
 import React from 'react';
 import './styles.scss';
 import { IoArrowBack } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import NoticeItem from './NoticeItem';
+import { NoticeInterface } from '../../interface/interface';
 
 interface NoticePresenterProps {
 	notices: NoticeInterface[];

@@ -1,5 +1,5 @@
-import { NoticeInterface } from '@src/store/modules/user';
 import React from 'react';
+import { NoticeInterface } from '../../interface/interface';
 import NoticeDetailPresenter from './NoticeDetailPresenter';
 
 const notice: NoticeInterface = {

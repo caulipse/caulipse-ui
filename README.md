@@ -25,6 +25,4 @@ https://app.zeplin.io/project/60ab2c1eda632a27c275f616
 ### Design Pattern
 * [Presentational & Container Component Pattern](https://velog.io/@holim0/React-Design-Pattern)(링크 속에서 1번 내용을 참고하시면 됩니다.)
 
-### Redux
-* [Redux Style Guide](https://redux.js.org/style-guide/style-guide)
 

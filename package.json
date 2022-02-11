@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "0.21.1",
     "factory.ts": "^0.5.2",
+    "jotai": "^1.5.3",
     "moment": "^2.29.1",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",

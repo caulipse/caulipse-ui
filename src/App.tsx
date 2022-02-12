@@ -1,11 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { useAtom } from 'jotai';
 import './App.scss';
 import { Footer, Header } from './app/shared/components';
 import LoginPage from './pages/Login';
 import ProfilePage from './pages/Profile';
 import StudyPage from './pages/Study';
 import StudyDetailPage from './pages/StudyDetail';
+import globalState from './state';
 
 const MainContainer = (): JSX.Element => (
 	<div className="router-con">
@@ -22,6 +24,15 @@ const MainContainer = (): JSX.Element => (
 );
 
 const App = (): JSX.Element => {
+	// 만약 globalState 에 저장되어 있는 값을 변경하고 싶으면
+	// const [state, setState] = useAtom(globalState);
+	// 위 코드에서 setState 로 변경할 수 있다.
+	const [state] = useAtom(globalState);
+	if (state.login) {
+		console.info('login');
+	} else {
+		console.info('not login');
+	}
 	return (
 		<Router>
 			<Header />

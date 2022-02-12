@@ -3,15 +3,13 @@
 
 .studyContentContainer {
   background-color: white;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0.75rem 0.75rem 0 0;
   
   .studyContentButtons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0px 12px 0px 12px;
-    position: sticky;
-    top: $headerHeight_m + $backButtonHeight;
+    margin: 0 0.75rem;
     background-color: white;
     button {
       height: 44px;
@@ -28,21 +26,22 @@
   }
   .content {
     width: 100%;
+    padding-bottom: 9.313rem;
     .studyTimeViewedAnd {
       display: flex;
       flex-direction: row;
-      font-size: 0.688rem;
-      margin-top: 32px;
+      font-size: 0.75rem;
+      margin-top: 2rem;
       color: $StudyDetailInfoColor;
     }
     .studyTitle {
       font-size: 1.25rem;
       font-weight: bold;
-      margin-top: 8px;
+      margin-top: 0.5rem;
       color: $StudyDetailTitleTextColor;
     }
     .studyContent {
-      margin-top: 32px;
+      margin-top: 2rem;
       font-size: 0.75rem;
       color: $StudyDetailContentTextColor;
       line-height: 1.67;
@@ -51,5 +50,5 @@
   }
 }
 .mh5{
-  margin:0px 5px;
+  margin:0px 0.313rem;
 }

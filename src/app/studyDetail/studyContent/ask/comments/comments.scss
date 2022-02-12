@@ -2,8 +2,8 @@
     color:$color;
     font-size: 0.75rem;
     font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 15px;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.9375rem;
     border: solid;
     border-width: 1px;
     border-color: $color;
@@ -13,15 +13,15 @@
     &-container{
         display: flex;
         flex-direction: row;
-        padding: 16px 20px 24px 20px;
+        padding: 1rem 1.25rem 1.5rem 1.25rem;
     }
     &-nested-bg{
         background-color: #f9f9f9;
-        padding-left: 32px;
+        padding-left: 2rem;
     }
     &-img{
         border-radius: 50px;
-        margin-right: 16px;
+        margin-right: 1rem;
     }
     &-column-container{
         display: flex;
@@ -44,8 +44,8 @@
         color: #0e5dd3;
         background-color: #e9eff8;
         border-radius: 10px;
-        padding: 2px 8px;
-        margin-right: 8px;
+        padding: 0.125rem 0.5rem;
+        margin-right: 0.5rem;
     }
     &-createdat{
         font-size: 0.625rem;
@@ -55,7 +55,7 @@
         font-size: 0.75rem;
         line-height: 1.25rem;
         color:#212b36;
-        margin-top: 8px;
+        margin-top: 0.5rem;
     }
     &-comment-write{
         display: flex;
@@ -65,7 +65,7 @@
     }
     &-divider-dot{
         color:#b4b4b4;
-        margin: 0px 5px;
+        margin: 0px 0.375rem;
     }
     &-report{
         font-size: 0.75rem;

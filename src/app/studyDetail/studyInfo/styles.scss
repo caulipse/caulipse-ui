@@ -1,45 +1,44 @@
 @import '../../../scss/mixins';
 
 .StudyInfoContainer {
-  padding-left: 20px;
+  padding: 0rem 1.25rem;
   color: white;
   .categoryTextContainer {
-    padding-top: 58px;
-    margin-bottom: 32px;
+    padding-top: 3.625rem;
+    margin-bottom: 2rem;
     .category {
       font-size: 0.75rem;
-      margin-bottom: 8px;
-      line-height: 20px;
+      margin-bottom: 0.5rem;
+      line-height: 1.25rem;
     }
     .categoryDetail {
       font-size: 1.125rem;
       font-weight: bold;
-      line-height: 13px;
+      line-height: 0.813rem;
     }
   }
   .study-sub-info{
     &-container{
       display: flex;
       flex-direction: row;
-      margin-bottom: 56px;
-      margin-top: 32px;
+      margin-bottom: 3.5rem;
     }
     &-title{
       font-size: 0.75rem;
-      line-height: 20px;
+      line-height: 1.25rem;
       color: #ffffff;
     }
     &-content{
       font-size: 0.875rem;
       color: #ffffff;
-      padding: 5px 12px;
+      padding: 0.375rem 0.75rem;
       border: solid;
       border-width: 1px;
       border-color: #bfdaf4;
-      border-radius: 20px;
+      border-radius: 1.25rem;
     }
   } 
 }
 .mr16{
-  margin-right: 16px;
+  margin-right: 1rem;
 }

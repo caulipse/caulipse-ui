@@ -2,10 +2,8 @@ import React from 'react';
 import './index.scss';
 import { Button, Container } from '@material-ui/core';
 import SimpleModal from '@common/modal/SimpleModal';
-
-interface IUserStudyMoreModalPresenterProps {
-	open: boolean;
-	onClose: (param: boolean) => void;
+import { IModalContainerCommonProps } from '@common/modal/types';
+interface IUserStudyMoreModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
 }
 

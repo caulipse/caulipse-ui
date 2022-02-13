@@ -1,12 +1,8 @@
 import React from 'react';
 import HostStudyMoreModalPresenter from './HostStudyMoreModalPresenter';
+import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IHostStudyMoreModalContainerProps {
-	open: boolean;
-	onClose: (param: boolean) => void;
-}
-
-const HostStudyMoreModalContainer = ({ open, onClose }: IHostStudyMoreModalContainerProps): JSX.Element => {
+const HostStudyMoreModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const onClickChange = () => {
 		// TODO
 		// 모집글 변경 Flow 연결

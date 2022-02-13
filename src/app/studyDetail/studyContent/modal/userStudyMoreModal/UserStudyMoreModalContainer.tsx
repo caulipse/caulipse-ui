@@ -1,12 +1,8 @@
 import React from 'react';
 import UserStudyMoreModalPresenter from './UserStudyMoreModalPresenter';
+import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IUserStudyMoreModalContainerProps {
-	open: boolean;
-	onClose: (param: boolean) => void;
-}
-
-const UserStudyMoreModalContainer = ({ open, onClose }: IUserStudyMoreModalContainerProps): JSX.Element => {
+const UserStudyMoreModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const onClick = () => {
 		// TODO
 		console.info('UserStudyMoreModalContainer');

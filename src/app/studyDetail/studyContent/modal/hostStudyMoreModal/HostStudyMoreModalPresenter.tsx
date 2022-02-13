@@ -18,10 +18,10 @@ const HostStudyMoreModalPresenter = ({
 	return (
 		<SimpleModal open={open} onClose={onClose} height="14rem">
 			<Container className="simple-modal-content-container">
-				<Button className="simple-modal-content-button primary" onClick={onClickChange}>
+				<Button className="simple-modal-button primary" onClick={onClickChange}>
 					모집글 수정
 				</Button>
-				<Button className="simple-modal-content-button secondary" onClick={onClickDelete}>
+				<Button className="simple-modal-button secondary" onClick={onClickDelete}>
 					모집글 삭제
 				</Button>
 			</Container>

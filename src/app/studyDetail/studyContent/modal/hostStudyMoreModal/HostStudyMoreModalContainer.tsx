@@ -2,7 +2,11 @@ import React from 'react';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import HostStudyMoreModalPresenter from './HostStudyMoreModalPresenter';
 
-const HostStudyMoreModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+const HostStudyMoreModalContainer = ({
+	open,
+	onClose,
+	setOpenStudyDeleteModal,
+}: IModalContainerCommonProps & { setOpenStudyDeleteModal: (params: boolean) => void }): JSX.Element => {
 	const onClickChange = () => {
 		// TODO
 		// 모집글 변경 Flow 연결
@@ -13,6 +17,8 @@ const HostStudyMoreModalContainer = ({ open, onClose }: IModalContainerCommonPro
 		// TODO
 		// 모집글 삭제 Flow 연결
 		console.info('HostStudyMoreModalContainer');
+		onClose(false);
+		setOpenStudyDeleteModal(true);
 	};
 	return (
 		<HostStudyMoreModalPresenter

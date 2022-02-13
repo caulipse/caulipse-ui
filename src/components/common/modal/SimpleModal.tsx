@@ -9,7 +9,7 @@ interface ISimpleModalProps {
 	open: boolean;
 	onClose: (param: boolean) => void;
 	children: JSX.Element;
-	footer?: JSX.Element;
+	footer?: boolean;
 	title?: string;
 	titleStyle?: React.CSSProperties;
 	height?: string;
@@ -19,7 +19,7 @@ const SimpleModal = ({
 	open,
 	onClose,
 	children,
-	footer,
+	footer = true,
 	title,
 	titleStyle,
 	height,
@@ -28,13 +28,15 @@ const SimpleModal = ({
 	return width > 1024 ? (
 		<Dialog open={open}>
 			<Container className="simple-modal-container" style={{ width: '20rem' }}>
-				<Container>
-					<Typography className="simple-modal-title" style={titleStyle}>
-						{title}
-					</Typography>
-				</Container>
+				{title && (
+					<Container>
+						<Typography className="simple-modal-title" style={titleStyle}>
+							{title}
+						</Typography>
+					</Container>
+				)}
 				<Container>{children}</Container>
-				{footer ?? (
+				{footer && (
 					<Container className="simple-modal-footer">
 						<Typography className="simpole-modal-footer-button" onClick={() => onClose(false)}>
 							닫기
@@ -46,13 +48,15 @@ const SimpleModal = ({
 	) : (
 		<BottomSheet open={open} onDismiss={() => onClose(false)} className="simple-modal-bottom-sheet">
 			<Container className="simple-modal-container" style={{ height }}>
-				<Container>
-					<Typography className="simple-modal-title" style={titleStyle}>
-						{title}
-					</Typography>
-				</Container>
+				{title && (
+					<Container>
+						<Typography className="simple-modal-title" style={titleStyle}>
+							{title}
+						</Typography>
+					</Container>
+				)}
 				<Container className="simple-modal-content">{children}</Container>
-				{footer ?? (
+				{footer && (
 					<Container className="simple-modal-footer">
 						<Typography className="simpole-modal-footer-button" onClick={() => onClose(false)}>
 							닫기

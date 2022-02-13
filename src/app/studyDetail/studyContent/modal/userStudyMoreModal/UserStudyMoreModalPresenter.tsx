@@ -12,7 +12,7 @@ const UserStudyMoreModalPresenter = ({ open, onClose, onClick }: IUserStudyMoreM
 	return (
 		<SimpleModal open={open} onClose={onClose} height="10.5rem">
 			<Container className="simple-modal-content-container">
-				<Button className="simple-modal-content-button primary" onClick={onClick}>
+				<Button className="simple-modal-button primary" onClick={onClick}>
 					신고하기
 				</Button>
 			</Container>

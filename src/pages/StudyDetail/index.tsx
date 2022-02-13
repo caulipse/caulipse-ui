@@ -11,6 +11,7 @@ import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import ApplyPopupContainer from '@studyDetail/studyContent/apply/ApplyPopupContainer';
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
+import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -39,6 +40,7 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
 	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
+	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setApplySheetVisible(true);
@@ -78,7 +80,12 @@ const StudyDetailPage = (): JSX.Element => {
 				<StudyContentContainer studyData={study} />
 				<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
 				<UserStudyMoreModalContainer open={openUserMoreModal} onClose={setOpenUserMoreModal} />
-				<HostStudyMoreModalContainer open={openHostMoreModal} onClose={setOpenHostMoreModal} />
+				<HostStudyMoreModalContainer
+					open={openHostMoreModal}
+					onClose={setOpenHostMoreModal}
+					setOpenStudyDeleteModal={setOpenStudyDeleteModal}
+				/>
+				<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
 				<div className="study-apply-btn-container">
 					<button type="button" className="study-apply-btn-content" onClick={onClick}>
 						신청하기

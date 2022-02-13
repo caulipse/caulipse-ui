@@ -5,7 +5,7 @@
     };
 }
 
-.simple-modal-content-button {
+.simple-modal-button {
     border-radius: 8px !important;
     width: 100%;
     height: 3rem;
@@ -18,5 +18,24 @@
     &.secondary {
         background-color: #f9f9f9 !important;
         color: #929699 !important;
+    };
+}
+
+.simple-modal-rounded-button {
+    border-radius: 24px !important;
+    width: 100%;
+    height: 3rem;
+    font-weight: bold !important;
+    color: #fff !important;
+    &.primary {
+        background-color:#006ed9 !important;
+    };
+    &.secondary {
+        background-color: #fa1e69 !important;
+    };
+    &.cancel {
+        border: 1px solid #636363;
+        background-color: #fff !important;
+        color:#212b36 !important;
     };
 }

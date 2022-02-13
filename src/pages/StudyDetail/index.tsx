@@ -10,6 +10,7 @@ import { Button } from '@material-ui/core';
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import ApplyPopupContainer from '@studyDetail/studyContent/apply/ApplyPopupContainer';
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
+import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -35,14 +36,23 @@ const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
 	const [applySheetVisible, setApplySheetVisible] = useState<boolean>(false);
-	const [openMoreModal, setOpenMoreModal] = useState<boolean>(false);
+
+	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
+	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setApplySheetVisible(true);
 	};
 
 	const onClickMore = () => {
-		setOpenMoreModal(!openMoreModal);
+		// FIXME
+		// 더보기 모달에 접근하려는 사용자가 모집자인지 신청자인지를 구분하는 임시 플래그성 변수
+		// API 연동 이후 수정 필요
+		if (localStorage.getItem('host') === 'host') {
+			setOpenHostMoreModal(!openHostMoreModal);
+		} else {
+			setOpenUserMoreModal(!openUserMoreModal);
+		}
 	};
 
 	return (
@@ -67,7 +77,8 @@ const StudyDetailPage = (): JSX.Element => {
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
 				<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
-				<UserStudyMoreModalContainer open={openMoreModal} onClose={setOpenMoreModal} />
+				<UserStudyMoreModalContainer open={openUserMoreModal} onClose={setOpenUserMoreModal} />
+				<HostStudyMoreModalContainer open={openHostMoreModal} onClose={setOpenHostMoreModal} />
 				<div className="study-apply-btn-container">
 					<button type="button" className="study-apply-btn-content" onClick={onClick}>
 						신청하기

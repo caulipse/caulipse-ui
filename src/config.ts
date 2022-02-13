@@ -1,5 +1,5 @@
 const config = {
-	server: 'http://13.125.14.16',
+	server: process.env.REACT_APP_API_SERVER,
 };
 
 export default config;

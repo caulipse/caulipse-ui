@@ -1,6 +1,6 @@
 import React from 'react';
-import HostStudyMoreModalPresenter from './HostStudyMoreModalPresenter';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import HostStudyMoreModalPresenter from './HostStudyMoreModalPresenter';
 
 const HostStudyMoreModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const onClickChange = () => {

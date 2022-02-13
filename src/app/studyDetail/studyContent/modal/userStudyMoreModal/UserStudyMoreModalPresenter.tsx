@@ -1,8 +1,9 @@
 import React from 'react';
-import './index.scss';
 import { Button, Container } from '@material-ui/core';
-import SimpleModal from '@common/modal/SimpleModal';
+import '@common/modal/common.scss';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import SimpleModal from '@common/modal/SimpleModal';
+
 interface IUserStudyMoreModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
 }
@@ -10,8 +11,8 @@ interface IUserStudyMoreModalPresenterProps extends IModalContainerCommonProps {
 const UserStudyMoreModalPresenter = ({ open, onClose, onClick }: IUserStudyMoreModalPresenterProps): JSX.Element => {
 	return (
 		<SimpleModal open={open} onClose={onClose} height="10.5rem">
-			<Container className="user-study-more-modal-container">
-				<Button className="user-study-more-modal-button" onClick={onClick}>
+			<Container className="simple-modal-content-container">
+				<Button className="simple-modal-content-button primary" onClick={onClick}>
 					신고하기
 				</Button>
 			</Container>

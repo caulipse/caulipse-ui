@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.scss';
 import { Button, Container } from '@material-ui/core';
+import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
@@ -17,11 +17,11 @@ const HostStudyMoreModalPresenter = ({
 }: IHostStudyMoreModalPresenterProps): JSX.Element => {
 	return (
 		<SimpleModal open={open} onClose={onClose} height="14rem">
-			<Container className="host-study-more-modal-container">
-				<Button className="host-study-more-modal-button host-study-more-modal-button-secondary" onClick={onClickChange}>
+			<Container className="simple-modal-content-container">
+				<Button className="simple-modal-content-button primary" onClick={onClickChange}>
 					모집글 수정
 				</Button>
-				<Button className="host-study-more-modal-button host-study-more-modal-button-primary" onClick={onClickDelete}>
+				<Button className="simple-modal-content-button secondary" onClick={onClickDelete}>
 					모집글 삭제
 				</Button>
 			</Container>

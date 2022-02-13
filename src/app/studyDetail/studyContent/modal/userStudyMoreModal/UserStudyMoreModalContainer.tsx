@@ -1,6 +1,6 @@
 import React from 'react';
-import UserStudyMoreModalPresenter from './UserStudyMoreModalPresenter';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import UserStudyMoreModalPresenter from './UserStudyMoreModalPresenter';
 
 const UserStudyMoreModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const onClick = () => {

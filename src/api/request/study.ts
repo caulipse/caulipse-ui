@@ -5,3 +5,5 @@ export interface CreateStudyRequest {
 export interface ApplyStudyRequest {
 	tempBio: string;
 }
+
+export interface IRequestGetStudies {}

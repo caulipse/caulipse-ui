@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query';
 import API from '@src/api';
+import { IResponseGetStudies } from '@api/response/study';
 
 // TODO
 // parameter
 export default () => {
-	const fetcher = async () => {
+	const fetcher = async (): Promise<IResponseGetStudies> => {
 		const res = await API.getStudies();
 		return res.data;
 	};

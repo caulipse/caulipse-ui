@@ -1,7 +1,16 @@
-import axios from "axios";
+import axios from 'axios';
+import config from '@src/config';
 
-const api = axios.create({
-  baseURL: ""
+const client = axios.create({
+	baseURL: `${config.server}/api`,
 });
 
-export default api;
+const API = {
+	// 스터디 리스트 조회
+	getStudies() {
+		// TODO parameters
+		return client.get(`/study`);
+	},
+};
+
+export default API;

@@ -1,6 +1,5 @@
 import MyBtns from '@src/app/profile/my/btns';
 import MyHeaderContainer from '@src/app/profile/my/header/MyHeaderContainer';
-import NotificationsContainer from '@src/app/profile/my/notifications/NotificationsContainer';
 import PreviewContainer from '@src/app/profile/my/preview/PreviewContainer';
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -18,7 +17,6 @@ const MyPage = (): JSX.Element => {
 			<MyHeaderContainer />
 			<div className="my-page-boxes">
 				<PreviewContainer />
-				<NotificationsContainer />
 				<MyBtns />
 			</div>
 		</div>

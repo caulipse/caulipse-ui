@@ -1,0 +1,30 @@
+.simple-modal-bottom-sheet {
+    > div {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        box-shadow: 0 -8px 20px 0 rgba(0, 0, 0, 0.08);
+    }
+}
+
+.simple-modal-container {
+    padding: 0 !important;
+}
+
+.simple-modal-title {
+
+}
+
+.simple-modal-content {
+    
+}
+
+.simple-modal-footer {
+    border-top: 1px solid #f2f2f2;
+    padding: 0.969rem 0;
+    text-align: center;
+    color: #929699;
+}
+
+.simpole-modal-footer-button {
+    cursor: pointer;
+}

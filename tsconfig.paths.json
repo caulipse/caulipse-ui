@@ -10,7 +10,8 @@
       "@study/*": ["src/app/study/*"],
       "@post/*": ["src/app/post/*"],
       "@nonsubject/*": ["src/app/nonsubject/*"],
-      "@profile/*": ["src/app/profile/*"]
+      "@profile/*": ["src/app/profile/*"],
+      "@common/*": ["src/components/common/*"]
     }
   }
 }

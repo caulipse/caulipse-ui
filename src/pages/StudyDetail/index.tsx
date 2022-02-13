@@ -9,6 +9,7 @@ import './styles.scss';
 import { Button } from '@material-ui/core';
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import ApplyPopupContainer from '@studyDetail/studyContent/apply/ApplyPopupContainer';
+import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -28,15 +29,20 @@ const study: GetStudyResponse = {
 	categoryCode: 3,
 	views: 10,
 	bookmarks: 2,
-}
+};
 
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
 	const [applySheetVisible, setApplySheetVisible] = useState<boolean>(false);
+	const [openMoreModal, setOpenMoreModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setApplySheetVisible(true);
+	};
+
+	const onClickMore = () => {
+		setOpenMoreModal(!openMoreModal);
 	};
 
 	return (
@@ -53,7 +59,7 @@ const StudyDetailPage = (): JSX.Element => {
 						<button type="button" className="mr11">
 							<IoShareSocialOutline size={16} color="#ffffff" />
 						</button>
-						<button type="button">
+						<button type="button" onClick={onClickMore}>
 							<IoEllipsisVertical size={16} color="#ffffff" />
 						</button>
 					</div>
@@ -61,6 +67,7 @@ const StudyDetailPage = (): JSX.Element => {
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
 				<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
+				<UserStudyMoreModalContainer open={openMoreModal} onClose={setOpenMoreModal} />
 				<div className="study-apply-btn-container">
 					<button type="button" className="study-apply-btn-content" onClick={onClick}>
 						신청하기

@@ -3,7 +3,6 @@ import { Button, Container, Typography, Radio, RadioGroup, FormControlLabel } fr
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
-import './index.scss';
 
 interface IReportModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
@@ -31,7 +30,7 @@ const ReportModalPresenter = ({ open, onClose, onClick, onChange, value }: IRepo
 						label="신고2"
 					/>
 					<FormControlLabel
-						className={value === '3' ? 'radio-container selected' : 'radio-container'}
+						className={value === '' ? 'radio-container selected' : 'radio-container'}
 						labelPlacement="start"
 						value="3"
 						control={<Radio />}

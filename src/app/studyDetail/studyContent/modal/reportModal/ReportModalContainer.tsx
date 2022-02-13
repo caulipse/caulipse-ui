@@ -6,8 +6,8 @@ const ReportModalContainer = ({ open, onClose }: IModalContainerCommonProps): JS
 	const [value, setValue] = useState('1');
 	const onClick = () => {
 		// TODO
-		// 모집글 삭제 API 연동
-		console.info('StudyDeleteModalContainer');
+		// 신고 API 연동
+		console.info('ReportModalContainer');
 	};
 	const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
 		setValue((evt.target as HTMLInputElement).value);

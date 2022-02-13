@@ -39,3 +39,26 @@
         color:#212b36 !important;
     };
 }
+
+.radio-container {
+    color: #929699;
+    justify-content: space-between;
+    &.selected {
+        color: #fa1e69;
+        > span {
+            font-weight: bold !important; 
+        }
+    }
+    &.selected-black {
+        color: #212b36;
+        > span {
+            font-weight: bold !important; 
+        }
+    }
+}
+
+.radio-primary {
+    span.Mui-checked {
+        color: #006ed9;
+    }
+}

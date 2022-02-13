@@ -9,6 +9,10 @@ import './styles.scss';
 import { Button } from '@material-ui/core';
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import ApplyPopupContainer from '@studyDetail/studyContent/apply/ApplyPopupContainer';
+import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
+import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
+import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
+import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -28,15 +32,31 @@ const study: GetStudyResponse = {
 	categoryCode: 3,
 	views: 10,
 	bookmarks: 2,
-}
+};
 
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
 	const [applySheetVisible, setApplySheetVisible] = useState<boolean>(false);
 
+	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
+	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
+	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
+	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
+
 	const onClick = () => {
 		setApplySheetVisible(true);
+	};
+
+	const onClickMore = () => {
+		// FIXME
+		// 더보기 모달에 접근하려는 사용자가 모집자인지 신청자인지를 구분하는 임시 플래그성 변수
+		// API 연동 이후 수정 필요
+		if (localStorage.getItem('host') === 'host') {
+			setOpenHostMoreModal(!openHostMoreModal);
+		} else {
+			setOpenUserMoreModal(!openUserMoreModal);
+		}
 	};
 
 	return (
@@ -53,7 +73,7 @@ const StudyDetailPage = (): JSX.Element => {
 						<button type="button" className="mr11">
 							<IoShareSocialOutline size={16} color="#ffffff" />
 						</button>
-						<button type="button">
+						<button type="button" onClick={onClickMore}>
 							<IoEllipsisVertical size={16} color="#ffffff" />
 						</button>
 					</div>
@@ -61,6 +81,18 @@ const StudyDetailPage = (): JSX.Element => {
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
 				<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
+				<UserStudyMoreModalContainer
+					open={openUserMoreModal}
+					onClose={setOpenUserMoreModal}
+					setOpenReportModal={setOpenReportModal}
+				/>
+				<HostStudyMoreModalContainer
+					open={openHostMoreModal}
+					onClose={setOpenHostMoreModal}
+					setOpenStudyDeleteModal={setOpenStudyDeleteModal}
+				/>
+				<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
+				<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
 				<div className="study-apply-btn-container">
 					<button type="button" className="study-apply-btn-content" onClick={onClick}>
 						신청하기

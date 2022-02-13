@@ -4,12 +4,16 @@ import StudyUserHostItemPresenter from './StudyUserHostItemPresenter';
 
 interface StudyUserHostItemContainerProps {
 	user: GetStudyUserResponse;
+	setOpenStudyApproveModal: (params: boolean) => void;
 }
 
-const StudyUserHostItemContainer = ({ user }: StudyUserHostItemContainerProps): JSX.Element => {
+const StudyUserHostItemContainer = ({
+	user,
+	setOpenStudyApproveModal,
+}: StudyUserHostItemContainerProps): JSX.Element => {
 	return (
 		<div>
-			<StudyUserHostItemPresenter user={user} />
+			<StudyUserHostItemPresenter user={user} setOpenStudyApproveModal={setOpenStudyApproveModal} />
 		</div>
 	);
 };

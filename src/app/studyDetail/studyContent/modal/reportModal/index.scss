@@ -1,0 +1,10 @@
+.radio-container {
+    color: #929699;
+    justify-content: space-between;
+    &.selected {
+        color: #fa1e69;
+        > span {
+            font-weight: bold !important; 
+        }
+    }
+}

@@ -12,6 +12,7 @@ import ApplyPopupContainer from '@studyDetail/studyContent/apply/ApplyPopupConta
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
 import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
+import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -41,6 +42,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
 	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
 	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
+	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setApplySheetVisible(true);
@@ -79,13 +81,18 @@ const StudyDetailPage = (): JSX.Element => {
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
 				<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
-				<UserStudyMoreModalContainer open={openUserMoreModal} onClose={setOpenUserMoreModal} />
+				<UserStudyMoreModalContainer
+					open={openUserMoreModal}
+					onClose={setOpenUserMoreModal}
+					setOpenReportModal={setOpenReportModal}
+				/>
 				<HostStudyMoreModalContainer
 					open={openHostMoreModal}
 					onClose={setOpenHostMoreModal}
 					setOpenStudyDeleteModal={setOpenStudyDeleteModal}
 				/>
 				<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
+				<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
 				<div className="study-apply-btn-container">
 					<button type="button" className="study-apply-btn-content" onClick={onClick}>
 						신청하기

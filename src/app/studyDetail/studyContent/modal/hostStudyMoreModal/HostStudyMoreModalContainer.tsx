@@ -14,9 +14,6 @@ const HostStudyMoreModalContainer = ({
 	};
 
 	const onClickDelete = () => {
-		// TODO
-		// 모집글 삭제 Flow 연결
-		console.info('HostStudyMoreModalContainer');
 		onClose(false);
 		setOpenStudyDeleteModal(true);
 	};

@@ -37,7 +37,7 @@ const StudyApproveModalPresenter = ({
 					>
 						닫기
 					</Button>
-					<Button className="simple-modal-rounded-button primary" style={{ margin: '0 0 0 1rem' }} onClick={onClick}>
+					<Button className="simple-modal-rounded-button primary horizon" onClick={onClick}>
 						모집 마감
 					</Button>
 				</Container>

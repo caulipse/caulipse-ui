@@ -41,7 +41,7 @@ const ReportModalPresenter = ({ open, onClose, onClick, onChange, value }: IRepo
 					<Button className="simple-modal-rounded-button cancel" onClick={() => onClose(false)}>
 						취소
 					</Button>
-					<Button className="simple-modal-rounded-button secondary" style={{ margin: '0 0 0 1rem' }} onClick={onClick}>
+					<Button className="simple-modal-rounded-button secondary horizon" onClick={onClick}>
 						신고
 					</Button>
 				</Container>

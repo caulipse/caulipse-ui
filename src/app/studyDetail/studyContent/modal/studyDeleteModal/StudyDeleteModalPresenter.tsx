@@ -26,7 +26,7 @@ const StudyDeleteModalPresenter = ({ open, onClose, onClick }: IStudyDeleteModal
 					<Button className="simple-modal-rounded-button cancel" onClick={() => onClose(false)}>
 						취소
 					</Button>
-					<Button className="simple-modal-rounded-button secondary" style={{ margin: '0 0 0 1rem' }} onClick={onClick}>
+					<Button className="simple-modal-rounded-button secondary horizon" onClick={onClick}>
 						삭제
 					</Button>
 				</Container>

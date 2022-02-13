@@ -25,9 +25,15 @@ const SimpleModal = ({
 	height,
 }: ISimpleModalProps): JSX.Element => {
 	const { width } = useWindowDimensions();
-	return width > 1024 ? (
-		<Dialog open={open}>
-			<Container className="simple-modal-container" style={{ width: '20rem' }}>
+
+	const isDesktop = width > 1024;
+
+	const Content = () => {
+		return (
+			<Container
+				className="simple-modal-container"
+				style={{ width: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height }}
+			>
 				{title && (
 					<Container>
 						<Typography className="simple-modal-title" style={titleStyle}>
@@ -44,26 +50,16 @@ const SimpleModal = ({
 					</Container>
 				)}
 			</Container>
+		);
+	};
+
+	return isDesktop ? (
+		<Dialog open={open}>
+			<Content />
 		</Dialog>
 	) : (
 		<BottomSheet open={open} onDismiss={() => onClose(false)} className="simple-modal-bottom-sheet">
-			<Container className="simple-modal-container" style={{ height }}>
-				{title && (
-					<Container>
-						<Typography className="simple-modal-title" style={titleStyle}>
-							{title}
-						</Typography>
-					</Container>
-				)}
-				<Container className="simple-modal-content">{children}</Container>
-				{footer && (
-					<Container className="simple-modal-footer">
-						<Typography className="simpole-modal-footer-button" onClick={() => onClose(false)}>
-							닫기
-						</Typography>
-					</Container>
-				)}
-			</Container>
+			<Content />
 		</BottomSheet>
 	);
 };

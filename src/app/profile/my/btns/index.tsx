@@ -6,6 +6,7 @@ import './index.scss';
 const ACCOUNT_INFO = '계정 정보';
 const ASK = '문의하기';
 const NOTICE = '공지사항';
+const TERMS = '서비스 이용약관';
 
 const navigations = [
 	{
@@ -16,6 +17,9 @@ const navigations = [
 	},
 	{
 		label: NOTICE,
+	},
+	{
+		label: TERMS,
 	},
 ];
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import { Button } from '@material-ui/core';
-import { IoArrowBack } from 'react-icons/io5';
+import { IoArrowBack, IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 
 interface AccountInfoPresenterProps {
@@ -11,14 +11,41 @@ interface AccountInfoPresenterProps {
 const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Element => {
 	const history = useHistory();
 
+	const changePw = () => {
+		console.log('changePw');
+	};
+
+	const logout = () => {
+		console.log('logout');
+	};
+
+	const withDraw = () => {
+		console.log('withDraw');
+	};
+
 	return (
-		<div>
+		<div className="account-info-container">
 			<div className="account-info-header-container">
 				<button type="button" onClick={() => history.goBack()}>
-					<IoArrowBack color="#f2f2f2" size={24} />
+					<IoArrowBack color="#f2f2f2" className="account-info-header-icn" />
 				</button>
 				<div className="account-info-header-title">계정 정보</div>
-				<div />
+				<div className="account-info-header-icn" />
+			</div>
+			<div className="account-info-body-wrapper mt4rem">
+				<div className="account-info-body-container">
+					<div className="account-info-body-account-container">
+						<div className="account-info-body-account-title">계정 이메일</div>
+						<div className="account-info-body-account-id">{userId}</div>
+					</div>
+					<button type="button" className="account-info-body-change-pw-container" onClick={changePw}>
+						<div className="account-info-column">
+							<div className="account-info-body-change-pw-title">비밀번호 변경</div>
+							<div className="account-info-body-change-pw-text">등록된 비밀번호를 변경합니다.</div>
+						</div>
+						<IoChevronForward className="account-info-header-icn" />
+					</button>
+				</div>
 			</div>
 		</div>
 	);

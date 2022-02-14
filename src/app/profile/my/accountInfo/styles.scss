@@ -1,6 +1,31 @@
 @import '@src/scss/variables';
 
+@mixin btn-container(){
+    border-radius: 0.625rem;
+    padding: 1rem 1.5rem 1rem 1rem;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+@mixin row-container(){
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+button{padding:0}
 .account-info{
+    &-container{
+        display:flex;
+        flex:1;
+        flex-direction: column;
+    }
+    &-column{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
     &-header{
         &-container{
             background-color: #212b36;
@@ -15,5 +40,61 @@
             color: #f2f2f2;
             font-weight: bold;
         }
+        &-icn{
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
+    &-body{
+        &-wrapper{
+            display: flex;
+            flex:1;
+            align-items: center;
+            justify-content: center;
+            padding: 0rem 1.25rem;
+            width: 100% !important;
+        }
+        &-container{
+            width: 100% !important;
+            max-width: $maxContentWidth;
+        }
+        &-account{
+            &-container{
+                @include btn-container();
+                border: solid;
+                border-color: #e2e2e2;
+                border-width: 1px;
+            }
+            &-title{
+                font-size: 0.625rem;
+                color: #b4b4b4;
+            }
+            &-id{
+                font-size: 1rem;
+                color:#212b36;
+                line-height: 1.25rem;
+            }
+        }
+        &-change-pw{
+            &-container{
+                @include btn-container();
+                @include row-container();
+                margin-top: 2.5rem;
+            }
+            &-title{
+                font-weight: bold;
+                color: #101010;
+                font-size: 0.875rem;
+            }
+            &-text{
+                color: #929699;
+                font-size: 0.75rem;
+                line-height: 1.125rem;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
+.mt4rem{
+    margin-top: 4rem;
 }

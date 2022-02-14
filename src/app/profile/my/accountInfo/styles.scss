@@ -1,0 +1,19 @@
+@import '@src/scss/variables';
+
+.account-info{
+    &-header{
+        &-container{
+            background-color: #212b36;
+            padding: 3.313rem 0.75rem 0.563rem 0.75rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-title{
+            font-size: 1.125rem;
+            color: #f2f2f2;
+            font-weight: bold;
+        }
+    }
+}

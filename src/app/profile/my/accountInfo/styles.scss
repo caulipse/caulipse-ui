@@ -93,8 +93,25 @@ button{padding:0}
                 margin-top: 0.5rem;
             }
         }
+        &-logout{
+            @include btn-container();
+            @include row-container();
+            margin-top: 0.5rem;
+        }
     }
 }
 .mt4rem{
     margin-top: 4rem;
+}
+.e2e2e2{
+    color: #e2e2e2;
+}
+.b4b4b4{
+    color:#b4b4b4;
+}
+.bgececec{
+    background-color: #ececec;
+}
+.mb17_625rem{
+    margin-bottom: 17.625rem;
 }

@@ -43,7 +43,22 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 							<div className="account-info-body-change-pw-title">비밀번호 변경</div>
 							<div className="account-info-body-change-pw-text">등록된 비밀번호를 변경합니다.</div>
 						</div>
-						<IoChevronForward className="account-info-header-icn" />
+						<IoChevronForward className="account-info-header-icn e2e2e2" />
+					</button>
+					<button type="button" className="account-info-body-logout" onClick={logout}>
+						<div>로그아웃</div>
+						<IoChevronForward className="account-info-header-icn e2e2e2" />
+					</button>
+					<button
+						type="button"
+						className="account-info-body-change-pw-container bgececec mb17_625rem"
+						onClick={withDraw}
+					>
+						<div className="account-info-column">
+							<div className="account-info-body-change-pw-title b4b4b4">서비스 탈퇴</div>
+							<div className="account-info-body-change-pw-text b4b4b4">탈퇴한 계정의 정보는 복구할 수 없습니다.</div>
+						</div>
+						<IoChevronForward className="account-info-header-icn b4b4b4 " />
 					</button>
 				</div>
 			</div>

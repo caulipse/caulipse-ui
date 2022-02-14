@@ -6,9 +6,8 @@ import React, { useRef, useState } from 'react';
 import { IoArrowBack, IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import './styles.scss';
-import { Button } from '@material-ui/core';
-import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
-import ApplyPopupContainer from '@studyDetail/studyContent/apply/ApplyPopupContainer';
+import { BottomSheetRef } from 'react-spring-bottom-sheet';
+import ApplyModalContainer from '@studyDetail/studyContent/modal/apply/ApplyModalContainer';
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
 import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
@@ -37,15 +36,15 @@ const study: GetStudyResponse = {
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
-	const [applySheetVisible, setApplySheetVisible] = useState<boolean>(false);
 
+	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
 	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
 	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
 	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
 	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
 
 	const onClick = () => {
-		setApplySheetVisible(true);
+		setOpenApplyModal(!openApplyModal);
 	};
 
 	const onClickMore = () => {
@@ -80,7 +79,7 @@ const StudyDetailPage = (): JSX.Element => {
 				</div>
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
-				<ApplyPopupContainer applySheetVisible={applySheetVisible} setApplySheetVisible={setApplySheetVisible} />
+				<ApplyModalContainer open={openApplyModal} onClose={setOpenApplyModal} />
 				<UserStudyMoreModalContainer
 					open={openUserMoreModal}
 					onClose={setOpenUserMoreModal}

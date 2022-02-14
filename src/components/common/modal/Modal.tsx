@@ -14,7 +14,7 @@ const Modal = ({ open, onClose, children, height }: IModalProps): JSX.Element =>
 		return (
 			<Container
 				className="modal-container"
-				style={{ width: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height }}
+				style={{ minWidth: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height }}
 			>
 				<Container>{children}</Container>
 			</Container>

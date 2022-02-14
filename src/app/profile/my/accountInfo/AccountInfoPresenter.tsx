@@ -34,10 +34,10 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 			</div>
 			<div className="account-info-body-wrapper mt4rem">
 				<div className="account-info-body-container">
-					<div className="account-info-body-account-container">
+					<button type="button" className="account-info-body-account-container">
 						<div className="account-info-body-account-title">계정 이메일</div>
 						<div className="account-info-body-account-id">{userId}</div>
-					</div>
+					</button>
 					<button type="button" className="account-info-body-change-pw-container" onClick={changePw}>
 						<div className="account-info-column">
 							<div className="account-info-body-change-pw-title">비밀번호 변경</div>

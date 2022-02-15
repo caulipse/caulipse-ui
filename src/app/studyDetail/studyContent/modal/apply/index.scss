@@ -24,6 +24,11 @@
     font-size: 0.875rem;
     font-weight: bold;
   }
+  &.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 .apply-modal-helper-text-container {
     width: 100%;

@@ -36,10 +36,7 @@ const ApplyModalPresenter = ({
 					<span>한줄 소개글</span>
 				</Container>
 				<textarea maxLength={60} className="text-area" value={value} onChange={onChangeValue} />
-				<Container
-					className="apply-modal-sub-title-container"
-					style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-				>
+				<Container className="apply-modal-sub-title-container space-between">
 					<span>학과정보 공개</span>
 					<Switch className="apply-modal-switch" onChange={onChangeIsPublic} checked={isPublic} />
 				</Container>

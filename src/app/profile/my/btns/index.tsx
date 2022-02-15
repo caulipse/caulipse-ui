@@ -30,6 +30,9 @@ const MyBtns = (): JSX.Element => {
 		if (label === NOTICE) {
 			history.push('/profile/notice');
 		}
+		else if(label===ACCOUNT_INFO){
+			history.push('/profile/accountinfo')
+		}
 	};
 
 	return (

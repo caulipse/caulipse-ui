@@ -4,6 +4,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { Button, Container, Switch } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import '@common/modal/common.scss';
 
 interface IApplyModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
@@ -26,8 +27,8 @@ const ApplyModalPresenter = ({
 }: IApplyModalPresenterProps): JSX.Element => {
 	return (
 		<Modal open={open} onClose={onClose} height="40.438rem">
-			<Container className="apply-modal-container">
-				<Container className="apply-modal-title-container">
+			<Container className="modal-root-container apply-modal-container">
+				<Container className="modal-title-container">
 					<span>스터디 신청</span>
 					<IoCloseOutline onClick={() => onClose(false)} size={24} />
 				</Container>

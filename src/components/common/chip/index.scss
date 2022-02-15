@@ -1,0 +1,16 @@
+.chip-container {
+    padding: 0 !important;
+    background: #f9f9f9;
+    color: #929699;
+    font-size: 0.875rem;
+    height: 2.75rem;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 1.375rem;
+    &.selected {
+        background: #006ed9;
+        color: #fff;
+    }
+}

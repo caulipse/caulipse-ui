@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './index.scss';
 import { IoAdd, IoClose } from 'react-icons/io5';
+import MyCategoryModalContainer from '@profile/modal/MyCategoryModalContainer';
+import './index.scss';
 
 interface UrlInterface {
 	urlId: number;
@@ -34,11 +35,13 @@ const MyProfileEditPresenter = ({
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [accUrlId, setAccUrlId] = useState<number>(0);
 
+	const [openMyCategoryModal, setOpenMyCategoryModal] = useState<boolean>(false);
+
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
 	};
 	const changeCategories = () => {
-		console.log('changeCategories');
+		setOpenMyCategoryModal(!openMyCategoryModal);
 	};
 	const addUrl = () => {
 		if (currentUrls?.length >= 3) return;
@@ -155,6 +158,7 @@ const MyProfileEditPresenter = ({
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
 				defaultValue={longIntro}
 			/>
+			<MyCategoryModalContainer open={openMyCategoryModal} onClose={setOpenMyCategoryModal} />
 		</div>
 	);
 };

@@ -1,18 +1,4 @@
 .apply-modal-container {
-    padding: 1.5rem 0 3.5rem !important;
-    button {
-        width: 100%;
-        height: 3rem;
-        border-radius: 0.75rem !important;
-        background-color: #e5f0fb !important;
-        color: #006ed9 !important;
-        font-weight: bold !important;
-        margin-top: 10rem;
-    }
-    button.MuiButton-root.Mui-disabled {
-        background: #ececec !important;
-        color: #b4b4b4 !important;
-    }
     textarea {
         width: calc(100% - 1.5rem);
         border: 1px solid #e2e2e2;
@@ -29,20 +15,6 @@
         outline: none;
     }
 }
-.apply-modal-title-container {
-  margin-bottom: 2.5rem;
-  padding: 0 !important;
-  text-align: center;
-  span {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  svg {
-    cursor: pointer;
-    position: absolute;
-    right: 1.25rem;
-  }
-}
 .apply-modal-sub-title-container {
   margin-bottom: 0.5rem;
   text-align: left;
@@ -51,6 +23,11 @@
   span {
     font-size: 0.875rem;
     font-weight: bold;
+  }
+  &.space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 .apply-modal-helper-text-container {

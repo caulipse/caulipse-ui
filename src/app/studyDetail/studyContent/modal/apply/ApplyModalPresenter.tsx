@@ -4,6 +4,7 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { Button, Container, Switch } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import '@common/modal/common.scss';
 
 interface IApplyModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
@@ -26,8 +27,8 @@ const ApplyModalPresenter = ({
 }: IApplyModalPresenterProps): JSX.Element => {
 	return (
 		<Modal open={open} onClose={onClose} height="40.438rem">
-			<Container className="apply-modal-container">
-				<Container className="apply-modal-title-container">
+			<Container className="modal-root-container apply-modal-container">
+				<Container className="modal-title-container">
 					<span>스터디 신청</span>
 					<IoCloseOutline onClick={() => onClose(false)} size={24} />
 				</Container>
@@ -35,10 +36,7 @@ const ApplyModalPresenter = ({
 					<span>한줄 소개글</span>
 				</Container>
 				<textarea maxLength={60} className="text-area" value={value} onChange={onChangeValue} />
-				<Container
-					className="apply-modal-sub-title-container"
-					style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
-				>
+				<Container className="apply-modal-sub-title-container space-between">
 					<span>학과정보 공개</span>
 					<Switch className="apply-modal-switch" onChange={onChangeIsPublic} checked={isPublic} />
 				</Container>

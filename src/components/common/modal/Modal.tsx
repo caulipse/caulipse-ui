@@ -16,7 +16,7 @@ const Modal = ({ open, onClose, children, height }: IModalProps): JSX.Element =>
 				className="modal-container"
 				style={{ minWidth: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height }}
 			>
-				<Container>{children}</Container>
+				{children}
 			</Container>
 		);
 	};

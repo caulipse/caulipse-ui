@@ -1,9 +1,9 @@
 import React from 'react';
 import './index.scss';
-import { IoCloseOutline } from 'react-icons/io5';
 import { Button, Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
+import CloseIcon from '@common/icon/CloseIcon';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 
@@ -27,7 +27,7 @@ const MyCategoryModalPresenter = ({
 			<Container className="modal-root-container">
 				<Container className="modal-title-container">
 					<span>관심 카테고리</span>
-					<IoCloseOutline onClick={() => onClose(false)} size={24} />
+					<CloseIcon onClick={() => onClose(false)} />
 				</Container>
 				<Grid container spacing={1}>
 					{categories.map((category) => {

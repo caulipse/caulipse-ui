@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from 'react';
 import './index.scss';
-import { IoCloseOutline } from 'react-icons/io5';
 import { Button, Container, Switch } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
+import CloseIcon from '@common/icon/CloseIcon';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 
@@ -30,7 +30,7 @@ const ApplyModalPresenter = ({
 			<Container className="modal-root-container apply-modal-container">
 				<Container className="modal-title-container">
 					<span>스터디 신청</span>
-					<IoCloseOutline onClick={() => onClose(false)} size={24} />
+					<CloseIcon onClick={() => onClose(false)} />
 				</Container>
 				<Container className="apply-modal-sub-title-container">
 					<span>한줄 소개글</span>

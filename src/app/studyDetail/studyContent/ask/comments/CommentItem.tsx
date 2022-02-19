@@ -1,6 +1,7 @@
 import { GetCommentResponse } from '@src/api/response/comment';
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
+import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
 import './comments.scss';
 
 interface CommentItemProps {
@@ -9,6 +10,13 @@ interface CommentItemProps {
 }
 
 const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
+	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
+
+	const onClickReport = () => {
+		// TODO: 신고 API 연동
+		setOpenReportModal(!openReportModal);
+	};
+
 	return (
 		<div className={`comment-item-container ${isNested ? 'comment-item-nested-bg' : ''}`}>
 			<img
@@ -33,7 +41,7 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 							</button>
 						)}
 						{comment.isNested || <div className="comment-item-divider-dot">・</div>}
-						<button className="comment-item-report" type="button">
+						<button className="comment-item-report" type="button" onClick={onClickReport}>
 							신고
 						</button>
 					</div>
@@ -42,6 +50,7 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 					</button>
 				</div>
 			</div>
+			<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
 		</div>
 	);
 };

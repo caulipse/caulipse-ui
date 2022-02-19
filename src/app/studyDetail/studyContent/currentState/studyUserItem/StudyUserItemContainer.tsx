@@ -2,7 +2,7 @@ import { GetStudyUserResponse, StudyUser } from '@src/api/response/study';
 import { UserPreview } from '@src/api/response/user';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ApproveCancelModalContainer from '@src/app/studyDetail/studyContent/modal/approveCancel/ApproveCancelModalContainer';
+import ApproveCancelModalContainer from '@src/app/studyDetail/studyContent/modal/approveCancelModal/ApproveCancelModalContainer';
 import StudyUserItemPresenter from './StudyUserItemPresenter';
 
 interface StudyUserItemContainerProps {

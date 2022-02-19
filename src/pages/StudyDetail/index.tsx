@@ -7,13 +7,13 @@ import { IoArrowBack, IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutlin
 import { useHistory } from 'react-router-dom';
 import './styles.scss';
 import { BottomSheetRef } from 'react-spring-bottom-sheet';
-import ApplyModalContainer from '@studyDetail/studyContent/modal/apply/ApplyModalContainer';
+import ApplyModalContainer from '@src/app/studyDetail/studyContent/modal/applyModal/ApplyModalContainer';
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
 import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
-import AppliedModalContainer from '@studyDetail/studyContent/modal/applied/AppliedModalContainer';
-import ApplyCancelModalContainer from '@studyDetail/studyContent/modal/applyCancel/ApplyCancelModalContainer';
+import AppliedModalContainer from '@src/app/studyDetail/studyContent/modal/appliedModal/AppliedModalContainer';
+import ApplyCancelModalContainer from '@src/app/studyDetail/studyContent/modal/applyCancelModal/ApplyCancelModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',

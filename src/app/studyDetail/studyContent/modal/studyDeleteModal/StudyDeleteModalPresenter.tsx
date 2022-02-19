@@ -20,7 +20,7 @@ const StudyDeleteModalPresenter = ({ open, onClose, onClick }: IStudyDeleteModal
 		>
 			<Container className="simple-modal-content-container">
 				<Typography style={{ color: '#636363', textAlign: 'center', fontSize: '0.75rem' }}>
-					삭제 시, 스터디 추가모집이 불가합니다! 같은 문구
+					작성한 글은 저장이 안됩니다! 정말로 삭제하시겠어요?
 				</Typography>
 				<Container style={{ padding: 0, marginTop: '2rem', display: 'flex' }}>
 					<Button className="simple-modal-rounded-button cancel" onClick={() => onClose(false)}>

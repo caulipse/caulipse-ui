@@ -2,7 +2,11 @@ import React, { ChangeEvent, useState, useEffect } from 'react';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import ApplyModalPresenter from './ApplyModalPresenter';
 
-const ApplyModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+const ApplyModalContainer = ({
+	open,
+	onClose,
+	setOpenAppliedModal,
+}: IModalContainerCommonProps & { setOpenAppliedModal: (params: boolean) => void }): JSX.Element => {
 	const [disabled, setDisabled] = useState(false);
 	const [value, setValue] = useState('시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.');
 	const [isPublic, setIsPublic] = useState(false);
@@ -11,6 +15,8 @@ const ApplyModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX
 		// TODO
 		// 스터디 신청 API 연동
 		console.info('ApplyModalContainer');
+		onClose(false);
+		setOpenAppliedModal(true);
 	};
 
 	const onChangeValue = (evt: ChangeEvent<HTMLTextAreaElement>) => {

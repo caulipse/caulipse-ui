@@ -12,6 +12,7 @@ import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStu
 import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
 import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
+import AppliedModalContainer from '@studyDetail/studyContent/modal/applied/AppliedModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -38,6 +39,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const sheetRef = useRef<BottomSheetRef>(null);
 
 	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
+	const [openAppliedModal, setOpenAppliedModal] = useState<boolean>(false);
 	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
 	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
 	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
@@ -80,7 +82,12 @@ const StudyDetailPage = (): JSX.Element => {
 				</div>
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
-				<ApplyModalContainer open={openApplyModal} onClose={setOpenApplyModal} />
+				<ApplyModalContainer
+					open={openApplyModal}
+					onClose={setOpenApplyModal}
+					setOpenAppliedModal={setOpenAppliedModal}
+				/>
+				<AppliedModalContainer open={openAppliedModal} onClose={setOpenAppliedModal} />
 				<UserStudyMoreModalContainer
 					open={openUserMoreModal}
 					onClose={setOpenUserMoreModal}

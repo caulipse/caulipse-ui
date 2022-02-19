@@ -2,7 +2,7 @@ import { GetStudyUserResponse, StudyUser } from '@src/api/response/study';
 import { UserPreview } from '@src/api/response/user';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ApproveRejectModalContainer from '@studyDetail/studyContent/modal/approveReject/ApproveRejectModalContainer';
+import ApproveCancelModalContainer from '@src/app/studyDetail/studyContent/modal/approveCancel/ApproveCancelModalContainer';
 import StudyUserItemPresenter from './StudyUserItemPresenter';
 
 interface StudyUserItemContainerProps {
@@ -22,7 +22,7 @@ const StudyUserItemContainer = ({ studyUser }: StudyUserItemContainerProps): JSX
 		<>
 			{/* <Link to={`/user/${studyUser?.userId}`}> */}
 			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} />
-			<ApproveRejectModalContainer open={open} onClose={setOpen} nickname="dummy" />
+			<ApproveCancelModalContainer open={open} onClose={setOpen} nickname="dummy" />
 		</>
 		//  </Link>
 	);

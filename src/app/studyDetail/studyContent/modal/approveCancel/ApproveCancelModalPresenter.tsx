@@ -4,17 +4,17 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IApproveRejectModalPresenterProps extends IModalContainerCommonProps {
+interface IApproveCancelModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
 	nickname: string;
 }
 
-const ApproveRejectModalPresenter = ({
+const ApproveCancelModalPresenter = ({
 	open,
 	onClose,
 	onClick,
 	nickname,
-}: IApproveRejectModalPresenterProps): JSX.Element => {
+}: IApproveCancelModalPresenterProps): JSX.Element => {
 	return (
 		<SimpleModal
 			open={open}
@@ -41,4 +41,4 @@ const ApproveRejectModalPresenter = ({
 	);
 };
 
-export default ApproveRejectModalPresenter;
+export default ApproveCancelModalPresenter;

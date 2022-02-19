@@ -12,7 +12,7 @@ interface IReportModalPresenterProps extends IModalContainerCommonProps {
 
 const ReportModalPresenter = ({ open, onClose, onClick, onChange, value }: IReportModalPresenterProps): JSX.Element => {
 	return (
-		<SimpleModal open={open} onClose={onClose} title="신고" height="12.688rem" footer={false}>
+		<SimpleModal open={open} onClose={onClose} title="신고" height="18.688rem" footer={false}>
 			<Container className="simple-modal-content-container">
 				<RadioGroup value={value} onChange={onChange}>
 					<FormControlLabel

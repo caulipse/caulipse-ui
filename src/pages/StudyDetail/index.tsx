@@ -13,6 +13,7 @@ import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStu
 import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
 import AppliedModalContainer from '@studyDetail/studyContent/modal/applied/AppliedModalContainer';
+import ApplyCancelModalContainer from '@studyDetail/studyContent/modal/applyCancel/ApplyCancelModalContainer';
 
 const study: GetStudyResponse = {
 	id: 'asdfasdf234efawe32fd',
@@ -88,6 +89,7 @@ const StudyDetailPage = (): JSX.Element => {
 					setOpenAppliedModal={setOpenAppliedModal}
 				/>
 				<AppliedModalContainer open={openAppliedModal} onClose={setOpenAppliedModal} />
+				<ApplyCancelModalContainer open={openCancelModal} onClose={setOpenCancelModal} />
 				<UserStudyMoreModalContainer
 					open={openUserMoreModal}
 					onClose={setOpenUserMoreModal}

@@ -5,15 +5,18 @@ import './styles.scss';
 
 interface IStudyListPresenterProps {
 	onClickSort: () => void;
+	onClickFilter: () => void;
 }
 
-const StudyListPresenter = ({ onClickSort }: IStudyListPresenterProps): JSX.Element => (
+const StudyListPresenter = ({ onClickSort, onClickFilter }: IStudyListPresenterProps): JSX.Element => (
 	<div className="studyList-con">
 		<div className="studyList-wrap">
 			<div className="studyList-dropdown" onClick={onClickSort}>
-				sort drop down
+				sort
 			</div>
-
+			<div className="studyList-dropdown" onClick={onClickFilter}>
+				filter
+			</div>
 			<div className="studyList-listAndBoards-con">
 				<div className="studyList">
 					{Lists.map((card: PostResponseDto) => (

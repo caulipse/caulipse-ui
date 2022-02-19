@@ -15,6 +15,8 @@ const UserStudyMoreModalPresenter = ({
 	onClickCancel,
 	onClickReport,
 }: IUserStudyMoreModalPresenterProps): JSX.Element => {
+	// TODO
+	// api 로 신청자 여부를 확인하여 신청자가 아닐 경우 "신청취소" 버튼은 숨김 처리해야함.
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">
 			<Container className="simple-modal-content-container">

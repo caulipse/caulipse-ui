@@ -42,6 +42,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
 	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
 	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
+	const [openCancelModal, setOpenCancelModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setOpenApplyModal(!openApplyModal);
@@ -84,6 +85,7 @@ const StudyDetailPage = (): JSX.Element => {
 					open={openUserMoreModal}
 					onClose={setOpenUserMoreModal}
 					setOpenReportModal={setOpenReportModal}
+					setOpenCancelModal={setOpenCancelModal}
 				/>
 				<HostStudyMoreModalContainer
 					open={openHostMoreModal}

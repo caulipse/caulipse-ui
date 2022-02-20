@@ -1,6 +1,7 @@
 import axios from 'axios';
 import config from '@src/config';
-import { IRequestLogin, IRequestSignUp, IRequestPatchUser, IRequestPostUserProfile } from './request/user';
+import { IRequestLogin, IRequestSignUp, IRequestPatchUser } from './request/user';
+import { IRequestPostUserProfile, IRequestPatchUserProfile } from './request/userProfile';
 import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
 import { IRequestPostStudyUser, IRequestPatchStudyUser, IRequestPatchStudyUserByHost } from './request/studyUser';
 import {
@@ -107,10 +108,6 @@ const API = {
 	patchUser(request: IRequestPatchUser) {
 		return client.patch(`/user/${request.id}`, request);
 	},
-	// 유저 프로필 생성
-	postUserProfile(request: IRequestPostUserProfile) {
-		return client.post(`/user/profile`, request);
-	},
 	// 사용자의 알림 목록을 읽어옵니다.
 	getUserNotifications() {
 		return client.get(`/user/notification`);
@@ -122,6 +119,18 @@ const API = {
 	// 사용자의 알림 항목을 삭제합니다.
 	deleteUserNotifications(id: string) {
 		return client.delete(`/user/notification/${id}`);
+	},
+	// 유저 프로필 생성
+	postUserProfile(request: IRequestPostUserProfile) {
+		return client.post(`/user/profile/${request.userId}`, request);
+	},
+	// 유저 프로필 조회
+	getUserProfile(id: string) {
+		return client.get(`/user/profile/${id}`);
+	},
+	// 유저 프로필 업데이트
+	patchUserProfile(request: IRequestPatchUserProfile) {
+		return client.patch(`/user/profile/${request.userId}`, request);
 	},
 };
 

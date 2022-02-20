@@ -13,11 +13,3 @@ export interface IRequestPatchUser {
 	token: string;
 	role: string;
 }
-
-export interface IRequestPostUserProfile {
-	userId: string;
-	userName: string;
-	dept: string;
-	grade: number;
-	bio: string;
-}

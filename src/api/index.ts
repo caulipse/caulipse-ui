@@ -8,6 +8,14 @@ const client = axios.create({
 });
 
 const API = {
+	// 스터디 북마크 등록
+	postBookmark(id: string) {
+		return client.post(`/study/${id}/bookmark`);
+	},
+	// 스터디 북마크 취소
+	deleteBookmark(id: string) {
+		return client.delete(`/study/${id}/bookmark`);
+	},
 	// 스터디 목록 조회
 	getStudies() {
 		// TODO parameters

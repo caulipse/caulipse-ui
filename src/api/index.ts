@@ -6,7 +6,7 @@ const client = axios.create({
 });
 
 const API = {
-	// 스터디 리스트 조회
+	// 스터디 목록 조회
 	getStudies() {
 		// TODO parameters
 		return client.get(`/study`);
@@ -15,6 +15,10 @@ const API = {
 	getStudy(id: string) {
 		// TODO parameters
 		return client.get(`/study/${id}`);
+	},
+	// 참가 신청 중인 사용자 목록 조회
+	getStudyUsers(id: string) {
+		return client.get(`/study/user/${id}`);
 	},
 };
 

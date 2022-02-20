@@ -37,6 +37,18 @@ const API = {
 	deleteStudyComment(request: IRequestDeleteStudyComment) {
 		return client.post(`/study/${request.id}/comment/${request.commentId}`, request);
 	},
+	// 스터디 문의글의 나도 궁금해요 카운트
+	getStudyCommentMetoo(id: string, commentId: string) {
+		return client.get(`/study/${id}/comment/${commentId}/metoo`);
+	},
+	// 스터디 문의글에 나도 궁금해요 등록
+	postStudyCommentMetoo(id: string, commentId: string) {
+		return client.post(`/study/${id}/comment/${commentId}/metoo`);
+	},
+	// 나도 궁금해요 해제
+	deleteStudyCommentMetoo(id: string, commentId: string) {
+		return client.delete(`/study/${id}/comment/${commentId}/metoo`);
+	},
 	// 스터디 목록 조회
 	getStudies() {
 		// TODO parameters
@@ -58,10 +70,6 @@ const API = {
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {
 		return client.post(`/study/user/${request.id}`, request);
-	},
-	// 스터디 문의글의 나도 궁금해요 카운트 조회
-	getStudyCommentMetoo(id: string, commentId: string) {
-		return client.get(`/study/${id}/comment/${commentId}/metoo`);
 	},
 	// 로그인
 	login(request: IRequestLogin) {

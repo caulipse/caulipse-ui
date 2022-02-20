@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '@src/config';
 import { IRequestLogin } from './request/user';
 import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
-import { IRequestPostStudyUser } from './request/studyUser';
+import { IRequestPostStudyUser, IRequestPatchStudyUser, IRequestPatchStudyUserByHost } from './request/studyUser';
 import {
 	IRequestPostStudyComment,
 	IRequestPatchStudyComment,
@@ -71,13 +71,25 @@ const API = {
 	deleteStudy(id: string) {
 		return client.delete(`/study/${id}`);
 	},
-	// 참가 신청 중인 사용자 목록 조회
+	// 현재 참가 신청 중인 사용자 목록을 읽어옵니다.
 	getStudyUsers(id: string) {
 		return client.get(`/study/user/${id}`);
 	},
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {
 		return client.post(`/study/user/${request.id}`, request);
+	},
+	// 참가신청 현황 수정
+	patchStudyUser(request: IRequestPatchStudyUser) {
+		return client.patch(`/study/user/${request.id}`, request);
+	},
+	// 참가신청 취소
+	deleteStudyUser(id: string) {
+		return client.delete(`/study/user/${id}`);
+	},
+	// 참가신청 수락 / 거절
+	patchStudyUserByHost(request: IRequestPatchStudyUserByHost) {
+		return client.patch(`/study/user/${request.id}/accept`, request);
 	},
 	// 로그인
 	login(request: IRequestLogin) {

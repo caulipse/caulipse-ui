@@ -1,6 +1,7 @@
 import axios from 'axios';
 import config from '@src/config';
 import { IRequestLogin } from './request/user';
+import { IRequestPostStudyUser } from './request/studyUser';
 
 const client = axios.create({
 	baseURL: `${config.server}/api`,
@@ -24,6 +25,10 @@ const API = {
 	// 참가 신청 중인 사용자 목록 조회
 	getStudyUsers(id: string) {
 		return client.get(`/study/user/${id}`);
+	},
+	// 스터디 참가 신청
+	postStudyUser(request: IRequestPostStudyUser) {
+		return client.post(`/study/user/${request.id}`, request);
 	},
 	// 스터디 문의글 목록 조회
 	getStudyComments(id: string) {

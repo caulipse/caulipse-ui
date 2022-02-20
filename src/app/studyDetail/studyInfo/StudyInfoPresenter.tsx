@@ -1,16 +1,16 @@
-import { GetStudyResponse } from '@src/api/response/study';
 import React from 'react';
+import { Study } from '@api/types';
 import './styles.scss';
 
 interface StudyInfoPresenterProps {
-	study: GetStudyResponse;
+	study: Study;
 }
 const StudyInfoPresenter = ({ study }: StudyInfoPresenterProps): JSX.Element => (
 	<div className="StudyInfoContainer">
 		<div className="categoryTextContainer">
 			<div className="category">카테고리</div>
 			<div className="categoryDetail">
-				<span>{study.categoryCode}</span>
+				<span>{study.categoryCode!.code}</span>
 			</div>
 		</div>
 

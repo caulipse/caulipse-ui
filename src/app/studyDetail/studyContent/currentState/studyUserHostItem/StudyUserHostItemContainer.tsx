@@ -1,9 +1,9 @@
-import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
+import { StudyUser } from '@api/types';
 import StudyUserHostItemPresenter from './StudyUserHostItemPresenter';
 
 interface StudyUserHostItemContainerProps {
-	user: GetStudyUserResponse;
+	user: StudyUser;
 	setOpenStudyApproveModal: (params: boolean) => void;
 }
 

@@ -1,12 +1,12 @@
-import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
+import { StudyUser } from '@api/types';
 import StudyUserHostItemContainer from './studyUserHostItem/StudyUserHostItemContainer';
 import StudyUserItemContainer from './studyUserItem/StudyUserItemContainer';
 import './styles.scss';
 
 interface StudyCurrentStatePresenterProps {
-	studyUsers: [] | GetStudyUserResponse[];
-	host: GetStudyUserResponse;
+	studyUsers: [] | StudyUser[];
+	host: StudyUser;
 	setOpenStudyApproveModal: (params: boolean) => void;
 }
 
@@ -25,7 +25,7 @@ const StudyCurrentStatePresenter = ({
 				<StudyUserHostItemContainer user={host} setOpenStudyApproveModal={setOpenStudyApproveModal} />
 			</div>
 			<div className="studyUserListContainer">
-				{studyUsers.map((studyUser: GetStudyUserResponse, studyUserIndex: number) => {
+				{studyUsers.map((studyUser: StudyUser, studyUserIndex: number) => {
 					return (
 						<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
 							<StudyUserItemContainer studyUser={studyUser} />

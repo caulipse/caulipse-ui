@@ -1,6 +1,6 @@
-import { GetStudyUserResponse } from '@src/api/response/study';
 import { GetUserProfileResponse } from '@src/api/response/user';
 import React, { useEffect, useState } from 'react';
+import { StudyUser } from '@api/types';
 import StudyApproveModalContainer from '@studyDetail/studyContent/currentState/modal/StudyApproveModalContainer';
 import StudyCurrentStatePresenter from './StudyCurrentStatePresenter';
 
@@ -10,11 +10,11 @@ interface StudyCurrentStateContainerProps {
 	studyId: string;
 	hostId: string;
 }
-const studyUserD: GetStudyUserResponse[] = [
+const studyUserD: StudyUser[] = [
 	{
 		userId: '11',
 		studyId: 'asdfasdf234efawe32fd',
-		isAccepted: false,
+		isAccepted: 0,
 		tempBio: 'dfdf',
 		userName: 'name',
 		shortIntro: '짧은 소개글입니다',
@@ -23,7 +23,7 @@ const studyUserD: GetStudyUserResponse[] = [
 	{
 		userId: '12',
 		studyId: 'asdfasdf234efawe32fd',
-		isAccepted: false,
+		isAccepted: 0,
 		tempBio: 'dfdf',
 		userName: 'name',
 		shortIntro: '짧은 소개글입니다',
@@ -32,7 +32,7 @@ const studyUserD: GetStudyUserResponse[] = [
 	{
 		userId: '13',
 		studyId: 'asdfasdf234efawe32fd',
-		isAccepted: true,
+		isAccepted: 1,
 		tempBio: 'dfdf',
 		userName: 'name',
 		shortIntro: '짧은 소개글입니다',
@@ -40,10 +40,10 @@ const studyUserD: GetStudyUserResponse[] = [
 	},
 ];
 
-const hostD: GetStudyUserResponse = {
+const hostD: StudyUser = {
 	userId: '1',
 	studyId: 'asdfasdf234efawe32fd',
-	isAccepted: true,
+	isAccepted: 1,
 	tempBio: 'dfdf',
 	userName: 'name',
 	shortIntro: '짧은 소개글입니다',
@@ -51,7 +51,7 @@ const hostD: GetStudyUserResponse = {
 };
 
 const StudyCurrentStateContainer = ({ studyId, hostId }: StudyCurrentStateContainerProps): JSX.Element => {
-	const [studyUser, setStudyUser] = useState<GetStudyUserResponse[] | []>(studyUserD);
+	const [studyUser, setStudyUser] = useState<StudyUser[] | []>(studyUserD);
 	const [openStudyApproveModal, setOpenStudyApproveModal] = useState(false);
 
 	return (

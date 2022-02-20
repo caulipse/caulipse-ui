@@ -1,11 +1,11 @@
-import { GetStudyUserResponse, StudyUser } from '@src/api/response/study';
 import { UserPreview } from '@src/api/response/user';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { StudyUser } from '@api/types';
 import StudyUserItemPresenter from './StudyUserItemPresenter';
 
 interface StudyUserItemContainerProps {
-	studyUser: GetStudyUserResponse;
+	studyUser: StudyUser;
 }
 
 const StudyUserItemContainer = ({ studyUser }: StudyUserItemContainerProps): JSX.Element => {

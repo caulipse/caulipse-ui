@@ -1,14 +1,12 @@
-import { GetStudyResponse } from '@src/api/response/study';
 import React from 'react';
+import { Study } from '@api/types';
 import StudyInfoContentPresenter from './StudyInfoContentPresenter';
 
 interface StudyInfoConntainerProps {
-  study: GetStudyResponse
+	study: Study;
 }
 const StudyInfoContentContainer = ({ study }: StudyInfoConntainerProps): JSX.Element => {
-  return (
-    <StudyInfoContentPresenter study={study}/>
-  )
-}
+	return <StudyInfoContentPresenter study={study} />;
+};
 
 export default StudyInfoContentContainer;

@@ -1,9 +1,9 @@
-import { GetStudyUserResponse, StudyUser } from '@src/api/response/study';
 import React from 'react';
+import { StudyUser } from '@api/types';
 import './styles.scss';
 
 interface StudyUserItemPresenterProps {
-	studyUser: GetStudyUserResponse;
+	studyUser: StudyUser;
 }
 const StudyUserItemPresenter = ({ studyUser }: StudyUserItemPresenterProps): JSX.Element => (
 	<div className="study-user-item-container">

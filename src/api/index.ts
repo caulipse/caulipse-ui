@@ -11,6 +11,11 @@ const API = {
 		// TODO parameters
 		return client.get(`/study`);
 	},
+	// 스터디 상세 조회
+	getStudy(id: string) {
+		// TODO parameters
+		return client.get(`/study/${id}`);
+	},
 };
 
 export default API;

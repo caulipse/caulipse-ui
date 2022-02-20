@@ -111,6 +111,18 @@ const API = {
 	postUserProfile(request: IRequestPostUserProfile) {
 		return client.post(`/user/profile`, request);
 	},
+	// 사용자의 알림 목록을 읽어옵니다.
+	getUserNotifications() {
+		return client.get(`/user/notification`);
+	},
+	// 사용자의 알림 확인 상태를 갱신합니다.
+	patchUserNotifications(id: string) {
+		return client.patch(`/user/notification/${id}`);
+	},
+	// 사용자의 알림 항목을 삭제합니다.
+	deleteUserNotifications(id: string) {
+		return client.delete(`/user/notification/${id}`);
+	},
 };
 
 export default API;

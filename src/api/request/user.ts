@@ -1,4 +1,4 @@
-export interface LoginRequest {
-  example: string
+export interface IRequestLogin {
+	email: string;
+	password: string;
 }
-

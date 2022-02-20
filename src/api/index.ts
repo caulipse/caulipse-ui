@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from '@src/config';
+import { IRequestLogin } from './request/user';
 
 const client = axios.create({
 	baseURL: `${config.server}/api`,
@@ -27,6 +28,10 @@ const API = {
 	// 스터디 문의글의 나도 궁금해요 카운트 조회
 	getStudyCommentMetoo(id: string, commentId: string) {
 		return client.get(`/study/${id}/comment/${commentId}/metoo`);
+	},
+	// 로그인
+	login(request: IRequestLogin) {
+		return client.post(`/user/login`, request);
 	},
 };
 

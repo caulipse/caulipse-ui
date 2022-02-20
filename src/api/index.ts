@@ -17,6 +17,10 @@ const API = {
 		// TODO parameters
 		return client.get(`/study/${id}`);
 	},
+	// 스터디 삭제
+	deleteStudy(id: string) {
+		return client.delete(`/study/${id}`);
+	},
 	// 참가 신청 중인 사용자 목록 조회
 	getStudyUsers(id: string) {
 		return client.get(`/study/user/${id}`);

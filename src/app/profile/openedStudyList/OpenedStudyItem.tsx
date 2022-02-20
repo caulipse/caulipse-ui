@@ -1,7 +1,10 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
 import { IoEllipsisVertical } from 'react-icons/io5';
+import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
+import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
+import StudyCloseModalContainer from '@studyDetail/studyContent/modal/studyCloseModal/StudyCloseModalContainer';
 import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 
@@ -10,8 +13,17 @@ interface OpenedStudyItemProps {
 }
 
 const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element => {
+	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
+	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
+	const [openCancelModal, setOpenCancelModal] = useState<boolean>(false);
+	const [openCloseModal, setOpenCloseModal] = useState<boolean>(false);
+
 	const closeStudy = () => {
-		console.log('closeStudy');
+		setOpenCloseModal(!openCloseModal);
+	};
+
+	const onClickMore = () => {
+		setOpenUserMoreModal(!openUserMoreModal);
 	};
 
 	return (
@@ -21,7 +33,7 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 					<div className="opened-applied-study-item-title">{openedStudyItem.title}</div>
 					<div>
 						<button type="button">
-							<IoEllipsisVertical size={24} color="#b1b1b1" />
+							<IoEllipsisVertical size={24} color="#b1b1b1" onClick={onClickMore} />
 						</button>
 					</div>
 				</div>
@@ -58,6 +70,14 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 					</div>
 				)}
 			</button>
+			<UserStudyMoreModalContainer
+				open={openUserMoreModal}
+				onClose={setOpenUserMoreModal}
+				setOpenReportModal={setOpenReportModal}
+				setOpenCancelModal={setOpenCancelModal}
+			/>
+			<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
+			<StudyCloseModalContainer open={openCloseModal} onClose={setOpenCloseModal} />
 		</div>
 	);
 };

@@ -20,6 +20,10 @@ const API = {
 	getStudyUsers(id: string) {
 		return client.get(`/study/user/${id}`);
 	},
+	// 스터디 문의글 목록 조회
+	getStudyComments(id: string) {
+		return client.get(`/study/${id}/comment`);
+	},
 };
 
 export default API;

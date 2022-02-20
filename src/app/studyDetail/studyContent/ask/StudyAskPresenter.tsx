@@ -1,4 +1,4 @@
-import { GetCommentResponse } from '@src/api/response/comment';
+import { GetCommentResponse } from '@api/response/comment';
 import InputBase from '@src/app/shared/components/input/InputBase';
 import React from 'react';
 import CommentList from './comments/CommentList';

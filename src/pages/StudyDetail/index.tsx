@@ -1,4 +1,4 @@
-import { GetCommentResponse } from '@src/api/response/comment';
+import { GetCommentResponse } from '@api/response/comment';
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useRef, useState } from 'react';

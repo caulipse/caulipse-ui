@@ -1,4 +1,4 @@
-import { GetUserProfileResponse } from '@src/api/response/user';
+import { GetUserProfileResponse } from '@api/response/user';
 import React, { useEffect, useState } from 'react';
 import { StudyUser } from '@api/types';
 import StudyApproveModalContainer from '@studyDetail/studyContent/currentState/modal/StudyApproveModalContainer';

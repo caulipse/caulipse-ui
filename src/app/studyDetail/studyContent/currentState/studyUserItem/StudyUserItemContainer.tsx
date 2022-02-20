@@ -1,4 +1,4 @@
-import { UserPreview } from '@src/api/response/user';
+import { UserPreview } from '@api/response/user';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { StudyUser } from '@api/types';

@@ -1,4 +1,4 @@
-import { GetCommentResponse } from '@src/api/response/comment';
+import { GetCommentResponse } from '@api/response/comment';
 import moment from 'moment';
 import React from 'react';
 import './comments.scss';

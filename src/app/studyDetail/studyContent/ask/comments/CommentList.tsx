@@ -1,4 +1,4 @@
-import { GetCommentResponse } from '@src/api/response/comment';
+import { GetCommentResponse } from '@api/response/comment';
 import React, { useState } from 'react';
 import CommentItem from './CommentItem';
 

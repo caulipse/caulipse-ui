@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PostResponseDto } from './dummyList';
+import { Study } from '@api/types';
 import StudyCardPresenter from './StudyCardPresenter';
 
 interface ContainerProps {
-  card: PostResponseDto
+	study: Study;
 }
-const StudyCardContainer = ({
-  card
-}: ContainerProps): JSX.Element => {
-
-  return (
-    <Link to={`/study/detail/${card.id}`}><StudyCardPresenter card={card}/></Link>
-  );
+const StudyCardContainer = ({ study }: ContainerProps): JSX.Element => {
+	return (
+		<Link to={`/study/detail/${study.id}`}>
+			<StudyCardPresenter study={study} />
+		</Link>
+	);
 };
 
 export default StudyCardContainer;

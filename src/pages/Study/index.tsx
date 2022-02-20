@@ -4,7 +4,8 @@ import './styles.scss';
 import SubCategoryBarContainer from '@src/app/study/SubCategoryBar/SubCategoryBarContainer';
 import StudyListContainter from '@src/app/study/StudyList/StudyListContainer';
 import StudyCategoryBarContainer from '@src/app/study/StudyCategoryBar/StudyCategoryBarContainer';
-import StudySortModalContainer from '@study/modal/studySortModal.tsx/StudySortModalContainer';
+import StudySortModalContainer from '@study/modal/studySortModal/StudySortModalContainer';
+import StudyFilterModalContainer from '@study/modal/studyFilterModal/StudyFilterModalContainer';
 
 const CategoryObj = {
 	employment: '취업, 면접',
@@ -20,6 +21,7 @@ const StudyPage = (): JSX.Element => {
 	const [selectedList, setSelectedList] = useState<string[]>([]);
 
 	const [openStudySortModal, setOpenStudySortModal] = useState<boolean>(false);
+	const [openStudyFilterModal, setOpenStudyFilterModal] = useState<boolean>(false);
 
 	const getValueFromCategoryObj = (key: string) => {
 		const path = key.split('/')[2];
@@ -46,6 +48,10 @@ const StudyPage = (): JSX.Element => {
 		setOpenStudySortModal(!openStudySortModal);
 	};
 
+	const onClickFilter = () => {
+		setOpenStudyFilterModal(!openStudyFilterModal);
+	};
+
 	return (
 		<div className="studyPage-con">
 			<div>
@@ -56,8 +62,9 @@ const StudyPage = (): JSX.Element => {
 					<SubCategoryBarContainer addSubCategory={addSubCategory} rmSubCategory={rmSubCategory} />
 				</div>
 			</div>
-			<StudyListContainter onClickSort={onClickSort} />
+			<StudyListContainter onClickSort={onClickSort} onClickFilter={onClickFilter} />
 			<StudySortModalContainer open={openStudySortModal} onClose={setOpenStudySortModal} />
+			<StudyFilterModalContainer open={openStudyFilterModal} onClose={setOpenStudyFilterModal} />
 		</div>
 	);
 };

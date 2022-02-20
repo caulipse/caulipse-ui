@@ -1,15 +1,9 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
+import { IButtonProps } from './types';
 import './index.scss';
 
-interface IPrimaryButtonProps {
-	title: string;
-	onClick: () => void;
-	disabled?: boolean;
-	style?: React.CSSProperties;
-}
-
-const PrimaryButton = ({ title, onClick, disabled = false, style }: IPrimaryButtonProps) => {
+const PrimaryButton = ({ title, onClick, disabled = false, style }: IButtonProps) => {
 	return (
 		<Button className="primary-button" style={style} disabled={disabled} onClick={onClick}>
 			{title}

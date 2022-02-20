@@ -2,6 +2,11 @@ import axios from 'axios';
 import config from '@src/config';
 import { IRequestLogin } from './request/user';
 import { IRequestPostStudyUser } from './request/studyUser';
+import {
+	IRequestPostStudyComment,
+	IRequestPatchStudyComment,
+	IRequestDeleteStudyComment,
+} from './request/studyComment';
 
 const client = axios.create({
 	baseURL: `${config.server}/api`,
@@ -15,6 +20,22 @@ const API = {
 	// 스터디 북마크 취소
 	deleteBookmark(id: string) {
 		return client.delete(`/study/${id}/bookmark`);
+	},
+	// 스터디 문의글 목록 조회
+	getStudyComments(id: string) {
+		return client.get(`/study/${id}/comment`);
+	},
+	// 스터디 문의글 등록
+	postStudyComment(request: IRequestPostStudyComment) {
+		return client.post(`/study/${request.id}/comment`, request);
+	},
+	// 스터디 문의글 수정
+	patchStudyComment(request: IRequestPatchStudyComment) {
+		return client.post(`/study/${request.id}/comment/${request.commentId}`, request);
+	},
+	// 스터디 문의글 삭제
+	deleteStudyComment(request: IRequestDeleteStudyComment) {
+		return client.post(`/study/${request.id}/comment/${request.commentId}`, request);
 	},
 	// 스터디 목록 조회
 	getStudies() {
@@ -37,10 +58,6 @@ const API = {
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {
 		return client.post(`/study/user/${request.id}`, request);
-	},
-	// 스터디 문의글 목록 조회
-	getStudyComments(id: string) {
-		return client.get(`/study/${id}/comment`);
 	},
 	// 스터디 문의글의 나도 궁금해요 카운트 조회
 	getStudyCommentMetoo(id: string, commentId: string) {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import config from '@src/config';
 import { IRequestLogin } from './request/user';
+import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
 import { IRequestPostStudyUser } from './request/studyUser';
 import {
 	IRequestPostStudyComment,
@@ -54,10 +55,17 @@ const API = {
 		// TODO parameters
 		return client.get(`/study`);
 	},
-	// 스터디 상세 조회
+	// 새로운 스터디 생성
+	postStudy(request: IRequestPostStudy) {
+		return client.post(`/study`, request);
+	},
+	// 스터디 아이디에 해당하는 스터디 정보 조회
 	getStudy(id: string) {
-		// TODO parameters
 		return client.get(`/study/${id}`);
+	},
+	// 스터디 정보 업데이트
+	patchStudy(request: IRequestPatchStudy) {
+		return client.post(`/study/${request.id}`, request);
 	},
 	// 스터디 삭제
 	deleteStudy(id: string) {

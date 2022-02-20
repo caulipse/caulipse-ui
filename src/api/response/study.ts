@@ -16,10 +16,10 @@ export interface Host {
 export interface Study {
 	HOST_ID: string;
 	capacity: number;
-	categoryCode: Category;
+	categoryCode?: Category;
 	createdAt: string;
 	frequency: string;
-	hostId: Host;
+	hostId?: Host;
 	id: string;
 	isOpen: boolean;
 	location: string;
@@ -37,23 +37,9 @@ export interface IResponseGetStudies {
 	perPage_studies: Study[];
 }
 
-export interface GetStudyResponse {
-	id: string;
-	createdAt: string;
-	title: string;
-	studyAbout: string;
-	time: number;
-	weekday: number;
-	frequency: number;
-	location: string;
-	hostId: string;
-	capacity: number;
-	membersCount: number;
-	vacancy: number;
-	isOpen: boolean;
-	categoryCode: number;
-	views: number;
-	bookmarks?: number;
+export interface IResponseGetStudy {
+	message: string;
+	study: Study;
 }
 
 export interface GetStudyUserResponse {

@@ -30,3 +30,10 @@ export interface Study {
 	views: number;
 	weekday: string;
 }
+
+export interface StudyUser {
+	studyId: string;
+	userId: string;
+	isAccepted: number;
+	tempBio: string;
+}

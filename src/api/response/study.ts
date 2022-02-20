@@ -1,4 +1,4 @@
-import { Study } from '@api/types';
+import { Study, StudyUser } from '@api/types';
 
 export interface IResponseGetStudies {
 	message: string;
@@ -11,31 +11,4 @@ export interface IResponseGetStudy {
 	study: Study;
 }
 
-export interface GetStudyUserResponse {
-	userId: string;
-	studyId: string;
-	isAccepted: boolean;
-	tempBio: string;
-	userName?: string;
-	profilePicture?: string;
-	shortIntro?: string;
-}
-export interface StudyUser {
-	userId: string;
-	studyId: string;
-	isAccepted: boolean;
-	tempBio: string;
-	profilePicture: string;
-	userName: string;
-}
-
-export interface InquiryResponse {
-	inquiryId: number;
-	profilePicture: string;
-	username: string;
-	isLeader: boolean;
-	createdAt: Date;
-	content: string;
-	likes: number;
-	comments: InquiryResponse[];
-}
+export type IResponseGetStudyUsers = StudyUser[];

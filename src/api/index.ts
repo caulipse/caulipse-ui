@@ -1,6 +1,6 @@
 import axios from 'axios';
 import config from '@src/config';
-import { IRequestLogin } from './request/user';
+import { IRequestLogin, IRequestSignUp, IRequestPatchUser, IRequestPostUserProfile } from './request/user';
 import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
 import { IRequestPostStudyUser, IRequestPatchStudyUser, IRequestPatchStudyUserByHost } from './request/studyUser';
 import {
@@ -94,6 +94,22 @@ const API = {
 	// 로그인
 	login(request: IRequestLogin) {
 		return client.post(`/user/login`, request);
+	},
+	// 회원가입
+	signUp(request: IRequestSignUp) {
+		return client.post(`/user`, request);
+	},
+	// 회원 탈퇴
+	deleteUser() {
+		return client.delete(`/user`);
+	},
+	// 회원정보 수정
+	patchUser(request: IRequestPatchUser) {
+		return client.patch(`/user/${request.id}`, request);
+	},
+	// 유저 프로필 생성
+	postUserProfile(request: IRequestPostUserProfile) {
+		return client.post(`/user/profile`, request);
 	},
 };
 

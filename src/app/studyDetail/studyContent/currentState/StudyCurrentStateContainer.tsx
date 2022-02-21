@@ -55,14 +55,11 @@ const StudyCurrentStateContainer = ({ studyId, hostId }: StudyCurrentStateContai
 	const [openStudyApproveModal, setOpenStudyApproveModal] = useState(false);
 
 	return (
-		<>
-			<StudyCurrentStatePresenter
-				host={hostD}
-				studyUsers={studyUser}
-				setOpenStudyApproveModal={setOpenStudyApproveModal}
-			/>
-			<StudyApproveModalContainer open={openStudyApproveModal} onClose={setOpenStudyApproveModal} />
-		</>
+		<StudyCurrentStatePresenter
+			host={hostD}
+			studyUsers={studyUser}
+			setOpenStudyApproveModal={setOpenStudyApproveModal}
+		/>
 	);
 };
 

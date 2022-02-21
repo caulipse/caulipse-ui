@@ -7,11 +7,13 @@ import { useHistory } from 'react-router-dom';
 import { Study } from '@api/types';
 import './styles.scss';
 import { BottomSheetRef } from 'react-spring-bottom-sheet';
-import ApplyModalContainer from '@studyDetail/studyContent/modal/apply/ApplyModalContainer';
+import ApplyModalContainer from '@src/app/studyDetail/studyContent/modal/applyModal/ApplyModalContainer';
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
 import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
+import AppliedModalContainer from '@src/app/studyDetail/studyContent/modal/appliedModal/AppliedModalContainer';
+import ApplyCancelModalContainer from '@src/app/studyDetail/studyContent/modal/applyCancelModal/ApplyCancelModalContainer';
 
 const study: Study = {
 	id: 'asdfasdf234efawe32fd',
@@ -41,10 +43,12 @@ const StudyDetailPage = (): JSX.Element => {
 	const sheetRef = useRef<BottomSheetRef>(null);
 
 	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
+	const [openAppliedModal, setOpenAppliedModal] = useState<boolean>(false);
 	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
 	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
 	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
 	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
+	const [openCancelModal, setOpenCancelModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setOpenApplyModal(!openApplyModal);
@@ -82,11 +86,18 @@ const StudyDetailPage = (): JSX.Element => {
 				</div>
 				<StudyInfoContainer study={study} />
 				<StudyContentContainer studyData={study} />
-				<ApplyModalContainer open={openApplyModal} onClose={setOpenApplyModal} />
+				<ApplyModalContainer
+					open={openApplyModal}
+					onClose={setOpenApplyModal}
+					setOpenAppliedModal={setOpenAppliedModal}
+				/>
+				<AppliedModalContainer open={openAppliedModal} onClose={setOpenAppliedModal} />
+				<ApplyCancelModalContainer open={openCancelModal} onClose={setOpenCancelModal} />
 				<UserStudyMoreModalContainer
 					open={openUserMoreModal}
 					onClose={setOpenUserMoreModal}
 					setOpenReportModal={setOpenReportModal}
+					setOpenCancelModal={setOpenCancelModal}
 				/>
 				<HostStudyMoreModalContainer
 					open={openHostMoreModal}

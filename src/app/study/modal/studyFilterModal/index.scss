@@ -1,0 +1,44 @@
+.study-filter-modal-row {
+    padding: 0 !important;
+    margin-bottom: 1rem;
+    span {
+        font-weight: bold;
+    }
+    span.study-filter-modal-sub-text {
+        font-size: 0.75rem;
+        color: #929699;
+        font-weight: normal;
+        margin-left: 0.5rem;
+    }
+    > div {
+        margin-top: 1rem;
+    }
+}
+.study-filter-modal-row-flex-container {
+    padding: 0 !important;
+}
+
+.study-filter-modal-row-flex-container-days {
+    display: flex !important;
+    .chip-container {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.study-filter-modal-row-flex-container-places {
+    .chip-container {
+        padding: 0.75rem 0.688rem !important;
+        width: fit-content;
+        display: inline !important;
+        float: left;
+        margin: 0 0.5rem 0.5rem 0;
+    }
+}
+
+.study-filter-modal-button-container {
+    display: flex !important;
+    button + button {
+        margin-left: 1rem;
+    }
+}

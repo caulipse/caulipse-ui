@@ -1,9 +1,9 @@
-import { GetStudyResponse } from '@src/api/response/study';
 import React from 'react';
+import { Study } from '@api/types';
 import NumberUtils from '@src/app/shared/utils/number';
 
 interface StudyInfoContentPresenterProps {
-	study: GetStudyResponse;
+	study: Study;
 }
 const StudyInfoContentPresenter = ({ study }: StudyInfoContentPresenterProps): JSX.Element => (
 	<div className="content">

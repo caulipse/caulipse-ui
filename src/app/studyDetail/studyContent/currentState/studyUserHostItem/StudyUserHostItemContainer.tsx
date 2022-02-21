@@ -1,15 +1,19 @@
-import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
+import { StudyUser } from '@api/types';
 import StudyUserHostItemPresenter from './StudyUserHostItemPresenter';
 
 interface StudyUserHostItemContainerProps {
-	user: GetStudyUserResponse;
+	user: StudyUser;
+	setOpenStudyApproveModal: (params: boolean) => void;
 }
 
-const StudyUserHostItemContainer = ({ user }: StudyUserHostItemContainerProps): JSX.Element => {
+const StudyUserHostItemContainer = ({
+	user,
+	setOpenStudyApproveModal,
+}: StudyUserHostItemContainerProps): JSX.Element => {
 	return (
 		<div>
-			<StudyUserHostItemPresenter user={user} />
+			<StudyUserHostItemPresenter user={user} setOpenStudyApproveModal={setOpenStudyApproveModal} />
 		</div>
 	);
 };

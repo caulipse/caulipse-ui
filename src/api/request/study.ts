@@ -1,9 +1,11 @@
-export interface CreateStudyRequest {
-	tempBio: string;
+export interface IRequestPostStudy {
+	title: string;
+	studyAbout: string;
+	weekday: string;
+	frequency: string;
+	location: string;
+	capacity: number;
+	categoryCode: number;
 }
 
-export interface ApplyStudyRequest {
-	tempBio: string;
-}
-
-export interface IRequestGetStudies {}
+export type IRequestPatchStudy = IRequestPostStudy & { id: string };

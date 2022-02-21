@@ -1,12 +1,13 @@
-import { GetStudyUserResponse, StudyUser } from '@src/api/response/study';
 import React from 'react';
+import { StudyUser } from '@api/types';
 import { IoEllipsisVertical } from 'react-icons/io5';
 import './styles.scss';
 
 interface StudyUserItemPresenterProps {
-	studyUser: GetStudyUserResponse;
+	studyUser: StudyUser;
 	onClick: () => void;
 }
+
 const StudyUserItemPresenter = ({ studyUser, onClick }: StudyUserItemPresenterProps): JSX.Element => {
 	return (
 		<div className="study-user-item-container">

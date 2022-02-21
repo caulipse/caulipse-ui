@@ -1,5 +1,4 @@
-import { GetCommentResponse } from '@src/api/response/comment';
-import { InquiryResponse } from '@src/api/response/study';
+import { GetCommentResponse } from '@api/response/comment';
 import React, { useState } from 'react';
 import StudyAskPresenter from './StudyAskPresenter';
 

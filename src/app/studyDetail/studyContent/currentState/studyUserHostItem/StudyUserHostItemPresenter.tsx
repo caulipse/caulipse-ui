@@ -1,9 +1,10 @@
-import { GetStudyUserResponse } from '@src/api/response/study';
 import React from 'react';
+import { StudyUser } from '@api/types';
 import './styles.scss';
 
 interface StudyUserHostItemPresenterProps {
-	user: GetStudyUserResponse;
+	user: StudyUser;
+	setOpenStudyApproveModal: (params: boolean) => void;
 }
 
 const StudyUserHostItemPresenter = ({ user }: StudyUserHostItemPresenterProps): JSX.Element => {

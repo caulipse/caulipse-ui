@@ -1,5 +1,5 @@
 import React from 'react';
-// import fetchStudies from '@src/hooks/remotes/study/useFetchStudies';
+import fetchStudies from '@src/hooks/remotes/study/useFetchStudies';
 import StudyListPresenter from './StudyListPresenter';
 
 interface IStudyListContainterProps {
@@ -8,9 +8,8 @@ interface IStudyListContainterProps {
 }
 
 const StudyListContainter = ({ onClickSort, onClickFilter }: IStudyListContainterProps): JSX.Element => {
-	// const { data } = fetchStudies();
-	// console.info(data);
-	return <StudyListPresenter onClickSort={onClickSort} onClickFilter={onClickFilter} />;
+	const { data } = fetchStudies();
+	return <StudyListPresenter onClickSort={onClickSort} data={data?.perPage_studies} onClickFilter={onClickFilter} />;
 };
 
 export default StudyListContainter;

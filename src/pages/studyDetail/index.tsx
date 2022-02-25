@@ -1,9 +1,9 @@
 import { GetCommentResponse } from '@api/response/comment';
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IoArrowBack, IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Study } from '@api/types';
 import './styles.scss';
 import { BottomSheetRef } from 'react-spring-bottom-sheet';
@@ -15,6 +15,7 @@ import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/Re
 import AppliedModalContainer from '@src/app/studyDetail/studyContent/modal/appliedModal/AppliedModalContainer';
 import ApplyCancelModalContainer from '@src/app/studyDetail/studyContent/modal/applyCancelModal/ApplyCancelModalContainer';
 import EditCategoryModalContainer from '@src/app/studyDetail/studyContent/modal/editCategoryModal/EditCategoryModalContainer';
+import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 
 const study: Study = {
 	id: 'asdfasdf234efawe32fd',
@@ -30,11 +31,11 @@ const study: Study = {
 	membersCount: 4,
 	vacancy: 6,
 	isOpen: true,
-	categoryCode: {
-		code: 101,
-		main: 'programming',
-		sub: 'javascript',
-	},
+	// categoryCode: {
+	// 	code: 101,
+	// 	main: 'programming',
+	// 	sub: 'javascript',
+	// },
 	views: 10,
 	bookmarks: 2,
 };
@@ -42,6 +43,29 @@ const study: Study = {
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
+	const { studyId } = useParams<{ studyId: string }>();
+	const { data } = useFetchStudy(studyId);
+	const studyData = data?.study;
+
+	const {
+		id,
+		createdAt,
+		title,
+		studyAbout,
+		weekday,
+		frequency,
+		location,
+		HOST_ID,
+		capcity,
+		membersCount,
+		vacancy,
+		isOpen,
+		categoryCode = {},
+		views,
+		bookmarks = 0,
+	} = studyData;
+
+	console.log('studyData,', studyData);
 
 	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
 	const [openAppliedModal, setOpenAppliedModal] = useState<boolean>(false);
@@ -86,8 +110,8 @@ const StudyDetailPage = (): JSX.Element => {
 						</button>
 					</div>
 				</div>
-				<StudyInfoContainer study={study} />
-				<StudyContentContainer studyData={study} />
+				<StudyInfoContainer weekday={weekday} frequency={frequency} location={location} />
+				<StudyContentContainer studyData={studyData} />
 				<ApplyModalContainer
 					open={openApplyModal}
 					onClose={setOpenApplyModal}

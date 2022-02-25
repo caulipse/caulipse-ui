@@ -60,7 +60,7 @@ const StudyFilterModalPresenter = ({
 									onChangeFrequencies(item);
 								};
 								return (
-									<Grid key={item} item xs={4} className="my-category-modal-chip-item">
+									<Grid key={item} item xs={4} className="modal-chip-item">
 										<Chip label={item} selected={selectedFrequencies.includes(item)} onClick={handleClick} />
 									</Grid>
 								);

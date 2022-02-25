@@ -3,9 +3,9 @@ import './styles.scss';
 
 interface StudyInfoPresenterProps {
 	// code: string;
-	weekday: string;
-	frequency: string;
-	location: string;
+	weekday: string | undefined;
+	frequency: string | undefined;
+	location: string | undefined;
 }
 const StudyInfoPresenter = ({ weekday, frequency, location }: StudyInfoPresenterProps): JSX.Element => (
 	<div className="StudyInfoContainer">

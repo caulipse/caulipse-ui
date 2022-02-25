@@ -44,28 +44,9 @@ const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
 	const { studyId } = useParams<{ studyId: string }>();
-	const { data } = useFetchStudy(studyId);
-	const studyData = data?.study;
+	const studyData = useFetchStudy(studyId).data?.study;
 
-	const {
-		id,
-		createdAt,
-		title,
-		studyAbout,
-		weekday,
-		frequency,
-		location,
-		HOST_ID,
-		capcity,
-		membersCount,
-		vacancy,
-		isOpen,
-		categoryCode = {},
-		views,
-		bookmarks = 0,
-	} = studyData;
-
-	console.log('studyData,', studyData);
+	console.log('studyData, ', studyData);
 
 	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
 	const [openAppliedModal, setOpenAppliedModal] = useState<boolean>(false);
@@ -110,8 +91,20 @@ const StudyDetailPage = (): JSX.Element => {
 						</button>
 					</div>
 				</div>
-				<StudyInfoContainer weekday={weekday} frequency={frequency} location={location} />
-				<StudyContentContainer studyData={studyData} />
+				<StudyInfoContainer
+					weekday={studyData?.weekday}
+					frequency={studyData?.frequency}
+					location={studyData?.location}
+				/>
+				<StudyContentContainer
+					studyId={studyData?.id}
+					hostId={studyData?.HOST_ID}
+					createdAt={studyData?.createdAt}
+					views={studyData?.views}
+					bookmarks={studyData?.bookmarks}
+					title={studyData?.title}
+					studyAbout={studyData?.studyAbout}
+				/>
 				<ApplyModalContainer
 					open={openApplyModal}
 					onClose={setOpenApplyModal}

@@ -1,3 +1,9 @@
+.study-filter-modal-title-container {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
 .study-filter-modal-row {
     padding: 0 !important;
     margin-bottom: 1rem;
@@ -36,9 +42,12 @@
     }
 }
 
-.study-filter-modal-button-container {
-    display: flex !important;
-    button + button {
-        margin-left: 1rem;
-    }
+.study-filter-modal-clear-button {
+    text-decoration: underline;
+    color: #f78819;
+    font-size: .875rem !important;
+    font-weight: normal !important; 
+    cursor: pointer;
+    position: absolute;
+    right: 1.25rem;
 }

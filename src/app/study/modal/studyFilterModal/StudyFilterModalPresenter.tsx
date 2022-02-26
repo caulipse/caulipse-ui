@@ -8,6 +8,7 @@ import { ButtonTypeEnum } from '@common/button/types';
 import { ChipTypeEnum } from '@common/chip/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
+import { IconAlignEnum } from '@common/icon/types';
 import './index.scss';
 
 interface IStudyFilterModalPresenterProps extends IModalContainerCommonProps {
@@ -47,11 +48,15 @@ const StudyFilterModalPresenter = ({
 	onChangePlaces,
 }: IStudyFilterModalPresenterProps): JSX.Element => {
 	return (
-		<Modal open={open} onClose={onClose} height="40.438rem">
+		<Modal open={open} onClose={onClose} height="44.25rem">
 			<Container className="modal-root-container modal-space-between-container">
 				<Container>
-					<Container className="modal-title-container">
-						<CloseIcon onClick={() => onClose(false)} />
+					<Container className="modal-title-container study-filter-modal-title-container">
+						<CloseIcon align={IconAlignEnum.left} onClick={() => onClose(false)} />
+						<span>세부 필터</span>
+						<span className="study-filter-modal-clear-button" onClick={onClickCancel}>
+							초기화
+						</span>
 					</Container>
 					<Container className="study-filter-modal-row">
 						<span>스터디 빈도</span>

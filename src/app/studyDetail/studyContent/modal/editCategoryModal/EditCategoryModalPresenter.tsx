@@ -27,56 +27,60 @@ const EditCategoryModalPresenter = ({
 	step,
 	setStep,
 }: IEditCategoryModalPresenterProps): JSX.Element => {
+	const Step0Content = () => (
+		<Container>
+			<Container className="modal-title-container edit-category-modal-title-container">
+				<span>카테고리 수정</span>
+				<CloseIcon onClick={() => onClose(false)} />
+			</Container>
+			<Grid container spacing={1}>
+				{categories.map((category) => {
+					const handleClick = () => {
+						onClickValue(category.label, 'main');
+					};
+					return (
+						<Grid key={category.label} item xs={4} className="modal-chip-item">
+							<Chip label={category.label} onClick={handleClick} />
+						</Grid>
+					);
+				})}
+			</Grid>
+		</Container>
+	);
+
+	const Step1Content = () => (
+		<>
+			<Container>
+				<Container className="modal-title-container">
+					<BackIcon onClick={() => setStep(step - 1)} />
+					<span>{value.main}</span>
+					<CloseIcon onClick={() => onClose(false)} />
+				</Container>
+				<Grid container spacing={1}>
+					{categories
+						.filter((category) => category.label === value.main)[0]
+						.subCategories.map((category) => {
+							const handleClick = () => {
+								onClickValue(category.label, 'sub');
+							};
+							return (
+								<Grid key={category.label} item xs={4} className="modal-chip-item">
+									<Chip label={category.label} onClick={handleClick} selected={category.label === value.sub} />
+								</Grid>
+							);
+						})}
+				</Grid>
+			</Container>
+			<Container>
+				<PrimaryButton title="변경사항 적용" onClick={onClick} disabled={value.sub === ''} />
+			</Container>
+		</>
+	);
+
 	return (
 		<Modal open={open} onClose={onClose} height="40.438rem">
 			<Container className="modal-root-container modal-space-between-container">
-				{step === 0 ? (
-					<Container>
-						<Container className="modal-title-container edit-category-modal-title-container">
-							<span>카테고리 수정</span>
-							<CloseIcon onClick={() => onClose(false)} />
-						</Container>
-						<Grid container spacing={1}>
-							{categories.map((category) => {
-								const handleClick = () => {
-									onClickValue(category.label, 'main');
-								};
-								return (
-									<Grid key={category.label} item xs={4} className="modal-chip-item">
-										<Chip label={category.label} onClick={handleClick} />
-									</Grid>
-								);
-							})}
-						</Grid>
-					</Container>
-				) : (
-					<>
-						<Container>
-							<Container className="modal-title-container">
-								<BackIcon onClick={() => setStep(step - 1)} />
-								<span>{value.main}</span>
-								<CloseIcon onClick={() => onClose(false)} />
-							</Container>
-							<Grid container spacing={1}>
-								{categories
-									.filter((category) => category.label === value.main)[0]
-									.subCategories.map((category) => {
-										const handleClick = () => {
-											onClickValue(category.label, 'sub');
-										};
-										return (
-											<Grid key={category.label} item xs={4} className="modal-chip-item">
-												<Chip label={category.label} onClick={handleClick} selected={category.label === value.sub} />
-											</Grid>
-										);
-									})}
-							</Grid>
-						</Container>
-						<Container>
-							<PrimaryButton title="변경사항 적용" onClick={onClick} disabled={value.sub === ''} />
-						</Container>
-					</>
-				)}
+				{step === 0 ? <Step0Content /> : <Step1Content />}
 			</Container>
 		</Modal>
 	);

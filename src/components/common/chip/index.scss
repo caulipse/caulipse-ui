@@ -14,3 +14,10 @@
         color: #fff;
     }
 }
+
+.secondary-chip-container {
+    background: #fff;
+    &.selected {
+        background: #f78819;
+    }
+}

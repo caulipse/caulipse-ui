@@ -5,6 +5,7 @@ import Chip from '@common/chip/Chip';
 import CloseIcon from '@common/icon/CloseIcon';
 import CommonButton from '@common/button/CommonButton';
 import { ButtonTypeEnum } from '@common/button/types';
+import { ChipTypeEnum } from '@common/chip/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import './index.scss';
@@ -61,7 +62,12 @@ const StudyFilterModalPresenter = ({
 								};
 								return (
 									<Grid key={item} item xs={4} className="modal-chip-item">
-										<Chip label={item} selected={selectedFrequencies.includes(item)} onClick={handleClick} />
+										<Chip
+											type={ChipTypeEnum.secondary}
+											label={item}
+											selected={selectedFrequencies.includes(item)}
+											onClick={handleClick}
+										/>
 									</Grid>
 								);
 							})}
@@ -74,7 +80,15 @@ const StudyFilterModalPresenter = ({
 								const handleClick = () => {
 									onChangeDays(item);
 								};
-								return <Chip key={item} label={item} selected={selectedDays.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip
+										type={ChipTypeEnum.secondary}
+										key={item}
+										label={item}
+										selected={selectedDays.includes(item)}
+										onClick={handleClick}
+									/>
+								);
 							})}
 						</Container>
 					</Container>
@@ -86,7 +100,15 @@ const StudyFilterModalPresenter = ({
 								const handleClick = () => {
 									onChangePlaces(item);
 								};
-								return <Chip key={item} label={item} selected={selectedPlaces.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip
+										type={ChipTypeEnum.secondary}
+										key={item}
+										label={item}
+										selected={selectedPlaces.includes(item)}
+										onClick={handleClick}
+									/>
+								);
 							})}
 						</Container>
 					</Container>

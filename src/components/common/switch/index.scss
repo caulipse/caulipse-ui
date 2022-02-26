@@ -1,0 +1,33 @@
+.switch {
+    &.MuiSwitch-root {
+        width: 2.5rem !important;
+        height: 1.5rem !important;
+        padding: 0 !important;
+        border-radius: 1.25rem;
+    }
+    & .MuiSwitch-colorSecondary.Mui-checked {
+        color:  #fff;
+        left: -.25rem;
+    }
+    & .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+        background-color: #006ed9;
+        opacity: 1;
+    }
+    & .MuiSwitch-track {
+        opacity: 1;
+        background-color: #b4b4b4;
+    }
+    & .MuiButtonBase-root {
+        padding: 0 !important;
+    }
+    & .MuiSwitch-thumb {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        border: 1px solid #b4b4b4;
+        border-radius: 1.25rem;
+        box-sizing: border-box;
+    }
+    & .MuiSwitch-colorSecondary.Mui-checked .MuiSwitch-thumb {
+        border: 1px solid #006ed9 !important;
+    }
+}

@@ -1,9 +1,10 @@
 import React, { ChangeEvent } from 'react';
 import './index.scss';
-import { Container, Switch } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import CloseIcon from '@common/icon/CloseIcon';
 import PrimaryButton from '@common/button/PrimaryButton';
+import Switch from '@common/switch/Switch';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 
@@ -40,7 +41,7 @@ const ApplyModalPresenter = ({
 					<textarea maxLength={60} className="text-area" value={value} onChange={onChangeValue} />
 					<Container className="apply-modal-sub-title-container space-between">
 						<span>학과정보 공개</span>
-						<Switch className="apply-modal-switch" onChange={onChangeIsPublic} checked={isPublic} />
+						<Switch onChange={onChangeIsPublic} checked={isPublic} />
 					</Container>
 					<Container className="apply-modal-helper-text-container">
 						<span>이 부분 유도 텍스트 들어가는 곳</span>

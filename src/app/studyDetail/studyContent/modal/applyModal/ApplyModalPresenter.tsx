@@ -3,7 +3,7 @@ import './index.scss';
 import { Container, Switch } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import CloseIcon from '@common/icon/CloseIcon';
-import PrimaryButton from '@common/button/PrimaryButton';
+import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 
@@ -47,7 +47,7 @@ const ApplyModalPresenter = ({
 					</Container>
 				</Container>
 				<Container>
-					<PrimaryButton title="신청하기!" onClick={onClick} disabled={disabled} />
+					<CommonButton title="신청하기!" onClick={onClick} disabled={disabled} />
 				</Container>
 			</Container>
 		</Modal>

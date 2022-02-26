@@ -3,7 +3,7 @@ import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
 import CloseIcon from '@common/icon/CloseIcon';
-import PrimaryButton from '@common/button/PrimaryButton';
+import CommonButton from '@common/button/CommonButton';
 import OutlineButton from '@common/button/OutlineButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
@@ -91,10 +91,7 @@ const StudyFilterModalPresenter = ({
 						</Container>
 					</Container>
 				</Container>
-				<Container className="study-filter-modal-button-container">
-					<OutlineButton title="초기화" onClick={onClickCancel} />
-					<PrimaryButton title="확인" onClick={onClick} />
-				</Container>
+				<CommonButton title="적용" onClick={onClick} />
 			</Container>
 		</Modal>
 	);

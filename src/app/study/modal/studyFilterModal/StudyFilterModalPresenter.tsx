@@ -4,7 +4,7 @@ import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
 import CloseIcon from '@common/icon/CloseIcon';
 import CommonButton from '@common/button/CommonButton';
-import OutlineButton from '@common/button/OutlineButton';
+import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import './index.scss';
@@ -91,7 +91,7 @@ const StudyFilterModalPresenter = ({
 						</Container>
 					</Container>
 				</Container>
-				<CommonButton title="적용" onClick={onClick} />
+				<CommonButton type={ButtonTypeEnum.secondary} title="적용" onClick={onClick} />
 			</Container>
 		</Modal>
 	);

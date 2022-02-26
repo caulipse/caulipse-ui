@@ -1,11 +1,18 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
-import { IButtonProps } from './types';
+import classnames from 'classnames';
+import { IButtonProps, ButtonTypeEnum } from './types';
 import './index.scss';
 
-const CommonButton = ({ title, onClick, disabled = false, style }: IButtonProps) => {
+const CommonButton = ({ type = ButtonTypeEnum.primary, title, onClick, disabled = false, style }: IButtonProps) => {
 	return (
-		<Button disableFocusRipple className="common-button" style={style} disabled={disabled} onClick={onClick}>
+		<Button
+			disableFocusRipple
+			className={classnames('common-button', { 'secondary-button': type === ButtonTypeEnum.secondary })}
+			style={style}
+			disabled={disabled}
+			onClick={onClick}
+		>
 			{title}
 		</Button>
 	);

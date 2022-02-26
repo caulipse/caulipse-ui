@@ -9,11 +9,12 @@ import PrimaryButton from '@common/button/PrimaryButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import categories from '@src/const';
+import { ICategoryType, CategoryDepthEnum } from '@src/types';
 
 interface IEditCategoryModalPresenterProps extends IModalContainerCommonProps {
 	onClick: () => void;
 	value: Record<string, string>;
-	onClickValue: (label: string, key: string) => void;
+	onClickValue: (label: string, key: CategoryDepthEnum) => void;
 	step: number;
 	setStep: (params: number) => void;
 }
@@ -27,6 +28,18 @@ const EditCategoryModalPresenter = ({
 	step,
 	setStep,
 }: IEditCategoryModalPresenterProps): JSX.Element => {
+	const CategoryChip = (category: ICategoryType) => {
+		const { label, categoryDepth } = category;
+		const handleClick = () => {
+			onClickValue(label, categoryDepth);
+		};
+		return (
+			<Grid key={label} item xs={4} className="modal-chip-item">
+				<Chip label={label} onClick={handleClick} selected={label === value[categoryDepth]} />
+			</Grid>
+		);
+	};
+
 	const Step0Content = () => (
 		<Container>
 			<Container className="modal-title-container edit-category-modal-title-container">
@@ -35,14 +48,7 @@ const EditCategoryModalPresenter = ({
 			</Container>
 			<Grid container spacing={1}>
 				{categories.map((category) => {
-					const handleClick = () => {
-						onClickValue(category.label, 'main');
-					};
-					return (
-						<Grid key={category.label} item xs={4} className="modal-chip-item">
-							<Chip label={category.label} onClick={handleClick} />
-						</Grid>
-					);
+					return <CategoryChip key={category.label} label={category.label} categoryDepth={CategoryDepthEnum.MAIN} />;
 				})}
 			</Grid>
 		</Container>
@@ -53,26 +59,19 @@ const EditCategoryModalPresenter = ({
 			<Container>
 				<Container className="modal-title-container">
 					<BackIcon onClick={() => setStep(step - 1)} />
-					<span>{value.main}</span>
+					<span>{value.MAIN}</span>
 					<CloseIcon onClick={() => onClose(false)} />
 				</Container>
 				<Grid container spacing={1}>
 					{categories
-						.filter((category) => category.label === value.main)[0]
+						.filter((category) => category.label === value.MAIN)[0]
 						.subCategories.map((category) => {
-							const handleClick = () => {
-								onClickValue(category.label, 'sub');
-							};
-							return (
-								<Grid key={category.label} item xs={4} className="modal-chip-item">
-									<Chip label={category.label} onClick={handleClick} selected={category.label === value.sub} />
-								</Grid>
-							);
+							return <CategoryChip key={category.label} label={category.label} categoryDepth={CategoryDepthEnum.SUB} />;
 						})}
 				</Grid>
 			</Container>
 			<Container>
-				<PrimaryButton title="변경사항 적용" onClick={onClick} disabled={value.sub === ''} />
+				<PrimaryButton title="변경사항 적용" onClick={onClick} disabled={value.SUB === ''} />
 			</Container>
 		</>
 	);

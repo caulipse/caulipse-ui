@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import { CategoryDepthEnum } from '@src/types';
 import EditCategoryModalPresenter from './EditCategoryModalPresenter';
 
 const EditCategoryModalContainer = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [value, setValue] = useState({ main: '', sub: '' });
+	const [value, setValue] = useState({ MAIN: '', SUB: '' });
 	const [step, setStep] = useState(0);
 
 	const onClick = () => {
@@ -12,7 +13,7 @@ const EditCategoryModalContainer = ({ open, onClose }: IModalContainerCommonProp
 		console.info('EditCategoryModalContainer');
 	};
 
-	const onClickValue = (category: string, key: string) => {
+	const onClickValue = (category: string, key: CategoryDepthEnum) => {
 		setValue({ ...value, [key]: category });
 		if (step === 0) setStep((prev) => prev + 1);
 	};

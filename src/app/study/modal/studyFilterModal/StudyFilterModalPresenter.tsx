@@ -35,6 +35,9 @@ const places = [
 	'기타',
 ];
 
+// TODO
+// 마감항목 표시 버튼 디자인 완료되면 반영 필요
+
 const StudyFilterModalPresenter = ({
 	open,
 	onClose,

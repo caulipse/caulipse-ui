@@ -1,12 +1,9 @@
 import React from 'react';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import './index.scss';
+import { IIconProps } from './types';
 
-interface IBackIconProps {
-	onClick: () => void;
-}
-
-const BackIcon = ({ onClick }: IBackIconProps) => {
+const BackIcon = ({ onClick }: IIconProps) => {
 	return <IoArrowBackOutline className="back-icon" onClick={onClick} size={24} />;
 };
 

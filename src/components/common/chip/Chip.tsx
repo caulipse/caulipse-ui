@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import './index.scss';
 
 interface IChipProps {
-	selected: boolean;
+	selected?: boolean;
 	label: string;
 	onClick: (params: string) => void;
 }

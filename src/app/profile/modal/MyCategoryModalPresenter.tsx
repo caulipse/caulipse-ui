@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.scss';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
@@ -37,7 +36,7 @@ const MyCategoryModalPresenter = ({
 								onChangeValue(category);
 							};
 							return (
-								<Grid key={category} item xs={4} className="my-category-modal-chip-item">
+								<Grid key={category} item xs={4} className="modal-chip-item">
 									<Chip label={category} selected={value.includes(category)} onClick={handleClick} />
 								</Grid>
 							);

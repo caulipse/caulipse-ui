@@ -14,6 +14,7 @@ import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDele
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
 import AppliedModalContainer from '@src/app/studyDetail/studyContent/modal/appliedModal/AppliedModalContainer';
 import ApplyCancelModalContainer from '@src/app/studyDetail/studyContent/modal/applyCancelModal/ApplyCancelModalContainer';
+import EditCategoryModalContainer from '@src/app/studyDetail/studyContent/modal/editCategoryModal/EditCategoryModalContainer';
 
 const study: Study = {
 	id: 'asdfasdf234efawe32fd',
@@ -49,6 +50,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
 	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
 	const [openCancelModal, setOpenCancelModal] = useState<boolean>(false);
+	const [openEditCategoryModal, setOpenEditCategoryModal] = useState<boolean>(false);
 
 	const onClick = () => {
 		setOpenApplyModal(!openApplyModal);
@@ -106,6 +108,7 @@ const StudyDetailPage = (): JSX.Element => {
 				/>
 				<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
 				<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
+				<EditCategoryModalContainer open={openEditCategoryModal} onClose={setOpenEditCategoryModal} />
 				<div className="study-apply-btn-container">
 					<button type="button" className="study-apply-btn-content" onClick={onClick}>
 						신청하기

@@ -38,12 +38,3 @@
         font-size: 0.75rem;
     }
 }
-.apply-modal-switch {
-    & .MuiSwitch-colorSecondary.Mui-checked {
-        color:  #fff;
-    }
-    & .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-        background-color: #006ed9;
-        opacity: 1;
-      }
-}

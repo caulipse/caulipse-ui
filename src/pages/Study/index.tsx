@@ -6,6 +6,7 @@ import StudyListContainter from '@src/app/study/StudyList/StudyListContainer';
 import StudyCategoryBarContainer from '@src/app/study/StudyCategoryBar/StudyCategoryBarContainer';
 import StudySortModalContainer from '@study/modal/studySortModal/StudySortModalContainer';
 import StudyFilterModalContainer from '@study/modal/studyFilterModal/StudyFilterModalContainer';
+import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
 
 const CategoryObj = {
 	employment: '취업, 면접',
@@ -22,6 +23,7 @@ const StudyPage = (): JSX.Element => {
 
 	const [openStudySortModal, setOpenStudySortModal] = useState<boolean>(false);
 	const [openStudyFilterModal, setOpenStudyFilterModal] = useState<boolean>(false);
+	const [openStudyCreateModal, setOpenStudyCreateModal] = useState<boolean>(false);
 
 	const getValueFromCategoryObj = (key: string) => {
 		const path = key.split('/')[2];
@@ -52,6 +54,10 @@ const StudyPage = (): JSX.Element => {
 		setOpenStudyFilterModal(!openStudyFilterModal);
 	};
 
+	const onClickCreate = () => {
+		setOpenStudyCreateModal(!openStudyCreateModal);
+	};
+
 	return (
 		<div className="studyPage-con">
 			<div>
@@ -62,6 +68,7 @@ const StudyPage = (): JSX.Element => {
 					<SubCategoryBarContainer addSubCategory={addSubCategory} rmSubCategory={rmSubCategory} />
 				</div>
 			</div>
+			<StudyCreateButton onClick={onClickCreate} />
 			<StudyListContainter onClickSort={onClickSort} onClickFilter={onClickFilter} />
 			<StudySortModalContainer open={openStudySortModal} onClose={setOpenStudySortModal} />
 			<StudyFilterModalContainer open={openStudyFilterModal} onClose={setOpenStudyFilterModal} />

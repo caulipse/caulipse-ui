@@ -1,0 +1,21 @@
+.study-create-button {
+    position: fixed !important;
+    right: .75rem;
+    bottom: 2rem;
+    width: 8rem;
+    height: 3rem;
+    background-color: #f78819 !important;
+    color: #fff !important;
+    font-size: .875rem !important;
+    font-weight: bold !important; 
+    border-radius: 1.5rem !important;
+    box-shadow: 0 4px 20px 0 rgba(154, 86, 18, 0.34);
+    & .MuiButton-startIcon {
+        margin-right: 4px !important;
+    }
+}
+
+.study-create-button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}

@@ -3,10 +3,12 @@ import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
 import CloseIcon from '@common/icon/CloseIcon';
-import PrimaryButton from '@common/button/PrimaryButton';
-import OutlineButton from '@common/button/OutlineButton';
+import CommonButton from '@common/button/CommonButton';
+import { ButtonTypeEnum } from '@common/button/types';
+import { ChipTypeEnum } from '@common/chip/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
+import { IconAlignEnum } from '@common/icon/types';
 import './index.scss';
 
 interface IStudyFilterModalPresenterProps extends IModalContainerCommonProps {
@@ -33,6 +35,9 @@ const places = [
 	'기타',
 ];
 
+// TODO
+// 마감항목 표시 버튼 디자인 완료되면 반영 필요
+
 const StudyFilterModalPresenter = ({
 	open,
 	onClose,
@@ -46,11 +51,15 @@ const StudyFilterModalPresenter = ({
 	onChangePlaces,
 }: IStudyFilterModalPresenterProps): JSX.Element => {
 	return (
-		<Modal open={open} onClose={onClose} height="40.438rem">
+		<Modal open={open} onClose={onClose} height="44.25rem">
 			<Container className="modal-root-container modal-space-between-container">
 				<Container>
-					<Container className="modal-title-container">
-						<CloseIcon onClick={() => onClose(false)} />
+					<Container className="modal-title-container study-filter-modal-title-container">
+						<CloseIcon align={IconAlignEnum.left} onClick={() => onClose(false)} />
+						<span>세부 필터</span>
+						<span className="study-filter-modal-clear-button" onClick={onClickCancel}>
+							초기화
+						</span>
 					</Container>
 					<Container className="study-filter-modal-row">
 						<span>스터디 빈도</span>
@@ -61,7 +70,12 @@ const StudyFilterModalPresenter = ({
 								};
 								return (
 									<Grid key={item} item xs={4} className="modal-chip-item">
-										<Chip label={item} selected={selectedFrequencies.includes(item)} onClick={handleClick} />
+										<Chip
+											type={ChipTypeEnum.secondary}
+											label={item}
+											selected={selectedFrequencies.includes(item)}
+											onClick={handleClick}
+										/>
 									</Grid>
 								);
 							})}
@@ -74,7 +88,15 @@ const StudyFilterModalPresenter = ({
 								const handleClick = () => {
 									onChangeDays(item);
 								};
-								return <Chip key={item} label={item} selected={selectedDays.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip
+										type={ChipTypeEnum.secondary}
+										key={item}
+										label={item}
+										selected={selectedDays.includes(item)}
+										onClick={handleClick}
+									/>
+								);
 							})}
 						</Container>
 					</Container>
@@ -86,15 +108,20 @@ const StudyFilterModalPresenter = ({
 								const handleClick = () => {
 									onChangePlaces(item);
 								};
-								return <Chip key={item} label={item} selected={selectedPlaces.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip
+										type={ChipTypeEnum.secondary}
+										key={item}
+										label={item}
+										selected={selectedPlaces.includes(item)}
+										onClick={handleClick}
+									/>
+								);
 							})}
 						</Container>
 					</Container>
 				</Container>
-				<Container className="study-filter-modal-button-container">
-					<OutlineButton title="초기화" onClick={onClickCancel} />
-					<PrimaryButton title="확인" onClick={onClick} />
-				</Container>
+				<CommonButton type={ButtonTypeEnum.secondary} title="적용" onClick={onClick} />
 			</Container>
 		</Modal>
 	);

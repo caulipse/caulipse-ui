@@ -39,7 +39,7 @@ const StudyFilterModalContainer = ({ open, onClose }: IModalContainerCommonProps
 		if (selectedPlaces.includes(value)) {
 			setSelectedPlaces(selectedPlaces.filter((item) => item !== value));
 		} else {
-			setSelectedPlaces(selectedPlaces.concat(value));
+			setSelectedPlaces(selectedPlaces.concat(value).slice(-3));
 		}
 	};
 

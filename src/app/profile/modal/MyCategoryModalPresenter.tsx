@@ -3,7 +3,7 @@ import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
 import CloseIcon from '@common/icon/CloseIcon';
-import PrimaryButton from '@common/button/PrimaryButton';
+import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 
@@ -44,7 +44,7 @@ const MyCategoryModalPresenter = ({
 					</Grid>
 				</Container>
 				<Container>
-					<PrimaryButton title="확인" onClick={onClick} />
+					<CommonButton title="확인" onClick={onClick} />
 				</Container>
 			</Container>
 		</Modal>

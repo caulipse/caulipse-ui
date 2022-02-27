@@ -9,7 +9,7 @@ interface IStudyListContainterProps {
 
 const StudyListContainter = ({ onClickSort, onClickFilter }: IStudyListContainterProps): JSX.Element => {
 	const { data } = fetchStudies();
-	return <StudyListPresenter onClickSort={onClickSort} data={data?.perPage_studies} onClickFilter={onClickFilter} />;
+	return <StudyListPresenter onClickSort={onClickSort} data={data?.studies} onClickFilter={onClickFilter} />;
 };
 
 export default StudyListContainter;

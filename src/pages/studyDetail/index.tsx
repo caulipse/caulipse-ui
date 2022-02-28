@@ -16,6 +16,7 @@ import AppliedModalContainer from '@src/app/studyDetail/studyContent/modal/appli
 import ApplyCancelModalContainer from '@src/app/studyDetail/studyContent/modal/applyCancelModal/ApplyCancelModalContainer';
 import EditCategoryModalContainer from '@src/app/studyDetail/studyContent/modal/editCategoryModal/EditCategoryModalContainer';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
+import Loader from '@src/components/common/loader/Loader';
 
 const study: Study = {
 	id: 'asdfasdf234efawe32fd',
@@ -44,9 +45,8 @@ const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
 	const { studyId } = useParams<{ studyId: string }>();
-	const studyData = useFetchStudy(studyId).data?.study;
-
-	console.log('studyData, ', studyData);
+	const { data, isLoading } = useFetchStudy(studyId);
+	const studyData = data?.study;
 
 	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
 	const [openAppliedModal, setOpenAppliedModal] = useState<boolean>(false);
@@ -72,6 +72,8 @@ const StudyDetailPage = (): JSX.Element => {
 		}
 	};
 
+	if (isLoading) return <Loader />;
+
 	return (
 		<div className="studyDetailContainer">
 			<div className="studyDetailBg">
@@ -91,20 +93,24 @@ const StudyDetailPage = (): JSX.Element => {
 						</button>
 					</div>
 				</div>
-				<StudyInfoContainer
-					weekday={studyData?.weekday}
-					frequency={studyData?.frequency}
-					location={studyData?.location}
-				/>
-				<StudyContentContainer
-					studyId={studyData?.id}
-					hostId={studyData?.HOST_ID}
-					createdAt={studyData?.createdAt}
-					views={studyData?.views}
-					bookmarks={studyData?.bookmarks}
-					title={studyData?.title}
-					studyAbout={studyData?.studyAbout}
-				/>
+				{studyData && (
+					<StudyInfoContainer
+						weekday={studyData.weekday}
+						frequency={studyData.frequency}
+						location={studyData.location}
+					/>
+				)}
+				{studyData && (
+					<StudyContentContainer
+						studyId={studyData.id}
+						hostId={studyData.HOST_ID}
+						createdAt={studyData.createdAt}
+						views={studyData.views}
+						bookmarks={studyData.bookmarks}
+						title={studyData.title}
+						studyAbout={studyData.studyAbout}
+					/>
+				)}
 				<ApplyModalContainer
 					open={openApplyModal}
 					onClose={setOpenApplyModal}

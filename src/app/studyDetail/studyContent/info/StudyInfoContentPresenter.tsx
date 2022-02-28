@@ -2,11 +2,11 @@ import React from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
 
 interface StudyInfoContentPresenterProps {
-	createdAt: string | undefined;
-	views: number | undefined;
-	bookmarks: number | undefined;
-	title: string | undefined;
-	studyAbout: string | undefined;
+	createdAt: string;
+	views: number;
+	bookmarks?: number;
+	title: string;
+	studyAbout: string;
 }
 const StudyInfoContentPresenter = ({
 	createdAt,

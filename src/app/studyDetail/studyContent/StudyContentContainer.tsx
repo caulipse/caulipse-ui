@@ -6,13 +6,13 @@ import StudyInfoContentContainer from './info/StudyInfoContentContainer';
 import './styles.scss';
 
 interface StudyContentContainerProps {
-	studyId: string | undefined;
-	hostId: string | undefined;
-	createdAt: string | undefined;
-	views: number | undefined;
-	bookmarks: number | undefined;
-	title: string | undefined;
-	studyAbout: string | undefined;
+	studyId: string;
+	hostId: string;
+	createdAt: string;
+	views: number;
+	bookmarks?: number;
+	title: string;
+	studyAbout: string;
 }
 
 const StudyContentContainer = ({

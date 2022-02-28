@@ -2,11 +2,11 @@ import React from 'react';
 import StudyInfoContentPresenter from './StudyInfoContentPresenter';
 
 interface StudyInfoConntainerProps {
-	createdAt: string | undefined;
-	views: number | undefined;
-	bookmarks: number | undefined;
-	title: string | undefined;
-	studyAbout: string | undefined;
+	createdAt: string;
+	views: number;
+	bookmarks?: number;
+	title: string;
+	studyAbout: string;
 }
 const StudyInfoContentContainer = ({
 	createdAt,

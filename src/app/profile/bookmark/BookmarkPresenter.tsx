@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BookmarkList from '@src/app/profile/bookmark/BookmarkList';
+import BookmarkList from '@src/app/profile/bookmark/bookmarkList';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import './index.scss';

@@ -8,7 +8,7 @@ import './styles.scss';
 interface StudyContentContainerProps {
 	studyId: string | undefined;
 	hostId: string | undefined;
-	createdAt: Date | string | undefined;
+	createdAt: string | undefined;
 	views: number | undefined;
 	bookmarks: number | undefined;
 	title: string | undefined;

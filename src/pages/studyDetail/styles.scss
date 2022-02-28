@@ -1,0 +1,47 @@
+@import 'src/scss/mixins';
+@import '/src/scss/variables';
+
+.studyDetailContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  .studyDetailBg{
+    background-color: #0e5dd3;
+    max-width: $maxContentWidth !important;
+    width:100%;
+    .backButtonContainer {
+      position: sticky;
+      padding-top: 3.375rem;
+      margin: 0rem 0.75rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+.study-apply-btn{
+  &-container{
+    display: flex;
+    position: fixed;
+    bottom: 3rem;
+    width: 100%;
+    max-width: $maxContentWidth;
+    align-self: center;
+  }
+  &-content{
+    margin: 0rem 1.5rem;
+    background-color: #006ed9;
+    padding: 0.75rem 0rem;
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    box-shadow: 0rem 0.25rem 1.25rem 0rem rgba(18, 73, 155, 0.35);
+    width: calc(100vw - 3rem);
+  }
+}
+.mr11{
+  margin-right: 0.5rem;
+}

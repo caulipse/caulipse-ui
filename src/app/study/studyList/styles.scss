@@ -1,0 +1,30 @@
+@import '../../../scss/variables';
+
+.studyList-con {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.studyList-wrap {
+  width: 100%;
+  max-width: $maxContentWidth;
+}
+.studyList-dropdown {
+  display: flex;
+  justify-content: end;
+}
+.studyList-listAndBoards-con{
+  margin-top: 30px;
+
+  display: flex;
+}
+.studyList{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.studyList-borad-con {
+  margin-left: 24px;
+  width: 282px;
+}

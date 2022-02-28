@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { useAtom } from 'jotai';
 import './App.scss';
 import { Footer, Header } from './app/shared/components';
-import LoginPage from './pages/Login';
-import ProfilePage from './pages/Profile';
-import StudyPage from './pages/Study';
-import StudyDetailPage from './pages/StudyDetail';
+import LoginPage from './pages/login';
+import ProfilePage from './pages/profile';
+import StudyPage from './pages/study';
+import StudyDetailPage from './pages/studyDetail';
 import globalState from './state';
 
 const MainContainer = (): JSX.Element => (

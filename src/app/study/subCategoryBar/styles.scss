@@ -1,0 +1,15 @@
+@import '../../../scss/variables';
+
+.sub-c-con {
+  height: 96px;
+
+  border-radius: 4px;
+
+  box-shadow: 0 2px 4px 0 #acacac;
+  background-color: $studySubCategoryListBackgroundColor;
+  margin-top: 32px;
+} 
+
+.sub-c-wrap {
+  padding: 12px 20px;
+}

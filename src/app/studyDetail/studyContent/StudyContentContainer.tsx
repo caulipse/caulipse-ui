@@ -25,7 +25,6 @@ const StudyContentContainer = ({
 	studyAbout,
 }: StudyContentContainerProps): JSX.Element => {
 	const [index, setIndex] = useState<number>(1);
-	const [loading, setLoadingState] = useState<boolean>(true);
 
 	const content = (i: number): JSX.Element => {
 		if (i === 1)
@@ -43,14 +42,6 @@ const StudyContentContainer = ({
 
 		return <div />;
 	};
-
-	useEffect(() => {
-		if (studyId === undefined) {
-			setLoadingState(false);
-		}
-	}, []);
-
-	if (loading) return <div>Loading...</div>;
 
 	return (
 		<div className="studyContentContainer">

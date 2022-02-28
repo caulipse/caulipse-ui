@@ -72,73 +72,77 @@ const StudyDetailPage = (): JSX.Element => {
 		}
 	};
 
-	if (isLoading) return <Loader />;
-
 	return (
-		<div className="studyDetailContainer">
-			<div className="studyDetailBg">
-				<div className="backButtonContainer">
-					<button onClick={() => history.goBack()} type="button">
-						<IoArrowBack size={16} color="#ffffff" />
-					</button>
-					<div>
-						<button type="button" className="mr11">
-							<IoBookmarkOutline size={16} color="#ffffff" />
-						</button>
-						<button type="button" className="mr11">
-							<IoShareSocialOutline size={16} color="#ffffff" />
-						</button>
-						<button type="button" onClick={onClickMore}>
-							<IoEllipsisVertical size={16} color="#ffffff" />
-						</button>
+		<>
+			{isLoading ? (
+				<Loader />
+			) : (
+				<div className="studyDetailContainer">
+					<div className="studyDetailBg">
+						<div className="backButtonContainer">
+							<button onClick={() => history.goBack()} type="button">
+								<IoArrowBack size={16} color="#ffffff" />
+							</button>
+							<div>
+								<button type="button" className="mr11">
+									<IoBookmarkOutline size={16} color="#ffffff" />
+								</button>
+								<button type="button" className="mr11">
+									<IoShareSocialOutline size={16} color="#ffffff" />
+								</button>
+								<button type="button" onClick={onClickMore}>
+									<IoEllipsisVertical size={16} color="#ffffff" />
+								</button>
+							</div>
+						</div>
+						{studyData && (
+							<StudyInfoContainer
+								weekday={studyData.weekday}
+								frequency={studyData.frequency}
+								location={studyData.location}
+							/>
+						)}
+						{studyData && (
+							<StudyContentContainer
+								studyId={studyData.id}
+								hostId={studyData.HOST_ID}
+								createdAt={studyData.createdAt}
+								views={studyData.views}
+								bookmarks={studyData.bookmarks}
+								title={studyData.title}
+								studyAbout={studyData.studyAbout}
+							/>
+						)}
+						<ApplyModalContainer
+							open={openApplyModal}
+							onClose={setOpenApplyModal}
+							setOpenAppliedModal={setOpenAppliedModal}
+						/>
+						<AppliedModalContainer open={openAppliedModal} onClose={setOpenAppliedModal} />
+						<ApplyCancelModalContainer open={openCancelModal} onClose={setOpenCancelModal} />
+						<UserStudyMoreModalContainer
+							open={openUserMoreModal}
+							onClose={setOpenUserMoreModal}
+							setOpenReportModal={setOpenReportModal}
+							setOpenCancelModal={setOpenCancelModal}
+						/>
+						<HostStudyMoreModalContainer
+							open={openHostMoreModal}
+							onClose={setOpenHostMoreModal}
+							setOpenStudyDeleteModal={setOpenStudyDeleteModal}
+						/>
+						<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
+						<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
+						<EditCategoryModalContainer open={openEditCategoryModal} onClose={setOpenEditCategoryModal} />
+						<div className="study-apply-btn-container">
+							<button type="button" className="study-apply-btn-content" onClick={onClick}>
+								신청하기
+							</button>
+						</div>
 					</div>
 				</div>
-				{studyData && (
-					<StudyInfoContainer
-						weekday={studyData.weekday}
-						frequency={studyData.frequency}
-						location={studyData.location}
-					/>
-				)}
-				{studyData && (
-					<StudyContentContainer
-						studyId={studyData.id}
-						hostId={studyData.HOST_ID}
-						createdAt={studyData.createdAt}
-						views={studyData.views}
-						bookmarks={studyData.bookmarks}
-						title={studyData.title}
-						studyAbout={studyData.studyAbout}
-					/>
-				)}
-				<ApplyModalContainer
-					open={openApplyModal}
-					onClose={setOpenApplyModal}
-					setOpenAppliedModal={setOpenAppliedModal}
-				/>
-				<AppliedModalContainer open={openAppliedModal} onClose={setOpenAppliedModal} />
-				<ApplyCancelModalContainer open={openCancelModal} onClose={setOpenCancelModal} />
-				<UserStudyMoreModalContainer
-					open={openUserMoreModal}
-					onClose={setOpenUserMoreModal}
-					setOpenReportModal={setOpenReportModal}
-					setOpenCancelModal={setOpenCancelModal}
-				/>
-				<HostStudyMoreModalContainer
-					open={openHostMoreModal}
-					onClose={setOpenHostMoreModal}
-					setOpenStudyDeleteModal={setOpenStudyDeleteModal}
-				/>
-				<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
-				<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
-				<EditCategoryModalContainer open={openEditCategoryModal} onClose={setOpenEditCategoryModal} />
-				<div className="study-apply-btn-container">
-					<button type="button" className="study-apply-btn-content" onClick={onClick}>
-						신청하기
-					</button>
-				</div>
-			</div>
-		</div>
+			)}
+		</>
 	);
 };
 

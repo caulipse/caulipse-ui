@@ -2,9 +2,9 @@
 
 @mixin profile-img(){
   display: flex;
-  width: 64px;
-  height: 64px;
-  border-radius: 32px;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
   align-self: center;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.16);
 }
@@ -14,55 +14,55 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0px 24px;
+        padding: 0 1.5rem;
         overflow-y: scroll;
-        max-height: calc(100vh - 204px);
+        max-height: calc(100vh - 12.75rem);
     }
     &-top-short-about{
       position: fixed;
-      margin-top: calc((100vh - 350px)/(-2)) !important;
+      margin-top: calc((100vh - 21.875rem)/(-2)) !important;
       z-index: 2;
       font-size: 1rem;
       font-weight: bold;
-      line-height: 28px;
+      line-height: 1.75rem;
       color: #ffffff;
-      margin: 0px 32px;
+      margin: 0px 2rem;
     }
     &-profile-img{
         display: flex;
         position: fixed;
         top:0;
-        margin-top: -32px;
+        margin-top: -2rem;
         @include profile-img();
     }
     &-profile-img-popup{
-      width: 64px;
-      height: 64px;
+      width: 4rem;
+      height: 4rem;
       aspect-ratio: 1;
-      border-radius: 32px;
+      border-radius: 2rem;
     }
     &-name{
         font-size: 1.25rem;
         font-weight: bold;
-        line-height: 11px;
+        line-height: 0.6875rem;
         color: #212b36;
-        margin-top: 48px;
+        margin-top: 3rem;
     }
     &-short-about{
         font-size: 0.688rem;
-        line-height: 20px;
+        line-height: 1.25rem;
         color:#6c757d;
-        margin-top: 8px;
+        margin-top: 0.5rem;
     }
     &-tag{
         &-container{
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-top: 24px;
+            margin-top: 1.5rem;
         }
         &-item{
-            padding: 8px 12px;
+            padding: 0.5rem 0.75rem;
             border-radius: 16px;
             background-color: #f1f6fb;
             font-size: 0.75rem;
@@ -73,14 +73,14 @@
     &-divider{
         background-color: #e5e5e5;
         height: 1px;
-        width: calc(100vw - 118*2px);
-        margin: 32px 118px 0px 118px;
+        width: calc(100vw - 7.375*2rem);
+        margin: 2rem 7.375rem 0 7.375rem;
         max-width: 35%;
     }
     &-hashtag{
         &-container{
             display: flex;
-            margin-top: 32px;
+            margin-top: 2rem;
             flex-flow: row wrap;
         }
         &-bold-text{
@@ -98,7 +98,7 @@
         &-container{
             display: flex;
             flex-direction: column;
-            margin-top: 32px;
+            margin-top: 2rem;
             align-items: center;
         }
     }
@@ -107,10 +107,10 @@
             font-size: 1.125rem;
             font-weight: bold;
             color:#212b36;
-            margin-top: 32px;
+            margin-top: 2rem;
         }
         &-text{
-            margin-top: 32px;
+            margin-top: 2rem;
             font-size: 0.75rem;
             line-height: 18px;
             color:#636363;
@@ -122,11 +122,11 @@
       align-self: center;
       position: sticky;
       bottom: 0;
-      margin-bottom: 32px !important;
+      margin-bottom: 2rem !important;
       background-color: $primaryColor;
       border-radius: 24px;
-      padding: 14px 0px;
-      margin: 0px 72px;
+      padding: 0.875rem 0;
+      margin: 0 4.5rem;
       width: 100%;
       justify-content: center;
       align-items: center;
@@ -139,13 +139,13 @@
 }
 
 .mt8{
-  margin-top: 8px;
+  margin-top: .5rem;
 }
 .ml12{
-  margin-left: 12px;
+  margin-left: .75rem;
 }
 .pb150{
-  padding-bottom: 150px;
+  padding-bottom: 9.375rem;
 }
 :root {
     --rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);

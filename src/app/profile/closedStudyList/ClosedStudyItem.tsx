@@ -1,6 +1,6 @@
 import React from 'react';
+import { format } from 'date-fns';
 import { IoEllipsisHorizontal, IoEllipsisVertical } from 'react-icons/io5';
-import moment from 'moment';
 import NumberUtils from '@src/app/shared/utils/number';
 import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
@@ -23,7 +23,7 @@ const ClosedStudyItem = ({ closedStudyItem }: ClosedStudyItemProps): JSX.Element
 				<div className="closed-applied-study-item-title">{closedStudyItem.title}</div>
 				<div className="closed-applied-study-item-row-container">
 					<div className="closed-applied-study-item-subtext">
-						{moment(closedStudyItem.date).format('YY.MM.DD HH:MM')}
+						{format(closedStudyItem.date, 'yy.MM.dd HH:mm')}
 					</div>
 					<div className="closed-applied-study-item-divider-dot">·</div>
 					<div className="closed-applied-study-item-subtext">

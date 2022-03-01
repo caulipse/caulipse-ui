@@ -1,6 +1,6 @@
-import moment from 'moment';
 import React, { useState } from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
+import format from 'date-fns/format';
 import { IoEllipsisVertical } from 'react-icons/io5';
 import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
@@ -38,9 +38,7 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 					</div>
 				</div>
 				<div className="opened-applied-study-item-mid-container">
-					<div className="opened-applied-study-item-mid-text">
-						{moment(openedStudyItem.date).format('YY.MM.DD HH:MM')}
-					</div>
+					<div className="opened-applied-study-item-mid-text">{format(openedStudyItem.date, 'yy.MM.dd HH:mm')}</div>
 					<div className="opened-applied-study-item-divider-dot">·</div>
 					<div className="opened-applied-study-item-mid-text">
 						조회 {NumberUtils.toFormattedCount(openedStudyItem.hits)}

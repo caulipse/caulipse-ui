@@ -1,10 +1,12 @@
+@import "@scss/variables";
+
 .study-create-button {
     position: fixed !important;
     right: .75rem;
     bottom: 2rem;
     width: 8rem;
     height: 3rem;
-    background-color: #f78819 !important;
+    background-color: $primaryColor !important;
     color: #fff !important;
     font-size: .875rem !important;
     font-weight: bold !important; 

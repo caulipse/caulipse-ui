@@ -1,5 +1,4 @@
 @import "@src/scss/variables";
-@import "@src/scss/variables";
 
 .notice-presenter{
     &-header{
@@ -8,7 +7,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            background-color: #006ed9;
+            background-color: $primaryColor;
             padding: 3.375rem 0.75rem 0.625rem 0.75rem;
             border-bottom: solid;
             border-bottom-width: 0.5rem;
@@ -75,7 +74,7 @@
         flex-direction: column;
     }
     &-header{
-        background-color: #006ed9;
+        background-color: $primaryColor;
         padding: 3.375rem 0.75rem 0.625rem 0.75rem;
         border-bottom: solid;
         border-bottom-width: 0.5rem;

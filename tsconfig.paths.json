@@ -11,7 +11,8 @@
       "@post/*": ["src/app/post/*"],
       "@nonsubject/*": ["src/app/nonsubject/*"],
       "@profile/*": ["src/app/profile/*"],
-      "@common/*": ["src/components/common/*"]
+      "@common/*": ["src/components/common/*"],
+      "@scss/*": ["src/scss/*"]
     }
   }
 }

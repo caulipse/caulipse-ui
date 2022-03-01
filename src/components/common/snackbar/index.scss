@@ -1,0 +1,31 @@
+@import "@scss/variables";
+
+.snackbar {
+    &.MuiSnackbar-anchorOriginBottomCenter{
+        bottom: 8.563rem !important;
+    }
+}
+
+.snackbar-container {
+    width: 20rem !important;
+    height: 2.75rem;
+    display: flex !important;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: $primaryColor;
+    color: #fff;
+    border-radius: .375rem;
+    span {
+        font-size: .875rem;
+        font-weight: 500;
+    }
+    svg { 
+        position: absolute;
+        right: .625rem;
+    }
+}
+
+.secondary-snackbar-container {
+    background: $secondaryColor;
+}

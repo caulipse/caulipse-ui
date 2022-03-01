@@ -1,3 +1,5 @@
+@import "@scss/variables";
+
 .study-filter-modal-title-container {
     display: flex !important;
     justify-content: center;
@@ -44,7 +46,7 @@
 
 .study-filter-modal-clear-button {
     text-decoration: underline;
-    color: #f78819;
+    color: $primaryColor;
     font-size: .875rem !important;
     font-weight: normal !important; 
     cursor: pointer;

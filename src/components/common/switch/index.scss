@@ -1,3 +1,5 @@
+@import "@scss/variables";
+
 .switch {
     &.MuiSwitch-root {
         width: 2.5rem !important;
@@ -10,7 +12,7 @@
         left: -.25rem;
     }
     & .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-        background-color: #006ed9;
+        background-color: $primaryColor;
         opacity: 1;
     }
     & .MuiSwitch-track {
@@ -28,6 +30,6 @@
         box-sizing: border-box;
     }
     & .MuiSwitch-colorSecondary.Mui-checked .MuiSwitch-thumb {
-        border: 1px solid #006ed9 !important;
+        border: 1px solid $primaryColor !important;
     }
 }

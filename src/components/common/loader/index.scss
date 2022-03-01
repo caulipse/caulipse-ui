@@ -1,6 +1,8 @@
+@import "@scss/variables";
+
 .loader {
     display: flex !important;
     padding: 5rem;
     justify-content: center;
-    color: #f78819;
+    color: $primaryColor;
 }

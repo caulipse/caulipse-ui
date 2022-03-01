@@ -1,6 +1,8 @@
+@import "@scss/variables";
+
 .chip-container {
     padding: 0 !important;
-    background: #f9f9f9;
+    background: #fff;
     color: #929699;
     font-size: 0.875rem;
     height: 2.75rem;
@@ -10,14 +12,7 @@
     cursor: pointer;
     border-radius: 1.375rem;
     &.selected {
-        background: #006ed9;
+        background: $primaryColor;
         color: #fff;
-    }
-}
-
-.secondary-chip-container {
-    background: #fff;
-    &.selected {
-        background: #f78819;
     }
 }

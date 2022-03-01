@@ -1,5 +1,5 @@
-@import 'src/scss/mixins';
-@import '/src/scss/variables';
+@import "@scss/mixins";
+@import "@scss/variables";
 
 .studyDetailContainer {
   display: flex;
@@ -32,13 +32,13 @@
   }
   &-content{
     margin: 0rem 1.5rem;
-    background-color: #006ed9;
+    background-color: $primaryColor;
     padding: 0.75rem 0rem;
     font-size: 1rem;
     color: #ffffff;
     font-weight: bold;
     border-radius: 0.75rem;
-    box-shadow: 0rem 0.25rem 1.25rem 0rem rgba(18, 73, 155, 0.35);
+    box-shadow: 0 4px 20px 0 rgba(154, 86, 18, 0.34);
     width: calc(100vw - 3rem);
   }
 }

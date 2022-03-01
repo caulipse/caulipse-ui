@@ -5,7 +5,6 @@ $background-color: #FAFAFA;
 
 //Colors
 $footer-color: #f7f8ff;
-$main-color: #0016bc;
 $header-color: #06529d;
 $searchBarRequestInfoBackColor: #efeeee;
 $StudyDetailContentTextColor: #4c4c4c;
@@ -51,3 +50,17 @@ $backButtonHeight: 44px;
 
 // padding
 $horizontalPadding: 12px;
+
+// 
+// refactor
+// 
+
+// Contrast main color 
+$primaryColor: #f78819;
+$secondaryColor: #fa1e69;
+
+// Contrast light color
+$primaryLightColor: #fff3e7;
+
+// Background color
+$serviceBackgroundColor: #f9f9f9;

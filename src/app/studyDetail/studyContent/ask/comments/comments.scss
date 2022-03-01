@@ -1,3 +1,5 @@
+@import "@scss/variables";
+
 @mixin comment-item-like($color){
     color:$color;
     font-size: 0.75rem;
@@ -79,10 +81,10 @@
         align-items: center;
     }
     &-curious{
-        @include comment-item-like(#006ed9);
+        @include comment-item-like($primaryColor);
     }
     &-helpful{
-        @include comment-item-like(#f78819);
+        @include comment-item-like($primaryColor);
     }
 }
 .comment-list-item{

@@ -1,32 +1,29 @@
 import React from 'react';
+import { Container, Typography } from '@material-ui/core';
 import { Study } from '@api/types';
-import './styles.scss';
+import './index.scss';
 
 interface PresenterProps {
 	study: Study;
 }
 const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => (
-	<div className="studyCard-con">
-		<div className="studyCard-wrap">
-			<div className="studyCard-categoryAndcapacity-title">
-				<span>category</span>
-				<span>모집 인원</span>
-			</div>
-			<div className="studyCard-titleAndCapacity-value">
-				<span>{study.title}</span>
-				<div>
-					{study.vacancy}/{study.capacity}
-				</div>
-			</div>
-			<div className="studyCard-progressbar-con">
-				<progress max={study.capacity} value={study.vacancy} className="studyCard-progresbar" />
-			</div>
-			<div className="studyCard-subInfo-con">
-				<div>sub info</div>
-				<div>dfdfd</div>
-			</div>
-		</div>
-	</div>
+	<Container className="study-card-container">
+		<Container className="study-card-category-container">
+			<Container className="study-card-date">D-16</Container>
+			<span className="study-card-category">
+				{study.categoryCode?.main} {'>'} {study.categoryCode?.sub}
+			</span>
+		</Container>
+		<Typography className="study-card-title">{study.title}</Typography>
+		<Typography className="study-card-tag">
+			#{study.frequency} #{study.weekday} #{study.location}
+		</Typography>
+		<Container className="study-card-progress-container">
+			<progress className="study-card-progress" max={study.capacity} value={study.vacancy} />
+			<span className="study-card-progress-vacancy">{study.vacancy}</span>
+			<span className="study-card-progress-capacity"> / {study.capacity}</span>
+		</Container>
+	</Container>
 );
 
 export default StudyCardPresenter;

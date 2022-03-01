@@ -1,8 +1,8 @@
 import { GetCommentResponse } from '@api/response/comment';
-import moment from 'moment';
 import React, { useState } from 'react';
 import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
 import './comments.scss';
+import format from 'date-fns/format';
 
 interface CommentItemProps {
 	comment: GetCommentResponse;
@@ -30,7 +30,7 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 				<div className="comment-item-row-container">
 					<div className="comment-item-username">{comment.userName}</div>
 					<div className="comment-item-leader">모집장</div>
-					<div className="comment-item-createdat">{moment(comment.createdAt).format('YY.MM.DD HH:MM')}</div>
+					<div className="comment-item-createdat">{format(new Date(comment.createdAt), 'yy.MM.dd HH:mm')}</div>
 				</div>
 				<div className="comment-item-content">{comment.content}</div>
 				<div className="comment-item-bottom-container">

@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 import React from 'react';
 import { IoArrowBack } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
@@ -20,7 +20,7 @@ const NoticeDetailPresenter = ({ notice }: NoticeDetailPresenterProps): JSX.Elem
 				</button>
 			</div>
 			<div className="notice-detail-content-container">
-				<div className="notice-detail-created-at">{moment(notice.createdAt).format('YYYY-MM-DD')}</div>
+				<div className="notice-detail-created-at">{format(notice.createdAt, 'yyyy-MM-dd')}</div>
 				<div className="notice-detail-title">{notice.title}</div>
 				<div className="notice-detail-content">{notice.content}</div>
 			</div>

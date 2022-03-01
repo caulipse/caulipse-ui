@@ -1,6 +1,6 @@
 import React from 'react';
-import moment from 'moment';
 import NumberUtils from '@src/app/shared/utils/number';
+import { format } from 'date-fns';
 import { BookmarkInterface } from '../../interface/interface';
 
 interface BookmarkItemProps {
@@ -21,7 +21,7 @@ const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps) => {
 				<button type="button">X</button>
 			</div>
 			<div className="bookmarkItem-bottom-container">
-				<div>{moment(item.date).format('YY.MM.DD HH:MM')}</div>
+				<div>{format(item.date, 'yy.MM.dd HH:mm')}</div>
 				<div className="bookmarkItem-divider-dot">·</div>
 				<div>조회 {NumberUtils.toFormattedCount(item.hits)}</div>
 				<div className="bookmarkItem-divider-dot">·</div>

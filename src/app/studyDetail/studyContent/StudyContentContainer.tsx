@@ -1,36 +1,47 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useEffect, useState } from 'react';
-import { Study } from '@api/types';
 import StudyAskContainer from './ask/StudyAskContainer';
 import StudyCurrentStateContainer from './currentState/StudyCurrentStateContainer';
 import StudyInfoContentContainer from './info/StudyInfoContentContainer';
 import './styles.scss';
 
 interface StudyContentContainerProps {
-	studyData: Study;
+	studyId: string;
+	hostId: string;
+	createdAt: string;
+	views: number;
+	bookmarks?: number;
+	title: string;
+	studyAbout: string;
 }
 
-const StudyContentContainer = ({ studyData }: StudyContentContainerProps): JSX.Element => {
+const StudyContentContainer = ({
+	studyId,
+	hostId,
+	createdAt,
+	views,
+	bookmarks,
+	title,
+	studyAbout,
+}: StudyContentContainerProps): JSX.Element => {
 	const [index, setIndex] = useState<number>(1);
-	const [study, setStudy] = useState<Study>();
-	const [loading, setLoadingState] = useState<boolean>(true);
 
 	const content = (i: number): JSX.Element => {
-		if (i === 1) return <StudyInfoContentContainer study={study!} />;
-		if (i === 2) return <StudyCurrentStateContainer studyId={study!.id} hostId={study!.HOST_ID} />;
+		if (i === 1)
+			return (
+				<StudyInfoContentContainer
+					createdAt={createdAt}
+					views={views}
+					bookmarks={bookmarks}
+					title={title}
+					studyAbout={studyAbout}
+				/>
+			);
+		if (i === 2) return <StudyCurrentStateContainer studyId={studyId} hostId={hostId} />;
 		if (i === 3) return <StudyAskContainer />;
 
 		return <div />;
 	};
-
-	useEffect(() => {
-		if (study === undefined) {
-			setStudy(studyData);
-			setLoadingState(false);
-		}
-	}, []);
-
-	if (loading) return <div>Loading...</div>;
 
 	return (
 		<div className="studyContentContainer">

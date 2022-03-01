@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { NoticeInterface } from '../../interface/interface';
@@ -15,7 +15,7 @@ const NoticeItem = ({ noticeItem }: NoticeItemProps): JSX.Element => {
 		<button type="button" className="notice-item-container" onClick={()=>history.push(`/profile/notice/${noticeItem.noticeId}`)}>
 			<div className="notice-item-title">{noticeItem.title}</div>
 			<div className="notice-item-content">{noticeItem.content}</div>
-			<div className="notice-item-created-at">{moment(noticeItem.createdAt).format('YY-MM-DD')}</div>
+			<div className="notice-item-created-at">{format(noticeItem.createdAt, 'yyyy-MM-dd')}</div>
 		</button>
 	);
 };

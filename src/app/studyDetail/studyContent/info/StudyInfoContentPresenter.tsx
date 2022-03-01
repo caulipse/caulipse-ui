@@ -1,25 +1,35 @@
 import React from 'react';
-import { Study } from '@api/types';
 import NumberUtils from '@src/app/shared/utils/number';
+import format from 'date-fns/format';
 
 interface StudyInfoContentPresenterProps {
-	study: Study;
+	createdAt: string;
+	views: number;
+	bookmarks?: number;
+	title: string;
+	studyAbout: string;
 }
-const StudyInfoContentPresenter = ({ study }: StudyInfoContentPresenterProps): JSX.Element => (
+const StudyInfoContentPresenter = ({
+	createdAt,
+	views,
+	bookmarks,
+	title,
+	studyAbout,
+}: StudyInfoContentPresenterProps): JSX.Element => (
 	<div className="content">
 		<div className="mh20">
 			<div className="studyTimeViewedAnd">
-				<div>{study.createdAt}</div>
+				<div>{format(new Date(createdAt), 'yyyy-MM-dd')}</div>
 				<div className="mh5">•</div>
-				<div>조회 {study.views}</div>
+				<div>조회 {views}</div>
 				<div className="mh5">•</div>
-				<div>북마크 {NumberUtils.toFormattedCount(study.bookmarks ?? 0)}</div>
+				<div>북마크 {NumberUtils.toFormattedCount(bookmarks ?? 0)}</div>
 			</div>
 			<div className="studyTitle">
-				<span>{study.title}</span>
+				<span>{title}</span>
 			</div>
 			<div className="studyContent">
-				<span>{study.studyAbout}</span>
+				<span>{studyAbout}</span>
 			</div>
 		</div>
 	</div>

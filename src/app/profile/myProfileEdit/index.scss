@@ -10,7 +10,7 @@
     background-color: #ffffff;
     font-size: 0.75rem;
     color: #1a1a1a;
-    padding: 10px 12px;
+    padding: 0.625rem 0.75rem;
     border: none;
 }
 @mixin subtitle {
@@ -21,7 +21,7 @@
 @mixin select{
     font-size: 0.75rem;
     color:#1a1a1a;
-    padding: 10px 12px;
+    padding: 0.625rem 0.75rem;
     border-radius: 4px;
     border: none;
 }
@@ -30,20 +30,22 @@
     &-container{
         display: flex;
         flex-direction: column;
-        padding:40px 20px 80px 20px;
+        padding:2.5rem 1.25rem 5rem 1.25rem;
     }
     &-image{
-        border-radius: 104px;
+        width: 13rem;
+        height: 13rem;
+        border-radius: 6.5rem;
         align-self: center;
     }
     &-nickname{
         &-title{
             @include title;
-            margin-top: 32px;
+            margin-top: 2rem;
         }
         &-input{
             @include input;
-            margin-top: 8px;
+            margin-top: 0.5rem;
         }
     }
     &-row-container{
@@ -58,11 +60,11 @@
     &-major{
         &-title{
             @include title;
-            margin-top: 16px;
+            margin-top: 1rem;
         }
         &-input{
             @include input;
-            margin-top: 8px;
+            margin-top: 0.5rem;
         }
     }
     &-grade{
@@ -71,17 +73,17 @@
         }
         &-select{
             @include select;
-            margin-top: 8px;
+            margin-top: 0.5rem;
         }
     }
     &-status{
         &-title{
             @include title;
-            margin-top: 32px;
+            margin-top: 2rem;
         }
         &-select{
             @include select;
-            margin-top: 8px;
+            margin-top: 0.5rem;
         }
     }
     &-category{
@@ -91,9 +93,9 @@
         }
         &-text-container{
             display: flex;
-            padding: 12px 10px;
+            padding: 0.75rem 0.625rem;
             background-color: #ffffff;
-            margin-top: 8px;
+            margin-top: 0.5rem;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
@@ -119,23 +121,23 @@
     &-short-intro{
         &-title{
             @include title;
-            margin-top: 40px;
+            margin-top: 2.5rem;
         }
         &-input{
             @include input;
-            margin-top: 8px;
+            margin-top: 0.5rem;
         }
         &-subtitle{
             @include subtitle;
-            margin-left: 8px;
+            margin-left: 0.5rem;
         }
     }
     &-url{
         &-add-icon{
-            padding: 6px;
+            padding: 0.375rem;
             background-color: #ffffff;
             align-self: center;
-            margin-top: 16px;
+            margin-top: 1rem;
         }
         &-input{
             @include input;
@@ -148,7 +150,7 @@
             align-items: center;
             flex:1;
             background-color: #ffffff;
-            margin-top: 8px;
+            margin-top: 0.5rem;
         }
     }
     &-long-intro{
@@ -156,10 +158,10 @@
             border:none;
             border-radius: 4px;
             background-color: #ffffff;
-            margin-top: 8px;
-            padding: 10px 12px;
+            margin-top: 0.5rem;
+            padding: 0.625rem 0.75rem;
             font-size: 0.688rem;
-            min-height: 120px;
+            min-height: 11.25rem;
         }
     }
 }
@@ -168,16 +170,16 @@
     background-color: #e5e5e5;
 }
 .mt8{
-    margin-top: 8px;
+    margin-top: 0.5rem;
 }
 .mt24{
-    margin-top: 24px;
+    margin-top: 1.5rem;
 }
 .mt40{
-    margin-top: 40px;
+    margin-top: 2.5rem;
 }
 .ml16{
-    margin-left: 16px;
+    margin-left: 1rem;
 }
 .flex-grow-1{
     flex-grow:1;

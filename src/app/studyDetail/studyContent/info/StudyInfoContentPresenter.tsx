@@ -1,5 +1,6 @@
 import React from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
+import moment from 'moment';
 
 interface StudyInfoContentPresenterProps {
 	createdAt: string;
@@ -18,7 +19,7 @@ const StudyInfoContentPresenter = ({
 	<div className="content">
 		<div className="mh20">
 			<div className="studyTimeViewedAnd">
-				<div>{createdAt}</div>
+				<div>{moment(createdAt).format('YYYY-MM-DD')}</div>
 				<div className="mh5">•</div>
 				<div>조회 {views}</div>
 				<div className="mh5">•</div>

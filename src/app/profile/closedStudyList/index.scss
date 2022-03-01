@@ -1,12 +1,12 @@
 @import "/src/scss/variables";
 
 @mixin status($backgroundColor, $textColor){
-    padding: 9px 12px;
+    padding: 0.5625rem 0.75rem;
     background-color: $backgroundColor;
     border-radius: 18px;
     font-size: 0.688rem;
     color: $textColor;
-    margin-right: 44px;
+    margin-right: 2.75rem;
 }
 
 .closed-applied-study-item{
@@ -16,7 +16,7 @@
         justify-content: space-between;
         align-items: center;
         background-color: #ffffff;
-        padding: 16px 20px;
+        padding: 1rem 1.25rem;
         border: solid;
         border-color: #e5e5e5;
         border-width: 1px;
@@ -43,7 +43,7 @@
         color:#b1b1b1;
     }
     &-divider-dot{
-        margin: 0px 5px;
+        margin: 0 0.3125rem;
         color: #e5e5e5;
     }
     &-status{

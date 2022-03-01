@@ -3,7 +3,7 @@
         display: flex;
         flex:1;
         flex-direction: column;
-        margin-top: 16px;
+        margin-top: 1rem;
         background-color: #ffffff;
         border-radius: 8px;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
@@ -12,7 +12,7 @@
 .navigation-item{
     &-container{
         display: flex;
-        padding: 20px 16px;
+        padding: 1.25rem 1rem;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -20,7 +20,7 @@
     }
     &-label{
         font-size: 0.75rem;
-        line-height: 19px;
+        line-height: 1.1875rem;
         font-weight: bold;
         color: #212b36;
     }

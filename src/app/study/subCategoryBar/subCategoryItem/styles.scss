@@ -1,24 +1,24 @@
 @import '../../../../scss/variables';
 
 .studyItem-t {
- font-size: 16px;
+ font-size: 1rem;
  color: $studySubCategroyButtonOnTextColor;
 
- padding: 4px 12px;
+ padding: 0.25rem 0.75rem;
  border-radius: 18px;
 
  background-color: $studySubCategroyButtonOnBackColor;
 
- margin-right: 20px;
+ margin-right: 1.25rem;
   
 }
 .studyItem-f {
-  font-size: 16px;
+  font-size: 1rem;
   
   color: $studySubCategroyButtonOffTextColor;
   
-  padding: 4px 12px;
+  padding: 0.25rem 0.75rem;
   border-radius: 18px;
 
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }

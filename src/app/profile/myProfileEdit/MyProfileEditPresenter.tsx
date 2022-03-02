@@ -89,7 +89,7 @@ const MyProfileEditPresenter = ({
 	return (
 		<div className="profile-edit-container">
 			<button type="button" onClick={changeProfileImg}>
-				<img className="profile-edit-image" width="208px" height="208px" src={imgSrc} alt="profile" />
+				<img className="profile-edit-image" src={imgSrc} alt="profile" />
 			</button>
 			<div className="profile-edit-nickname-title">닉네임</div>
 			<input

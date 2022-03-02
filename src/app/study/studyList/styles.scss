@@ -1,7 +1,7 @@
 @import '../../../scss/variables';
 
 .studyList-con {
-  margin-top: 60px;
+  margin-top: 3.75rem;
   display: flex;
   justify-content: center;
 }
@@ -14,7 +14,7 @@
   justify-content: end;
 }
 .studyList-listAndBoards-con{
-  margin-top: 30px;
+  margin-top: 1.875rem;
 
   display: flex;
 }
@@ -22,9 +22,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.875rem;
 }
 .studyList-borad-con {
-  margin-left: 24px;
-  width: 282px;
+  margin-left: 1.5rem;
+  width: 17.625rem;
 }

@@ -3,7 +3,7 @@
 
 .studyContentContainer {
   background-color: white;
-  border-radius: 0.75rem 0.75rem 0 0;
+  border-radius: 12px 12px 0 0;
   
   .studyContentButtons {
     display: flex;
@@ -12,7 +12,7 @@
     margin: 0 0.75rem;
     background-color: white;
     button {
-      height: 44px;
+      height: 2.75rem;
       flex-grow: 1;
       border-bottom: solid #e5e5e5 2px;
       font-size: 0.75rem;

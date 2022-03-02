@@ -20,6 +20,7 @@ button{padding:0}
         display:flex;
         flex:1;
         flex-direction: column;
+        width: 100%;
     }
     &-column{
         display: flex;
@@ -29,7 +30,7 @@ button{padding:0}
     &-header{
         &-container{
             background-color: #212b36;
-            padding: 3.313rem 0.75rem 0.563rem 0.75rem;
+            padding: 0.625rem 0.75rem !important;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -51,12 +52,14 @@ button{padding:0}
             flex:1;
             align-items: center;
             justify-content: center;
+            align-self: center;
             padding: 0rem 1.25rem;
             width: 100% !important;
         }
         &-container{
-            width: 100%;
-            max-width: $maxContentWidth;
+            width: 100% !important;
+            max-width: $maxContentWidth !important;
+            padding: 0 1.25rem;
         }
         &-account{
             &-container{

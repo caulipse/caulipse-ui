@@ -6,6 +6,7 @@ const StudyFilterModalContainer = ({ open, onClose }: IModalContainerCommonProps
 	const [selectedFrequencies, setSelectedFrequencies] = useState([] as string[]);
 	const [selectedDays, setSelectedDays] = useState([] as string[]);
 	const [selectedPlaces, setSelectedPlaces] = useState([] as string[]);
+	const [isHide, setIsHide] = useState(false);
 
 	const onClickCancel = () => {
 		// TODO
@@ -43,6 +44,10 @@ const StudyFilterModalContainer = ({ open, onClose }: IModalContainerCommonProps
 		}
 	};
 
+	const onChangeIsHide = (evt: ChangeEvent<HTMLInputElement>) => {
+		setIsHide(evt.target.checked);
+	};
+
 	return (
 		<StudyFilterModalPresenter
 			open={open}
@@ -55,6 +60,8 @@ const StudyFilterModalContainer = ({ open, onClose }: IModalContainerCommonProps
 			onChangeDays={onChangeDays}
 			selectedPlaces={selectedPlaces}
 			onChangePlaces={onChangePlaces}
+			isHide={isHide}
+			onChangeIsHide={onChangeIsHide}
 		/>
 	);
 };

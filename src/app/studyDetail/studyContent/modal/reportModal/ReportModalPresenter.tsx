@@ -16,25 +16,39 @@ const ReportModalPresenter = ({ open, onClose, onClick, onChange, value }: IRepo
 			<Container className="simple-modal-content-container">
 				<RadioGroup value={value} onChange={onChange}>
 					<FormControlLabel
+						className={value === '0' ? 'radio-container selected' : 'radio-container'}
+						labelPlacement="start"
+						value="0"
+						control={<Radio />}
+						label="욕설 및 비방"
+					/>
+					<FormControlLabel
 						className={value === '1' ? 'radio-container selected' : 'radio-container'}
 						labelPlacement="start"
 						value="1"
 						control={<Radio />}
-						label="신고1"
+						label="사칭, 사기"
 					/>
 					<FormControlLabel
 						className={value === '2' ? 'radio-container selected' : 'radio-container'}
 						labelPlacement="start"
 						value="2"
 						control={<Radio />}
-						label="신고2"
+						label="상업적 광고"
 					/>
 					<FormControlLabel
-						className={value === '' ? 'radio-container selected' : 'radio-container'}
+						className={value === '3' ? 'radio-container selected' : 'radio-container'}
 						labelPlacement="start"
 						value="3"
 						control={<Radio />}
-						label="신고3"
+						label="음란물, 불건전한 게시물"
+					/>
+					<FormControlLabel
+						className={value === '4' ? 'radio-container selected' : 'radio-container'}
+						labelPlacement="start"
+						value="4"
+						control={<Radio />}
+						label="기타"
 					/>
 				</RadioGroup>
 				<Container style={{ padding: 0, marginTop: '2rem', display: 'flex' }}>

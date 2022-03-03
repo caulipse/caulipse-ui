@@ -22,6 +22,21 @@
         margin-top: 1rem;
     }
 }
+
+.study-filter-modal-switch-row {
+    display: flex !important;
+    align-items: center;
+    padding-top: 1.5rem !important;
+    span.study-filter-modal-sub-text {
+        font-size: 1rem;
+        font-weight: normal;
+        margin-right: 1rem;
+    }
+    .study-filter-modal-sub-text.checked {
+        color: $primaryColor;
+    }
+}
+
 .study-filter-modal-row-flex-container {
     padding: 0 !important;
 }

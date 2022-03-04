@@ -2,7 +2,7 @@
 @import "@scss/mixins";
 
 .study-card-container {
-    width: 20.5rem !important;
+    width: 90% !important;
     height: 8.063rem;
     padding: 1rem 1.5rem 1.25rem 1rem;
     border-radius: .625rem;
@@ -56,7 +56,7 @@
     font-weight: bold !important;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 15.313rem;
+    width: 80% !important;
     @include desktop {
         width: 90% !important;
     }
@@ -71,7 +71,7 @@
 
 progress {
     -webkit-appearance: none;
-    width: 15.313rem;
+    width: 80% !important;
     height: .25rem;
     margin-right: 1.313rem;
     border-radius: .125rem;

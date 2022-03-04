@@ -10,7 +10,7 @@
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.08);
     cursor: pointer;
     @include desktop {
-        width: 40.625rem !important;
+        width: 100% !important;
         height: 10.063rem;
         padding: 1.063rem 1.625rem 1.375rem 1.188rem;
     }
@@ -58,7 +58,7 @@
     text-overflow: ellipsis;
     width: 15.313rem;
     @include desktop {
-        width: 34.313rem !important;
+        width: 90% !important;
     }
 }
 
@@ -76,7 +76,7 @@ progress {
     margin-right: 1.313rem;
     border-radius: .125rem;
     @include desktop {
-        width: 34.313rem !important;
+        width: 90% !important;
         height: .313rem;
     }
   }

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { useAtom } from 'jotai';
+import loadable from '@loadable/component';
 import Snackbar from '@common/snackbar/Snackbar';
 import getCookie from '@shared/utils/getCookie';
+import useModal from '@src/hooks/modal/useModal';
 import './App.scss';
 import { Footer, Header } from './app/shared/components';
 import LoginPage from './pages/login';
@@ -24,7 +26,11 @@ const Location = () => {
 
 const MainContainer = (): JSX.Element => {
 	const [state] = useAtom(globalState);
-	const { open, message, type } = state.snackbar;
+	const { open: snackbarOpen, message, type } = state.snackbar;
+	const { open: modalOpen, key } = state.modal;
+	const { closeModal } = useModal();
+
+	const Component = loadable(() => import(`@modal/${key}`));
 
 	return (
 		<div className="router-con">
@@ -37,7 +43,8 @@ const MainContainer = (): JSX.Element => {
 					<Redirect path="*" to="/study/employment" />
 				</Switch>
 			</div>
-			{open && <Snackbar open={open} message={message} type={type} />}
+			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}
+			{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} />}
 		</div>
 	);
 };

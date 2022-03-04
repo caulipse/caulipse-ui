@@ -1,21 +1,15 @@
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { IoArrowBack, IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
 import { useHistory, useParams } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
-import ApplyModalContainer from '@src/app/studyDetail/studyContent/modal/applyModal/ApplyModalContainer';
-import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
-import HostStudyMoreModalContainer from '@studyDetail/studyContent/modal/hostStudyMoreModal/HostStudyMoreModalContainer';
-import StudyDeleteModalContainer from '@studyDetail/studyContent/modal/studyDeleteModal/StudyDeleteModalContainer';
-import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
-import AppliedModalContainer from '@src/app/studyDetail/studyContent/modal/appliedModal/AppliedModalContainer';
-import ApplyCancelModalContainer from '@src/app/studyDetail/studyContent/modal/applyCancelModal/ApplyCancelModalContainer';
-import EditCategoryModalContainer from '@src/app/studyDetail/studyContent/modal/editCategoryModal/EditCategoryModalContainer';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import ModalKeyEnum from '@common/modal/enum';
 
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
@@ -23,19 +17,12 @@ const StudyDetailPage = (): JSX.Element => {
 	const { data, isLoading } = useFetchStudy(studyId);
 	const studyData = data?.study;
 
-	const [openApplyModal, setOpenApplyModal] = useState<boolean>(false);
-	const [openAppliedModal, setOpenAppliedModal] = useState<boolean>(false);
-	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
-	const [openHostMoreModal, setOpenHostMoreModal] = useState<boolean>(false);
-	const [openStudyDeleteModal, setOpenStudyDeleteModal] = useState<boolean>(false);
-	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
-	const [openCancelModal, setOpenCancelModal] = useState<boolean>(false);
-	const [openEditCategoryModal, setOpenEditCategoryModal] = useState<boolean>(false);
+	const { openModal } = useModal();
 
 	const { openSnackbar } = useSnackbar();
 
 	const onClick = () => {
-		setOpenApplyModal(!openApplyModal);
+		openModal(ModalKeyEnum.ApplyModal);
 	};
 
 	const onClickMore = () => {
@@ -43,9 +30,9 @@ const StudyDetailPage = (): JSX.Element => {
 		// 더보기 모달에 접근하려는 사용자가 모집자인지 신청자인지를 구분하는 임시 플래그성 변수
 		// API 연동 이후 수정 필요
 		if (localStorage.getItem('host') === 'host') {
-			setOpenHostMoreModal(!openHostMoreModal);
+			openModal(ModalKeyEnum.HostStudyMoreModal);
 		} else {
-			setOpenUserMoreModal(!openUserMoreModal);
+			openModal(ModalKeyEnum.UserStudyMoreModal);
 		}
 	};
 
@@ -98,27 +85,6 @@ const StudyDetailPage = (): JSX.Element => {
 								studyAbout={studyData.studyAbout}
 							/>
 						)}
-						<ApplyModalContainer
-							open={openApplyModal}
-							onClose={setOpenApplyModal}
-							setOpenAppliedModal={setOpenAppliedModal}
-						/>
-						<AppliedModalContainer open={openAppliedModal} onClose={setOpenAppliedModal} />
-						<ApplyCancelModalContainer open={openCancelModal} onClose={setOpenCancelModal} />
-						<UserStudyMoreModalContainer
-							open={openUserMoreModal}
-							onClose={setOpenUserMoreModal}
-							setOpenReportModal={setOpenReportModal}
-							setOpenCancelModal={setOpenCancelModal}
-						/>
-						<HostStudyMoreModalContainer
-							open={openHostMoreModal}
-							onClose={setOpenHostMoreModal}
-							setOpenStudyDeleteModal={setOpenStudyDeleteModal}
-						/>
-						<StudyDeleteModalContainer open={openStudyDeleteModal} onClose={setOpenStudyDeleteModal} />
-						<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
-						<EditCategoryModalContainer open={openEditCategoryModal} onClose={setOpenEditCategoryModal} />
 						<div className="study-apply-btn-container">
 							<button type="button" className="study-apply-btn-content" onClick={onClick}>
 								신청하기

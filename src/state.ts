@@ -1,5 +1,6 @@
 import { atom } from 'jotai';
 import { ISnackbarProps, SnackbarTypeEnum } from '@common/snackbar/types';
+import getCookie from '@shared/utils/getCookie';
 import { IGlobalModalProps } from '@common/modal/types';
 
 interface IGlobalStateProps {
@@ -9,7 +10,7 @@ interface IGlobalStateProps {
 }
 
 const globalState = atom({
-	login: !!localStorage.getItem('token'),
+	login: !!getCookie('accessToken'),
 	snackbar: {
 		open: false,
 		message: '',

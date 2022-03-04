@@ -8,6 +8,7 @@
     border-radius: .625rem;
     border: 1px solid #f2f2f2;
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.08);
+    cursor: pointer;
     @include desktop {
         width: 40.625rem !important;
         height: 10.063rem;

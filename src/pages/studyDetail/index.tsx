@@ -9,6 +9,7 @@ import './styles.scss';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import ModalKeyEnum from '@common/modal/enum';
 
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
@@ -21,7 +22,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
 
 	const onClick = () => {
-		openModal('ApplyModal');
+		openModal(ModalKeyEnum.ApplyModal);
 	};
 
 	const onClickMore = () => {
@@ -29,9 +30,9 @@ const StudyDetailPage = (): JSX.Element => {
 		// 더보기 모달에 접근하려는 사용자가 모집자인지 신청자인지를 구분하는 임시 플래그성 변수
 		// API 연동 이후 수정 필요
 		if (localStorage.getItem('host') === 'host') {
-			openModal('HostStudyMoreModal');
+			openModal(ModalKeyEnum.HostStudyMoreModal);
 		} else {
-			openModal('UserStudyMoreModal');
+			openModal(ModalKeyEnum.UserStudyMoreModal);
 		}
 	};
 

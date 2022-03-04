@@ -8,6 +8,7 @@ import Switch from '@common/switch/Switch';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 
 const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [value, setValue] = useState('시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.');
@@ -18,7 +19,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		// 스터디 신청 API 연동
 		onClose(false);
 		const { openModal } = useModal();
-		openModal('AppliedModal');
+		openModal(ModalKeyEnum.ApplyModal);
 	}, []);
 
 	const onChangeValue = useCallback((evt: ChangeEvent<HTMLTextAreaElement>) => {

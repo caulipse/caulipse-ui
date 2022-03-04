@@ -5,10 +5,8 @@ import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
 const StudyApproveModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [openModal, setOpenModal] = useState(false);
 	const onClick = () => {
 		onClose(false);
-		setOpenModal(!openModal);
 	};
 	// TODO dummy data API 연동
 

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { StudyUser } from '@api/types';
 import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 import StudyUserItemPresenter from './StudyUserItemPresenter';
 
 interface StudyUserItemContainerProps {
@@ -12,7 +13,7 @@ interface StudyUserItemContainerProps {
 const StudyUserItemContainer = ({ studyUser }: StudyUserItemContainerProps): JSX.Element => {
 	const { openModal } = useModal();
 	const onClick = () => {
-		openModal('ApproveCancelModal');
+		openModal(ModalKeyEnum.ApproveCancelModal);
 	};
 
 	// TODO

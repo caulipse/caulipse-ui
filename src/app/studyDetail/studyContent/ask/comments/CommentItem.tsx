@@ -2,6 +2,7 @@ import { GetCommentResponse } from '@api/response/comment';
 import React from 'react';
 import useModal from '@src/hooks/modal/useModal';
 import './comments.scss';
+import ModalKeyEnum from '@common/modal/enum';
 import format from 'date-fns/format';
 
 interface CommentItemProps {
@@ -14,7 +15,7 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 
 	const onClickReport = () => {
 		// TODO: 신고 API 연동
-		openModal('ReportModal');
+		openModal(ModalKeyEnum.ReportModal);
 	};
 
 	return (

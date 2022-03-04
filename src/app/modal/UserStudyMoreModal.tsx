@@ -4,6 +4,7 @@ import '@common/modal/common.scss';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import SimpleModal from '@common/modal/SimpleModal';
 import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 
 const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openModal } = useModal();
@@ -11,11 +12,11 @@ const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 	// api 로 신청자 여부를 확인하여 신청자가 아닐 경우 "신청취소" 버튼은 숨김 처리해야함.
 	const onClickReport = () => {
 		onClose(false);
-		openModal('ReportModal');
+		openModal(ModalKeyEnum.ReportModal);
 	};
 	const onClickCancel = () => {
 		onClose(false);
-		openModal('CancelModal');
+		openModal(ModalKeyEnum.ApplyCancelModal);
 	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">

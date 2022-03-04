@@ -6,6 +6,7 @@ import SubCategoryBarContainer from '@src/app/study/subCategoryBar/SubCategoryBa
 import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
 import StudyCategoryBarContainer from '@src/app/study/studyCategoryBar/StudyCategoryBarContainer';
 import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
+import ModalKeyEnum from '@common/modal/enum';
 
 const CategoryObj = {
 	employment: '취업, 면접',
@@ -44,11 +45,11 @@ const StudyPage = (): JSX.Element => {
 	}, [studyCategory]);
 
 	const onClickSort = () => {
-		openModal('StudySortModal');
+		openModal(ModalKeyEnum.StudySortModal);
 	};
 
 	const onClickFilter = () => {
-		openModal('StudyFilterModal');
+		openModal(ModalKeyEnum.StudyFilterModal);
 	};
 
 	const onClickCreate = () => {

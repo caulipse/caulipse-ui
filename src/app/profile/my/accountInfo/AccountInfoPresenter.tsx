@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 import { IoArrowBack, IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 
 interface AccountInfoPresenterProps {
 	userId: string;
@@ -22,7 +23,7 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 	};
 
 	const withDraw = () => {
-		openModal('WithdrowModal');
+		openModal(ModalKeyEnum.WithdrawModal);
 	};
 
 	return (

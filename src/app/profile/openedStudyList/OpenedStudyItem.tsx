@@ -3,6 +3,7 @@ import NumberUtils from '@src/app/shared/utils/number';
 import format from 'date-fns/format';
 import { IoEllipsisVertical } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 
@@ -14,11 +15,11 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 	const { openModal } = useModal();
 
 	const closeStudy = () => {
-		openModal('StudyCloseModal');
+		openModal(ModalKeyEnum.StudyCloseModal);
 	};
 
 	const onClickMore = () => {
-		openModal('UserStudyMoreModal');
+		openModal(ModalKeyEnum.UserStudyMoreModal);
 	};
 
 	return (

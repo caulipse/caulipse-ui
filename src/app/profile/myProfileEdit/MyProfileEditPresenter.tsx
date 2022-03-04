@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoAdd, IoClose } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
 
 interface UrlInterface {
@@ -41,7 +42,7 @@ const MyProfileEditPresenter = ({
 		console.log('changeProfileImg');
 	};
 	const changeCategories = () => {
-		openModal('MyCategoryModal');
+		openModal(ModalKeyEnum.MyCategoryModal);
 	};
 	const addUrl = () => {
 		if (currentUrls?.length >= 3) return;

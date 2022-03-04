@@ -4,9 +4,9 @@ import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
 import SubCategoryBarContainer from '@src/app/study/subCategoryBar/SubCategoryBarContainer';
 import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
-import StudyCategoryBarContainer from '@src/app/study/studyCategoryBar/StudyCategoryBarContainer';
 import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
 import ModalKeyEnum from '@common/modal/enum';
+import MainCategoryContainer from '@study/mainCategory/MainCategoryContainer';
 
 const CategoryObj = {
 	employment: '취업, 면접',
@@ -20,6 +20,8 @@ const StudyPage = (): JSX.Element => {
 	const { category } = useParams<any>();
 	const [studyCategory, setStudyCategory] = useState<string>('');
 	const [selectedList, setSelectedList] = useState<string[]>([]);
+
+	const [selectedCategory, setSelectedCategory] = useState<number>();
 
 	const { openModal } = useModal();
 
@@ -57,11 +59,15 @@ const StudyPage = (): JSX.Element => {
 		// 스터디 등록 모달 연결
 	};
 
+	useEffect(() => {
+		// TODO
+		// API 연동
+		console.info(selectedCategory);
+	}, [selectedCategory]);
+
 	return (
 		<div className="studyPage-con">
-			<div>
-				<StudyCategoryBarContainer />
-			</div>
+			<MainCategoryContainer onChange={setSelectedCategory} />
 			<div className="studyPage-Toolbar-con">
 				<div className="studyPage-Toolbar-wrap">
 					<SubCategoryBarContainer addSubCategory={addSubCategory} rmSubCategory={rmSubCategory} />

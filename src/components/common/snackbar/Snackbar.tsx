@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Snackbar as MuiSnackbar } from '@material-ui/core';
 import classnames from 'classnames';
-import CheckIcon from '@common/icon/CheckIcon';
+import { IoCheckmark } from 'react-icons/io5';
 import { ISnackbarProps, SnackbarTypeEnum } from './types';
 import './index.scss';
 
@@ -15,7 +15,7 @@ const Snackbar = (props: ISnackbarProps) => {
 				})}
 			>
 				<span>{message}</span>
-				<CheckIcon />
+				<IoCheckmark size={24} />
 			</Container>
 		</MuiSnackbar>
 	);

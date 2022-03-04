@@ -6,24 +6,23 @@ import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-
-const categories = ['취업/면접', '자격증', '고시/공무원', '어학', '프로그래밍', '공모전', '생활/기타'];
+import categories from '@src/const';
 
 const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	// TODO
 	// 관심 카테고리 조회 API 연동
-	const [value, setValue] = useState(['어학', '자격증', '프로그래밍']);
+	const [value, setValue] = useState<number[]>([]);
 
 	const onClick = () => {
 		// TODO
 		// 관심 카테고리 수정 API 연동
 	};
 
-	const onChangeValue = (category: string) => {
-		if (value.includes(category)) {
-			setValue(value.filter((item) => item !== category));
+	const onChangeValue = (code: number) => {
+		if (value.includes(code)) {
+			setValue(value.filter((item) => item !== code));
 		} else {
-			setValue(value.concat(category));
+			setValue(value.concat(code));
 		}
 	};
 
@@ -38,11 +37,11 @@ const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Ele
 					<Grid container spacing={1}>
 						{categories.map((category) => {
 							const handleClick = () => {
-								onChangeValue(category);
+								onChangeValue(category.code);
 							};
 							return (
-								<Grid key={category} item xs={4} className="modal-chip-item">
-									<Chip label={category} selected={value.includes(category)} onClick={handleClick} />
+								<Grid key={category.code} item xs={4} className="modal-chip-item">
+									<Chip label={category.label} selected={value.includes(category.code)} onClick={handleClick} />
 								</Grid>
 							);
 						})}

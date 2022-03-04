@@ -1,5 +1,3 @@
-// TODO: 카테고리 코드 데이터 추가
-
 const categories = [
 	{
 		label: '어학',

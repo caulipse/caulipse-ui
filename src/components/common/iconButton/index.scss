@@ -1,0 +1,15 @@
+
+.close-button {
+    cursor: pointer;
+    position: absolute;
+    right: 1.25rem;
+    &.align-left {
+        left: 1.25rem;
+    }
+}
+
+.back-button {
+    cursor: pointer;
+    position: absolute;
+    left: 1.5rem;
+}

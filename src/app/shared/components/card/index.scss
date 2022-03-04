@@ -42,14 +42,12 @@
     @include desktop {
         width: 3.125rem !important;
         height: 1.625rem;
-        font-size: .938rem;
     }
 }
 
 .study-card-category {
     color: $primaryColor;
     font-weight: bold !important;
-    font-size: .625rem;
 }
 
 .study-card-title {
@@ -61,7 +59,6 @@
     width: 15.313rem;
     @include desktop {
         width: 34.313rem !important;
-        font-size: 1.094rem;
     }
 }
 
@@ -70,9 +67,6 @@
     font-size: .875rem;
     display: flex;
     align-items: center;
-    @include desktop {
-        font-size: 1.094rem;
-    }
 }
 
 progress {
@@ -107,7 +101,4 @@ progress {
 .study-card-tag {
     color: #929699;
     font-size: .75rem !important;
-    @include desktop {
-        font-size: .938rem !important;
-    }
 }

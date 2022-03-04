@@ -3,7 +3,7 @@ export enum IconAlignEnum {
 	right = 'right',
 }
 
-export interface IIconProps {
+export interface IIconButtonProps {
 	onClick: () => void;
 	align?: IconAlignEnum;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { IoArrowBack } from 'react-icons/io5';
 import './index.scss';
-import { IIconProps } from './types';
+import { IIconButtonProps } from './types';
 
-const BackButton = ({ onClick }: IIconProps) => {
+const BackButton = ({ onClick }: IIconButtonProps) => {
 	return <IoArrowBack className="back-button" onClick={onClick} size={24} />;
 };
 

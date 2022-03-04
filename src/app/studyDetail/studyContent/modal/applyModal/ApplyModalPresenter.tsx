@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import './index.scss';
 import { Container } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
-import CloseIcon from '@common/icon/CloseIcon';
+import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
 import Switch from '@common/switch/Switch';
 import { IModalContainerCommonProps } from '@common/modal/types';
@@ -33,7 +33,7 @@ const ApplyModalPresenter = ({
 				<Container>
 					<Container className="modal-title-container">
 						<span>스터디 신청</span>
-						<CloseIcon onClick={() => onClose(false)} />
+						<CloseButton onClick={() => onClose(false)} />
 					</Container>
 					<Container className="apply-modal-sub-title-container">
 						<span>한줄 소개글</span>

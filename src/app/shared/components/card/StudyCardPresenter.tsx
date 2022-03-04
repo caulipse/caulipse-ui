@@ -21,7 +21,7 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => (
 		<Container className="study-card-progress-container">
 			<progress className="study-card-progress" max={study.capacity} value={study.vacancy} />
 			<span className="study-card-progress-vacancy">{study.vacancy}</span>
-			<span className="study-card-progress-capacity"> / {study.capacity}</span>
+			<span className="study-card-progress-capacity">/{study.capacity}</span>
 		</Container>
 	</Container>
 );

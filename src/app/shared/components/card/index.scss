@@ -41,6 +41,9 @@
     margin-bottom: .25rem !important;
     font-size: .875rem !important;
     font-weight: bold !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 15.313rem;
 }
 
 .study-card-progress-container {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
-import CloseIcon from '@common/icon/CloseIcon';
+import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
@@ -33,7 +33,7 @@ const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Ele
 				<Container>
 					<Container className="modal-title-container">
 						<span>관심 카테고리</span>
-						<CloseIcon onClick={() => onClose(false)} />
+						<CloseButton onClick={() => onClose(false)} />
 					</Container>
 					<Grid container spacing={1}>
 						{categories.map((category) => {

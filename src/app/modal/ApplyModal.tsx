@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback, useState, useMemo } from 'react';
 import './applyModal.scss';
 import { Container } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
-import CloseIcon from '@common/icon/CloseIcon';
+import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
 import Switch from '@common/switch/Switch';
 import { IModalContainerCommonProps } from '@common/modal/types';
@@ -30,10 +30,6 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		setIsPublic(evt.target.checked);
 	}, []);
 
-	const handleClose = useCallback(() => {
-		onClose(false);
-	}, []);
-
 	const disabled = useMemo(() => {
 		return value.length < 5;
 	}, [value]);
@@ -44,7 +40,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 				<Container>
 					<Container className="modal-title-container">
 						<span>스터디 신청</span>
-						<CloseIcon onClick={handleClose} />
+						<CloseButton onClick={() => onClose(false)} />
 					</Container>
 					<Container className="apply-modal-sub-title-container">
 						<span>한줄 소개글</span>

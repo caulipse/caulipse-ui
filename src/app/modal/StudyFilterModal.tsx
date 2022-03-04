@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
-import CloseIcon from '@common/icon/CloseIcon';
+import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
 import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-import { IconAlignEnum } from '@common/icon/types';
+import { IconAlignEnum } from '@common/iconButton/types';
 import './studyFilterModal.scss';
 
 const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
@@ -70,7 +70,7 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 			<Container className="modal-root-container modal-space-between-container">
 				<Container>
 					<Container className="modal-title-container study-filter-modal-title-container">
-						<CloseIcon align={IconAlignEnum.left} onClick={() => onClose(false)} />
+						<CloseButton align={IconAlignEnum.left} onClick={() => onClose(false)} />
 						<span>세부 필터</span>
 						<span className="study-filter-modal-clear-button" onClick={onClickCancel}>
 							초기화

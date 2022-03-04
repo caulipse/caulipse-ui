@@ -3,8 +3,8 @@ import './editCategoryModal.scss';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
-import CloseIcon from '@common/icon/CloseIcon';
-import BackIcon from '@common/icon/BackIcon';
+import CloseButton from '@src/components/common/iconButton/CloseButton';
+import BackIcon from '@src/components/common/iconButton/BackButton';
 import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
@@ -41,7 +41,7 @@ const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 		<Container>
 			<Container className="modal-title-container edit-category-modal-title-container">
 				<span>카테고리 수정</span>
-				<CloseIcon onClick={() => onClose(false)} />
+				<CloseButton onClick={() => onClose(false)} />
 			</Container>
 			<Grid container spacing={1}>
 				{categories.map((category) => {
@@ -57,7 +57,7 @@ const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 				<Container className="modal-title-container">
 					<BackIcon onClick={() => setStep(step - 1)} />
 					<span>{value.MAIN}</span>
-					<CloseIcon onClick={() => onClose(false)} />
+					<CloseButton onClick={() => onClose(false)} />
 				</Container>
 				<Grid container spacing={1}>
 					{categories

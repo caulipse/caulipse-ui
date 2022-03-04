@@ -14,3 +14,8 @@ export interface IModalContainerCommonProps {
 	open: boolean;
 	onClose: (param: boolean) => void;
 }
+
+export interface IGlobalModalProps {
+	open: boolean;
+	key?: string;
+}

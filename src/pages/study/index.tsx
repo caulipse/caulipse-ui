@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
+import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
 import SubCategoryBarContainer from '@src/app/study/subCategoryBar/SubCategoryBarContainer';
 import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
 import StudyCategoryBarContainer from '@src/app/study/studyCategoryBar/StudyCategoryBarContainer';
-import StudySortModalContainer from '@study/modal/studySortModal/StudySortModalContainer';
-import StudyFilterModalContainer from '@study/modal/studyFilterModal/StudyFilterModalContainer';
 import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
 
 const CategoryObj = {
@@ -21,9 +20,7 @@ const StudyPage = (): JSX.Element => {
 	const [studyCategory, setStudyCategory] = useState<string>('');
 	const [selectedList, setSelectedList] = useState<string[]>([]);
 
-	const [openStudySortModal, setOpenStudySortModal] = useState<boolean>(false);
-	const [openStudyFilterModal, setOpenStudyFilterModal] = useState<boolean>(false);
-	const [openStudyCreateModal, setOpenStudyCreateModal] = useState<boolean>(false);
+	const { openModal } = useModal();
 
 	const getValueFromCategoryObj = (key: string) => {
 		const path = key.split('/')[2];
@@ -47,15 +44,16 @@ const StudyPage = (): JSX.Element => {
 	}, [studyCategory]);
 
 	const onClickSort = () => {
-		setOpenStudySortModal(!openStudySortModal);
+		openModal('StudySortModal');
 	};
 
 	const onClickFilter = () => {
-		setOpenStudyFilterModal(!openStudyFilterModal);
+		openModal('StudyFilterModal');
 	};
 
 	const onClickCreate = () => {
-		setOpenStudyCreateModal(!openStudyCreateModal);
+		// TODO
+		// 스터디 등록 모달 연결
 	};
 
 	return (
@@ -70,8 +68,6 @@ const StudyPage = (): JSX.Element => {
 			</div>
 			<StudyCreateButton onClick={onClickCreate} />
 			<StudyListContainter onClickSort={onClickSort} onClickFilter={onClickFilter} />
-			<StudySortModalContainer open={openStudySortModal} onClose={setOpenStudySortModal} />
-			<StudyFilterModalContainer open={openStudyFilterModal} onClose={setOpenStudyFilterModal} />
 		</div>
 	);
 };

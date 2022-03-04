@@ -8,7 +8,7 @@ import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/icon/types';
-import './index.scss';
+import './studyFilterModal.scss';
 
 const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
 const days = ['월', '화', '수', '목', '금', '토', '일'];
@@ -34,13 +34,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	const onClickCancel = () => {
 		// TODO
 		// 필터 clear 로직
-		console.info('StudyFilterModalContainer');
 	};
 
 	const onClick = () => {
 		// TODO
 		// 필터 적용 API 연동
-		console.info('StudyFilterModalContainer');
 	};
 
 	const onChangeFrequencies = (value: string) => {

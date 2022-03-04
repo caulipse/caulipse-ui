@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import NumberUtils from '@src/app/shared/utils/number';
 import format from 'date-fns/format';
 import { IoEllipsisVertical } from 'react-icons/io5';
-import UserStudyMoreModalContainer from '@studyDetail/studyContent/modal/userStudyMoreModal/UserStudyMoreModalContainer';
-import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
-import StudyCloseModalContainer from '@studyDetail/studyContent/modal/studyCloseModal/StudyCloseModalContainer';
+import useModal from '@src/hooks/modal/useModal';
 import { AppliedStudyInterface } from '../interface/interface';
 import './index.scss';
 
@@ -13,17 +11,14 @@ interface OpenedStudyItemProps {
 }
 
 const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element => {
-	const [openUserMoreModal, setOpenUserMoreModal] = useState<boolean>(false);
-	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
-	const [openCancelModal, setOpenCancelModal] = useState<boolean>(false);
-	const [openCloseModal, setOpenCloseModal] = useState<boolean>(false);
+	const { openModal } = useModal();
 
 	const closeStudy = () => {
-		setOpenCloseModal(!openCloseModal);
+		openModal('StudyCloseModal');
 	};
 
 	const onClickMore = () => {
-		setOpenUserMoreModal(!openUserMoreModal);
+		openModal('UserStudyMoreModal');
 	};
 
 	return (
@@ -68,14 +63,6 @@ const OpenedStudyItem = ({ openedStudyItem }: OpenedStudyItemProps): JSX.Element
 					</div>
 				)}
 			</button>
-			<UserStudyMoreModalContainer
-				open={openUserMoreModal}
-				onClose={setOpenUserMoreModal}
-				setOpenReportModal={setOpenReportModal}
-				setOpenCancelModal={setOpenCancelModal}
-			/>
-			<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
-			<StudyCloseModalContainer open={openCloseModal} onClose={setOpenCloseModal} />
 		</div>
 	);
 };

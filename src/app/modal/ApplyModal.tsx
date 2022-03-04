@@ -1,5 +1,5 @@
-import React, { ChangeEvent } from 'react';
-import './index.scss';
+import React, { ChangeEvent, useCallback, useState, useMemo } from 'react';
+import './applyModal.scss';
 import { Container } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import CloseIcon from '@common/icon/CloseIcon';
@@ -7,33 +7,43 @@ import CommonButton from '@common/button/CommonButton';
 import Switch from '@common/switch/Switch';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
+import useModal from '@src/hooks/modal/useModal';
 
-interface IApplyModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	isPublic: boolean;
-	disabled: boolean;
-	value: string;
-	onChangeValue: (evt: ChangeEvent<HTMLTextAreaElement>) => void;
-	onChangeIsPublic: (evt: ChangeEvent<HTMLInputElement>) => void;
-}
+const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [value, setValue] = useState('시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.');
+	const [isPublic, setIsPublic] = useState(false);
 
-const ApplyModalPresenter = ({
-	open,
-	onClose,
-	onClick,
-	isPublic,
-	disabled,
-	value,
-	onChangeValue,
-	onChangeIsPublic,
-}: IApplyModalPresenterProps): JSX.Element => {
+	const onClick = useCallback(() => {
+		// TODO
+		// 스터디 신청 API 연동
+		onClose(false);
+		const { openModal } = useModal();
+		openModal('AppliedModal');
+	}, []);
+
+	const onChangeValue = useCallback((evt: ChangeEvent<HTMLTextAreaElement>) => {
+		setValue(evt.target.value);
+	}, []);
+
+	const onChangeIsPublic = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
+		setIsPublic(evt.target.checked);
+	}, []);
+
+	const handleClose = useCallback(() => {
+		onClose(false);
+	}, []);
+
+	const disabled = useMemo(() => {
+		return value.length < 5;
+	}, [value]);
+
 	return (
 		<Modal open={open} onClose={onClose} height="40.438rem">
 			<Container className="modal-root-container apply-modal-container modal-space-between-container">
 				<Container>
 					<Container className="modal-title-container">
 						<span>스터디 신청</span>
-						<CloseIcon onClick={() => onClose(false)} />
+						<CloseIcon onClick={handleClose} />
 					</Container>
 					<Container className="apply-modal-sub-title-container">
 						<span>한줄 소개글</span>
@@ -55,4 +65,4 @@ const ApplyModalPresenter = ({
 	);
 };
 
-export default ApplyModalPresenter;
+export default ApplyModal;

@@ -1,8 +1,8 @@
 import { UserPreview } from '@api/response/user';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { StudyUser } from '@api/types';
-import ApproveCancelModalContainer from '@src/app/studyDetail/studyContent/modal/approveCancelModal/ApproveCancelModalContainer';
+import useModal from '@src/hooks/modal/useModal';
 import StudyUserItemPresenter from './StudyUserItemPresenter';
 
 interface StudyUserItemContainerProps {
@@ -10,10 +10,9 @@ interface StudyUserItemContainerProps {
 }
 
 const StudyUserItemContainer = ({ studyUser }: StudyUserItemContainerProps): JSX.Element => {
-	const [open, setOpen] = useState(false);
-
+	const { openModal } = useModal();
 	const onClick = () => {
-		setOpen(!open);
+		openModal('ApproveCancelModal');
 	};
 
 	// TODO
@@ -22,7 +21,6 @@ const StudyUserItemContainer = ({ studyUser }: StudyUserItemContainerProps): JSX
 		<>
 			{/* <Link to={`/user/${studyUser?.userId}`}> */}
 			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} />
-			<ApproveCancelModalContainer open={open} onClose={setOpen} nickname="dummy" />
 		</>
 		//  </Link>
 	);

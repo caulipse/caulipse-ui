@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
 
 const useModal = () => {
 	const [state, setState] = useAtom(globalState);
 
-	const openModal = (message: string) => {
-		setState({ ...state, snackbar: { open: true, message, type } });
-	};
+	const openModal = useCallback((key: string) => {
+		setState({ ...state, modal: { open: true, key } });
+	}, []);
 
-	const closeModal = () => {
-		setState({ ...state, snackbar: { open: false, message: '' } });
-	};
+	const closeModal = useCallback(() => {
+		setState({ ...state, modal: { open: false, key: '' } });
+	}, []);
 
 	return { openModal, closeModal };
 };

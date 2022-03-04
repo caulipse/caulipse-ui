@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Container, Typography, Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IReportModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	onChange: (params: React.ChangeEvent<HTMLInputElement>) => void;
-	value: string;
-}
-
-const ReportModalPresenter = ({ open, onClose, onClick, onChange, value }: IReportModalPresenterProps): JSX.Element => {
+const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	// FIXME: key 값은 변경할 예정임
+	const [value, setValue] = useState('0');
+	const onClick = () => {
+		// TODO
+		// 신고 API 연동
+	};
+	const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+		setValue((evt.target as HTMLInputElement).value);
+	};
 	return (
 		<SimpleModal open={open} onClose={onClose} title="신고" height="18.688rem" footer={false}>
 			<Container className="simple-modal-content-container">
@@ -64,4 +67,4 @@ const ReportModalPresenter = ({ open, onClose, onClick, onChange, value }: IRepo
 	);
 };
 
-export default ReportModalPresenter;
+export default ReportModal;

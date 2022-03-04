@@ -1,5 +1,5 @@
-import React from 'react';
-import './index.scss';
+import React, { useState } from 'react';
+import './editCategoryModal.scss';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
@@ -11,23 +11,20 @@ import '@common/modal/common.scss';
 import categories from '@src/const';
 import { ICategoryType, CategoryDepthEnum } from '@src/types';
 
-interface IEditCategoryModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	value: Record<string, string>;
-	onClickValue: (label: string, key: CategoryDepthEnum) => void;
-	step: number;
-	setStep: (params: number) => void;
-}
+const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [value, setValue] = useState({ MAIN: '', SUB: '' });
+	const [step, setStep] = useState(0);
 
-const EditCategoryModalPresenter = ({
-	open,
-	onClose,
-	onClick,
-	value,
-	onClickValue,
-	step,
-	setStep,
-}: IEditCategoryModalPresenterProps): JSX.Element => {
+	const onClick = () => {
+		// TODO
+		// 카테고리 수정 API 연동
+	};
+
+	const onClickValue = (category: string, key: CategoryDepthEnum) => {
+		setValue({ ...value, [key]: category });
+		if (step === 0) setStep((prev) => prev + 1);
+	};
+
 	const CategoryChip = (category: ICategoryType) => {
 		const { label, categoryDepth } = category;
 		const handleClick = () => {
@@ -85,4 +82,4 @@ const EditCategoryModalPresenter = ({
 	);
 };
 
-export default EditCategoryModalPresenter;
+export default EditCategoryModal;

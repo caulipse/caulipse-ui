@@ -4,17 +4,18 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IHostStudyMoreModalPresenterProps extends IModalContainerCommonProps {
-	onClickChange: () => void;
-	onClickDelete: () => void;
-}
+const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const onClickChange = () => {
+		// TODO
+		// 모집글 변경 Flow 연결
+	};
 
-const HostStudyMoreModalPresenter = ({
-	open,
-	onClose,
-	onClickChange,
-	onClickDelete,
-}: IHostStudyMoreModalPresenterProps): JSX.Element => {
+	const onClickDelete = () => {
+		onClose(false);
+		// TODO
+		// studyDeleteModl
+		// setOpenStudyDeleteModal(true);
+	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="14rem">
 			<Container className="simple-modal-content-container">
@@ -29,4 +30,4 @@ const HostStudyMoreModalPresenter = ({
 	);
 };
 
-export default HostStudyMoreModalPresenter;
+export default HostStudyMoreModal;

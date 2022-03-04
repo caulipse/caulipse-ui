@@ -3,20 +3,21 @@ import { Button, Container } from '@material-ui/core';
 import '@common/modal/common.scss';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import SimpleModal from '@common/modal/SimpleModal';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 
-interface IUserStudyMoreModalPresenterProps extends IModalContainerCommonProps {
-	onClickCancel: () => void;
-	onClickReport: () => void;
-}
-
-const UserStudyMoreModalPresenter = ({
-	open,
-	onClose,
-	onClickCancel,
-	onClickReport,
-}: IUserStudyMoreModalPresenterProps): JSX.Element => {
+const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const { openModal } = useModal();
 	// TODO
 	// api 로 신청자 여부를 확인하여 신청자가 아닐 경우 "신청취소" 버튼은 숨김 처리해야함.
+	const onClickReport = () => {
+		onClose(false);
+		openModal(ModalKeyEnum.ReportModal);
+	};
+	const onClickCancel = () => {
+		onClose(false);
+		openModal(ModalKeyEnum.ApplyCancelModal);
+	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">
 			<Container className="simple-modal-content-container">
@@ -31,4 +32,4 @@ const UserStudyMoreModalPresenter = ({
 	);
 };
 
-export default UserStudyMoreModalPresenter;
+export default UserStudyMoreModal;

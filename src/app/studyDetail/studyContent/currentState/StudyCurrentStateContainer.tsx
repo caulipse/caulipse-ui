@@ -1,7 +1,6 @@
 import { GetUserProfileResponse } from '@api/response/user';
 import React, { useEffect, useState } from 'react';
 import { StudyUser } from '@api/types';
-import StudyApproveModalContainer from '@studyDetail/studyContent/currentState/modal/StudyApproveModalContainer';
 import StudyCurrentStatePresenter from './StudyCurrentStatePresenter';
 
 const sampleImg =
@@ -52,15 +51,8 @@ const hostD: StudyUser = {
 
 const StudyCurrentStateContainer = ({ studyId, hostId }: StudyCurrentStateContainerProps): JSX.Element => {
 	const [studyUser, setStudyUser] = useState<StudyUser[] | []>(studyUserD);
-	const [openStudyApproveModal, setOpenStudyApproveModal] = useState(false);
 
-	return (
-		<StudyCurrentStatePresenter
-			host={hostD}
-			studyUsers={studyUser}
-			setOpenStudyApproveModal={setOpenStudyApproveModal}
-		/>
-	);
+	return <StudyCurrentStatePresenter host={hostD} studyUsers={studyUser} />;
 };
 
 export default StudyCurrentStateContainer;

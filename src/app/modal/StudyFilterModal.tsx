@@ -1,29 +1,14 @@
-import React, { ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
 import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
-import Switch from '@common/switch/Switch';
 import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/iconButton/types';
-import classnames from 'classnames';
-import './index.scss';
-
-interface IStudyFilterModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	onClickCancel: () => void;
-	selectedFrequencies: string[];
-	onChangeFrequencies: (params: string) => void;
-	selectedDays: string[];
-	onChangeDays: (params: string) => void;
-	selectedPlaces: string[];
-	onChangePlaces: (params: string) => void;
-	isHide: boolean;
-	onChangeIsHide: (evt: ChangeEvent<HTMLInputElement>) => void;
-}
+import './studyFilterModal.scss';
 
 const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
 const days = ['월', '화', '수', '목', '금', '토', '일'];
@@ -41,22 +26,47 @@ const places = [
 // TODO
 // 마감항목 표시 버튼 디자인 완료되면 반영 필요
 
-const StudyFilterModalPresenter = ({
-	open,
-	onClose,
-	onClick,
-	onClickCancel,
-	selectedFrequencies,
-	onChangeFrequencies,
-	selectedDays,
-	onChangeDays,
-	selectedPlaces,
-	onChangePlaces,
-	isHide,
-	onChangeIsHide,
-}: IStudyFilterModalPresenterProps): JSX.Element => {
+const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [selectedFrequencies, setSelectedFrequencies] = useState([] as string[]);
+	const [selectedDays, setSelectedDays] = useState([] as string[]);
+	const [selectedPlaces, setSelectedPlaces] = useState([] as string[]);
+
+	const onClickCancel = () => {
+		// TODO
+		// 필터 clear 로직
+	};
+
+	const onClick = () => {
+		// TODO
+		// 필터 적용 API 연동
+	};
+
+	const onChangeFrequencies = (value: string) => {
+		if (selectedFrequencies.includes(value)) {
+			setSelectedFrequencies(selectedFrequencies.filter((item) => item !== value));
+		} else {
+			setSelectedFrequencies(selectedFrequencies.concat(value));
+		}
+	};
+
+	const onChangeDays = (value: string) => {
+		if (selectedDays.includes(value)) {
+			setSelectedDays(selectedDays.filter((item) => item !== value));
+		} else {
+			setSelectedDays(selectedDays.concat(value));
+		}
+	};
+
+	const onChangePlaces = (value: string) => {
+		if (selectedPlaces.includes(value)) {
+			setSelectedPlaces(selectedPlaces.filter((item) => item !== value));
+		} else {
+			setSelectedPlaces(selectedPlaces.concat(value).slice(-3));
+		}
+	};
+
 	return (
-		<Modal open={open} onClose={onClose} height="46.313rem">
+		<Modal open={open} onClose={onClose} height="44.25rem">
 			<Container className="modal-root-container modal-space-between-container">
 				<Container>
 					<Container className="modal-title-container study-filter-modal-title-container">
@@ -104,10 +114,6 @@ const StudyFilterModalPresenter = ({
 							})}
 						</Container>
 					</Container>
-					<Container className="study-filter-modal-row study-filter-modal-switch-row">
-						<span className={classnames('study-filter-modal-sub-text', { checked: isHide })}>마감항목 숨기기</span>
-						<Switch checked={isHide} onChange={onChangeIsHide} />
-					</Container>
 				</Container>
 				<CommonButton type={ButtonTypeEnum.secondary} title="적용" onClick={onClick} />
 			</Container>
@@ -115,4 +121,4 @@ const StudyFilterModalPresenter = ({
 	);
 };
 
-export default StudyFilterModalPresenter;
+export default StudyFilterModal;

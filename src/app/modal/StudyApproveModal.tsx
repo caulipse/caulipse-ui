@@ -1,25 +1,23 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Button, Container, Typography } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IStudyApproveModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	current: number;
-	total: number;
-}
+const StudyApproveModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const onClick = () => {
+		onClose(false);
+	};
+	// TODO dummy data API 연동
 
-const StudyApproveModalPresenter = ({
-	open,
-	onClose,
-	onClick,
-	current,
-	total,
-}: IStudyApproveModalPresenterProps): JSX.Element => {
-	const isCompleted = useMemo(() => {
-		return current === total;
-	}, [current, total]);
+	const current = 4;
+	const total = 6;
+	const isCompleted = false;
+
+	// const isCompleted = useMemo(() => {
+	// 	return current === total;
+	// }, [current, total]);
+
 	return (
 		<SimpleModal
 			open={open}
@@ -57,4 +55,4 @@ const StudyApproveModalPresenter = ({
 	);
 };
 
-export default StudyApproveModalPresenter;
+export default StudyApproveModal;

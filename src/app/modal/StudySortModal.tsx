@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Container, Typography, Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IStudySortModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	onChange: (params: React.ChangeEvent<HTMLInputElement>) => void;
-	value: string;
-}
-
-const StudySortModalPresenter = ({ open, onClick, onChange, value }: IStudySortModalPresenterProps): JSX.Element => {
+const StudySortModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const className = 'radio-container radio-primary';
 	const selectedClassName = 'radio-container radio-primary selected-black';
+
+	const [value, setValue] = useState('createdAt:desc');
+	const onClick = () => {
+		// TODO 정렬 API 연동
+		onClose(false);
+	};
+	const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+		setValue((evt.target as HTMLInputElement).value);
+	};
+
 	return (
 		<SimpleModal open={open} onClose={onClick} title="정렬 기준" height="25.125rem">
 			<Container className="simple-modal-content-container">
@@ -51,4 +55,4 @@ const StudySortModalPresenter = ({ open, onClick, onChange, value }: IStudySortM
 	);
 };
 
-export default StudySortModalPresenter;
+export default StudySortModal;

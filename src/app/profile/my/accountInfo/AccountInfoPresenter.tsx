@@ -3,7 +3,8 @@ import './styles.scss';
 import { Button } from '@material-ui/core';
 import { IoArrowBack, IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
-import WithdrawModalContainer from '@profile/my/accountInfo/modal/WithdrawModalContainer';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 
 interface AccountInfoPresenterProps {
 	userId: string;
@@ -11,7 +12,7 @@ interface AccountInfoPresenterProps {
 
 const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Element => {
 	const history = useHistory();
-	const [openWithdrawModal, setOpenWithdrawModal] = useState(false);
+	const { openModal } = useModal();
 
 	const changePw = () => {
 		console.log('changePw');
@@ -22,7 +23,7 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 	};
 
 	const withDraw = () => {
-		setOpenWithdrawModal(!openWithdrawModal);
+		openModal(ModalKeyEnum.WithdrawModal);
 	};
 
 	return (
@@ -64,7 +65,6 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 					</button>
 				</div>
 			</div>
-			<WithdrawModalContainer open={openWithdrawModal} onClose={setOpenWithdrawModal} />
 		</div>
 	);
 };

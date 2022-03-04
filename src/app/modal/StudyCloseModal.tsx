@@ -4,19 +4,16 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 
-interface IStudyCloseModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-	current: number;
-	total: number;
-}
+const StudyCloseModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const onClick = () => {
+		// TODO
+		// 스터디 마감 API 연동
+	};
+	// TODO dummy data API 연동
 
-const StudyCloseModalPresenter = ({
-	open,
-	onClose,
-	onClick,
-	current,
-	total,
-}: IStudyCloseModalPresenterProps): JSX.Element => {
+	// FIXME dummy data
+	const current = 4;
+	const total = 5;
 	return (
 		<SimpleModal
 			open={open}
@@ -42,4 +39,4 @@ const StudyCloseModalPresenter = ({
 	);
 };
 
-export default StudyCloseModalPresenter;
+export default StudyCloseModal;

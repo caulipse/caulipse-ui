@@ -1,11 +1,11 @@
 import React from 'react';
-import './index.scss';
+import './appliedModal.scss';
 import { Button, Container } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 
-const AppliedModalPresenter = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+const AppliedModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	return (
 		<Modal open={open} onClose={onClose} height="15rem">
 			<Container className="modal-root-container apply-modal-container modal-space-between-container">
@@ -27,4 +27,4 @@ const AppliedModalPresenter = ({ open, onClose }: IModalContainerCommonProps): J
 	);
 };
 
-export default AppliedModalPresenter;
+export default AppliedModal;

@@ -3,12 +3,17 @@ import { Button, Container, Typography } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import { SnackbarTypeEnum } from '@common/snackbar/types';
 
-interface IApplyCancelModalPresenterProps extends IModalContainerCommonProps {
-	onClick: () => void;
-}
-
-const ApplyCancelModalPresenter = ({ open, onClose, onClick }: IApplyCancelModalPresenterProps): JSX.Element => {
+const ApplyCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const { openSnackbar } = useSnackbar();
+	const onClick = () => {
+		// TODO
+		// 신청 취소 API 연동
+		onClose(false);
+		openSnackbar('스터디 신청을 취소하였습니다', SnackbarTypeEnum.secondary);
+	};
 	return (
 		<SimpleModal
 			open={open}
@@ -35,4 +40,4 @@ const ApplyCancelModalPresenter = ({ open, onClose, onClick }: IApplyCancelModal
 	);
 };
 
-export default ApplyCancelModalPresenter;
+export default ApplyCancelModal;

@@ -1,4 +1,11 @@
-const categories = [
+export interface CategoryType {
+	label: string;
+	code: number;
+}
+
+export type MainCategoryType = CategoryType & { subCategories: CategoryType[] };
+
+export const categories: MainCategoryType[] = [
 	{
 		label: '어학',
 		code: 100,

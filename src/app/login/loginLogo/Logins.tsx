@@ -1,13 +1,14 @@
 import React from "react";
+import './LoginLogo.scss';
 
-const loginlogo = (): JSX.Element => {
+const LoginLogo = (): JSX.Element => {
     return(
-        <div>
+            <div>
             <span className="Login-Logo">
                 로그인
             </span>
-        </div>
+            </div>
     );
 };
 
-export default loginlogo;
+export default LoginLogo;

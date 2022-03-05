@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
 import CloseIcon from '@common/icon/CloseIcon';
 import CommonButton from '@common/button/CommonButton';
+import Switch from '@common/switch/Switch';
 import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/icon/types';
+import classnames from 'classnames';
 import './index.scss';
 
 interface IStudyFilterModalPresenterProps extends IModalContainerCommonProps {
@@ -19,6 +21,8 @@ interface IStudyFilterModalPresenterProps extends IModalContainerCommonProps {
 	onChangeDays: (params: string) => void;
 	selectedPlaces: string[];
 	onChangePlaces: (params: string) => void;
+	isHide: boolean;
+	onChangeIsHide: (evt: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
@@ -48,9 +52,11 @@ const StudyFilterModalPresenter = ({
 	onChangeDays,
 	selectedPlaces,
 	onChangePlaces,
+	isHide,
+	onChangeIsHide,
 }: IStudyFilterModalPresenterProps): JSX.Element => {
 	return (
-		<Modal open={open} onClose={onClose} height="44.25rem">
+		<Modal open={open} onClose={onClose} height="46.313rem">
 			<Container className="modal-root-container modal-space-between-container">
 				<Container>
 					<Container className="modal-title-container study-filter-modal-title-container">
@@ -97,6 +103,10 @@ const StudyFilterModalPresenter = ({
 								return <Chip key={item} label={item} selected={selectedPlaces.includes(item)} onClick={handleClick} />;
 							})}
 						</Container>
+					</Container>
+					<Container className="study-filter-modal-row study-filter-modal-switch-row">
+						<span className={classnames('study-filter-modal-sub-text', { checked: isHide })}>마감항목 숨기기</span>
+						<Switch checked={isHide} onChange={onChangeIsHide} />
 					</Container>
 				</Container>
 				<CommonButton type={ButtonTypeEnum.secondary} title="적용" onClick={onClick} />

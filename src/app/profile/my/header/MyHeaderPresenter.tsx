@@ -4,15 +4,16 @@ import { useHistory } from 'react-router-dom';
 import './index.scss';
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css';
+import { UserProfile } from '@src/api/types';
 import ProfilePopupContainer from '../profile/ProfilePopupContainer';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 
 interface MyHeaderPresenterProps {
-	userName: string;
+	userProfile: UserProfile;
 }
 
-const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element => {
+const MyHeaderPresenter = ({ userProfile }: MyHeaderPresenterProps): JSX.Element => {
 	const history = useHistory();
 	const sheetRef = useRef<BottomSheetRef>(null);
 	const [profileSheetVisible, setProfileSheetVisible] = useState<boolean>(false);
@@ -36,7 +37,7 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 			</div>
 			<img className="my-header-profile-photo" src={sampleImgUrl} alt="사용자 프로필 사진" />
 			<div className="my-header-user-name">
-				{userName}
+				{userProfile.userName}
 				<span className="my-header-user-name-suffix"> 님</span>
 			</div>
 			<button type="button" onClick={showProfileSheet}>
@@ -45,6 +46,7 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 			<ProfilePopupContainer
 				profileSheetVisible={profileSheetVisible}
 				setProfileSheetVisible={setProfileSheetVisible}
+				userProfile={userProfile}
 			/>
 		</div>
 	);

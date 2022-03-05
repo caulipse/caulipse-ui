@@ -1,3 +1,4 @@
+import { UserProfile } from '@src/api/types';
 import React from 'react';
 import ProfilePopupPresenter from './ProfilePopupPresenter';
 
@@ -18,6 +19,7 @@ const sampleUserInfo = {
 interface ProfilePopupContainerProps {
 	profileSheetVisible: boolean;
 	setProfileSheetVisible: (param: boolean) => void;
+	userProfile: UserProfile;
 }
 
 const ProfilePopupContainer = ({

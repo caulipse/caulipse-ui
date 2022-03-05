@@ -7,9 +7,9 @@ import MyHeaderPresenter from './MyHeaderPresenter';
 const exampleId = '02626cbc-2b7f-4e1f-ad14-8d4c70c9fed2';
 
 const MyHeaderContainer = (): JSX.Element => {
-	const userName = useFetchUserProfile(exampleId).data?.userProfile.userName;
+	const userProfile = useFetchUserProfile(exampleId).data?.userProfile;
 
-	return <div>{userName && <MyHeaderPresenter userName={userName} />}</div>;
+	return <div>{userProfile && <MyHeaderPresenter userProfile={userProfile} />}</div>;
 };
 
 export default MyHeaderContainer;

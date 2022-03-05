@@ -56,5 +56,5 @@ export interface UserProfile {
 	showAbout: boolean;
 	links: string[];
 	onBreak: boolean;
-	// Todo: 유저 프로필 사진, 로그인 id, 유저 카테고리
+	// Todo: 유저 프로필 사진, 로그인 id, 유저 카테고리, 한 줄 소개평
 }

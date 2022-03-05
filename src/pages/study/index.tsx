@@ -5,11 +5,10 @@ import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
 import ModalKeyEnum from '@common/modal/enum';
 import MainCategoryContainer from '@src/app/study/mainCategory/MainCategoryContainer';
 import SubCategoryContainer from '@src/app/study/subCategory/SubCategoryContainer';
-import categories, { MainCategoryType, CategoryType } from '@src/const';
+import { MainCategoryType } from '@src/const';
 
 const StudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
-	const [subCategories, setSubCategories] = useState<CategoryType[]>();
 
 	const { openModal } = useModal();
 
@@ -30,8 +29,6 @@ const StudyPage = (): JSX.Element => {
 		// TODO
 		// API 연동
 		console.info(mainCategory);
-		// FIXME
-		// 하위 카테고리 set
 	}, [mainCategory]);
 
 	return (

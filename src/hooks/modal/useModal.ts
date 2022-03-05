@@ -6,19 +6,15 @@ import ModalKeyEnum from '@common/modal/enum';
 const useModal = () => {
 	const [state, setState] = useAtom(globalState);
 
-	const openModal = (key: ModalKeyEnum) => {
-		setState({ ...state, modal: { ...state.modal, open: true, key } });
+	const openModal = (key: ModalKeyEnum, params?: any) => {
+		setState({ ...state, modal: { open: true, key, params } });
 	};
 
 	const closeModal = () => {
 		setState({ ...state, modal: { open: false, key: '', params: {} } });
 	};
 
-	const setParams = (params: any) => {
-		setState({ ...state, modal: { ...state.modal, params } });
-	};
-
-	return { openModal, closeModal, setParams };
+	return { openModal, closeModal };
 };
 
 export default useModal;

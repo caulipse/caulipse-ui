@@ -19,6 +19,7 @@ const globalState = atom({
 	modal: {
 		open: false,
 		key: '',
+		params: {},
 	},
 } as IGlobalStateProps);
 

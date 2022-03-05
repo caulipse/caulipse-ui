@@ -13,6 +13,7 @@ enum ModalKeyEnum {
 	StudyFilterModal = 'StudyFilterModal',
 	StudySortModal = 'StudySortModal',
 	UserStudyMoreModal = 'UserStudyMoreModal',
+	UserProfileModal='UserProfileModal',
 	WithdrawModal = 'WithdrawModal',
 }
 

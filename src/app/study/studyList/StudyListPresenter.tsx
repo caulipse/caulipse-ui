@@ -1,7 +1,7 @@
 import StudyCardContainer from '@src/app/shared/components/card/StudyCardContainer';
 import React from 'react';
 import { Study } from '@api/types';
-import './styles.scss';
+import './index.scss';
 
 interface IStudyListPresenterProps {
 	onClickSort: () => void;

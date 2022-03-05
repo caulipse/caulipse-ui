@@ -11,7 +11,11 @@ const Chip = ({ selected, label, onClick, type = ChipTypeEnum.primary }: IChipPr
 	return (
 		<Container
 			onClick={handleClick}
-			className={classnames('chip-container', { selected }, { 'secondary-chip-container': ChipTypeEnum.secondary })}
+			className={classnames(
+				'chip-container',
+				{ selected },
+				{ 'secondary-chip-container': type === ChipTypeEnum.secondary }
+			)}
 		>
 			{label}
 		</Container>

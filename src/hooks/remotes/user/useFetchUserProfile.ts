@@ -1,9 +1,9 @@
 import API from '@src/api';
-import { GetUserProfileResponse } from '@src/api/response/user';
+import { IResponseGetUserProfile } from '@src/api/response/user';
 import { useQuery } from 'react-query';
 
 export default (id: string) => {
-	const fetcher = async (): Promise<GetUserProfileResponse> => {
+	const fetcher = async (): Promise<IResponseGetUserProfile> => {
 		const res = await API.getUserProfile(id);
 		return res.data;
 	};

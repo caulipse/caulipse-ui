@@ -27,7 +27,7 @@ const Location = () => {
 const MainContainer = (): JSX.Element => {
 	const [state] = useAtom(globalState);
 	const { open: snackbarOpen, message, type } = state.snackbar;
-	const { open: modalOpen, key } = state.modal;
+	const { open: modalOpen, key, params } = state.modal;
 	const { closeModal } = useModal();
 
 	const Component = loadable(() => import(`@modal/${key}`));
@@ -44,7 +44,7 @@ const MainContainer = (): JSX.Element => {
 				</Switch>
 			</div>
 			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}
-			{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} />}
+			{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} params={params} />}
 		</div>
 	);
 };

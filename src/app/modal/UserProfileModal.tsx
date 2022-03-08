@@ -1,8 +1,6 @@
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
-import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { BottomSheet, BottomSheetProps, BottomSheetRef } from 'react-spring-bottom-sheet';
+import React, { useState } from 'react';
 import './userProfileModal.scss';
-import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
@@ -17,8 +15,6 @@ interface UserProfileModalProps extends IModalContainerCommonProps {
 }
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
-const shortUserAbout = 'shortUserAbout';
-const tags = ['tag1', 'tag2', 'tag3'];
 
 const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX.Element => {
 	const { width: windowWidth, height: windowHeight } = useWindowDimensions();
@@ -46,16 +42,16 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				style={{ height: isPopup ? 'auto' : bottomSheetHeight }}
 				onScroll={handleScroll}
 			>
-				<div className="profile-bottom-sheet-top-short-about">{shortUserAbout}</div>
+				<div className="profile-bottom-sheet-top-short-about">{userProfile?.shortUserAbout}</div>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
 					src={sampleImgUrl}
 					alt="프로필 이미지"
 				/>
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>
-				<div className="profile-bottom-sheet-short-about">{shortUserAbout}</div>
+				<div className="profile-bottom-sheet-short-about">{userProfile?.shortUserAbout}</div>
 				<div className="profile-bottom-sheet-tag-container">
-					{tags?.map((tagItem, tagIndex) => (
+					{userProfile?.categories?.map((tagItem, tagIndex) => (
 						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>
 							{tagItem}
 						</div>

@@ -11,6 +11,8 @@ interface ProfileLinkProps {
 }
 
 const ProfileLink = ({ link }: ProfileLinkProps): JSX.Element => {
+	// Todo: url 형식이 아닌 경우에 대한 예외 처리 필요
+
 	// const urlObject = new URL(link);
 	// const parsedLink = psl.parse(urlObject?.hostname);
 	const { openSnackbar } = useSnackbar();

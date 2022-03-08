@@ -136,6 +136,10 @@ const API = {
 	getNotices() {
 		return client.get('/notice');
 	},
+	// 공지 사항 단건 조회
+	getNotice(id: string) {
+		return client.get(`/notice/${id}`);
+	},
 };
 
 export default API;

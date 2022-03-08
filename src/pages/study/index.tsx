@@ -22,7 +22,7 @@ const StudyPage = (): JSX.Element => {
 	return (
 		<div className="studyPage-con">
 			<MainCategoryContainer onChange={setMainCategory} />
-			<SubCategoryContainer mainCategory={mainCategory} />
+			{mainCategory && !!mainCategory.subCategories.length && <SubCategoryContainer mainCategory={mainCategory} />}
 			<StudyCreateButton onClick={onClickCreate} />
 			<StudySortFilterContainer />
 			<StudyListContainter />

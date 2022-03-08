@@ -1,24 +1,24 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
+import { MainCategoryType } from '@src/const';
 import './index.scss';
 
 interface IMainCategoryItemProps {
-	label: string;
-	code: number;
-	onClick: (code: number) => void;
+	category: MainCategoryType;
+	onClick: (category: MainCategoryType) => void;
 }
 
 // FIXME
 // 백엔드에 이미지 데이터 추가되면 div -> img 태그로 변경 필요
 
-const MainCategoryItem = ({ label, code, onClick }: IMainCategoryItemProps): JSX.Element => {
+const MainCategoryItem = ({ category, onClick }: IMainCategoryItemProps): JSX.Element => {
 	const handleClick = () => {
-		onClick(code);
+		onClick(category);
 	};
 	return (
 		<Container className="main-category-item-container" onClick={handleClick}>
 			<div className="main-category-item-img" />
-			<Typography>{label}</Typography>
+			<Typography>{category.label}</Typography>
 		</Container>
 	);
 };

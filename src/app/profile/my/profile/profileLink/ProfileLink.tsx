@@ -8,13 +8,13 @@ interface ProfileLinkProps {
 }
 
 const ProfileLink = ({ link }: ProfileLinkProps): JSX.Element => {
-    const urlObject = new URL(link);
-	const parsedLink = psl.parse(urlObject.hostname);
+	// const urlObject = new URL(link);
+	// const parsedLink = psl.parse(urlObject?.hostname);
 
 	return (
 		<div className="profile-link-container">
 			<IoLink size={16} className="mr8" />
-			<div className="mr16 profile-link-domain">{parsedLink?.sld??''}</div>
+			{/* <div className="mr16 profile-link-domain">{parsedLink?.sld??''}</div> */}
 			<div className="profile-link-link">{link}</div>
 		</div>
 	);

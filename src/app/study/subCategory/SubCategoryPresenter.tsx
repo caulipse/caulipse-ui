@@ -17,15 +17,15 @@ const SubCategoryPresenter = ({
 	selectedCategories,
 }: ISubCategoryPresenterProps): JSX.Element => {
 	const selectedCategory = useMemo(() => {
-		return categories.filter((category) => {
+		return categories.find((category) => {
 			return category.code === mainCategory?.code;
 		});
 	}, [mainCategory]);
 	return (
 		<Container className="sub-category-presenter-container">
-			{!!selectedCategory?.length && (
+			{!!selectedCategory && (
 				<Grid container className="sub-category-presenter-item-container">
-					{selectedCategory?.[0]?.subCategories?.map((category) => (
+					{selectedCategory?.subCategories?.map((category) => (
 						<SubCategoryItem
 							key={category.code}
 							category={category}

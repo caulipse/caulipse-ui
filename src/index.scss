@@ -17,6 +17,10 @@ body {
   }
 }
 
+button{
+  cursor:pointer;
+}
+
 @include desktop {
   html{
      font-size: 22px;

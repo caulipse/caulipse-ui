@@ -132,6 +132,14 @@ const API = {
 	patchUserProfile(request: IRequestPatchUserProfile) {
 		return client.patch(`/user/profile/${request.userId}`, request);
 	},
+	// 공지 사항 목록 조회
+	getNotices() {
+		return client.get('/notice');
+	},
+	// 공지 사항 단건 조회
+	getNotice(id: string) {
+		return client.get(`/notice/${id}`);
+	},
 };
 
 export default API;

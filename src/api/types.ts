@@ -43,3 +43,18 @@ export interface StudyUser {
 	shortIntro?: string;
 	profilePicture?: string;
 }
+
+export interface UserProfile {
+	userId: string;
+	userName: string;
+	dept: string;
+	grade: string;
+	bio: string;
+	userAbout: string;
+	showDept: boolean;
+	showGrade: boolean;
+	showAbout: boolean;
+	links: string[];
+	onBreak: boolean;
+	// Todo: 유저 프로필 사진, 로그인 id, 유저 카테고리, 한 줄 소개평
+}

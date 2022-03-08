@@ -20,4 +20,5 @@ export interface IModalContainerCommonProps {
 export interface IGlobalModalProps {
 	open: boolean;
 	key?: ModalKeyEnum | '';
+	params?: any;
 }

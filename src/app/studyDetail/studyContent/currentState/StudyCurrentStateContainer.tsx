@@ -1,4 +1,3 @@
-import { GetUserProfileResponse } from '@api/response/user';
 import React, { useEffect, useState } from 'react';
 import { StudyUser } from '@api/types';
 import StudyCurrentStatePresenter from './StudyCurrentStatePresenter';

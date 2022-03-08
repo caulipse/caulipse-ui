@@ -16,3 +16,18 @@
         color: #fff;
     }
 }
+
+.secondary-chip-container {
+    width: fit-content !important;
+    padding: .5rem .75rem !important;
+    color: #101010;
+    font-size: .625rem;
+    font-weight: bold;
+    height: 1.875rem;
+    border-radius: 15px;
+    &.selected {
+        color: $primaryColor;
+        background: #fff;
+        border: 1px solid $primaryColor;
+    }
+}

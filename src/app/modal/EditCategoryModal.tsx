@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './editCategoryModal.scss';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
@@ -8,11 +8,12 @@ import BackIcon from '@src/components/common/iconButton/BackButton';
 import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-import categories from '@src/const';
-import { ICategoryType, CategoryDepthEnum } from '@src/types';
+import categories, { CategoryType, MainCategoryType } from '@src/const';
 
 const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [value, setValue] = useState({ MAIN: '', SUB: '' });
+	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
+	const [subCategory, setSubCategory] = useState<CategoryType>();
+
 	const [step, setStep] = useState(0);
 
 	const onClick = () => {
@@ -20,19 +21,26 @@ const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 		// 카테고리 수정 API 연동
 	};
 
-	const onClickValue = (category: string, key: CategoryDepthEnum) => {
-		setValue({ ...value, [key]: category });
-		if (step === 0) setStep((prev) => prev + 1);
+	const onClickValue = (category: CategoryType | MainCategoryType) => {
+		if (step === 0) {
+			setMainCategory(category as MainCategoryType);
+			setStep((prev) => prev + 1);
+		} else {
+			setSubCategory(category);
+		}
 	};
 
-	const CategoryChip = (category: ICategoryType) => {
-		const { label, categoryDepth } = category;
+	const CategoryChip = (props: { category: CategoryType | MainCategoryType }) => {
+		const { category } = props;
 		const handleClick = () => {
-			onClickValue(label, categoryDepth);
+			onClickValue(category);
 		};
+		const selected = useMemo(() => {
+			return step === 0 ? mainCategory?.code === category.code : subCategory?.code === category.code;
+		}, [step, mainCategory, subCategory]);
 		return (
-			<Grid key={label} item xs={4} className="modal-chip-item">
-				<Chip label={label} onClick={handleClick} selected={label === value[categoryDepth]} />
+			<Grid key={category.code} item xs={4} className="modal-chip-item">
+				<Chip label={category.label} onClick={handleClick} selected={selected} />
 			</Grid>
 		);
 	};
@@ -45,7 +53,7 @@ const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 			</Container>
 			<Grid container spacing={1}>
 				{categories.map((category) => {
-					return <CategoryChip key={category.label} label={category.label} categoryDepth={CategoryDepthEnum.MAIN} />;
+					return <CategoryChip key={category.code} category={category} />;
 				})}
 			</Grid>
 		</Container>
@@ -56,19 +64,19 @@ const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 			<Container>
 				<Container className="modal-title-container">
 					<BackIcon onClick={() => setStep(step - 1)} />
-					<span>{value.MAIN}</span>
+					<span>{mainCategory?.label}</span>
 					<CloseButton onClick={() => onClose(false)} />
 				</Container>
 				<Grid container spacing={1}>
 					{categories
-						.filter((category) => category.label === value.MAIN)[0]
+						.filter((category) => category.code === mainCategory?.code)[0]
 						.subCategories.map((category) => {
-							return <CategoryChip key={category.label} label={category.label} categoryDepth={CategoryDepthEnum.SUB} />;
+							return <CategoryChip key={category.label} category={category} />;
 						})}
 				</Grid>
 			</Container>
 			<Container>
-				<CommonButton title="변경사항 적용" onClick={onClick} disabled={value.SUB === ''} />
+				<CommonButton title="변경사항 적용" onClick={onClick} disabled={!subCategory} />
 			</Container>
 		</>
 	);

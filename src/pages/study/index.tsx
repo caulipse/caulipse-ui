@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
-import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
 import SubCategoryBarContainer from '@src/app/study/subCategoryBar/SubCategoryBarContainer';
 import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
 import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
-import ModalKeyEnum from '@common/modal/enum';
 import MainCategoryContainer from '@study/mainCategory/MainCategoryContainer';
+import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
 
 const CategoryObj = {
 	employment: '취업, 면접',
@@ -22,8 +21,6 @@ const StudyPage = (): JSX.Element => {
 	const [selectedList, setSelectedList] = useState<string[]>([]);
 
 	const [selectedCategory, setSelectedCategory] = useState<number>();
-
-	const { openModal } = useModal();
 
 	const getValueFromCategoryObj = (key: string) => {
 		const path = key.split('/')[2];
@@ -46,14 +43,6 @@ const StudyPage = (): JSX.Element => {
 		}
 	}, [studyCategory]);
 
-	const onClickSort = () => {
-		openModal(ModalKeyEnum.StudySortModal);
-	};
-
-	const onClickFilter = () => {
-		openModal(ModalKeyEnum.StudyFilterModal);
-	};
-
 	const onClickCreate = () => {
 		// TODO
 		// 스터디 등록 모달 연결
@@ -74,7 +63,8 @@ const StudyPage = (): JSX.Element => {
 				</div>
 			</div>
 			<StudyCreateButton onClick={onClickCreate} />
-			<StudyListContainter onClickSort={onClickSort} onClickFilter={onClickFilter} />
+			<StudySortFilterContainer />
+			<StudyListContainter />
 		</div>
 	);
 };

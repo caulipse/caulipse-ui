@@ -3,18 +3,9 @@ import fetchStudies from '@src/hooks/remotes/study/useFetchStudies';
 import Loader from '@common/loader/Loader';
 import StudyListPresenter from './StudyListPresenter';
 
-interface IStudyListContainterProps {
-	onClickSort: () => void;
-	onClickFilter: () => void;
-}
-
-const StudyListContainter = ({ onClickSort, onClickFilter }: IStudyListContainterProps): JSX.Element => {
+const StudyListContainter = (): JSX.Element => {
 	const { data, isLoading } = fetchStudies();
-	return isLoading ? (
-		<Loader />
-	) : (
-		<StudyListPresenter onClickSort={onClickSort} data={data?.studies} onClickFilter={onClickFilter} />
-	);
+	return isLoading ? <Loader /> : <StudyListPresenter data={data?.studies} />;
 };
 
 export default StudyListContainter;

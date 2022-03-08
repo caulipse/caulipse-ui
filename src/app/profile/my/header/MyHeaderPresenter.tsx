@@ -9,7 +9,7 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
-const exampleId = '02626cbc-2b7f-4e1f-ad14-8d4c70c9fed2';
+const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';
 
 interface MyHeaderPresenterProps {
 	userProfile: UserProfile;

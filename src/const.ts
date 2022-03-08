@@ -146,4 +146,12 @@ const categories = [
 	},
 ];
 
+export const sortOptions = [
+	{ value: 'created_at:desc', label: '최신순' },
+	{ value: 'created_at:asc', label: '오래된 순' },
+	{ value: 'vacancies:desc', label: '남은 인원: 많은 순' },
+	{ value: 'vacancies:asc', label: '남은 인원: 적은 순' },
+];
+
+// FIXME 수정
 export default categories;

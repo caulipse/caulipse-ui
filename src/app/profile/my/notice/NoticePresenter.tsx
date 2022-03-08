@@ -2,11 +2,11 @@ import React from 'react';
 import './styles.scss';
 import { IoArrowBack } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
+import { getNoticeInterface } from '@src/api/response/notice';
 import NoticeItem from './NoticeItem';
-import { NoticeInterface } from '../../interface/interface';
 
 interface NoticePresenterProps {
-	notices: NoticeInterface[];
+	notices: getNoticeInterface[];
 }
 
 const NoticePresenter = ({ notices }: NoticePresenterProps): JSX.Element => {
@@ -24,7 +24,7 @@ const NoticePresenter = ({ notices }: NoticePresenterProps): JSX.Element => {
 			<div className="notice-presenter-list-container">
 				<div className="notice-presenter-list-max-width">
 					{notices.map((item) => (
-						<NoticeItem key={item.noticeId} noticeItem={item} />
+						<NoticeItem key={item.id} noticeItem={item} />
 					))}
 				</div>
 			</div>

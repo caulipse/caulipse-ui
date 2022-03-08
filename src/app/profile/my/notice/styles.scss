@@ -28,6 +28,7 @@
         }
         &-max-width{
            max-width: $maxContentWidth; 
+           width: 100%;
         }
     }
 }
@@ -41,6 +42,7 @@
         border-bottom: solid;
         border-bottom-color: #e2e2e2;
         border-bottom-width: 0.5px;
+        width: 100% !important;
     }
     &-title{
         font-size: 0.875rem;

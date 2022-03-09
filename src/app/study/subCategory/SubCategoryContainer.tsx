@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CategoryType } from '@src/const';
+import { CategoryType } from '@src/types';
 import SubCategoryPresenter from './SubCategoryPresenter';
 
 interface ISubCategoryPresenterProps {

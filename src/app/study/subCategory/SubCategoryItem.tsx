@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import Chip from '@common/chip/Chip';
 import { ChipTypeEnum } from '@common/chip/types';
 import classnames from 'classnames';
-import { CategoryType } from '@src/const';
+import { CategoryType } from '@src/types';
 import './index.scss';
 
 interface ISubCategoryItemProps {

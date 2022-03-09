@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import categories, { MainCategoryType } from '@src/const';
+import categories from '@src/const';
+import { MainCategoryType } from '@src/types';
 import MainCategoryItem from './MainCategoryItem';
 import './index.scss';
 

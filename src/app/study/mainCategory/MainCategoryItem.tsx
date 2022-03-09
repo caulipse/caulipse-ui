@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
-import { MainCategoryType } from '@src/const';
+import { MainCategoryType } from '@src/types';
 import './index.scss';
 
 interface IMainCategoryItemProps {

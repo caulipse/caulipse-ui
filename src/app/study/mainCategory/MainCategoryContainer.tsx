@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainCategoryType } from '@src/const';
+import { MainCategoryType } from '@src/types';
 import MainCategoryPresenter from './MainCategoryPresenter';
 
 interface IMainCategoryPresenterProps {

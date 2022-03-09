@@ -4,7 +4,7 @@ import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
 import MainCategoryContainer from '@study/mainCategory/MainCategoryContainer';
 import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
 import SubCategoryContainer from '@src/app/study/subCategory/SubCategoryContainer';
-import { MainCategoryType } from '@src/const';
+import { MainCategoryType } from '@src/types';
 import { Container } from '@material-ui/core';
 import { IoChevronUp } from 'react-icons/io5';
 import './index.scss';

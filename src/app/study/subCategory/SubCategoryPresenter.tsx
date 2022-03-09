@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Container, Grid } from '@material-ui/core';
-import categories, { CategoryType } from '@src/const';
+import categories from '@src/const';
+import { CategoryType } from '@src/types';
 import SubCategoryItem from './SubCategoryItem';
 import './index.scss';
 

@@ -3,6 +3,7 @@ import { IoAdd, IoClose } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
+import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 
 interface UrlInterface {
 	urlId: number;
@@ -125,7 +126,9 @@ const MyProfileEditPresenter = ({
 			<div className="profile-edit-category-title">관심 카테고리</div>
 			<div className="profile-edit-category-text-container">
 				<div className="profile-edit-category-text">
-					{categories?.map((item, index, { length }) => `${item}${index === length - 1 ? '' : ', '}`)}
+					{categories?.map(
+						(item, index, { length }) => `${getSubCategoryLabel(Number(item))}${index === length - 1 ? '' : ', '}`
+					)}
 				</div>
 				<button type="button" className="profile-edit-category-edit" onClick={changeCategories}>
 					<div>수정하기</div>

@@ -1,3 +1,6 @@
+import { Container } from '@material-ui/core';
+import Loader from '@src/components/common/loader/Loader';
+import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import React from 'react';
 import MyProfileEditPresenter from './MyProfileEditPresenter';
 
@@ -10,23 +13,41 @@ const sampleCategories = [
 	'항목 테스트 5',
 	'항목 테스트 6',
 ];
-const sampleLongIntro=`Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.`;
+const sampleLongIntro = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.`;
+
+const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';
 
 const MyProfileEditContainer = (): JSX.Element => {
+	const { data, isLoading } = useFetchUserProfile(exampleId);
+	const userProfile = data?.userProfile;
+
 	return (
-		<div>
-			<MyProfileEditPresenter
-				imgSrc={sampleImgUrl}
-				nickname="닉네임"
-				major="전자전기공학부"
-				grade={3}
-				status="휴학중"
-				categories={sampleCategories}
-				shortIntro="안녕하세요"
-				urls={[{ urlId: 0, url: 'www.naver.com' }]}
-				longIntro={sampleLongIntro}
-			/>
-		</div>
+		<Container>
+			{isLoading ? (
+				<Loader />
+			) : (
+				<div>
+					{userProfile && (
+						<MyProfileEditPresenter
+							imgSrc={sampleImgUrl}
+							nickname={userProfile.userName}
+							major={userProfile.dept}
+							grade={Number(userProfile.grade)}
+							status={userProfile.onBreak ? '휴학중' : '재학중'}
+							categories={userProfile.categories}
+							shortIntro={userProfile.shortUserAbout}
+							urls={userProfile.links.map((linkItem, linkIdx) => {
+								return {
+									urlId: linkIdx,
+									url: linkItem,
+								};
+							})}
+							longIntro={userProfile.userAbout}
+						/>
+					)}
+				</div>
+			)}
+		</Container>
 	);
 };
 

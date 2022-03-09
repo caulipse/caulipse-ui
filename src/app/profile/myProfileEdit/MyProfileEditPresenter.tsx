@@ -9,7 +9,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { Container } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 
-interface UrlInterface {
+export interface UrlInterface {
 	urlId: number;
 	url: string;
 }
@@ -41,7 +41,7 @@ const MyProfileEditPresenter = ({
 }: MyProfileEditPresenterProps): JSX.Element => {
 	const updateProfile = usePatchUserProfile();
 
-	const [accUrlId, setAccUrlId] = useState<number>(urls.length - 1);
+	const [accUrlId, setAccUrlId] = useState<number>(urls.length);
 	const [currentNickname, setCurrentNickname] = useState<string>(nickname);
 	const [currentMajor, setCurrentMajor] = useState<string>(major);
 	const [currentGrade, setCurrentGrade] = useState<number>(grade);
@@ -54,6 +54,10 @@ const MyProfileEditPresenter = ({
 	const { openModal } = useModal();
 
 	const handleUpdateProfile = () => {
+		const filteredArray = new Array(2).fill('').map((item, index) => {
+			return currentUrls?.[index]?.url ?? '';
+		});
+
 		updateProfile.mutate({
 			userId: exampleId,
 			userName: currentNickname,
@@ -62,10 +66,12 @@ const MyProfileEditPresenter = ({
 			onBreak: currentOnBreak,
 			categories: currentCategories,
 			shortUserAbout: currentShortIntro,
-			links: currentUrls.map((urlItem) => urlItem.url),
+			links: filteredArray,
 			userAbout: currentLongIntro,
 		});
 	};
+
+	console.log('currentUrls, ', currentUrls);
 
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
@@ -90,31 +96,34 @@ const MyProfileEditPresenter = ({
 		setCurrentUrls(resultUrls);
 	};
 
-	const renderUrls = (item: UrlInterface) => (
-		<div className="profile-edit-url-container" key={item.urlId}>
-			<input
-				className="profile-edit-url-input"
-				placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
-				value={item.url}
-				onChange={(e) => {
-					const text = e.target.value;
-					const result = [...currentUrls].map((selectedItem) => {
-						if (item.urlId === selectedItem.urlId) {
-							return {
-								urlId: item.urlId,
-								url: text,
-							};
-						}
-						return selectedItem;
-					});
-					setCurrentUrls(result);
-				}}
-			/>
-			<button type="button" onClick={() => deleteUrl(item.urlId)}>
-				<IoClose size={24} color="#929699" />
-			</button>
-		</div>
-	);
+	const renderUrls = (item: UrlInterface) => {
+		if (item?.url === null) return null;
+		return (
+			<div className="profile-edit-url-container" key={item.urlId}>
+				<input
+					className="profile-edit-url-input"
+					placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
+					value={item.url}
+					onChange={(e) => {
+						const text = e.target.value;
+						const result = [...currentUrls].map((selectedItem) => {
+							if (item.urlId === selectedItem.urlId) {
+								return {
+									urlId: item.urlId,
+									url: text,
+								};
+							}
+							return selectedItem;
+						});
+						setCurrentUrls(result);
+					}}
+				/>
+				<button type="button" onClick={() => deleteUrl(item.urlId)}>
+					<IoClose size={24} color="#929699" />
+				</button>
+			</div>
+		);
+	};
 
 	return (
 		<div className="profile-edit-container">

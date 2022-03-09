@@ -9,19 +9,6 @@
     padding: 1rem 1rem 1.5rem !important;
 }
 
-.sub-category-presenter-bottom-bar {
-    background: #fdf7f0;
-    padding: 0 !important;
-    height: 2.5rem;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.03);
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    svg {
-        color: $primaryColor;
-    }
-}
-
 .sub-category-item-container {
     display: flex;
     padding: .5rem;

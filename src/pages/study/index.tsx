@@ -5,6 +5,9 @@ import MainCategoryContainer from '@study/mainCategory/MainCategoryContainer';
 import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
 import SubCategoryContainer from '@src/app/study/subCategory/SubCategoryContainer';
 import { MainCategoryType } from '@src/const';
+import { Container } from '@material-ui/core';
+import { IoChevronUp } from 'react-icons/io5';
+import './index.scss';
 
 const StudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
@@ -20,13 +23,20 @@ const StudyPage = (): JSX.Element => {
 	}, [mainCategory]);
 
 	return (
-		<div className="studyPage-con">
+		<Container className="study-list-container ">
 			<MainCategoryContainer onChange={setMainCategory} />
-			{mainCategory && !!mainCategory.subCategories.length && <SubCategoryContainer mainCategory={mainCategory} />}
+			{mainCategory && !!mainCategory.subCategories.length && (
+				<>
+					<SubCategoryContainer mainCategory={mainCategory} />
+					<Container className="sub-category-presenter-bottom-bar">
+						<IoChevronUp />
+					</Container>
+				</>
+			)}
 			<StudyCreateButton onClick={onClickCreate} />
 			<StudySortFilterContainer />
 			<StudyListContainter />
-		</div>
+		</Container>
 	);
 };
 

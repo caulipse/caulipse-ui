@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Container, Grid } from '@material-ui/core';
-import { IoChevronUp } from 'react-icons/io5';
 import categories, { CategoryType } from '@src/const';
 import SubCategoryItem from './SubCategoryItem';
 import './index.scss';
@@ -35,9 +34,6 @@ const SubCategoryPresenter = ({
 					))}
 				</Grid>
 			)}
-			<Container className="sub-category-presenter-bottom-bar">
-				<IoChevronUp />
-			</Container>
 		</Container>
 	);
 };

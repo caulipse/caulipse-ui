@@ -1,9 +1,5 @@
-export interface IRequestPostUserProfile {
-	userId: string;
-	userName: string;
-	dept: string;
-	grade: number;
-	bio: string;
-}
+import { UserProfile } from '../types';
 
-export type IRequestPatchUserProfile = IRequestPostUserProfile;
+export type IRequestPatchUserProfile = UserProfile;
+
+export type IRequestPostUserProfile = UserProfile;

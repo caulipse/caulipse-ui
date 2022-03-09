@@ -18,7 +18,7 @@ interface MyProfileEditPresenterProps {
 	nickname: string;
 	major: string;
 	grade: number;
-	status: string;
+	onBreak: boolean;
 	categories: string[];
 	shortIntro: string;
 	urls: UrlInterface[];
@@ -30,15 +30,23 @@ const MyProfileEditPresenter = ({
 	nickname,
 	major,
 	grade,
-	status,
+	onBreak,
 	categories,
 	shortIntro,
 	urls,
 	longIntro,
 }: MyProfileEditPresenterProps): JSX.Element => {
+	const [accUrlId, setAccUrlId] = useState<number>(0);
+	const [currentNickname, setCurrentNickname] = useState<string>(nickname);
+	const [currentMajor, setCurrentMajor] = useState<string>(major);
+	const [currentGrade, setCurrentGrade] = useState<number>(grade);
+	const [currentOnBreak, setCurrentOnBreak] = useState<boolean>(onBreak);
+	const [currentCategories, setCurrentCategories] = useState<string[]>(categories);
 	const [currentShortIntro, setCurrentShortIntro] = useState<string>(shortIntro ?? '');
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
-	const [accUrlId, setAccUrlId] = useState<number>(0);
+	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
+
+	console.log('currentNickname, ', currentNickname, 'currentGrade, ', currentGrade);
 
 	const { openModal } = useModal();
 
@@ -101,18 +109,29 @@ const MyProfileEditPresenter = ({
 				className="profile-edit-nickname-input"
 				type="text"
 				placeholder="닉네임을 입력해 주세요."
-				defaultValue={nickname}
+				value={currentNickname}
+				onChange={(e) => setCurrentNickname(e.target.value)}
 			/>
 			<div className="profile-edit-row-container mt8">
 				<div className="profile-edit-column-container flex-grow-1">
 					<div className="profile-edit-major-title">학과</div>
-					<input className="profile-edit-major-input" type="text" placeholder="ex. 컴퓨터공학" defaultValue={major} />
+					<input
+						className="profile-edit-major-input"
+						type="text"
+						placeholder="ex. 컴퓨터공학"
+						value={currentMajor}
+						onChange={(e) => setCurrentMajor(e.target.value)}
+					/>
 				</div>
 				<div className="profile-edit-column-container ml16">
 					<div className="profile-edit-major-title">
 						학년<span className="profile-edit-grade-subtitle">(선택)</span>
 					</div>
-					<select className="profile-edit-grade-select" defaultValue={grade}>
+					<select
+						className="profile-edit-grade-select"
+						value={currentGrade}
+						onChange={(e) => setCurrentGrade(Number(e.target.value))}
+					>
 						<option value={1}>1학년</option>
 						<option value={2}>2학년</option>
 						<option value={3}>3학년</option>
@@ -121,15 +140,19 @@ const MyProfileEditPresenter = ({
 				</div>
 			</div>
 			<div className="profile-edit-status-title">재학상태</div>
-			<select className="profile-edit-status-select" defaultValue={status}>
-				<option>재학중</option>
-				<option>휴학중</option>
+			<select
+				className="profile-edit-status-select"
+				value={Number(currentOnBreak)}
+				onChange={(e) => setCurrentOnBreak(Boolean(e.target.value))}
+			>
+				<option value={0}>재학중</option>
+				<option value={1}>휴학중</option>
 			</select>
 			<div className="divider mt40" />
 			<div className="profile-edit-category-title">관심 카테고리</div>
 			<div className="profile-edit-category-text-container">
 				<div className="profile-edit-category-text">
-					{categories?.map(
+					{currentCategories?.map(
 						(item, index, { length }) => `${getSubCategoryLabel(Number(item))}${index === length - 1 ? '' : ', '}`
 					)}
 				</div>
@@ -163,7 +186,8 @@ const MyProfileEditPresenter = ({
 			<textarea
 				className="profile-edit-long-intro-textarea"
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
-				defaultValue={longIntro}
+				value={currentLongIntro}
+				onChange={(e) => setCurrentLongIntro(e.target.value)}
 			/>
 			<Container className="profile-edit-edit-button">
 				<CommonButton

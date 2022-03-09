@@ -33,7 +33,7 @@ const MyProfileEditContainer = (): JSX.Element => {
 							nickname={userProfile.userName}
 							major={userProfile.dept}
 							grade={Number(userProfile.grade)}
-							status={userProfile.onBreak ? '휴학중' : '재학중'}
+							onBreak={userProfile.onBreak}
 							categories={userProfile.categories}
 							shortIntro={userProfile.shortUserAbout}
 							urls={userProfile.links.map((linkItem, linkIdx) => {

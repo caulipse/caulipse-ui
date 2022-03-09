@@ -41,7 +41,7 @@ const MyProfileEditPresenter = ({
 }: MyProfileEditPresenterProps): JSX.Element => {
 	const updateProfile = usePatchUserProfile();
 
-	const [accUrlId, setAccUrlId] = useState<number>(0);
+	const [accUrlId, setAccUrlId] = useState<number>(urls.length - 1);
 	const [currentNickname, setCurrentNickname] = useState<string>(nickname);
 	const [currentMajor, setCurrentMajor] = useState<string>(major);
 	const [currentGrade, setCurrentGrade] = useState<number>(grade);
@@ -51,9 +51,21 @@ const MyProfileEditPresenter = ({
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
 
-	console.log('currentNickname, ', currentNickname, 'currentGrade, ', currentGrade);
-
 	const { openModal } = useModal();
+
+	const handleUpdateProfile = () => {
+		updateProfile.mutate({
+			userId: exampleId,
+			userName: currentNickname,
+			dept: currentMajor,
+			grade: String(currentGrade),
+			onBreak: currentOnBreak,
+			categories: currentCategories,
+			shortUserAbout: currentShortIntro,
+			links: currentUrls.map((urlItem) => urlItem.url),
+			userAbout: currentLongIntro,
+		});
+	};
 
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
@@ -195,27 +207,7 @@ const MyProfileEditPresenter = ({
 				onChange={(e) => setCurrentLongIntro(e.target.value)}
 			/>
 			<Container className="profile-edit-edit-button">
-				<CommonButton
-					type={ButtonTypeEnum.primary}
-					title="수정완료"
-					onClick={() => {
-						updateProfile.mutate({
-							userId: exampleId,
-							userName: currentNickname,
-							dept: currentMajor,
-							grade: String(currentGrade),
-							onBreak: currentOnBreak,
-							categories: currentCategories,
-							shortUserAbout: currentShortIntro,
-							links: currentUrls.map((urlItem) => urlItem.url),
-							userAbout: currentLongIntro,
-							bio: '님',
-							showDept: true,
-							showGrade: true,
-							showAbout: true,
-						});
-					}}
-				/>
+				<CommonButton type={ButtonTypeEnum.primary} title="수정완료" onClick={handleUpdateProfile} />
 			</Container>
 		</div>
 	);

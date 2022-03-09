@@ -46,7 +46,6 @@ const MyProfileEditPresenter = ({
 	const [currentMajor, setCurrentMajor] = useState<string>(major);
 	const [currentGrade, setCurrentGrade] = useState<number>(grade);
 	const [currentOnBreak, setCurrentOnBreak] = useState<boolean>(onBreak);
-	const [currentCategories, setCurrentCategories] = useState<string[]>(categories);
 	const [currentShortIntro, setCurrentShortIntro] = useState<string>(shortIntro ?? '');
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
@@ -64,7 +63,6 @@ const MyProfileEditPresenter = ({
 			dept: currentMajor,
 			grade: String(currentGrade),
 			onBreak: currentOnBreak,
-			categories: currentCategories,
 			shortUserAbout: currentShortIntro,
 			links: filteredArray,
 			userAbout: currentLongIntro,
@@ -176,7 +174,7 @@ const MyProfileEditPresenter = ({
 			<div className="profile-edit-category-title">관심 카테고리</div>
 			<div className="profile-edit-category-text-container">
 				<div className="profile-edit-category-text">
-					{currentCategories?.map(
+					{categories?.map(
 						(item, index, { length }) => `${getSubCategoryLabel(Number(item))}${index === length - 1 ? '' : ', '}`
 					)}
 				</div>

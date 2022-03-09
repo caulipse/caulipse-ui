@@ -71,8 +71,6 @@ const MyProfileEditPresenter = ({
 		});
 	};
 
-	console.log('currentUrls, ', currentUrls);
-
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
 	};

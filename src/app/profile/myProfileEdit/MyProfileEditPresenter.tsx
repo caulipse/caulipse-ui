@@ -7,6 +7,7 @@ import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { Container } from '@material-ui/core';
+import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 
 interface UrlInterface {
 	urlId: number;
@@ -25,6 +26,8 @@ interface MyProfileEditPresenterProps {
 	longIntro: string;
 }
 
+const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';
+
 const MyProfileEditPresenter = ({
 	imgSrc,
 	nickname,
@@ -36,6 +39,8 @@ const MyProfileEditPresenter = ({
 	urls,
 	longIntro,
 }: MyProfileEditPresenterProps): JSX.Element => {
+	const updateProfile = usePatchUserProfile();
+
 	const [accUrlId, setAccUrlId] = useState<number>(0);
 	const [currentNickname, setCurrentNickname] = useState<string>(nickname);
 	const [currentMajor, setCurrentMajor] = useState<string>(major);
@@ -194,7 +199,21 @@ const MyProfileEditPresenter = ({
 					type={ButtonTypeEnum.primary}
 					title="수정완료"
 					onClick={() => {
-						console.log('수정 완료');
+						updateProfile.mutate({
+							userId: exampleId,
+							userName: currentNickname,
+							dept: currentMajor,
+							grade: String(currentGrade),
+							onBreak: currentOnBreak,
+							categories: currentCategories,
+							shortUserAbout: currentShortIntro,
+							links: currentUrls.map((urlItem) => urlItem.url),
+							userAbout: currentLongIntro,
+							bio: '님',
+							showDept: true,
+							showGrade: true,
+							showAbout: true,
+						});
 					}}
 				/>
 			</Container>

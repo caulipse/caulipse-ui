@@ -4,6 +4,9 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
+import { Container } from '@material-ui/core';
 
 interface UrlInterface {
 	urlId: number;
@@ -162,6 +165,15 @@ const MyProfileEditPresenter = ({
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
 				defaultValue={longIntro}
 			/>
+			<Container className="profile-edit-edit-button">
+				<CommonButton
+					type={ButtonTypeEnum.primary}
+					title="수정완료"
+					onClick={() => {
+						console.log('수정 완료');
+					}}
+				/>
+			</Container>
 		</div>
 	);
 };

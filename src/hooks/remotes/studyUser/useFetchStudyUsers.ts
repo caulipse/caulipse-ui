@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import API from '@src/api';
 import { IResponseGetStudyUsers } from '@api/response/study';
+import QUERY_KEY from '@src/hooks/remotes';
 
 export default (id: string) => {
 	const fetcher = async (): Promise<IResponseGetStudyUsers> => {
@@ -8,7 +9,7 @@ export default (id: string) => {
 		return res.data;
 	};
 
-	return useQuery(`fetchStudyUsers/${id}`, fetcher, {
+	return useQuery(`${QUERY_KEY.FETCH_STUDY_USERS}/${id}`, fetcher, {
 		onError: (e) => {
 			console.log(e);
 		},

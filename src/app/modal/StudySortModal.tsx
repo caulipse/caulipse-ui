@@ -13,10 +13,10 @@ const StudySortModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 
 	const [state, setState] = useAtom(studyListState);
 
-	const [selectedOption, setSelectedOption] = useState(state.studyList.sortOption.value);
+	const [selectedOption, setSelectedOption] = useState(state.sortOption.value);
 	const onClick = () => {
 		const newOption = sortOptions.find((item) => item.value === selectedOption)!;
-		setState({ ...state, studyList: { sortOption: newOption } });
+		setState({ ...state, sortOption: newOption });
 		// TODO 정렬 API 연동
 		onClose(false);
 	};

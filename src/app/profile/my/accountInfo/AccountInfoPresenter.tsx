@@ -7,7 +7,7 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 
 interface AccountInfoPresenterProps {
-	userId: string;
+	userId?: string;
 }
 
 const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Element => {

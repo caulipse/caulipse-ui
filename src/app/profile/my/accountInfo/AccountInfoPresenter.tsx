@@ -5,6 +5,7 @@ import { IoArrowBack, IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
+import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 
 interface AccountInfoPresenterProps {
 	userId: string;
@@ -13,13 +14,14 @@ interface AccountInfoPresenterProps {
 const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Element => {
 	const history = useHistory();
 	const { openModal } = useModal();
+	const logout = usePatchLogout();
 
 	const changePw = () => {
 		console.log('changePw');
 	};
 
-	const logout = () => {
-		console.log('logout');
+	const handleLogout = () => {
+		logout.mutate();
 	};
 
 	const withDraw = () => {
@@ -48,7 +50,7 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 						</div>
 						<IoChevronForward className="account-info-header-icn e2e2e2" />
 					</button>
-					<button type="button" className="account-info-body-logout" onClick={logout}>
+					<button type="button" className="account-info-body-logout" onClick={handleLogout}>
 						<div>로그아웃</div>
 						<IoChevronForward className="account-info-header-icn e2e2e2" />
 					</button>

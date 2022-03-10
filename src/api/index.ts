@@ -129,7 +129,7 @@ const API = {
 		return client.get(`/user/profile/${id}`);
 	},
 	// 유저 프로필 업데이트
-	patchUserProfile(request: IRequestPatchUserProfile) {
+	patchUserProfile(request: Partial<IRequestPatchUserProfile>) {
 		return client.patch(`/user/profile/${request.userId}`, request);
 	},
 	// 공지 사항 목록 조회
@@ -139,6 +139,10 @@ const API = {
 	// 공지 사항 단건 조회
 	getNotice(id: string) {
 		return client.get(`/notice/${id}`);
+	},
+	// 유저 정보 조회
+	getUser() {
+		return client.get('/user');
 	},
 };
 

@@ -1,4 +1,4 @@
-import { UserProfile } from "../types";
+import { User, UserProfile } from '../types';
 
 export interface UserPreview {
 	id: string;
@@ -9,4 +9,9 @@ export interface UserPreview {
 export interface IResponseGetUserProfile {
 	message: string;
 	userProfile: UserProfile;
+}
+
+export interface IResponseGetUser {
+	message: string;
+	data: User;
 }

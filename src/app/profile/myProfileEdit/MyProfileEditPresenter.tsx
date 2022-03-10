@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IoAdd, IoClose } from 'react-icons/io5';
-import MyCategoryModalContainer from '@profile/modal/MyCategoryModalContainer';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
 
 interface UrlInterface {
@@ -35,13 +36,13 @@ const MyProfileEditPresenter = ({
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [accUrlId, setAccUrlId] = useState<number>(0);
 
-	const [openMyCategoryModal, setOpenMyCategoryModal] = useState<boolean>(false);
+	const { openModal } = useModal();
 
 	const changeProfileImg = () => {
 		console.log('changeProfileImg');
 	};
 	const changeCategories = () => {
-		setOpenMyCategoryModal(!openMyCategoryModal);
+		openModal(ModalKeyEnum.MyCategoryModal);
 	};
 	const addUrl = () => {
 		if (currentUrls?.length >= 3) return;
@@ -133,7 +134,7 @@ const MyProfileEditPresenter = ({
 			<div className="profile-edit-short-intro-title">
 				한줄소개<span className="profile-edit-short-intro-subtitle">{currentShortIntro?.length}/60</span>
 			</div>
-			<input
+			<textarea
 				className="profile-edit-short-intro-input"
 				placeholder="프로필 상단에 보이는 소개글입니다."
 				maxLength={60}
@@ -158,7 +159,6 @@ const MyProfileEditPresenter = ({
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
 				defaultValue={longIntro}
 			/>
-			<MyCategoryModalContainer open={openMyCategoryModal} onClose={setOpenMyCategoryModal} />
 		</div>
 	);
 };

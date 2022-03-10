@@ -1,3 +1,5 @@
+import ModalKeyEnum from './enum';
+
 export interface IModalProps {
 	open: boolean;
 	onClose: (param: boolean) => void;
@@ -13,4 +15,10 @@ export interface ISimpleModalProps extends IModalProps {
 export interface IModalContainerCommonProps {
 	open: boolean;
 	onClose: (param: boolean) => void;
+}
+
+export interface IGlobalModalProps {
+	open: boolean;
+	key?: ModalKeyEnum | '';
+	params?: any;
 }

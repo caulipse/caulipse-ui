@@ -1,12 +1,19 @@
 @import "@scss/variables";
+@import "@scss/mixins";
 
 .study-card-container {
-    width: 20.5rem !important;
+    width: 90% !important;
     height: 8.063rem;
     padding: 1rem 1.5rem 1.25rem 1rem;
     border-radius: .625rem;
     border: 1px solid #f2f2f2;
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    @include desktop {
+        width: 100% !important;
+        height: 10.063rem;
+        padding: 1.063rem 1.625rem 1.375rem 1.188rem;
+    }
 }
 
 .study-card-category-container {
@@ -14,6 +21,9 @@
     display: flex !important;
     align-items: center;
     margin-bottom: .5rem !important;
+    @include desktop {
+        margin-bottom: .438rem !important;
+    }
 }
 
 .study-card-date {
@@ -21,41 +31,54 @@
     margin: 0 .5rem 0 0 !important;
     background: $primaryColor;
     color: #fff;
-    width: 3rem !important;
-    height: 1.25rem;
+    width: 2.688rem !important;
+    height: 1.313rem;
     border-radius: .25rem;
     font-weight: bold !important;
-    font-size: .625rem;
+    font-size: .75rem;
     display: flex !important;
     align-items: center;
     justify-content: center;
+    @include desktop {
+        width: 3.125rem !important;
+        height: 1.625rem;
+    }
 }
 
 .study-card-category {
     color: $primaryColor;
     font-weight: bold !important;
-    font-size: .625rem;
 }
 
 .study-card-title {
     margin-bottom: .25rem !important;
     font-size: .875rem !important;
     font-weight: bold !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80% !important;
+    @include desktop {
+        width: 90% !important;
+    }
 }
 
 .study-card-progress-container {
     padding: 0 !important;
-    font-size: .75rem;
+    font-size: .875rem;
     display: flex;
     align-items: center;
 }
 
 progress {
     -webkit-appearance: none;
-    width: 15.313rem;
+    width: 80% !important;
     height: .25rem;
     margin-right: 1.313rem;
     border-radius: .125rem;
+    @include desktop {
+        width: 90% !important;
+        height: .313rem;
+    }
   }
   
   ::-webkit-progress-bar {
@@ -68,6 +91,7 @@ progress {
 
 .study-card-progress-vacancy {
     color: $primaryColor;
+    font-weight: bold;
 }
 
 .study-card-progress-capacity {

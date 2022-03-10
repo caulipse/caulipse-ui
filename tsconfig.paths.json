@@ -12,7 +12,8 @@
       "@nonsubject/*": ["src/app/nonsubject/*"],
       "@profile/*": ["src/app/profile/*"],
       "@common/*": ["src/components/common/*"],
-      "@scss/*": ["src/scss/*"]
+      "@scss/*": ["src/scss/*"],
+      "@modal/*": ["src/app/modal/*"]
     }
   }
 }

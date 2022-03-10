@@ -1,7 +1,8 @@
 import { GetCommentResponse } from '@api/response/comment';
-import React, { useState } from 'react';
-import ReportModalContainer from '@studyDetail/studyContent/modal/reportModal/ReportModalContainer';
+import React from 'react';
+import useModal from '@src/hooks/modal/useModal';
 import './comments.scss';
+import ModalKeyEnum from '@common/modal/enum';
 import format from 'date-fns/format';
 
 interface CommentItemProps {
@@ -10,11 +11,11 @@ interface CommentItemProps {
 }
 
 const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
-	const [openReportModal, setOpenReportModal] = useState<boolean>(false);
+	const { openModal } = useModal();
 
 	const onClickReport = () => {
 		// TODO: 신고 API 연동
-		setOpenReportModal(!openReportModal);
+		openModal(ModalKeyEnum.ReportModal);
 	};
 
 	return (
@@ -50,7 +51,6 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 					</button>
 				</div>
 			</div>
-			<ReportModalContainer open={openReportModal} onClose={setOpenReportModal} />
 		</div>
 	);
 };

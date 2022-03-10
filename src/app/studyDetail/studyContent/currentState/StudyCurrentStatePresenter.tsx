@@ -7,14 +7,9 @@ import './styles.scss';
 interface StudyCurrentStatePresenterProps {
 	studyUsers: [] | StudyUser[];
 	host: StudyUser;
-	setOpenStudyApproveModal: (params: boolean) => void;
 }
 
-const StudyCurrentStatePresenter = ({
-	studyUsers,
-	host,
-	setOpenStudyApproveModal,
-}: StudyCurrentStatePresenterProps): JSX.Element => (
+const StudyCurrentStatePresenter = ({ studyUsers, host }: StudyCurrentStatePresenterProps): JSX.Element => (
 	<div className="studyCurrentStateContainer">
 		<div className="mh20">
 			<div className="studyCurrentUserContainer">
@@ -22,7 +17,7 @@ const StudyCurrentStatePresenter = ({
 				<div className="studyCurrentState">({studyUsers.length + 1}/10)</div>
 			</div>
 			<div className="studyHost">
-				<StudyUserHostItemContainer user={host} setOpenStudyApproveModal={setOpenStudyApproveModal} />
+				<StudyUserHostItemContainer user={host} />
 			</div>
 			<div className="studyUserListContainer">
 				{studyUsers.map((studyUser: StudyUser, studyUserIndex: number) => {

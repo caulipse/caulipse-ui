@@ -4,24 +4,23 @@ import { useHistory } from 'react-router-dom';
 import './index.scss';
 import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css';
-import ProfilePopupContainer from '../profile/ProfilePopupContainer';
+import { UserProfile } from '@src/api/types';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@src/components/common/modal/enum';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
+const exampleId = '02626cbc-2b7f-4e1f-ad14-8d4c70c9fed2';
 
 interface MyHeaderPresenterProps {
-	userName: string;
+	userProfile: UserProfile;
 }
 
-const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element => {
+const MyHeaderPresenter = ({ userProfile }: MyHeaderPresenterProps): JSX.Element => {
 	const history = useHistory();
-	const sheetRef = useRef<BottomSheetRef>(null);
-	const [profileSheetVisible, setProfileSheetVisible] = useState<boolean>(false);
+	const { openModal } = useModal();
 
 	const showProfileSheet = () => {
-		setProfileSheetVisible(true);
-	};
-	const closeProfileSheet = () => {
-		setProfileSheetVisible(false);
+		openModal(ModalKeyEnum.UserProfileModal, { userId: exampleId });
 	};
 
 	return (
@@ -30,22 +29,18 @@ const MyHeaderPresenter = ({ userName }: MyHeaderPresenterProps): JSX.Element =>
 				<button type="button" onClick={() => history.goBack()}>
 					<IoClose size={24} fill="#f7f7f7" />
 				</button>
-				<button type="button" onClick={()=>history.push('/profile/edit')}>
+				<button type="button" onClick={() => history.push('/profile/edit')}>
 					<IoSettingsSharp size={24} fill="#f7f7f7" />
 				</button>
 			</div>
 			<img className="my-header-profile-photo" src={sampleImgUrl} alt="사용자 프로필 사진" />
 			<div className="my-header-user-name">
-				{userName}
+				{userProfile.userName}
 				<span className="my-header-user-name-suffix"> 님</span>
 			</div>
 			<button type="button" onClick={showProfileSheet}>
 				<div className="my-header-my-profile-btn-text">내 프로필 보기 {'>'}</div>
 			</button>
-			<ProfilePopupContainer
-				profileSheetVisible={profileSheetVisible}
-				setProfileSheetVisible={setProfileSheetVisible}
-			/>
 		</div>
 	);
 };

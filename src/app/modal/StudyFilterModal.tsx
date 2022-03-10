@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/app/study/modal/studyFilterModal/StudyFilterModalPresenter.tsx
 import React, { ChangeEvent } from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> f24d33781c5eb6ec0b064708de9d6915dfc97312:src/app/modal/StudyFilterModal.tsx
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
@@ -12,7 +8,6 @@ import Switch from '@common/switch/Switch';
 import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-<<<<<<< HEAD:src/app/study/modal/studyFilterModal/StudyFilterModalPresenter.tsx
 import { IconAlignEnum } from '@common/icon/types';
 import classnames from 'classnames';
 import './index.scss';
@@ -29,10 +24,6 @@ interface IStudyFilterModalPresenterProps extends IModalContainerCommonProps {
 	isHide: boolean;
 	onChangeIsHide: (evt: ChangeEvent<HTMLInputElement>) => void;
 }
-=======
-import { IconAlignEnum } from '@common/iconButton/types';
-import './studyFilterModal.scss';
->>>>>>> f24d33781c5eb6ec0b064708de9d6915dfc97312:src/app/modal/StudyFilterModal.tsx
 
 const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
 const days = ['월', '화', '수', '목', '금', '토', '일'];
@@ -50,7 +41,6 @@ const places = [
 // TODO
 // 마감항목 표시 버튼 디자인 완료되면 반영 필요
 
-<<<<<<< HEAD:src/app/study/modal/studyFilterModal/StudyFilterModalPresenter.tsx
 const StudyFilterModalPresenter = ({
 	open,
 	onClose,
@@ -65,47 +55,6 @@ const StudyFilterModalPresenter = ({
 	isHide,
 	onChangeIsHide,
 }: IStudyFilterModalPresenterProps): JSX.Element => {
-=======
-const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [selectedFrequencies, setSelectedFrequencies] = useState([] as string[]);
-	const [selectedDays, setSelectedDays] = useState([] as string[]);
-	const [selectedPlaces, setSelectedPlaces] = useState([] as string[]);
-
-	const onClickCancel = () => {
-		// TODO
-		// 필터 clear 로직
-	};
-
-	const onClick = () => {
-		// TODO
-		// 필터 적용 API 연동
-	};
-
-	const onChangeFrequencies = (value: string) => {
-		if (selectedFrequencies.includes(value)) {
-			setSelectedFrequencies(selectedFrequencies.filter((item) => item !== value));
-		} else {
-			setSelectedFrequencies(selectedFrequencies.concat(value));
-		}
-	};
-
-	const onChangeDays = (value: string) => {
-		if (selectedDays.includes(value)) {
-			setSelectedDays(selectedDays.filter((item) => item !== value));
-		} else {
-			setSelectedDays(selectedDays.concat(value));
-		}
-	};
-
-	const onChangePlaces = (value: string) => {
-		if (selectedPlaces.includes(value)) {
-			setSelectedPlaces(selectedPlaces.filter((item) => item !== value));
-		} else {
-			setSelectedPlaces(selectedPlaces.concat(value).slice(-3));
-		}
-	};
-
->>>>>>> f24d33781c5eb6ec0b064708de9d6915dfc97312:src/app/modal/StudyFilterModal.tsx
 	return (
 		<Modal open={open} onClose={onClose} height="46.313rem">
 			<Container className="modal-root-container modal-space-between-container">

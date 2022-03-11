@@ -98,7 +98,7 @@ const API = {
 	},
 	// 로그아웃
 	logout() {
-		return client.patch('user/logout');
+		return client.patch('/user/logout');
 	},
 	// 회원가입
 	signUp(request: IRequestSignUp) {

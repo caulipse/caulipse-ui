@@ -1,5 +1,5 @@
 import { UserProfile } from '../types';
 
-export type IRequestPatchUserProfile = UserProfile;
-
 export type IRequestPostUserProfile = UserProfile;
+
+export type IRequestPatchUserProfile = Partial<UserProfile>;

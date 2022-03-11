@@ -5,6 +5,7 @@ enum QUERY_KEY {
 	FETCH_NOTICE = 'fetchNotice',
 	FETCH_STUDY_USERS = 'fetchStudyUsers',
 	FETCH_USER_PROFILE = 'fetchUserProfile',
+	FETCH_USER = 'fetchUser',
 }
 
 export default QUERY_KEY;

@@ -140,6 +140,10 @@ const API = {
 	getNotice(id: string) {
 		return client.get(`/notice/${id}`);
 	},
+	// 유저 정보 조회
+	getUser() {
+		return client.get('/user');
+	},
 };
 
 export default API;

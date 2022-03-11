@@ -60,3 +60,10 @@ export interface UserProfile {
 	categories: string[];
 	// Todo: 유저 프로필 사진, 로그인 id, 유저 카테고리, 한 줄 소개평
 }
+
+export interface User {
+	id: string;
+	email: string;
+	isLogout: boolean;
+	role: string;
+}

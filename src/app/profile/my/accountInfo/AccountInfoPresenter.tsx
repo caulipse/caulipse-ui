@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './styles.scss';
-import { Button } from '@material-ui/core';
 import { IoArrowBack, IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import useModal from '@src/hooks/modal/useModal';

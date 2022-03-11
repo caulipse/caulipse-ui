@@ -9,6 +9,9 @@ import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import categories, { CategoryType, MainCategoryType } from '@src/const';
+import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
+
+const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';
 
 const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
@@ -16,9 +19,15 @@ const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 
 	const [step, setStep] = useState(0);
 
+	const updateProfile = usePatchUserProfile();
+
 	const onClick = () => {
 		// TODO
 		// 카테고리 수정 API 연동
+		updateProfile.mutate({
+			userId: exampleId,
+			categories: [String(subCategory?.code)],
+		});
 	};
 
 	const onClickValue = (category: CategoryType | MainCategoryType) => {

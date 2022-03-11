@@ -164,6 +164,14 @@
             min-height: 11.25rem;
         }
     }
+    &-edit-button{
+        display: flex;
+        position: fixed;
+        bottom: 2.5rem;
+        width: 100% !important;
+        max-width: $maxContentWidth !important;
+        align-self: center;
+    }
 }
 .divider{
     height: 1px;

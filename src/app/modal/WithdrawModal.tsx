@@ -3,11 +3,13 @@ import { Button, Container, Typography } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import useDeleteUser from '@src/hooks/remotes/user/useDeleteUser';
 
 const WithdrawModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const deleteUser = useDeleteUser();
+
 	const onClick = () => {
-		// TODO
-		// 탈퇴 API 연동
+		deleteUser.mutate();
 	};
 	return (
 		<SimpleModal

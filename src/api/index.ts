@@ -96,6 +96,10 @@ const API = {
 	login(request: IRequestLogin) {
 		return client.post(`/user/login`, request);
 	},
+	// 로그아웃
+	logout() {
+		return client.patch('/user/logout');
+	},
 	// 회원가입
 	signUp(request: IRequestSignUp) {
 		return client.post(`/user`, request);

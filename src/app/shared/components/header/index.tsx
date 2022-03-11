@@ -1,7 +1,7 @@
-import { Button, Container, Typography } from '@material-ui/core';
+import { Button, Container, SwipeableDrawer, Typography } from '@material-ui/core';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import { HeaderButtonProps, headerButtons } from './headerList';
@@ -11,9 +11,16 @@ const Header: React.FC = () => {
 	const history = useHistory();
 
 	const [state] = useAtom(globalState);
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+	const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 	const openDrawer = () => {
-		console.log('openDrawer');
+		setIsDrawerOpen(true);
+	};
+
+	const closeDrawer = () => {
+		setIsDrawerOpen(false);
 	};
 
 	const clickSearchIcon = () => {
@@ -38,13 +45,16 @@ const Header: React.FC = () => {
 					<Typography className="header-login">로그인</Typography>
 				</Button>
 			)}
-			{/* <div className="header-user-bt">
-				{headerButtons.map((button: HeaderButtonProps) => (
-					<button key={button.title} type="button" onClick={() => history.push(button.route)}>
-						<div>{button.title}</div>
-					</button>
-				))}
-			</div> */}
+			<SwipeableDrawer
+				anchor="left"
+				open={isDrawerOpen}
+				onOpen={openDrawer}
+				onClose={closeDrawer}
+				disableBackdropTransition={!iOS}
+				disableDiscovery={iOS}
+			>
+				<Typography>마이 페이지</Typography>
+			</SwipeableDrawer>
 		</header>
 	);
 };

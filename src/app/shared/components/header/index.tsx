@@ -1,10 +1,9 @@
-import { Button, Container, SwipeableDrawer, Typography } from '@material-ui/core';
+import { Box, Button, Container, SwipeableDrawer, Typography } from '@material-ui/core';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';
 import React, { useState } from 'react';
 import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
-import { HeaderButtonProps, headerButtons } from './headerList';
 import './index.scss';
 
 const Header: React.FC = () => {
@@ -53,7 +52,10 @@ const Header: React.FC = () => {
 				disableBackdropTransition={!iOS}
 				disableDiscovery={iOS}
 			>
-				<Typography>마이 페이지</Typography>
+				<Box className="drawer-container">
+					<div>이미지 들어갈 영역</div>
+					<Box className="drawer-title">마이 페이지</Box>
+				</Box>
 			</SwipeableDrawer>
 		</header>
 	);

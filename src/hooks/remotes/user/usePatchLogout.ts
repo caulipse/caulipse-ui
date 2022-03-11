@@ -1,7 +1,6 @@
 import API from '@src/api';
 import { useMutation, useQuery } from 'react-query';
 import { useHistory } from 'react-router-dom';
-import QUERY_KEY from '..';
 
 export default () => {
 	const history = useHistory();
@@ -10,7 +9,7 @@ export default () => {
 		const res = await API.logout();
 		return res.data;
 	};
-	return useMutation(QUERY_KEY.LOGOUT, mutation, {
+	return useMutation(mutation, {
 		onSuccess: (response: any) => {
 			console.log(response);
 			history.push('/');

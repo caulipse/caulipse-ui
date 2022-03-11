@@ -6,8 +6,7 @@ import AccountInfoPresenter from './AccountInfoPresenter';
 const AccountInfoContainer = (): JSX.Element => {
 	const { data, isLoading } = useFetchUser();
 
-	console.log('data, ', data);
-	return <div>{isLoading ? <Loader /> : <AccountInfoPresenter userId={data?.data.email} />}</div>;
+	return <div>{isLoading ? <Loader /> : data?.data.email && <AccountInfoPresenter userId={data?.data.email} />}</div>;
 };
 
 export default AccountInfoContainer;

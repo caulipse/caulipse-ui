@@ -28,7 +28,7 @@ export const drawerList: DrawerButtonProps[][] = [
 	[
 		{
 			title: '공지사항',
-			route: 'profile/notice',
+			route: '/profile/notice',
 		},
 		{
 			title: '문의하기',

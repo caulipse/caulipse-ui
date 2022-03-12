@@ -1,8 +1,8 @@
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useCallback } from 'react';
-import { IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
-import { useHistory, useParams } from 'react-router-dom';
+import { IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
+import { useParams } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
@@ -11,9 +11,9 @@ import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
 import { IconButton } from '@material-ui/core';
+import CommonButton from '@src/components/common/button/CommonButton';
 
 const StudyDetailPage = (): JSX.Element => {
-	const history = useHistory();
 	const { studyId } = useParams<{ studyId: string }>();
 	const { data, isLoading } = useFetchStudy(studyId);
 	const studyData = data?.study;
@@ -61,9 +61,14 @@ const StudyDetailPage = (): JSX.Element => {
 	const CTAButtons = useCallback(() => {
 		return (
 			<div className="study-apply-btn-container">
-				<button type="button" className="study-apply-btn-content" onClick={onClick}>
-					신청하기
-				</button>
+				<div className="study-apply-btn-padding-container">
+					<IconButton>
+						<IoBookmarkOutline className="study-apply-btn-bookmark" />
+					</IconButton>
+					<div className="study-apply-btn-wrapper">
+						<CommonButton title="신청하기" onClick={onClick} />
+					</div>
+				</div>
 			</div>
 		);
 	}, [onClick]);

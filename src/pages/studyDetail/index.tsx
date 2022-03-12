@@ -1,6 +1,6 @@
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { IoArrowBack, IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
 import { useHistory, useParams } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -44,6 +44,21 @@ const StudyDetailPage = (): JSX.Element => {
 		openSnackbar('클립보드에 복사되었습니다.');
 	};
 
+	const StudyDetailHeader = useCallback(() => {
+		return (
+			<div className="backButtonContainer">
+				<CopyToClipboard text={url}>
+					<IconButton className="mr11" onClick={onClickShare}>
+						<IoShareSocialOutline className="icn-btn" color="#ffffff" />
+					</IconButton>
+				</CopyToClipboard>
+				<IconButton type="button" onClick={onClickMore}>
+					<IoEllipsisVertical className="icn-btn" color="#ffffff" />
+				</IconButton>
+			</div>
+		);
+	}, [url, onClickShare, onClickMore]);
+
 	return (
 		<>
 			{isLoading ? (
@@ -51,16 +66,7 @@ const StudyDetailPage = (): JSX.Element => {
 			) : (
 				<div className="studyDetailContainer">
 					<div className="studyDetailBg">
-						<div className="backButtonContainer">
-							<CopyToClipboard text={url}>
-								<IconButton className="mr11" onClick={onClickShare}>
-									<IoShareSocialOutline className="icn-btn" color="#ffffff" />
-								</IconButton>
-							</CopyToClipboard>
-							<IconButton type="button" onClick={onClickMore}>
-								<IoEllipsisVertical className="icn-btn" color="#ffffff" />
-							</IconButton>
-						</div>
+						<StudyDetailHeader />
 						{studyData && (
 							<StudyInfoContainer
 								categoryCode={studyData.categoryCode}

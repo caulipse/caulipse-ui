@@ -27,6 +27,30 @@
   .content {
     width: 100%;
     padding-bottom: 9.313rem;
+    .diff-date{
+      &-container{
+        background-color: #fdf7f0;
+        width: 100%;
+        padding: .875rem 0rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.469rem;
+      }
+      &-d-day{
+        color:$primaryColor;
+        font-size: .875rem;
+        line-height: 1.25rem;
+        font-weight: bold;
+      }
+      &-text{
+        color:$primaryColor;
+        font-size: .75rem;
+        line-height: 1.25rem;
+        margin-left: .5rem;
+      }
+    }
     .studyTimeViewedAnd {
       display: flex;
       flex-direction: row;

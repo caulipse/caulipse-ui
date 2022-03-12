@@ -32,18 +32,19 @@ const Header: React.FC = () => {
 	};
 
 	const renderDrawerList = useCallback(() => {
-		return drawerList.map((drawerSubList, drawerSubListIdx) => {
-			return [
-				...drawerSubList.map((drawerItem) => (
-					<ListItem key={drawerItem.title} disableGutters component="a" href={drawerItem.route}>
-						<ListItemText primary={drawerItem.title} />
-					</ListItem>
-				)),
-				// eslint-disable-next-line react/no-array-index-key
-				<ListItem key={`divider-${drawerSubListIdx}`}>
-					<Divider />
-				</ListItem>,
-			];
+		return drawerList.map((drawerSubList, drawerSubListIdx, { length: drawerSubListLength }) => {
+			return drawerSubList.map((drawerItem, drawerItemIdx, { length: drawerItemLength }) => (
+				<ListItem
+					button
+					key={drawerItem.title}
+					disableGutters
+					component="a"
+					href={drawerItem.route}
+					divider={drawerItemIdx === drawerItemLength - 1 && drawerSubListIdx !== drawerSubListLength - 1}
+				>
+					<ListItemText primary={drawerItem.title} className="drawer-item-button" />
+				</ListItem>
+			));
 		});
 	}, []);
 
@@ -72,9 +73,9 @@ const Header: React.FC = () => {
 				<div className="drawer-container">
 					<div>이미지 들어갈 영역</div>
 					<Box className="drawer-title">마이 페이지</Box>
-					<nav>
-						<List>{renderDrawerList()}</List>
-					</nav>
+					<List disablePadding component="nav">
+						{renderDrawerList()}
+					</List>
 				</div>
 			</SwipeableDrawer>
 		</header>

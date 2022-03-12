@@ -37,6 +37,9 @@
     align-items: flex-start;
     width:14.25rem;
     padding: 2rem 0.5rem 0 0.5rem;
+    > nav{
+      width: 100%;
+    }
   }
   &-title{
     font-size: 1rem;
@@ -44,5 +47,12 @@
     color:#101010;
     font-weight: bold;
     margin-top: 1.25rem;
+    margin-left: 1rem;
+  }
+  &-item{
+    &-button{
+      padding:0 1rem;
+      width: 100%;
+    }
   }
 }

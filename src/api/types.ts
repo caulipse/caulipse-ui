@@ -29,8 +29,6 @@ export interface Study {
 	vacancy: number;
 	views: number;
 	weekday: string;
-	// TODO API 확인 필요. 실제 response 에 아래 필드는 누락되어 있음
-	bookmarks?: number;
 }
 
 export interface StudyUser {

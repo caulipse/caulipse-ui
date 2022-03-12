@@ -32,11 +32,11 @@
         background-color: #fdf7f0;
         width: 100%;
         padding: .875rem 0rem;
+        margin-top: 1.469rem;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        margin-top: 1.469rem;
       }
       &-d-day{
         color:$primaryColor;
@@ -49,6 +49,16 @@
         font-size: .75rem;
         line-height: 1.25rem;
         margin-left: .5rem;
+      }
+      &-end{
+        font-size: .75rem;
+        line-height: 1.25rem;
+        color:#b4b4b4;
+        width: 100%;
+        background-color: #ececec;
+        padding: .875rem 0rem;
+        margin-top: 1.469rem;
+        text-align: center;
       }
     }
     .studyTimeViewedAnd {

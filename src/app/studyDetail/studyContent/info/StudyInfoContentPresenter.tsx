@@ -5,14 +5,14 @@ import format from 'date-fns/format';
 interface StudyInfoContentPresenterProps {
 	createdAt: string;
 	views: number;
-	bookmarks?: number;
+	// bookmarks?: number;
 	title: string;
 	studyAbout: string;
 }
 const StudyInfoContentPresenter = ({
 	createdAt,
 	views,
-	bookmarks,
+	// bookmarks,
 	title,
 	studyAbout,
 }: StudyInfoContentPresenterProps): JSX.Element => (
@@ -23,7 +23,7 @@ const StudyInfoContentPresenter = ({
 				<div className="mh5">•</div>
 				<div>조회 {views}</div>
 				<div className="mh5">•</div>
-				<div>북마크 {NumberUtils.toFormattedCount(bookmarks ?? 0)}</div>
+				<div>북마크 {NumberUtils.toFormattedCount(0)}</div>
 			</div>
 			<div className="studyTitle">
 				<span>{title}</span>

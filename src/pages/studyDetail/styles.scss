@@ -8,7 +8,7 @@
   align-items: center;
   padding-top: .625rem;
   .studyDetailBg{
-    background-color: #0e5dd3;
+    background-color: $primaryColor;
     max-width: $maxContentWidth !important;
     width:100%;
     .backButtonContainer {

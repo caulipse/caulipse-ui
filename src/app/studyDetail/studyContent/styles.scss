@@ -20,8 +20,8 @@
       color: #929699;
     }
     .clicked {
-      color: black;
-      border-bottom: solid black 2px;
+      color: $primaryColor;
+      border-bottom: solid $primaryColor 2px;
     }
   }
   .content {

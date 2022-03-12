@@ -1,4 +1,4 @@
-import { Box, Button, Divider, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
+import { Box, Button, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';

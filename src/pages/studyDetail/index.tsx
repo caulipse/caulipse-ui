@@ -69,6 +69,7 @@ const StudyDetailPage = (): JSX.Element => {
 						</div>
 						{studyData && (
 							<StudyInfoContainer
+								categoryCode={studyData.categoryCode}
 								weekday={studyData.weekday}
 								frequency={studyData.frequency}
 								location={studyData.location}

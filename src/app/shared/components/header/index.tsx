@@ -1,4 +1,5 @@
 import { Box, Button, Divider, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
+import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
@@ -14,6 +15,12 @@ const Header: React.FC = () => {
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
 	const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+	const logout = usePatchLogout();
+
+	const handleLogout = () => {
+		logout.mutate();
+	};
 
 	const openDrawer = () => {
 		setIsDrawerOpen(true);
@@ -77,6 +84,11 @@ const Header: React.FC = () => {
 						{renderDrawerList()}
 					</List>
 				</div>
+				{state.login && (
+					<Button fullWidth onClick={handleLogout}>
+						<Box className="drawer-logout-text">로그아웃</Box>
+					</Button>
+				)}
 			</SwipeableDrawer>
 		</header>
 	);

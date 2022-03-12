@@ -17,8 +17,12 @@
       margin: 0rem 0.75rem;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
+    }
+    .icn-btn{
+      width:1.5rem;
+      height:1.5rem;
     }
   }
 }

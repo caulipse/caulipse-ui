@@ -10,6 +10,8 @@ import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
+import { Button, IconButton } from '@material-ui/core';
+import classNames from 'classnames';
 
 const StudyDetailPage = (): JSX.Element => {
 	const history = useHistory();
@@ -50,22 +52,14 @@ const StudyDetailPage = (): JSX.Element => {
 				<div className="studyDetailContainer">
 					<div className="studyDetailBg">
 						<div className="backButtonContainer">
-							<button onClick={() => history.goBack()} type="button">
-								<IoArrowBack size={16} color="#ffffff" />
-							</button>
-							<div>
-								<button type="button" className="mr11">
-									<IoBookmarkOutline size={16} color="#ffffff" />
-								</button>
-								<CopyToClipboard text={url}>
-									<button type="button" className="mr11" onClick={onClickShare}>
-										<IoShareSocialOutline size={16} color="#ffffff" />
-									</button>
-								</CopyToClipboard>
-								<button type="button" onClick={onClickMore}>
-									<IoEllipsisVertical size={16} color="#ffffff" />
-								</button>
-							</div>
+							<CopyToClipboard text={url}>
+								<IconButton className="mr11" onClick={onClickShare}>
+									<IoShareSocialOutline className="icn-btn" color="#ffffff" />
+								</IconButton>
+							</CopyToClipboard>
+							<IconButton type="button" onClick={onClickMore}>
+								<IoEllipsisVertical className="icn-btn" color="#ffffff" />
+							</IconButton>
 						</div>
 						{studyData && (
 							<StudyInfoContainer

@@ -58,7 +58,7 @@ const Header: React.FC = () => {
 	return (
 		<header className="header-con">
 			<IoMenu className="header-icon" type="button" onClick={openDrawer} />
-			<Typography>서비스 로고</Typography>
+			<Typography className="header-logo">서비스 로고</Typography>
 			{state.login ? (
 				<div>
 					<IoSearch className="header-icon" type="button" onClick={clickSearchIcon} />

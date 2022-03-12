@@ -1,9 +1,10 @@
-import { Box, Button, Container, SwipeableDrawer, Typography } from '@material-ui/core';
+import { Box, Button, Divider, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
+import { drawerList } from './drawerList';
 import './index.scss';
 
 const Header: React.FC = () => {
@@ -30,6 +31,22 @@ const Header: React.FC = () => {
 		console.log('clickNotification');
 	};
 
+	const renderDrawerList = useCallback(() => {
+		return drawerList.map((drawerSubList, drawerSubListIdx) => {
+			return [
+				...drawerSubList.map((drawerItem) => (
+					<ListItem key={drawerItem.title} disableGutters component="a" href={drawerItem.route}>
+						<ListItemText primary={drawerItem.title} />
+					</ListItem>
+				)),
+				// eslint-disable-next-line react/no-array-index-key
+				<ListItem key={`divider-${drawerSubListIdx}`}>
+					<Divider />
+				</ListItem>,
+			];
+		});
+	}, []);
+
 	return (
 		<header className="header-con">
 			<IoMenu className="header-icon" type="button" onClick={openDrawer} />
@@ -52,10 +69,13 @@ const Header: React.FC = () => {
 				disableBackdropTransition={!iOS}
 				disableDiscovery={iOS}
 			>
-				<Box className="drawer-container">
+				<div className="drawer-container">
 					<div>이미지 들어갈 영역</div>
 					<Box className="drawer-title">마이 페이지</Box>
-				</Box>
+					<nav>
+						<List>{renderDrawerList()}</List>
+					</nav>
+				</div>
 			</SwipeableDrawer>
 		</header>
 	);

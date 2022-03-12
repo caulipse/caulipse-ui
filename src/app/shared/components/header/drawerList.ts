@@ -4,7 +4,7 @@ export interface DrawerButtonProps {
 	route?: string;
 	onClick?: () => void;
 }
-export const headerButtons: DrawerButtonProps[][] = [
+export const drawerList: DrawerButtonProps[][] = [
 	[
 		{
 			title: '내 프로필',

@@ -1,6 +1,7 @@
 @import "../../../../scss/mixins";
 @import "../../../../scss/variables";
 
+
 .header-con {
   background-color: $primaryColor;
   padding: .625rem .75rem;
@@ -31,6 +32,9 @@
 }
 .drawer{
   &-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     width:14.25rem;
     padding: 2rem 0.5rem 0 0.5rem;
   }

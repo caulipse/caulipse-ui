@@ -89,11 +89,9 @@ const Header: React.FC = () => {
 						{renderDrawerList()}
 					</List>
 				</div>
-				{state.login && (
-					<Button fullWidth onClick={handleLogout}>
-						<Box className="drawer-logout-text">로그아웃</Box>
-					</Button>
-				)}
+				<Button fullWidth onClick={handleLogout}>
+					<Box className="drawer-logout-text">로그아웃</Box>
+				</Button>
 			</SwipeableDrawer>
 		</header>
 	);

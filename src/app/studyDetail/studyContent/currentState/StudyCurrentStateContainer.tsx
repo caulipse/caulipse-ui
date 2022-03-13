@@ -7,15 +7,20 @@ import StudyCurrentStatePresenter from './StudyCurrentStatePresenter';
 interface StudyCurrentStateContainerProps {
 	studyId: string;
 	hostId: string;
+	capacity: number;
 }
 
-const StudyCurrentStateContainer = ({ studyId, hostId }: StudyCurrentStateContainerProps): JSX.Element => {
+const StudyCurrentStateContainer = ({ studyId, hostId, capacity }: StudyCurrentStateContainerProps): JSX.Element => {
 	const { data, isLoading } = useFetchStudyUsers(studyId);
 	const { data: hostData, isLoading: isHostLoading } = useFetchUserProfile(hostId);
 
 	if (isLoading || isHostLoading) return <Loader />;
 
-	return data && hostData ? <StudyCurrentStatePresenter host={hostData.userProfile} studyUsers={data} /> : <div />;
+	return data && hostData ? (
+		<StudyCurrentStatePresenter host={hostData.userProfile} studyUsers={data} capacity={capacity} />
+	) : (
+		<div />
+	);
 };
 
 export default StudyCurrentStateContainer;

@@ -7,14 +7,17 @@ import './styles.scss';
 interface StudyCurrentStatePresenterProps {
 	studyUsers: StudyUser[];
 	host: UserProfile;
+	capacity: number;
 }
 
-const StudyCurrentStatePresenter = ({ studyUsers, host }: StudyCurrentStatePresenterProps): JSX.Element => (
+const StudyCurrentStatePresenter = ({ studyUsers, host, capacity }: StudyCurrentStatePresenterProps): JSX.Element => (
 	<div className="studyCurrentStateContainer">
 		<div className="mh20">
 			<div className="studyCurrentUserContainer">
 				<div className="studyCurrentStateTitle">참여인원</div>
-				<div className="studyCurrentState">({studyUsers.length + 1}/10)</div>
+				<div className="studyCurrentState">
+					({studyUsers.length + 1}/{capacity})
+				</div>
 			</div>
 			<div className="studyHost">
 				<StudyUserHostItemContainer user={host} />

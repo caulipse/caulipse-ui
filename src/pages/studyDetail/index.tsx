@@ -98,6 +98,7 @@ const StudyDetailPage = (): JSX.Element => {
 								// bookmarks={studyData.bookmarks}
 								title={studyData.title}
 								studyAbout={studyData.studyAbout}
+								capacity={studyData.capacity}
 							/>
 						)}
 						<CTAButtons />

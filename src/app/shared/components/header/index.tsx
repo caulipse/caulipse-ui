@@ -1,4 +1,4 @@
-import { Box, Button, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
+import { Box, Button, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';
@@ -43,12 +43,16 @@ const Header: React.FC = () => {
 
 	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
 	const HeaderRightComponent = () => {
-		if (state.login) {
+		if (!state.login) {
 			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
 				return (
 					<div>
-						<IoSearch className="header-icon" type="button" onClick={clickSearchIcon} />
-						<IoNotifications className="header-icon" type="button" onClick={clickNotification} />
+						<IconButton onClick={clickSearchIcon}>
+							<IoSearch className="header-icon" />
+						</IconButton>
+						<IconButton onClick={clickNotification}>
+							<IoNotifications className="header-icon" />
+						</IconButton>
 					</div>
 				);
 			}
@@ -89,7 +93,9 @@ const Header: React.FC = () => {
 
 	return (
 		<header className="header-con">
-			<IoMenu className="header-icon" type="button" onClick={openDrawer} />
+			<IconButton onClick={openDrawer}>
+				<IoMenu className="header-icon" />
+			</IconButton>
 			<Typography className="header-logo">서비스 로고</Typography>
 			<HeaderRightComponent />
 			<SwipeableDrawer

@@ -8,6 +8,7 @@ interface StudyUserItemPresenterProps {
 	onClick: () => void;
 }
 
+// TODO: userName, profilePicture 서버에서 값 내려주면 확인하기
 const StudyUserItemPresenter = ({ studyUser, onClick }: StudyUserItemPresenterProps): JSX.Element => {
 	return (
 		<div className="study-user-item-container">

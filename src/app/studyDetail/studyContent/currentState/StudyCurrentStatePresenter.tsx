@@ -5,7 +5,7 @@ import StudyUserItemContainer from './studyUserItem/StudyUserItemContainer';
 import './styles.scss';
 
 interface StudyCurrentStatePresenterProps {
-	studyUsers: [] | StudyUser[];
+	studyUsers: StudyUser[];
 	host: StudyUser;
 }
 

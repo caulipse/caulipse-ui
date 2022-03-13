@@ -1,12 +1,12 @@
 import React from 'react';
-import { StudyUser } from '@api/types';
+import { StudyUser, UserProfile } from '@api/types';
 import StudyUserHostItemContainer from './studyUserHostItem/StudyUserHostItemContainer';
 import StudyUserItemContainer from './studyUserItem/StudyUserItemContainer';
 import './styles.scss';
 
 interface StudyCurrentStatePresenterProps {
 	studyUsers: StudyUser[];
-	host: StudyUser;
+	host: UserProfile;
 }
 
 const StudyCurrentStatePresenter = ({ studyUsers, host }: StudyCurrentStatePresenterProps): JSX.Element => (

@@ -41,3 +41,16 @@ export const drawerList: DrawerButtonProps[][] = [
 		},
 	],
 ];
+export const drawerListBeforeLogin: DrawerButtonProps[][] = [
+	[{ title: '로그인 / 회원가입', route: '/login', isBold: true }],
+	[
+		{
+			title: '공지사항',
+			route: '/profile/notice',
+		},
+		{
+			title: '문의하기',
+			route: 'mailto:caulipse814@gmail.com',
+		},
+	],
+];

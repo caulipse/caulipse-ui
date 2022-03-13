@@ -6,7 +6,7 @@ import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
 import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
-import { drawerList } from './drawerList';
+import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
 
 const Header: React.FC = () => {
@@ -40,7 +40,9 @@ const Header: React.FC = () => {
 	};
 
 	const renderDrawerList = useCallback(() => {
-		return drawerList.map((drawerSubList, drawerSubListIdx, { length: drawerSubListLength }) => {
+		const list = state.login ? drawerList : drawerListBeforeLogin;
+
+		return list.map((drawerSubList, drawerSubListIdx, { length: drawerSubListLength }) => {
 			return drawerSubList.map((drawerItem, drawerItemIdx, { length: drawerItemLength }) => (
 				<ListItem
 					button
@@ -59,7 +61,7 @@ const Header: React.FC = () => {
 				</ListItem>
 			));
 		});
-	}, []);
+	}, [drawerList, drawerListBeforeLogin, state.login]);
 
 	return (
 		<header className="header-con">
@@ -89,9 +91,11 @@ const Header: React.FC = () => {
 						{renderDrawerList()}
 					</List>
 				</div>
-				<Button fullWidth onClick={handleLogout}>
-					<Box className="drawer-logout-text">로그아웃</Box>
-				</Button>
+				{state.login && (
+					<Button fullWidth onClick={handleLogout}>
+						<Box className="drawer-logout-text">로그아웃</Box>
+					</Button>
+				)}
 			</SwipeableDrawer>
 		</header>
 	);

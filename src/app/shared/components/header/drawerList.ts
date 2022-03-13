@@ -2,12 +2,18 @@ const SAMPLE_ID = 'sample-id';
 export interface DrawerButtonProps {
 	title: string;
 	route: string;
+	isBold?: boolean;
 }
 export const drawerList: DrawerButtonProps[][] = [
 	[
 		{
-			title: '내 프로필',
+			title: '마이 페이지',
 			route: `/profile/${SAMPLE_ID}`,
+			isBold: true,
+		},
+		{
+			title: '내 프로필',
+			route: '/profile/edit',
 		},
 	],
 	[

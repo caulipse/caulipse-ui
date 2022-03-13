@@ -1,22 +1,23 @@
+import { getMainCategoryLabel, getSubCategoryLabel } from '@src/app/shared/utils/category';
 import React from 'react';
 import './styles.scss';
 
 interface StudyInfoPresenterProps {
-	// code: string;
+	categoryCode: string;
 	weekday: string;
 	frequency: string;
 	location: string;
 }
-const StudyInfoPresenter = ({ weekday, frequency, location }: StudyInfoPresenterProps): JSX.Element => (
+const StudyInfoPresenter = ({ categoryCode, weekday, frequency, location }: StudyInfoPresenterProps): JSX.Element => (
 	<div className="StudyInfoContainer">
 		<div className="categoryTextContainer">
 			<div className="category">카테고리</div>
 			<div className="categoryDetail">
-				{/* Todo: 카테고리 정보 들어가야 함 */}
-				<span>category</span>
+				<span>
+					{getMainCategoryLabel(Number(categoryCode))} &gt; {getSubCategoryLabel(Number(categoryCode))}
+				</span>
 			</div>
 		</div>
-
 		<div className="study-sub-info-container">
 			<div className="mr16">
 				<div className="study-sub-info-title">요일</div>

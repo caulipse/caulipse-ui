@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import { Study } from '@api/types';
 import './index.scss';
+import { getMainCategoryLabel, getSubCategoryLabel } from '../../utils/category';
 
 interface PresenterProps {
 	study: Study;
@@ -11,7 +12,7 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => (
 		<Container className="study-card-category-container">
 			<Container className="study-card-date">D-16</Container>
 			<span className="study-card-category">
-				{study.categoryCode?.main} {'>'} {study.categoryCode?.sub}
+				{getMainCategoryLabel(Number(study.categoryCode))} {'>'} {getSubCategoryLabel(Number(study.categoryCode))}
 			</span>
 		</Container>
 		<Typography className="study-card-title">{study.title}</Typography>

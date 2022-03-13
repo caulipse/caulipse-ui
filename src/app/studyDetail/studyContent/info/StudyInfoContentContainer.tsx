@@ -4,14 +4,14 @@ import StudyInfoContentPresenter from './StudyInfoContentPresenter';
 interface StudyInfoConntainerProps {
 	createdAt: string;
 	views: number;
-	bookmarks?: number;
+	// bookmarks?: number;
 	title: string;
 	studyAbout: string;
 }
 const StudyInfoContentContainer = ({
 	createdAt,
 	views,
-	bookmarks,
+	// bookmarks,
 	title,
 	studyAbout,
 }: StudyInfoConntainerProps): JSX.Element => {
@@ -19,7 +19,7 @@ const StudyInfoContentContainer = ({
 		<StudyInfoContentPresenter
 			createdAt={createdAt}
 			views={views}
-			bookmarks={bookmarks}
+			// bookmarks={bookmarks}
 			title={title}
 			studyAbout={studyAbout}
 		/>

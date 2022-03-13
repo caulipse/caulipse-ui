@@ -10,7 +10,7 @@ interface StudyContentContainerProps {
 	hostId: string;
 	createdAt: string;
 	views: number;
-	bookmarks?: number;
+	// bookmarks?: number;
 	title: string;
 	studyAbout: string;
 }
@@ -20,7 +20,7 @@ const StudyContentContainer = ({
 	hostId,
 	createdAt,
 	views,
-	bookmarks,
+	// bookmarks,
 	title,
 	studyAbout,
 }: StudyContentContainerProps): JSX.Element => {
@@ -32,7 +32,7 @@ const StudyContentContainer = ({
 				<StudyInfoContentContainer
 					createdAt={createdAt}
 					views={views}
-					bookmarks={bookmarks}
+					// bookmarks={bookmarks}
 					title={title}
 					studyAbout={studyAbout}
 				/>

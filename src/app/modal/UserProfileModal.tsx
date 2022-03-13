@@ -43,14 +43,14 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				style={{ height: isPopup ? 'auto' : bottomSheetHeight }}
 				onScroll={handleScroll}
 			>
-				<div className="profile-bottom-sheet-top-short-about">{userProfile?.shortUserAbout}</div>
+				<div className="profile-bottom-sheet-top-short-about">{userProfile?.bio}</div>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
 					src={sampleImgUrl}
 					alt="프로필 이미지"
 				/>
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>
-				<div className="profile-bottom-sheet-short-about">{userProfile?.shortUserAbout}</div>
+				<div className="profile-bottom-sheet-short-about">{userProfile?.bio}</div>
 				<div className="profile-bottom-sheet-tag-container">
 					{userProfile?.categories?.map((tagItem, tagIndex) => (
 						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>

@@ -28,7 +28,7 @@ const MyProfileEditContainer = (): JSX.Element => {
 							grade={Number(userProfile.grade)}
 							onBreak={userProfile.onBreak}
 							categories={userProfile.categories}
-							shortIntro={userProfile.shortUserAbout}
+							shortIntro={userProfile.bio}
 							urls={userProfile.links.reduce((acc, linkItem, linkIdx) => {
 								if (linkItem) {
 									return [

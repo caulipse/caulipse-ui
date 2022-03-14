@@ -1,9 +1,9 @@
 import React from 'react';
-import { StudyUser } from '@api/types';
+import { UserProfile } from '@api/types';
 import StudyUserHostItemPresenter from './StudyUserHostItemPresenter';
 
 interface StudyUserHostItemContainerProps {
-	user: StudyUser;
+	user: UserProfile;
 }
 
 const StudyUserHostItemContainer = ({ user }: StudyUserHostItemContainerProps): JSX.Element => {

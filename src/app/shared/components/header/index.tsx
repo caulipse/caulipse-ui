@@ -1,16 +1,19 @@
-import { Box, Button, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
+import { Box, Button, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
 import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
 
 const Header: React.FC = () => {
 	const history = useHistory();
+	const locationPathName = useLocation().pathname;
+
+	console.log('locationPathName, ', locationPathName);
 
 	const [state] = useAtom(globalState);
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -39,6 +42,39 @@ const Header: React.FC = () => {
 		console.log('clickNotification');
 	};
 
+	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
+	const HeaderRightComponent = () => {
+		if (!state.login) {
+			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
+				return (
+					<div>
+						<IconButton onClick={clickSearchIcon}>
+							<IoSearch className="header-icon" />
+						</IconButton>
+						<IconButton onClick={clickNotification}>
+							<IoNotifications className="header-icon" />
+						</IconButton>
+					</div>
+				);
+			}
+
+			return <IoNotifications className="header-icon" type="button" onClick={clickNotification} />;
+		}
+
+		if (locationPathName.startsWith('/study/detail')) {
+			return <div />;
+		}
+		if (locationPathName.startsWith('/study')) {
+			return <IoSearch className="header-icon" type="button" onClick={clickSearchIcon} />;
+		}
+
+		return (
+			<Button onClick={() => history.push('/login')}>
+				<Typography className="header-login">로그인</Typography>
+			</Button>
+		);
+	};
+
 	const renderDrawerList = useCallback(() => {
 		const list = state.login ? drawerList : drawerListBeforeLogin;
 
@@ -65,18 +101,11 @@ const Header: React.FC = () => {
 
 	return (
 		<header className="header-con">
-			<IoMenu className="header-icon" type="button" onClick={openDrawer} />
+			<IconButton onClick={openDrawer}>
+				<IoMenu className="header-icon" />
+			</IconButton>
 			<Typography className="header-logo">서비스 로고</Typography>
-			{state.login ? (
-				<div>
-					<IoSearch className="header-icon" type="button" onClick={clickSearchIcon} />
-					<IoNotifications className="header-icon" type="button" onClick={clickNotification} />
-				</div>
-			) : (
-				<Button onClick={() => history.push('/login')}>
-					<Typography className="header-login">로그인</Typography>
-				</Button>
-			)}
+			<HeaderRightComponent />
 			<SwipeableDrawer
 				anchor="left"
 				open={isDrawerOpen}

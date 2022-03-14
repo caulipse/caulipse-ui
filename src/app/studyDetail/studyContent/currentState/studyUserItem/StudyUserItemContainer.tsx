@@ -1,6 +1,4 @@
-import { UserPreview } from '@api/response/user';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { StudyUser } from '@api/types';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';

@@ -1,45 +1,22 @@
-import React, { useMemo } from 'react';
-import { BookmarkInterface } from '../../interface/interface';
+import { Study } from '@src/api/types';
+import React from 'react';
 import Bookmarkitem from './BookmarkItem';
 import './BookmarkList.scss';
 
 interface BookmarkListProps {
 	title: string;
-	bookmarkList: BookmarkInterface[] | [];
+	bookmarkList: Study[];
 	isBlurred?: boolean;
 }
 
-interface sectionedBookMarkListItemProps {
-	key: string;
-	value: BookmarkInterface[] | [];
-}
-
-const BookmarkList = ({ title, bookmarkList, isBlurred }: BookmarkListProps) => {
-	const sectionedBookmarkList = useMemo(() => {
-		const map = new Map<string, BookmarkInterface[] | []>();
-		bookmarkList.forEach((bookmarkItem) => {
-			map.set(bookmarkItem.category, [...(map.get(bookmarkItem.category) ?? []), bookmarkItem]);
-		});
-		return map;
-	}, [bookmarkList]);
-
+const BookmarkList = ({ title, bookmarkList, isBlurred }: BookmarkListProps): JSX.Element => {
 	return (
 		<div className="bookmarkList-container">
 			{isBlurred ||
-				Array.from(sectionedBookmarkList).map(([key, value]) => {
-					return (
-						<div key={key}>
-							<div className="bookmarkItem-category">{key}</div>
-							{value.map((item: BookmarkInterface) => (
-								<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
-							))}
-						</div>
-					);
+				bookmarkList.map((item) => {
+					return <Bookmarkitem key={item.id} item={item} isBlurred={isBlurred} />;
 				})}
-			{isBlurred &&
-				bookmarkList.map((item: BookmarkInterface) => (
-					<Bookmarkitem key={item.studyId} item={item} isBlurred={isBlurred} />
-				))}
+			{isBlurred && bookmarkList.map((item: Study) => <Bookmarkitem key={item.id} item={item} isBlurred={isBlurred} />)}
 		</div>
 	);
 };

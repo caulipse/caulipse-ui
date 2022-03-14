@@ -1,30 +1,20 @@
-import React, { useEffect } from 'react';
-import * as Factory from 'factory.ts';
+import React from 'react';
+import useFetchBookmarks from '@src/hooks/remotes/bookmark/useFetchBookmarks';
+import Loader from '@src/components/common/loader/Loader';
 import BookmarkPresenter from './BookmarkPresenter';
-import { BookmarkInterface } from '../interface/interface';
 
 const BookmarkContainer = (): JSX.Element => {
+	const { isLoading, data } = useFetchBookmarks();
+	const bookmarks = data?.bookmarks;
 
-	const getBookmarkData = (iter: number) => {
-		const bookmarkFactory = Factory.Sync.makeFactory<BookmarkInterface>({
-			studyId: Factory.each((i) => i),
-			title: '제목입니다.',
-			currentNumber: 1,
-			maxNumber: 10,
-			date: new Date(),
-			hits: 5,
-			stars: 5,
-			category: Factory.each((i) => (i > 2 ? '어학->토익' : '프로그래밍')),
-		});
-		return bookmarkFactory.buildList(iter);
-	};
-
+	// TODO: 마감여부
 	return (
 		<div>
-			<BookmarkPresenter
-				recruitedBookmarks={getBookmarkData(5)}
-				recruitingBookmarks={getBookmarkData(3)}
-			/>
+			{isLoading ? (
+				<Loader />
+			) : (
+				bookmarks && <BookmarkPresenter recruitedBookmarks={bookmarks} recruitingBookmarks={bookmarks} />
+			)}
 		</div>
 	);
 };

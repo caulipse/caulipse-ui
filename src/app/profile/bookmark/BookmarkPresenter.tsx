@@ -3,11 +3,11 @@ import BookmarkList from '@src/app/profile/bookmark/bookmarkList';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
 import './index.scss';
-import { BookmarkInterface } from '../interface/interface';
+import { Study } from '@src/api/types';
 
 interface BookmarkPresenterInterface {
-	recruitingBookmarks: BookmarkInterface[];
-	recruitedBookmarks: BookmarkInterface[];
+	recruitingBookmarks: Study[];
+	recruitedBookmarks: Study[];
 }
 
 const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: BookmarkPresenterInterface): JSX.Element => {

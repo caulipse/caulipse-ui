@@ -148,6 +148,10 @@ const API = {
 	getUser() {
 		return client.get('/user');
 	},
+	// 북마크 리스트 조회
+	getBookmarks() {
+		return client.get('/user/bookmark');
+	},
 };
 
 export default API;

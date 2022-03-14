@@ -44,7 +44,7 @@ const Header: React.FC = () => {
 
 	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
 	const HeaderRightComponent = () => {
-		if (!state.login) {
+		if (state.login) {
 			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
 				return (
 					<div>

@@ -55,7 +55,6 @@ export interface UserInfoInterface {
 	grade: number;
 	bio: string;
 	userAbout: string;
-    shortUserAbout: string;
 	links: string[];
 	status: string;
 }

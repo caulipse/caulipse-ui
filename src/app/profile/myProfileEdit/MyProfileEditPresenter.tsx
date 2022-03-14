@@ -63,7 +63,7 @@ const MyProfileEditPresenter = ({
 			dept: currentMajor,
 			grade: String(currentGrade),
 			onBreak: currentOnBreak,
-			shortUserAbout: currentShortIntro,
+			bio: currentShortIntro,
 			links: filteredArray,
 			userAbout: currentLongIntro,
 		});

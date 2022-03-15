@@ -1,7 +1,7 @@
-import { Box, Button, Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import format from 'date-fns/format';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
 interface MyStudyCardProps {
@@ -27,10 +27,10 @@ const MyStudyCard = ({
 }: MyStudyCardProps): JSX.Element => {
 	return (
 		<Link className="my-study-card-container" to={`/study/detail/${studyId}`}>
-			<Container className="my-study-card-header">
+			<Box className="my-study-card-header">
 				{leftTopComponent}
 				{rightTopComponent}
-			</Container>
+			</Box>
 			<Box className="my-study-card-title">{title}</Box>
 			<Box className="my-study-card-text-container">
 				<Box className="my-study-card-text">{format(new Date(createdAt), 'yy-MM-dd')}</Box>

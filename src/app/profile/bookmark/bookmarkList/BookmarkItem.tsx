@@ -3,7 +3,7 @@ import { Study } from '@src/api/types';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import Chip from '@src/components/common/chip/Chip';
 import { ChipTypeEnum } from '@src/components/common/chip/types';
-import { IoBookmark } from 'react-icons/io5';
+import { IoBookmark, IoClose } from 'react-icons/io5';
 import './BookmarkList.scss';
 import ProgressBar from '@src/components/common/progress/ProgressBar';
 import classNames from 'classnames';
@@ -31,6 +31,7 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 		<MyStudyCard
 			leftTopComponent={isBlurred ? undefined : <LeftTopComponent />}
 			rightTopComponent={isBlurred ? undefined : <RightTopComponent />}
+			rightComponent={isBlurred ? <IoClose className="bookmark-item-close-icon" /> : undefined}
 			studyId={item.id}
 			title={item.title}
 			isTitleBlur={isBlurred}

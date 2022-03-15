@@ -14,6 +14,7 @@ interface MyStudyCardProps {
 	isTitleBlur?: boolean;
 	leftTopComponent?: React.ReactElement;
 	rightTopComponent?: React.ReactElement;
+	rightComponent?: React.ReactElement;
 	bottomComponent?: React.ReactElement;
 	className?: string;
 }
@@ -27,6 +28,7 @@ const MyStudyCard = ({
 	leftTopComponent,
 	rightTopComponent,
 	bottomComponent,
+	rightComponent,
 	className,
 	isTitleBlur = false,
 }: MyStudyCardProps): JSX.Element => {
@@ -36,17 +38,21 @@ const MyStudyCard = ({
 				{leftTopComponent}
 				{rightTopComponent}
 			</Box>
-			<Box className={classNames('my-study-card-title', { 'my-study-card-blurred-text-color': isTitleBlur })}>
-				{title}
+			<Box className="my-study-card-row-container">
+				<Box className="my-study-card-column-container">
+					<Box className={classNames('my-study-card-title', { 'my-study-card-blurred-text-color': isTitleBlur })}>
+						{title}
+					</Box>
+					<Box className="my-study-card-text-container">
+						<Box className="my-study-card-text">{format(new Date(createdAt), 'yy-MM-dd')}</Box>
+						<div className="my-study-card-dot" />
+						<Box className="my-study-card-text">조회 {views}</Box>
+						<div className="my-study-card-dot" />
+						<Box className="my-study-card-text">북마크 {bookmarks}</Box>
+					</Box>
+				</Box>
+				{rightComponent}
 			</Box>
-			<Box className="my-study-card-text-container">
-				<Box className="my-study-card-text">{format(new Date(createdAt), 'yy-MM-dd')}</Box>
-				<div className="my-study-card-dot" />
-				<Box className="my-study-card-text">조회 {views}</Box>
-				<div className="my-study-card-dot" />
-				<Box className="my-study-card-text">북마크 {bookmarks}</Box>
-			</Box>
-
 			{bottomComponent}
 		</Link>
 	);

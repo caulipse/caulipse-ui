@@ -1,0 +1,40 @@
+@import "@scss/variables";
+
+.my-study-card{
+    &-container{
+        width:'100%';
+        background-color: #ffffff;
+        padding: 1rem;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+        border-radius: .625rem;
+    }
+    &-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-title{
+        font-weight: bold;
+        font-size: .875rem;
+        color: #101010;
+    }
+    &-text{
+        color: #b4b4b4;
+        font-size: .625rem;
+        line-height: 1.125rem;
+    }
+    &-text-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: .5rem;
+    }
+    &-dot{
+        width: .125rem;
+        height: .125rem;
+        border-radius: 0.125/2rem;
+        background-color: #e2e2e2;
+        margin:0 0.313rem;
+    }
+}

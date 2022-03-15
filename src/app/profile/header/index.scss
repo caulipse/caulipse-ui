@@ -1,19 +1,24 @@
 @import "../../../scss/mixins";
+@import "../../../scss/variables";
 
 %tag{
-    padding: 8px;
+    padding: .5rem;
     font-size: 0.688rem;
     border-radius: 15px;
 }
-.headerContainer{
-    margin: .5rem
-}
-.tagSelected{
-    @extend %tag;
-    color: #ffffff;
-    background-color: #212b36;
-}
-.tagUnselected{
-    @extend %tag;
-    color: #212b36;
+.my-studies-header{
+    &-container{
+        padding: .5rem;
+        background-color: #ffffff;
+        border-bottom: solid #e2e2e2 1px;
+    }
+    &-tag-selected{
+        @extend %tag;
+        color: $primaryColor;
+        background-color: $primaryLightColor;
+    }
+    &-tag-unselected{
+        @extend %tag;
+        color: #636363;
+    }
 }

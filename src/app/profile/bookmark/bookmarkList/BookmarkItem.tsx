@@ -3,9 +3,10 @@ import { Study } from '@src/api/types';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import Chip from '@src/components/common/chip/Chip';
 import { ChipTypeEnum } from '@src/components/common/chip/types';
-import { IconButton } from '@material-ui/core';
+import { Container, IconButton } from '@material-ui/core';
 import { IoBookmark } from 'react-icons/io5';
 import './BookmarkList.scss';
+import ProgressBar from '@src/components/common/progress/ProgressBar';
 
 interface BookmarkItemProps {
 	item: Study;
@@ -38,6 +39,7 @@ const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps): JSX.Element => {
 			createdAt={item.createdAt}
 			views={item.views}
 			bookmarks={0}
+			bottomComponent={<ProgressBar current={item.membersCount} max={item.capacity} />}
 		/>
 	);
 };

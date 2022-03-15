@@ -33,11 +33,11 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					setRecruitedStudiesVisible(!recruitedStudiesVisible);
 				}}
 			>
-				<div>마감된 항목</div>
-				{recruitedStudiesVisible ? (
-					<IoChevronDown size={24} color="#929699" />
-				) : (
-					<IoChevronUp size={24} color="#929699" />
+				{recruitedStudiesVisible || (
+					<>
+						<div>마감된 항목</div>
+						<IoChevronUp className="bookmark-chevron-icon" />
+					</>
 				)}
 			</button>
 			{recruitedStudiesVisible && (

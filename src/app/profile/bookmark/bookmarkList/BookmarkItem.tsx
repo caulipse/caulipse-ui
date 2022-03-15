@@ -25,11 +25,7 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 	}, []);
 
 	const RightTopComponent = useCallback(() => {
-		return (
-			<IconButton>
-				<IoBookmark className="bookmark-item-bookmark" />
-			</IconButton>
-		);
+		return <IoBookmark className="bookmark-item-bookmark" />;
 	}, []);
 
 	return (

@@ -24,7 +24,10 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					}}
 				/>
 			) : (
-				<BookmarkList bookmarkList={recruitingBookmarks} />
+				<>
+					<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
+					<BookmarkList bookmarkList={recruitingBookmarks} />
+				</>
 			)}
 			<button
 				type="button"

@@ -1,4 +1,5 @@
 @import '../../../../scss/mixins';
+@import '../../../../scss/variables';
 
 .bookmarkList{
     &-container{
@@ -8,76 +9,11 @@
         padding-top: 0.5rem;
     }
 }
-.bookmarkItem{
-    &-category{
-        font-size: 0.688rem;
-        color: #4790d8;
-        margin: 2rem 0 1rem 1rem;
-        font-weight: bold;
+.bookmark-item{
+    &-bookmark{
+        width: 1.5rem;
+        height: 1.5rem;
+        color: $primaryColor;
     }
 }
-.bookmarkItem{
-    &-container{
-        display: flex;
-        padding: 1rem;
-        background-color: #ffffff;
-        flex-direction: column;
-        box-shadow: 0px 2px 
-        rgba(0, 0, 0, 0.12);
-        margin: 0 0.75rem 0.5rem 0.75rem;
-        border-radius: 8px;
-    }
-    &-mid-container{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top: 0.25rem;
-    }
-    &-title{
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        color: #636363;
-        flex-shrink: 1;
-        flex-grow: 1;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    &-count{
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-        color: #929699;
-        padding-right: 32.15625rem;
-        padding-left: 1.75rem;
-    }
-    &-blurred-container{
-        display: flex;
-        padding: 1rem 1.25rem 1rem 1.25rem;
-        background-color: #ffffff;
-        flex-direction: column;
-        border-bottom: solid;
-        border-bottom-color: #e5e5e5;
-        border-bottom-width: 2px;
-    }
-    &-bottom-container{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top: .25rem;
-        font-size: 0.688rem;
-        line-height: 1rem;
-        color:#b1b1b1
-    }
-    &-divider-dot{
-        margin-left: 0.3125rem;
-        margin-right: 0.3125rem;
-        color:#c1c1c1;
-    }
-}
-
-
-
-
-
-
 

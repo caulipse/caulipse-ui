@@ -24,7 +24,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					}}
 				/>
 			) : (
-				<BookmarkList title="북마크" bookmarkList={recruitingBookmarks} />
+				<BookmarkList bookmarkList={recruitingBookmarks} />
 			)}
 			<button
 				type="button"
@@ -43,7 +43,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 			{recruitedStudiesVisible && (
 				<>
 					<div className="recruitedStudiesTitle">마감된 스터디</div>
-					<BookmarkList title="마감된 스터디" bookmarkList={recruitedBookmarks} isBlurred />
+					<BookmarkList bookmarkList={recruitedBookmarks} isBlurred />
 				</>
 			)}
 		</div>

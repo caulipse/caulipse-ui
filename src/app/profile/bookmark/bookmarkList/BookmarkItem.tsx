@@ -7,13 +7,15 @@ import { Container, IconButton } from '@material-ui/core';
 import { IoBookmark } from 'react-icons/io5';
 import './BookmarkList.scss';
 import ProgressBar from '@src/components/common/progress/ProgressBar';
+import classNames from 'classnames';
 
 interface BookmarkItemProps {
 	item: Study;
 	isBlurred?: boolean;
+	isBottomMargin?: boolean;
 }
 
-const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps): JSX.Element => {
+const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemProps): JSX.Element => {
 	const LeftTopComponent = useCallback(() => {
 		return (
 			<div>
@@ -40,12 +42,13 @@ const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps): JSX.Element => {
 			views={item.views}
 			bookmarks={0}
 			bottomComponent={<ProgressBar current={item.membersCount} max={item.capacity} />}
+			className={classNames({ 'mb-438rem': isBottomMargin })}
 		/>
 	);
 };
 
-Bookmarkitem.defaultProps = {
+BookmarkItem.defaultProps = {
 	isBlurred: false,
 };
 
-export default Bookmarkitem;
+export default BookmarkItem;

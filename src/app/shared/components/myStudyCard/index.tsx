@@ -1,4 +1,5 @@
 import { Box } from '@material-ui/core';
+import classNames from 'classnames';
 import format from 'date-fns/format';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -13,6 +14,7 @@ interface MyStudyCardProps {
 	leftTopComponent?: React.ReactElement;
 	rightTopComponent?: React.ReactElement;
 	bottomComponent?: React.ReactElement;
+	className?: string;
 }
 
 const MyStudyCard = ({
@@ -24,9 +26,10 @@ const MyStudyCard = ({
 	leftTopComponent,
 	rightTopComponent,
 	bottomComponent,
+	className,
 }: MyStudyCardProps): JSX.Element => {
 	return (
-		<Link className="my-study-card-container" to={`/study/detail/${studyId}`}>
+		<Link className={classNames('my-study-card-container', className)} to={`/study/detail/${studyId}`}>
 			<Box className="my-study-card-header">
 				{leftTopComponent}
 				{rightTopComponent}

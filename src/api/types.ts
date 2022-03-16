@@ -64,3 +64,12 @@ export interface User {
 	isLogout: boolean;
 	role: string;
 }
+
+export interface Notice {
+	id: string;
+	title: string;
+	about: string;
+	createdAt: string;
+	views: number;
+	hostId: string;
+}

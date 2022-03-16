@@ -15,6 +15,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 
 	return (
 		<div className="bookmark-presenter-container">
+			<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
 			{recruitingBookmarks?.length === 0 ? (
 				<EmptyComponent
 					title="이런, 북마크한 스터디가 없어요."
@@ -24,10 +25,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					}}
 				/>
 			) : (
-				<>
-					<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
-					<BookmarkList bookmarkList={recruitingBookmarks} />
-				</>
+				<BookmarkList bookmarkList={recruitingBookmarks} />
 			)}
 			<button
 				type="button"

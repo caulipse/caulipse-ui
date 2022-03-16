@@ -1,4 +1,5 @@
-import categories, { CategoryType } from '@src/const';
+import categories from '@src/const';
+import { CategoryType } from '@src/types';
 
 export const getSubCategoryLabel = (categoryCode: number): string => {
 	let result: CategoryType = { label: '', code: 0 };

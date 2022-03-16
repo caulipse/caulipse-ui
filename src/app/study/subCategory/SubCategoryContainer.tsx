@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { CategoryType } from '@src/types';
+import { useAtom } from 'jotai';
+import { studyListState } from '@src/state';
 import SubCategoryPresenter from './SubCategoryPresenter';
 
 interface ISubCategoryPresenterProps {
@@ -7,22 +9,24 @@ interface ISubCategoryPresenterProps {
 }
 
 const SubCategoryContainer = ({ mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
-	const [selectedCategories, setSelectedCategories] = useState<CategoryType[]>([]);
+	const [state, setState] = useAtom(studyListState);
+	const { selectedSubCategories } = state;
 
 	const onChange = (category: CategoryType) => {
-		if (selectedCategories.includes(category)) {
-			setSelectedCategories(selectedCategories.filter((item) => item !== category));
+		if (selectedSubCategories.includes(category)) {
+			setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
 		} else {
-			setSelectedCategories(selectedCategories.concat(category));
+			setState({ ...state, selectedSubCategories: selectedSubCategories.concat(category) });
 		}
 	};
 
-	useEffect(() => {
-		setSelectedCategories([]);
-	}, [mainCategory]);
-	return (
-		<SubCategoryPresenter onChange={onChange} mainCategory={mainCategory} selectedCategories={selectedCategories} />
-	);
+	// console.info(window.scrollY);
+	return <SubCategoryPresenter onChange={onChange} mainCategory={mainCategory} />;
+	// return window.scrollY < 500 ? (
+	// 	<SubCategoryPresenter onChange={onChange} mainCategory={mainCategory} />
+	// ) : (
+	// 	<SubCategoryCollapsedPresenter onClick={onClick} selectedSubCategories={selectedSubCategories} />
+	// );
 };
 
 export default SubCategoryContainer;

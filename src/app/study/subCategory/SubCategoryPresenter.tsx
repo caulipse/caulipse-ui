@@ -2,25 +2,26 @@ import React, { useMemo } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import categories from '@src/const';
 import { CategoryType } from '@src/types';
+import { useAtom } from 'jotai';
+import { studyListState } from '@src/state';
 import SubCategoryItem from './SubCategoryItem';
+
 import './index.scss';
 
 interface ISubCategoryPresenterProps {
 	onChange: (code: CategoryType) => void;
 	mainCategory: CategoryType | undefined;
-	selectedCategories: CategoryType[];
 }
 
-const SubCategoryPresenter = ({
-	onChange,
-	mainCategory,
-	selectedCategories,
-}: ISubCategoryPresenterProps): JSX.Element => {
+const SubCategoryPresenter = ({ onChange, mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
+	const [state] = useAtom(studyListState);
+	const { selectedSubCategories } = state;
 	const selectedCategory = useMemo(() => {
 		return categories.find((category) => {
 			return category.code === mainCategory?.code;
 		});
 	}, [mainCategory]);
+
 	return (
 		<Container className="sub-category-presenter-container">
 			{!!selectedCategory && (
@@ -30,7 +31,7 @@ const SubCategoryPresenter = ({
 							key={category.code}
 							category={category}
 							onClick={onChange}
-							selected={selectedCategories.includes(category)}
+							selected={selectedSubCategories.includes(category)}
 						/>
 					))}
 				</Grid>

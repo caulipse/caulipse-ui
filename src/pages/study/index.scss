@@ -4,18 +4,3 @@
     height: auto;
     padding: 0 !important;
 }
-
-.sub-category-presenter-bottom-bar {
-    position: sticky;
-    top: 1.5rem;
-    background: #fdf7f0;
-    padding: 0 !important;
-    height: 2.5rem;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.03);
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    svg {
-        color: $primaryColor;
-    }
-}

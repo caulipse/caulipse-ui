@@ -1,5 +1,4 @@
-import { Box, Button, Container } from '@material-ui/core';
-import CommonButton from '@src/components/common/button/CommonButton';
+import { Box, Button } from '@material-ui/core';
 import React from 'react';
 import './index.scss';
 

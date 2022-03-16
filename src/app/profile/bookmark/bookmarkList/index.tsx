@@ -1,6 +1,4 @@
-import { List, ListItem } from '@material-ui/core';
 import { Study } from '@src/api/types';
-import classNames from 'classnames';
 import React from 'react';
 import Bookmarkitem from './BookmarkItem';
 import './BookmarkList.scss';

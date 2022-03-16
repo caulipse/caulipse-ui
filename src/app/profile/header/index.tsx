@@ -8,10 +8,10 @@ const Header: React.FC = () => {
 	const location = useLocation();
 
 	return (
-		<header className='headerContainer'>
+		<header className="my-studies-header-container">
 			{headerButtons.map((button: HeaderButtonProps) => (
 				<button
-					className={location.pathname === button.route ? 'tagSelected' : 'tagUnselected'}
+					className={`my-studies-header-tag-${location.pathname === button.route ? 'selected' : 'unselected'}`}
 					key={button.title}
 					type="button"
 					onClick={() => history.push(button.route)}

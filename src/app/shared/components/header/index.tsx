@@ -5,15 +5,13 @@ import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
 import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
 
 const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
-
-	console.log('locationPathName, ', locationPathName);
 
 	const [state] = useAtom(globalState);
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -104,7 +102,9 @@ const Header: React.FC = () => {
 			<IconButton onClick={openDrawer}>
 				<IoMenu className="header-icon" />
 			</IconButton>
-			<Typography className="header-logo">서비스 로고</Typography>
+			<Link to="/">
+				<Typography className="header-logo">서비스 로고</Typography>
+			</Link>
 			<HeaderRightComponent />
 			<SwipeableDrawer
 				anchor="left"

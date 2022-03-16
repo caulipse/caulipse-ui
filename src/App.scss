@@ -2,9 +2,6 @@
 @import "@scss/variables";
 
 @include desktop {
-  .router-con {
-    margin-top: $header-height;
-  }
   .main-con {
     background: $serviceBackgroundColor;
   }

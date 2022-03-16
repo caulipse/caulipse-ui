@@ -13,8 +13,6 @@ const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
 
-	console.log('locationPathName, ', locationPathName);
-
 	const [state] = useAtom(globalState);
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 

@@ -33,7 +33,7 @@ const MainContainer = (): JSX.Element => {
 	const Component = loadable(() => import(`@modal/${key}`));
 
 	return (
-		<div className="router-con">
+		<div>
 			<div className="main-con">
 				<Switch>
 					<Route exact path="/study/:category" component={StudyPage} />

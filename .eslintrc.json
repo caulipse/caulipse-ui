@@ -32,6 +32,7 @@
         "prettier/prettier":0,
         "import/no-unresolved": "off",
         "no-use-before-define": "off",
+        "no-nested-ternary": "off",
         "react/require-default-props": "off",
         "jsx-a11y/no-static-element-interactions": "off",
         "jsx-a11y/click-events-have-key-events": "off",

@@ -1,11 +1,11 @@
-import { getNoticeInterface } from '@src/api/response/notice';
+import { Notice } from '@src/api/types';
 import { format } from 'date-fns';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './styles.scss';
 
 interface NoticeItemProps {
-	noticeItem: getNoticeInterface;
+	noticeItem: Notice;
 }
 
 const NoticeItem = ({ noticeItem }: NoticeItemProps): JSX.Element => {

@@ -2,11 +2,11 @@ import React from 'react';
 import './styles.scss';
 import { IoArrowBack } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
-import { getNoticeInterface } from '@src/api/response/notice';
+import { Notice } from '@src/api/types';
 import NoticeItem from './NoticeItem';
 
 interface NoticePresenterProps {
-	notices: getNoticeInterface[];
+	notices: Notice[];
 }
 
 const NoticePresenter = ({ notices }: NoticePresenterProps): JSX.Element => {

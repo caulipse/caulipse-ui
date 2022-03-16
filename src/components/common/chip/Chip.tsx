@@ -6,7 +6,7 @@ import './index.scss';
 
 const Chip = ({ selected, label, onClick, type = ChipTypeEnum.primary }: IChipProps): JSX.Element => {
 	const handleClick = () => {
-		onClick(label);
+		if (onClick) onClick(label);
 	};
 	return (
 		<Container

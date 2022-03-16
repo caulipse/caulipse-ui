@@ -5,10 +5,20 @@
     flex: 1;
     flex-direction: column;
 }
+.bookmarkStudiesTitle{
+    font-size: 1rem;
+    color: #212b36;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-weight: bold;
+}
 .recruitedStudiesTitle{
-    font-size: 0.688rem;
-    color: #637381;
-    margin-left: .75rem;
+    font-size: 1rem;
+    color: #b4b4b4;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
 }
 .recruitedAccordian{
     display: flex;
@@ -24,4 +34,10 @@
     margin-bottom: 2rem;
     color:#929699;
     font-size: 0.688rem;;
+}
+.bookmark-chevron-icon{
+    width: 1rem;
+    height: 1rem;
+    margin-left: .406rem;
+    color:#929699;
 }

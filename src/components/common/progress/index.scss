@@ -1,0 +1,39 @@
+@import '@scss/variables';
+
+@mixin text($fontColor) {
+    font-size: .875rem;
+    letter-spacing: .28px;
+    color:$fontColor;
+}
+
+.progress-bar{
+    &-container{
+        padding: 0 !important;
+        font-size: .875rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100% !important;
+    }
+    &-progress {
+        -webkit-appearance: none;
+        width: 100% !important;
+        height: .25rem;
+        border-radius: .125rem;
+    }
+    &-current{
+        @include text($primaryColor);
+    }
+    &-max{
+        @include text(#939699);
+    }
+}
+
+
+::-webkit-progress-bar {
+    background-color: #ececec;
+}
+
+::-webkit-progress-value {
+    background-image: linear-gradient(to right, #ffe2ec -18%, #f78819 112%, #73787e 112%);
+}

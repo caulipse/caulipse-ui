@@ -24,7 +24,10 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					}}
 				/>
 			) : (
-				<BookmarkList title="북마크" bookmarkList={recruitingBookmarks} />
+				<>
+					<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
+					<BookmarkList bookmarkList={recruitingBookmarks} />
+				</>
 			)}
 			<button
 				type="button"
@@ -33,17 +36,17 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					setRecruitedStudiesVisible(!recruitedStudiesVisible);
 				}}
 			>
-				<div>마감된 항목</div>
-				{recruitedStudiesVisible ? (
-					<IoChevronDown size={24} color="#929699" />
-				) : (
-					<IoChevronUp size={24} color="#929699" />
+				{recruitedStudiesVisible || (
+					<>
+						<div>마감된 항목</div>
+						<IoChevronUp className="bookmark-chevron-icon" />
+					</>
 				)}
 			</button>
 			{recruitedStudiesVisible && (
 				<>
 					<div className="recruitedStudiesTitle">마감된 스터디</div>
-					<BookmarkList title="마감된 스터디" bookmarkList={recruitedBookmarks} isBlurred />
+					<BookmarkList bookmarkList={recruitedBookmarks} isBlurred />
 				</>
 			)}
 		</div>

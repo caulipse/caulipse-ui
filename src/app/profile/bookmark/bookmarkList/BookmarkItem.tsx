@@ -1,39 +1,51 @@
-import React from 'react';
-import NumberUtils from '@src/app/shared/utils/number';
-import { format } from 'date-fns';
+import React, { useCallback } from 'react';
 import { Study } from '@src/api/types';
+import MyStudyCard from '@src/app/shared/components/myStudyCard';
+import Chip from '@src/components/common/chip/Chip';
+import { ChipTypeEnum } from '@src/components/common/chip/types';
+import { IoBookmark, IoClose } from 'react-icons/io5';
+import './BookmarkList.scss';
+import ProgressBar from '@src/components/common/progress/ProgressBar';
+import classNames from 'classnames';
 
 interface BookmarkItemProps {
 	item: Study;
 	isBlurred?: boolean;
+	isBottomMargin?: boolean;
 }
 
-const Bookmarkitem = ({ item, isBlurred }: BookmarkItemProps) => {
+const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemProps): JSX.Element => {
+	const LeftTopComponent = useCallback(() => {
+		return (
+			<div>
+				<Chip selected label="D-18" type={ChipTypeEnum.secondary} />
+			</div>
+		);
+	}, []);
+
+	const RightTopComponent = useCallback(() => {
+		return <IoBookmark className="bookmark-item-bookmark" />;
+	}, []);
+
 	return (
-		<div className={isBlurred ? 'bookmarkItem-blurred-container' : 'bookmarkItem-container'}>
-			<div className="bookmarkItem-mid-container">
-				<div className="bookmarkItem-title" style={isBlurred ? { color: '#929699' } : undefined}>
-					{item.title}
-				</div>
-				<div className="bookmarkItem-count">
-					{item.membersCount}/{item.capacity} 명
-				</div>
-				<button type="button">X</button>
-			</div>
-			<div className="bookmarkItem-bottom-container">
-				<div>{format(new Date(item.createdAt), 'yy.MM.dd HH:mm')}</div>
-				<div className="bookmarkItem-divider-dot">·</div>
-				<div>조회 {NumberUtils.toFormattedCount(item.views)}</div>
-				<div className="bookmarkItem-divider-dot">·</div>
-				{/* TODO: bookmark 개수 */}
-				<div>관심 {NumberUtils.toFormattedCount(0)}</div>
-			</div>
-		</div>
+		<MyStudyCard
+			leftTopComponent={isBlurred ? undefined : <LeftTopComponent />}
+			rightTopComponent={isBlurred ? undefined : <RightTopComponent />}
+			rightComponent={isBlurred ? <IoClose className="bookmark-item-close-icon" /> : undefined}
+			studyId={item.id}
+			title={item.title}
+			isTitleBlur={isBlurred}
+			createdAt={item.createdAt}
+			views={item.views}
+			bookmarks={0}
+			bottomComponent={isBlurred ? undefined : <ProgressBar current={item.membersCount} max={item.capacity} />}
+			className={classNames({ 'mb-438rem': isBottomMargin })}
+		/>
 	);
 };
 
-Bookmarkitem.defaultProps = {
+BookmarkItem.defaultProps = {
 	isBlurred: false,
 };
 
-export default Bookmarkitem;
+export default BookmarkItem;

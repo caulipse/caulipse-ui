@@ -1,4 +1,5 @@
 import React from "react";
+import './LoginLogo.scss';
 
 const loginlogo = (): JSX.Element => {
     return(

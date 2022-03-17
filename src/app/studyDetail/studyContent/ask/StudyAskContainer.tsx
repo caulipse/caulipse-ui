@@ -70,10 +70,14 @@ const comments: GetCommentResponse[] = [
 	},
 ];
 
-const StudyAskContainer = (): JSX.Element => {
+interface StudyAskContainerProps {
+	studyId: string;
+}
+
+const StudyAskContainer = ({ studyId }: StudyAskContainerProps): JSX.Element => {
 	const [content, setContent] = useState<string>('');
 
-	return <StudyAskPresenter content={content} setContent={setContent} comments={comments} />;
+	return <StudyAskPresenter studyId={studyId} content={content} setContent={setContent} comments={comments} />;
 };
 
 export default StudyAskContainer;

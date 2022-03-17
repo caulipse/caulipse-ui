@@ -10,9 +10,10 @@ interface InputBaseProps {
 	placeholder: string;
 	content: string;
 	setContent: (content: string) => void;
+	onSubmit: () => void;
 }
 
-const InputBase = ({ placeholder, content, setContent }: InputBaseProps): JSX.Element => {
+const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProps): JSX.Element => {
 	const [isFocused, setIsFocused] = useState<boolean>(false);
 	const isDisabled = content.length <= 8;
 
@@ -46,6 +47,7 @@ const InputBase = ({ placeholder, content, setContent }: InputBaseProps): JSX.El
 							disabled={isDisabled}
 							size="small"
 							disableElevation
+							onClick={onSubmit}
 						>
 							등록
 						</Button>

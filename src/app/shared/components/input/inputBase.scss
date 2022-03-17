@@ -46,5 +46,8 @@
         border-radius: 1rem !important;
         min-height: 0 !important;
         min-width: 0 !important;
+        &-disabled{
+            background-color: #abcdef !important;
+        }
     }
 }

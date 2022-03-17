@@ -1,4 +1,5 @@
 import { Box, Button, Input } from '@material-ui/core';
+import classNames from 'classnames';
 import React, { useRef, useState } from 'react';
 import './inputBase.scss';
 
@@ -13,6 +14,7 @@ interface InputBaseProps {
 
 const InputBase = ({ placeholder, content, setContent }: InputBaseProps): JSX.Element => {
 	const [isFocused, setIsFocused] = useState<boolean>(false);
+	const isDisabled = content.length <= 8;
 
 	const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setContent(event.target.value);
@@ -38,7 +40,13 @@ const InputBase = ({ placeholder, content, setContent }: InputBaseProps): JSX.El
 						<Box className="inputbase-text-length">
 							{content.length}/{MAX_LENGTH}
 						</Box>
-						<Button className="inputbase-submit-btn" variant="contained" size="small" disableElevation>
+						<Button
+							className={classNames('inputbase-submit-btn', { 'inputbase-submit-btn-disabled': isDisabled })}
+							variant="contained"
+							disabled={isDisabled}
+							size="small"
+							disableElevation
+						>
 							등록
 						</Button>
 					</Box>

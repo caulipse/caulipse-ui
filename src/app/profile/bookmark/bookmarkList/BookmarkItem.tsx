@@ -7,6 +7,7 @@ import { IoBookmark, IoClose } from 'react-icons/io5';
 import './BookmarkList.scss';
 import ProgressBar from '@src/components/common/progress/ProgressBar';
 import classNames from 'classnames';
+import useDeleteBookmark from '@src/hooks/remotes/bookmark/useDeleteBookmark';
 
 interface BookmarkItemProps {
 	item: Study;
@@ -15,6 +16,8 @@ interface BookmarkItemProps {
 }
 
 const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemProps): JSX.Element => {
+	const deleteBookmark = useDeleteBookmark(item.id);
+
 	const LeftTopComponent = useCallback(() => {
 		return (
 			<div>
@@ -24,7 +27,14 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 	}, []);
 
 	const RightTopComponent = useCallback(() => {
-		return <IoBookmark className="bookmark-item-bookmark" />;
+		return (
+			<IoBookmark
+				className="bookmark-item-bookmark"
+				onClick={() => {
+					deleteBookmark.mutate();
+				}}
+			/>
+		);
 	}, []);
 
 	return (

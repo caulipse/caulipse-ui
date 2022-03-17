@@ -10,6 +10,7 @@ export default (id: string) => {
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
 			console.log(response);
+			window.alert('북마크 목록이 삭제되었습니다.');
 		},
 		onError: (e: Error) => {
 			console.error(e.message);

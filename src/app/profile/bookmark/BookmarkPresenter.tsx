@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BookmarkList from '@src/app/profile/bookmark/bookmarkList';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
-import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
+import { IoChevronDown } from 'react-icons/io5';
 import './index.scss';
 import { Study } from '@src/api/types';
 
@@ -15,6 +15,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 
 	return (
 		<div className="bookmark-presenter-container">
+			<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
 			{recruitingBookmarks?.length === 0 ? (
 				<EmptyComponent
 					title="이런, 북마크한 스터디가 없어요."
@@ -24,10 +25,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					}}
 				/>
 			) : (
-				<>
-					<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
-					<BookmarkList bookmarkList={recruitingBookmarks} />
-				</>
+				<BookmarkList bookmarkList={recruitingBookmarks} />
 			)}
 			<button
 				type="button"
@@ -39,7 +37,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 				{recruitedStudiesVisible || (
 					<>
 						<div>마감된 항목</div>
-						<IoChevronUp className="bookmark-chevron-icon" />
+						<IoChevronDown className="bookmark-chevron-icon" />
 					</>
 				)}
 			</button>

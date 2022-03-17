@@ -1,8 +1,8 @@
+import { Notice } from '../types';
+
 export interface getNoticeInterface {
-	id: string;
-	title: string;
-	about: string;
-	createdAt: string;
-	views: number;
-	hostId: string;
+	message: string;
+	notice: Notice;
 }
+
+export type getNoticesInterface = Notice[];

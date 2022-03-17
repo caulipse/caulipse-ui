@@ -16,11 +16,11 @@ interface NoticeDetailContainerProps {
 }
 
 const NoticeDetailContainer = ({ noticeId }: NoticeDetailContainerProps): JSX.Element => {
-	const data = useFetchNotice(noticeId);
+	const { data, isLoading } = useFetchNotice(noticeId);
 
-	if (data.isLoading) return <Loader />;
+	if (isLoading) return <Loader />;
 
-	return <NoticeDetailPresenter notice={notice} />;
+	return data?.notice ? <NoticeDetailPresenter notice={data.notice} /> : <div />;
 };
 
 export default NoticeDetailContainer;

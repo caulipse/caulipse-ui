@@ -2,13 +2,13 @@ import Signuplogo from "@src/app/signup/signuplogo/SignupLogo";
 import React from "react";
 import './styles.scss';
 import Boxcontainer from "@src/app/signup/boxcontainer/SignupBoxContainer";
-import { IoClose } from "react-icons/io5";
+import CloseButton from "@src/components/common/iconButton/CloseButton";
 
 const SignupPage = (): JSX.Element => {
 
     return(
         <div className="Signup-default">
-            <IoClose className="Close"/>
+            {/* <CloseButton /> */}
             <div className="Signup-Logo">
                 <Signuplogo />
             </div>

@@ -4,6 +4,7 @@ import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import { IoChevronDown } from 'react-icons/io5';
 import './index.scss';
 import { Study } from '@src/api/types';
+import { useHistory } from 'react-router-dom';
 
 interface BookmarkPresenterInterface {
 	recruitingBookmarks: Study[];
@@ -11,6 +12,8 @@ interface BookmarkPresenterInterface {
 }
 
 const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: BookmarkPresenterInterface): JSX.Element => {
+	const history = useHistory();
+
 	const [recruitedStudiesVisible, setRecruitedStudiesVisible] = useState<boolean>(false);
 
 	return (
@@ -21,7 +24,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 					title="이런, 북마크한 스터디가 없어요."
 					buttonText="스터디 찾아보기"
 					onClick={() => {
-						console.log('스터디 찾아보기 클릭');
+						history.push('/');
 					}}
 				/>
 			) : (

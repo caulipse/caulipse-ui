@@ -35,13 +35,22 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 				}}
 			/>
 		);
-	}, []);
+	}, [deleteBookmark]);
 
 	return (
 		<MyStudyCard
 			leftTopComponent={isBlurred ? undefined : <LeftTopComponent />}
 			rightTopComponent={isBlurred ? undefined : <RightTopComponent />}
-			rightComponent={isBlurred ? <IoClose className="bookmark-item-close-icon" /> : undefined}
+			rightComponent={
+				isBlurred ? (
+					<IoClose
+						onClick={() => {
+							deleteBookmark.mutate();
+						}}
+						className="bookmark-item-close-icon"
+					/>
+				) : undefined
+			}
 			studyId={item.id}
 			title={item.title}
 			isTitleBlur={isBlurred}

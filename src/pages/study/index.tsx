@@ -9,7 +9,7 @@ import SubCategoryItem from '@src/app/study/subCategory/SubCategoryItem';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import { MainCategoryType, CategoryType } from '@src/types';
-import { Container, Grid } from '@material-ui/core';
+import { Box, Container, Grid } from '@material-ui/core';
 import categories from '@src/const';
 import './index.scss';
 
@@ -93,9 +93,7 @@ const StudyPage = (): JSX.Element => {
 			) : (
 				<></>
 			)}
-			<Container ref={element} className="sub-category-presenter-container-ref">
-				<></>
-			</Container>
+			<br ref={element} className="sub-category-presenter-container-ref" />
 			<StudyCreateButton onClick={onClickCreate} />
 			<StudySortFilterContainer />
 			<StudyListContainter />

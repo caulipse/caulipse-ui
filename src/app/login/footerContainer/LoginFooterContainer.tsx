@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import './LoginFooterContainer.scss';
 
-const FooterContainer = (): JSX.Element => {
 
+
+const FooterContainer = (): JSX.Element => {
 
     return(
         <div className="login-footer">

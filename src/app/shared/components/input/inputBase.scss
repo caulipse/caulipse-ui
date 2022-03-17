@@ -10,12 +10,12 @@
         margin-right: 1rem;
     }
     &-input{
-        flex-grow: 1;
-        font-size: 0.75rem;
+        flex-grow: 1 !important;
+        font-size: 0.75rem !important;
         padding: 0.75rem !important;
-        background-color: #f2f3f5;
-        border-radius: 6px;
-        border: none;
+        background-color: #f2f3f5 !important;
+        border-radius: .375rem !important;
+        border: none !important;
         ::placeholder{
             color: #929699 !important;
         }

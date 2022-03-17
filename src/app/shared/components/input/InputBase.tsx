@@ -24,7 +24,7 @@ const InputBase = ({ placeholder, content, setContent }: InputBaseProps): JSX.El
 				placeholder={placeholder}
 				value={content}
 				onChange={onChange}
-				inputProps={{ maxLength: 10 }}
+				inputProps={{ maxLength: 500 }}
 			/>
 		</div>
 	);

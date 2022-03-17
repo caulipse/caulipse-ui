@@ -1,27 +1,28 @@
-.emptyContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    padding:2rem 0 2rem 0;
-    border: dashed;
-    border-width: 1px;
-    border-color: #e5e5e5;
-}
-.emptyText{
-    font-size: 0.688rem;
-    color: #212b36;
-}
-.emptyButton{
-    border-radius: 24px;
-    border-width: 1px;
-    border: solid;
-    border-color: #4790d8;
-    margin-top: 1rem;
-}
-.emptyButtonText{
-    font-size: 0.688rem;
-    color: #4790d8;
-    margin: 1rem 3.5rem 0 3.5rem;
+@import '@scss/variables';
+
+.empty{
+    &-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding:2rem 0;
+        border-width: 1px;
+        border-color: #e5e5e5;
+        border-radius: .625rem;
+        width: 100% !important;
+    }
+    &-button{
+        padding: .625rem 3.563rem !important;
+        border-radius: 1.25rem !important;
+        width:auto !important;
+        background-color: $primaryLightColor !important;
+        color: $primaryColor !important;
+        margin-top: 1rem !important;
+    }
+    &-text{
+        font-size: 0.688rem;
+        color: #212b36;
+    }
 }

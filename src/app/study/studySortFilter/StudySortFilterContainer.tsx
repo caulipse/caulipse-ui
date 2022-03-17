@@ -17,9 +17,7 @@ const StudySortFilterContainter = (): JSX.Element => {
 		openModal(ModalKeyEnum.StudySortModal);
 	};
 
-	const { sortOption } = state.studyList;
-
-	console.info(state);
+	const { sortOption } = state;
 
 	return <StudySortFilterPresenter onClickFilter={onClickFilter} onClickSort={onClickSort} sort={sortOption.label} />;
 };

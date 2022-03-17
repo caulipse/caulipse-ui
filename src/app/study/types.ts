@@ -1,3 +1,5 @@
+import { CategoryType } from '@src/types';
+
 export interface ISortOption {
 	value: string;
 	label: string;
@@ -5,4 +7,5 @@ export interface ISortOption {
 
 export interface IStudyListState {
 	sortOption: ISortOption;
+	selectedSubCategories: CategoryType[];
 }

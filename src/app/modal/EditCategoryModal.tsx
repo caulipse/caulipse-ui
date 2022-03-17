@@ -8,7 +8,8 @@ import BackIcon from '@src/components/common/iconButton/BackButton';
 import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-import categories, { CategoryType, MainCategoryType } from '@src/const';
+import categories from '@src/const';
+import { CategoryType, MainCategoryType } from '@src/types';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 
 const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';

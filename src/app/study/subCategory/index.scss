@@ -1,5 +1,19 @@
 @import "@scss/variables";
 
+.sub-category-collapsed-presenter-container {
+    padding: .75rem .75rem;
+    position: sticky;
+    top: 1.5rem;
+    background: #fff;
+    display: flex !important;
+    align-items: center;
+    overflow: auto;
+    white-space: nowrap;
+    svg {
+        color: $primaryColor;
+    }
+}
+
 .sub-category-presenter-container {
     padding: 0 !important;
     background: #fff;
@@ -9,17 +23,10 @@
     padding: 1rem 1rem 1.5rem !important;
 }
 
-.sub-category-presenter-bottom-bar {
-    background: #fdf7f0;
+.sub-category-collpsed-item-container {
     padding: 0 !important;
-    height: 2.5rem;
-    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.03);
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    svg {
-        color: $primaryColor;
-    }
+    width: fit-content !important;
+    margin: 0 .5rem 0 0 !important;
 }
 
 .sub-category-item-container {

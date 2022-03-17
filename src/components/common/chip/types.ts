@@ -8,4 +8,5 @@ export interface IChipProps {
 	label: string;
 	onClick?: (params: string) => void;
 	type?: ChipTypeEnum;
+	withClose?: boolean;
 }

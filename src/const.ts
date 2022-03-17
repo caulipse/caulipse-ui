@@ -1,9 +1,4 @@
-export interface CategoryType {
-	label: string;
-	code: number;
-}
-
-export type MainCategoryType = CategoryType & { subCategories: CategoryType[] };
+import { MainCategoryType } from './types';
 
 export const categories: MainCategoryType[] = [
 	{

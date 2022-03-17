@@ -4,6 +4,7 @@ import getCookie from '@shared/utils/getCookie';
 import { IGlobalModalProps } from '@common/modal/types';
 import { IStudyListState } from '@src/app/study/types';
 import { sortOptions } from '@src/const';
+import { CategoryType } from '@src/types';
 
 interface IGlobalStateProps {
 	login: boolean;
@@ -25,14 +26,9 @@ const globalState = atom({
 	},
 } as IGlobalStateProps);
 
-interface IStudyListStateProps {
-	studyList: IStudyListState;
-}
-
 export const studyListState = atom({
-	studyList: {
-		sortOption: sortOptions[0],
-	},
-} as IStudyListStateProps);
+	sortOption: sortOptions[0],
+	selectedSubCategories: [] as CategoryType[],
+} as IStudyListState);
 
 export default globalState;

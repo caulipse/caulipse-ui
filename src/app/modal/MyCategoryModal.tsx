@@ -6,7 +6,8 @@ import CloseButton from '@common/iconButton/CloseButton';
 import CommonButton from '@common/button/CommonButton';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-import categories, { CategoryType } from '@src/const';
+import categories from '@src/const';
+import { CategoryType } from '@src/types';
 
 const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	// TODO

@@ -12,9 +12,16 @@ interface StudyAskPresenterProps {
 	comments: GetCommentResponse[];
 }
 const StudyAskPresenter = ({ studyId, content, setContent, comments }: StudyAskPresenterProps): JSX.Element => {
-	// const postComment = usePostStudyComment({});
+	const postComment = usePostStudyComment();
 
-	// const writeComment = () => {};
+	const writeComment = () => {
+		console.log('writeComment');
+		postComment.mutate({
+			id: studyId,
+			content,
+		});
+		setContent('');
+	};
 
 	return (
 		<div className="studyAskContainer">

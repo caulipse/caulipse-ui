@@ -34,7 +34,11 @@ const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProp
 					onChange={onChange}
 					inputProps={{ maxLength: MAX_LENGTH }}
 					onFocus={() => setIsFocused(true)}
-					onBlur={() => setIsFocused(false)}
+					onBlur={() => {
+						setTimeout(() => {
+							setIsFocused(false);
+						}, 300);
+					}}
 				/>
 				{isFocused && (
 					<Box className="inputbase-submit-container">
@@ -45,7 +49,6 @@ const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProp
 							className={classNames('inputbase-submit-btn', { 'inputbase-submit-btn-disabled': isDisabled })}
 							variant="contained"
 							disabled={isDisabled}
-							size="small"
 							disableElevation
 							onClick={onSubmit}
 						>

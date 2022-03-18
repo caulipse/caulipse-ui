@@ -40,7 +40,7 @@ const StudyContentContainer = ({
 				/>
 			);
 		if (i === 2) return <StudyCurrentStateContainer studyId={studyId} hostId={hostId} capacity={capacity} />;
-		if (i === 3) return <StudyAskContainer studyId={studyId} />;
+		if (i === 3) return <StudyAskContainer studyId={studyId} hostId={hostId} />;
 
 		return <div />;
 	};

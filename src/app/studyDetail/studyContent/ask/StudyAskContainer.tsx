@@ -5,16 +5,23 @@ import StudyAskPresenter from './StudyAskPresenter';
 
 interface StudyAskContainerProps {
 	studyId: string;
+	hostId: string;
 }
 
-const StudyAskContainer = ({ studyId }: StudyAskContainerProps): JSX.Element => {
+const StudyAskContainer = ({ studyId, hostId }: StudyAskContainerProps): JSX.Element => {
 	const [content, setContent] = useState<string>('');
 	const { data, isLoading } = useFetchStudyComment(studyId);
 
 	if (isLoading) return <Loader />;
 
 	return data?.comments ? (
-		<StudyAskPresenter studyId={studyId} content={content} setContent={setContent} comments={data.comments} />
+		<StudyAskPresenter
+			hostId={hostId}
+			studyId={studyId}
+			content={content}
+			setContent={setContent}
+			comments={data.comments}
+		/>
 	) : (
 		<div />
 	);

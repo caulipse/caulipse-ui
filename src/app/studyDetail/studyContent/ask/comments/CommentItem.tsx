@@ -8,9 +8,10 @@ import { Comment } from '@src/api/types';
 interface CommentItemProps {
 	comment: Comment;
 	isNested?: boolean;
+	hostId: string;
 }
 
-const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
+const CommentItem = ({ comment, isNested, hostId }: CommentItemProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
@@ -30,7 +31,7 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">
 					<div className="comment-item-username">{comment.USER_ID}</div>
-					<div className="comment-item-leader">모집장</div>
+					{comment.USER_ID === hostId && <div className="comment-item-leader">모집장</div>}
 					<div className="comment-item-createdat">{format(new Date(comment.createdAt), 'yy.MM.dd HH:mm')}</div>
 				</div>
 				<div className="comment-item-content">{comment.content}</div>

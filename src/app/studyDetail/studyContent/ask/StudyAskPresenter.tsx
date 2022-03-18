@@ -10,8 +10,9 @@ interface StudyAskPresenterProps {
 	content: string;
 	setContent: (content: string) => void;
 	comments: Comment[];
+	hostId: string;
 }
-const StudyAskPresenter = ({ studyId, content, setContent, comments }: StudyAskPresenterProps): JSX.Element => {
+const StudyAskPresenter = ({ studyId, content, setContent, comments, hostId }: StudyAskPresenterProps): JSX.Element => {
 	const postComment = usePostStudyComment();
 
 	const writeComment = () => {
@@ -38,7 +39,7 @@ const StudyAskPresenter = ({ studyId, content, setContent, comments }: StudyAskP
 					<div className="StudyCommentListCount">({comments?.length})</div>
 				</div>
 				<div>
-					<CommentList comments={comments} />
+					<CommentList comments={comments} hostId={hostId} />
 				</div>
 			</div>
 		</div>

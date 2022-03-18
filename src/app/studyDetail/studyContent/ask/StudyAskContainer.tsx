@@ -1,10 +1,11 @@
-import { GetCommentResponse } from '@api/response/comment';
+import { Comment } from '@src/api/types';
+import useFetchStudyComment from '@src/hooks/remotes/comment/useFetchStudyComment';
 import React, { useState } from 'react';
 import StudyAskPresenter from './StudyAskPresenter';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 
-const nestedComments: GetCommentResponse[] = [
+const nestedComments: any[] = [
 	{
 		id: '111',
 		userId: 'dfdf',
@@ -31,7 +32,7 @@ const nestedComments: GetCommentResponse[] = [
 	},
 ];
 
-const comments: GetCommentResponse[] = [
+const comments: any[] = [
 	{
 		id: '11',
 		userId: 'dfdf',
@@ -76,6 +77,8 @@ interface StudyAskContainerProps {
 
 const StudyAskContainer = ({ studyId }: StudyAskContainerProps): JSX.Element => {
 	const [content, setContent] = useState<string>('');
+	const { data, isLoading } = useFetchStudyComment(studyId);
+	console.log(data);
 
 	return <StudyAskPresenter studyId={studyId} content={content} setContent={setContent} comments={comments} />;
 };

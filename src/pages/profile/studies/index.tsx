@@ -6,11 +6,11 @@ import ProfileStudiesHeader from '../../../app/profile/header';
 import RecruitingStudiesPage from '../recruitingStudies/RecruitingStudiesPage';
 
 const ProfileStudies = (): JSX.Element => {
-	const {path, url}=useRouteMatch()
+	const { path, url } = useRouteMatch();
 
 	return (
-		<BrowserRouter>
-            <ProfileStudiesHeader />
+		<BrowserRouter forceRefresh>
+			<ProfileStudiesHeader />
 			<Switch>
 				<Route exact path={`${path}/bookmark`} component={BookmarkPage} />
 				<Route exact path={`${path}/appliedStudies`} component={AppliedStudiesPage} />

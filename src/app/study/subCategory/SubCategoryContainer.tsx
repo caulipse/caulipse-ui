@@ -1,11 +1,11 @@
 import React from 'react';
-import { CategoryType } from '@src/types';
+import { CategoryType, MainCategoryType } from '@src/types';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import SubCategoryPresenter from './SubCategoryPresenter';
 
 interface ISubCategoryPresenterProps {
-	mainCategory: CategoryType | undefined;
+	mainCategory: MainCategoryType | undefined;
 }
 
 const SubCategoryContainer = ({ mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
@@ -20,13 +20,7 @@ const SubCategoryContainer = ({ mainCategory }: ISubCategoryPresenterProps): JSX
 		}
 	};
 
-	// console.info(window.scrollY);
 	return <SubCategoryPresenter onChange={onChange} mainCategory={mainCategory} />;
-	// return window.scrollY < 500 ? (
-	// 	<SubCategoryPresenter onChange={onChange} mainCategory={mainCategory} />
-	// ) : (
-	// 	<SubCategoryCollapsedPresenter onClick={onClick} selectedSubCategories={selectedSubCategories} />
-	// );
 };
 
 export default SubCategoryContainer;

@@ -9,17 +9,10 @@ interface CommentItemProps {
 	comment: Comment;
 	isNested?: boolean;
 	hostId: string;
-	showCommentInput: boolean;
-	setShowCommentInput: (param: boolean) => void;
+	setShowCommentInput?: (param: boolean) => void;
 }
 
-const CommentItem = ({
-	comment,
-	isNested,
-	hostId,
-	showCommentInput,
-	setShowCommentInput,
-}: CommentItemProps): JSX.Element => {
+const CommentItem = ({ comment, isNested, hostId, setShowCommentInput }: CommentItemProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
@@ -45,12 +38,18 @@ const CommentItem = ({
 				<div className="comment-item-content">{comment.content}</div>
 				<div className="comment-item-bottom-container">
 					<div className="comment-item-row-container">
-						{comment.isNested || (
-							<button className="comment-item-comment-write" type="button" onClick={() => setShowCommentInput(true)}>
+						{isNested || (
+							<button
+								className="comment-item-comment-write"
+								type="button"
+								onClick={() => {
+									if (setShowCommentInput) setShowCommentInput(true);
+								}}
+							>
 								댓글달기
 							</button>
 						)}
-						{comment.isNested || <div className="comment-item-divider-dot">・</div>}
+						{isNested || <div className="comment-item-divider-dot">・</div>}
 						<button className="comment-item-report" type="button" onClick={onClickReport}>
 							신고
 						</button>

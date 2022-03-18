@@ -73,3 +73,14 @@ export interface Notice {
 	views: number;
 	hostId: string;
 }
+
+export interface Comment {
+	NESTED_COMMENT_ID: string;
+	USER_ID: string;
+	content: string;
+	createdAt: string;
+	id: string;
+	isNested: boolean;
+	study: Study;
+	user: User;
+}

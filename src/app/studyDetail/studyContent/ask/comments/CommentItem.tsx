@@ -1,16 +1,17 @@
-import { GetCommentResponse } from '@api/response/comment';
 import React from 'react';
 import useModal from '@src/hooks/modal/useModal';
 import './comments.scss';
 import ModalKeyEnum from '@common/modal/enum';
 import format from 'date-fns/format';
+import { Comment } from '@src/api/types';
 
 interface CommentItemProps {
-	comment: GetCommentResponse;
+	comment: Comment;
 	isNested?: boolean;
+	hostId: string;
 }
 
-const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
+const CommentItem = ({ comment, isNested, hostId }: CommentItemProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
@@ -22,15 +23,15 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 		<div className={`comment-item-container ${isNested ? 'comment-item-nested-bg' : ''}`}>
 			<img
 				className="comment-item-img"
-				src={comment.profilePicture}
+				// src={comment.profilePicture}
 				width={isNested ? 24 : 32}
 				height={isNested ? 24 : 32}
 				alt=""
 			/>
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">
-					<div className="comment-item-username">{comment.userName}</div>
-					<div className="comment-item-leader">모집장</div>
+					<div className="comment-item-username">{comment.USER_ID}</div>
+					{comment.USER_ID === hostId && <div className="comment-item-leader">모집장</div>}
 					<div className="comment-item-createdat">{format(new Date(comment.createdAt), 'yy.MM.dd HH:mm')}</div>
 				</div>
 				<div className="comment-item-content">{comment.content}</div>
@@ -47,7 +48,7 @@ const CommentItem = ({ comment, isNested }: CommentItemProps): JSX.Element => {
 						</button>
 					</div>
 					<button type="button" className={isNested ? 'comment-item-helpful' : 'comment-item-curious'}>
-						{isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes}
+						{/* {isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes} */}
 					</button>
 				</div>
 			</div>

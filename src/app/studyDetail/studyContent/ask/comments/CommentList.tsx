@@ -1,22 +1,31 @@
 import { Comment } from '@src/api/types';
 import InputBase from '@src/app/shared/components/input/InputBase';
+import usePostStudyComment from '@src/hooks/remotes/comment/usePostStudyComment';
 import React, { useState } from 'react';
 import CommentItem from './CommentItem';
 
 interface CommentListProps {
 	comments: Comment[];
 	hostId: string;
+	studyId: string;
 }
 
-const CommentList = ({ comments, hostId }: CommentListProps): JSX.Element => {
+const CommentList = ({ comments, hostId, studyId }: CommentListProps): JSX.Element => {
 	return (
 		<div>
 			{comments.map((item) => {
+				const postComment = usePostStudyComment();
+
 				const [show, setShow] = useState<boolean>(false);
 				const [showCommentInput, setShowCommentInput] = useState<boolean>(false);
 				const [content, setContent] = useState<string>('');
 				const onSubmit = () => {
-					console.log('onSubmit');
+					postComment.mutate({
+						id: studyId,
+						content,
+						replyTo: item.id,
+					});
+					setContent('');
 				};
 
 				return (

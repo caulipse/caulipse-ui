@@ -1,9 +1,9 @@
-import { GetCommentResponse } from '@api/response/comment';
+import { Comment } from '@src/api/types';
 import React, { useState } from 'react';
 import CommentItem from './CommentItem';
 
 interface CommentListProps {
-	comments: GetCommentResponse[];
+	comments: Comment[];
 }
 
 const CommentList = ({ comments }: CommentListProps): JSX.Element => {
@@ -15,7 +15,7 @@ const CommentList = ({ comments }: CommentListProps): JSX.Element => {
 				return (
 					<div key={item.id} className="comment-list-item-container">
 						<CommentItem comment={item} isNested={false} />
-						{item.nestedComments?.map((nestedItem, nestedIndex) => {
+						{/* {item.nestedComments?.map((nestedItem, nestedIndex) => {
 							if (!show && nestedIndex > 0) {
 								return <div />;
 							}
@@ -25,7 +25,7 @@ const CommentList = ({ comments }: CommentListProps): JSX.Element => {
 							<button type="button" className="comment-list-item-more-btn" onClick={() => setShow(!show)}>
 								더보기 ({item.nestedComments?.length - 1})
 							</button>
-						)}
+						)} */}
 					</div>
 				);
 			})}

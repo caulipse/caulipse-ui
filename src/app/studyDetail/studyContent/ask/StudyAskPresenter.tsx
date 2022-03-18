@@ -1,4 +1,4 @@
-import { GetCommentResponse } from '@api/response/comment';
+import { Comment } from '@src/api/types';
 import InputBase from '@src/app/shared/components/input/InputBase';
 import usePostStudyComment from '@src/hooks/remotes/comment/usePostStudyComment';
 import React from 'react';
@@ -9,13 +9,12 @@ interface StudyAskPresenterProps {
 	studyId: string;
 	content: string;
 	setContent: (content: string) => void;
-	comments: GetCommentResponse[];
+	comments: Comment[];
 }
 const StudyAskPresenter = ({ studyId, content, setContent, comments }: StudyAskPresenterProps): JSX.Element => {
 	const postComment = usePostStudyComment();
 
 	const writeComment = () => {
-		console.log('writeComment');
 		postComment.mutate({
 			id: studyId,
 			content,

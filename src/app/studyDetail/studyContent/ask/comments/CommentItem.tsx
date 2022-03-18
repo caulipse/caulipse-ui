@@ -7,12 +7,11 @@ import { Comment } from '@src/api/types';
 
 interface CommentItemProps {
 	comment: Comment;
-	isNested?: boolean;
 	hostId: string;
 	setShowCommentInput?: (param: boolean) => void;
 }
 
-const CommentItem = ({ comment, isNested, hostId, setShowCommentInput }: CommentItemProps): JSX.Element => {
+const CommentItem = ({ comment, hostId, setShowCommentInput }: CommentItemProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
@@ -21,12 +20,12 @@ const CommentItem = ({ comment, isNested, hostId, setShowCommentInput }: Comment
 	};
 
 	return (
-		<div className={`comment-item-container ${isNested ? 'comment-item-nested-bg' : ''}`}>
+		<div className={`comment-item-container ${comment.isNested ? 'comment-item-nested-bg' : ''}`}>
 			<img
 				className="comment-item-img"
 				// src={comment.profilePicture}
-				width={isNested ? 24 : 32}
-				height={isNested ? 24 : 32}
+				width={comment.isNested ? 24 : 32}
+				height={comment.isNested ? 24 : 32}
 				alt=""
 			/>
 			<div className="comment-item-column-container">
@@ -38,7 +37,7 @@ const CommentItem = ({ comment, isNested, hostId, setShowCommentInput }: Comment
 				<div className="comment-item-content">{comment.content}</div>
 				<div className="comment-item-bottom-container">
 					<div className="comment-item-row-container">
-						{isNested || (
+						{comment.isNested || (
 							<button
 								className="comment-item-comment-write"
 								type="button"
@@ -49,22 +48,18 @@ const CommentItem = ({ comment, isNested, hostId, setShowCommentInput }: Comment
 								댓글달기
 							</button>
 						)}
-						{isNested || <div className="comment-item-divider-dot">・</div>}
+						{comment.isNested || <div className="comment-item-divider-dot">・</div>}
 						<button className="comment-item-report" type="button" onClick={onClickReport}>
 							신고
 						</button>
 					</div>
-					<button type="button" className={isNested ? 'comment-item-helpful' : 'comment-item-curious'}>
-						{/* {isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes} */}
+					<button type="button" className={comment.isNested ? 'comment-item-helpful' : 'comment-item-curious'}>
+						{/* {comment.isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes} */}
 					</button>
 				</div>
 			</div>
 		</div>
 	);
-};
-
-CommentItem.defaultProps = {
-	isNested: false,
 };
 
 export default CommentItem;

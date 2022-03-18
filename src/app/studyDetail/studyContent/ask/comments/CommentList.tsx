@@ -39,13 +39,12 @@ const CommentList = ({ comments, hostId, studyId }: CommentListProps): JSX.Eleme
 
 				return (
 					<div key={item.id} className="comment-list-item-container">
-						<CommentItem comment={item} isNested={false} hostId={hostId} setShowCommentInput={setShowCommentInput} />
-						{/* TODO: nested된 comment 작업 */}
+						<CommentItem comment={item} hostId={hostId} setShowCommentInput={setShowCommentInput} />
 						{item.nestedComments?.map((nestedItem, nestedIndex) => {
 							if (!show && nestedIndex > 0) {
 								return <div />;
 							}
-							return <CommentItem key={nestedItem.id} comment={nestedItem} isNested hostId={hostId} />;
+							return <CommentItem key={nestedItem.id} comment={nestedItem} hostId={hostId} />;
 						})}
 						{item.nestedComments?.length > 1 && !show && (
 							<button type="button" className="comment-list-item-more-btn" onClick={() => setShow(!show)}>

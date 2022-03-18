@@ -1,7 +1,7 @@
 export interface IRequestPostStudyComment {
 	id: string;
 	content: string;
-	replyTo: string;
+	replyTo?: string;
 }
 
 export interface IRequestPatchStudyComment {

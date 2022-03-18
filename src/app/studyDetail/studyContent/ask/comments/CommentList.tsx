@@ -10,14 +10,25 @@ interface CommentListProps {
 	studyId: string;
 }
 
+interface ICommentWithNestedComments extends Comment {
+	nestedComments: Comment[];
+}
+
 const CommentList = ({ comments, hostId, studyId }: CommentListProps): JSX.Element => {
 	const commentsWithNestedComments = useMemo(() => {
-		return comments.map((commentItem) => {
-			return {
-				...commentItem,
-				nestedComments: comments.filter((nestedItem) => commentItem.id === nestedItem.NESTED_COMMENT_ID),
-			};
-		});
+		const initialValue: Array<ICommentWithNestedComments> = [];
+		return comments.reduce((acc, commentItem) => {
+			if (commentItem.isNested) {
+				return acc;
+			}
+			return [
+				...acc,
+				{
+					...commentItem,
+					nestedComments: comments.filter((nestedItem) => commentItem.id === nestedItem.NESTED_COMMENT_ID),
+				},
+			];
+		}, initialValue);
 	}, [comments]);
 
 	return (

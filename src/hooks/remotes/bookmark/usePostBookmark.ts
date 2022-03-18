@@ -9,6 +9,7 @@ export default (studyId: string) => {
 
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
+			window.alert('북마크 신청이 완료되었습니다.');
 			console.log(response);
 		},
 		onError: (e: Error) => {

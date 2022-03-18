@@ -16,6 +16,7 @@ const CommentList = ({ comments, hostId }: CommentListProps): JSX.Element => {
 				return (
 					<div key={item.id} className="comment-list-item-container">
 						<CommentItem comment={item} isNested={false} hostId={hostId} />
+						{/* TODO: nested된 comment 작업 */}
 						{/* {item.nestedComments?.map((nestedItem, nestedIndex) => {
 							if (!show && nestedIndex > 0) {
 								return <div />;

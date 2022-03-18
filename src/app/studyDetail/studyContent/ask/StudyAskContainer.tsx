@@ -1,5 +1,5 @@
 import { Comment } from '@src/api/types';
-import useFetchStudyComment from '@src/hooks/remotes/comment/useFetchStudyComment';
+import useFetchStudyComment from '@src/hooks/remotes/comment/useFetchStudyComments';
 import React, { useState } from 'react';
 import StudyAskPresenter from './StudyAskPresenter';
 

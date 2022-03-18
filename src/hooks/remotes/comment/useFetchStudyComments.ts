@@ -1,9 +1,10 @@
 import API from '@src/api';
+import { IResponseGetStudyComments } from '@src/api/response/studyComment';
 import { useQuery } from 'react-query';
 import QUERY_KEY from '..';
 
 export default (studyId: string) => {
-	const fetcher = async (): Promise<any> => {
+	const fetcher = async (): Promise<IResponseGetStudyComments> => {
 		const res = await API.getStudyComments(studyId);
 		return res.data;
 	};

@@ -1,16 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
 import StudyCreateButton from '@study/studyCreateButton/StudyCreateButton';
 import MainCategoryContainer from '@study/mainCategory/MainCategoryContainer';
 import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
 import SubCategoryContainer from '@src/app/study/subCategory/SubCategoryContainer';
 import SubCategoryCollapsedPresenter from '@src/app/study/subCategory/SubCategoryCollapsedPresenter';
-import SubCategoryItem from '@src/app/study/subCategory/SubCategoryItem';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import { MainCategoryType, CategoryType } from '@src/types';
-import { Box, Container, Grid } from '@material-ui/core';
-import categories from '@src/const';
+import { Container } from '@material-ui/core';
 import './index.scss';
 
 const StudyPage = (): JSX.Element => {
@@ -18,8 +16,6 @@ const StudyPage = (): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
 
 	const { selectedSubCategories } = state;
-
-	let timer: any;
 
 	const onClickCreate = () => {
 		// TODO
@@ -54,20 +50,6 @@ const StudyPage = (): JSX.Element => {
 		setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
 	};
 
-	const selectedCategory = useMemo(() => {
-		return categories.find((category) => {
-			return category.code === mainCategory?.code;
-		});
-	}, [mainCategory]);
-
-	const onChange = (category: CategoryType) => {
-		if (selectedSubCategories.includes(category)) {
-			setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
-		} else {
-			setState({ ...state, selectedSubCategories: selectedSubCategories.concat(category) });
-		}
-	};
-
 	return (
 		<Container className="study-list-container ">
 			<MainCategoryContainer onChange={setMainCategory} />
@@ -75,23 +57,8 @@ const StudyPage = (): JSX.Element => {
 				selectedSubCategories?.length && (
 					<SubCategoryCollapsedPresenter selectedSubCategories={selectedSubCategories} onClick={onClick} />
 				)
-			) : mainCategory && !!mainCategory.subCategories.length ? (
-				<Container className="sub-category-presenter-container">
-					{!!selectedCategory && (
-						<Grid container className="sub-category-presenter-item-container">
-							{selectedCategory?.subCategories?.map((category) => (
-								<SubCategoryItem
-									key={category.code}
-									category={category}
-									onClick={onChange}
-									selected={selectedSubCategories.includes(category)}
-								/>
-							))}
-						</Grid>
-					)}
-				</Container>
 			) : (
-				<></>
+				<SubCategoryContainer mainCategory={mainCategory} />
 			)}
 			<br ref={element} className="sub-category-presenter-container-ref" />
 			<StudyCreateButton onClick={onClickCreate} />

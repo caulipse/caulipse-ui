@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import categories from '@src/const';
-import { CategoryType } from '@src/types';
+import { CategoryType, MainCategoryType } from '@src/types';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import SubCategoryItem from './SubCategoryItem';
@@ -10,7 +10,7 @@ import './index.scss';
 
 interface ISubCategoryPresenterProps {
 	onChange: (code: CategoryType) => void;
-	mainCategory: CategoryType | undefined;
+	mainCategory: MainCategoryType | undefined;
 }
 
 const SubCategoryPresenter = ({ onChange, mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
@@ -22,7 +22,7 @@ const SubCategoryPresenter = ({ onChange, mainCategory }: ISubCategoryPresenterP
 		});
 	}, [mainCategory]);
 
-	return (
+	return mainCategory && !!mainCategory.subCategories.length ? (
 		<Container className="sub-category-presenter-container">
 			{!!selectedCategory && (
 				<Grid container className="sub-category-presenter-item-container">
@@ -37,6 +37,8 @@ const SubCategoryPresenter = ({ onChange, mainCategory }: ISubCategoryPresenterP
 				</Grid>
 			)}
 		</Container>
+	) : (
+		<></>
 	);
 };
 

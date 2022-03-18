@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useModal from '@src/hooks/modal/useModal';
 import './comments.scss';
 import ModalKeyEnum from '@common/modal/enum';
@@ -9,9 +9,17 @@ interface CommentItemProps {
 	comment: Comment;
 	isNested?: boolean;
 	hostId: string;
+	showCommentInput: boolean;
+	setShowCommentInput: (param: boolean) => void;
 }
 
-const CommentItem = ({ comment, isNested, hostId }: CommentItemProps): JSX.Element => {
+const CommentItem = ({
+	comment,
+	isNested,
+	hostId,
+	showCommentInput,
+	setShowCommentInput,
+}: CommentItemProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
@@ -38,7 +46,7 @@ const CommentItem = ({ comment, isNested, hostId }: CommentItemProps): JSX.Eleme
 				<div className="comment-item-bottom-container">
 					<div className="comment-item-row-container">
 						{comment.isNested || (
-							<button className="comment-item-comment-write" type="button">
+							<button className="comment-item-comment-write" type="button" onClick={() => setShowCommentInput(true)}>
 								댓글달기
 							</button>
 						)}

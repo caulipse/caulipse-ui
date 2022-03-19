@@ -39,7 +39,7 @@ const StudyAskPresenter = ({ studyId, content, setContent, comments, hostId }: S
 					<div className="StudyCommentListCount">({comments?.length})</div>
 				</div>
 				<div>
-					<CommentList comments={comments} hostId={hostId} />
+					<CommentList comments={comments} hostId={hostId} studyId={studyId} />
 				</div>
 			</div>
 		</div>

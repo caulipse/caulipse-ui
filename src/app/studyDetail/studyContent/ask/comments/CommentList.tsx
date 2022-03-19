@@ -1,36 +1,39 @@
 import { Comment } from '@src/api/types';
-import React, { useState } from 'react';
-import CommentItem from './CommentItem';
+import React, { useMemo } from 'react';
+import CommentItemContainer from './CommentItemContainer';
 
 interface CommentListProps {
 	comments: Comment[];
 	hostId: string;
+	studyId: string;
 }
 
-const CommentList = ({ comments, hostId }: CommentListProps): JSX.Element => {
+export interface ICommentWithNestedComments extends Comment {
+	nestedComments: Comment[];
+}
+
+const CommentList = ({ comments, hostId, studyId }: CommentListProps): JSX.Element => {
+	const commentsWithNestedComments = useMemo(() => {
+		const initialValue: Array<ICommentWithNestedComments> = [];
+		return comments.reduce((acc, commentItem) => {
+			if (commentItem.isNested) {
+				return acc;
+			}
+			return [
+				...acc,
+				{
+					...commentItem,
+					nestedComments: comments.filter((nestedItem) => commentItem.id === nestedItem.NESTED_COMMENT_ID),
+				},
+			];
+		}, initialValue);
+	}, [comments]);
+
 	return (
 		<div>
-			{comments.map((item) => {
-				const [show, setShow] = useState<boolean>(false);
-
-				return (
-					<div key={item.id} className="comment-list-item-container">
-						<CommentItem comment={item} isNested={false} hostId={hostId} />
-						{/* TODO: nested된 comment 작업 */}
-						{/* {item.nestedComments?.map((nestedItem, nestedIndex) => {
-							if (!show && nestedIndex > 0) {
-								return <div />;
-							}
-							return <CommentItem key={nestedItem.id} comment={nestedItem} isNested />;
-						})}
-						{item.nestedComments?.length > 1 && !show && (
-							<button type="button" className="comment-list-item-more-btn" onClick={() => setShow(!show)}>
-								더보기 ({item.nestedComments?.length - 1})
-							</button>
-						)} */}
-					</div>
-				);
-			})}
+			{commentsWithNestedComments.map((item) => (
+				<CommentItemContainer key={item.id} studyId={studyId} hostId={hostId} item={item} />
+			))}
 		</div>
 	);
 };

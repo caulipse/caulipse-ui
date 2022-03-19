@@ -6,17 +6,17 @@ const SignupId = (): JSX.Element => {
     return(
         <div>
             <div>
-                <span className="NickName">닉네임</span>
+                <span className="nickname">닉네임</span>
                 </div>
             <div>
-                <input type="text" placeholder="5-7글자 사이로 입력해주세요" className="NickNameInput" required min="5" max="7"/>
+                <input type="text" placeholder="5-7글자 사이로 입력해주세요" className="nickname-input" required min="5" max="7"/>
             </div>
 
             <div>
-                <span className="Department">단과대</span>
+                <span className="department">단과대</span>
             </div>
             <div>
-                <input type="text" placeholder="단과대학을 입력해주세요" className="DepartmentInput" />
+                <input type="text" placeholder="단과대학을 입력해주세요" className="department-input" />
             </div>
 
             <div>

@@ -12,9 +12,11 @@ import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
 import { IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
+import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 
 const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
+	const postBookmark = usePostBookmark(studyId);
 	const { data, isLoading } = useFetchStudy(studyId);
 	const studyData = data?.study;
 
@@ -43,6 +45,10 @@ const StudyDetailPage = (): JSX.Element => {
 		openSnackbar('클립보드에 복사되었습니다.');
 	};
 
+	const onClickPostBookmark = () => {
+		postBookmark.mutate();
+	};
+
 	const StudyDetailHeader = useCallback(() => {
 		return (
 			<div className="backButtonContainer">
@@ -62,7 +68,7 @@ const StudyDetailPage = (): JSX.Element => {
 		return (
 			<div className="study-apply-btn-container">
 				<div className="study-apply-btn-padding-container">
-					<IconButton>
+					<IconButton onClick={onClickPostBookmark}>
 						<IoBookmarkOutline className="study-apply-btn-bookmark" />
 					</IconButton>
 					<div className="study-apply-btn-wrapper">

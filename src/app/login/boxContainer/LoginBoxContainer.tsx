@@ -3,10 +3,8 @@ import './LoginBoxContainer.scss';
 import axios from 'axios';
 
 const boxcontainer = (): JSX.Element => {
-	type ID = { email : string };
-	type PW = { pw: string };
-	const [inputId, setInputId] = useState<ID | null>(null);
-	const [inputPw, setInputPw] = useState<PW | null>(null);
+	// const [inputId, setInputId] = useState(null);
+	// const [inputPw, setInputPw] = useState(null);
 
 	// const handleInputId = (event:React.ChangeEvent<HTMLInputElement>) => {
 	// 	setInputId(event.target.value);

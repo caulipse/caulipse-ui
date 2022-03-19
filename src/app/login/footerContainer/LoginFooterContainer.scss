@@ -1,12 +1,13 @@
 .login-footer{
   width: 50%;
   height: 1.25rem;
-  margin: 2.5rem 4.563rem 0 5.625rem;
-  margin-left: 20rem;
+  margin: 2.5rem 4.563rem 0 15rem;
+  display: flex;
+  justify-content: center;
 }
 
 .sign-up{
-  width: 3.25rem;
+  width: 4rem;
   height: 1.25rem;
   margin: 0 1.156rem 0 0;
   font-size: 0.875rem;
@@ -20,7 +21,7 @@
 }
 
 .find-pw{
-  width: 3.25rem;
+  width: 4rem;
   height: 1.25rem;
   margin: 0 0 0 1.156rem;
   font-size: 0.875rem;

@@ -207,13 +207,16 @@ const MyProfileEditPresenter = ({
 					),
 				}}
 			/>
-			<Box className="profile-edit-short-intro-title">
-				한줄소개<span className="profile-edit-short-intro-subtitle">{currentShortIntro?.length}/60</span>
+			<Box className="profile-edit-title mt40">
+				👋 한줄소개<span className="profile-edit-short-intro-subtitle">({currentShortIntro?.length}/60)</span>
 			</Box>
-			<textarea
+			<TextField
 				className="profile-edit-short-intro-input"
 				placeholder="프로필 상단에 보이는 소개글입니다."
-				maxLength={60}
+				margin="dense"
+				variant="outlined"
+				multiline
+				inputProps={{ maxLength: 60 }}
 				onChange={(e) => setCurrentShortIntro(e.target.value)}
 				value={currentShortIntro}
 			/>

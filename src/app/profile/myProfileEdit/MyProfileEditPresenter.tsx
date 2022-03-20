@@ -213,7 +213,12 @@ const MyProfileEditPresenter = ({
 				onChange={(e) => setCurrentLongIntro(e.target.value)}
 			/>
 			<Container className="profile-edit-edit-button">
-				<CommonButton type={ButtonTypeEnum.primary} title="수정완료" onClick={handleUpdateProfile} />
+				<CommonButton
+					type={ButtonTypeEnum.primary}
+					title="수정완료"
+					onClick={handleUpdateProfile}
+					className="profile-edit-edit-button-shadow"
+				/>
 			</Container>
 		</Box>
 	);

@@ -9,4 +9,5 @@ export interface IButtonProps {
 	disabled?: boolean;
 	style?: React.CSSProperties;
 	type?: ButtonTypeEnum;
+	className?: string;
 }

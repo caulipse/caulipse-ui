@@ -19,6 +19,7 @@
     font-size: 0.688rem;
     color: #929699; 
     font-weight: normal;
+    margin-bottom: 1rem;
 }
 @mixin select{
     font-size: 0.75rem !important;
@@ -45,6 +46,16 @@
     }
     &-title{
         @include title();
+    }
+    &-title-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-required-text{
+        @include subtitle();
+        color: #636363;
     }
     &-nickname{
         &-input{

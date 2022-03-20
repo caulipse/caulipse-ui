@@ -136,7 +136,10 @@ const MyProfileEditPresenter = ({
 				onChange={(e) => setCurrentNickname(e.target.value)}
 				margin="dense"
 			/>
-			<Box className={classNames('profile-edit-title', 'mt40')}>🙋‍♂️ 저는요..</Box>
+			<Box className={classNames('profile-edit-title-container', 'mt40')}>
+				<Box className="profile-edit-title">🙋‍♂️ 저는요..</Box>
+				<Box className="profile-edit-required-text">(필수정보)</Box>
+			</Box>
 			<TextField
 				className="profile-edit-major-input"
 				placeholder="ex. 사회과학대학"

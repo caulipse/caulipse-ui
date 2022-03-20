@@ -234,14 +234,17 @@ const MyProfileEditPresenter = ({
 			<ButtonBase onClick={addUrl} className="profile-edit-url-add-icon">
 				<IoAdd className="profile-edit-icon" color="#101010" />
 			</ButtonBase>
-			<Box className="divider mt24" />
-			<Box className="profile-edit-short-intro-title mt40">
-				자기소개글
-				<span className="profile-edit-short-intro-subtitle">(선택)</span>
+			<Box className="profile-edit-short-intro-title mt2rem">
+				📚 자기소개글
+				<span className="profile-edit-short-intro-subtitle"> ({currentLongIntro.length}/500)</span>
 			</Box>
-			<textarea
+			<TextField
 				className="profile-edit-long-intro-textarea"
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
+				margin="dense"
+				variant="outlined"
+				multiline
+				inputProps={{ maxLength: 500 }}
 				value={currentLongIntro}
 				onChange={(e) => setCurrentLongIntro(e.target.value)}
 			/>

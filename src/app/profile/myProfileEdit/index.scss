@@ -133,6 +133,10 @@
             @include input;
             margin-top: 0.5rem;
         }
+        &-subtitle{
+            @include subtitle();
+            color: #929699 !important;
+        }
     }
     &-url{
         &-add-icon{
@@ -162,13 +166,7 @@
     }
     &-long-intro{
         &-textarea{
-            border:none;
-            border-radius: 4px;
-            background-color: #ffffff;
-            margin-top: 0.5rem;
-            padding: 0.625rem 0.75rem;
-            font-size: 0.688rem;
-            min-height: 11.25rem;
+            @include input();
         }
     }
     &-edit-button{

@@ -6,7 +6,7 @@ import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, Button, ButtonBase, Container, InputAdornment, TextField } from '@material-ui/core';
+import { Box, Button, ButtonBase, Container, InputAdornment, TextField, FormHelperText } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 
@@ -137,6 +137,10 @@ const MyProfileEditPresenter = ({
 			: filiteredCategoryList.join(',');
 	}, [categories]);
 
+	const isMajorError = useMemo(() => {
+		return currentMajor?.length < 2;
+	}, [currentMajor]);
+
 	return (
 		<Box className="profile-edit-container" component="form">
 			<Box className="profile-edit-image-container">
@@ -166,7 +170,9 @@ const MyProfileEditPresenter = ({
 				label="단과대"
 				value={currentMajor}
 				onChange={(e) => setCurrentMajor(e.target.value)}
+				error={isMajorError}
 			/>
+			{isMajorError && <FormHelperText error>최소 2글자입니다.</FormHelperText>}
 			<Box className="profile-edit-row-container mt8">
 				<TextField
 					className="profile-edit-grade-select"

@@ -1,11 +1,10 @@
 import { Box, Button, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
-import { isDesktop } from '@src/const';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
-import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
+import { IoMegaphone, IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
@@ -32,6 +31,10 @@ const Header: React.FC = () => {
 		setIsDrawerOpen(false);
 	};
 
+	const clickNotices = () => {
+		history.push('/profile/notice');
+	};
+
 	const clickSearchIcon = () => {
 		console.log('clickSearchIcon');
 	};
@@ -46,11 +49,17 @@ const Header: React.FC = () => {
 			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
 				return (
 					<div>
+						<IconButton onClick={clickNotices}>
+							<IoMegaphone className="header-icon desktop-visible" />
+						</IconButton>
 						<IconButton onClick={clickSearchIcon}>
 							<IoSearch className="header-icon" />
 						</IconButton>
 						<IconButton onClick={clickNotification}>
 							<IoNotifications className="header-icon" />
+						</IconButton>
+						<IconButton onClick={openDrawer}>
+							<IoMenu className="header-icon desktop-visible" />
 						</IconButton>
 					</div>
 				);

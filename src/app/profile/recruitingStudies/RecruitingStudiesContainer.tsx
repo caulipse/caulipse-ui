@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import * as Factory from 'factory.ts';
+import useFetchMyStudies from '@src/hooks/remotes/user/useFetchMyStudies';
 import RecruitingStudiesPresenter from './RecruitingStudiesPresenter';
 import { AppliedStudyInterface } from '../interface/interface';
 
@@ -17,6 +18,9 @@ const RecruitingStudiesContainer = (): JSX.Element => {
 		});
 		return recruitingStudiesFactory.buildList(iter);
 	};
+
+	const { data, isLoading } = useFetchMyStudies();
+	console.log('data, ', data);
 
 	return (
 		<div>

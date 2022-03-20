@@ -139,9 +139,12 @@ const MyProfileEditPresenter = ({
 
 	return (
 		<Box className="profile-edit-container" component="form">
-			<button type="button" onClick={changeProfileImg}>
-				<img className="profile-edit-image" src={imgSrc} alt="profile" />
-			</button>
+			<Box className="profile-edit-image-container">
+				<img className="profile-edit-image-img" src={imgSrc} alt="profile" />
+				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>
+					<IoSettings className="profile-edit-image-icon-size" color="#ffffff" />
+				</ButtonBase>
+			</Box>
 			<TextField
 				className="profile-edit-nickname-input"
 				variant="outlined"

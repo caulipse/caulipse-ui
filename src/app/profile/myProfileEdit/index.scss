@@ -43,11 +43,38 @@
         padding:2.5rem 1.25rem 5rem 1.25rem;
     }
     &-image{
-        width: 13rem;
-        height: 13rem;
-        border-radius: 6.5rem;
-        align-self: center;
+        &-container{
+            width: 9rem;
+            height: 9rem;
+            align-self: center;
+        }
+        &-img{
+            width: 100% !important;
+            height: 100% !important;
+            border: 1px solid #e2e2e2;
+            border-radius: 4.5rem;
+        }
+        &-icon{
+            &-container{
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                background-color: #adb1ba !important;
+                width: 2rem !important;
+                height: 2rem !important;
+                border-radius: 6px !important;
+                margin-top: -2rem !important;
+                margin-left: 7rem !important;
+                z-index: 10 !important;
+            }
+            &-{
+                width: 1.315rem !important;
+                width: 1.315rem !important;
+            }
+        }
+        
     }
+    
     &-title{
         @include title();
     }

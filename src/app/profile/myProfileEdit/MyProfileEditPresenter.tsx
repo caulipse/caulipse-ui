@@ -184,7 +184,7 @@ const MyProfileEditPresenter = ({
 				</TextField>
 			</div>
 
-			<div className="divider mt40" />
+			<div className="divider" />
 			<div className="profile-edit-category-title">관심 카테고리</div>
 			<div className="profile-edit-category-text-container">
 				<div className="profile-edit-category-text">

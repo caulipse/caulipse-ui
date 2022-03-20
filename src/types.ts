@@ -3,4 +3,4 @@ export interface CategoryType {
 	code: number;
 }
 
-export type MainCategoryType = CategoryType & { subCategories: CategoryType[] };
+export type MainCategoryType = CategoryType & { subCategories: CategoryType[]; path: string };

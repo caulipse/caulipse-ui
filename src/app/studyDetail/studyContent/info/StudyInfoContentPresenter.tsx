@@ -6,7 +6,7 @@ import '../styles.scss';
 interface StudyInfoContentPresenterProps {
 	createdAt: string;
 	views: number;
-	// bookmarks?: number;
+	bookmarkCount: number;
 	title: string;
 	studyAbout: string;
 }
@@ -16,7 +16,7 @@ const endDate = new Date(2023, 0, 1);
 const StudyInfoContentPresenter = ({
 	createdAt,
 	views,
-	// bookmarks,
+	bookmarkCount,
 	title,
 	studyAbout,
 }: StudyInfoContentPresenterProps): JSX.Element => {
@@ -39,7 +39,7 @@ const StudyInfoContentPresenter = ({
 					<div className="mh5">•</div>
 					<div>조회 {views}</div>
 					<div className="mh5">•</div>
-					<div>북마크 {NumberUtils.toFormattedCount(0)}</div>
+					<div>북마크 {NumberUtils.toFormattedCount(bookmarkCount)}</div>
 				</div>
 				<div className="studyTitle">
 					<span>{title}</span>

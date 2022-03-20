@@ -101,7 +101,7 @@ const StudyDetailPage = (): JSX.Element => {
 								hostId={studyData.HOST_ID}
 								createdAt={studyData.createdAt}
 								views={studyData.views}
-								// bookmarks={studyData.bookmarks}
+								bookmarkCount={studyData.bookmarkCount}
 								title={studyData.title}
 								studyAbout={studyData.studyAbout}
 								capacity={studyData.capacity}

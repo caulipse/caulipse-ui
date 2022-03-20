@@ -1,5 +1,7 @@
 import { Study } from '@src/api/types';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Chip from '@src/components/common/chip/Chip';
 import { ChipTypeEnum } from '@src/components/common/chip/types';
 import ModalKeyEnum from '@src/components/common/modal/enum';
@@ -19,7 +21,8 @@ const RecruitingStudiesPresenter = ({
 }: RecruitingStudiesPresenterProps): JSX.Element => {
 	const { openModal } = useModal();
 
-	const closeStudy = () => {
+	const closeStudy = (event: any) => {
+		event.preventDefault();
 		openModal(ModalKeyEnum.StudyCloseModal);
 	};
 
@@ -48,6 +51,15 @@ const RecruitingStudiesPresenter = ({
 						}
 						rightTopComponent={
 							<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
+						}
+						bottomComponent={
+							<div className="mt1rem">
+								<CommonButton
+									onClick={closeStudy}
+									title={`마감하기(${item.membersCount}/${item.capacity})`}
+									type={ButtonTypeEnum.primary}
+								/>
+							</div>
 						}
 					/>
 				);

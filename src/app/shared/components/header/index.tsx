@@ -76,9 +76,14 @@ const Header: React.FC = () => {
 		}
 
 		return (
-			<Button onClick={() => history.push('/login')}>
-				<Typography className="header-login">로그인</Typography>
-			</Button>
+			<div>
+				<IconButton onClick={clickNotices}>
+					<IoMegaphone className="header-icon desktop-visible" />
+				</IconButton>
+				<Button onClick={() => history.push('/login')}>
+					<Typography className="header-login">로그인</Typography>
+				</Button>
+			</div>
 		);
 	};
 

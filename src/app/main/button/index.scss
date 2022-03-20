@@ -1,0 +1,59 @@
+@import "@scss/variables";
+
+// desktop
+.desktop-main-button {
+    display: flex !important;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    border-radius: .5rem;
+    background: $primaryColor;
+    color: #fff;
+    width: 17.625rem !important;
+    height: 7.625rem;
+    padding: 2rem 1.5rem !important;
+    margin: 0 !important;
+    svg {
+        align-self: center;
+    }
+}
+
+.desktop-main-button-text {
+    font-size: .938rem !important;
+}
+
+.desktop-main-button-title {
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+}
+
+// mobile
+
+.mobile-main-button {
+    display: flex !important;
+    cursor: pointer;
+    position: fixed !important;
+    left: calc((100% - 20.5rem) / 2);
+    bottom: 2.125rem;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
+    border-radius: .5rem;
+    background: $primaryColor;
+    color: #fff;
+    width: 20.5rem !important;
+    height: 5.063rem;
+    padding: 1rem 1.5rem 1rem 1.313rem !important;
+    svg {
+        align-self: center;
+    }
+}
+
+.main-button-container {
+    padding: 0 !important;
+}
+
+.mobile-main-button-title {
+    font-weight: bold !important;
+}
+
+.mobile-main-button-text {
+    font-size: .75rem !important;
+}

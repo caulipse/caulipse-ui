@@ -234,9 +234,11 @@ const MyProfileEditPresenter = ({
 			/>
 			<Box className="profile-edit-title mt2rem">😎 URL 추가</Box>
 			{currentUrls.map(renderUrls)}
-			<ButtonBase onClick={addUrl} className="profile-edit-url-add-icon">
-				<IoAdd className="profile-edit-icon" color="#101010" />
-			</ButtonBase>
+			{currentUrls?.length < 3 && (
+				<ButtonBase onClick={addUrl} className="profile-edit-url-add-icon">
+					<IoAdd className="profile-edit-icon" color="#101010" />
+				</ButtonBase>
+			)}
 			<Box className="profile-edit-short-intro-title mt2rem">
 				📚 자기소개글
 				<span className="profile-edit-short-intro-subtitle"> ({currentLongIntro.length}/500)</span>

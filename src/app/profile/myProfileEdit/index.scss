@@ -1,19 +1,19 @@
 @import '../../../scss/variables';
 
 @mixin title{
-    font-size: 0.875rem;
-    color: #4c4c4c;
-    font-weight: bold;
+    font-size: 1.125rem !important;
+    color: #4c4c4c !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem;
 }
 @mixin input{
-    border-radius: 4px !important;
+    border-radius: .25rem !important;
     background-color: #ffffff !important;
     font-size: 0.75rem !important;
     color: #1a1a1a !important;
     .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
         border-color: black;
     }
-    // padding: 0.625rem 0.75rem !important;
 }
 @mixin subtitle {
     font-size: 0.688rem;
@@ -21,11 +21,14 @@
     font-weight: normal;
 }
 @mixin select{
-    font-size: 0.75rem;
-    color:#1a1a1a;
-    padding: 0.625rem 0.75rem;
-    border-radius: 4px;
-    border: none;
+    font-size: 0.75rem !important;
+    color:#1a1a1a !important;
+    border-radius: .25rem !important;
+    border: none !important;
+    background-color: #ffffff;
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: black;
+    }
 }
 
 .profile-edit{
@@ -40,11 +43,10 @@
         border-radius: 6.5rem;
         align-self: center;
     }
+    &-title{
+        @include title();
+    }
     &-nickname{
-        &-title{
-            @include title;
-            margin-top: 2rem;
-        }
         &-input{
             @include input;
             margin-top: 4.5rem !important;
@@ -60,10 +62,6 @@
         flex-direction: column;
     }
     &-major{
-        &-title{
-            @include title;
-            margin-top: 1rem;
-        }
         &-input{
             @include input;
             margin-top: 0.5rem;
@@ -75,24 +73,19 @@
         }
         &-select{
             @include select;
-            margin-top: 0.5rem;
+            flex:1;
+            margin-top: 0.5rem !important;
+            margin-right: 1rem !important;
         }
     }
     &-status{
-        &-title{
-            @include title;
-            margin-top: 2rem;
-        }
         &-select{
             @include select;
-            margin-top: 0.5rem;
+            margin-top: 0.5rem !important;
+            flex:2;
         }
     }
     &-category{
-        &-title{
-            @include title;
-            margin-top: 24px;
-        }
         &-text-container{
             display: flex;
             padding: 0.75rem 0.625rem;
@@ -121,10 +114,6 @@
         }
     }
     &-short-intro{
-        &-title{
-            @include title;
-            margin-top: 2.5rem;
-        }
         &-input{
             @include input;
             margin-top: 0.5rem;

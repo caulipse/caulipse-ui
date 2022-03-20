@@ -8,6 +8,7 @@ import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { Box, Container, TextField } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
+import classNames from 'classnames';
 
 export interface UrlInterface {
 	urlId: number;
@@ -135,42 +136,51 @@ const MyProfileEditPresenter = ({
 				onChange={(e) => setCurrentNickname(e.target.value)}
 				margin="dense"
 			/>
+			<Box className={classNames('profile-edit-title', 'mt40')}>🙋‍♂️ 저는요..</Box>
+			<TextField
+				className="profile-edit-major-input"
+				placeholder="ex. 사회과학대학"
+				variant="outlined"
+				margin="dense"
+				label="단과대"
+				value={currentMajor}
+				onChange={(e) => setCurrentMajor(e.target.value)}
+			/>
 			<div className="profile-edit-row-container mt8">
-				<div className="profile-edit-column-container flex-grow-1">
-					<div className="profile-edit-major-title">학과</div>
-					<input
-						className="profile-edit-major-input"
-						type="text"
-						placeholder="ex. 컴퓨터공학"
-						value={currentMajor}
-						onChange={(e) => setCurrentMajor(e.target.value)}
-					/>
-				</div>
-				<div className="profile-edit-column-container ml16">
-					<div className="profile-edit-major-title">
-						학년<span className="profile-edit-grade-subtitle">(선택)</span>
-					</div>
-					<select
-						className="profile-edit-grade-select"
-						value={currentGrade}
-						onChange={(e) => setCurrentGrade(Number(e.target.value))}
-					>
-						<option value={1}>1학년</option>
-						<option value={2}>2학년</option>
-						<option value={3}>3학년</option>
-						<option value={4}>4학년</option>
-					</select>
-				</div>
+				<TextField
+					className="profile-edit-grade-select"
+					select
+					value={currentGrade}
+					onChange={(e) => setCurrentGrade(Number(e.target.value))}
+					margin="dense"
+					variant="outlined"
+					label="학년"
+					SelectProps={{
+						native: true,
+					}}
+				>
+					<option value={1}>1학년</option>
+					<option value={2}>2학년</option>
+					<option value={3}>3학년</option>
+					<option value={4}>4학년</option>
+				</TextField>
+				<TextField
+					className="profile-edit-status-select"
+					select
+					value={Number(currentOnBreak)}
+					onChange={(e) => setCurrentOnBreak(Boolean(e.target.value))}
+					margin="dense"
+					variant="outlined"
+					label="재학상태"
+					SelectProps={{
+						native: true,
+					}}
+				>
+					<option value={0}>재학중</option>
+					<option value={1}>휴학중</option>
+				</TextField>
 			</div>
-			<div className="profile-edit-status-title">재학상태</div>
-			<select
-				className="profile-edit-status-select"
-				value={Number(currentOnBreak)}
-				onChange={(e) => setCurrentOnBreak(Boolean(e.target.value))}
-			>
-				<option value={0}>재학중</option>
-				<option value={1}>휴학중</option>
-			</select>
+
 			<div className="divider mt40" />
 			<div className="profile-edit-category-title">관심 카테고리</div>
 			<div className="profile-edit-category-text-container">

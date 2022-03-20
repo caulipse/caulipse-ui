@@ -1,29 +1,39 @@
 @import '../../../scss/variables';
 
 @mixin title{
-    font-size: 0.875rem;
-    color: #4c4c4c;
-    font-weight: bold;
+    font-size: 1.125rem !important;
+    color: #4c4c4c !important;
+    font-weight: bold !important;
+    margin-bottom: 1rem;
 }
 @mixin input{
-    border-radius: 4px;
-    background-color: #ffffff;
-    font-size: 0.75rem;
-    color: #1a1a1a;
-    padding: 0.625rem 0.75rem;
-    border: none;
+    border-radius: .25rem !important;
+    background-color: #ffffff !important;
+    font-size: 1rem !important;
+    color: #1a1a1a !important;
+    .MuiOutlinedInput-root.Mui-blurred{
+        border-color: red;
+    }
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: black;
+    }
 }
 @mixin subtitle {
     font-size: 0.688rem;
     color: #929699; 
     font-weight: normal;
+    margin-bottom: 1rem;
 }
 @mixin select{
-    font-size: 0.75rem;
-    color:#1a1a1a;
-    padding: 0.625rem 0.75rem;
-    border-radius: 4px;
-    border: none;
+    font-size: 0.75rem !important;
+    color:#1a1a1a !important;
+    border-radius: .25rem !important;
+    border: none !important;
+    background-color: #ffffff;
+    
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: black;
+    }
 }
 
 .profile-edit{
@@ -33,35 +43,66 @@
         padding:2.5rem 1.25rem 5rem 1.25rem;
     }
     &-image{
-        width: 13rem;
-        height: 13rem;
-        border-radius: 6.5rem;
-        align-self: center;
+        &-container{
+            width: 9rem;
+            height: 9rem;
+            align-self: center;
+        }
+        &-img{
+            width: 100% !important;
+            height: 100% !important;
+            border: 1px solid #e2e2e2;
+            border-radius: 4.5rem;
+        }
+        &-icon{
+            &-container{
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                background-color: #adb1ba !important;
+                width: 2rem !important;
+                height: 2rem !important;
+                border-radius: 6px !important;
+                margin-top: -2rem !important;
+                margin-left: 7rem !important;
+                z-index: 10 !important;
+            }
+            &-{
+                width: 1.315rem !important;
+                width: 1.315rem !important;
+            }
+        }
+        
+    }
+    
+    &-title{
+        @include title();
+    }
+    &-icon{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    &-required-text{
+        @include subtitle();
+        color: #636363;
     }
     &-nickname{
-        &-title{
-            @include title;
-            margin-top: 2rem;
-        }
         &-input{
             @include input;
-            margin-top: 0.5rem;
+            margin-top: 4.5rem !important;
         }
     }
     &-row-container{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
     }
     &-column-container{
         display: flex;
         flex-direction: column;
     }
     &-major{
-        &-title{
-            @include title;
-            margin-top: 1rem;
-        }
         &-input{
             @include input;
             margin-top: 0.5rem;
@@ -73,42 +114,38 @@
         }
         &-select{
             @include select;
-            margin-top: 0.5rem;
+            flex:1;
+            margin-top: 0.5rem !important;
+            margin-right: 1rem !important;
         }
     }
     &-status{
-        &-title{
-            @include title;
-            margin-top: 2rem;
-        }
         &-select{
             @include select;
-            margin-top: 0.5rem;
+            margin-top: 0.5rem !important;
+            flex:2;
         }
     }
     &-category{
-        &-title{
-            @include title;
-            margin-top: 24px;
-        }
         &-text-container{
             display: flex;
             padding: 0.75rem 0.625rem;
             background-color: #ffffff;
-            margin-top: 0.5rem;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
         }
-        &-text{
-            flex-shrink: 1;
-            font-size: 0.688rem;
-            color: #126bb7;
+        &-input{
+            @include input();
+            font-size: .875rem !important;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 1; 
             -webkit-box-orient: vertical;
+            .MuiOutlinedInput-root.Mui-disabled {
+                color:#4c4c4c;
+            }
         }
         &-edit{
             font-size: 0.688rem;
@@ -119,29 +156,30 @@
         }
     }
     &-short-intro{
-        &-title{
-            @include title;
-            margin-top: 2.5rem;
-        }
         &-input{
             @include input;
             margin-top: 0.5rem;
         }
         &-subtitle{
-            @include subtitle;
-            margin-left: 0.5rem;
+            @include subtitle();
+            color: #929699 !important;
         }
     }
     &-url{
         &-add-icon{
-            padding: 0.375rem;
-            background-color: #ffffff;
-            align-self: center;
-            margin-top: 1rem;
+            width: 2.25rem !important;
+            height: 2.25rem !important;
+            border-radius: 6px !important;
+            border: 1px solid #e2e2e2 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff !important;
+            align-self: center !important;
+            margin-top: 1rem !important;
         }
         &-input{
             @include input;
-            flex:1;
         }
         &-container{
             display: flex;
@@ -155,13 +193,7 @@
     }
     &-long-intro{
         &-textarea{
-            border:none;
-            border-radius: 4px;
-            background-color: #ffffff;
-            margin-top: 0.5rem;
-            padding: 0.625rem 0.75rem;
-            font-size: 0.688rem;
-            min-height: 11.25rem;
+            @include input();
         }
     }
     &-edit-button{
@@ -172,10 +204,14 @@
         max-width: $maxContentWidth !important;
         align-self: center;
     }
+    &-edit-button-shadow{
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
+    }
 }
 .divider{
-    height: 1px;
-    background-color: #e5e5e5;
+    height: 0.063rem;
+    background-color: #e2e2e2;
+    margin: 1.969rem 0 1.469rem;
 }
 .mt8{
     margin-top: 0.5rem;
@@ -188,6 +224,12 @@
 }
 .ml16{
     margin-left: 1rem;
+}
+.mt2rem{
+    margin-top: 2rem;
+}
+.mb0_5rem{
+    margin-bottom: .5rem !important;
 }
 .flex-grow-1{
     flex-grow:1;

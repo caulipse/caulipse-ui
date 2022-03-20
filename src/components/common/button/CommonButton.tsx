@@ -4,11 +4,18 @@ import classnames from 'classnames';
 import { IButtonProps, ButtonTypeEnum } from './types';
 import './index.scss';
 
-const CommonButton = ({ type = ButtonTypeEnum.primary, title, onClick, disabled = false, style }: IButtonProps) => {
+const CommonButton = ({
+	type = ButtonTypeEnum.primary,
+	title,
+	onClick,
+	disabled = false,
+	style,
+	className,
+}: IButtonProps) => {
 	return (
 		<Button
 			disableFocusRipple
-			className={classnames('common-button', { 'secondary-button': type === ButtonTypeEnum.secondary })}
+			className={classnames('common-button', { 'secondary-button': type === ButtonTypeEnum.secondary }, className)}
 			style={style}
 			disabled={disabled}
 			onClick={onClick}

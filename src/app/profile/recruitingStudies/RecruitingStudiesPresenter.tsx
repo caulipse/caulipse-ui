@@ -1,13 +1,11 @@
+import { Study } from '@src/api/types';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import React from 'react';
-import ClosedStudyList from '../closedStudyList/ClosedStudyList';
-import { AppliedStudyInterface } from '../interface/interface';
-import OpenedStudyList from '../openedStudyList/OpenedStudyList';
 import './index.scss';
 
 interface RecruitingStudiesPresenterProps {
-	openedRecruitingStudies: AppliedStudyInterface[];
-	closedRecruitingStudies: AppliedStudyInterface[];
+	openedRecruitingStudies: Study[];
+	closedRecruitingStudies: Study[];
 }
 
 const RecruitingStudiesPresenter = ({
@@ -19,21 +17,32 @@ const RecruitingStudiesPresenter = ({
 			<div className="recruiting-studies-title">모집중 ({openedRecruitingStudies?.length})</div>
 			{openedRecruitingStudies?.map((item, index, { length }) => {
 				return (
-					<div className={index === length - 1 ? '' : 'mb16'} key={item.studyId}>
+					<div className={index === length - 1 ? '' : 'mb16'} key={item.id}>
 						<MyStudyCard
-							studyId={String(item.studyId)}
+							studyId={item.id}
 							title={item.title}
-							createdAt={item.date.toString()}
-							views={item.hits}
-							bookmarks={item.bookmarks}
+							createdAt={item.createdAt}
+							views={item.views}
+							bookmarks={0}
 						/>
 					</div>
 				);
 			})}
-			<OpenedStudyList openedStudies={openedRecruitingStudies} />
 			<div className="recruiting-studies-title">마감한 스터디</div>
 			<div className="recruiting-studies-closed-container">
-				<ClosedStudyList closedStudies={closedRecruitingStudies} />
+				{closedRecruitingStudies?.map((item, index, { length }) => {
+					return (
+						<div className={index === length - 1 ? '' : 'mb16'} key={item.id}>
+							<MyStudyCard
+								studyId={item.id}
+								title={item.title}
+								createdAt={item.createdAt}
+								views={item.views}
+								bookmarks={0}
+							/>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 	);

@@ -12,3 +12,8 @@ export interface IResponseGetStudy {
 }
 
 export type IResponseGetStudyUsers = StudyUser[];
+
+export interface IResponseGetMyStudies {
+	message: string;
+	studies: Study[];
+}

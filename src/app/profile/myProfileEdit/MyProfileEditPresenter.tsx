@@ -96,7 +96,7 @@ const MyProfileEditPresenter = ({
 	const renderUrls = (item: UrlInterface) => {
 		if (item?.url === null) return null;
 		return (
-			<div className="profile-edit-url-container" key={item.urlId}>
+			<Box className="profile-edit-url-container" key={item.urlId}>
 				<input
 					className="profile-edit-url-input"
 					placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
@@ -118,7 +118,7 @@ const MyProfileEditPresenter = ({
 				<button type="button" onClick={() => deleteUrl(item.urlId)}>
 					<IoClose size={24} color="#929699" />
 				</button>
-			</div>
+			</Box>
 		);
 	};
 
@@ -149,7 +149,7 @@ const MyProfileEditPresenter = ({
 				value={currentMajor}
 				onChange={(e) => setCurrentMajor(e.target.value)}
 			/>
-			<div className="profile-edit-row-container mt8">
+			<Box className="profile-edit-row-container mt8">
 				<TextField
 					className="profile-edit-grade-select"
 					select
@@ -182,23 +182,22 @@ const MyProfileEditPresenter = ({
 					<option value={0}>재학중</option>
 					<option value={1}>휴학중</option>
 				</TextField>
-			</div>
-
-			<div className="divider" />
-			<div className="profile-edit-category-title">관심 카테고리</div>
-			<div className="profile-edit-category-text-container">
-				<div className="profile-edit-category-text">
+			</Box>
+			<Box className="divider" />
+			<Box className="profile-edit-title">📚 이런 스터디에 관심있어요!</Box>
+			<Box className="profile-edit-category-text-container">
+				<Box className="profile-edit-category-text">
 					{categories?.map(
 						(item, index, { length }) => `${getSubCategoryLabel(Number(item))}${index === length - 1 ? '' : ', '}`
 					)}
-				</div>
+				</Box>
 				<button type="button" className="profile-edit-category-edit" onClick={changeCategories}>
-					<div>수정하기</div>
+					<Box>수정하기</Box>
 				</button>
-			</div>
-			<div className="profile-edit-short-intro-title">
+			</Box>
+			<Box className="profile-edit-short-intro-title">
 				한줄소개<span className="profile-edit-short-intro-subtitle">{currentShortIntro?.length}/60</span>
-			</div>
+			</Box>
 			<textarea
 				className="profile-edit-short-intro-input"
 				placeholder="프로필 상단에 보이는 소개글입니다."
@@ -206,19 +205,19 @@ const MyProfileEditPresenter = ({
 				onChange={(e) => setCurrentShortIntro(e.target.value)}
 				value={currentShortIntro}
 			/>
-			<div className="profile-edit-short-intro-title">
+			<Box className="profile-edit-short-intro-title">
 				URL 추가
 				<span className="profile-edit-short-intro-subtitle">포트폴리오 사이트나 작업용 sns를 추가해보세요!</span>
-			</div>
+			</Box>
 			{currentUrls.map(renderUrls)}
 			<button type="button" onClick={addUrl}>
 				<IoAdd className="profile-edit-url-add-icon" size={24} color="#929699" />
 			</button>
-			<div className="divider mt24" />
-			<div className="profile-edit-short-intro-title mt40">
+			<Box className="divider mt24" />
+			<Box className="profile-edit-short-intro-title mt40">
 				자기소개글
 				<span className="profile-edit-short-intro-subtitle">(선택)</span>
-			</div>
+			</Box>
 			<textarea
 				className="profile-edit-long-intro-textarea"
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"

@@ -30,7 +30,8 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 		return (
 			<IoBookmark
 				className="bookmark-item-bookmark"
-				onClick={() => {
+				onClick={(event: any) => {
+					event.preventDefault();
 					deleteBookmark.mutate();
 				}}
 			/>

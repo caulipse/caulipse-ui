@@ -22,7 +22,7 @@ const RecruitingStudiesPresenter = ({
 		openModal(ModalKeyEnum.StudyCloseModal);
 	};
 
-	const onClickMore = (event: React.MouseEvent<HTMLButtonElement>) => {
+	const onClickMore = (event: any) => {
 		event.preventDefault();
 		openModal(ModalKeyEnum.UserStudyMoreModal);
 	};
@@ -55,11 +55,7 @@ const RecruitingStudiesPresenter = ({
 						bookmarks={0}
 						isTitleBlur
 						className={index === length - 1 ? '' : 'mb16'}
-						rightComponent={
-							<IconButton type="button" onClick={onClickMore}>
-								<IoEllipsisVertical size={24} color="#b1b1b1" />
-							</IconButton>
-						}
+						rightComponent={<IoEllipsisVertical onClick={onClickMore} size={24} color="#b1b1b1" />}
 					/>
 				);
 			})}

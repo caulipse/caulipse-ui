@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IoAdd, IoClose } from 'react-icons/io5';
+import { IoAdd, IoClose, IoSettings } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
@@ -191,9 +191,7 @@ const MyProfileEditPresenter = ({
 						(item, index, { length }) => `${getSubCategoryLabel(Number(item))}${index === length - 1 ? '' : ', '}`
 					)}
 				</Box>
-				<button type="button" className="profile-edit-category-edit" onClick={changeCategories}>
-					<Box>수정하기</Box>
-				</button>
+				<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
 			</Box>
 			<Box className="profile-edit-short-intro-title">
 				한줄소개<span className="profile-edit-short-intro-subtitle">{currentShortIntro?.length}/60</span>

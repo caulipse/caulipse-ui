@@ -11,6 +11,9 @@
     background-color: #ffffff !important;
     font-size: 0.75rem !important;
     color: #1a1a1a !important;
+    .MuiOutlinedInput-root.Mui-blurred{
+        border-color: red;
+    }
     .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
         border-color: black;
     }
@@ -27,6 +30,7 @@
     border-radius: .25rem !important;
     border: none !important;
     background-color: #ffffff;
+    
     .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
         border-color: black;
     }
@@ -96,7 +100,6 @@
             display: flex;
             padding: 0.75rem 0.625rem;
             background-color: #ffffff;
-            margin-top: 0.5rem;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
@@ -104,7 +107,7 @@
         &-text{
             flex-shrink: 1;
             font-size: 0.688rem;
-            color: #126bb7;
+            color: #4c4c4c;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -117,6 +120,11 @@
             color:#212b36;
             margin-left: 50px;
             white-space: nowrap;
+        }
+        &-icon{
+            width: 1.973rem;
+            height: 1.973rem;
+            margin-right: .756rem;
         }
     }
     &-short-intro{

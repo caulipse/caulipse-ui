@@ -4,7 +4,7 @@ import MyHeaderPresenter from './MyHeaderPresenter';
 
 // interface MyHeaderContainerProps {}
 
-const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';
+const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
 
 const MyHeaderContainer = (): JSX.Element => {
 	const userProfile = useFetchUserProfile(exampleId).data?.userProfile;

@@ -12,7 +12,7 @@ import categories from '@src/const';
 import { CategoryType, MainCategoryType } from '@src/types';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 
-const exampleId = '00fe16f3-5b45-4f25-889c-caa6c5b8e228';
+const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
 
 const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();

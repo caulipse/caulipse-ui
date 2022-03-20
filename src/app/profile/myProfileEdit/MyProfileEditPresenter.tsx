@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { IoAdd, IoClose, IoSettings } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
@@ -6,7 +6,7 @@ import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, Container, TextField } from '@material-ui/core';
+import { Box, Container, InputAdornment, TextField } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 
@@ -122,6 +122,11 @@ const MyProfileEditPresenter = ({
 		);
 	};
 
+	const categoriesText = useMemo(() => {
+		const resultCategories = categories.length > 2 ? categories.slice(0, 2) : categories;
+		return resultCategories?.map((item) => getSubCategoryLabel(Number(item)));
+	}, [categories]);
+
 	return (
 		<Box className="profile-edit-container" component="form">
 			<button type="button" onClick={changeProfileImg}>
@@ -185,14 +190,20 @@ const MyProfileEditPresenter = ({
 			</Box>
 			<Box className="divider" />
 			<Box className="profile-edit-title">📚 이런 스터디에 관심있어요!</Box>
-			<Box className="profile-edit-category-text-container">
-				<Box className="profile-edit-category-text">
-					{categories?.map(
-						(item, index, { length }) => `${getSubCategoryLabel(Number(item))}${index === length - 1 ? '' : ', '}`
-					)}
-				</Box>
-				<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
-			</Box>
+			<TextField
+				disabled
+				className="profile-edit-category-input"
+				value={categoriesText}
+				margin="dense"
+				variant="outlined"
+				InputProps={{
+					endAdornment: (
+						<InputAdornment position="end">
+							<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
+						</InputAdornment>
+					),
+				}}
+			/>
 			<Box className="profile-edit-short-intro-title">
 				한줄소개<span className="profile-edit-short-intro-subtitle">{currentShortIntro?.length}/60</span>
 			</Box>

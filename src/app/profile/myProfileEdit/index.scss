@@ -9,7 +9,7 @@
 @mixin input{
     border-radius: .25rem !important;
     background-color: #ffffff !important;
-    font-size: 0.75rem !important;
+    font-size: 1rem !important;
     color: #1a1a1a !important;
     .MuiOutlinedInput-root.Mui-blurred{
         border-color: red;
@@ -104,15 +104,17 @@
             align-items: center;
             justify-content: space-between;
         }
-        &-text{
-            flex-shrink: 1;
-            font-size: 0.688rem;
-            color: #4c4c4c;
+        &-input{
+            @include input();
+            font-size: .875rem !important;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
             -webkit-line-clamp: 1; 
             -webkit-box-orient: vertical;
+            .MuiOutlinedInput-root.Mui-disabled {
+                color:#4c4c4c;
+            }
         }
         &-edit{
             font-size: 0.688rem;

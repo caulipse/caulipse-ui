@@ -124,7 +124,10 @@ const MyProfileEditPresenter = ({
 
 	const categoriesText = useMemo(() => {
 		const resultCategories = categories.length > 2 ? categories.slice(0, 2) : categories;
-		return resultCategories?.map((item) => getSubCategoryLabel(Number(item)));
+		const filiteredCategoryList = resultCategories?.map((item) => getSubCategoryLabel(Number(item)));
+		return categories.length > 2
+			? `${filiteredCategoryList.join(',')} 외 ${categories.length - 2}개`
+			: filiteredCategoryList.join(',');
 	}, [categories]);
 
 	return (

@@ -6,12 +6,14 @@
     font-weight: bold;
 }
 @mixin input{
-    border-radius: 4px;
-    background-color: #ffffff;
-    font-size: 0.75rem;
-    color: #1a1a1a;
-    padding: 0.625rem 0.75rem;
-    border: none;
+    border-radius: 4px !important;
+    background-color: #ffffff !important;
+    font-size: 0.75rem !important;
+    color: #1a1a1a !important;
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+        border-color: black;
+    }
+    // padding: 0.625rem 0.75rem !important;
 }
 @mixin subtitle {
     font-size: 0.688rem;
@@ -45,7 +47,7 @@
         }
         &-input{
             @include input;
-            margin-top: 0.5rem;
+            margin-top: 4.5rem !important;
         }
     }
     &-row-container{

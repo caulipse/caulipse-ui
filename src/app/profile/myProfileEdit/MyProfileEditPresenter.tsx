@@ -6,7 +6,7 @@ import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Container } from '@material-ui/core';
+import { Box, Container, TextField } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 
 export interface UrlInterface {
@@ -122,17 +122,18 @@ const MyProfileEditPresenter = ({
 	};
 
 	return (
-		<div className="profile-edit-container">
+		<Box className="profile-edit-container" component="form">
 			<button type="button" onClick={changeProfileImg}>
 				<img className="profile-edit-image" src={imgSrc} alt="profile" />
 			</button>
-			<div className="profile-edit-nickname-title">닉네임</div>
-			<input
+			<TextField
 				className="profile-edit-nickname-input"
-				type="text"
+				variant="outlined"
 				placeholder="닉네임을 입력해 주세요."
+				label="닉네임"
 				value={currentNickname}
 				onChange={(e) => setCurrentNickname(e.target.value)}
+				margin="dense"
 			/>
 			<div className="profile-edit-row-container mt8">
 				<div className="profile-edit-column-container flex-grow-1">
@@ -214,7 +215,7 @@ const MyProfileEditPresenter = ({
 			<Container className="profile-edit-edit-button">
 				<CommonButton type={ButtonTypeEnum.primary} title="수정완료" onClick={handleUpdateProfile} />
 			</Container>
-		</div>
+		</Box>
 	);
 };
 

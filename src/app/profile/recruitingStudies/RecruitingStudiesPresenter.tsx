@@ -48,7 +48,7 @@ const RecruitingStudiesPresenter = ({
 					title={item.title}
 					createdAt={item.createdAt}
 					views={item.views}
-					bookmarks={0}
+					bookmarks={item.bookmarkCount}
 					className={index === length - 1 ? '' : 'mb16'}
 					leftTopComponent={
 						<div>
@@ -82,7 +82,7 @@ const RecruitingStudiesPresenter = ({
 					title={item.title}
 					createdAt={item.createdAt}
 					views={item.views}
-					bookmarks={0}
+					bookmarks={item.bookmarkCount}
 					isTitleBlur
 					className={index === length - 1 ? '' : 'mb16'}
 					rightComponent={

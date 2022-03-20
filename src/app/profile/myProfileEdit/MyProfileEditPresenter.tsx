@@ -96,29 +96,42 @@ const MyProfileEditPresenter = ({
 	const renderUrls = (item: UrlInterface) => {
 		if (item?.url === null) return null;
 		return (
-			<Box className="profile-edit-url-container" key={item.urlId}>
-				<input
-					className="profile-edit-url-input"
-					placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
-					value={item.url}
-					onChange={(e) => {
-						const text = e.target.value;
-						const result = [...currentUrls].map((selectedItem) => {
-							if (item.urlId === selectedItem.urlId) {
-								return {
-									urlId: item.urlId,
-									url: text,
-								};
-							}
-							return selectedItem;
-						});
-						setCurrentUrls(result);
-					}}
-				/>
-				<button type="button" onClick={() => deleteUrl(item.urlId)}>
-					<IoClose size={24} color="#929699" />
-				</button>
-			</Box>
+			<TextField
+				key={item.urlId}
+				className={classNames('profile-edit-url-input', 'mb0_5rem')}
+				placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
+				value={item.url}
+				variant="outlined"
+				margin="dense"
+				onChange={(e) => {
+					const text = e.target.value;
+					const result = [...currentUrls].map((selectedItem) => {
+						if (item.urlId === selectedItem.urlId) {
+							return {
+								urlId: item.urlId,
+								url: text,
+							};
+						}
+						return selectedItem;
+					});
+					setCurrentUrls(result);
+				}}
+				InputProps={{
+					endAdornment: (
+						<InputAdornment position="end">
+							<button type="button">
+								<IoClose className="profile-edit-icon" color="#929699" onClick={() => deleteUrl(item.urlId)} />
+							</button>
+						</InputAdornment>
+					),
+				}}
+			/>
+			// <Box className="profile-edit-url-container" >
+
+			// 	<button type="button" onClick={() => deleteUrl(item.urlId)}>
+			// 		<IoClose size={24} color="#929699" />
+			// 	</button>
+			// </TextField>
 		);
 	};
 
@@ -202,7 +215,9 @@ const MyProfileEditPresenter = ({
 				InputProps={{
 					endAdornment: (
 						<InputAdornment position="end">
-							<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
+							<button type="button">
+								<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
+							</button>
 						</InputAdornment>
 					),
 				}}
@@ -220,10 +235,7 @@ const MyProfileEditPresenter = ({
 				onChange={(e) => setCurrentShortIntro(e.target.value)}
 				value={currentShortIntro}
 			/>
-			<Box className="profile-edit-short-intro-title">
-				URL 추가
-				<span className="profile-edit-short-intro-subtitle">포트폴리오 사이트나 작업용 sns를 추가해보세요!</span>
-			</Box>
+			<Box className="profile-edit-title mt2rem">😎 URL 추가</Box>
 			{currentUrls.map(renderUrls)}
 			<button type="button" onClick={addUrl}>
 				<IoAdd className="profile-edit-url-add-icon" size={24} color="#929699" />

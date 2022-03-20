@@ -134,10 +134,6 @@
             @include input;
             margin-top: 0.5rem;
         }
-        &-subtitle{
-            @include subtitle;
-            margin-left: 0.5rem;
-        }
     }
     &-url{
         &-add-icon{
@@ -148,7 +144,6 @@
         }
         &-input{
             @include input;
-            flex:1;
         }
         &-container{
             display: flex;
@@ -199,6 +194,12 @@
 }
 .ml16{
     margin-left: 1rem;
+}
+.mt2rem{
+    margin-top: 2rem;
+}
+.mb0_5rem{
+    margin-bottom: .5rem !important;
 }
 .flex-grow-1{
     flex-grow:1;

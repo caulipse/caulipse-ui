@@ -10,7 +10,7 @@ interface StudyContentContainerProps {
 	hostId: string;
 	createdAt: string;
 	views: number;
-	// bookmarks?: number;
+	bookmarkCount: number;
 	title: string;
 	studyAbout: string;
 	capacity: number;
@@ -21,7 +21,7 @@ const StudyContentContainer = ({
 	hostId,
 	createdAt,
 	views,
-	// bookmarks,
+	bookmarkCount,
 	title,
 	studyAbout,
 	capacity,
@@ -34,7 +34,7 @@ const StudyContentContainer = ({
 				<StudyInfoContentContainer
 					createdAt={createdAt}
 					views={views}
-					// bookmarks={bookmarks}
+					bookmarkCount={bookmarkCount}
 					title={title}
 					studyAbout={studyAbout}
 				/>

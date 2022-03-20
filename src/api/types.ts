@@ -29,6 +29,7 @@ export interface Study {
 	vacancy: number;
 	views: number;
 	weekday: string;
+	bookmarkCount: number;
 }
 
 export interface StudyUser {

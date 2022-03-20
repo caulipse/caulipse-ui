@@ -51,6 +51,10 @@
     &-title{
         @include title();
     }
+    &-icon{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
     &-required-text{
         @include subtitle();
         color: #636363;
@@ -123,11 +127,6 @@
             margin-left: 50px;
             white-space: nowrap;
         }
-        &-icon{
-            width: 1.973rem;
-            height: 1.973rem;
-            margin-right: .756rem;
-        }
     }
     &-short-intro{
         &-input{
@@ -137,10 +136,16 @@
     }
     &-url{
         &-add-icon{
-            padding: 0.375rem;
-            background-color: #ffffff;
-            align-self: center;
-            margin-top: 1rem;
+            width: 2.25rem !important;
+            height: 2.25rem !important;
+            border-radius: 6px !important;
+            border: 1px solid #e2e2e2 !important;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff !important;
+            align-self: center !important;
+            margin-top: 1rem !important;
         }
         &-input{
             @include input;

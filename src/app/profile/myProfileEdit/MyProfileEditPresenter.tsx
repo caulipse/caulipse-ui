@@ -6,7 +6,7 @@ import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, Container, InputAdornment, TextField } from '@material-ui/core';
+import { Box, Button, ButtonBase, Container, InputAdornment, TextField } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 
@@ -126,12 +126,6 @@ const MyProfileEditPresenter = ({
 					),
 				}}
 			/>
-			// <Box className="profile-edit-url-container" >
-
-			// 	<button type="button" onClick={() => deleteUrl(item.urlId)}>
-			// 		<IoClose size={24} color="#929699" />
-			// 	</button>
-			// </TextField>
 		);
 	};
 
@@ -237,9 +231,9 @@ const MyProfileEditPresenter = ({
 			/>
 			<Box className="profile-edit-title mt2rem">😎 URL 추가</Box>
 			{currentUrls.map(renderUrls)}
-			<button type="button" onClick={addUrl}>
-				<IoAdd className="profile-edit-url-add-icon" size={24} color="#929699" />
-			</button>
+			<ButtonBase onClick={addUrl} className="profile-edit-url-add-icon">
+				<IoAdd className="profile-edit-icon" color="#101010" />
+			</ButtonBase>
 			<Box className="divider mt24" />
 			<Box className="profile-edit-short-intro-title mt40">
 				자기소개글

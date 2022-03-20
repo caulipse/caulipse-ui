@@ -1,6 +1,7 @@
-import { IconButton } from '@material-ui/core';
 import { Study } from '@src/api/types';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
+import Chip from '@src/components/common/chip/Chip';
+import { ChipTypeEnum } from '@src/components/common/chip/types';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import React from 'react';
@@ -40,6 +41,14 @@ const RecruitingStudiesPresenter = ({
 						views={item.views}
 						bookmarks={0}
 						className={index === length - 1 ? '' : 'mb16'}
+						leftTopComponent={
+							<div>
+								<Chip selected label="D-18" type={ChipTypeEnum.secondary} />
+							</div>
+						}
+						rightTopComponent={
+							<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
+						}
 					/>
 				);
 			})}
@@ -55,7 +64,9 @@ const RecruitingStudiesPresenter = ({
 						bookmarks={0}
 						isTitleBlur
 						className={index === length - 1 ? '' : 'mb16'}
-						rightComponent={<IoEllipsisVertical onClick={onClickMore} size={24} color="#b1b1b1" />}
+						rightComponent={
+							<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" size={24} color="#b1b1b1" />
+						}
 					/>
 				);
 			})}

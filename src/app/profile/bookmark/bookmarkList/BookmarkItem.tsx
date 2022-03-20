@@ -45,7 +45,8 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 			rightComponent={
 				isBlurred ? (
 					<IoClose
-						onClick={() => {
+						onClick={(event: any) => {
+							event.preventDefault();
 							deleteBookmark.mutate();
 						}}
 						className="bookmark-item-close-icon"

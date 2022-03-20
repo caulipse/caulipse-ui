@@ -1,5 +1,7 @@
 import { MainCategoryType } from './types';
 
+export const isDesktop = window.screen.width > 1024;
+
 export const categories: MainCategoryType[] = [
 	{
 		label: '어학',

@@ -4,7 +4,7 @@ import globalState from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
-import { IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
+import { IoMegaphone, IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
@@ -12,7 +12,6 @@ import './index.scss';
 const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
-
 	const [state] = useAtom(globalState);
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -32,6 +31,10 @@ const Header: React.FC = () => {
 		setIsDrawerOpen(false);
 	};
 
+	const clickNotices = () => {
+		history.push('/profile/notice');
+	};
+
 	const clickSearchIcon = () => {
 		console.log('clickSearchIcon');
 	};
@@ -46,11 +49,17 @@ const Header: React.FC = () => {
 			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
 				return (
 					<div>
+						<IconButton onClick={clickNotices}>
+							<IoMegaphone className="header-icon desktop-visible" />
+						</IconButton>
 						<IconButton onClick={clickSearchIcon}>
 							<IoSearch className="header-icon" />
 						</IconButton>
 						<IconButton onClick={clickNotification}>
 							<IoNotifications className="header-icon" />
+						</IconButton>
+						<IconButton onClick={openDrawer}>
+							<IoMenu className="header-icon desktop-visible" />
 						</IconButton>
 					</div>
 				);
@@ -67,9 +76,14 @@ const Header: React.FC = () => {
 		}
 
 		return (
-			<Button onClick={() => history.push('/login')}>
-				<Typography className="header-login">로그인</Typography>
-			</Button>
+			<div>
+				<IconButton onClick={clickNotices}>
+					<IoMegaphone className="header-icon desktop-visible" />
+				</IconButton>
+				<Button onClick={() => history.push('/login')}>
+					<Typography className="header-login">로그인</Typography>
+				</Button>
+			</div>
 		);
 	};
 
@@ -100,7 +114,7 @@ const Header: React.FC = () => {
 	return (
 		<header className="header-con">
 			<IconButton onClick={openDrawer}>
-				<IoMenu className="header-icon" />
+				<IoMenu className="header-icon mobile-visible" />
 			</IconButton>
 			<Link to="/">
 				<Typography className="header-logo">서비스 로고</Typography>

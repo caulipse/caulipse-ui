@@ -1,6 +1,56 @@
 @import "../../../../scss/mixins";
 @import "../../../../scss/variables";
 
+@include desktop{
+  .desktop-visible{
+
+  }
+  .mobile-visible{
+    display: none;
+  }
+  .header{
+    &-logo{
+      position: absolute !important;
+      left: 0 !important;
+      top: 50% !important;
+      transform: translate(0, -50%) !important;
+      margin-left: .75rem !important;
+    }
+  }
+}
+@include tablet{
+  .desktop-visible{
+    display: none !important;
+  }
+  .mobile-visible{
+    
+  }
+  .header{
+    &-logo{
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+  }
+}
+@include mobile{
+  .desktop-visible{
+    display: none !important;
+  }
+  .mobile-visible{
+
+  }
+  .header{
+    &-logo{
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+  }
+}
+
 .header{
   &-con {
     background-color: $primaryColor;
@@ -21,12 +71,6 @@
     font-size: .875rem;
     line-height: 1.563rem;
     color:#ffffff;
-  }
-  &-logo{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }
 .drawer{

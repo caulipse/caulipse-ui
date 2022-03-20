@@ -11,6 +11,7 @@ import LoginPage from './pages/login';
 import ProfilePage from './pages/profile';
 import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
+import MainPage from './pages/main';
 import globalState from './state';
 
 const Location = () => {
@@ -37,10 +38,11 @@ const MainContainer = (): JSX.Element => {
 			<div className="main-con">
 				<Switch>
 					<Route exact path="/study/:category" component={StudyPage} />
-					<Route path="/profile" component={ProfilePage} />
-					<Route path="/login" component={LoginPage} />
-					<Route path="/study/detail/:studyId" component={StudyDetailPage} />
-					<Redirect path="*" to="/study/employment" />
+					<Route exact path="/study" component={StudyPage} />
+					<Route exact path="/profile" component={ProfilePage} />
+					<Route exact path="/login" component={LoginPage} />
+					<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
+					<Route exact path="*" component={MainPage} />
 				</Switch>
 			</div>
 			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}

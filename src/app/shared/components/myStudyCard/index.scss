@@ -2,6 +2,8 @@
 
 .my-study-card{
     &-container{
+        display: flex;
+        flex-direction: column;
         width:'100%';
         background-color: #ffffff;
         padding: 1rem;

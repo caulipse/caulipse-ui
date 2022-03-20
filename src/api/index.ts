@@ -152,6 +152,10 @@ const API = {
 	getBookmarks() {
 		return client.get('/user/bookmark');
 	},
+	// 모집중인 스터디
+	getMyStudies() {
+		return client.get('/study/my-study');
+	},
 };
 
 export default API;

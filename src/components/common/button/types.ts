@@ -5,7 +5,7 @@ export enum ButtonTypeEnum {
 
 export interface IButtonProps {
 	title: string;
-	onClick: () => void;
+	onClick: (e?: any) => void;
 	disabled?: boolean;
 	style?: React.CSSProperties;
 	type?: ButtonTypeEnum;

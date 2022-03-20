@@ -1,0 +1,44 @@
+.desktop-main-sidebar {
+    padding: 0 !important;
+    width: fit-content !important;
+    margin-left: 1.5rem !important;
+}
+
+.desktop-main-sidebar-container {
+    border-radius: .5rem;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+    padding: 2rem 1rem !important;
+    width: 17.625rem !important;
+    height: 15.375rem;
+    margin: 1.5rem 0 0 !important;
+}
+
+.desktop-main-sidebar-item-container {
+    padding: 0 !important;
+    cursor: pointer;
+    display: flex !important;
+    > svg {
+        align-self: center;
+    }
+    > div {
+        padding: 0 !important;
+    }
+}
+
+.desktop-main-sidebar-item-divider {
+    background-color: #e5e5e5;
+    border: 0;
+    height: 1px;
+    margin: 1.969rem 0;
+}
+
+.desktop-main-sidebar-item-container-text {
+    color: #b4b4b4;
+    font-size: .938rem !important;
+    margin-bottom: .5rem !important; 
+}
+
+.desktop-main-sidebar-item-container-title {
+    font-weight: bold !important;
+    font-size: 1.313rem !important;
+}

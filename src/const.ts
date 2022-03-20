@@ -3,6 +3,7 @@ import { MainCategoryType } from './types';
 export const categories: MainCategoryType[] = [
 	{
 		label: '어학',
+		path: 'language',
 		code: 100,
 		subCategories: [
 			{
@@ -25,6 +26,7 @@ export const categories: MainCategoryType[] = [
 	},
 	{
 		label: '취업',
+		path: 'employment',
 		code: 200,
 		subCategories: [
 			{
@@ -51,6 +53,7 @@ export const categories: MainCategoryType[] = [
 	},
 	{
 		label: '프로그래밍',
+		path: 'programming',
 		code: 300,
 		subCategories: [
 			{
@@ -81,6 +84,7 @@ export const categories: MainCategoryType[] = [
 	},
 	{
 		label: '고시/공무원',
+		path: 'exam',
 		code: 400,
 		subCategories: [
 			{
@@ -107,6 +111,7 @@ export const categories: MainCategoryType[] = [
 	},
 	{
 		label: '자격증',
+		path: 'certificate',
 		code: 500,
 		subCategories: [
 			{
@@ -125,6 +130,7 @@ export const categories: MainCategoryType[] = [
 	},
 	{
 		label: '생활',
+		path: 'daily',
 		code: 600,
 		subCategories: [
 			{
@@ -143,6 +149,7 @@ export const categories: MainCategoryType[] = [
 	},
 	{
 		label: '공모전',
+		path: 'competition',
 		code: 700,
 		subCategories: [],
 	},

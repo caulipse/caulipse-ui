@@ -1,6 +1,31 @@
 @import "../../../../scss/mixins";
 @import "../../../../scss/variables";
 
+@include desktop{
+  .desktop-visible{
+
+  }
+  .mobile-visible{
+    display: none !important;
+  }
+}
+@include tablet{
+  .desktop-visible{
+    display: none !important;
+  }
+  .mobile-visible{
+
+  }
+}
+@include mobile{
+  .desktop-visible{
+    display: none !important;
+  }
+  .mobile-visible{
+
+  }
+}
+
 .header{
   &-con {
     background-color: $primaryColor;

@@ -1,4 +1,5 @@
 import { Box, Button, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
+import { isDesktop } from '@src/const';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import classNames from 'classnames';
@@ -12,7 +13,6 @@ import './index.scss';
 const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
-
 	const [state] = useAtom(globalState);
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
 	return (
 		<header className="header-con">
 			<IconButton onClick={openDrawer}>
-				<IoMenu className="header-icon" />
+				<IoMenu className="header-icon mobile-visible" />
 			</IconButton>
 			<Link to="/">
 				<Typography className="header-logo">서비스 로고</Typography>

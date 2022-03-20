@@ -17,33 +17,32 @@ const RecruitingStudiesPresenter = ({
 			<div className="recruiting-studies-title">모집중 ({openedRecruitingStudies?.length})</div>
 			{openedRecruitingStudies?.map((item, index, { length }) => {
 				return (
-					<div className={index === length - 1 ? '' : 'mb16'} key={item.id}>
-						<MyStudyCard
-							studyId={item.id}
-							title={item.title}
-							createdAt={item.createdAt}
-							views={item.views}
-							bookmarks={0}
-						/>
-					</div>
+					<MyStudyCard
+						key={item.id}
+						studyId={item.id}
+						title={item.title}
+						createdAt={item.createdAt}
+						views={item.views}
+						bookmarks={0}
+						className={index === length - 1 ? '' : 'mb16'}
+					/>
 				);
 			})}
-			<div className="recruiting-studies-title">마감한 스터디</div>
-			<div className="recruiting-studies-closed-container">
-				{closedRecruitingStudies?.map((item, index, { length }) => {
-					return (
-						<div className={index === length - 1 ? '' : 'mb16'} key={item.id}>
-							<MyStudyCard
-								studyId={item.id}
-								title={item.title}
-								createdAt={item.createdAt}
-								views={item.views}
-								bookmarks={0}
-							/>
-						</div>
-					);
-				})}
-			</div>
+			<div className="recruiting-studies-title-blurred">마감된 스터디</div>
+			{closedRecruitingStudies?.map((item, index, { length }) => {
+				return (
+					<MyStudyCard
+						key={item.id}
+						studyId={item.id}
+						title={item.title}
+						createdAt={item.createdAt}
+						views={item.views}
+						bookmarks={0}
+						isTitleBlur
+						className={index === length - 1 ? '' : 'mb16'}
+					/>
+				);
+			})}
 		</div>
 	);
 };

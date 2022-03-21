@@ -21,7 +21,7 @@ const boxcontainer = (): JSX.Element => {
 	return(
         <div>
             <div className="portal">
-                <form>
+                <form className="input-form">
 					{/* 밑의 value는 input안에 들어가야하는데 오류나서 빼놨습니다 */}
 					{/* value={inputId} onChange={handleInputId} */}
                     <input type="email" className="portal-id" placeholder="포탈 아이디"/>

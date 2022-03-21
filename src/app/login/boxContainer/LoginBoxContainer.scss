@@ -1,18 +1,28 @@
+.portal {
+  width: 100%;
+  max-width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .portal-id{
-  width: 80%;
+  width: 70%;
   height: auto;
-  margin: 3.5rem 0 0.5rem;
-  padding: 0.625rem 17rem 0.625rem 0.75rem;
+  padding: 1rem 5rem 1rem 5rem;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
   border-radius: 6rem;
   border: solid 1px var(#e2e2e2);
   background-color: var(#fefefe);
+  left: 3rem;
 }
 
 .portal-pw{
-  width: 80%;
+  width: 70%;
   height: auto;
   margin: 0.5rem 0 3rem;
-  padding: 0.625rem 17rem 0.625rem 0.75rem;
+  padding: 1rem 5rem 1rem 5rem;
   border-radius: 6rem;
   border: solid 1px var(#e2e2e2);
   background-color: var(#fefefe);
@@ -20,7 +30,7 @@
 
 
 .login-btn{
-  width: 100%;
+  width: 50%;
   height: 3rem;
   margin: 3rem 5rem 3rem;
   padding: 0.75rem 8.563rem 0.75rem 8.688rem;
@@ -30,4 +40,10 @@
   justify-content: center;
   font-size: 1.3rem;
   font-weight: 300;
-} 
+}
+
+@media (max-width: 585px) {
+	.login-btn{
+    font-size: 0.7rem;
+  }
+}

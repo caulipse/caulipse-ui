@@ -1,8 +1,14 @@
 .Login-default{
-    width: 75%;
-    height: 48.75rem;
-    padding: 3.563rem 1.25rem 15.375rem;
+    width: 100%;
+    height: auto;
     background-color: var(#f2f3f5);
+}
+
+.login-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
 }
 
 .close{

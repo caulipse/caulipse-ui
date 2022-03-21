@@ -1,6 +1,9 @@
+@import "@scss/mixins";
 @import "@scss/variables";
 
-.study-list-container {
-    height: auto;
+.study-page-container {
+    @include desktop {
+        max-width: 100% !important;
+    }
     padding: 0 !important;
 }

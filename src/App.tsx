@@ -39,10 +39,11 @@ const MainContainer = (): JSX.Element => {
 				<Switch>
 					<Route exact path="/study/:category" component={StudyPage} />
 					<Route exact path="/study" component={StudyPage} />
-					<Route exact path="/profile" component={ProfilePage} />
+					<Route path="/profile" component={ProfilePage} />
 					<Route exact path="/login" component={LoginPage} />
 					<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
-					<Route exact path="*" component={MainPage} />
+					<Route exact path="/" component={MainPage} />
+					<Redirect path="*" to="/" />
 				</Switch>
 			</div>
 			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}

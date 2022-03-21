@@ -65,14 +65,22 @@ const Header: React.FC = () => {
 				);
 			}
 
-			return <IoNotifications className="header-icon" type="button" onClick={clickNotification} />;
+			return (
+				<IconButton onClick={clickNotification}>
+					<IoNotifications className="header-icon" type="button" />
+				</IconButton>
+			);
 		}
 
 		if (locationPathName.startsWith('/study/detail')) {
 			return <div />;
 		}
 		if (locationPathName.startsWith('/study')) {
-			return <IoSearch className="header-icon" type="button" onClick={clickSearchIcon} />;
+			return (
+				<IconButton onClick={clickSearchIcon}>
+					<IoSearch className="header-icon" type="button" />
+				</IconButton>
+			);
 		}
 
 		return (

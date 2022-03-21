@@ -67,7 +67,7 @@ const Header: React.FC = () => {
 
 			return (
 				<IconButton onClick={clickNotification}>
-					<IoNotifications className="header-icon" type="button" />
+					<IoNotifications className="header-icon" />
 				</IconButton>
 			);
 		}
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
 		if (locationPathName.startsWith('/study')) {
 			return (
 				<IconButton onClick={clickSearchIcon}>
-					<IoSearch className="header-icon" type="button" />
+					<IoSearch className="header-icon" />
 				</IconButton>
 			);
 		}

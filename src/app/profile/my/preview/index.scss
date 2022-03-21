@@ -1,42 +1,44 @@
 @import "../../../../scss/variables";
 @import "../../../../scss/mixins";
 
-.preview-container{
-    display: flex !important;
-    flex-direction: column !important;
-    height: 18rem !important;
-    background-color: #ffffff !important;
-    border: 1px #e88e3a solid !important;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08) !important;
-    border-radius: .5rem !important;
-    margin-top: -13rem !important;
-    margin: 0 1.25rem; 
-}
-.preview-img{
-    display: flex !important;
-    flex:1 !important;
-}
-.preview-content-container{
-    display: flex;
-    justify-content: space-between;
-    background-color: #ffffff;
-    padding: 1rem 2.5rem;
-    border-bottom-left-radius: .5rem !important;
-    border-bottom-right-radius: .5rem !important;
-}
-.preview-item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.preview-item-number{
-    font-size: 1.25rem;
-    font-weight: bold;
-    line-height: 1.6875rem;
-    color:#212b36;
-}
-.preview-item-title{
-    font-size: 0.688rem;
-    line-height: 1.25rem;
-    color:#929699;
+.preview{
+    &-container{
+        display: flex !important;
+        flex-direction: column !important;
+        height: 18rem !important;
+        background-color: #ffffff !important;
+        border: 1px #e88e3a solid !important;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08) !important;
+        border-radius: .5rem !important;
+        margin-top: -13rem !important;
+        margin: 0 1.25rem; 
+    }
+    &-img{
+        display: flex !important;
+        flex:1 !important;
+    }
+    &-content-container{
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffffff;
+        padding: 1rem 2.5rem;
+        border-bottom-left-radius: .5rem !important;
+        border-bottom-right-radius: .5rem !important;
+    }
+    &-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-item-number{
+            font-size: 1.25rem;
+            font-weight: bold;
+            line-height: 1.6875rem;
+            color:#212b36;
+        }
+        &-title{
+            font-size: 0.688rem;
+            line-height: 1.25rem;
+            color:#929699;
+        }
+    }
 }

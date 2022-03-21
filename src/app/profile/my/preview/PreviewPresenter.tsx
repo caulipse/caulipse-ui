@@ -26,6 +26,7 @@ const PreviewPresenter = ({ bookmarkNum, applyNum, recruitNum }: PreviewPresente
 
 	return (
 		<Box className="preview-container">
+			<Box className="preview-title">내 스터디 활동</Box>
 			{/* 이미지로 변경하기 */}
 			<div className="preview-img" />
 			<div className="preview-content-container">

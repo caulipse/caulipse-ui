@@ -3,49 +3,71 @@
 
 .my-header{
     &-container{
-        display: flex;
-        flex-direction: column;
-        background: linear-gradient(#176ddd, #a1c5ee);
-        padding-top: .625rem !important;
-        padding: 0 0.75rem;
-        align-items: center;
+        display: flex !important;
+        flex-direction: column !important;
+        background: #ffffff !important;
+        align-items: center !important;
+        padding: 2.5rem 1.25rem !important;
     }
-    &-icons-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 2.75rem;
-        width: 100%;
-        max-width: $maxContentWidth;
+    &-row-container{
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    &-text-container{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        flex:1;
+    }
+    &-content-container{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: $maxContentWidth !important;
     }
     &-profile-photo{
         display: flex;
-        width: 4rem;
-        height: 4rem;
-        margin-top: 2rem;
-        border-radius: 2rem;
-        border: 3px solid #176ddd; 
-        outline: 3px solid #ffffff;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 3rem;
+        border: 1px solid $primaryColor; 
+    }
+    &-profile-photo-btn{
+       padding: 0 !important; 
+       margin-right: 1rem !important;
+       border-radius: 3rem !important;
     }
     &-user-name{
-        margin-top: 1.375rem;
         font-size: 1.125rem;
         font-weight: bold;
-        line-height: 0.6875rem;
-        color: #ffffff;
+        color: #101010;
     }
     &-user-name-suffix{
         font-size: 1rem;
-        line-height: 0.6875rem;
-        color:#f2f2f2;
+        color:#212b36;
     }
-    &-my-profile-btn-text{
-        font-size: 0.688rem;
-        line-height: 1.1875rem;
-        color:#f2f2f2;
-        margin-top: 0.5rem;
-        align-items: center;
-        margin-bottom: 4.25rem;
+    &-user-email{
+        color: #636363;
+        font-size: .75rem;
+    }
+    &-setting{
+        &-container{
+            display: flex !important;
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+            background-color: #adb1ba !important;
+            justify-content: center !important;
+            align-items: center !important;
+            border-radius: .25rem !important;
+            align-self: flex-start !important;
+        }
+        &-icon{
+            width: 1.125rem !important;
+            height: 1.125rem !important;
+        }
     }
 }

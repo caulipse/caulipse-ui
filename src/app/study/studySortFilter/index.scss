@@ -1,10 +1,14 @@
 @import "@scss/variables";
+@import "@scss/mixins";
 
 .study-sort-filter-presenter-container {
     display: flex !important;
     justify-content: space-between;
     height: 3rem;
     padding: .5rem .75rem !important;
+    @include desktop {
+        margin-top: 1.625rem;
+    }
 }
 
 .study-sort-filter-presenter-container-sort {

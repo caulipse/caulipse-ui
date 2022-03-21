@@ -1,22 +1,17 @@
 @import "@scss/variables";
-@import "@scss/mixins";
 
-.main-category-presenter-container {
+.mobile-main-category-presenter-container {
     background: $primaryColor;
     display: flex !important;
     padding: 1rem 1.5rem .75rem !important;
     height: 8.313rem;
-    @include desktop {
-        height: 10.875rem;
-        align-items: center;
-    }
     div + div {
         margin-left: 1rem;
     }
     overflow: auto;
 }
 
-.main-category-item-container {
+.mobile-main-category-item-container {
     cursor: pointer;
     padding: 0 !important;
     text-align: center;
@@ -30,7 +25,7 @@
     }
 }
 
-.main-category-item-img {
+.mobile-main-category-item-img {
     background: #fff;
     width: 5rem;
     height: 5rem; 

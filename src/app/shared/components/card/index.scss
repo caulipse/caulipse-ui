@@ -8,6 +8,7 @@
     border-radius: .625rem;
     border: 1px solid #f2f2f2;
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.08);
+    background: #fff;
     cursor: pointer;
     @include desktop {
         width: 100% !important;
@@ -48,6 +49,9 @@
 .study-card-category {
     color: $primaryColor;
     font-weight: bold !important;
+    @include desktop {
+        font-size: .781rem !important;
+    }
 }
 
 .study-card-title {
@@ -59,6 +63,7 @@
     width: 80% !important;
     @include desktop {
         width: 90% !important;
+        font-size: 1.094rem !important;
     }
 }
 
@@ -76,7 +81,7 @@ progress {
     margin-right: 1.313rem;
     border-radius: .125rem;
     @include desktop {
-        width: 90% !important;
+        width: 88% !important;
         height: .313rem;
     }
   }
@@ -92,13 +97,22 @@ progress {
 .study-card-progress-vacancy {
     color: $primaryColor;
     font-weight: bold;
+    @include desktop {
+        font-size: 1.094rem !important;
+    }
 }
 
 .study-card-progress-capacity {
     color: #929699;
+    @include desktop {
+        font-size: 1.094rem !important;
+    }
 }
 
 .study-card-tag {
     color: #929699;
     font-size: .75rem !important;
+    @include desktop {
+        font-size: .938rem !important;
+    }
 }

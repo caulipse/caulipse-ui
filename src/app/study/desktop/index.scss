@@ -1,0 +1,15 @@
+@import "@scss/variables";
+
+.dekstop-study-list-container {
+    max-width: 100% !important;
+    height: auto;
+    padding: 0 !important;
+}
+
+.desktop-study-list-content {
+    display: flex !important;
+    background: #fffbf7;
+    padding: 1.5rem .688rem 1.5rem .875rem !important;
+    margin-top: 1.75rem;
+    border-radius: .5rem;
+}

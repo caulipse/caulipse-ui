@@ -13,9 +13,10 @@ const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
 
 interface MyHeaderPresenterProps {
 	userProfile: UserProfile;
+	userEmail: string;
 }
 
-const MyHeaderPresenter = ({ userProfile }: MyHeaderPresenterProps): JSX.Element => {
+const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): JSX.Element => {
 	const history = useHistory();
 	const { openModal } = useModal();
 
@@ -35,7 +36,7 @@ const MyHeaderPresenter = ({ userProfile }: MyHeaderPresenterProps): JSX.Element
 							{userProfile.userName}
 							<span className="my-header-user-name-suffix"> 님</span>
 						</Box>
-						<Box className="my-header-user-email">example@cau.ac.kr</Box>
+						<Box className="my-header-user-email">{userEmail}</Box>
 					</Box>
 					<ButtonBase className="my-header-setting-container" onClick={() => history.push('/profile/edit')}>
 						<IoSettingsSharp className="my-header-setting-icon" fill="#ffffff" />

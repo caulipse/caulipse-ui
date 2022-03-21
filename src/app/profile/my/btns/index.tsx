@@ -10,13 +10,13 @@ const TERMS = '서비스 이용약관';
 
 const navigations = [
 	{
-		label: ACCOUNT_INFO,
+		label: NOTICE,
 	},
 	{
 		label: ASK,
 	},
 	{
-		label: NOTICE,
+		label: ACCOUNT_INFO,
 	},
 	{
 		label: TERMS,
@@ -29,9 +29,8 @@ const MyBtns = (): JSX.Element => {
 	const handleClick = (label: string) => {
 		if (label === NOTICE) {
 			history.push('/profile/notice');
-		}
-		else if(label===ACCOUNT_INFO){
-			history.push('/profile/accountinfo')
+		} else if (label === ACCOUNT_INFO) {
+			history.push('/profile/accountinfo');
 		}
 	};
 

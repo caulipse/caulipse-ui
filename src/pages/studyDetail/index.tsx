@@ -89,7 +89,7 @@ const StudyDetailPage = (): JSX.Element => {
 						<StudyDetailHeader />
 						{studyData && (
 							<StudyInfoContainer
-								categoryCode={studyData.categoryCode}
+								categoryCode={studyData.categoryCode.code.toString()}
 								weekday={studyData.weekday}
 								frequency={studyData.frequency}
 								location={studyData.location}

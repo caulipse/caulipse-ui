@@ -16,7 +16,7 @@ export interface Host {
 export interface Study {
 	HOST_ID: string;
 	capacity: number;
-	categoryCode: string;
+	categoryCode: Category;
 	createdAt: string;
 	frequency: string;
 	hostId?: Host;

@@ -1,8 +1,7 @@
-import React, { useRef, useState } from 'react';
-import { IoClose, IoSettingsSharp, IoChevronForwardOutline } from 'react-icons/io5';
+import React from 'react';
+import { IoSettingsSharp } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
 import './index.scss';
-import { BottomSheet, BottomSheetRef } from 'react-spring-bottom-sheet';
 import 'react-spring-bottom-sheet/dist/style.css';
 import { UserProfile } from '@src/api/types';
 import useModal from '@src/hooks/modal/useModal';

@@ -2,7 +2,7 @@
 
 ## URL
 
-https://objective-panini-302b8b.netlify.app
+https://caustudy.com/
 <br><br>
 
 ## Design

@@ -5,7 +5,7 @@ import { studyListState } from '@src/state';
 import DesktopSubCategoryPresenter from './DesktopSubCategoryPresenter';
 
 interface IDesktopSubCategoryContainerProps {
-	mainCategory: MainCategoryType | undefined;
+	mainCategory: MainCategoryType;
 }
 
 const DesktopSubCategoryContainer = ({ mainCategory }: IDesktopSubCategoryContainerProps): JSX.Element => {

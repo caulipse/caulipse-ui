@@ -1,3 +1,4 @@
+import { Box } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './index.scss';
@@ -24,26 +25,31 @@ const PreviewPresenter = ({ bookmarkNum, applyNum, recruitNum }: PreviewPresente
 	};
 
 	return (
-		<div className="preview-container">
-			<button type="button" onClick={navigateToBookmark}>
-				<div className="preview-item">
-					<span className="preview-item-number">{bookmarkNum}</span>
-					<span className="preview-item-title">북마크</span>
-				</div>
-			</button>
-			<button type="button" onClick={navigateToAppliedStudies}>
-				<div className="preview-item">
-					<span className="preview-item-number">{applyNum}</span>
-					<span className="preview-item-title">신청 중</span>
-				</div>
-			</button>
-			<button type="button" onClick={navigateToRecruitingStudies}>
-				<div className="preview-item">
-					<span className="preview-item-number">{recruitNum}</span>
-					<span className="preview-item-title">모집 중</span>
-				</div>
-			</button>
-		</div>
+		<Box className="preview-container">
+			<Box className="preview-title">내 스터디 활동</Box>
+			{/* 이미지로 변경하기 */}
+			<div className="preview-img" />
+			<div className="preview-content-container">
+				<button type="button" onClick={navigateToBookmark}>
+					<div className="preview-item">
+						<span className="preview-item-number">{bookmarkNum}</span>
+						<span className="preview-item-title">북마크</span>
+					</div>
+				</button>
+				<button type="button" onClick={navigateToAppliedStudies}>
+					<div className="preview-item">
+						<span className="preview-item-number">{applyNum}</span>
+						<span className="preview-item-title">신청 중</span>
+					</div>
+				</button>
+				<button type="button" onClick={navigateToRecruitingStudies}>
+					<div className="preview-item">
+						<span className="preview-item-number">{recruitNum}</span>
+						<span className="preview-item-title">모집 중</span>
+					</div>
+				</button>
+			</div>
+		</Box>
 	);
 };
 

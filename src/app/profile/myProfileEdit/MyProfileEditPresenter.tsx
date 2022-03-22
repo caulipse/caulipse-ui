@@ -74,7 +74,7 @@ const MyProfileEditPresenter = ({
 		console.log('changeProfileImg');
 	};
 	const changeCategories = () => {
-		openModal(ModalKeyEnum.EditCategoryModal);
+		openModal(ModalKeyEnum.MyCategoryModal);
 	};
 	const addUrl = () => {
 		if (currentUrls?.length >= 3) return;

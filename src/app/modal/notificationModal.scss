@@ -1,4 +1,11 @@
 
+
+@mixin text(){
+    font-size: .938rem !important;
+    line-height: 1.125rem !important;
+    color: #212b36 !important;
+}
+
 .notification-modal{
     &-desktop-container{
         display: flex !important;
@@ -12,6 +19,15 @@
         min-height: 4.5rem !important;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08) !important;
         border-radius: 1rem !important;
+    }
+    &-empty-text{
+        @include text();
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        min-height: 9rem !important;
+        justify-content: center !important;
+        align-self: center !important;
     }
 }
 .speech-bubble{

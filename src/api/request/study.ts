@@ -8,4 +8,8 @@ export interface IRequestPostStudy {
 	categoryCode: number;
 }
 
-export type IRequestPatchStudy = IRequestPostStudy & { id: string };
+type IRequestPatchStudyData = Partial<IRequestPostStudy>;
+export interface IRequestPatchStudy {
+	id: string;
+	data: IRequestPatchStudyData;
+}

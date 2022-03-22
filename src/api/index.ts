@@ -66,7 +66,7 @@ const API = {
 	},
 	// 스터디 정보 업데이트
 	patchStudy(request: IRequestPatchStudy) {
-		return client.post(`/study/${request.id}`, request);
+		return client.post(`/study/${request.id}`, request.data);
 	},
 	// 스터디 삭제
 	deleteStudy(id: string) {

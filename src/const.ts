@@ -13,41 +13,6 @@ export const NOTIFICATION_TYPE = {
 	NEW_NOTICE: 201,
 };
 
-export const NOTIFICATION_LABEL = {
-	[NOTIFICATION_TYPE.NEW_APPLICANT]: {
-		title: '새로운 신청자',
-		content: '[신청자_닉네임]님이 신청 수락을 기다리고 있어요!',
-	},
-	[NOTIFICATION_TYPE.NEW_COMMENT]: {
-		title: '새로운 문의글',
-		content: '새 문의글이 달렸어요',
-	},
-	[NOTIFICATION_TYPE.EDIT_STUDY]: {
-		title: '모집정보 수정',
-		content: '신청한 스터디의 모집 정보가 수정되었어요',
-	},
-	[NOTIFICATION_TYPE.NEW_COMMENT_METOO]: {
-		title: '답글',
-		content: '작성하신 문의글에 답글이 달렸어요',
-	},
-	[NOTIFICATION_TYPE.ACCEPT]: {
-		title: '참가완료',
-		content: '참가신청이 수락되었어요.',
-	},
-	[NOTIFICATION_TYPE.CANCEL_APPLY]: {
-		title: '참가 취소',
-		content: '스터디의 참가가 취소되었습니다',
-	},
-	[NOTIFICATION_TYPE.STUDY_FINISH]: {
-		title: '모집 종료',
-		content: '모집이 마감되었습니다',
-	},
-	[NOTIFICATION_TYPE.NEW_NOTICE]: {
-		title: '새로운 공지',
-		content: '새로운 공지가 등록되었습니다',
-	},
-};
-
 export const categories: MainCategoryType[] = [
 	{
 		label: '어학',

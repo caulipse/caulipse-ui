@@ -25,7 +25,7 @@ const NotificationItem = ({ item, isLastItem }: NotificationItemProps): JSX.Elem
 				<Box className="notification-item-title">{item.Notification_TITLE}</Box>
 				<IoCloseCircle className="notification-item-close-icon" color="#e2e2e2" onClick={handleClose} />
 			</Box>
-			<Box className="notification-item-subtitle">{item.Notification_TYPE}</Box>
+			<Box className="notification-item-subtitle">{item.Notification_TITLE}</Box>
 			<Box className="notification-item-text">{item.Notification_NOTI_ABOUT}</Box>
 			<Box className="notification-item-date">{format(new Date(item.Notification_CREATED_AT), 'yy-MM-dd')}</Box>
 		</ListItem>

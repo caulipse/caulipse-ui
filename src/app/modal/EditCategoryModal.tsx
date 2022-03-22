@@ -10,24 +10,26 @@ import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import categories from '@src/const';
 import { CategoryType, MainCategoryType } from '@src/types';
-import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
-
-const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
+import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 const EditCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [subCategory, setSubCategory] = useState<CategoryType>();
+	const [state] = useAtom(globalState);
+	const { modal } = state;
 
 	const [step, setStep] = useState(0);
 
-	const updateProfile = usePatchUserProfile();
+	const patchStudy = usePatchStudy();
 
 	const onClick = () => {
-		// TODO
-		// 카테고리 수정 API 연동
-		updateProfile.mutate({
-			userId: exampleId,
-			categories: [String(subCategory?.code)],
+		patchStudy.mutate({
+			id: modal.params,
+			data: {
+				categoryCode: subCategory?.code,
+			},
 		});
 	};
 

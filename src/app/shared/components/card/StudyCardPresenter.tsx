@@ -12,7 +12,7 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => (
 		<Container className="study-card-category-container">
 			<Container className="study-card-date">D-16</Container>
 			<span className="study-card-category">
-				{study.categoryCode.main} &gt; {study.categoryCode.sub}
+				{getMainCategoryLabel(Number(study.categoryCode))} {'>'} {getSubCategoryLabel(Number(study.categoryCode))}
 			</span>
 		</Container>
 		<Typography className="study-card-title">{study.title}</Typography>

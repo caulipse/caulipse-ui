@@ -1,5 +1,6 @@
 import { Box, ListItem } from '@material-ui/core';
 import { Notification } from '@src/api/types';
+import useDeleteNotification from '@src/hooks/remotes/notification/useDeleteNotification';
 import { format } from 'date-fns';
 import React from 'react';
 import { IoCloseCircle } from 'react-icons/io5';
@@ -11,8 +12,11 @@ interface NotificationItemProps {
 }
 
 const NotificationItem = ({ item, isLastItem }: NotificationItemProps): JSX.Element => {
+	const deleteNotification = useDeleteNotification(item.Notification_ID);
+
 	const handleClose = (event: any) => {
 		event.preventDefault();
+		deleteNotification.mutate();
 	};
 
 	return (

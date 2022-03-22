@@ -2,7 +2,7 @@ import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyConten
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useCallback } from 'react';
 import { IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
@@ -14,11 +14,17 @@ import { IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 
+interface StudyDetailPageLocationInterface {
+	initialIndex?: number;
+}
+
 const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
 	const postBookmark = usePostBookmark(studyId);
 	const { data, isLoading } = useFetchStudy(studyId);
 	const studyData = data?.study;
+	const location = useLocation<StudyDetailPageLocationInterface>();
+	const initialIndex = location.state?.initialIndex ?? 1;
 
 	const { openModal } = useModal();
 
@@ -105,6 +111,7 @@ const StudyDetailPage = (): JSX.Element => {
 								title={studyData.title}
 								studyAbout={studyData.studyAbout}
 								capacity={studyData.capacity}
+								initialIndex={initialIndex}
 							/>
 						)}
 						<CTAButtons />

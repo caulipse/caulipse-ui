@@ -1,40 +1,49 @@
+.signup-portal{
+  width: 100%;
+  max-width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .signportal-id{
-    width: 80%;
-    height: auto;
-    margin: 3.5rem 0 0.5rem;
-    padding: 0.625rem 14.438rem 0.625rem 0.75rem;
-    border-radius: 6rem;
-    border: solid 1px var(#e2e2e2);
-    background-color: var(#fefefe);
-    margin-left: 2rem;
-    }
+  width: 70%;
+  height: auto;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding: 0.625rem 14.438rem 0.625rem 0.75rem;
+  border-radius: 6rem;
+  border: solid 1px var(#e2e2e2);
+  background-color: var(#fefefe);
+}
 
-    .signportal-pd{
-    width: 80%;
-    height: auto;
-    margin: 0.5rem 0 3rem;
-    padding: 0.625rem 14.438rem 0.625rem 0.75rem;
-    border-radius: 6rem;
-    border: solid 1px var(#e2e2e2);
-    background-color: var(#fefefe);
-    }
+.signportal-pd{
+  width: 70%;
+  height: auto;
+  margin-top: 0.5rem;
+  padding: 0.625rem 14.438rem 0.625rem 0.75rem;
+  border-radius: 6rem;
+  border: solid 1px var(#e2e2e2);
+  background-color: var(#fefefe);
+}
 
-    .signup-btn{
-      width: 100%;
-      height: 3rem;
-      margin: 3rem 5rem 3rem;
-      padding: 0.75rem 8.563rem 0.75rem 8.688rem;
-      border-radius: 6rem;
-      background-color: #abcdef !important;
-      font-size: 1.3rem;
-      font-weight: 300;
-    }
+.signup-btn{
+  width: 60%;
+  height: 3rem;
+  margin: 3rem 5rem 3rem;
+  padding: 0.75rem 8.563rem 0.75rem 8.688rem;
+  border-radius: 6rem;
+  background-color: #006ed9 !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
 
-    .forgotten-btn{
-    width: 100%;
-    height: 3rem;
-    margin: 1rem 0 10.094rem;
-    padding: 0.875rem 4.813rem;
-    background-color: #fefefe;
-    margin-left: 7rem;
-    }
+.forgotten-btn{
+  width: 100%;
+  height: 3rem;
+  // margin: 1rem 0 10.094rem;
+  padding: 0.875rem 4.813rem;
+  // background-color: #fefefe;
+}

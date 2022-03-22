@@ -24,7 +24,14 @@ const NotificationModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 		return data ? (
 			<List className="notification-modal-list">
 				{data.map((item, index, { length }) => {
-					return <NotificationItem key={item.Notification_ID} item={item} isLastItem={index === length - 1} />;
+					return (
+						<NotificationItem
+							key={item.Notification_ID}
+							item={item}
+							isLastItem={index === length - 1}
+							closeModal={() => onClose(false)}
+						/>
+					);
 				})}
 			</List>
 		) : (

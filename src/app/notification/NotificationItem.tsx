@@ -7,15 +7,16 @@ import './notificationItem.scss';
 
 interface NotificationItemProps {
 	item: Notification;
+	isLastItem: boolean;
 }
 
-const NotificationItem = ({ item }: NotificationItemProps): JSX.Element => {
+const NotificationItem = ({ item, isLastItem }: NotificationItemProps): JSX.Element => {
 	const handleClose = (event: any) => {
 		event.preventDefault();
 	};
 
 	return (
-		<ListItem divider button className="notification-item-con">
+		<ListItem divider={!isLastItem} button className="notification-item-con">
 			<Box className="notification-item-row-con">
 				<Box className="notification-item-title">{item.Notification_TITLE}</Box>
 				<IoCloseCircle className="notification-item-close-icon" color="#e2e2e2" onClick={handleClose} />

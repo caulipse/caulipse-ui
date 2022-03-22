@@ -22,9 +22,11 @@ const NotificationModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 			return <Box className="notification-modal-empty-text">알림이 없습니다.</Box>;
 		}
 		return data ? (
-			data.map((item) => {
-				return <NotificationItem key={item.Notification_ID} item={item} />;
-			})
+			<List className="notification-modal-list">
+				{data.map((item, index, { length }) => {
+					return <NotificationItem key={item.Notification_ID} item={item} isLastItem={index === length - 1} />;
+				})}
+			</List>
 		) : (
 			<div />
 		);

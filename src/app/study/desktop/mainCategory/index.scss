@@ -1,0 +1,38 @@
+@import "@scss/variables";
+
+.desktop-main-category-presenter-container {
+    background: $primaryColor;
+    display: flex !important;
+    max-width: 100% !important;
+    height: 10.875rem;
+    align-items: center;
+    padding: 2.875rem calc((100% - 56.875rem) / 2) 1.875rem !important; 
+    overflow: hidden;
+    margin: 0 auto !important;
+    justify-content: center;
+    div + div {
+        margin-left: 1rem;
+    }
+}
+
+.study-page-desktop-main-category-item-container {
+    cursor: pointer;
+    padding: 0 !important;
+    text-align: center;
+    width: 6.125rem !important;
+    margin: 0 .8125rem !important;
+    p {
+        font-size: .875rem !important;
+        font-weight: bold !important;
+    }
+}
+
+.study-page-desktop-main-category-item-img {
+    background: #fff;
+    width: 6.125rem !important;
+    height: 6.125rem; 
+    border-radius: 1rem;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}

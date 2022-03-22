@@ -1,9 +1,14 @@
 @import "@scss/variables";
+@import "@scss/mixins";
 
 .studyList-con {
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
+  @include desktop {
+    width: 100% !important;
+    margin: 0 !important;
+  }
 }
 .studyList-wrap {
   width: 100%;
@@ -15,8 +20,10 @@
 }
 .studyList-listAndBoards-con{
   margin-top: 1.875rem;
-
   display: flex;
+  @include desktop {
+    margin: 0 !important;
+  }
 }
 .studyList{
   width: 100%;

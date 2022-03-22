@@ -1,0 +1,33 @@
+@import "@scss/variables";
+
+.desktop-sub-category-presenter-container {
+    padding: 0 !important;
+    background: #fff;
+    max-width: 100% !important;
+    padding: 1.688rem calc((100% - 56.875rem) / 2) 2.625rem !important; 
+}
+
+.desktop-sub-category-presenter-item-container {
+    padding: 0 !important;
+    width: 56.875rem !important;
+    margin: 0 auto !important;
+}
+
+.desktop-sub-category-item-container {
+    display: flex;
+    padding: .5rem;
+    justify-content: space-between;
+    align-items: center;
+    div {
+        margin: 0 !important;
+        font-size: .875rem;
+    }
+}
+
+.desktop-sub-category-item-span {
+    font-size: .875rem;
+    font-weight: bold;
+    &.selected {
+        color: $primaryColor;
+    }
+}

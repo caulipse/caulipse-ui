@@ -35,7 +35,7 @@ const StudyDetailPage = (): JSX.Element => {
 		if (localStorage.getItem('host') === 'host') {
 			openModal(ModalKeyEnum.HostStudyMoreModal);
 		} else {
-			openModal(ModalKeyEnum.UserStudyMoreModal);
+			openModal(ModalKeyEnum.UserStudyMoreModal, studyId);
 		}
 	};
 

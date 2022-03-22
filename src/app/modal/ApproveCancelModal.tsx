@@ -5,12 +5,23 @@ import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { SnackbarTypeEnum } from '@common/snackbar/types';
+import usePatchStudyUserAccept from '@src/hooks/remotes/studyUser/usePatchStudyUserAccept';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 const ApproveCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
+	const [state] = useAtom(globalState);
+	const { modal } = state;
+	const patchStudyUserAccept = usePatchStudyUserAccept();
 	const onClick = () => {
-		// TODO
-		// 수락 취소  API 연동
+		patchStudyUserAccept.mutate({
+			id: modal.params.studyId,
+			data: {
+				accept: false,
+				userId: modal.params.userId,
+			},
+		});
 		onClose(false);
 		openSnackbar('스터디 수락을 취소하였습니다', SnackbarTypeEnum.secondary);
 	};

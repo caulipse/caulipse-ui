@@ -5,8 +5,11 @@ export interface IRequestPostStudyUser {
 
 export type IRequestPatchStudyUser = IRequestPostStudyUser;
 
-export interface IRequestPatchStudyUserByHost {
-	id: string;
+interface IRequestPatchStudyUserByHostBody {
 	accept: boolean;
 	userId: string;
+}
+export interface IRequestPatchStudyUserByHost {
+	id: string;
+	data: IRequestPatchStudyUserByHostBody;
 }

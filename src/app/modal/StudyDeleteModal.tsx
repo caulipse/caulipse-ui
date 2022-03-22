@@ -5,12 +5,17 @@ import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { SnackbarTypeEnum } from '@common/snackbar/types';
+import useDeleteStudy from '@src/hooks/remotes/study/useDeleteStudy';
+import globalState from '@src/state';
+import { useAtom } from 'jotai';
 
 const StudyDeleteModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const deleteStudy = useDeleteStudy();
 	const { openSnackbar } = useSnackbar();
+	const [state] = useAtom(globalState);
+	const { modal } = state;
 	const onClick = () => {
-		// TODO
-		// 모집글 삭제 API 연동
+		deleteStudy.mutate(modal.params);
 		onClose(false);
 		openSnackbar('모집글이 삭제되었습니다', SnackbarTypeEnum.secondary);
 	};

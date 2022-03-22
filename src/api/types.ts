@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 export interface Category {
 	code: number;
 	main: string;
@@ -84,4 +85,16 @@ export interface Comment {
 	isNested: boolean;
 	study: Study;
 	user: User;
+}
+
+export interface Notification {
+	Notification_CREATED_AT: string;
+	Notification_ID: string;
+	Notification_NOTICE_ID?: string;
+	Notification_NOTI_ABOUT: string;
+	Notification_READ: number;
+	Notification_STUDY_ID: string;
+	Notification_TITLE: string;
+	Notification_TYPE: number;
+	Notification_USER_ID: string;
 }

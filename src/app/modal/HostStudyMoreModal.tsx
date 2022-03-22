@@ -3,6 +3,8 @@ import { Button, Container } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@common/modal/enum';
 
 const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const onClickChange = () => {
@@ -12,9 +14,8 @@ const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 
 	const onClickDelete = () => {
 		onClose(false);
-		// TODO
-		// studyDeleteModl
-		// setOpenStudyDeleteModal(true);
+		const { openModal } = useModal();
+		openModal(ModalKeyEnum.StudyDeleteModal);
 	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="14rem">

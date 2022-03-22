@@ -1,16 +1,16 @@
-import { Box } from '@material-ui/core';
+import { Box, List } from '@material-ui/core';
 import Loader from '@src/components/common/loader/Loader';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import useFetchNotifications from '@src/hooks/remotes/notification/useFetchNotifications';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import React, { useCallback, useMemo } from 'react';
 import { BottomSheet } from 'react-spring-bottom-sheet';
+import NotificationItem from '../notification/NotificationItem';
 import './notificationModal.scss';
 
 const NotificationModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { width } = useWindowDimensions();
 	const { data, isLoading } = useFetchNotifications();
-	console.log('data, ', data);
 
 	const isDesktop = useMemo(() => {
 		return width > 1024;
@@ -21,7 +21,13 @@ const NotificationModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 		if (data?.length === 0) {
 			return <Box className="notification-modal-empty-text">알림이 없습니다.</Box>;
 		}
-		return <Box>알림</Box>;
+		return data ? (
+			data.map((item) => {
+				return <NotificationItem key={item.Notification_ID} item={item} />;
+			})
+		) : (
+			<div />
+		);
 	}, [isLoading, data]);
 
 	return isDesktop ? (

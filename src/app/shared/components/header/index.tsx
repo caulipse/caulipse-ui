@@ -1,4 +1,6 @@
 import { Box, Button, IconButton, List, ListItem, ListItemText, SwipeableDrawer, Typography } from '@material-ui/core';
+import ModalKeyEnum from '@src/components/common/modal/enum';
+import useModal from '@src/hooks/modal/useModal';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import classNames from 'classnames';
@@ -12,7 +14,9 @@ import './index.scss';
 const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
+	const { openModal } = useModal();
 	const [state] = useAtom(globalState);
+
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
 	const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -40,7 +44,7 @@ const Header: React.FC = () => {
 	};
 
 	const clickNotification = () => {
-		console.log('clickNotification');
+		openModal(ModalKeyEnum.NotificationModal);
 	};
 
 	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가

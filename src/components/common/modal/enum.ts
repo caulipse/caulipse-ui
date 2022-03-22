@@ -6,6 +6,7 @@ enum ModalKeyEnum {
 	EditCategoryModal = 'EditCategoryModal',
 	HostStudyMoreModal = 'HostStudyMoreModal',
 	MyCategoryModal = 'MyCategoryModal',
+	NotificationModal = 'NotificationModal',
 	ReportModal = 'ReportModal',
 	StudyApproveModal = 'StudyApproveModal',
 	StudyCloseModal = 'StudyCloseModal',
@@ -13,7 +14,7 @@ enum ModalKeyEnum {
 	StudyFilterModal = 'StudyFilterModal',
 	StudySortModal = 'StudySortModal',
 	UserStudyMoreModal = 'UserStudyMoreModal',
-	UserProfileModal='UserProfileModal',
+	UserProfileModal = 'UserProfileModal',
 	WithdrawModal = 'WithdrawModal',
 }
 

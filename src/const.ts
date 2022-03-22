@@ -2,6 +2,17 @@ import { MainCategoryType } from './types';
 
 export const isDesktop = window.screen.width > 1024;
 
+export const NOTIFICATION_TYPE = {
+	NEW_APPLICANT: 101,
+	NEW_COMMENT: 102,
+	EDIT_STUDY: 103,
+	NEW_COMMENT_METOO: 104,
+	ACCEPT: 105,
+	CANCEL_APPLY: 106,
+	STUDY_FINISH: 107,
+	NEW_NOTICE: 201,
+};
+
 export const categories: MainCategoryType[] = [
 	{
 		label: '어학',

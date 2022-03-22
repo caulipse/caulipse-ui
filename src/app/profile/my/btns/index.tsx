@@ -1,3 +1,4 @@
+import { amber } from '@material-ui/core/colors';
 import React from 'react';
 import { IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
@@ -27,10 +28,15 @@ const MyBtns = (): JSX.Element => {
 	const history = useHistory();
 
 	const handleClick = (label: string) => {
-		if (label === NOTICE) {
-			history.push('/profile/notice');
-		} else if (label === ACCOUNT_INFO) {
-			history.push('/profile/accountinfo');
+		switch (label) {
+			case NOTICE:
+				history.push('/profile/notice');
+				break;
+			case ACCOUNT_INFO:
+				history.push('/profile/accountinfo');
+				break;
+			default:
+				break;
 		}
 	};
 

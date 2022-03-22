@@ -11,7 +11,7 @@ interface StudyUserItemContainerProps {
 const StudyUserItemContainer = ({ studyUser }: StudyUserItemContainerProps): JSX.Element => {
 	const { openModal } = useModal();
 	const onClick = () => {
-		openModal(ModalKeyEnum.ApproveCancelModal);
+		openModal(ModalKeyEnum.ApproveCancelModal, studyUser);
 	};
 
 	// TODO

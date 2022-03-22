@@ -1,0 +1,28 @@
+
+.notification-modal{
+    &-desktop-container{
+        display: flex !important;
+        position: fixed !important;
+        top: 5rem !important;
+        right: 0 !important;
+        background-color: #ffffff !important;
+        z-index: 10 !important;
+        margin-right: .75rem !important;
+        width: 20rem !important;
+        min-height: 4.5rem !important;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08) !important;
+        border-radius: 1rem !important;
+    }
+}
+.speech-bubble-triangle:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: .625rem solid transparent;
+    border-right: .625rem solid transparent;
+    border-top: .625rem solid transparent;
+    border-bottom: .625rem solid white;
+    right: .75rem;
+    top: -1.25rem;
+  }

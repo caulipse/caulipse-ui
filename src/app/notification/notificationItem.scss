@@ -1,0 +1,45 @@
+
+.notification-item{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 0.969rem 1.25rem !important;
+        width: 100% !important;
+    }
+    &-row-con{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-content: center !important;
+        width: 100% !important;
+    }
+    &-close-icon{
+        width: 1rem !important;
+        height: 1rem !important;
+    }
+    &-title{
+        flex: 1 !important;
+        font-size: .625rem !important;
+        color: #006ed9 !important;
+    }
+    &-subtitle{
+        flex: 1 !important;
+        font-size: .75rem !important;
+        line-height: 1.125rem !important;
+        color:#212b36 !important;
+        font-weight: bold !important;
+    }
+    &-text{
+        flex: 1 !important;
+        font-size: .75rem !important;
+        line-height: 1.125rem !important;
+        color:#212b36 !important;
+    }
+    &-date{
+        flex:1 !important;
+        font-size: .625rem !important;
+        line-height: 1.125rem !important;
+        color: #b4b4b4 !important;
+    }
+}

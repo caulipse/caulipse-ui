@@ -14,6 +14,7 @@ interface StudyContentContainerProps {
 	title: string;
 	studyAbout: string;
 	capacity: number;
+	initialIndex: number;
 }
 
 const StudyContentContainer = ({
@@ -25,8 +26,9 @@ const StudyContentContainer = ({
 	title,
 	studyAbout,
 	capacity,
+	initialIndex,
 }: StudyContentContainerProps): JSX.Element => {
-	const [index, setIndex] = useState<number>(1);
+	const [index, setIndex] = useState<number>(initialIndex);
 
 	const content = (i: number): JSX.Element => {
 		if (i === 1)

@@ -1,7 +1,3 @@
-export interface GetNotificationResponse {
-  userId: string
-  studyId: string
-  type: number
-  read: boolean
-  createdAt: string
-}
+import { Notification } from '../types';
+
+export type IResponseGetNotifications = Notification[];

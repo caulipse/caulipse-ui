@@ -1,6 +1,10 @@
+interface ITempBio {
+	tempBio: string;
+}
+
 export interface IRequestPostStudyUser {
 	id: string;
-	tempBio: string;
+	data: ITempBio;
 }
 
 export type IRequestPatchStudyUser = IRequestPostStudyUser;

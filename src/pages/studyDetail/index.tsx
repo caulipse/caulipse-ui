@@ -31,7 +31,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
 
 	const onClick = () => {
-		openModal(ModalKeyEnum.ApplyModal);
+		openModal(ModalKeyEnum.ApplyModal, studyId);
 	};
 
 	const onClickMore = () => {

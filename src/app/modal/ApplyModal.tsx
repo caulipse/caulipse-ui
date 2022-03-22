@@ -7,19 +7,25 @@ import CommonButton from '@common/button/CommonButton';
 import Switch from '@common/switch/Switch';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
-import useModal from '@src/hooks/modal/useModal';
-import ModalKeyEnum from '@common/modal/enum';
+import usePostStudyUser from '@src/hooks/remotes/studyUser/usePostStudyUser';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [value, setValue] = useState('시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.');
 	const [isPublic, setIsPublic] = useState(false);
+	const postStudyUser = usePostStudyUser();
+	const [state] = useAtom(globalState);
+	const { modal } = state;
 
 	const onClick = useCallback(() => {
-		// TODO
-		// 스터디 신청 API 연동
 		onClose(false);
-		const { openModal } = useModal();
-		openModal(ModalKeyEnum.ApplyModal);
+		postStudyUser.mutate({
+			id: modal.params,
+			data: {
+				tempBio: value,
+			},
+		});
 	}, []);
 
 	const onChangeValue = useCallback((evt: ChangeEvent<HTMLTextAreaElement>) => {

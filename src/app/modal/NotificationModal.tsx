@@ -13,9 +13,12 @@ const NotificationModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 	}, [width]);
 
 	return isDesktop ? (
-		<Box className="notification-modal-desktop-container speech-bubble-triangle">
-			<div>알림</div>
-		</Box>
+		<>
+			<Box className="notification-modal-desktop-container speech-bubble-triangle">
+				<div>알림</div>
+			</Box>
+			<Box className="speech-bubble-bg" onClick={() => onClose(false)} />
+		</>
 	) : (
 		<BottomSheet open={open} onDismiss={() => onClose(false)} className="modal-bottom-sheet">
 			<div>알림</div>

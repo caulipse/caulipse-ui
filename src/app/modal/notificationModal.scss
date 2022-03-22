@@ -14,15 +14,27 @@
         border-radius: 1rem !important;
     }
 }
-.speech-bubble-triangle:before {
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    border-left: .625rem solid transparent;
-    border-right: .625rem solid transparent;
-    border-top: .625rem solid transparent;
-    border-bottom: .625rem solid white;
-    right: .75rem;
-    top: -1.25rem;
-  }
+.speech-bubble{
+    &-bg{
+        flex: display !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vw !important;
+    }
+    &-triangle:before {
+        content: "";
+        width: 0;
+        height: 0;
+        position: absolute;
+        border-left: .625rem solid transparent;
+        border-right: .625rem solid transparent;
+        border-top: .625rem solid transparent;
+        border-bottom: .625rem solid white;
+        right: .75rem;
+        top: -1.25rem;
+      }
+}

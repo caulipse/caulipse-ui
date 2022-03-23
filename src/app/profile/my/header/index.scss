@@ -1,14 +1,27 @@
-@import "../../../../scss/variables";
-@import "../../../../scss/mixins";
+@import "@scss/variables";
+@import "@scss/mixins";
+
 
 .my-header{
     &-container{
         display: flex !important;
         flex-direction: column !important;
-        background: #ffffff !important;
+        background-color: #ffffff !important;
         align-items: center !important;
         padding: 2.5rem 1.25rem !important;
         padding-bottom: 15.5rem !important;
+        @include desktop{
+            background-color: transparent !important;
+        }
+    }
+    &-body-container{
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100% !important;
+        @include desktop{
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
     }
     &-row-container{
         display: flex !important;
@@ -36,6 +49,12 @@
         height: 3rem;
         border-radius: 3rem;
         border: 1px solid $primaryColor; 
+        @include desktop{
+            width: 6.181rem !important;
+            height: 6.181rem !important;
+            border-radius: 6.181/2rem !important;
+            margin-bottom: 2rem !important;
+        }
     }
     &-profile-photo-btn{
        padding: 0 !important; 
@@ -46,14 +65,27 @@
         font-size: 1.125rem;
         font-weight: bold;
         color: #101010;
+        @include desktop{
+            color: #ffffff;
+            font-size: 2.25rem !important;
+        }
     }
     &-user-name-suffix{
         font-size: 1rem;
         color:#212b36;
+        @include desktop{
+            color: #ffffff;
+            font-size: 2.125rem !important;
+        }
     }
     &-user-email{
         color: #636363;
         font-size: .75rem;
+        @include desktop{
+            color: #ffffff;
+            font-size: 1.25rem !important;
+            line-height: 1.688rem !important;
+        }
     }
     &-setting{
         &-container{
@@ -65,10 +97,18 @@
             align-items: center !important;
             border-radius: .25rem !important;
             align-self: flex-start !important;
+            @include desktop{
+                width: 2.188rem !important;
+                height: 2.188rem !important;
+            }
         }
         &-icon{
             width: 1.125rem !important;
             height: 1.125rem !important;
+            @include desktop{
+                width: 1.631rem !important;
+                height: 1.631rem !important;
+            }
         }
     }
 }

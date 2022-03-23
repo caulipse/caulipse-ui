@@ -37,7 +37,11 @@ const StudyDetailPage = (): JSX.Element => {
 	}, [exampleUserId, studyData]);
 
 	const onClick = () => {
-		openModal(ModalKeyEnum.ApplyModal);
+		if (isHost) {
+			openModal(ModalKeyEnum.StudyCloseModal);
+		} else {
+			openModal(ModalKeyEnum.ApplyModal);
+		}
 	};
 
 	const onClickMore = () => {
@@ -84,7 +88,10 @@ const StudyDetailPage = (): JSX.Element => {
 						<IoBookmarkOutline className="study-apply-btn-bookmark" />
 					</IconButton>
 					<div className="study-apply-btn-wrapper">
-						<CommonButton title="신청하기" onClick={onClick} />
+						<CommonButton
+							title={isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+							onClick={onClick}
+						/>
 					</div>
 				</div>
 			</div>

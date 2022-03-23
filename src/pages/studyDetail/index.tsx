@@ -126,6 +126,7 @@ const StudyDetailPage = (): JSX.Element => {
 								studyAbout={studyData.studyAbout}
 								capacity={studyData.capacity}
 								initialIndex={initialIndex}
+								isHost={isHost}
 							/>
 						)}
 						<CTAButtons />

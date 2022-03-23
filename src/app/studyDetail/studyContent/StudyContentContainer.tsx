@@ -15,6 +15,7 @@ interface StudyContentContainerProps {
 	studyAbout: string;
 	capacity: number;
 	initialIndex: number;
+	isHost: boolean;
 }
 
 const StudyContentContainer = ({
@@ -27,6 +28,7 @@ const StudyContentContainer = ({
 	studyAbout,
 	capacity,
 	initialIndex,
+	isHost,
 }: StudyContentContainerProps): JSX.Element => {
 	const [index, setIndex] = useState<number>(initialIndex);
 
@@ -41,7 +43,8 @@ const StudyContentContainer = ({
 					studyAbout={studyAbout}
 				/>
 			);
-		if (i === 2) return <StudyCurrentStateContainer studyId={studyId} hostId={hostId} capacity={capacity} />;
+		if (i === 2)
+			return <StudyCurrentStateContainer studyId={studyId} hostId={hostId} capacity={capacity} isHost={isHost} />;
 		if (i === 3) return <StudyAskContainer studyId={studyId} hostId={hostId} />;
 
 		return <div />;

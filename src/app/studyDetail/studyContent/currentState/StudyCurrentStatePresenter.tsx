@@ -8,9 +8,15 @@ interface StudyCurrentStatePresenterProps {
 	studyUsers: StudyUser[];
 	host: UserProfile;
 	capacity: number;
+	isHost: boolean;
 }
 
-const StudyCurrentStatePresenter = ({ studyUsers, host, capacity }: StudyCurrentStatePresenterProps): JSX.Element => (
+const StudyCurrentStatePresenter = ({
+	studyUsers,
+	host,
+	capacity,
+	isHost,
+}: StudyCurrentStatePresenterProps): JSX.Element => (
 	<div className="studyCurrentStateContainer">
 		<div className="mh20">
 			<div className="studyCurrentUserContainer">
@@ -26,7 +32,7 @@ const StudyCurrentStatePresenter = ({ studyUsers, host, capacity }: StudyCurrent
 				{studyUsers.map((studyUser: StudyUser, studyUserIndex: number) => {
 					return (
 						<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
-							<StudyUserItemContainer studyUser={studyUser} />
+							<StudyUserItemContainer studyUser={studyUser} isHost={isHost} />
 						</div>
 					);
 				})}

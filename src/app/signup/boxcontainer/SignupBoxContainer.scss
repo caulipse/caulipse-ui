@@ -7,37 +7,40 @@
 }
 
 .signportal-id{
-  width: 70%;
+  width: 100%;
   height: auto;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  padding: 1rem 5rem 1rem 5rem;
-  border-radius: 6rem;
-  border: solid 1px var(#e2e2e2);
+  margin-top: 5rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem 10rem 1rem 0rem;
+  border-radius: 10px;
+  border: solid 2px #e2e2e2;
+  box-sizing: border-box;
   // background-color: var(#fefefe);
 }
 
 .signportal-pd{
-  width: 70%;
+  width: 100%;
   height: auto;
-  margin-top: 0.5rem;
-  padding: 1rem 5rem 1rem 5rem;
-  border-radius: 6rem;
-  border: solid 1px var(#e2e2e2);
+  padding: 1rem 10rem 1rem 0rem;
+  border-radius: 10px;
+  border: solid 2px #e2e2e2;
+  box-sizing: border-box;
   // background-color: var(#fefefe);
 }
 
 .signup-btn{
-  width: 60%;
+  display: inline-block;
+  width: 50%;
   height: 3rem;
   margin: 3rem 5rem 3rem;
-  padding: 0.75rem 8.563rem 0.75rem 8.688rem;
-  border-radius: 6rem;
+  padding: 0.75rem 0rem 0.75rem 0rem;
+  border-radius: 10px;
   background-color: #006ed9 !important;
   align-items: center;
   justify-content: center;
   font-size: 1rem;
   font-weight: 300;
+  color:white;
 }
 
 .forgotten-btn{

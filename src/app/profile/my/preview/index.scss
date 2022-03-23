@@ -12,6 +12,14 @@
         border-radius: .5rem !important;
         margin-top: -13rem !important;
         margin: 0 1.25rem; 
+        @include desktop{
+            height: auto !important;
+            background-color: transparent !important;
+            margin-top: 0 !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
     }
     &-title{
         font-size: .75rem !important;
@@ -19,10 +27,20 @@
         font-weight: bold !important;
         color: #212b36 !important;
         padding: 1rem 1rem 0 1rem !important;
+        @include desktop{
+            padding: 0 !important;
+            font-size: 1.5rem !important;
+            line-height: 1.688rem !important;
+            color: #ffffff !important;
+            margin-bottom: 2.711rem !important;
+        }
     }
     &-img{
         display: flex !important;
         flex:1 !important;
+        @include desktop{
+            display: none !important;
+        }
     }
     &-content-container{
         display: flex;
@@ -31,6 +49,11 @@
         padding: 1rem 2.5rem;
         border-bottom-left-radius: .5rem !important;
         border-bottom-right-radius: .5rem !important;
+        @include desktop{
+            border-radius: 0 !important;
+            background-color: transparent !important;
+            padding: 0 !important;
+        }
     }
     &-item{
         display: flex;
@@ -41,11 +64,21 @@
             font-weight: bold;
             line-height: 1.6875rem;
             color:#212b36;
+            @include desktop{
+                font-size: 1.813rem !important;
+                line-height: 1.438rem !important;
+                color: #ffffff !important;
+            }
         }
         &-title{
             font-size: 0.688rem;
             line-height: 1.25rem;
             color:#929699;
+            @include desktop{
+                font-size: 0.875rem !important;
+                line-height: 1.75rem !important;
+                color: #ffffff !important;
+            }
         }
     }
 }

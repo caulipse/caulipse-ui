@@ -36,4 +36,11 @@
     max-lines: 2;
     text-align: center;
   }
+  &-accept-btn{
+    background-color: $primaryColor !important;
+    border-radius: 1.5rem !important;
+    font-weight: bold !important;
+    color: #ffffff !important;
+    font-size: .75rem !important;
+  }
 }

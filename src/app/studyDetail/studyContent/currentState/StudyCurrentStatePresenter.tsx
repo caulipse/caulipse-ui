@@ -19,6 +19,23 @@ const StudyCurrentStatePresenter = ({
 }: StudyCurrentStatePresenterProps): JSX.Element => (
 	<div className="studyCurrentStateContainer">
 		<div className="mh20">
+			{isHost && (
+				<div className="mb3rem">
+					<div className="studyCurrentUserContainer">
+						<div className="studyCurrentStateTitle">수락 대기중</div>
+						<div className="studyCurrentState">({studyUsers.length + 1})</div>
+					</div>
+					<div className="studyUserListContainer">
+						{studyUsers.map((studyUser: StudyUser, studyUserIndex: number) => {
+							return (
+								<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
+									<StudyUserItemContainer studyUser={studyUser} isHost={isHost} isAccepted={false} />
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			)}
 			<div className="studyCurrentUserContainer">
 				<div className="studyCurrentStateTitle">참여인원</div>
 				<div className="studyCurrentState">
@@ -37,6 +54,7 @@ const StudyCurrentStatePresenter = ({
 					);
 				})}
 			</div>
+			<div className="mb8rem" />
 		</div>
 	</div>
 );

@@ -7,9 +7,10 @@ import StudyUserItemPresenter from './StudyUserItemPresenter';
 interface StudyUserItemContainerProps {
 	studyUser: StudyUser;
 	isHost: boolean;
+	isAccepted?: boolean;
 }
 
-const StudyUserItemContainer = ({ studyUser, isHost }: StudyUserItemContainerProps): JSX.Element => {
+const StudyUserItemContainer = ({ studyUser, isHost, isAccepted = true }: StudyUserItemContainerProps): JSX.Element => {
 	const { openModal } = useModal();
 	const onClick = () => {
 		openModal(ModalKeyEnum.ApproveCancelModal, studyUser);
@@ -20,7 +21,7 @@ const StudyUserItemContainer = ({ studyUser, isHost }: StudyUserItemContainerPro
 	return (
 		<>
 			{/* <Link to={`/user/${studyUser?.userId}`}> */}
-			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} isHost={isHost} />
+			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} isHost={isHost} isAccepted={isAccepted} />
 		</>
 		//  </Link>
 	);

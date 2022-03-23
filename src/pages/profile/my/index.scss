@@ -9,7 +9,7 @@
             flex: 1 !important;
             justify-content: center;
             align-items: center;
-            background-color: $primaryColor !important;
+            background: linear-gradient(to bottom, $primaryColor 60%, #fdf7f0 60% ) !important;
         }
         &-boxes{
             display: flex;

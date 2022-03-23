@@ -1,4 +1,3 @@
-import { amber } from '@material-ui/core/colors';
 import React from 'react';
 import { IoChevronForward } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';

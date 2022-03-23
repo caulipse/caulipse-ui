@@ -29,7 +29,7 @@ const boxcontainer = (): JSX.Element => {
 					{/* value={inputPw} onChange={handleInputPw} */}
 					{/* 얘도 password 안에 들어가야합니다 */}
                 </form>
-                <button type="button" onClick={onClickLoginBtn} className="login-btn">로그인</button>
+                <button type="button" onClick={onClickLoginBtn} className="login-btn"><span className="logbtn">로그인</span></button>
 			</div>
 		</div>
 	);

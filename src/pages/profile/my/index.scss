@@ -1,4 +1,28 @@
-@import '../../../scss/variables';
+@import '@scss/variables';
+@import '@scss/mixins';
+
+@include desktop{
+    .my-page{
+        &-container{
+            display: flex !important;
+            flex-direction: row !important;
+            flex: 1 !important;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, $primaryColor 60%, #fdf7f0 60% ) !important;
+        }
+        &-boxes{
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            width: 100%;
+            max-width: $maxContentWidth !important;
+            background-color: transparent !important;
+            padding-bottom: 5rem !important;     
+            margin-left: 12vw !important;
+        }
+    }
+}
 
 .my-page{
     &-container{
@@ -14,6 +38,5 @@
         max-width: $maxContentWidth;
         background-color: $primaryColor;
         padding-bottom: 5rem !important;
-        
     }
 }

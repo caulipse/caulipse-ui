@@ -6,9 +6,14 @@
   align-items: center;
 }
 
+.input-form{
+  padding: 5px;
+}
+
 .portal-id{
-  width: 70%;
+  width: 100%;
   height: auto;
+  box-sizing: border-box;
   padding: 1rem 10rem 1rem 0rem;
   margin-top: 5rem;
   margin-bottom: 0.5rem;
@@ -18,9 +23,10 @@
 }
 
 .portal-pw{
-  width: 70%;
+  width: 100%;
   height: auto;
   margin: 0;
+  box-sizing: border-box;
   padding: 1rem 10rem 1rem 0rem;
   border-radius: 10px;
   border: solid 2px #e2e2e2;

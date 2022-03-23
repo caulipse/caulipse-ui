@@ -3,6 +3,8 @@ import { StudyUser } from '@api/types';
 import { IoEllipsisVertical } from 'react-icons/io5';
 import './styles.scss';
 import { Box, Button } from '@material-ui/core';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@src/components/common/modal/enum';
 
 interface StudyUserItemPresenterProps {
 	studyUser: StudyUser;
@@ -18,8 +20,10 @@ const StudyUserItemPresenter = ({
 	isHost,
 	isAccepted,
 }: StudyUserItemPresenterProps): JSX.Element => {
+	const { openModal } = useModal();
+
 	const handleAccept = () => {
-		// TODO: 신청 수락
+		openModal(ModalKeyEnum.StudyApproveModal);
 	};
 
 	return (
@@ -31,11 +35,12 @@ const StudyUserItemPresenter = ({
 			)}
 			<img className="study-user-item-img" src={studyUser.profilePicture} alt="" width={40} height={40} />
 			<div className="study-user-item-username">{studyUser.userName}</div>
+			{/* TODO: 수락 대기중인 경우에 날짜 표시 */}
 			{isAccepted ? (
 				<div className="study-user-item-intro">{studyUser.tempBio}</div>
 			) : (
 				<Box>
-					<Button className="study-user-item-accept-btn" variant="contained" onClick={handleAccept}>
+					<Button className="study-user-item-accept-btn" variant="contained" onClick={handleAccept} disableElevation>
 						신청 수락
 					</Button>
 				</Box>

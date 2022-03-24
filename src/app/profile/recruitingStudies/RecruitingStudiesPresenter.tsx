@@ -1,10 +1,9 @@
+import { Box } from '@material-ui/core';
 import { Study } from '@src/api/types';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import Chip from '@src/components/common/chip/Chip';
-import { ChipTypeEnum } from '@src/components/common/chip/types';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import React, { useCallback } from 'react';
@@ -50,11 +49,7 @@ const RecruitingStudiesPresenter = ({
 					views={item.views}
 					bookmarks={item.bookmarkCount}
 					className={index === length - 1 ? '' : 'mb16'}
-					leftTopComponent={
-						<div>
-							<Chip selected label="D-18" type={ChipTypeEnum.secondary} />
-						</div>
-					}
+					leftTopComponent={<Box className="recruiting-studies-chip">D-18</Box>}
 					rightTopComponent={
 						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
 					}

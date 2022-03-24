@@ -91,16 +91,18 @@ const AppliedStudiesPresenter = ({
 			) : (
 				renderAppliedStudies(true)
 			)}
-			<div className="applied-studies-accordian-container">
-				<div className="applied-studies-accordian-text">마감된 항목</div>
-				<button type="button" onClick={() => setShowClosedAppliedStudies(!showClosedAppliedStudies)}>
-					{showClosedAppliedStudies ? (
-						<IoChevronDown size={24} color="#929699" />
-					) : (
-						<IoChevronUp size={24} color="#929699" />
-					)}
+			{showClosedAppliedStudies || (
+				<button
+					type="button"
+					className="recruitedAccordian"
+					onClick={() => {
+						setShowClosedAppliedStudies(!showClosedAppliedStudies);
+					}}
+				>
+					<div>마감된 항목</div>
+					<IoChevronDown className="bookmark-chevron-icon" />
 				</button>
-			</div>
+			)}
 			{showClosedAppliedStudies && (
 				<>
 					<div className="applied-studies-closed-title">마감된 스터디</div>

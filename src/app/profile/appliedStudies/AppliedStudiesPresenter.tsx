@@ -7,6 +7,7 @@ import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import classNames from 'classnames';
 import { Box } from '@material-ui/core';
 import ProgressBar from '@src/components/common/progress/ProgressBar';
+import { useHistory } from 'react-router-dom';
 
 interface AppliedStudiesPresenterProps {
 	openedAppliedStudies: AppliedStudy[];
@@ -17,10 +18,12 @@ const AppliedStudiesPresenter = ({
 	openedAppliedStudies,
 	closedAppliedStudies,
 }: AppliedStudiesPresenterProps): JSX.Element => {
+	const history = useHistory();
+
 	const [showClosedAppliedStudies, setShowClosedAppliedStudies] = useState<boolean>(false);
 
 	const findStudies = () => {
-		console.log('findStudies');
+		history.push('/');
 	};
 
 	const renderOpenedAppliedStudies = () => {

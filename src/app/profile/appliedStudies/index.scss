@@ -65,14 +65,14 @@
     }
     &-closed{
         &-title{
-            @include title(#637381);
-            margin-top: 2rem;
+            @include title(#b4b4b4);
+            margin-top: 3.5rem;
             margin-bottom: 1rem;
         }
     }
 }
-.mt40{
-    margin-top: 2.5rem;
+.mt2rem{
+    margin-top: 2rem !important;
 }
 .mb16{
     margin-bottom: 1rem;

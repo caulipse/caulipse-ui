@@ -4,7 +4,7 @@
     font-weight: bold;
     font-size: 1rem;
     color: #212b36;
-    margin: 3rem 0 1rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 .recruiting-studies{
@@ -17,6 +17,7 @@
     &-title-blurred{
         @include title();
         color:#b4b4b4 !important;
+        margin-top: 3.5rem !important;
     }
     &-closed-container{
         margin: 0 -1rem;

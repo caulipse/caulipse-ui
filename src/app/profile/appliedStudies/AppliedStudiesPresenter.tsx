@@ -1,6 +1,6 @@
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React, { useState } from 'react';
-import { IoChevronDown, IoChevronUp, IoEllipsisVertical } from 'react-icons/io5';
+import { IoChevronDown, IoEllipsisVertical } from 'react-icons/io5';
 import { AppliedStudy } from '@src/api/types';
 import './index.scss';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
@@ -85,7 +85,7 @@ const AppliedStudiesPresenter = ({
 
 	return (
 		<div className="applied-studies-container">
-			<div className="applied-studies-title mt40 mb16">신청중 ({openedAppliedStudies?.length})</div>
+			<div className="applied-studies-title mt2rem mb16">신청중 ({openedAppliedStudies?.length})</div>
 			{openedAppliedStudies?.length === 0 ? (
 				<EmptyComponent title="신청중인 스터디가 없습니다" buttonText="스터디 찾아보기" onClick={findStudies} />
 			) : (

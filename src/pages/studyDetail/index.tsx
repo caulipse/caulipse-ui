@@ -13,6 +13,8 @@ import ModalKeyEnum from '@common/modal/enum';
 import { IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 const exampleUserId = '36950d7b-9bd4-4b8e-8430-2cbe6ded3e67';
 
@@ -29,8 +31,8 @@ const StudyDetailPage = (): JSX.Element => {
 	const initialIndex = location.state?.initialIndex ?? 1;
 
 	const { openModal } = useModal();
-
 	const { openSnackbar } = useSnackbar();
+	const [state] = useAtom(globalState);
 
 	const isHost = useMemo(() => {
 		return exampleUserId === studyData?.HOST_ID;
@@ -137,7 +139,7 @@ const StudyDetailPage = (): JSX.Element => {
 								isHost={isHost}
 							/>
 						)}
-						<CTAButtons />
+						{state.login && <CTAButtons />}
 					</div>
 				</div>
 			)}

@@ -30,20 +30,18 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 			) : (
 				<BookmarkList bookmarkList={recruitingBookmarks} />
 			)}
-			<button
-				type="button"
-				className="recruitedAccordian"
-				onClick={() => {
-					setRecruitedStudiesVisible(!recruitedStudiesVisible);
-				}}
-			>
-				{recruitedStudiesVisible || (
-					<>
-						<div>마감된 항목</div>
-						<IoChevronDown className="bookmark-chevron-icon" />
-					</>
-				)}
-			</button>
+			{recruitedStudiesVisible || (
+				<button
+					type="button"
+					className="recruitedAccordian"
+					onClick={() => {
+						setRecruitedStudiesVisible(!recruitedStudiesVisible);
+					}}
+				>
+					<div>마감된 항목</div>
+					<IoChevronDown className="bookmark-chevron-icon" />
+				</button>
+			)}
 			{recruitedStudiesVisible && (
 				<>
 					<div className="recruitedStudiesTitle">마감된 스터디</div>

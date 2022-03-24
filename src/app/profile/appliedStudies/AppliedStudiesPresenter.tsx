@@ -29,49 +29,41 @@ const AppliedStudiesPresenter = ({
 		history.push('/');
 	};
 
-	const renderOpenedAppliedStudies = () => {
-		return openedAppliedStudies.map((item, index, { length }) => {
+	const renderAppliedStudies = (isOpen: boolean) => {
+		return (isOpen ? openedAppliedStudies : closedAppliedStudies).map((item, index, { length }) => {
 			// TODO: 참가 여부에 따라서 다르게 표시
 			const isAccepted = index % 2 === 0;
 
-			return (
-				<MyStudyCard
-					key={item.id}
-					studyId={item.id}
-					title={item.title}
-					views={item.views}
-					createdAt={item.createdAt}
-					bookmarks={item.bookmarkCount}
-					className={classNames({ 'mb-438rem': index !== length - 1 })}
-					leftTopComponent={
+			const LeftTopComponent = () => {
+				if (isOpen) {
+					return (
 						<Box className="applied-studies-chip-con">
 							<Box className="applied-studies-chip">D-18</Box>
 							<Box className={`applied-studies-chip-${isAccepted ? 'filled' : 'disabled'} ml_25rem`}>
 								{isAccepted ? '참가 완료' : '수락 대기중'}
 							</Box>
 						</Box>
-					}
-					rightTopComponent={
-						<IoEllipsisVertical
-							className="applied-studies-menu"
-							color="#929699"
-							onClick={(event: any) => {
-								event.preventDefault();
-								openModal(ModalKeyEnum.UserStudyMoreModal);
-							}}
-						/>
-					}
-					// ProgressBar에 current와 max 값
-					bottomComponent={<ProgressBar current={4} max={8} />}
-				/>
-			);
-		});
-	};
+					);
+				}
+				return (
+					<Box className={`applied-studies-chip-${isAccepted ? 'filled' : 'disabled'}`}>
+						{isAccepted ? '참가 완료' : '수락 대기중'}
+					</Box>
+				);
+			};
 
-	const renderClosedAppliedStudies = () => {
-		return closedAppliedStudies.map((item, index, { length }) => {
-			// TODO: 참가 여부에 따라서 다르게 표시
-			const isAccepted = index % 2 === 0;
+			const RightTopComponent = () => {
+				return (
+					<IoEllipsisVertical
+						className="applied-studies-menu"
+						color="#929699"
+						onClick={(event: any) => {
+							event.preventDefault();
+							openModal(ModalKeyEnum.UserStudyMoreModal);
+						}}
+					/>
+				);
+			};
 
 			return (
 				<MyStudyCard
@@ -82,11 +74,8 @@ const AppliedStudiesPresenter = ({
 					createdAt={item.createdAt}
 					bookmarks={item.bookmarkCount}
 					className={classNames({ 'mb-438rem': index !== length - 1 })}
-					leftTopComponent={
-						<Box className={`applied-studies-chip-${isAccepted ? 'filled' : 'disabled'}`}>
-							{isAccepted ? '참가 완료' : '수락 대기중'}
-						</Box>
-					}
+					leftTopComponent={<LeftTopComponent />}
+					rightTopComponent={<RightTopComponent />}
 					// ProgressBar에 current와 max 값
 					bottomComponent={<ProgressBar current={4} max={8} />}
 				/>
@@ -100,7 +89,7 @@ const AppliedStudiesPresenter = ({
 			{openedAppliedStudies?.length === 0 ? (
 				<EmptyComponent title="신청중인 스터디가 없습니다" buttonText="스터디 찾아보기" onClick={findStudies} />
 			) : (
-				renderOpenedAppliedStudies()
+				renderAppliedStudies(true)
 			)}
 			<div className="applied-studies-accordian-container">
 				<div className="applied-studies-accordian-text">마감된 항목</div>
@@ -115,7 +104,7 @@ const AppliedStudiesPresenter = ({
 			{showClosedAppliedStudies && (
 				<>
 					<div className="applied-studies-closed-title">마감된 스터디</div>
-					{renderClosedAppliedStudies()}
+					{renderAppliedStudies(false)}
 				</>
 			)}
 		</div>

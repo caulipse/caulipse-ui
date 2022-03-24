@@ -112,7 +112,6 @@ const StudyDetailPage = (): JSX.Element => {
 								weekday={studyData.weekday}
 								frequency={studyData.frequency}
 								location={studyData.location}
-								isHost={isHost}
 							/>
 						)}
 						{studyData && (

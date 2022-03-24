@@ -1,7 +1,4 @@
-import { Box } from '@material-ui/core';
 import { getMainCategoryLabel, getSubCategoryLabel } from '@src/app/shared/utils/category';
-import CommonButton from '@src/components/common/button/CommonButton';
-import { ButtonTypeEnum } from '@src/components/common/button/types';
 import React from 'react';
 import './styles.scss';
 
@@ -10,19 +7,8 @@ interface StudyInfoPresenterProps {
 	weekday: string;
 	frequency: string;
 	location: string;
-	isHost: boolean;
 }
-const StudyInfoPresenter = ({
-	categoryCode,
-	weekday,
-	frequency,
-	location,
-	isHost,
-}: StudyInfoPresenterProps): JSX.Element => {
-	const handleEdit = () => {
-		// TODO: 수정하기
-	};
-
+const StudyInfoPresenter = ({ categoryCode, weekday, frequency, location }: StudyInfoPresenterProps): JSX.Element => {
 	return (
 		<div className="StudyInfoContainer">
 			<div className="categoryTextContainer">
@@ -47,16 +33,6 @@ const StudyInfoPresenter = ({
 					<div className="study-sub-info-content">{location}</div>
 				</div>
 			</div>
-			{isHost && (
-				<Box className="study-sub-info-ctabtn-con">
-					<CommonButton
-						className="study-sub-info-ctabtn"
-						title="수정하기"
-						onClick={handleEdit}
-						type={ButtonTypeEnum.secondary}
-					/>
-				</Box>
-			)}
 		</div>
 	);
 };

@@ -156,6 +156,10 @@ const API = {
 	getMyStudies() {
 		return client.get('/study/my-study');
 	},
+	// 신청 스터디
+	getAppliedStudies() {
+		return client.get('/user/study/applied');
+	},
 };
 
 export default API;

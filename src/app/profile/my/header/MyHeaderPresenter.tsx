@@ -27,20 +27,22 @@ const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): 
 	return (
 		<Box className="my-header-container">
 			<Box className="my-header-content-container">
-				<Box className="my-header-row-container">
+				<Box className="my-header-body-container">
 					<ButtonBase className="my-header-profile-photo-btn" onClick={showProfileSheet}>
 						<img className="my-header-profile-photo" src={sampleImgUrl} alt="사용자 프로필 사진" />
 					</ButtonBase>
-					<Box className="my-header-text-container">
-						<Box className="my-header-user-name">
-							{userProfile.userName}
-							<span className="my-header-user-name-suffix"> 님</span>
+					<Box className="my-header-row-container">
+						<Box className="my-header-text-container">
+							<Box className="my-header-user-name">
+								{userProfile.userName}
+								<span className="my-header-user-name-suffix"> 님</span>
+							</Box>
+							<Box className="my-header-user-email">{userEmail}</Box>
 						</Box>
-						<Box className="my-header-user-email">{userEmail}</Box>
+						<ButtonBase className="my-header-setting-container" onClick={() => history.push('/profile/edit')}>
+							<IoSettingsSharp className="my-header-setting-icon" fill="#ffffff" />
+						</ButtonBase>
 					</Box>
-					<ButtonBase className="my-header-setting-container" onClick={() => history.push('/profile/edit')}>
-						<IoSettingsSharp className="my-header-setting-icon" fill="#ffffff" />
-					</ButtonBase>
 				</Box>
 			</Box>
 		</Box>

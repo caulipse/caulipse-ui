@@ -77,7 +77,7 @@ const AppliedStudiesPresenter = ({
 					leftTopComponent={<LeftTopComponent />}
 					rightTopComponent={<RightTopComponent />}
 					// ProgressBar에 current와 max 값
-					bottomComponent={<ProgressBar current={4} max={8} />}
+					bottomComponent={isOpen ? <ProgressBar current={4} max={8} /> : <div />}
 				/>
 			);
 		});

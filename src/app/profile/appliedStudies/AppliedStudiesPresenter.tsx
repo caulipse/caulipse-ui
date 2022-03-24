@@ -1,14 +1,12 @@
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React, { useState } from 'react';
 import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
-import { AppliedStudyInterface } from '../interface/interface';
-import ClosedStudyList from '../closedStudyList/ClosedStudyList';
+import { AppliedStudy } from '@src/api/types';
 import './index.scss';
-import OpenedStudyList from '../openedStudyList/OpenedStudyList';
 
 interface AppliedStudiesPresenterProps {
-	openedAppliedStudies: AppliedStudyInterface[];
-	closedAppliedStudies: AppliedStudyInterface[];
+	openedAppliedStudies: AppliedStudy[];
+	closedAppliedStudies: AppliedStudy[];
 }
 
 const AppliedStudiesPresenter = ({
@@ -27,9 +25,7 @@ const AppliedStudiesPresenter = ({
 			{openedAppliedStudies?.length === 0 ? (
 				<EmptyComponent title="신청중인 스터디가 없습니다" buttonText="스터디 찾아보기" onClick={findStudies} />
 			) : (
-				<div>
-					<OpenedStudyList openedStudies={openedAppliedStudies} />
-				</div>
+				<div />
 			)}
 			<div className="applied-studies-accordian-container">
 				<div className="applied-studies-accordian-text">마감된 항목</div>
@@ -44,9 +40,7 @@ const AppliedStudiesPresenter = ({
 			{showClosedAppliedStudies && (
 				<>
 					<div className="applied-studies-closed-title">마감된 스터디</div>
-					<div className="applied-studies-closed-list-container">
-						<ClosedStudyList closedStudies={closedAppliedStudies} />
-					</div>
+					<div className="applied-studies-closed-list-container" />
 				</>
 			)}
 		</div>

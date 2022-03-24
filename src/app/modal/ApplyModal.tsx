@@ -10,13 +10,18 @@ import '@common/modal/common.scss';
 import usePostStudyUser from '@src/hooks/remotes/studyUser/usePostStudyUser';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
+import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 
 const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [value, setValue] = useState('시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.');
-	const [isPublic, setIsPublic] = useState(false);
 	const postStudyUser = usePostStudyUser();
 	const [state] = useAtom(globalState);
-	const { modal } = state;
+	const { modal, userId } = state;
+	const { data } = useFetchUserProfile(userId);
+
+	const [value, setValue] = useState(
+		data?.userProfile?.bio ?? '시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.'
+	);
+	const [isPublic, setIsPublic] = useState(false);
 
 	const onClick = useCallback(() => {
 		onClose(false);

@@ -78,7 +78,7 @@ const API = {
 	},
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {
-		return client.post(`/study/user/${request.id}`, request);
+		return client.post(`/study/user/${request.id}`, request.data);
 	},
 	// 참가신청 현황 수정
 	patchStudyUser(request: IRequestPatchStudyUser) {

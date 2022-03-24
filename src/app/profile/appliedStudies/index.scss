@@ -39,6 +39,10 @@
         @include chip(#f9f9f9, #929699);
         border: none !important;
     }
+    &-menu{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+    }
     &-accordian{
         &-container{
             display: flex;

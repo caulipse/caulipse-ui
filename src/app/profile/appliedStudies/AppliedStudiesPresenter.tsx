@@ -1,6 +1,6 @@
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import React, { useState } from 'react';
-import { IoChevronDown, IoChevronUp } from 'react-icons/io5';
+import { IoChevronDown, IoChevronUp, IoEllipsisVertical } from 'react-icons/io5';
 import { AppliedStudy } from '@src/api/types';
 import './index.scss';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
@@ -8,6 +8,8 @@ import classNames from 'classnames';
 import { Box } from '@material-ui/core';
 import ProgressBar from '@src/components/common/progress/ProgressBar';
 import { useHistory } from 'react-router-dom';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@src/components/common/modal/enum';
 
 interface AppliedStudiesPresenterProps {
 	openedAppliedStudies: AppliedStudy[];
@@ -19,6 +21,7 @@ const AppliedStudiesPresenter = ({
 	closedAppliedStudies,
 }: AppliedStudiesPresenterProps): JSX.Element => {
 	const history = useHistory();
+	const { openModal } = useModal();
 
 	const [showClosedAppliedStudies, setShowClosedAppliedStudies] = useState<boolean>(false);
 
@@ -47,6 +50,16 @@ const AppliedStudiesPresenter = ({
 								{isAccepted ? '참가 완료' : '수락 대기중'}
 							</Box>
 						</Box>
+					}
+					rightTopComponent={
+						<IoEllipsisVertical
+							className="applied-studies-menu"
+							color="#929699"
+							onClick={(event: any) => {
+								event.preventDefault();
+								openModal(ModalKeyEnum.UserStudyMoreModal);
+							}}
+						/>
 					}
 					// ProgressBar에 current와 max 값
 					bottomComponent={<ProgressBar current={4} max={8} />}

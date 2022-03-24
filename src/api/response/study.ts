@@ -1,4 +1,4 @@
-import { Study, StudyUser } from '@api/types';
+import { AppliedStudy, Study, StudyUser } from '@api/types';
 
 export interface IResponseGetStudies {
 	message: string;
@@ -17,3 +17,5 @@ export interface IResponseGetMyStudies {
 	message: string;
 	studies: Study[];
 }
+
+export type IResponseGetAppiedStudies = AppliedStudy[];

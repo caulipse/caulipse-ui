@@ -98,3 +98,11 @@ export interface Notification {
 	Notification_TYPE: number;
 	Notification_USER_ID: string;
 }
+
+export interface AppliedStudy {
+	bookmarkCount: number;
+	createdAt: string;
+	id: string;
+	title: string;
+	views: number;
+}

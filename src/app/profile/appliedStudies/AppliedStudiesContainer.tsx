@@ -1,11 +1,10 @@
-
+import useFetchAppliedStudies from '@src/hooks/remotes/user/useFetchAppliedStudies';
 import * as Factory from 'factory.ts';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { AppliedStudyInterface } from '../interface/interface';
 import AppliedStudiesPresenter from './AppliedStudiesPresenter';
 
 const AppliedStudiesContainer = (): JSX.Element => {
-
 	const getAppliedStudiesData = (iter: number) => {
 		const appliedStudiesFactory = Factory.Sync.makeFactory<AppliedStudyInterface>({
 			studyId: Factory.each((i) => i),
@@ -19,6 +18,10 @@ const AppliedStudiesContainer = (): JSX.Element => {
 		});
 		return appliedStudiesFactory.buildList(iter);
 	};
+
+	const { data, isLoading } = useFetchAppliedStudies();
+
+	console.log(data);
 
 	return (
 		<div>

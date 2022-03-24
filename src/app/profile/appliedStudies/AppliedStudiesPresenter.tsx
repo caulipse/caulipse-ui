@@ -6,6 +6,7 @@ import './index.scss';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import classNames from 'classnames';
 import { Box } from '@material-ui/core';
+import ProgressBar from '@src/components/common/progress/ProgressBar';
 
 interface AppliedStudiesPresenterProps {
 	openedAppliedStudies: AppliedStudy[];
@@ -44,6 +45,34 @@ const AppliedStudiesPresenter = ({
 							</Box>
 						</Box>
 					}
+					// ProgressBar에 current와 max 값
+					bottomComponent={<ProgressBar current={4} max={8} />}
+				/>
+			);
+		});
+	};
+
+	const renderClosedAppliedStudies = () => {
+		return closedAppliedStudies.map((item, index, { length }) => {
+			// TODO: 참가 여부에 따라서 다르게 표시
+			const isAccepted = index % 2 === 0;
+
+			return (
+				<MyStudyCard
+					key={item.id}
+					studyId={item.id}
+					title={item.title}
+					views={item.views}
+					createdAt={item.createdAt}
+					bookmarks={item.bookmarkCount}
+					className={classNames({ 'mb-438rem': index !== length - 1 })}
+					leftTopComponent={
+						<Box className={`applied-studies-chip-${isAccepted ? 'filled' : 'disabled'}`}>
+							{isAccepted ? '참가 완료' : '수락 대기중'}
+						</Box>
+					}
+					// ProgressBar에 current와 max 값
+					bottomComponent={<ProgressBar current={4} max={8} />}
 				/>
 			);
 		});
@@ -70,7 +99,7 @@ const AppliedStudiesPresenter = ({
 			{showClosedAppliedStudies && (
 				<>
 					<div className="applied-studies-closed-title">마감된 스터디</div>
-					<div className="applied-studies-closed-list-container" />
+					{renderClosedAppliedStudies()}
 				</>
 			)}
 		</div>

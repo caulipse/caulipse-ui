@@ -63,11 +63,7 @@
         &-title{
             @include title(#637381);
             margin-top: 2rem;
-        }
-        &-list-container{
-            display: flex;
-            flex-direction: column;
-            margin: 1rem -1.25rem;
+            margin-bottom: 1rem;
         }
     }
 }

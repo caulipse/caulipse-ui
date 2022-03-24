@@ -5,6 +5,14 @@
     font-weight: bold;
     color: $color;
 }
+@mixin chip($bgcolor, $fontColor) {
+    font-size: .75rem !important;
+    padding: .125rem .75rem !important;
+    border-radius: .625rem !important;
+    border: 1px $primaryColor solid !important;
+    background-color: $bgcolor !important;
+    color: $fontColor !important;
+}
 
 .applied-studies{
     &-container{
@@ -15,6 +23,21 @@
     }
     &-title{
         @include title(#212b36);
+    }
+    &-chip-con{
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+    &-chip{
+        @include chip(white, $primaryColor);
+    }
+    &-chip-filled{
+        @include chip($primaryColor, white);
+    }
+    &-chip-disabled{
+        @include chip(#f9f9f9, #929699);
+        border: none !important;
     }
     &-accordian{
         &-container{
@@ -53,4 +76,7 @@
 }
 .mb16{
     margin-bottom: 1rem;
+}
+.ml_25rem{
+    margin-left: .25rem !important;
 }

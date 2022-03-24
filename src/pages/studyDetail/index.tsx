@@ -1,7 +1,7 @@
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useCallback, useMemo } from 'react';
-import { IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
+import { IoBookmarkOutline, IoEllipsisVertical, IoPencil, IoShareSocialOutline } from 'react-icons/io5';
 import { useParams, useLocation } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '@src/hooks/modal/useModal';
@@ -65,6 +65,10 @@ const StudyDetailPage = (): JSX.Element => {
 		postBookmark.mutate();
 	};
 
+	const onClickEdit = () => {
+		// TODO: 수정로직 추가하기
+	};
+
 	const StudyDetailHeader = useCallback(() => {
 		return (
 			<div className="backButtonContainer">
@@ -87,6 +91,11 @@ const StudyDetailPage = (): JSX.Element => {
 					<IconButton onClick={onClickPostBookmark}>
 						<IoBookmarkOutline className="study-apply-btn-bookmark" />
 					</IconButton>
+					{isHost && (
+						<IconButton onClick={onClickEdit}>
+							<IoPencil className="study-apply-btn-bookmark" />
+						</IconButton>
+					)}
 					<div className="study-apply-btn-wrapper">
 						<CommonButton
 							title={isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}

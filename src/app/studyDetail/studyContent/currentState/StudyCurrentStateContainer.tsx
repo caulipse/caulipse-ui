@@ -8,16 +8,23 @@ interface StudyCurrentStateContainerProps {
 	studyId: string;
 	hostId: string;
 	capacity: number;
+	isHost: boolean;
 }
 
-const StudyCurrentStateContainer = ({ studyId, hostId, capacity }: StudyCurrentStateContainerProps): JSX.Element => {
+const StudyCurrentStateContainer = ({
+	studyId,
+	hostId,
+	capacity,
+	isHost,
+}: StudyCurrentStateContainerProps): JSX.Element => {
 	const { data, isLoading } = useFetchStudyUsers(studyId);
 	const { data: hostData, isLoading: isHostLoading } = useFetchUserProfile(hostId);
 
 	if (isLoading || isHostLoading) return <Loader />;
 
+	// TODO: 수락 대기중 api 추가
 	return data && hostData ? (
-		<StudyCurrentStatePresenter host={hostData.userProfile} studyUsers={data} capacity={capacity} />
+		<StudyCurrentStatePresenter host={hostData.userProfile} studyUsers={data} capacity={capacity} isHost={isHost} />
 	) : (
 		<div />
 	);

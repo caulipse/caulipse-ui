@@ -1,6 +1,6 @@
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
 import { useParams, useLocation } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -13,6 +13,8 @@ import ModalKeyEnum from '@common/modal/enum';
 import { IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
+
+const exampleUserId = '36950d7b-9bd4-4b8e-8430-2cbe6ded3e67';
 
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
@@ -30,8 +32,16 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const { openSnackbar } = useSnackbar();
 
+	const isHost = useMemo(() => {
+		return exampleUserId === studyData?.HOST_ID;
+	}, [exampleUserId, studyData]);
+
 	const onClick = () => {
-		openModal(ModalKeyEnum.ApplyModal, studyId);
+		if (isHost) {
+			openModal(ModalKeyEnum.StudyCloseModal);
+		} else {
+			openModal(ModalKeyEnum.ApplyModal);
+		}
 	};
 
 	const onClickMore = () => {
@@ -78,7 +88,10 @@ const StudyDetailPage = (): JSX.Element => {
 						<IoBookmarkOutline className="study-apply-btn-bookmark" />
 					</IconButton>
 					<div className="study-apply-btn-wrapper">
-						<CommonButton title="신청하기" onClick={onClick} />
+						<CommonButton
+							title={isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+							onClick={onClick}
+						/>
 					</div>
 				</div>
 			</div>
@@ -99,6 +112,7 @@ const StudyDetailPage = (): JSX.Element => {
 								weekday={studyData.weekday}
 								frequency={studyData.frequency}
 								location={studyData.location}
+								isHost={isHost}
 							/>
 						)}
 						{studyData && (
@@ -112,6 +126,7 @@ const StudyDetailPage = (): JSX.Element => {
 								studyAbout={studyData.studyAbout}
 								capacity={studyData.capacity}
 								initialIndex={initialIndex}
+								isHost={isHost}
 							/>
 						)}
 						<CTAButtons />

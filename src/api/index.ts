@@ -52,9 +52,13 @@ const API = {
 		return client.delete(`/study/${id}/comment/${commentId}/metoo`);
 	},
 	// 스터디 목록 조회
-	getStudies() {
+	getStudies(orderBy?: string) {
 		// TODO parameters
-		return client.get(`/study`);
+		let url = '/study';
+		if (orderBy) {
+			url += `?order_by=${orderBy}`;
+		}
+		return client.get(url);
 	},
 	// 새로운 스터디 생성
 	postStudy(request: IRequestPostStudy) {

@@ -112,8 +112,8 @@ const StudyDetailPage = (): JSX.Element => {
 	const DeskTopCTABuuttons = useCallback(() => {
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
-				<Button>스터디 신청하기</Button>
-				<Button>북마크하기</Button>
+				<Button className="desktop-cta-apply">스터디 신청하기</Button>
+				<Button className="desktop-cta-bookmark">북마크하기</Button>
 			</ButtonGroup>
 		);
 	}, []);

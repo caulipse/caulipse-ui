@@ -1,6 +1,14 @@
 @import "@scss/mixins";
 @import "@scss/variables";
 
+@mixin desktop-cta-btn {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16) !important;
+  border-radius: .5rem !important;
+  font-size: .833rem !important;
+  font-weight: bold !important;
+  border: none !important;
+}
+
 .studyDetailContainer {
   display: flex !important;
   flex-direction: column !important;
@@ -83,6 +91,19 @@
     @include mobile{
       display: none !important;
     }
+  }
+  &-apply{
+    @include desktop-cta-btn();
+    color: #f9f9f9 !important;
+    background-color: #1574e3 !important;
+    padding: 3.2rem 0 !important;
+  }
+  &-bookmark{
+    @include desktop-cta-btn();
+    color: #393939 !important;
+    background-color: #ffffff !important;
+    padding: 1rem 0 !important;
+    margin-top: .916rem !important;
   }
 }
 

@@ -109,7 +109,7 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [onClick]);
 
-	const DeskTopCTABuuttons = useCallback(() => {
+	const DeskTopCTAButtons = useCallback(() => {
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
 				<Button className="desktop-cta-apply" onClick={onClick}>
@@ -144,7 +144,7 @@ const StudyDetailPage = (): JSX.Element => {
 						</div>
 						<div className="study-desktop-content-container">
 							<div className="study-desktop-content-wrapper">
-								<DeskTopCTABuuttons />
+								<DeskTopCTAButtons />
 								{studyData && (
 									<StudyContentContainer
 										studyId={studyData.id}

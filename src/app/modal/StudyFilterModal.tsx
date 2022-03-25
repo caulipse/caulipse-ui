@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
@@ -8,15 +8,16 @@ import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/iconButton/types';
-import { IFilterOption } from '@src/app/study/types';
+import { useAtom } from 'jotai';
+import { studyListState } from '@src/state';
 import './studyFilterModal.scss';
 
-const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
+const frequencies = ['1회', '주 2-4회', '주 5회 이상'];
 const days = ['월', '화', '수', '목', '금', '토', '일'];
 const places = [
 	'중앙도서관',
-	'학교스터디룸',
-	'일반 카페',
+	'학교 스터디룸',
+	'일반카페',
 	'스터디카페',
 	'서울대입구, 낙성대',
 	'흑석, 상도',
@@ -28,15 +29,16 @@ const places = [
 // 마감항목 표시 버튼 디자인 완료되면 반영 필요
 
 const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [filter, setFilter] = useState({ weekday: [], frequency: [], location: [] } as IFilterOption);
+	const [state, setState] = useAtom(studyListState);
+	const [filter, setFilter] = useState(state?.filterOption);
 
 	const onClickCancel = () => {
 		setFilter({ weekday: [], frequency: [], location: [] });
 	};
 
 	const onClick = () => {
-		// TODO
-		// 필터 적용 API 연동
+		setState({ ...state, filterOption: filter });
+		onClose(false);
 	};
 
 	const onChange = (key: 'frequency' | 'location' | 'weekday', value: string) => {
@@ -110,4 +112,4 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	);
 };
 
-export default StudyFilterModal;
+export default memo(StudyFilterModal);

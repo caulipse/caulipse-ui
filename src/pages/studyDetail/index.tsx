@@ -116,29 +116,38 @@ const StudyDetailPage = (): JSX.Element => {
 			) : (
 				<div className="studyDetailContainer">
 					<div className="studyDetailBg">
-						<StudyDetailHeader />
-						{studyData && (
-							<StudyInfoContainer
-								categoryCode={studyData.categoryCode}
-								weekday={studyData.weekday}
-								frequency={studyData.frequency}
-								location={studyData.location}
-							/>
-						)}
-						{studyData && (
-							<StudyContentContainer
-								studyId={studyData.id}
-								hostId={studyData.HOST_ID}
-								createdAt={studyData.createdAt}
-								views={studyData.views}
-								bookmarkCount={studyData.bookmarkCount}
-								title={studyData.title}
-								studyAbout={studyData.studyAbout}
-								capacity={studyData.capacity}
-								initialIndex={initialIndex}
-								isHost={isHost}
-							/>
-						)}
+						<div className="study-desktop-header-container">
+							<div className="study-desktop-header-wrapper">
+								<StudyDetailHeader />
+								{studyData && (
+									<StudyInfoContainer
+										categoryCode={studyData.categoryCode}
+										weekday={studyData.weekday}
+										frequency={studyData.frequency}
+										location={studyData.location}
+									/>
+								)}
+							</div>
+						</div>
+						<div className="study-desktop-content-container">
+							<div className="study-desktop-content-wrapper">
+								{studyData && (
+									<StudyContentContainer
+										studyId={studyData.id}
+										hostId={studyData.HOST_ID}
+										createdAt={studyData.createdAt}
+										views={studyData.views}
+										bookmarkCount={studyData.bookmarkCount}
+										title={studyData.title}
+										studyAbout={studyData.studyAbout}
+										capacity={studyData.capacity}
+										initialIndex={initialIndex}
+										isHost={isHost}
+									/>
+								)}
+							</div>
+						</div>
+
 						{state.login && <CTAButtons />}
 					</div>
 				</div>

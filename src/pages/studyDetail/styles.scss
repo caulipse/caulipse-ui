@@ -6,16 +6,52 @@
   flex-direction: column !important;
   width: 100% !important;
   align-items: center !important;
-  @include desktop{
-    background-color: transparent !important;
-  }
   .studyDetailBg{
     background-color: $primaryColor !important;
     max-width: $maxContentWidth !important;
     width:100% !important;
     @include desktop{
-      max-width: $desktopMaxContentWidth !important;
+      max-width: none !important;
       background-color: transparent !important;
+    }
+    .study-desktop{
+      &-header-container{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          margin: auto !important;
+          background-color: $primaryColor !important;
+          width: 100% !important;
+        }
+      }
+      &-header-wrapper{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+          max-width: $desktopMaxContentWidth !important;
+          margin: auto !important;
+        }
+      }
+      &-content-container{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          margin: auto !important;
+          background-color: transparent !important;
+          width: 100% !important;
+          margin-top: 2rem !important;
+        }
+      }
+      &-content-wrapper{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+          max-width: $desktopMaxContentWidth !important;
+          margin: auto !important;
+        }
+      }
     }
     .backButtonContainer {
       position: sticky;
@@ -32,6 +68,7 @@
     }
   }
 }
+
 .study-apply-btn{
   &-container{
     display: flex;

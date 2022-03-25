@@ -5,4 +5,7 @@ export interface getNoticeInterface {
 	notice: Notice;
 }
 
-export type getNoticesInterface = Notice[];
+export interface getNoticesInterface {
+	data: Notice[];
+	pages: number;
+}

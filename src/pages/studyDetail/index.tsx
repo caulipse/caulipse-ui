@@ -1,7 +1,7 @@
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useCallback, useMemo } from 'react';
-import { IoBookmarkOutline, IoEllipsisVertical, IoShareSocialOutline } from 'react-icons/io5';
+import { IoBookmarkOutline, IoEllipsisVertical, IoPencil, IoShareSocialOutline } from 'react-icons/io5';
 import { useParams, useLocation } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '@src/hooks/modal/useModal';
@@ -13,6 +13,8 @@ import ModalKeyEnum from '@common/modal/enum';
 import { IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 const exampleUserId = '36950d7b-9bd4-4b8e-8430-2cbe6ded3e67';
 
@@ -29,8 +31,8 @@ const StudyDetailPage = (): JSX.Element => {
 	const initialIndex = location.state?.initialIndex ?? 1;
 
 	const { openModal } = useModal();
-
 	const { openSnackbar } = useSnackbar();
+	const [state] = useAtom(globalState);
 
 	const isHost = useMemo(() => {
 		return exampleUserId === studyData?.HOST_ID;
@@ -65,6 +67,10 @@ const StudyDetailPage = (): JSX.Element => {
 		postBookmark.mutate();
 	};
 
+	const onClickEdit = () => {
+		// TODO: 수정로직 추가하기
+	};
+
 	const StudyDetailHeader = useCallback(() => {
 		return (
 			<div className="backButtonContainer">
@@ -87,6 +93,11 @@ const StudyDetailPage = (): JSX.Element => {
 					<IconButton onClick={onClickPostBookmark}>
 						<IoBookmarkOutline className="study-apply-btn-bookmark" />
 					</IconButton>
+					{isHost && (
+						<IconButton onClick={onClickEdit}>
+							<IoPencil className="study-apply-btn-bookmark" />
+						</IconButton>
+					)}
 					<div className="study-apply-btn-wrapper">
 						<CommonButton
 							title={isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
@@ -112,7 +123,6 @@ const StudyDetailPage = (): JSX.Element => {
 								weekday={studyData.weekday}
 								frequency={studyData.frequency}
 								location={studyData.location}
-								isHost={isHost}
 							/>
 						)}
 						{studyData && (
@@ -129,7 +139,7 @@ const StudyDetailPage = (): JSX.Element => {
 								isHost={isHost}
 							/>
 						)}
-						<CTAButtons />
+						{state.login && <CTAButtons />}
 					</div>
 				</div>
 			)}

@@ -6,24 +6,9 @@ interface StudyInfoContainerProps {
 	weekday: string;
 	frequency: string;
 	location: string;
-	isHost: boolean;
 }
-const StudyInfoContainer = ({
-	categoryCode,
-	weekday,
-	frequency,
-	location,
-	isHost,
-}: StudyInfoContainerProps): JSX.Element => {
-	return (
-		<StudyInfoPresenter
-			categoryCode={categoryCode}
-			weekday={weekday}
-			frequency={frequency}
-			location={location}
-			isHost={isHost}
-		/>
-	);
+const StudyInfoContainer = ({ categoryCode, weekday, frequency, location }: StudyInfoContainerProps): JSX.Element => {
+	return <StudyInfoPresenter categoryCode={categoryCode} weekday={weekday} frequency={frequency} location={location} />;
 };
 
 export default StudyInfoContainer;

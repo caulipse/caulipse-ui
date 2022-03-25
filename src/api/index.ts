@@ -137,8 +137,13 @@ const API = {
 		return client.patch(`/user/profile/${request.userId}`, request);
 	},
 	// 공지 사항 목록 조회
-	getNotices() {
-		return client.get('/notice');
+	getNotices(offset?: number, limit?: number) {
+		return client.get('/notice', {
+			params: {
+				offset,
+				limit,
+			},
+		});
 	},
 	// 공지 사항 단건 조회
 	getNotice(id: string) {

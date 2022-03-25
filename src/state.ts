@@ -32,6 +32,11 @@ const globalState = atom({
 
 export const studyListState = atom({
 	sortOption: sortOptions[0],
+	filterOption: {
+		weekday: [],
+		frequency: [],
+		location: [],
+	},
 	selectedSubCategories: [] as CategoryType[],
 } as IStudyListState);
 

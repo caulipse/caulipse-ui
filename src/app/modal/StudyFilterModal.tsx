@@ -8,6 +8,7 @@ import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/iconButton/types';
+import { IFilterOption } from '@src/app/study/types';
 import './studyFilterModal.scss';
 
 const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
@@ -27,9 +28,7 @@ const places = [
 // 마감항목 표시 버튼 디자인 완료되면 반영 필요
 
 const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [selectedFrequencies, setSelectedFrequencies] = useState([] as string[]);
-	const [selectedDays, setSelectedDays] = useState([] as string[]);
-	const [selectedPlaces, setSelectedPlaces] = useState([] as string[]);
+	const [filter, setFilter] = useState({ weekday: [], frequency: [], location: [] } as IFilterOption);
 
 	const onClickCancel = () => {
 		// TODO
@@ -41,27 +40,14 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 		// 필터 적용 API 연동
 	};
 
-	const onChangeFrequencies = (value: string) => {
-		if (selectedFrequencies.includes(value)) {
-			setSelectedFrequencies(selectedFrequencies.filter((item) => item !== value));
+	const onChange = (key: 'frequency' | 'location' | 'weekday', value: string) => {
+		if (filter?.[key]?.includes(value)) {
+			setFilter({ ...filter, [key]: filter?.[key]?.filter((item) => item !== value) });
 		} else {
-			setSelectedFrequencies(selectedFrequencies.concat(value));
-		}
-	};
-
-	const onChangeDays = (value: string) => {
-		if (selectedDays.includes(value)) {
-			setSelectedDays(selectedDays.filter((item) => item !== value));
-		} else {
-			setSelectedDays(selectedDays.concat(value));
-		}
-	};
-
-	const onChangePlaces = (value: string) => {
-		if (selectedPlaces.includes(value)) {
-			setSelectedPlaces(selectedPlaces.filter((item) => item !== value));
-		} else {
-			setSelectedPlaces(selectedPlaces.concat(value).slice(-3));
+			/* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+			key === 'location'
+				? setFilter({ ...filter, location: filter?.location?.concat(value).slice(-3) })
+				: setFilter({ ...filter, [key]: filter?.[key]?.concat(value) });
 		}
 	};
 
@@ -81,11 +67,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						<Grid container spacing={1}>
 							{frequencies.map((item) => {
 								const handleClick = () => {
-									onChangeFrequencies(item);
+									onChange('frequency', item);
 								};
 								return (
 									<Grid key={item} item xs={4} className="modal-chip-item">
-										<Chip label={item} selected={selectedFrequencies.includes(item)} onClick={handleClick} />
+										<Chip label={item} selected={filter?.frequency?.includes(item)} onClick={handleClick} />
 									</Grid>
 								);
 							})}
@@ -96,9 +82,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-days">
 							{days.map((item) => {
 								const handleClick = () => {
-									onChangeDays(item);
+									onChange('weekday', item);
 								};
-								return <Chip key={item} label={item} selected={selectedDays.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip key={item} label={item} selected={filter?.weekday?.includes(item)} onClick={handleClick} />
+								);
 							})}
 						</Container>
 					</Container>
@@ -108,9 +96,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-places">
 							{places.map((item) => {
 								const handleClick = () => {
-									onChangePlaces(item);
+									onChange('location', item);
 								};
-								return <Chip key={item} label={item} selected={selectedPlaces.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip key={item} label={item} selected={filter?.location?.includes(item)} onClick={handleClick} />
+								);
 							})}
 						</Container>
 					</Container>

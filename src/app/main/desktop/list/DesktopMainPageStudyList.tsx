@@ -8,7 +8,7 @@ import { Study } from '@api/types';
 import './index.scss';
 
 const DesktopMainPageStudyList = (): JSX.Element => {
-	const { data, isLoading } = fetchStudies();
+	const { data, isLoading } = fetchStudies('최근 등록순');
 	const studies = data?.studies || ([] as Study[]);
 
 	return (

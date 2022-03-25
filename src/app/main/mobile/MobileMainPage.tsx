@@ -13,7 +13,7 @@ import './index.scss';
 
 const MobileMainPage = (): JSX.Element => {
 	const history = useHistory();
-	const { data, isLoading } = fetchStudies();
+	const { data, isLoading } = fetchStudies('최근 등록순');
 	const studies = data?.studies || ([] as Study[]);
 
 	const onClick = (category: MainCategoryType) => {

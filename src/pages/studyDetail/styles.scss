@@ -37,9 +37,9 @@
         @include desktop{
           display: flex !important;
           flex-direction: column !important;
-          margin: auto !important;
           background-color: transparent !important;
           width: 100% !important;
+          margin: auto !important;
           margin-top: 2rem !important;
         }
       }
@@ -70,14 +70,23 @@
 }
 
 .desktop-cta{
-  @include desktop{
-    &-container{
+  &-container{
+    @include desktop{
       display: flex !important;
       flex: 1 !important;
       margin-right: 1.5rem !important;
+      margin-left: .75rem !important;
+    }
+    @include tablet{
+      display: none !important; 
+    }
+    @include mobile{
+      display: none !important;
     }
   }
 }
+
+
 
 .study-apply-btn{
   &-container{

@@ -2,14 +2,21 @@
 @import "@scss/variables";
 
 .studyDetailContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  align-items: center !important;
+  @include desktop{
+    background-color: $primaryColor !important;
+  }
   .studyDetailBg{
-    background-color: $primaryColor;
+    background-color: $primaryColor !important;
     max-width: $maxContentWidth !important;
-    width:100%;
+    width:100% !important;
+    @include desktop{
+      max-width: $desktopMaxContentWidth !important;
+      background-color: transparent !important;
+    }
     .backButtonContainer {
       position: sticky;
       padding-top: 0.625rem;

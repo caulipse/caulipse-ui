@@ -7,7 +7,7 @@
   width: 100% !important;
   align-items: center !important;
   @include desktop{
-    background-color: $primaryColor !important;
+    background-color: transparent !important;
   }
   .studyDetailBg{
     background-color: $primaryColor !important;

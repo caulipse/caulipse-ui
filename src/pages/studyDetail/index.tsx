@@ -10,7 +10,7 @@ import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
-import { IconButton } from '@material-ui/core';
+import { Button, ButtonGroup, IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 import { useAtom } from 'jotai';
@@ -109,6 +109,15 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [onClick]);
 
+	const DeskTopCTABuuttons = useCallback(() => {
+		return (
+			<ButtonGroup orientation="vertical" className="desktop-cta-container">
+				<Button>스터디 신청하기</Button>
+				<Button>북마크하기</Button>
+			</ButtonGroup>
+		);
+	}, []);
+
 	return (
 		<>
 			{isLoading ? (
@@ -131,6 +140,7 @@ const StudyDetailPage = (): JSX.Element => {
 						</div>
 						<div className="study-desktop-content-container">
 							<div className="study-desktop-content-wrapper">
+								<DeskTopCTABuuttons />
 								{studyData && (
 									<StudyContentContainer
 										studyId={studyData.id}
@@ -147,7 +157,6 @@ const StudyDetailPage = (): JSX.Element => {
 								)}
 							</div>
 						</div>
-
 						{state.login && <CTAButtons />}
 					</div>
 				</div>

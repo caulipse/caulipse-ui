@@ -1,33 +1,14 @@
-
-import * as Factory from 'factory.ts';
-import React, { useEffect } from 'react';
-import { AppliedStudyInterface } from '../interface/interface';
+import Loader from '@src/components/common/loader/Loader';
+import useFetchAppliedStudies from '@src/hooks/remotes/user/useFetchAppliedStudies';
+import React from 'react';
 import AppliedStudiesPresenter from './AppliedStudiesPresenter';
 
 const AppliedStudiesContainer = (): JSX.Element => {
+	const { data, isLoading } = useFetchAppliedStudies();
 
-	const getAppliedStudiesData = (iter: number) => {
-		const appliedStudiesFactory = Factory.Sync.makeFactory<AppliedStudyInterface>({
-			studyId: Factory.each((i) => i),
-			title: '제목입니다.',
-			currentNumber: 1,
-			maxNumber: 10,
-			date: new Date(),
-			hits: 5,
-			bookmarks: 5,
-			status: Factory.each((i) => (i > 2 ? 'accepted' : 'waiting')),
-		});
-		return appliedStudiesFactory.buildList(iter);
-	};
+	if (isLoading) return <Loader />;
 
-	return (
-		<div>
-			<AppliedStudiesPresenter
-				openedAppliedStudies={getAppliedStudiesData(5)}
-				closedAppliedStudies={getAppliedStudiesData(3)}
-			/>
-		</div>
-	);
+	return <div>{data && <AppliedStudiesPresenter openedAppliedStudies={data} closedAppliedStudies={data} />}</div>;
 };
 
 export default AppliedStudiesContainer;

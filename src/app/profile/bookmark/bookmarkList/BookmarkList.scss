@@ -20,6 +20,13 @@
         height: 1.5rem;
         color:#929699;
     }
+    &-chip{
+        font-size: .75rem !important;
+        color: $primaryColor !important;
+        padding: .125rem .75rem !important;
+        border-radius: .625rem !important;
+        border: 1px $primaryColor solid;
+    }
 }
 .mb-438rem{
     margin-bottom: .438rem;

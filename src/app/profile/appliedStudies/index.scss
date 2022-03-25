@@ -1,9 +1,17 @@
 @import '../../../scss/variables';
 
 @mixin title($color){
-    font-size: 0.688rem;
+    font-size: 1rem;
     font-weight: bold;
     color: $color;
+}
+@mixin chip($bgcolor, $fontColor) {
+    font-size: .75rem !important;
+    padding: .125rem .75rem !important;
+    border-radius: .625rem !important;
+    border: 1px $primaryColor solid !important;
+    background-color: $bgcolor !important;
+    color: $fontColor !important;
 }
 
 .applied-studies{
@@ -15,6 +23,25 @@
     }
     &-title{
         @include title(#212b36);
+    }
+    &-chip-con{
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+    &-chip{
+        @include chip(white, $primaryColor);
+    }
+    &-chip-filled{
+        @include chip($primaryColor, white);
+    }
+    &-chip-disabled{
+        @include chip(#f9f9f9, #929699);
+        border: none !important;
+    }
+    &-menu{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
     }
     &-accordian{
         &-container{
@@ -38,19 +65,18 @@
     }
     &-closed{
         &-title{
-            @include title(#637381);
-            margin-top: 2rem;
-        }
-        &-list-container{
-            display: flex;
-            flex-direction: column;
-            margin: 1rem -1.25rem;
+            @include title(#b4b4b4);
+            margin-top: 3.5rem;
+            margin-bottom: 1rem;
         }
     }
 }
-.mt40{
-    margin-top: 2.5rem;
+.mt2rem{
+    margin-top: 2rem !important;
 }
 .mb16{
     margin-bottom: 1rem;
+}
+.ml_25rem{
+    margin-left: .25rem !important;
 }

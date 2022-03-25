@@ -1,8 +1,10 @@
+@import '@scss/variables';
+
 @mixin title(){
     font-weight: bold;
     font-size: 1rem;
     color: #212b36;
-    margin: 3rem 0 1rem 0;
+    margin: 2rem 0 1rem 0;
 }
 
 .recruiting-studies{
@@ -15,6 +17,7 @@
     &-title-blurred{
         @include title();
         color:#b4b4b4 !important;
+        margin-top: 3.5rem !important;
     }
     &-closed-container{
         margin: 0 -1rem;
@@ -22,6 +25,13 @@
     &-icon{
         width: 1.5rem !important;
         height: 1.5rem !important;
+    }
+    &-chip{
+        font-size: .75rem !important;
+        color: $primaryColor !important;
+        padding: .125rem .75rem !important;
+        border-radius: .625rem !important;
+        border: 1px $primaryColor solid;
     }
 }
 .mt1rem{

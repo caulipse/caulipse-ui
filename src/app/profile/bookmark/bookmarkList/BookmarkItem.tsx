@@ -1,13 +1,12 @@
 import React, { useCallback } from 'react';
 import { Study } from '@src/api/types';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
-import Chip from '@src/components/common/chip/Chip';
-import { ChipTypeEnum } from '@src/components/common/chip/types';
 import { IoBookmark, IoClose } from 'react-icons/io5';
 import './BookmarkList.scss';
 import ProgressBar from '@src/components/common/progress/ProgressBar';
 import classNames from 'classnames';
 import useDeleteBookmark from '@src/hooks/remotes/bookmark/useDeleteBookmark';
+import { Box } from '@material-ui/core';
 
 interface BookmarkItemProps {
 	item: Study;
@@ -19,11 +18,7 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 	const deleteBookmark = useDeleteBookmark(item.id);
 
 	const LeftTopComponent = useCallback(() => {
-		return (
-			<div>
-				<Chip selected label="D-18" type={ChipTypeEnum.secondary} />
-			</div>
-		);
+		return <Box className="bookmark-item-chip">D-18</Box>;
 	}, []);
 
 	const RightTopComponent = useCallback(() => {

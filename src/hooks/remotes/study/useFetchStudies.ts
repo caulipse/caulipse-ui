@@ -20,6 +20,11 @@ export default (orderBy: string, filter?: IFilterOption) => {
 	if (filter?.weekday?.length) {
 		queryKey += filter?.weekday?.join(',');
 	}
+	if (filter?.categoryCode?.length) {
+		queryKey += filter?.categoryCode?.reduce((acc, cur) => {
+			return acc + cur.label;
+		}, '');
+	}
 
 	return useQuery(queryKey, fetcher, {
 		onError: (e) => {

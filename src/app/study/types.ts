@@ -9,10 +9,10 @@ export interface IFilterOption {
 	frequency: string[];
 	weekday: string[];
 	location: string[];
+	categoryCode: CategoryType[];
 }
 
 export interface IStudyListState {
 	sortOption: ISortOption;
 	filterOption: IFilterOption;
-	selectedSubCategories: CategoryType[];
 }

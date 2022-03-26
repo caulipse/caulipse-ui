@@ -33,7 +33,7 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	const [filter, setFilter] = useState(state?.filterOption);
 
 	const onClickCancel = () => {
-		setFilter({ weekday: [], frequency: [], location: [] });
+		setFilter({ ...filter, weekday: [], frequency: [], location: [] });
 	};
 
 	const onClick = () => {

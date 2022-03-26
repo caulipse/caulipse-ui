@@ -15,7 +15,7 @@ interface ISubCategoryPresenterProps {
 
 const SubCategoryPresenter = ({ onChange, mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
 	const [state] = useAtom(studyListState);
-	const { selectedSubCategories } = state;
+	const { filterOption } = state;
 	const selectedCategory = useMemo(() => {
 		return categories.find((category) => {
 			return category.code === mainCategory?.code;
@@ -31,7 +31,7 @@ const SubCategoryPresenter = ({ onChange, mainCategory }: ISubCategoryPresenterP
 							key={category.code}
 							category={category}
 							onClick={onChange}
-							selected={selectedSubCategories.includes(category)}
+							selected={filterOption?.categoryCode?.includes(category)}
 						/>
 					))}
 				</Grid>

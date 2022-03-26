@@ -36,8 +36,8 @@ export const studyListState = atom({
 		weekday: [],
 		frequency: [],
 		location: [],
+		categoryCode: [] as CategoryType[],
 	},
-	selectedSubCategories: [] as CategoryType[],
 } as IStudyListState);
 
 export default globalState;

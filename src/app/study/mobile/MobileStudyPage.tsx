@@ -15,7 +15,7 @@ const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [state, setState] = useAtom(studyListState);
 
-	const { selectedSubCategories } = state;
+	const { filterOption } = state;
 
 	const onClickCreate = () => {
 		// TODO
@@ -25,7 +25,7 @@ const MobileStudyPage = (): JSX.Element => {
 	useEffect(() => {
 		// TODO
 		// API 연동
-		setState({ ...state, selectedSubCategories: [] as CategoryType[] });
+		setState({ ...state, filterOption: { ...filterOption, categoryCode: [] as CategoryType[] } });
 	}, [mainCategory]);
 
 	const element = useRef(null);
@@ -47,15 +47,18 @@ const MobileStudyPage = (): JSX.Element => {
 	}, [onScroll]);
 
 	const onClick = (category: CategoryType) => {
-		setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
+		setState({
+			...state,
+			filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.filter((item) => item !== category) },
+		});
 	};
 
 	return (
 		<Container className="study-list-container">
 			<MobileMainCategoryContainer onChange={setMainCategory} />
 			{collapse ? (
-				selectedSubCategories?.length && (
-					<SubCategoryCollapsedPresenter selectedSubCategories={selectedSubCategories} onClick={onClick} />
+				filterOption?.categoryCode?.length && (
+					<SubCategoryCollapsedPresenter selectedSubCategories={filterOption?.categoryCode} onClick={onClick} />
 				)
 			) : (
 				<SubCategoryContainer mainCategory={mainCategory} />

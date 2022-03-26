@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Container, Radio, RadioGroup, FormControlLabel } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
@@ -17,7 +17,6 @@ const StudySortModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const onClick = () => {
 		const newOption = sortOptions.find((item) => item.value === selectedOption)!;
 		setState({ ...state, sortOption: newOption });
-		// TODO 정렬 API 연동
 		onClose(false);
 	};
 	const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,4 +45,4 @@ const StudySortModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	);
 };
 
-export default StudySortModal;
+export default memo(StudySortModal);

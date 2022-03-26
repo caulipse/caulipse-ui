@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from '@src/config';
+import { IFilterOption } from '@src/app/study/types';
 import { IRequestLogin, IRequestSignUp, IRequestPatchUser } from './request/user';
 import { IRequestPostUserProfile, IRequestPatchUserProfile } from './request/userProfile';
 import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
@@ -52,9 +53,17 @@ const API = {
 		return client.delete(`/study/${id}/comment/${commentId}/metoo`);
 	},
 	// 스터디 목록 조회
-	getStudies() {
-		// TODO parameters
-		return client.get(`/study`);
+	getStudies(orderBy?: string, filter?: IFilterOption) {
+		// FIXME
+		// 멀티 필터 가능하도록 수정
+		return client.get('/study', {
+			params: {
+				order_by: orderBy,
+				frequency: filter?.frequency?.[0],
+				location: filter?.location?.[0],
+				weekday: filter?.weekday?.[0],
+			},
+		});
 	},
 	// 새로운 스터디 생성
 	postStudy(request: IRequestPostStudy) {

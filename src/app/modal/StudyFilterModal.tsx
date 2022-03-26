@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
@@ -8,14 +8,16 @@ import { ButtonTypeEnum } from '@common/button/types';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/iconButton/types';
+import { useAtom } from 'jotai';
+import { studyListState } from '@src/state';
 import './studyFilterModal.scss';
 
-const frequencies = ['주 1회', '주 2~4회', '주 5회 이상'];
+const frequencies = ['1회', '주 2-4회', '주 5회 이상'];
 const days = ['월', '화', '수', '목', '금', '토', '일'];
 const places = [
 	'중앙도서관',
-	'학교스터디룸',
-	'일반 카페',
+	'학교 스터디룸',
+	'일반카페',
 	'스터디카페',
 	'서울대입구, 낙성대',
 	'흑석, 상도',
@@ -27,41 +29,26 @@ const places = [
 // 마감항목 표시 버튼 디자인 완료되면 반영 필요
 
 const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [selectedFrequencies, setSelectedFrequencies] = useState([] as string[]);
-	const [selectedDays, setSelectedDays] = useState([] as string[]);
-	const [selectedPlaces, setSelectedPlaces] = useState([] as string[]);
+	const [state, setState] = useAtom(studyListState);
+	const [filter, setFilter] = useState(state?.filterOption);
 
 	const onClickCancel = () => {
-		// TODO
-		// 필터 clear 로직
+		setFilter({ weekday: [], frequency: [], location: [] });
 	};
 
 	const onClick = () => {
-		// TODO
-		// 필터 적용 API 연동
+		setState({ ...state, filterOption: filter });
+		onClose(false);
 	};
 
-	const onChangeFrequencies = (value: string) => {
-		if (selectedFrequencies.includes(value)) {
-			setSelectedFrequencies(selectedFrequencies.filter((item) => item !== value));
+	const onChange = (key: 'frequency' | 'location' | 'weekday', value: string) => {
+		if (filter?.[key]?.includes(value)) {
+			setFilter({ ...filter, [key]: filter?.[key]?.filter((item) => item !== value) });
 		} else {
-			setSelectedFrequencies(selectedFrequencies.concat(value));
-		}
-	};
-
-	const onChangeDays = (value: string) => {
-		if (selectedDays.includes(value)) {
-			setSelectedDays(selectedDays.filter((item) => item !== value));
-		} else {
-			setSelectedDays(selectedDays.concat(value));
-		}
-	};
-
-	const onChangePlaces = (value: string) => {
-		if (selectedPlaces.includes(value)) {
-			setSelectedPlaces(selectedPlaces.filter((item) => item !== value));
-		} else {
-			setSelectedPlaces(selectedPlaces.concat(value).slice(-3));
+			/* eslint no-unused-expressions: ["error", { "allowTernary": true }] */
+			key === 'location'
+				? setFilter({ ...filter, location: filter?.location?.concat(value).slice(-3) })
+				: setFilter({ ...filter, [key]: filter?.[key]?.concat(value) });
 		}
 	};
 
@@ -81,11 +68,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						<Grid container spacing={1}>
 							{frequencies.map((item) => {
 								const handleClick = () => {
-									onChangeFrequencies(item);
+									onChange('frequency', item);
 								};
 								return (
 									<Grid key={item} item xs={4} className="modal-chip-item">
-										<Chip label={item} selected={selectedFrequencies.includes(item)} onClick={handleClick} />
+										<Chip label={item} selected={filter?.frequency?.includes(item)} onClick={handleClick} />
 									</Grid>
 								);
 							})}
@@ -96,9 +83,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-days">
 							{days.map((item) => {
 								const handleClick = () => {
-									onChangeDays(item);
+									onChange('weekday', item);
 								};
-								return <Chip key={item} label={item} selected={selectedDays.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip key={item} label={item} selected={filter?.weekday?.includes(item)} onClick={handleClick} />
+								);
 							})}
 						</Container>
 					</Container>
@@ -108,9 +97,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-places">
 							{places.map((item) => {
 								const handleClick = () => {
-									onChangePlaces(item);
+									onChange('location', item);
 								};
-								return <Chip key={item} label={item} selected={selectedPlaces.includes(item)} onClick={handleClick} />;
+								return (
+									<Chip key={item} label={item} selected={filter?.location?.includes(item)} onClick={handleClick} />
+								);
 							})}
 						</Container>
 					</Container>
@@ -121,4 +112,4 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	);
 };
 
-export default StudyFilterModal;
+export default memo(StudyFilterModal);

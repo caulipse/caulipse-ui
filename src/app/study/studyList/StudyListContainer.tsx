@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { memo } from 'react';
 import fetchStudies from '@src/hooks/remotes/study/useFetchStudies';
 import Loader from '@common/loader/Loader';
+import { useAtom } from 'jotai';
+import { studyListState } from '@src/state';
 import StudyListPresenter from './StudyListPresenter';
 
 const StudyListContainter = (): JSX.Element => {
-	const { data, isLoading } = fetchStudies();
+	const [state] = useAtom(studyListState);
+	const { data, isLoading } = fetchStudies(state?.sortOption?.value, state?.filterOption);
 	return isLoading ? <Loader /> : <StudyListPresenter data={data?.studies} />;
 };
 
-export default StudyListContainter;
+export default memo(StudyListContainter);

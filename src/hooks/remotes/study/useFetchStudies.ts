@@ -2,16 +2,26 @@ import { useQuery } from 'react-query';
 import API from '@src/api';
 import { IResponseGetStudies } from '@api/response/study';
 import QUERY_KEY from '@src/hooks/remotes';
+import { IFilterOption } from '@src/app/study/types';
 
-// TODO
-// parameter
-export default () => {
+export default (orderBy: string, filter?: IFilterOption) => {
 	const fetcher = async (): Promise<IResponseGetStudies> => {
-		const res = await API.getStudies();
+		const res = await API.getStudies(orderBy, filter);
 		return res.data;
 	};
 
-	return useQuery(QUERY_KEY.FETCH_STUDIES, fetcher, {
+	let queryKey = `${QUERY_KEY.FETCH_STUDIES}/${orderBy}`;
+	if (filter?.frequency?.length) {
+		queryKey += filter?.frequency?.join(',');
+	}
+	if (filter?.location?.length) {
+		queryKey += filter?.location?.join(',');
+	}
+	if (filter?.weekday?.length) {
+		queryKey += filter?.weekday?.join(',');
+	}
+
+	return useQuery(queryKey, fetcher, {
 		onError: (e) => {
 			console.log(e);
 		},

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { memo } from 'react';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import { useAtom } from 'jotai';
@@ -19,7 +19,7 @@ const StudySortFilterContainter = (): JSX.Element => {
 
 	const { sortOption } = state;
 
-	return <StudySortFilterPresenter onClickFilter={onClickFilter} onClickSort={onClickSort} sort={sortOption.label} />;
+	return <StudySortFilterPresenter onClickFilter={onClickFilter} onClickSort={onClickSort} sort={sortOption?.label} />;
 };
 
-export default StudySortFilterContainter;
+export default memo(StudySortFilterContainter);

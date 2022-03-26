@@ -5,7 +5,14 @@ export interface ISortOption {
 	label: string;
 }
 
+export interface IFilterOption {
+	frequency: string[];
+	weekday: string[];
+	location: string[];
+}
+
 export interface IStudyListState {
 	sortOption: ISortOption;
+	filterOption: IFilterOption;
 	selectedSubCategories: CategoryType[];
 }

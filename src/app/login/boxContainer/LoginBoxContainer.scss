@@ -36,6 +36,14 @@
   // background-color: #f2f3f5;
 }
 
+input.portal-id:focus{
+  border: solid 1px #006ed9;
+}
+
+input.portal-pw:focus{
+  border: solid 1px #006ed9;
+}
+
 .message{
   font-size: 0.75rem;
   letter-spacing: normal;

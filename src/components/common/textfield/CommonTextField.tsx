@@ -1,4 +1,4 @@
-import { Box, FormHelperText, TextField, TextFieldProps } from '@material-ui/core';
+import { FormHelperText, TextField, TextFieldProps } from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
 import './index.scss';
@@ -50,7 +50,16 @@ const CommonTextField = ({
 			>
 				{children}
 			</TextField>
-			{helperText && type !== 'default' && <FormHelperText error>{helperText}</FormHelperText>}
+			{helperText && type !== 'default' && (
+				<FormHelperText
+					className={classNames(
+						{ 'common-text-field-helper-success': type === 'success' },
+						{ 'common-text-field-helper-error': type === 'error' }
+					)}
+				>
+					{helperText}
+				</FormHelperText>
+			)}
 		</>
 	);
 };

@@ -168,9 +168,9 @@ const MyProfileEditPresenter = ({
 				label="단과대"
 				value={currentMajor}
 				onChange={(e) => setCurrentMajor(e.target.value)}
-				textFieldProps={{ error: true }}
+				type={isMajorError ? 'error' : 'default'}
+				helperText="최소 2글자입니다."
 			/>
-			{isMajorError && <FormHelperText error>최소 2글자입니다.</FormHelperText>}
 			<Box className="profile-edit-row-container mt8">
 				<CommonTextField
 					className="profile-edit-grade-select"

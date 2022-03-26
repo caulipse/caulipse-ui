@@ -15,7 +15,7 @@ const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element
 		setValue((evt.target as HTMLInputElement).value);
 	};
 	return (
-		<SimpleModal open={open} onClose={onClose} title="신고" height="18.688rem" footer={false}>
+		<SimpleModal open={open} onClose={onClose} title="신고" height="24.688rem" footer={false}>
 			<Container className="simple-modal-content-container">
 				<RadioGroup value={value} onChange={onChange}>
 					<FormControlLabel

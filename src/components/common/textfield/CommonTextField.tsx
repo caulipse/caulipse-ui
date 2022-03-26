@@ -7,9 +7,9 @@ interface CommonTextFieldProps {
 	className?: string;
 	placeholder?: string;
 	children?: React.ReactNode;
-	label: string;
+	label?: string;
 	value: string | number;
-	onChange: (e?: any) => void;
+	onChange?: (e?: any) => void;
 	textFieldProps?: TextFieldProps;
 }
 

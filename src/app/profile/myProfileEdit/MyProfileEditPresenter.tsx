@@ -196,34 +196,32 @@ const MyProfileEditPresenter = ({
 			</Box>
 			<Box className="divider" />
 			<Box className="profile-edit-title">📚 이런 스터디에 관심있어요!</Box>
-			<TextField
-				disabled
+			<CommonTextField
 				className="profile-edit-category-input"
 				value={categoriesText}
-				margin="dense"
-				variant="outlined"
-				InputProps={{
-					endAdornment: (
-						<InputAdornment position="end">
-							<button type="button">
-								<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
-							</button>
-						</InputAdornment>
-					),
+				textFieldProps={{
+					disabled: true,
+					InputProps: {
+						endAdornment: (
+							<InputAdornment position="end">
+								<button type="button">
+									<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
+								</button>
+							</InputAdornment>
+						),
+					},
+					variant: 'outlined',
 				}}
 			/>
 			<Box className="profile-edit-title mt40">
 				👋 한줄소개<span className="profile-edit-short-intro-subtitle">({currentShortIntro?.length}/60)</span>
 			</Box>
-			<TextField
+			<CommonTextField
 				className="profile-edit-short-intro-input"
 				placeholder="프로필 상단에 보이는 소개글입니다."
-				margin="dense"
-				variant="outlined"
-				multiline
-				inputProps={{ maxLength: 60 }}
 				onChange={(e) => setCurrentShortIntro(e.target.value)}
 				value={currentShortIntro}
+				textFieldProps={{ multiline: true, minRows: 3, inputProps: { maxLength: 60 }, variant: 'outlined' }}
 			/>
 			<Box className="profile-edit-title mt2rem">😎 URL 추가</Box>
 			{currentUrls.map(renderUrls)}
@@ -236,15 +234,12 @@ const MyProfileEditPresenter = ({
 				📚 자기소개글
 				<span className="profile-edit-short-intro-subtitle"> ({currentLongIntro.length}/500)</span>
 			</Box>
-			<TextField
+			<CommonTextField
 				className="profile-edit-long-intro-textarea"
 				placeholder="프로필 문구가 너무 짧으신가요? 자기소개글을 완성시켜주세요!"
-				margin="dense"
-				variant="outlined"
-				multiline
-				inputProps={{ maxLength: 500 }}
 				value={currentLongIntro}
 				onChange={(e) => setCurrentLongIntro(e.target.value)}
+				textFieldProps={{ multiline: true, minRows: 5, inputProps: { maxLength: 500 }, variant: 'outlined' }}
 			/>
 			<Container className="profile-edit-edit-button">
 				<CommonButton

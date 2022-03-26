@@ -1,5 +1,5 @@
 .common-text-field{
-    .MuiFilledInput-root{
+    .MuiFilledInput-root, .MuiOutlinedInput-root{
         background-color: white !important;
         border: 1px solid #e2e2e2 !important;
         font-size: 1rem !important;
@@ -16,4 +16,5 @@
     .MuiInput-underline:after{
         border-bottom-color: red !important;
     }
+    
 }

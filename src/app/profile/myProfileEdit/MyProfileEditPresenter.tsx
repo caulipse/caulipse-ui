@@ -6,7 +6,7 @@ import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, ButtonBase, Container, InputAdornment, TextField, FormHelperText } from '@material-ui/core';
+import { Box, ButtonBase, Container, InputAdornment, FormHelperText } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';

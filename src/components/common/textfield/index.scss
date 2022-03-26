@@ -1,20 +1,21 @@
+@mixin base-border {
+    border: 1px solid #e2e2e2 !important;
+    font-size: 1rem !important;
+    color: #1a1a1a !important;
+    border-radius: .375rem !important;
+}
+
 .common-text-field{
     .MuiFilledInput-root, .MuiOutlinedInput-root{
         background-color: white !important;
-        border: 1px solid #e2e2e2 !important;
-        font-size: 1rem !important;
-        color: #1a1a1a !important;
-        border-radius: .375rem !important;
+        @include base-border();
         &:hover, &.Mui-focused{
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12) !important;
             border: solid 1px #b4b4b4 !important;
         }
     }
-    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-        border-color: black;
-    }
-    .MuiInput-underline:after{
-        border-bottom-color: red !important;
+    .MuiOutlinedInput-notchedOutline {
+        @include base-border();
     }
     
 }

@@ -6,23 +6,31 @@
   align-items: center;
 }
 
-.signportal-id{
+.sign-form{
   width: 100%;
-  height: auto;
-  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signportal-id{
+  width: 90%;
+  height: 2.75rem;
+  margin-top: 3.5rem;
   margin-bottom: 0.5rem;
   padding: 1rem 10rem 1rem 0rem;
-  border-radius: 10px;
+  border-radius: 6px;
   border: solid 2px #e2e2e2;
   box-sizing: border-box;
   // background-color: var(#fefefe);
 }
 
 .signportal-pd{
-  width: 100%;
-  height: auto;
+  width: 90%;
+  height: 2.75rem;
   padding: 1rem 10rem 1rem 0rem;
-  border-radius: 10px;
+  border-radius: 6px;
   border: solid 2px #e2e2e2;
   box-sizing: border-box;
   // background-color: var(#fefefe);
@@ -40,7 +48,6 @@
   justify-content: center;
   font-size: 1rem;
   font-weight: 300;
-  color:white;
 }
 
 .forgotten-btn{
@@ -49,4 +56,9 @@
   // margin: 1rem 0 10.094rem;
   padding: 0.875rem 4.813rem;
   // background-color: #fefefe;
+}
+
+Link{
+  color: white;
+  font-weight: bold;
 }

@@ -12,11 +12,11 @@ const SignupBoxContainer = (): JSX.Element => {
     return(
         <div>
             <div className="signup-portal">
-                <form>
+                <form className="sign-form">
                     <input type="text" className="signportal-id" placeholder="포탈 아이디"/>
                     <input type="password" className="signportal-pd" placeholder="비밀번호 (특수문자를 포함한 8자 이상)"/>
+                    <button type="button" className="signup-btn"><Link to="/signup">가입하기</Link></button>
                 </form>
-                <button type="button" className="signup-btn"><Link to="/signup">가입하기</Link></button>
                 <button type="button" className="forgotten-btn">비밀번호를 잊어버리셨나요?</button>
             </div>
         </div>

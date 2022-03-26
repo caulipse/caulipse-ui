@@ -12,19 +12,13 @@ export default (orderBy: string, filter?: IFilterOption) => {
 
 	let queryKey = `${QUERY_KEY.FETCH_STUDIES}/${orderBy}`;
 	if (filter?.frequency?.length) {
-		queryKey += filter?.frequency?.reduce((acc, cur) => {
-			return acc + cur;
-		}, '');
+		queryKey += filter?.frequency?.join(',');
 	}
 	if (filter?.location?.length) {
-		queryKey += filter?.location?.reduce((acc, cur) => {
-			return acc + cur;
-		}, '');
+		queryKey += filter?.location?.join(',');
 	}
 	if (filter?.weekday?.length) {
-		queryKey += filter?.weekday?.reduce((acc, cur) => {
-			return acc + cur;
-		}, '');
+		queryKey += filter?.weekday?.join(',');
 	}
 
 	return useQuery(queryKey, fetcher, {

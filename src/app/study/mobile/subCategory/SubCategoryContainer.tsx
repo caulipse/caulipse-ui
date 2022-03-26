@@ -10,13 +10,22 @@ interface ISubCategoryPresenterProps {
 
 const SubCategoryContainer = ({ mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
-	const { selectedSubCategories } = state;
+	const { filterOption } = state;
 
 	const onChange = (category: CategoryType) => {
-		if (selectedSubCategories.includes(category)) {
-			setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
+		if (filterOption?.categoryCode?.includes(category)) {
+			setState({
+				...state,
+				filterOption: {
+					...filterOption,
+					categoryCode: filterOption?.categoryCode?.filter((item) => item !== category),
+				},
+			});
 		} else {
-			setState({ ...state, selectedSubCategories: selectedSubCategories.concat(category) });
+			setState({
+				...state,
+				filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.concat(category) },
+			});
 		}
 	};
 

@@ -6,12 +6,15 @@ import SubCategoryCollapsedPresenter from './SubCategoryCollapsedPresenter';
 
 const SubCategoryCollapsedContainer = (): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
-	const { selectedSubCategories } = state;
+	const { filterOption } = state;
 
 	const onClick = (category: CategoryType) => {
-		setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
+		setState({
+			...state,
+			filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.filter((item) => item !== category) },
+		});
 	};
-	return <SubCategoryCollapsedPresenter selectedSubCategories={selectedSubCategories} onClick={onClick} />;
+	return <SubCategoryCollapsedPresenter selectedSubCategories={filterOption?.categoryCode} onClick={onClick} />;
 };
 
 export default SubCategoryCollapsedContainer;

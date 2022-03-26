@@ -62,6 +62,7 @@ const API = {
 				frequency: filter?.frequency?.[0],
 				location: filter?.location?.[0],
 				weekday: filter?.weekday?.[0],
+				categoryCode: filter?.categoryCode?.[0]?.code,
 			},
 		});
 	},

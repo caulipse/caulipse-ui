@@ -14,16 +14,19 @@ const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [state, setState] = useAtom(studyListState);
 
-	const { selectedSubCategories } = state;
+	const { filterOption } = state;
 
 	useEffect(() => {
 		// TODO
 		// API 연동
-		setState({ ...state, selectedSubCategories: [] as CategoryType[] });
+		setState({ ...state, filterOption: { ...filterOption, categoryCode: [] as CategoryType[] } });
 	}, [mainCategory]);
 
 	const onClick = (category: CategoryType) => {
-		setState({ ...state, selectedSubCategories: selectedSubCategories.filter((item) => item !== category) });
+		setState({
+			...state,
+			filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.filter((item) => item !== category) },
+		});
 	};
 
 	return (

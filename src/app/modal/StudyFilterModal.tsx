@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { ChangeEvent, useState, memo, useCallback } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
 import Chip from '@common/chip/Chip';
@@ -10,6 +10,7 @@ import '@common/modal/common.scss';
 import { IconAlignEnum } from '@common/iconButton/types';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
+import Switch from '@common/switch/Switch';
 import './studyFilterModal.scss';
 
 const frequencies = ['1회', '주 2-4회', '주 5회 이상'];
@@ -31,12 +32,15 @@ const places = [
 const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
 	const [filter, setFilter] = useState(state?.filterOption);
+	const [isHide, setIsHide] = useState(false);
 
 	const onClickCancel = () => {
 		setFilter({ ...filter, weekday: [], frequency: [], location: [] });
 	};
 
 	const onClick = () => {
+		// TODO
+		// 마감항목 숨기기 API 연동
 		setState({ ...state, filterOption: filter });
 		onClose(false);
 	};
@@ -51,6 +55,10 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 				: setFilter({ ...filter, [key]: filter?.[key]?.concat(value) });
 		}
 	};
+
+	const onChangeIsHide = useCallback((evt: ChangeEvent<HTMLInputElement>) => {
+		setIsHide(evt.target.checked);
+	}, []);
 
 	return (
 		<Modal open={open} onClose={onClose} height="44.25rem">
@@ -104,6 +112,10 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 								);
 							})}
 						</Container>
+					</Container>
+					<Container className="study-filter-modal-hide-row">
+						<span className="study-filter-modal-hide-row-title">마감항목 숨기기</span>
+						<Switch onChange={onChangeIsHide} checked={isHide} />
 					</Container>
 				</Container>
 				<CommonButton type={ButtonTypeEnum.secondary} title="적용" onClick={onClick} />

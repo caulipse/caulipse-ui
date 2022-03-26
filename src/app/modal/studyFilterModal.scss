@@ -23,6 +23,18 @@
     }
 }
 
+.study-filter-modal-hide-row {
+    padding: 0 !important;
+    margin-top: 9rem;
+    display: flex;
+    align-items: center;
+    .study-filter-modal-hide-row-title {
+        font-size: 1rem !important;
+        color: $primaryColor;
+        margin-right: 1rem;
+    }
+}
+
 .study-filter-modal-switch-row {
     display: flex !important;
     align-items: center;

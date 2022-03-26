@@ -7,28 +7,33 @@
 }
 
 .input-form{
-  padding: 5px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .portal-id{
   width: 100%;
-  height: auto;
+  height: 2.75rem;
   box-sizing: border-box;
-  padding: 1rem 10rem 1rem 0rem;
-  margin-top: 5rem;
+  padding: 0.625rem 10rem 0.625rem 0rem;
+  margin-top: 3.5rem;
   margin-bottom: 0.5rem;
-  border-radius: 10px;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  border-radius: 6px;
   border: solid 2px #e2e2e2;
   // background-color: #f2f3f5;
 }
 
 .portal-pw{
   width: 100%;
-  height: auto;
+  height: 2.75rem;
   margin: 0;
   box-sizing: border-box;
   padding: 1rem 10rem 1rem 0rem;
-  border-radius: 10px;
+  border-radius: 6px;
   border: solid 2px #e2e2e2;
   // background-color: #f2f3f5;
 }
@@ -38,8 +43,8 @@
   display: inline-block;
   width: 50%;
   height: 3rem;
-  margin: 3rem 5rem 3rem;
-  padding: 0.75rem 0rem 0.75rem 0rem;
+  margin-top: 3rem;
+  padding: 0.75rem 8.563rem 0.75rem 8.688rem;
   border-radius: 10px;
   background-color: #006ed9 !important;
   align-items: center;
@@ -57,4 +62,8 @@
 .logbtn{
   width: 100%;
   color: white;
+}
+
+input:invalid {
+  border: 1px border red;
 }

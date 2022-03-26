@@ -9,14 +9,14 @@ interface CommentItemProps {
 	comment: Comment;
 	hostId: string;
 	setShowCommentInput?: (param: boolean) => void;
+	studyId: string;
 }
 
-const CommentItem = ({ comment, hostId, setShowCommentInput }: CommentItemProps): JSX.Element => {
+const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentItemProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
-		// TODO: 신고 API 연동
-		openModal(ModalKeyEnum.ReportModal);
+		openModal(ModalKeyEnum.ReportModal, studyId);
 	};
 
 	return (

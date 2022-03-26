@@ -10,7 +10,7 @@ import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
-import { IconButton } from '@material-ui/core';
+import { Button, ButtonGroup, IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 import { useAtom } from 'jotai';
@@ -109,6 +109,19 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [onClick]);
 
+	const DeskTopCTAButtons = useCallback(() => {
+		return (
+			<ButtonGroup orientation="vertical" className="desktop-cta-container">
+				<Button className="desktop-cta-apply" onClick={onClick}>
+					{isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+				</Button>
+				<Button className="desktop-cta-bookmark" onClick={onClickPostBookmark}>
+					북마크하기
+				</Button>
+			</ButtonGroup>
+		);
+	}, []);
+
 	return (
 		<>
 			{isLoading ? (
@@ -116,29 +129,38 @@ const StudyDetailPage = (): JSX.Element => {
 			) : (
 				<div className="studyDetailContainer">
 					<div className="studyDetailBg">
-						<StudyDetailHeader />
-						{studyData && (
-							<StudyInfoContainer
-								categoryCode={studyData.categoryCode}
-								weekday={studyData.weekday}
-								frequency={studyData.frequency}
-								location={studyData.location}
-							/>
-						)}
-						{studyData && (
-							<StudyContentContainer
-								studyId={studyData.id}
-								hostId={studyData.HOST_ID}
-								createdAt={studyData.createdAt}
-								views={studyData.views}
-								bookmarkCount={studyData.bookmarkCount}
-								title={studyData.title}
-								studyAbout={studyData.studyAbout}
-								capacity={studyData.capacity}
-								initialIndex={initialIndex}
-								isHost={isHost}
-							/>
-						)}
+						<div className="study-desktop-header-container">
+							<div className="study-desktop-header-wrapper">
+								<StudyDetailHeader />
+								{studyData && (
+									<StudyInfoContainer
+										categoryCode={studyData.categoryCode}
+										weekday={studyData.weekday}
+										frequency={studyData.frequency}
+										location={studyData.location}
+									/>
+								)}
+							</div>
+						</div>
+						<div className="study-desktop-content-container">
+							<div className="study-desktop-content-wrapper">
+								<DeskTopCTAButtons />
+								{studyData && (
+									<StudyContentContainer
+										studyId={studyData.id}
+										hostId={studyData.HOST_ID}
+										createdAt={studyData.createdAt}
+										views={studyData.views}
+										bookmarkCount={studyData.bookmarkCount}
+										title={studyData.title}
+										studyAbout={studyData.studyAbout}
+										capacity={studyData.capacity}
+										initialIndex={initialIndex}
+										isHost={isHost}
+									/>
+								)}
+							</div>
+						</div>
 						{state.login && <CTAButtons />}
 					</div>
 				</div>

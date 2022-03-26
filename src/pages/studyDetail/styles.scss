@@ -1,15 +1,66 @@
 @import "@scss/mixins";
 @import "@scss/variables";
 
+@mixin desktop-cta-btn {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16) !important;
+  border-radius: .5rem !important;
+  font-size: .833rem !important;
+  font-weight: bold !important;
+  border: none !important;
+}
+
 .studyDetailContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  align-items: center !important;
   .studyDetailBg{
-    background-color: $primaryColor;
+    background-color: $primaryColor !important;
     max-width: $maxContentWidth !important;
-    width:100%;
+    width:100% !important;
+    @include desktop{
+      max-width: none !important;
+      background-color: transparent !important;
+    }
+    .study-desktop{
+      &-header-container{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          margin: auto !important;
+          background-color: $primaryColor !important;
+          width: 100% !important;
+        }
+      }
+      &-header-wrapper{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+          max-width: $desktopMaxContentWidth !important;
+          margin: auto !important;
+        }
+      }
+      &-content-container{
+        @include desktop{
+          display: flex !important;
+          flex-direction: column !important;
+          background-color: transparent !important;
+          width: 100% !important;
+          margin: auto !important;
+          margin-top: 2rem !important;
+        }
+      }
+      &-content-wrapper{
+        @include desktop{
+          display: flex !important;
+          flex-direction: row !important;
+          width: 100% !important;
+          max-width: $desktopMaxContentWidth !important;
+          margin: auto !important;
+        }
+      }
+    }
     .backButtonContainer {
       position: sticky;
       padding-top: 0.625rem;
@@ -25,6 +76,39 @@
     }
   }
 }
+
+.desktop-cta{
+  &-container{
+    @include desktop{
+      display: flex !important;
+      flex: 1 !important;
+      margin-right: 1.5rem !important;
+      margin-left: .75rem !important;
+    }
+    @include tablet{
+      display: none !important; 
+    }
+    @include mobile{
+      display: none !important;
+    }
+  }
+  &-apply{
+    @include desktop-cta-btn();
+    color: #f9f9f9 !important;
+    background-color: #1574e3 !important;
+    padding: 3.2rem 0 !important;
+  }
+  &-bookmark{
+    @include desktop-cta-btn();
+    color: #393939 !important;
+    background-color: #ffffff !important;
+    padding: 1rem 0 !important;
+    margin-top: .916rem !important;
+  }
+}
+
+
+
 .study-apply-btn{
   &-container{
     display: flex;
@@ -35,6 +119,9 @@
     background-color: white;
     max-width: $maxContentWidth;
     box-shadow: 0 -10px 20px 0 rgba(0, 0, 0, 0.08);  
+    @include desktop{
+      display: none !important;
+    }
   }
   &-padding-container{
     padding:1rem;

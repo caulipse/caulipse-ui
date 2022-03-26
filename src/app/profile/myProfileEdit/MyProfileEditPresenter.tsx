@@ -6,9 +6,10 @@ import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, Button, ButtonBase, Container, InputAdornment, TextField, FormHelperText } from '@material-ui/core';
+import { Box, ButtonBase, Container, InputAdornment, TextField, FormHelperText } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
+import CommonTextField from '@src/components/common/textfield/CommonTextField';
 
 export interface UrlInterface {
 	urlId: number;
@@ -149,63 +150,49 @@ const MyProfileEditPresenter = ({
 					<IoSettings className="profile-edit-image-icon-size" color="#ffffff" />
 				</ButtonBase>
 			</Box>
-			<TextField
-				className="profile-edit-nickname-input"
-				variant="outlined"
+			<CommonTextField
+				className="mt4_5rem"
 				placeholder="닉네임을 입력해 주세요."
 				label="닉네임"
 				value={currentNickname}
 				onChange={(e) => setCurrentNickname(e.target.value)}
-				margin="dense"
 			/>
 			<Box className={classNames('profile-edit-row-container', 'mt40')}>
 				<Box className="profile-edit-title">🙋‍♂️ 저는요..</Box>
 				<Box className="profile-edit-required-text">(필수정보)</Box>
 			</Box>
-			<TextField
-				className="profile-edit-major-input"
+			<CommonTextField
+				className="mt8"
 				placeholder="ex. 사회과학대학"
-				variant="outlined"
-				margin="dense"
 				label="단과대"
 				value={currentMajor}
 				onChange={(e) => setCurrentMajor(e.target.value)}
-				error={isMajorError}
+				textFieldProps={{ error: true }}
 			/>
 			{isMajorError && <FormHelperText error>최소 2글자입니다.</FormHelperText>}
 			<Box className="profile-edit-row-container mt8">
-				<TextField
+				<CommonTextField
 					className="profile-edit-grade-select"
-					select
 					value={currentGrade}
 					onChange={(e) => setCurrentGrade(Number(e.target.value))}
-					margin="dense"
-					variant="outlined"
 					label="학년"
-					SelectProps={{
-						native: true,
-					}}
+					textFieldProps={{ select: true, SelectProps: { native: true } }}
 				>
 					<option value={1}>1학년</option>
 					<option value={2}>2학년</option>
 					<option value={3}>3학년</option>
 					<option value={4}>4학년</option>
-				</TextField>
-				<TextField
+				</CommonTextField>
+				<CommonTextField
 					className="profile-edit-status-select"
-					select
 					value={Number(currentOnBreak)}
 					onChange={(e) => setCurrentOnBreak(Boolean(e.target.value))}
-					margin="dense"
-					variant="outlined"
 					label="재학상태"
-					SelectProps={{
-						native: true,
-					}}
+					textFieldProps={{ select: true, SelectProps: { native: true } }}
 				>
 					<option value={0}>재학중</option>
 					<option value={1}>휴학중</option>
-				</TextField>
+				</CommonTextField>
 			</Box>
 			<Box className="divider" />
 			<Box className="profile-edit-title">📚 이런 스터디에 관심있어요!</Box>

@@ -7,15 +7,21 @@
     margin-bottom: 1rem;
 }
 @mixin input{
-    border-radius: .25rem !important;
-    background-color: #ffffff !important;
-    font-size: 1rem !important;
-    color: #1a1a1a !important;
+    .MuiFilledInput-root{
+        background-color: white !important;
+        border: 1px solid #e2e2e1 !important;
+        font-size: 1rem !important;
+        color: #1a1a1a !important;
+        border-radius: .375rem !important;
+    }
     .MuiOutlinedInput-root.Mui-blurred{
         border-color: red;
     }
     .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
         border-color: black;
+    }
+    .MuiInput-underline:after{
+        border-bottom-color: red !important;
     }
 }
 @mixin subtitle {
@@ -233,4 +239,7 @@
 }
 .flex-grow-1{
     flex-grow:1;
+}
+.mt4_5rem{
+    margin-top: 4.5rem !important;
 }

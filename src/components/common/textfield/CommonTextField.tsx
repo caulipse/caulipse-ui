@@ -5,9 +5,10 @@ import './index.scss';
 
 interface CommonTextFieldProps {
 	className?: string;
-	placeholder: string;
+	placeholder?: string;
+	children?: React.ReactNode;
 	label: string;
-	value: string;
+	value: string | number;
 	onChange: (e?: any) => void;
 	textFieldProps?: TextFieldProps;
 }
@@ -19,6 +20,7 @@ const CommonTextField = ({
 	value,
 	onChange,
 	textFieldProps = {},
+	children,
 }: CommonTextFieldProps): JSX.Element => {
 	return (
 		<TextField
@@ -35,7 +37,9 @@ const CommonTextField = ({
 			}}
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			{...textFieldProps}
-		/>
+		>
+			{children}
+		</TextField>
 	);
 };
 

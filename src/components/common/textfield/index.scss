@@ -1,3 +1,5 @@
+@import '@scss/variables';
+
 @mixin base-border {
     border: 1px solid #e2e2e2 !important;
     font-size: 1rem !important;
@@ -17,5 +19,20 @@
     .MuiOutlinedInput-notchedOutline {
         @include base-border();
     }
-    
+    &-error{
+        .MuiFilledInput-root, .MuiOutlinedInput-root, .MuiOutlinedInput-notchedOutline{
+            border: 1px solid #ec6666 !important;
+            &:hover, &.Mui-focused{
+                border: 1px solid #ec6666 !important;
+            }
+        }
+    }
+    &-success{
+        .MuiFilledInput-root, .MuiOutlinedInput-root, .MuiOutlinedInput-notchedOutline{
+            border: 1px solid $primaryColor !important;
+            &:hover, &.Mui-focused{
+                border: 1px solid $primaryColor !important;
+            }
+        }
+    }
 }

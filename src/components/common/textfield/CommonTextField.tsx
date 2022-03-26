@@ -1,4 +1,4 @@
-import { TextField, TextFieldProps } from '@material-ui/core';
+import { Box, FormHelperText, TextField, TextFieldProps } from '@material-ui/core';
 import classNames from 'classnames';
 import React from 'react';
 import './index.scss';
@@ -11,6 +11,8 @@ interface CommonTextFieldProps {
 	value: string | number;
 	onChange?: (e?: any) => void;
 	textFieldProps?: TextFieldProps;
+	type?: 'default' | 'error' | 'success';
+	helperText?: string;
 }
 
 const CommonTextField = ({
@@ -21,25 +23,35 @@ const CommonTextField = ({
 	onChange,
 	textFieldProps = {},
 	children,
+	type = 'default',
+	helperText,
 }: CommonTextFieldProps): JSX.Element => {
 	return (
-		<TextField
-			className={classNames('common-text-field', className)}
-			variant="filled"
-			placeholder={placeholder}
-			label={label}
-			value={value}
-			onChange={onChange}
-			margin="dense"
-			InputProps={{ disableUnderline: true }}
-			InputLabelProps={{
-				style: { color: '#b4b4b4' },
-			}}
-			// eslint-disable-next-line react/jsx-props-no-spreading
-			{...textFieldProps}
-		>
-			{children}
-		</TextField>
+		<>
+			<TextField
+				className={classNames(
+					'common-text-field',
+					{ 'common-text-field-error': type === 'error' },
+					{ 'common-text-field-success': type === 'success' },
+					className
+				)}
+				variant="filled"
+				placeholder={placeholder}
+				label={label}
+				value={value}
+				onChange={onChange}
+				margin="dense"
+				InputProps={{ disableUnderline: true }}
+				InputLabelProps={{
+					style: { color: type === 'default' ? '#b4b4b4' : type === 'error' ? '#ec6666' : '#1574e3' },
+				}}
+				// eslint-disable-next-line react/jsx-props-no-spreading
+				{...textFieldProps}
+			>
+				{children}
+			</TextField>
+			{helperText && type !== 'default' && <FormHelperText error>{helperText}</FormHelperText>}
+		</>
 	);
 };
 

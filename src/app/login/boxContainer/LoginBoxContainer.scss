@@ -44,6 +44,14 @@ input.portal-pw:focus{
   border: solid 1px #006ed9;
 }
 
+input.portal-id:invalid{
+  border: solid 1px #fa1e69
+}
+
+input.portal-pw:invalid{
+  border: solid 1px #fa1e69
+}
+
 .message{
   font-size: 0.75rem;
   letter-spacing: normal;

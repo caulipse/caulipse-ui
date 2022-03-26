@@ -54,27 +54,16 @@ const API = {
 	},
 	// 스터디 목록 조회
 	getStudies(orderBy?: string, filter?: IFilterOption) {
-		// TODO parameters
-		let url = '/study';
-		if (orderBy) {
-			url += `?order_by=${orderBy}`;
-		}
-		if (filter?.frequency?.length) {
-			// FIXME
-			// 멀티 필터 가능하도록 수정
-			url += `&frequency=${filter?.frequency?.[0]}`;
-		}
-		if (filter?.location?.length) {
-			// FIXME
-			// 멀티 필터 가능하도록 수정
-			url += `&location=${filter?.location?.[0]}`;
-		}
-		if (filter?.weekday?.length) {
-			// FIXME
-			// 멀티 필터 가능하도록 수정
-			url += `&weekday=${filter?.weekday?.[0]}`;
-		}
-		return client.get(url);
+		// FIXME
+		// 멀티 필터 가능하도록 수정
+		return client.get('/study', {
+			params: {
+				order_by: orderBy,
+				frequency: filter?.frequency?.[0],
+				location: filter?.location?.[0],
+				weekday: filter?.weekday?.[0],
+			},
+		});
 	},
 	// 새로운 스터디 생성
 	postStudy(request: IRequestPostStudy) {

@@ -97,13 +97,11 @@ const MyProfileEditPresenter = ({
 	const renderUrls = (item: UrlInterface) => {
 		if (item?.url === null) return null;
 		return (
-			<TextField
+			<CommonTextField
 				key={item.urlId}
 				className={classNames('profile-edit-url-input', 'mb0_5rem')}
 				placeholder="자신을 잘 나타낼수록 스터디 구하기가 쉬워져요!"
 				value={item.url}
-				variant="outlined"
-				margin="dense"
 				onChange={(e) => {
 					const text = e.target.value;
 					const result = [...currentUrls].map((selectedItem) => {
@@ -117,14 +115,17 @@ const MyProfileEditPresenter = ({
 					});
 					setCurrentUrls(result);
 				}}
-				InputProps={{
-					endAdornment: (
-						<InputAdornment position="end">
-							<button type="button">
-								<IoClose className="profile-edit-icon" color="#929699" onClick={() => deleteUrl(item.urlId)} />
-							</button>
-						</InputAdornment>
-					),
+				textFieldProps={{
+					variant: 'outlined',
+					InputProps: {
+						endAdornment: (
+							<InputAdornment position="end">
+								<button type="button">
+									<IoClose className="profile-edit-icon" color="#929699" onClick={() => deleteUrl(item.urlId)} />
+								</button>
+							</InputAdornment>
+						),
+					},
 				}}
 			/>
 		);

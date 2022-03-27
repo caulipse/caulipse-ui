@@ -1,0 +1,48 @@
+@import '@scss/variables';
+
+@mixin base-border {
+    border: 1px solid #e2e2e2 !important;
+    font-size: 1rem !important;
+    color: #1a1a1a !important;
+    border-radius: .375rem !important;
+}
+
+.common-text-field{
+    .MuiFilledInput-root, .MuiOutlinedInput-root{
+        background-color: white !important;
+        @include base-border();
+        &:hover, &.Mui-focused{
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12) !important;
+            border: solid 1px #b4b4b4 !important;
+        }
+    }
+    .MuiOutlinedInput-notchedOutline {
+        @include base-border();
+    }
+    &-error{
+        .MuiFilledInput-root, .MuiOutlinedInput-root, .MuiOutlinedInput-notchedOutline{
+            border: 1px solid #ec6666 !important;
+            &:hover, &.Mui-focused{
+                border: 1px solid #ec6666 !important;
+            }
+        }
+    }
+    &-success{
+        .MuiFilledInput-root, .MuiOutlinedInput-root, .MuiOutlinedInput-notchedOutline{
+            border: 1px solid $primaryColor !important;
+            &:hover, &.Mui-focused{
+                border: 1px solid $primaryColor !important;
+            }
+        }
+    }
+    &-helper-success{
+        font-size: .75rem !important;
+        line-height: 1.25rem !important;
+        color: $primaryColor !important;
+    }
+    &-helper-error{
+        font-size: .75rem !important;
+        line-height: 1.25rem !important;
+        color: #ec6666 !important;
+    }
+}

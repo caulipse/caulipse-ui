@@ -6,34 +6,11 @@
     font-weight: bold !important;
     margin-bottom: 1rem;
 }
-@mixin input{
-    border-radius: .25rem !important;
-    background-color: #ffffff !important;
-    font-size: 1rem !important;
-    color: #1a1a1a !important;
-    .MuiOutlinedInput-root.Mui-blurred{
-        border-color: red;
-    }
-    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-        border-color: black;
-    }
-}
 @mixin subtitle {
     font-size: 0.688rem;
     color: #929699; 
     font-weight: normal;
     margin-bottom: 1rem;
-}
-@mixin select{
-    font-size: 0.75rem !important;
-    color:#1a1a1a !important;
-    border-radius: .25rem !important;
-    border: none !important;
-    background-color: #ffffff;
-    
-    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-        border-color: black;
-    }
 }
 
 .profile-edit{
@@ -88,7 +65,6 @@
     }
     &-nickname{
         &-input{
-            @include input;
             margin-top: 4.5rem !important;
         }
     }
@@ -104,7 +80,6 @@
     }
     &-major{
         &-input{
-            @include input;
             margin-top: 0.5rem;
         }
     }
@@ -113,7 +88,6 @@
             @include subtitle;
         }
         &-select{
-            @include select;
             flex:1;
             margin-top: 0.5rem !important;
             margin-right: 1rem !important;
@@ -121,7 +95,6 @@
     }
     &-status{
         &-select{
-            @include select;
             margin-top: 0.5rem !important;
             flex:2;
         }
@@ -135,18 +108,6 @@
             align-items: center;
             justify-content: space-between;
         }
-        &-input{
-            @include input();
-            font-size: .875rem !important;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 1; 
-            -webkit-box-orient: vertical;
-            .MuiOutlinedInput-root.Mui-disabled {
-                color:#4c4c4c;
-            }
-        }
         &-edit{
             font-size: 0.688rem;
             font-weight: bold;
@@ -157,7 +118,6 @@
     }
     &-short-intro{
         &-input{
-            @include input;
             margin-top: 0.5rem;
         }
         &-subtitle{
@@ -178,9 +138,6 @@
             align-self: center !important;
             margin-top: 1rem !important;
         }
-        &-input{
-            @include input;
-        }
         &-container{
             display: flex;
             flex-direction: row;
@@ -189,11 +146,6 @@
             flex:1;
             background-color: #ffffff;
             margin-top: 0.5rem;
-        }
-    }
-    &-long-intro{
-        &-textarea{
-            @include input();
         }
     }
     &-edit-button{
@@ -233,4 +185,7 @@
 }
 .flex-grow-1{
     flex-grow:1;
+}
+.mt4_5rem{
+    margin-top: 4.5rem !important;
 }

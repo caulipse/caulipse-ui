@@ -16,7 +16,7 @@
             flex-direction: column;
             align-self: center;
             width: 100%;
-            max-width: $maxContentWidth !important;
+            max-width: $mobileMaxContentWidth !important;
             background-color: transparent !important;
             padding-bottom: 5rem !important;     
             margin-left: 12vw !important;
@@ -35,7 +35,7 @@
         flex-direction: column;
         align-self: center;
         width: 100%;
-        max-width: $maxContentWidth;
+        max-width: $mobileMaxContentWidth;
         background-color: $primaryColor;
         padding-bottom: 5rem !important;
     }

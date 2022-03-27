@@ -27,12 +27,12 @@ const CommentItemContainer = ({ studyId, item, hostId }: CommentItemContainerPro
 
 	return (
 		<div key={item.id} className="comment-list-item-container">
-			<CommentItem comment={item} hostId={hostId} setShowCommentInput={setShowCommentInput} />
+			<CommentItem comment={item} hostId={hostId} setShowCommentInput={setShowCommentInput} studyId={studyId} />
 			{item.nestedComments?.map((nestedItem, nestedIndex) => {
 				if (!show && nestedIndex > 0) {
 					return <div />;
 				}
-				return <CommentItem key={nestedItem.id} comment={nestedItem} hostId={hostId} />;
+				return <CommentItem key={nestedItem.id} comment={nestedItem} hostId={hostId} studyId={studyId} />;
 			})}
 			{item.nestedComments?.length > 1 && !show && (
 				<button type="button" className="comment-list-item-more-btn" onClick={() => setShow(!show)}>

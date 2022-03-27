@@ -36,7 +36,29 @@
     display: flex !important;
     justify-content: center;
     align-items: center;
+    position: relative;
     svg {
         margin-right: .5rem;
     }
+    &.enabled {
+        color: #fff;
+        background-color: $primaryColor;
+    }
+}
+
+.study-sort-filter-presenter-filter-chip {
+    width: 1.5rem !important;
+    height: 1.5rem;
+    border: 1px solid $primaryColor;
+    border-radius: 20px;
+    color: $primaryColor;
+    font-weight: bold !important;
+    font-size: .8rem;
+    position: absolute;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -1rem;
+    right: -0.5rem;
 }

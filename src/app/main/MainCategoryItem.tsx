@@ -19,7 +19,7 @@ const MainCategoryItem = ({ category, onClick, isDesktop = false }: IMainCategor
 	return (
 		<Grid
 			item
-			xs={3}
+			xs={isDesktop ? 3 : 4}
 			className={isDesktop ? 'desktop-main-category-item-grid' : 'mobile-main-category-item-grid'}
 			onClick={handleClick}
 		>

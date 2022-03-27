@@ -6,17 +6,17 @@
     padding: 1rem 1.5rem .75rem !important;
     height: 8.313rem;
     div + div {
-        margin-left: 1rem;
+        margin-left: .75rem;
     }
     overflow: auto;
 }
 
-.mobile-main-category-item-container {
+.study-page-mobile-main-category-item-container {
     cursor: pointer;
     padding: 0 !important;
     text-align: center;
     display: inline-block !important;
-    width: 5rem !important;
+    width: 6.125rem !important;
     p {
         font-size: .75rem !important;
         font-weight: bold !important;
@@ -25,9 +25,9 @@
     }
 }
 
-.mobile-main-category-item-img {
+.study-page-mobile-main-category-item-img {
     background: #fff;
-    width: 5rem;
-    height: 5rem; 
+    width: 6.125rem;
+    height: 4.375rem; 
     border-radius: .75rem;
 }

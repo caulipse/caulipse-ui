@@ -16,8 +16,8 @@ const MobileMainCategoryItem = ({ category, onClick }: IMobileMainCategoryItemPr
 		onClick(category);
 	};
 	return (
-		<Container className="mobile-main-category-item-container" onClick={handleClick}>
-			<div className="mobile-main-category-item-img" />
+		<Container className="study-page-mobile-main-category-item-container" onClick={handleClick}>
+			<div className="study-page-mobile-main-category-item-img" />
 			<Typography>{category.label}</Typography>
 		</Container>
 	);

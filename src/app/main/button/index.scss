@@ -32,13 +32,14 @@
     display: flex !important;
     cursor: pointer;
     position: fixed !important;
-    left: calc((100% - 20.5rem) / 2);
+    left: 1rem;
     bottom: 2.125rem;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
     border-radius: .5rem;
-    background: $primaryColor;
-    color: #fff;
-    width: 20.5rem !important;
+    border: 1px solid $primaryColor;
+    background: #fff;
+    color: $primaryColor;
+    width: calc(100% - 2rem) !important;
     height: 5.063rem;
     padding: 1rem 1.5rem 1rem 1.313rem !important;
     svg {
@@ -56,4 +57,5 @@
 
 .mobile-main-button-text {
     font-size: .75rem !important;
+    margin-top: .5rem !important;
 }

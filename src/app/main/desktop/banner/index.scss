@@ -1,29 +1,32 @@
 @import "@scss/variables";
 
 .desktop-main-banner {
-    width: 62.25rem !important;
-    height: 26.063rem;
-    padding: 2rem 2.5rem !important;
+    width: 100% !important;
+    height: 26.125rem;
+    padding: 4.813rem calc((100% - 1280px)/2) 2rem !important;
     color: #fff;
-    border-radius: .625rem;
     background: $primaryColor;
     margin-bottom: 2.5rem;
+    max-width: 100% !important;
     > div { 
         display: flex !important;
         padding: 0 !important;
+        margin: 0 !important;
     }
     > p {
-        font-size: 1.688rem !important;
+        font-size: 1.438rem !important;
         font-weight: bold !important;
-        margin-bottom: 3.5rem !important; 
+        margin-bottom: 1.5rem !important; 
     }
 }
 
 .desktop-main-banner-category-container {
     padding: 0 !important;
+    width: 29rem !important;
 }
 
 .desktop-main-banner-image-container {
     padding: 0 !important;
-    width: 24.563rem !important;
+    width: 24.5rem !important;
+    margin-left: 6.688rem !important;
 }

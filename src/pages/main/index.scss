@@ -1,4 +1,7 @@
+@import "@scss/mixins";
+
 .main-page-container {
     background: #f8f8f8;
     padding: 0 !important;
+    max-width: 100% !important;
 }

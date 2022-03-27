@@ -6,8 +6,9 @@
     cursor: pointer;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
     border-radius: .5rem;
-    background: $primaryColor;
-    color: #fff;
+    border: 1px solid $primaryColor;
+    background: #fff;
+    color: $primaryColor;
     width: 17.625rem !important;
     height: 7.625rem;
     padding: 2rem 1.5rem !important;

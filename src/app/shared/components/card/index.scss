@@ -25,6 +25,7 @@
     margin-bottom: .5rem !important;
     @include desktop {
         margin-bottom: .438rem !important;
+        justify-content: flex-start;
     }
 }
 

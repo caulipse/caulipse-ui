@@ -1,8 +1,11 @@
 import API from '@src/api';
 import { IRequestPostStudyComment } from '@src/api/request/studyComment';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { useMutation } from 'react-query';
 
 export default () => {
+	const { openSnackbar } = useSnackbar();
+
 	const mutation = async (request: IRequestPostStudyComment) => {
 		const res = await API.postStudyComment(request);
 		return res.data;
@@ -10,7 +13,7 @@ export default () => {
 
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
-			window.alert('댓글 작성에 성공하였습니다.');
+			openSnackbar('댓글 작성에 성공하였습니다.');
 			console.log(response);
 		},
 		onError: (e: Error) => {

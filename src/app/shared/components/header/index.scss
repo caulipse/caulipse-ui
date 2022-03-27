@@ -54,7 +54,6 @@
 .header{
   &-con {
     background-color: $primaryColor;
-    padding: .625rem .75rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -62,6 +61,7 @@
     position: sticky;
     top:0;
     z-index: 100;
+    height: $header-height !important;
   }
   &-icon{
     width:1.5rem;

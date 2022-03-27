@@ -68,17 +68,6 @@
     }
 }
 
-.study-card-progress-container {
-    padding: 0 !important;
-    font-size: .875rem;
-    display: flex !important;
-    align-items: center;
-    > div {
-        padding: 0 !important;
-        width: fit-content;
-    }
-}
-
 progress {
     -webkit-appearance: none;
     width: 80% !important;
@@ -98,21 +87,6 @@ progress {
   ::-webkit-progress-value {
     background-image: linear-gradient(to right, #deefff -18%, #3672dc 112%, #73787e 112%);
   }
-
-.study-card-progress-vacancy {
-    color: $primaryColor;
-    font-weight: bold;
-    @include desktop {
-        font-size: 1.094rem !important;
-    }
-}
-
-.study-card-progress-capacity {
-    color: #929699;
-    @include desktop {
-        font-size: 1.094rem !important;
-    }
-}
 
 .study-card-tag {
     color: #929699;

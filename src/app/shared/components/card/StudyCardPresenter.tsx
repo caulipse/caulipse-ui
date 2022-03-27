@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import { Study } from '@api/types';
+import ProgressBar from '@common/progress/ProgressBar';
+import { getMainCategoryLabel, getSubCategoryLabel } from '@shared/utils/category';
 import './index.scss';
-import { getMainCategoryLabel, getSubCategoryLabel } from '../../utils/category';
 
 interface PresenterProps {
 	study: Study;
@@ -19,13 +20,7 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => (
 		<Typography className="study-card-tag">
 			#{study.frequency} #{study.weekday} #{study.location}
 		</Typography>
-		<Container className="study-card-progress-container">
-			<progress className="study-card-progress" max={study.capacity} value={study.vacancy} />
-			<Container>
-				<span className="study-card-progress-vacancy">{study.vacancy}</span>
-				<span className="study-card-progress-capacity">/{study.capacity}</span>
-			</Container>
-		</Container>
+		<ProgressBar max={study.capacity} current={study.membersCount} />
 	</Container>
 );
 

@@ -1,4 +1,7 @@
+import config from '@src/config';
+
 const SAMPLE_ID = 'sample-id';
+
 export interface DrawerButtonProps {
 	title: string;
 	route: string;
@@ -37,7 +40,7 @@ export const drawerList: DrawerButtonProps[][] = [
 		},
 		{
 			title: '문의하기',
-			route: 'mailto:caulipse814@gmail.com',
+			route: `mailto:${config.mail}`,
 		},
 	],
 ];
@@ -50,7 +53,7 @@ export const drawerListBeforeLogin: DrawerButtonProps[][] = [
 		},
 		{
 			title: '문의하기',
-			route: 'mailto:caulipse814@gmail.com',
+			route: `mailto:${config.mail}`,
 		},
 	],
 ];

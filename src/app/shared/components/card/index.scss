@@ -4,7 +4,7 @@
 .study-card-container {
     width: 90% !important;
     height: 8.063rem;
-    padding: 1rem 1.5rem 1.25rem 1rem;
+    padding: 1rem 1.25rem 1.25rem 1rem !important;
     border-radius: .625rem;
     border: 1px solid #f2f2f2;
     box-shadow: 0 5px 12px 0 rgba(0, 0, 0, 0.08);
@@ -21,6 +21,7 @@
     padding: 0 !important;
     display: flex !important;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: .5rem !important;
     @include desktop {
         margin-bottom: .438rem !important;
@@ -30,12 +31,11 @@
 .study-card-date {
     padding: 0 !important;
     margin: 0 .5rem 0 0 !important;
-    background: $primaryColor;
-    color: #fff;
+    background: $primaryLightColor;
+    color: $primaryColor;
     width: 2.688rem !important;
     height: 1.313rem;
-    border-radius: .25rem;
-    font-weight: bold !important;
+    border-radius: 10px;
     font-size: .75rem;
     display: flex !important;
     align-items: center;
@@ -49,6 +49,7 @@
 .study-card-category {
     color: $primaryColor;
     font-weight: bold !important;
+    font-size: .625rem !important;
     @include desktop {
         font-size: .781rem !important;
     }
@@ -70,8 +71,12 @@
 .study-card-progress-container {
     padding: 0 !important;
     font-size: .875rem;
-    display: flex;
+    display: flex !important;
     align-items: center;
+    > div {
+        padding: 0 !important;
+        width: fit-content;
+    }
 }
 
 progress {
@@ -91,7 +96,7 @@ progress {
   }
   
   ::-webkit-progress-value {
-    background-image: linear-gradient(to right, #ffe2ec -18%, #f78819 112%, #73787e 112%);
+    background-image: linear-gradient(to right, #deefff -18%, #3672dc 112%, #73787e 112%);
   }
 
 .study-card-progress-vacancy {

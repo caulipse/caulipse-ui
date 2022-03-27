@@ -16,7 +16,7 @@
   align-items: center !important;
   .studyDetailBg{
     background-color: $primaryColor !important;
-    max-width: $maxContentWidth !important;
+    max-width: $mobileMaxContentWidth !important;
     width:100% !important;
     @include desktop{
       max-width: none !important;
@@ -117,7 +117,7 @@
     bottom: 0;
     width: 100%;
     background-color: white;
-    max-width: $maxContentWidth;
+    max-width: $mobileMaxContentWidth;
     box-shadow: 0 -10px 20px 0 rgba(0, 0, 0, 0.08);  
     @include desktop{
       display: none !important;

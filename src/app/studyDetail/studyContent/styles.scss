@@ -21,6 +21,11 @@
     position: sticky !important;
     z-index: 100 !important;
     top: $header-height !important;
+    @include desktop(){
+      position:static !important;
+      z-index: 1 !important;
+      top:none !important;
+    }
     button {
       height: 2.75rem;
       flex-grow: 1;

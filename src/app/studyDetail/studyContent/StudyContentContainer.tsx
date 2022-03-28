@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import StudyAskContainer from './ask/StudyAskContainer';
 import StudyCurrentStateContainer from './currentState/StudyCurrentStateContainer';
 import StudyInfoContentContainer from './info/StudyInfoContentContainer';

@@ -6,8 +6,8 @@
   flex-direction: column;
   flex:1;
   margin-top: 2.5rem;
-  width: 100vw;
-  max-width: $mobileMaxContentWidth !important;
+  width: 100% !important;
+  max-width: calc($mobileMaxContentWidth * 4 / 5) !important;
   .studyCurrentUserContainer {
     display: flex;
     align-items: center;

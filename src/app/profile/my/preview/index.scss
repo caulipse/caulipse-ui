@@ -28,9 +28,9 @@
         color: #212b36 !important;
         padding: 1rem 1rem 0 1rem !important;
         @include desktop{
-            padding: 0 !important;
+            padding-left: 0rem !important;
+            padding-right: 0rem !important;
             color: #ffffff !important;
-            margin-bottom: 2.711rem !important;
         }
     }
     &-img{
@@ -50,7 +50,8 @@
         @include desktop{
             border-radius: 0 !important;
             background-color: transparent !important;
-            padding: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
         }
     }
     &-item{

@@ -7,7 +7,7 @@ import config from '@src/config';
 const ACCOUNT_INFO = '계정 정보';
 const ASK = '문의하기';
 const NOTICE = '공지사항';
-const TERMS = '서비스 이용약관';
+const TERMS = '개인정보처리방침';
 
 const navigations = [
 	{

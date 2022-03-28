@@ -29,8 +29,6 @@
         padding: 1rem 1rem 0 1rem !important;
         @include desktop{
             padding: 0 !important;
-            font-size: 1.5rem !important;
-            line-height: 1.688rem !important;
             color: #ffffff !important;
             margin-bottom: 2.711rem !important;
         }
@@ -65,8 +63,6 @@
             line-height: 1.6875rem;
             color:#212b36;
             @include desktop{
-                font-size: 1.813rem !important;
-                line-height: 1.438rem !important;
                 color: #ffffff !important;
             }
         }
@@ -75,8 +71,6 @@
             line-height: 1.25rem;
             color:#929699;
             @include desktop{
-                font-size: 0.875rem !important;
-                line-height: 1.75rem !important;
                 color: #ffffff !important;
             }
         }

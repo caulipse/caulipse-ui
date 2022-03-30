@@ -4,7 +4,7 @@ import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import classNames from 'classnames';
 import DatePicker, { CalendarContainer, registerLocale, setDefaultLocale } from 'react-datepicker';
 import React, { useCallback, useState } from 'react';
-import { IoClose } from 'react-icons/io5';
+import { IoAdd, IoClose, IoRemove } from 'react-icons/io5';
 import './editStudyModal.scss';
 import ko from 'date-fns/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -72,6 +72,17 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						</Box>
 					</Box>
 					<Box className="edit-study-modal-body-divider" />
+					<Box className="edit-study-modal-body-row">
+						<Box className="edit-study-modal-body-col">
+							<Box className="edit-study-modal-title">스터디 정원</Box>
+							<Box className="edit-study-modal-subtitle">모집자를 포함한 수입니다</Box>
+						</Box>
+						<Box className="edit-study-modal-body-row">
+							<IoRemove className="edit-study-modal-body-round-outline-btn" color="#1574e3" />
+							<Box className="edit-study-modal-title mh1rem">4</Box>
+							<IoAdd className="edit-study-modal-body-round-btn" color="#ffffff" />
+						</Box>
+					</Box>
 				</Box>
 			</>
 		</Modal>

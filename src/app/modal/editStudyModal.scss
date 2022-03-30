@@ -11,6 +11,12 @@
     color: #929699 !important;
 }
 
+@mixin round-btn{
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    border-radius: .75rem !important;
+}
+
 .edit-study-modal{
     &-title{
         @include title();
@@ -79,6 +85,15 @@
             margin: 1.5rem 0 !important;
             margin-left: -1.25rem !important;
         }
+        &-round-btn{
+            @include round-btn();
+            background-color: $primaryColor !important;
+        }
+        &-round-outline-btn{
+            @include round-btn();
+            background-color: #ffffff !important;
+            border: 1px solid $primaryColor !important;
+        }
     }
     &-date-picker{
         padding: .625rem !important;
@@ -92,4 +107,7 @@
             outline: none !important;
         }
     }
+}
+.mh1rem{
+  margin: 0 1rem !important;  
 }

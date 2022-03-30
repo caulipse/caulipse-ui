@@ -4,6 +4,7 @@ enum ModalKeyEnum {
 	ApplyModal = 'ApplyModal',
 	ApproveCancelModal = 'ApproveCancelModal',
 	EditCategoryModal = 'EditCategoryModal',
+	EditStudyModal = 'EditStudyModal',
 	HostStudyMoreModal = 'HostStudyMoreModal',
 	MyCategoryModal = 'MyCategoryModal',
 	NotificationModal = 'NotificationModal',

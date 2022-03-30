@@ -10,7 +10,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
 				<Box style={{ backgroundColor: 'green' }} className="edit-study-modal-header-con">
-					<IoClose className="edit-study-modal-header-close-icn" color="#ffffff" />
+					<IoClose className="edit-study-modal-header-close-icn" color="#ffffff" onClick={() => onClose(false)} />
 					<Box className="edit-study-modal-header-title">모집글 수정하기</Box>
 					<Box className="edit-study-modal-header-close-icn" />
 				</Box>

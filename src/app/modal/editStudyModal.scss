@@ -1,0 +1,24 @@
+@import '@scss/variables';
+
+.edit-study-modal{
+    &-header{
+        &-con{
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            background-color: $primaryColor !important;
+            padding: .688rem .75rem !important;
+        }
+        &-close-icn{
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+        }
+        &-title{
+            font-size: 1rem !important;
+            font-weight: bold !important;
+            line-height: 1.563rem !important;
+            color: #ffffff !important;
+        }
+    }
+}

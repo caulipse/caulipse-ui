@@ -71,6 +71,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							/>
 						</Box>
 					</Box>
+					<Box className="edit-study-modal-body-divider" />
 				</Box>
 			</>
 		</Modal>

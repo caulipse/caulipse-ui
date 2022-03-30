@@ -1,7 +1,24 @@
 @import '@scss/variables';
 
+@mixin title{
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
+    color: #101010 !important;
+}
+
+@mixin subtitle {
+    font-size: .75rem !important;
+    color: #929699 !important;
+}
+
 .edit-study-modal{
-    &-header{
+    &-title{
+        @include title();
+    }
+    &-subtitle{
+        @include subtitle();
+    }
+    &-header{   
         &-con{
             display: flex !important;
             flex-direction: row !important;
@@ -38,6 +55,22 @@
         &-btn-selected{
             background-color: $primaryLightColor !important;
             color: $primaryColor !important;
+        }
+    }
+    &-body{
+        &-con{
+            padding: 1.469rem 1.25rem !important;
+        }
+        &-row{
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+        &-col{
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
         }
     }
 }

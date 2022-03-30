@@ -2,9 +2,14 @@ import { Box, Button } from '@material-ui/core';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import classNames from 'classnames';
+import DatePicker, { CalendarContainer, registerLocale, setDefaultLocale } from 'react-datepicker';
 import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import './editStudyModal.scss';
+import ko from 'date-fns/locale/ko';
+import 'react-datepicker/dist/react-datepicker.css';
+
+registerLocale('ko', ko);
 
 const EDIT_STUDY_TAB_ENUM = {
 	TAG: '태그 수정',
@@ -13,6 +18,7 @@ const EDIT_STUDY_TAB_ENUM = {
 
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
+	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
 	const renderHeader = useCallback(() => {
 		return (
@@ -46,7 +52,25 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
-			<>{renderHeader()}</>
+			<>
+				{renderHeader()}
+				<Box className="edit-study-modal-body-con">
+					<Box className="edit-study-modal-body-row">
+						<Box className="edit-study-modal-body-col">
+							<Box className="edit-study-modal-title">모집 마감일</Box>
+							<Box className="edit-study-modal-subtitle">23:59분 이후 마감됩니다</Box>
+						</Box>
+						<Box>
+							<DatePicker
+								locale="ko"
+								dropdownMode="select"
+								selected={selectedDate}
+								onChange={(date: Date) => setSelectedDate(date)}
+							/>
+						</Box>
+					</Box>
+				</Box>
+			</>
 		</Modal>
 	);
 };

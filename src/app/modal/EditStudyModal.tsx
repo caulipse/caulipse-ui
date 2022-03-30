@@ -66,6 +66,8 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 								dropdownMode="select"
 								selected={selectedDate}
 								onChange={(date: Date) => setSelectedDate(date)}
+								className="edit-study-modal-date-picker"
+								dateFormat="yyyy/MM/dd"
 							/>
 						</Box>
 					</Box>

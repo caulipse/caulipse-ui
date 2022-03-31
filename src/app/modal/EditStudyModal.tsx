@@ -13,6 +13,8 @@ import categories from '@src/const';
 import Chip from '@src/components/common/chip/Chip';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 import { days, frequencies, places } from './StudyFilterModal';
 
 registerLocale('ko', ko);
@@ -25,16 +27,19 @@ const TITLE_MAX = 40;
 const CONTENT_MAX = 500;
 
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [state] = useAtom(globalState);
+	const initialStudyData = state.modal.params?.studyData;
+
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
-	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-	const [selectedMembersCnt, setSelectedMembersCnt] = useState<number>(4);
+	const [selectedDate, setSelectedDate] = useState<Date>(new Date(initialStudyData.createdAt));
+	const [selectedCapacity, setSelectedCapcity] = useState<number>(initialStudyData.capacity);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(100);
-	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(101);
-	const [selectedCapacity, setSelectedCapacity] = useState(frequencies[0]);
-	const [selectedDays, setSelectedDays] = useState<string[]>([days[0]]);
-	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([places[0]]);
-	const [selectedTitle, setSelectedTitle] = useState<string>('');
-	const [selectedContent, setSelectedContent] = useState<string>('');
+	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(initialStudyData.categoryCode);
+	const [selectedFrequencies, setSelectedFrequencies] = useState(initialStudyData.frequency);
+	const [selectedDays, setSelectedDays] = useState<string[]>([initialStudyData.weekday]);
+	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([initialStudyData.location]);
+	const [selectedTitle, setSelectedTitle] = useState<string>(initialStudyData.title);
+	const [selectedContent, setSelectedContent] = useState<string>(initialStudyData.studyAbout);
 
 	const handleEdit = () => {
 		// Todo: edit logic
@@ -99,13 +104,13 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						<IoRemove
 							className="edit-study-modal-body-round-outline-btn"
 							color="#1574e3"
-							onClick={() => setSelectedMembersCnt((value) => value - 1)}
+							onClick={() => setSelectedCapcity((value) => value - 1)}
 						/>
-						<Box className="edit-study-modal-title mh1rem">{selectedMembersCnt}</Box>
+						<Box className="edit-study-modal-title mh1rem">{selectedCapacity}</Box>
 						<IoAdd
 							className="edit-study-modal-body-round-btn"
 							color="#ffffff"
-							onClick={() => setSelectedMembersCnt((value) => value + 1)}
+							onClick={() => setSelectedCapcity((value) => value + 1)}
 						/>
 					</Box>
 				</Box>
@@ -144,11 +149,11 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 					<Grid container spacing={1}>
 						{frequencies.map((item) => {
 							const handleClick = () => {
-								setSelectedCapacity(item);
+								setSelectedFrequencies(item);
 							};
 							return (
 								<Grid key={item} item xs={4} className="modal-chip-item">
-									<Chip label={item} selected={item === selectedCapacity} onClick={handleClick} />
+									<Chip label={item} selected={item === selectedFrequencies} onClick={handleClick} />
 								</Grid>
 							);
 						})}
@@ -193,10 +198,10 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		);
 	}, [
 		selectedDate,
-		selectedMembersCnt,
+		selectedCapacity,
 		selectedMainCategoryCode,
 		selectedSubCategoryCode,
-		selectedCapacity,
+		selectedFrequencies,
 		selectedDays,
 		selectedPlaces,
 		days,

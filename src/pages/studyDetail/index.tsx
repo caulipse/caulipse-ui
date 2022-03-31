@@ -68,8 +68,7 @@ const StudyDetailPage = (): JSX.Element => {
 	};
 
 	const onClickEdit = () => {
-		// TODO: 수정로직 추가하기
-		openModal(ModalKeyEnum.EditStudyModal);
+		openModal(ModalKeyEnum.EditStudyModal, { studyData });
 	};
 
 	const StudyDetailHeader = useCallback(() => {

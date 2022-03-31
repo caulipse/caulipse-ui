@@ -184,11 +184,17 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		places,
 	]);
 
+	const renderContentEdit = useCallback(() => {
+		return <Box>제목</Box>;
+	}, []);
+
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
 				{renderHeader()}
-				<Box className="edit-study-modal-body-con">{renderTagEdit()}</Box>
+				<Box className="edit-study-modal-body-con">
+					{currentTab === EDIT_STUDY_TAB_ENUM.TAG ? renderTagEdit() : renderContentEdit()}
+				</Box>
 			</>
 		</Modal>
 	);

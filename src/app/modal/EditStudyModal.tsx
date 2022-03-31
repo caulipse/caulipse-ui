@@ -15,6 +15,7 @@ import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
+import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
 import { days, frequencies, places } from './StudyFilterModal';
 import { getMainCategoryCode } from '../shared/utils/category';
 
@@ -30,6 +31,7 @@ const CONTENT_MAX = 500;
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [state] = useAtom(globalState);
 	const initialStudyData = state.modal.params?.studyData;
+	const patchStudy = usePatchStudy();
 
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date(initialStudyData.createdAt));
@@ -45,7 +47,19 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedContent, setSelectedContent] = useState<string>(initialStudyData.studyAbout);
 
 	const handleEdit = () => {
-		// Todo: edit logic
+		patchStudy.mutate({
+			id: initialStudyData.id,
+			data: {
+				capacity: selectedCapacity,
+				categoryCode: selectedSubCategoryCode,
+				// createdAt: selectedDate,
+				location: selectedPlaces[0],
+				studyAbout: selectedContent,
+				title: selectedTitle,
+				weekday: selectedDays[0],
+				frequency: selectedFrequencies,
+			},
+		});
 	};
 
 	const renderHeader = useCallback(() => {

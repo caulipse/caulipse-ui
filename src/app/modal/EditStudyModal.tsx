@@ -16,6 +16,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
 import { days, frequencies, places } from './StudyFilterModal';
+import { getMainCategoryCode } from '../shared/utils/category';
 
 registerLocale('ko', ko);
 
@@ -33,7 +34,9 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date(initialStudyData.createdAt));
 	const [selectedCapacity, setSelectedCapcity] = useState<number>(initialStudyData.capacity);
-	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(100);
+	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(
+		getMainCategoryCode(initialStudyData.categoryCode)
+	);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(initialStudyData.categoryCode);
 	const [selectedFrequencies, setSelectedFrequencies] = useState(initialStudyData.frequency);
 	const [selectedDays, setSelectedDays] = useState<string[]>([initialStudyData.weekday]);

@@ -23,8 +23,6 @@ const StudyCurrentStateContainer = ({
 	const { data: hostData, isLoading: isHostLoading } = useFetchUserProfile(hostId);
 	const waitingStudyUser = isHost ? useFetchStudyUsers(studyId) : null;
 
-	console.log('waitingStudyUser', waitingStudyUser);
-
 	if (isStudyParticipantsLoading || isHostLoading || waitingStudyUser?.isLoading) return <Loader />;
 
 	// TODO: 수락 대기중 api 추가

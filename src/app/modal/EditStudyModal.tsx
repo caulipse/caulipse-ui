@@ -19,6 +19,8 @@ const EDIT_STUDY_TAB_ENUM = {
 	TAG: '태그 수정',
 	CONTENT: '글 수정',
 };
+const TITLE_MAX = 40;
+const CONTENT_MAX = 500;
 
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
@@ -28,11 +30,13 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedCapacity, setSelectedCapacity] = useState(frequencies[0]);
 	const [selectedDays, setSelectedDays] = useState<string[]>([days[0]]);
 	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([places[0]]);
+	const [selectedTitle, setSelectedTitle] = useState<string>('');
+	const [selectedContent, setSelectedContent] = useState<string>('');
 
 	const renderHeader = useCallback(() => {
 		return (
 			<>
-				<Box style={{ backgroundColor: 'green' }} className="edit-study-modal-header-con">
+				<Box className="edit-study-modal-header-con">
 					<IoClose className="edit-study-modal-header-close-icn" color="#ffffff" onClick={() => onClose(false)} />
 					<Box className="edit-study-modal-header-title">모집글 수정하기</Box>
 					<Box className="edit-study-modal-header-close-icn" />
@@ -185,8 +189,29 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	]);
 
 	const renderContentEdit = useCallback(() => {
-		return <Box>제목</Box>;
-	}, []);
+		return (
+			<>
+				<Box className="edit-study-modal-body-content-header">
+					<Box className="edit-study-modal-title">제목</Box>
+					<Box className="edit-study-modal-subtitle">
+						({selectedTitle.length}/{TITLE_MAX})
+					</Box>
+				</Box>
+				<CommonTextField
+					className="edit-study-modal-body-content-title-input"
+					value={selectedTitle}
+					onChange={(e) => setSelectedTitle(e.target.value)}
+					textFieldProps={{
+						variant: 'outlined',
+						minRows: 1,
+						placeholder: '제목을 입력해 주세요.',
+						multiline: true,
+						inputProps: { maxLength: 40 },
+					}}
+				/>
+			</>
+		);
+	}, [selectedTitle]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>

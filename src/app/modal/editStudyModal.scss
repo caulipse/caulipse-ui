@@ -95,6 +95,18 @@
             background-color: #ffffff !important;
             border: 1px solid $primaryColor !important;
         }
+        &-content{
+            &-header{
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+            &-title-input{
+                width: 100% !important;
+                margin-top: 1rem !important;
+            }
+        }
     }
     &-date-picker{
         padding: .625rem !important;

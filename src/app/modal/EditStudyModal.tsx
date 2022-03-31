@@ -206,12 +206,30 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						minRows: 1,
 						placeholder: '제목을 입력해 주세요.',
 						multiline: true,
-						inputProps: { maxLength: 40 },
+						inputProps: { maxLength: TITLE_MAX },
+					}}
+				/>
+				<Box className="edit-study-modal-body-content-header mt2rem">
+					<Box className="edit-study-modal-title">본문</Box>
+					<Box className="edit-study-modal-subtitle">
+						({selectedContent.length}/{CONTENT_MAX})
+					</Box>
+				</Box>
+				<CommonTextField
+					className="edit-study-modal-body-content-title-input"
+					value={selectedContent}
+					onChange={(e) => setSelectedContent(e.target.value)}
+					textFieldProps={{
+						variant: 'outlined',
+						minRows: 5,
+						placeholder: '본문을 입력해 주세요.',
+						multiline: true,
+						inputProps: { maxLength: CONTENT_MAX },
 					}}
 				/>
 			</>
 		);
-	}, [selectedTitle]);
+	}, [selectedTitle, selectedContent]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>

@@ -27,6 +27,7 @@ const CONTENT_MAX = 500;
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [selectedMembersCnt, setSelectedMembersCnt] = useState<number>(4);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(100);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(101);
 	const [selectedCapacity, setSelectedCapacity] = useState(frequencies[0]);
@@ -95,9 +96,17 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						<Box className="edit-study-modal-subtitle">모집자를 포함한 수입니다</Box>
 					</Box>
 					<Box className="edit-study-modal-body-row">
-						<IoRemove className="edit-study-modal-body-round-outline-btn" color="#1574e3" />
-						<Box className="edit-study-modal-title mh1rem">4</Box>
-						<IoAdd className="edit-study-modal-body-round-btn" color="#ffffff" />
+						<IoRemove
+							className="edit-study-modal-body-round-outline-btn"
+							color="#1574e3"
+							onClick={() => setSelectedMembersCnt((value) => value - 1)}
+						/>
+						<Box className="edit-study-modal-title mh1rem">{selectedMembersCnt}</Box>
+						<IoAdd
+							className="edit-study-modal-body-round-btn"
+							color="#ffffff"
+							onClick={() => setSelectedMembersCnt((value) => value + 1)}
+						/>
 					</Box>
 				</Box>
 				<Box className="edit-study-modal-title mt2rem">카테고리</Box>
@@ -184,6 +193,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		);
 	}, [
 		selectedDate,
+		selectedMembersCnt,
 		selectedMainCategoryCode,
 		selectedSubCategoryCode,
 		selectedCapacity,

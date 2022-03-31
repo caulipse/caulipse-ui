@@ -107,7 +107,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						<IoRemove
 							className="edit-study-modal-body-round-outline-btn"
 							color="#1574e3"
-							onClick={() => setSelectedCapcity((value) => value - 1)}
+							onClick={() => setSelectedCapcity((value) => (value > 2 ? value - 1 : value))}
 						/>
 						<Box className="edit-study-modal-title mh1rem">{selectedCapacity}</Box>
 						<IoAdd

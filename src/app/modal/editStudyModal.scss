@@ -9,6 +9,7 @@
 @mixin subtitle {
     font-size: .75rem !important;
     color: #929699 !important;
+    margin-top: .25rem !important;
 }
 
 @mixin round-btn{
@@ -110,4 +111,10 @@
 }
 .mh1rem{
   margin: 0 1rem !important;  
+}
+.mt1rem{
+    margin-top: 1rem !important;
+}
+.mt2rem{
+    margin-top: 2rem !important;
 }

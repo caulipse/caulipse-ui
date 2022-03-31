@@ -3,11 +3,13 @@ import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import classNames from 'classnames';
 import DatePicker, { CalendarContainer, registerLocale, setDefaultLocale } from 'react-datepicker';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { IoAdd, IoClose, IoRemove } from 'react-icons/io5';
 import './editStudyModal.scss';
 import ko from 'date-fns/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
+import CommonTextField from '@src/components/common/textfield/CommonTextField';
+import categories from '@src/const';
 
 registerLocale('ko', ko);
 
@@ -19,6 +21,8 @@ const EDIT_STUDY_TAB_ENUM = {
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(100);
+	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(101);
 
 	const renderHeader = useCallback(() => {
 		return (
@@ -83,6 +87,36 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							<IoAdd className="edit-study-modal-body-round-btn" color="#ffffff" />
 						</Box>
 					</Box>
+					<Box className="edit-study-modal-title mt2rem">카테고리</Box>
+					<Box className="edit-study-modal-body-row mt1rem">
+						<CommonTextField
+							className="profile-edit-grade-select"
+							value={selectedMainCategoryCode}
+							onChange={(e) => setSelectedMainCategoryCode(e.target.value)}
+							textFieldProps={{ select: true, variant: 'outlined', SelectProps: { native: true } }}
+						>
+							{categories.map((mainCategoryItem) => (
+								<option key={mainCategoryItem.code} value={mainCategoryItem.code}>
+									{mainCategoryItem.label}
+								</option>
+							))}
+						</CommonTextField>
+						<CommonTextField
+							className="profile-edit-status-select"
+							value={selectedSubCategoryCode}
+							onChange={(e) => setSelectedSubCategoryCode(e.target.value)}
+							textFieldProps={{ select: true, variant: 'outlined', SelectProps: { native: true } }}
+						>
+							{categories
+								.find((mainCategoryItem) => mainCategoryItem.code === Number(selectedMainCategoryCode))
+								?.subCategories.map((subCategoryItem) => (
+									<option key={subCategoryItem.code} value={subCategoryItem.code}>
+										{subCategoryItem.label}
+									</option>
+								))}
+						</CommonTextField>
+					</Box>
+					<Box className="edit-study-modal-body-divider" />
 				</Box>
 			</>
 		</Modal>

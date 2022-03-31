@@ -82,9 +82,13 @@ const API = {
 	deleteStudy(id: string) {
 		return client.delete(`/study/${id}`);
 	},
+	// 현재 참가 중인 사용자 목록을 읽어옵니다.
+	getStudyParticipants(id: string) {
+		return client.get(`/study/user/${id}/participants`);
+	},
 	// 현재 참가 신청 중인 사용자 목록을 읽어옵니다.
 	getStudyUsers(id: string) {
-		return client.get(`/study/user/${id}/participants`);
+		return client.get(`/study/user/${id}`);
 	},
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {

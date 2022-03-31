@@ -16,6 +16,9 @@
     width: 1.5rem !important;
     height: 1.5rem !important;
     border-radius: .75rem !important;
+    &:hover{
+        cursor: pointer !important;
+    }
 }
 
 .edit-study-modal{

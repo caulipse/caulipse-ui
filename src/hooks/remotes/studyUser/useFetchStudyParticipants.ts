@@ -9,7 +9,7 @@ export default (id: string) => {
 		return res.data;
 	};
 
-	return useQuery(`${QUERY_KEY.FETCH_STUDY_USERS}/${id}`, fetcher, {
+	return useQuery(`${QUERY_KEY.FETCH_STUDY_PARTICIPANTS}/${id}`, fetcher, {
 		onError: (e) => {
 			console.log(e);
 		},

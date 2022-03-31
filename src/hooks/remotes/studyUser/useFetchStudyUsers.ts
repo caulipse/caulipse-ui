@@ -6,6 +6,7 @@ import QUERY_KEY from '@src/hooks/remotes';
 export default (id: string) => {
 	const fetcher = async (): Promise<IResponseGetStudyUsers> => {
 		const res = await API.getStudyUsers(id);
+		console.log('getStudyUsers, ', res.data);
 		return res.data;
 	};
 

@@ -1,15 +1,17 @@
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, Container, Grid } from '@material-ui/core';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import classNames from 'classnames';
-import DatePicker, { CalendarContainer, registerLocale, setDefaultLocale } from 'react-datepicker';
-import React, { useCallback, useEffect, useState } from 'react';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import React, { useCallback, useState } from 'react';
 import { IoAdd, IoClose, IoRemove } from 'react-icons/io5';
 import './editStudyModal.scss';
 import ko from 'date-fns/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import categories from '@src/const';
+import Chip from '@src/components/common/chip/Chip';
+import { days, frequencies, places } from './StudyFilterModal';
 
 registerLocale('ko', ko);
 
@@ -23,6 +25,9 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(100);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(101);
+	const [selectedCapacity, setSelectedCapacity] = useState(frequencies[0]);
+	const [selectedDays, setSelectedDays] = useState<string[]>([days[0]]);
+	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([places[0]]);
 
 	const renderHeader = useCallback(() => {
 		return (
@@ -117,6 +122,56 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						</CommonTextField>
 					</Box>
 					<Box className="edit-study-modal-body-divider" />
+					<Container className="study-filter-modal-row">
+						<span className="edit-study-modal-title">스터디 정원</span>
+						<Grid container spacing={1}>
+							{frequencies.map((item) => {
+								const handleClick = () => {
+									setSelectedCapacity(item);
+								};
+								return (
+									<Grid key={item} item xs={4} className="modal-chip-item">
+										<Chip label={item} selected={item === selectedCapacity} onClick={handleClick} />
+									</Grid>
+								);
+							})}
+						</Grid>
+					</Container>
+					<Container className="study-filter-modal-row">
+						<span className="edit-study-modal-title">요일</span>
+						<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-days">
+							{days.map((item) => {
+								const isSelected = selectedDays.includes(item);
+								const handleClick = () => {
+									if (isSelected) {
+										setSelectedDays((arr) => arr.filter((arrItem) => arrItem !== item));
+									} else {
+										setSelectedDays((arr) => [...arr, item]);
+									}
+								};
+								return <Chip key={item} label={item} selected={isSelected} onClick={handleClick} />;
+							})}
+						</Container>
+					</Container>
+					<Container className="study-filter-modal-row">
+						<span className="edit-study-modal-title">장소{'\t'}</span>
+						<span className="edit-study-modal-subtitle">최대 3개까지 선택 가능합니다</span>
+						<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-places">
+							{places.map((item) => {
+								const isSelected = selectedPlaces.includes(item);
+								const handleClick = () => {
+									if (isSelected) {
+										setSelectedPlaces((arr) => arr.filter((arrItem) => arrItem !== item));
+									} else if (selectedPlaces.length < 3) {
+										setSelectedPlaces((arr) => [...arr, item]);
+									} else {
+										setSelectedPlaces((arr) => [...arr.slice(1, 3), item]);
+									}
+								};
+								return <Chip key={item} selected={isSelected} label={item} onClick={handleClick} />;
+							})}
+						</Container>
+					</Container>
 				</Box>
 			</>
 		</Modal>

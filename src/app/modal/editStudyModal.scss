@@ -120,6 +120,11 @@
             outline: none !important;
         }
     }
+    &-cta-btn{
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12) !important;
+        margin: 4.125rem 1.25rem 2rem 1.25rem !important;
+        width: calc(100% - 2.5rem) !important;
+    }
 }
 .mh1rem{
   margin: 0 1rem !important;  

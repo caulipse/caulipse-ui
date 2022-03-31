@@ -11,6 +11,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import categories from '@src/const';
 import Chip from '@src/components/common/chip/Chip';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { days, frequencies, places } from './StudyFilterModal';
 
 registerLocale('ko', ko);
@@ -32,6 +34,10 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([places[0]]);
 	const [selectedTitle, setSelectedTitle] = useState<string>('');
 	const [selectedContent, setSelectedContent] = useState<string>('');
+
+	const handleEdit = () => {
+		// Todo: edit logic
+	};
 
 	const renderHeader = useCallback(() => {
 		return (
@@ -238,6 +244,12 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 				<Box className="edit-study-modal-body-con">
 					{currentTab === EDIT_STUDY_TAB_ENUM.TAG ? renderTagEdit() : renderContentEdit()}
 				</Box>
+				<CommonButton
+					type={ButtonTypeEnum.primary}
+					title="수정완료"
+					onClick={handleEdit}
+					className="edit-study-modal-cta-btn"
+				/>
 			</>
 		</Modal>
 	);

@@ -1,0 +1,28 @@
+.edit-profile-image-modal{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        max-height: calc(100% - 2.75rem) !important;
+        padding: 0 1.25rem !important;
+    }
+    &-header{
+        &-con{
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-top: 1.5rem !important;
+            margin-bottom: 4rem !important;
+        }
+        &-title{
+            font-size: 1.25rem !important;
+            font-weight: bold !important;
+            line-height: 1.563rem !important;
+            color: #101010 !important;
+        }
+        &-close{
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+        }
+    }
+}

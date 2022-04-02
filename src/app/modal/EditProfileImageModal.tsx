@@ -5,13 +5,19 @@ import { Box, ImageList, ImageListItem } from '@material-ui/core';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import React from 'react';
+import { IoClose } from 'react-icons/io5';
 import { getProfileImgs } from '../shared/utils/profileImg';
+import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	return (
 		<Modal open={open} onClose={onClose}>
-			<>
-				<Box>프로필 이미지</Box>
+			<Box className="edit-profile-image-modal-con">
+				<Box className="edit-profile-image-modal-header-con">
+					<Box className="edit-profile-image-modal-header-close" />
+					<Box className="edit-profile-image-modal-header-title">프로필 이미지</Box>
+					<IoClose className="edit-profile-image-modal-header-close" color="#212b36" onClick={() => onClose(false)} />
+				</Box>
 				<ImageList cols={3} gap={16}>
 					{getProfileImgs().map((item: string) => {
 						return (
@@ -21,7 +27,7 @@ const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): J
 						);
 					})}
 				</ImageList>
-			</>
+			</Box>
 		</Modal>
 	);
 };

@@ -11,7 +11,7 @@ import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	return (
-		<Modal open={open} onClose={onClose} height="46rem">
+		<Modal open={open} onClose={onClose}>
 			<Box className="edit-profile-image-modal-con">
 				<Box className="edit-profile-image-modal-header-con">
 					<Box className="edit-profile-image-modal-header-close" />

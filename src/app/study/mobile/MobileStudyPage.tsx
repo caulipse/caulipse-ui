@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
+import StudyList from '@src/app/study/studyList/StudyList';
 import StudyCreateButton from '@src/app/study/mobile/studyCreateButton/StudyCreateButton';
 import MobileMainCategoryContainer from '@src/app/study/mobile/mainCategory/MobileMainCategoryContainer';
 import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
@@ -66,7 +66,7 @@ const MobileStudyPage = (): JSX.Element => {
 			<br ref={element} className="sub-category-presenter-container-ref" />
 			<StudyCreateButton onClick={onClickCreate} />
 			<StudySortFilterContainer />
-			<StudyListContainter />
+			<StudyList />
 		</Container>
 	);
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import StudyListContainter from '@src/app/study/studyList/StudyListContainer';
+import StudyList from '@src/app/study/studyList/StudyList';
 import DesktopMainCategoryContainer from '@src/app/study/desktop/mainCategory/DesktopMainCategoryContainer';
 import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
 import DesktopSubCategoryContainer from '@src/app/study/desktop/subCategory/DesktopSubCategoryContainer';
@@ -36,7 +36,7 @@ const MobileStudyPage = (): JSX.Element => {
 			<Container>
 				<StudySortFilterContainer />
 				<Container className="desktop-study-list-content">
-					<StudyListContainter />
+					<StudyList />
 					<DesktopStudySidebar />
 				</Container>
 			</Container>

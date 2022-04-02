@@ -76,11 +76,15 @@ const API = {
 	},
 	// 스터디 정보 업데이트
 	patchStudy(request: IRequestPatchStudy) {
-		return client.post(`/study/${request.id}`, request.data);
+		return client.patch(`/study/${request.id}`, request.data);
 	},
 	// 스터디 삭제
 	deleteStudy(id: string) {
 		return client.delete(`/study/${id}`);
+	},
+	// 현재 참가 중인 사용자 목록을 읽어옵니다.
+	getStudyParticipants(id: string) {
+		return client.get(`/study/user/${id}/participants`);
 	},
 	// 현재 참가 신청 중인 사용자 목록을 읽어옵니다.
 	getStudyUsers(id: string) {

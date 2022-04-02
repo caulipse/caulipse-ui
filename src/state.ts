@@ -38,6 +38,10 @@ export const studyListState = atom({
 		location: [],
 		categoryCode: [] as CategoryType[],
 	},
+	paginationOption: {
+		limit: 15,
+		pageNo: 1,
+	},
 } as IStudyListState);
 
 export default globalState;

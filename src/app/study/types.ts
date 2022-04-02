@@ -12,7 +12,13 @@ export interface IFilterOption {
 	categoryCode: CategoryType[];
 }
 
+export interface IPaginationOption {
+	limit?: number;
+	pageNo?: number;
+}
+
 export interface IStudyListState {
 	sortOption: ISortOption;
 	filterOption: IFilterOption;
+	paginationOption: IPaginationOption;
 }

@@ -4,6 +4,7 @@
 .studyList-con {
   margin-top: 1.5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   @include desktop {
     width: 100% !important;

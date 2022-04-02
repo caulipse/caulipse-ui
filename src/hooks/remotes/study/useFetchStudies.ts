@@ -2,11 +2,11 @@ import { useQuery } from 'react-query';
 import API from '@src/api';
 import { IResponseGetStudies } from '@api/response/study';
 import QUERY_KEY from '@src/hooks/remotes';
-import { IFilterOption } from '@src/app/study/types';
+import { IFilterOption, IPaginationOption } from '@src/app/study/types';
 
-export default (orderBy: string, filter?: IFilterOption) => {
+export default (orderBy: string, filter?: IFilterOption, pagination?: IPaginationOption) => {
 	const fetcher = async (): Promise<IResponseGetStudies> => {
-		const res = await API.getStudies(orderBy, filter);
+		const res = await API.getStudies(orderBy, filter, pagination);
 		return res.data;
 	};
 
@@ -24,6 +24,12 @@ export default (orderBy: string, filter?: IFilterOption) => {
 		queryKey += filter?.categoryCode?.reduce((acc, cur) => {
 			return acc + cur.label;
 		}, '');
+	}
+	if (pagination?.limit) {
+		queryKey += pagination?.limit;
+	}
+	if (pagination?.pageNo) {
+		queryKey += pagination?.pageNo;
 	}
 
 	return useQuery(queryKey, fetcher, {

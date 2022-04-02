@@ -16,7 +16,7 @@ const StudySortModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedOption, setSelectedOption] = useState(state.sortOption.value);
 	const onClick = () => {
 		const newOption = sortOptions.find((item) => item.value === selectedOption)!;
-		setState({ ...state, sortOption: newOption });
+		setState({ ...state, sortOption: newOption, paginationOption: { ...state?.paginationOption, pageNo: 1 } });
 		onClose(false);
 	};
 	const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {

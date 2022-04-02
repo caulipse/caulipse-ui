@@ -72,7 +72,7 @@ const MyProfileEditPresenter = ({
 	};
 
 	const changeProfileImg = () => {
-		console.log('changeProfileImg');
+		openModal(ModalKeyEnum.EditProfileImageModal);
 	};
 	const changeCategories = () => {
 		openModal(ModalKeyEnum.MyCategoryModal);

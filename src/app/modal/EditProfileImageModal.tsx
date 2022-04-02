@@ -6,7 +6,9 @@ import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
+import globalState from '@src/state';
 import classNames from 'classnames';
+import { useAtom } from 'jotai';
 import React, { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { getProfileImgs } from '../shared/utils/profileImg';
@@ -14,9 +16,12 @@ import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [selectedImage, setSelectedImage] = useState<string>('');
+	const [state] = useAtom(globalState);
+	const callback = state.modal.params?.callback;
 
 	const handleClick = () => {
-		// TODO: 프로필 이미지 수정
+		callback(selectedImage);
+		onClose(false);
 	};
 
 	return (

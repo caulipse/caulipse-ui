@@ -54,6 +54,7 @@ const MyProfileEditPresenter = ({
 	const [currentShortIntro, setCurrentShortIntro] = useState<string>(shortIntro ?? '');
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
+	const [currentProfileImage, setCurrentProfileImage] = useState<string>(imgSrc);
 
 	const { openModal } = useModal();
 
@@ -71,11 +72,16 @@ const MyProfileEditPresenter = ({
 			bio: currentShortIntro,
 			links: filteredArray,
 			userAbout: currentLongIntro,
+			image: currentProfileImage,
 		});
 	};
 
 	const changeProfileImg = () => {
-		openModal(ModalKeyEnum.EditProfileImageModal);
+		openModal(ModalKeyEnum.EditProfileImageModal, {
+			callback: (paramImage: string) => {
+				setCurrentProfileImage(paramImage);
+			},
+		});
 	};
 	const changeCategories = () => {
 		openModal(ModalKeyEnum.MyCategoryModal);
@@ -151,7 +157,7 @@ const MyProfileEditPresenter = ({
 			<Box className="profile-edit-image-container">
 				<img
 					className="profile-edit-image-img"
-					src={require(`@src/assets/img/profileImg/${imgSrc}`).default}
+					src={require(`@src/assets/img/profileImg/${currentProfileImage}`).default}
 					alt={imgSrc}
 				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>

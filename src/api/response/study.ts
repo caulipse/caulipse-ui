@@ -2,8 +2,10 @@ import { AppliedStudy, Study, StudyUser } from '@api/types';
 
 export interface IResponseGetStudies {
 	message: string;
-	next_cursor: string;
 	studies: Study[];
+	pageNo: number;
+	pages: number;
+	total: number;
 }
 
 export interface IResponseGetStudy {

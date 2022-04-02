@@ -10,6 +10,9 @@ export interface IFilterOption {
 	weekday: string[];
 	location: string[];
 	categoryCode: CategoryType[];
+}
+
+export interface IPaginationOption {
 	limit?: number;
 	pageNo?: number;
 }
@@ -17,4 +20,5 @@ export interface IFilterOption {
 export interface IStudyListState {
 	sortOption: ISortOption;
 	filterOption: IFilterOption;
+	paginationOption: IPaginationOption;
 }

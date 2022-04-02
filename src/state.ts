@@ -37,7 +37,9 @@ export const studyListState = atom({
 		frequency: [],
 		location: [],
 		categoryCode: [] as CategoryType[],
-		offset: 15,
+	},
+	paginationOption: {
+		limit: 5,
 		pageNo: 1,
 	},
 } as IStudyListState);

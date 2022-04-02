@@ -41,7 +41,7 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	const onClick = () => {
 		// TODO
 		// 마감항목 숨기기 API 연동
-		setState({ ...state, filterOption: filter });
+		setState({ ...state, filterOption: filter, paginationOption: { ...state?.paginationOption, pageNo: 1 } });
 		onClose(false);
 	};
 

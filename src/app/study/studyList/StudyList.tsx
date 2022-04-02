@@ -11,25 +11,37 @@ import './index.scss';
 
 const StudyList = (): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
-	const { data, isLoading } = fetchStudies(state?.sortOption?.value, state?.filterOption);
+
+	const { filterOption, sortOption, paginationOption } = state;
+	const { pageNo } = paginationOption;
+
+	const { data, isLoading } = fetchStudies(sortOption?.value, filterOption, paginationOption);
+
+	const totalPage = useMemo(() => {
+		return data?.pages ?? 0;
+	}, [data]);
 
 	const target = useRef<HTMLDivElement>(null);
 	const isOnScreen = useIntersectionObserver(target);
 
 	const [studies, setStudies] = useState([] as Study[]);
 
-	const { pageNo: page } = state?.filterOption;
-	const totalPage = useMemo(() => {
-		return data?.pages ?? 0;
+	useEffect(() => {
+		if (data?.message === '요청에 해당하는 스터디가 존재하지 않습니다') {
+			setStudies([] as Study[]);
+			return;
+		}
+		if (!data?.studies) return;
+		if (pageNo === 1) {
+			setStudies(data?.studies);
+		} else {
+			setStudies(studies.concat(data?.studies));
+		}
 	}, [data]);
 
 	useEffect(() => {
-		if (data?.studies) setStudies(studies.concat(data?.studies));
-	}, [data]);
-
-	useEffect(() => {
-		if (isOnScreen && page && page < totalPage) {
-			setState({ ...state, filterOption: { ...state?.filterOption, pageNo: page + 1 } });
+		if (isOnScreen && pageNo && pageNo < totalPage) {
+			setState({ ...state, paginationOption: { ...state?.paginationOption, pageNo: pageNo + 1 } });
 		}
 	}, [isOnScreen]);
 

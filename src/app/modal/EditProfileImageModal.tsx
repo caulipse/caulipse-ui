@@ -11,18 +11,24 @@ import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	return (
-		<Modal open={open} onClose={onClose}>
+		<Modal open={open} onClose={onClose} height="46rem">
 			<Box className="edit-profile-image-modal-con">
 				<Box className="edit-profile-image-modal-header-con">
 					<Box className="edit-profile-image-modal-header-close" />
 					<Box className="edit-profile-image-modal-header-title">프로필 이미지</Box>
 					<IoClose className="edit-profile-image-modal-header-close" color="#212b36" onClick={() => onClose(false)} />
 				</Box>
-				<ImageList cols={3} gap={16}>
+				<ImageList cols={3}>
 					{getProfileImgs().map((item: string) => {
 						return (
 							<ImageListItem key={item}>
-								<img src={require(`@src/assets/img/profileImg/${item}`).default} alt={item} />
+								<Box className="edit-profile-image-modal-img-con">
+									<img
+										className="edit-profile-image-modal-img"
+										src={require(`@src/assets/img/profileImg/${item}`).default}
+										alt={item}
+									/>
+								</Box>
 							</ImageListItem>
 						);
 					})}

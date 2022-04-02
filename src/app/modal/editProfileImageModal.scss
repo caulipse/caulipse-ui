@@ -2,7 +2,6 @@
     &-con{
         display: flex !important;
         flex-direction: column !important;
-        max-height: calc(100% - 2.75rem) !important;
         padding: 0 1.25rem !important;
     }
     &-header{
@@ -24,5 +23,19 @@
             width: 1.5rem !important;
             height: 1.5rem !important;
         }
+    }
+    &-img{
+        display: flex !important;
+        width: 66.66% !important;
+        max-width: 30vw !important;
+        max-height: 100% !important;
+        aspect-ratio: 1 !important;
+    }
+    &-img-con{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: auto !important;
+        aspect-ratio: 1 !important;
     }
 }

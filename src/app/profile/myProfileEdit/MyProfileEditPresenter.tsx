@@ -59,7 +59,7 @@ const MyProfileEditPresenter = ({
 	const { openModal } = useModal();
 
 	const handleUpdateProfile = () => {
-		const filteredArray = new Array(2).fill('').map((item, index) => {
+		const filteredArray = new Array(3).fill('').map((item, index) => {
 			return currentUrls?.[index]?.url ?? '';
 		});
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { MainCategoryType } from '@src/types';
 import { Container, Typography } from '@material-ui/core';
 import Loader from '@common/loader/Loader';
 import StudyCardContainer from '@src/app/shared/components/card/StudyCardContainer';

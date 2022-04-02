@@ -63,7 +63,7 @@ const API = {
 				location: filter?.location?.[0],
 				weekday: filter?.weekday?.[0],
 				categoryCode: filter?.categoryCode?.[0]?.code,
-				limit: pagination?.limit ?? 5,
+				limit: pagination?.limit ?? 15,
 				pageNo: pagination?.pageNo ?? 1,
 			},
 		});

@@ -39,7 +39,7 @@ export const studyListState = atom({
 		categoryCode: [] as CategoryType[],
 	},
 	paginationOption: {
-		limit: 5,
+		limit: 15,
 		pageNo: 1,
 	},
 } as IStudyListState);

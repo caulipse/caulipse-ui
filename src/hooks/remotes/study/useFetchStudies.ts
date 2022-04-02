@@ -25,6 +25,12 @@ export default (orderBy: string, filter?: IFilterOption) => {
 			return acc + cur.label;
 		}, '');
 	}
+	if (filter?.limit) {
+		queryKey += filter?.limit;
+	}
+	if (filter?.pageNo) {
+		queryKey += filter?.pageNo;
+	}
 
 	return useQuery(queryKey, fetcher, {
 		onError: (e) => {

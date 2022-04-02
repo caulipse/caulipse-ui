@@ -3,12 +3,14 @@ import './index.scss';
 import { BottomSheet } from 'react-spring-bottom-sheet';
 import { Container, Dialog } from '@material-ui/core';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
+import classNames from 'classnames';
 import { IModalProps } from './types';
 
 export interface IContentProps {
 	children: JSX.Element;
 	height?: string;
 	isDesktop: boolean;
+	isFullHeight?: boolean;
 }
 
 const Content = ({ children, height, isDesktop }: IContentProps) => {
@@ -22,7 +24,7 @@ const Content = ({ children, height, isDesktop }: IContentProps) => {
 	);
 };
 
-const Modal = ({ open, onClose, children, height }: IModalProps): JSX.Element => {
+const Modal = ({ open, onClose, children, height, isFullHeight = false }: IModalProps): JSX.Element => {
 	const { width } = useWindowDimensions();
 
 	const isDesktop = useMemo(() => {
@@ -36,8 +38,12 @@ const Modal = ({ open, onClose, children, height }: IModalProps): JSX.Element =>
 			</Content>
 		</Dialog>
 	) : (
-		<BottomSheet open={open} onDismiss={() => onClose(false)} className="modal-bottom-sheet">
-			<Content height={height} isDesktop={isDesktop}>
+		<BottomSheet
+			open={open}
+			onDismiss={() => onClose(false)}
+			className={classNames('modal-bottom-sheet', { 'simple-modal-full-width': isFullHeight })}
+		>
+			<Content height={isFullHeight ? '100vh' : height} isDesktop={isDesktop}>
 				{children}
 			</Content>
 		</BottomSheet>

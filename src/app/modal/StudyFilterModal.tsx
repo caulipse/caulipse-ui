@@ -13,9 +13,9 @@ import { studyListState } from '@src/state';
 import Switch from '@common/switch/Switch';
 import './studyFilterModal.scss';
 
-const frequencies = ['1회', '주 2-4회', '주 5회 이상'];
-const days = ['월', '화', '수', '목', '금', '토', '일'];
-const places = [
+export const frequencies = ['1회', '주 2-4회', '주 5회 이상'];
+export const days = ['월', '화', '수', '목', '금', '토', '일'];
+export const places = [
 	'중앙도서관',
 	'학교 스터디룸',
 	'일반카페',

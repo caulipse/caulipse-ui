@@ -5,6 +5,7 @@ export interface IModalProps {
 	onClose: (param: boolean) => void;
 	children: JSX.Element;
 	height?: string;
+	isFullHeight?: boolean;
 }
 
 export interface ISimpleModalProps extends IModalProps {

@@ -1,15 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-import { Box, ImageList, ImageListItem } from '@material-ui/core';
+import { Box, Button, ImageList, ImageListItem } from '@material-ui/core';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
-import React from 'react';
+import classNames from 'classnames';
+import React, { useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { getProfileImgs } from '../shared/utils/profileImg';
 import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [selectedImage, setSelectedImage] = useState<string>('');
+
 	return (
 		<Modal open={open} onClose={onClose}>
 			<Box className="edit-profile-image-modal-con">
@@ -22,13 +25,18 @@ const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): J
 					{getProfileImgs().map((item: string) => {
 						return (
 							<ImageListItem key={item}>
-								<Box className="edit-profile-image-modal-img-con">
+								<Button
+									className={classNames('edit-profile-image-modal-img-con', {
+										'edit-profile-image-modal-img-con-selected': item === selectedImage,
+									})}
+									onClick={() => setSelectedImage(item)}
+								>
 									<img
 										className="edit-profile-image-modal-img"
 										src={require(`@src/assets/img/profileImg/${item}`).default}
 										alt={item}
 									/>
-								</Box>
+								</Button>
 							</ImageListItem>
 						);
 					})}

@@ -37,5 +37,9 @@
         align-items: center !important;
         width: auto !important;
         aspect-ratio: 1 !important;
+        border-radius: .625rem !important;
+    }
+    &-img-con-selected{
+        border: 2px #0170f2 solid !important;
     }
 }

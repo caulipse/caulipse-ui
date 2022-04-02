@@ -2,6 +2,8 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 import { Box, Button, ImageList, ImageListItem } from '@material-ui/core';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import classNames from 'classnames';
@@ -12,6 +14,10 @@ import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [selectedImage, setSelectedImage] = useState<string>('');
+
+	const handleClick = () => {
+		// TODO: 프로필 이미지 수정
+	};
 
 	return (
 		<Modal open={open} onClose={onClose}>
@@ -41,6 +47,12 @@ const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): J
 						);
 					})}
 				</ImageList>
+				<CommonButton
+					className="edit-profile-image-modal-cta-btn"
+					type={ButtonTypeEnum.secondary}
+					title="확인"
+					onClick={handleClick}
+				/>
 			</Box>
 		</Modal>
 	);

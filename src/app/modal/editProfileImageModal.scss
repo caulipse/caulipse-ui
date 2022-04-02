@@ -1,3 +1,5 @@
+@import '@scss/mixins';
+
 .edit-profile-image-modal{
     &-con{
         display: flex !important;
@@ -41,5 +43,17 @@
     }
     &-img-con-selected{
         border: 2px #0170f2 solid !important;
+    }
+    &-cta-btn{
+        display: flex !important;
+        position: fixed !important;
+        bottom: 2rem !important;
+        width: calc(100% - 2.5rem) !important;
+        @include desktop{
+            position: static !important;
+            width: 100% !important;
+            margin: auto !important;
+            margin-bottom: 2rem !important;
+        }
     }
 }

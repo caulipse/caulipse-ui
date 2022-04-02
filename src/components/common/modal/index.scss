@@ -28,3 +28,12 @@
 .simpole-modal-footer-button {
     cursor: pointer;
 }
+
+.simple-modal-full-width{
+    [data-rsbs-header]:before {
+        display: none !important;
+    }
+    [data-rsbs-header] {
+        display: none !important;
+    }
+}

@@ -16,3 +16,10 @@ export const getMainCategoryLabel = (subCategoryCode: number): string => {
 	});
 	return mainCategory?.label ?? '';
 };
+
+export const getMainCategoryCode = (subCategoryCode: number): number => {
+	const mainCategory = categories.find((categoryItem) => {
+		return categoryItem.subCategories.find((subCategoryItem) => subCategoryItem.code === subCategoryCode);
+	});
+	return mainCategory?.code ?? 100;
+};

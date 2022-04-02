@@ -10,6 +10,8 @@ export interface IFilterOption {
 	weekday: string[];
 	location: string[];
 	categoryCode: CategoryType[];
+	limit?: number;
+	pageNo?: number;
 }
 
 export interface IStudyListState {

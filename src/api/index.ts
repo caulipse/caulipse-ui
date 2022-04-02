@@ -63,9 +63,7 @@ const API = {
 				location: filter?.location?.[0],
 				weekday: filter?.weekday?.[0],
 				categoryCode: filter?.categoryCode?.[0]?.code,
-				// FIXME
-				// 기본값 수정
-				limit: filter?.limit ?? 5,
+				limit: filter?.limit ?? 15,
 				pageNo: filter?.pageNo ?? 1,
 			},
 		});

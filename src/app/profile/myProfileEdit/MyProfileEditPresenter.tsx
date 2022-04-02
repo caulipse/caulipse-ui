@@ -2,14 +2,14 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 import React, { useMemo, useState } from 'react';
-import { IoAdd, IoClose, IoSettings } from 'react-icons/io5';
+import { IoAdd, IoClose, IoSettingsSharp } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, ButtonBase, Container, InputAdornment, FormHelperText } from '@material-ui/core';
+import { Box, ButtonBase, Container, InputAdornment } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
@@ -161,7 +161,7 @@ const MyProfileEditPresenter = ({
 					alt={imgSrc}
 				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>
-					<IoSettings className="profile-edit-image-icon-size" color="#ffffff" />
+					<IoSettingsSharp className="profile-edit-icon" color="#ffffff" />
 				</ButtonBase>
 			</Box>
 			<CommonTextField
@@ -219,7 +219,7 @@ const MyProfileEditPresenter = ({
 						endAdornment: (
 							<InputAdornment position="end">
 								<button type="button">
-									<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
+									<IoSettingsSharp className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
 								</button>
 							</InputAdornment>
 						),

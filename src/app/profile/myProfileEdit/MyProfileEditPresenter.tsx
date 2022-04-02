@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 import React, { useMemo, useState } from 'react';
 import { IoAdd, IoClose, IoSettings } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
@@ -146,7 +149,11 @@ const MyProfileEditPresenter = ({
 	return (
 		<Box className="profile-edit-container" component="form">
 			<Box className="profile-edit-image-container">
-				<img className="profile-edit-image-img" src={imgSrc} alt="profile" />
+				<img
+					className="profile-edit-image-img"
+					src={require(`@src/assets/img/profileImg/${imgSrc}`).default}
+					alt={imgSrc}
+				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>
 					<IoSettings className="profile-edit-image-icon-size" color="#ffffff" />
 				</ButtonBase>

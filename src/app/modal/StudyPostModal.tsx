@@ -23,24 +23,6 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedTitle, setSelectedTitle] = useState<string>('');
 	const [selectedContent, setSelectedContent] = useState<string>('');
 
-	console.log(
-		'selectedMainCategoryCode, ',
-		selectedMainCategoryCode,
-		'selectedSubCategoryCode',
-		selectedSubCategoryCode
-	);
-
-	console.log(
-		!(
-			selectedDate &&
-			selectedCapacity &&
-			selectedSubCategoryCode &&
-			selectedFrequencies &&
-			selectedDays &&
-			selectedPlaces
-		)
-	);
-
 	const handleNextBtn = useCallback(() => {
 		setCurrentStep((step) => step + 1);
 	}, [currentStep]);
@@ -119,8 +101,8 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 									selectedCapacity &&
 									selectedSubCategoryCode &&
 									selectedFrequencies &&
-									selectedDays &&
-									selectedPlaces
+									selectedDays?.length &&
+									selectedPlaces?.length
 							  )
 							: !(selectedTitle && selectedContent)
 					}

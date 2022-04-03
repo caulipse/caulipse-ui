@@ -1,0 +1,34 @@
+@mixin title{
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
+    color: #101010 !important;
+}
+
+@mixin subtitle {
+    font-size: .75rem !important;
+    color: #929699 !important;
+    margin-top: .25rem !important;
+}
+
+.study-content{
+    &-title{
+        @include title();
+    }
+    &-subtitle{
+        @include subtitle();
+    }
+    &-body{
+        &-content{
+            &-header{
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+            &-title-input{
+                width: 100% !important;
+                margin-top: 1rem !important;
+            }
+        }
+    }
+}

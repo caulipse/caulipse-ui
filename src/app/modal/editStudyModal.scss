@@ -13,15 +13,6 @@
     margin-top: .25rem !important;
 }
 
-@mixin round-btn{
-    width: 1.5rem !important;
-    height: 1.5rem !important;
-    border-radius: .75rem !important;
-    &:hover{
-        cursor: pointer !important;
-    }
-}
-
 .edit-study-modal{
     &-title{
         @include title();
@@ -71,18 +62,6 @@
     &-body{
         &-con{
             padding: 1.469rem 1.25rem !important;
-        }
-        &-content{
-            &-header{
-                display: flex !important;
-                flex-direction: row !important;
-                justify-content: space-between !important;
-                align-items: center !important;
-            }
-            &-title-input{
-                width: 100% !important;
-                margin-top: 1rem !important;
-            }
         }
     }
     

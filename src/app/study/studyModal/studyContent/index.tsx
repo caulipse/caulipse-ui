@@ -21,14 +21,14 @@ const StudyContent = ({
 }: StudyContentProps): JSX.Element => {
 	return (
 		<>
-			<Box className="edit-study-modal-body-content-header">
-				<Box className="edit-study-modal-title">제목</Box>
-				<Box className="edit-study-modal-subtitle">
+			<Box className="study-content-body-content-header">
+				<Box className="study-content-title">제목</Box>
+				<Box className="study-content-subtitle">
 					({selectedTitle.length}/{TITLE_MAX})
 				</Box>
 			</Box>
 			<CommonTextField
-				className="edit-study-modal-body-content-title-input"
+				className="study-content-body-content-title-input"
 				value={selectedTitle}
 				onChange={(e) => setSelectedTitle(e.target.value)}
 				textFieldProps={{
@@ -39,14 +39,14 @@ const StudyContent = ({
 					inputProps: { maxLength: TITLE_MAX },
 				}}
 			/>
-			<Box className="edit-study-modal-body-content-header mt2rem">
-				<Box className="edit-study-modal-title">본문</Box>
-				<Box className="edit-study-modal-subtitle">
+			<Box className="study-content-body-content-header mt2rem">
+				<Box className="study-content-title">본문</Box>
+				<Box className="study-content-subtitle">
 					({selectedContent.length}/{CONTENT_MAX})
 				</Box>
 			</Box>
 			<CommonTextField
-				className="edit-study-modal-body-content-title-input"
+				className="study-content-body-content-title-input"
 				value={selectedContent}
 				onChange={(e) => setSelectedContent(e.target.value)}
 				textFieldProps={{

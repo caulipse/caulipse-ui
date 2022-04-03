@@ -7,24 +7,39 @@ import categories from '@src/const';
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+import StudyContent from '../study/studyModal/studyContent';
+import StudySelect from '../study/studyModal/studySelect';
 import './studyPostModal.scss';
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [currentStep, setCurrentStep] = useState<number>(0);
-	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number | undefined>();
+	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(0);
+	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [selectedCapacity, setSelectedCapcity] = useState<number>(2);
+	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(0);
+	const [selectedFrequencies, setSelectedFrequencies] = useState<string>('');
+	const [selectedDays, setSelectedDays] = useState<string[]>([] as string[]);
+	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([] as string[]);
+	const [selectedTitle, setSelectedTitle] = useState<string>('');
+	const [selectedContent, setSelectedContent] = useState<string>('');
 
 	const handleNextBtn = useCallback(() => {
 		setCurrentStep((step) => step + 1);
 	}, [currentStep]);
 
+	const Header = useCallback(() => {
+		return (
+			<Box className="study-post-modal-header-con">
+				<IoClose className="study-post-modal-icon" color="#ffffff" onClick={() => onClose(false)} />
+				<Box>Logo</Box>
+				<Box className="study-post-modal-icon" />
+			</Box>
+		);
+	}, []);
+
 	const MainCategorySelect = useCallback(() => {
 		return (
 			<>
-				<Box className="study-post-modal-header-con">
-					<IoClose className="study-post-modal-icon" color="#ffffff" onClick={() => onClose(false)} />
-					<Box>Logo</Box>
-					<Box className="study-post-modal-icon" />
-				</Box>
 				<Box className="study-post-modal-category-header">
 					<Box className="study-post-modal-category-header-text">카테고리를 선택해주세요</Box>
 					<Box className="study-post-modal-category-header-bold-text">어떤 스터디를 모집할까요?</Box>
@@ -50,7 +65,34 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
-				<MainCategorySelect />
+				<Header />
+				{currentStep === 0 ? (
+					<MainCategorySelect />
+				) : currentStep === 1 ? (
+					<StudySelect
+						selectedDate={selectedDate}
+						setSelectedDate={setSelectedDate}
+						selectedCapacity={selectedCapacity}
+						setSelectedCapacity={setSelectedCapcity}
+						selectedMainCategoryCode={selectedMainCategoryCode}
+						setSelectedMainCategoryCode={setSelectedMainCategoryCode}
+						selectedSubCategoryCode={selectedSubCategoryCode}
+						setSelectedSubCategoryCode={setSelectedSubCategoryCode}
+						selectedFrequencies={selectedFrequencies}
+						setSelectedFrequencies={setSelectedFrequencies}
+						selectedDays={selectedDays}
+						setSelectedDays={setSelectedDays}
+						selectedPlaces={selectedPlaces}
+						setSelectedPlaces={setSelectedPlaces}
+					/>
+				) : (
+					<StudyContent
+						selectedContent={selectedContent}
+						selectedTitle={selectedTitle}
+						setSelectedTitle={setSelectedTitle}
+						setSelectedContent={setSelectedContent}
+					/>
+				)}
 				<CommonButton
 					type={ButtonTypeEnum.primary}
 					title="확인"

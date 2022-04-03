@@ -28,11 +28,11 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date(initialStudyData.createdAt));
 	const [selectedCapacity, setSelectedCapcity] = useState<number>(initialStudyData.capacity);
-	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState(
+	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(
 		getMainCategoryCode(initialStudyData.categoryCode)
 	);
-	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState(initialStudyData.categoryCode);
-	const [selectedFrequencies, setSelectedFrequencies] = useState(initialStudyData.frequency);
+	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(initialStudyData.categoryCode);
+	const [selectedFrequencies, setSelectedFrequencies] = useState<string>(initialStudyData.frequency);
 	const [selectedDays, setSelectedDays] = useState<string[]>([initialStudyData.weekday]);
 	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([initialStudyData.location]);
 	const [selectedTitle, setSelectedTitle] = useState<string>(initialStudyData.title);

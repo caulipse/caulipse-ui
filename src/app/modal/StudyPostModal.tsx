@@ -88,14 +88,24 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 					title="이전"
 					onClick={handlePrevBtn}
 					className="study-post-modal-cta-btn flex1"
-					disabled={!selectedMainCategoryCode}
 				/>
 				<CommonButton
 					type={ButtonTypeEnum.primary}
 					title="다음"
 					onClick={handleNextBtn}
 					className="study-post-modal-cta-btn flex2"
-					disabled={!selectedMainCategoryCode}
+					disabled={
+						currentStep === 1
+							? !(
+									selectedDate &&
+									selectedCapacity &&
+									selectedSubCategoryCode &&
+									selectedFrequencies &&
+									selectedDays &&
+									selectedPlaces
+							  )
+							: !(selectedTitle && selectedContent)
+					}
 				/>
 			</Box>
 		);

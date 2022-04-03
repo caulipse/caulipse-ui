@@ -8,6 +8,7 @@ import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { IoAdd, IoRemove } from 'react-icons/io5';
 import './index.scss';
 import ko from 'date-fns/locale/ko';
+import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('ko', ko);
 

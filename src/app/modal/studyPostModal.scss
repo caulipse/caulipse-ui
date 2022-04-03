@@ -31,4 +31,17 @@
             margin-top: .25rem !important;
         }
     }
+    &-category{
+        &-grid-con{
+            padding: 2rem !important;
+        }
+        &-item-con{
+            display: flex !important;
+            width: calc(100% - 1rem) !important;
+            aspect-ratio: 1 !important;
+            justify-content: center !important;
+            align-items: center !important;
+            border-radius: .75rem !important;
+        }
+    }
 }

@@ -1,6 +1,7 @@
-import { Box } from '@material-ui/core';
+import { Box, Button, Grid } from '@material-ui/core';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
+import categories from '@src/const';
 import React from 'react';
 import { IoClose } from 'react-icons/io5';
 import './studyPostModal.scss';
@@ -18,6 +19,15 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 					<Box className="study-post-modal-category-header-text">카테고리를 선택해주세요</Box>
 					<Box className="study-post-modal-category-header-bold-text">어떤 스터디를 모집할까요?</Box>
 				</Box>
+				<Grid container className="study-post-modal-category-grid-con">
+					{categories.map((item) => (
+						<Grid item key={item.code} xs={4}>
+							<Button className="study-post-modal-category-item-con">
+								<Box>{item.label}</Box>
+							</Button>
+						</Grid>
+					))}
+				</Grid>
 			</>
 		</Modal>
 	);

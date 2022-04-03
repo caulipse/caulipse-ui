@@ -27,6 +27,10 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		setCurrentStep((step) => step + 1);
 	}, [currentStep]);
 
+	const handlePrevBtn = useCallback(() => {
+		setCurrentStep((step) => step - 1);
+	}, [currentStep]);
+
 	const Header = useCallback(() => {
 		return (
 			<Box className="study-post-modal-header-con">
@@ -64,6 +68,39 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		);
 	}, [categories, selectedMainCategoryCode]);
 
+	const renderCtaBtn = useCallback(() => {
+		if (currentStep === 0) {
+			return (
+				<CommonButton
+					type={ButtonTypeEnum.primary}
+					title="확인"
+					onClick={handleNextBtn}
+					className="study-post-modal-cta-btn"
+					disabled={!selectedMainCategoryCode}
+				/>
+			);
+		}
+
+		return (
+			<Box className="study-post-modal-cta-con">
+				<CommonButton
+					type={ButtonTypeEnum.secondary}
+					title="이전"
+					onClick={handlePrevBtn}
+					className="study-post-modal-cta-btn flex1"
+					disabled={!selectedMainCategoryCode}
+				/>
+				<CommonButton
+					type={ButtonTypeEnum.primary}
+					title="다음"
+					onClick={handleNextBtn}
+					className="study-post-modal-cta-btn flex2"
+					disabled={!selectedMainCategoryCode}
+				/>
+			</Box>
+		);
+	}, [currentStep, selectedMainCategoryCode]);
+
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
@@ -97,14 +134,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						/>
 					)}
 				</Box>
-
-				<CommonButton
-					type={ButtonTypeEnum.primary}
-					title="확인"
-					onClick={handleNextBtn}
-					className="study-post-modal-cta-btn"
-					disabled={!selectedMainCategoryCode}
-				/>
+				{renderCtaBtn()}
 			</>
 		</Modal>
 	);

@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 .study-post-modal{
     &-header{
@@ -60,10 +61,30 @@
             border: 2px solid $primaryColor;
         }
     }
-    &-cta-btn{
-        display: flex !important;
-        width: calc(100% - 2.5rem) !important;
-        margin: 0 1.25rem !important;
-        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08) !important;
+    &-cta{
+        &-con{
+            position: fixed !important;
+            width: 100% !important;
+            bottom:2rem !important;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            margin: 2rem 0 !important;
+            @include desktop{
+                position: static !important;
+            }
+        }
+        &-btn{
+            display: flex !important;
+            width: calc(100% - 2.5rem) !important;
+            margin: 0 1.25rem !important;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08) !important;
+        }
     }
+}
+.flex1{
+    flex: 1 !important;
+}
+.flex2{
+    flex: 2 !important;
 }

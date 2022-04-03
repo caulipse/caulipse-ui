@@ -4,6 +4,8 @@ import './comments.scss';
 import ModalKeyEnum from '@common/modal/enum';
 import format from 'date-fns/format';
 import { Comment } from '@src/api/types';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 interface CommentItemProps {
 	comment: Comment;
@@ -13,10 +15,16 @@ interface CommentItemProps {
 }
 
 const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentItemProps): JSX.Element => {
+	const [state] = useAtom(globalState);
+	const myId = state.userId;
 	const { openModal } = useModal();
 
 	const onClickReport = () => {
 		openModal(ModalKeyEnum.ReportModal, studyId);
+	};
+
+	const onClickDelete = () => {
+		// TODO:
 	};
 
 	return (
@@ -49,8 +57,12 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 							</button>
 						)}
 						{comment.isNested || <div className="comment-item-divider-dot">・</div>}
-						<button className="comment-item-report" type="button" onClick={onClickReport}>
-							신고
+						<button
+							className="comment-item-report"
+							type="button"
+							onClick={comment.USER_ID === myId ? onClickDelete : onClickReport}
+						>
+							{comment.USER_ID === myId ? '삭제' : '신고'}
 						</button>
 					</div>
 					<button type="button" className={comment.isNested ? 'comment-item-helpful' : 'comment-item-curious'}>

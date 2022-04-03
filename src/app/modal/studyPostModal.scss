@@ -47,4 +47,10 @@
             border: 2px solid $primaryColor;
         }
     }
+    &-cta-btn{
+        display: flex !important;
+        width: calc(100% - 2.5rem) !important;
+        margin: 0 1.25rem !important;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08) !important;
+    }
 }

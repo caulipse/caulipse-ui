@@ -1,4 +1,6 @@
 import { Box, Button, Grid } from '@material-ui/core';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import categories from '@src/const';
@@ -8,7 +10,12 @@ import { IoClose } from 'react-icons/io5';
 import './studyPostModal.scss';
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number | undefined>();
+
+	const handleNextBtn = useCallback(() => {
+		setCurrentStep((step) => step + 1);
+	}, [currentStep]);
 
 	const MainCategorySelect = useCallback(() => {
 		return (
@@ -44,6 +51,12 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
 				<MainCategorySelect />
+				<CommonButton
+					type={ButtonTypeEnum.primary}
+					title="확인"
+					onClick={handleNextBtn}
+					className="study-post-modal-cta-btn"
+				/>
 			</>
 		</Modal>
 	);

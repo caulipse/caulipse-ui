@@ -6,6 +6,7 @@ import format from 'date-fns/format';
 import { Comment } from '@src/api/types';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
+import useDeleteStudyComment from '@src/hooks/remotes/comment/useDeleteStudyComment';
 
 interface CommentItemProps {
 	comment: Comment;
@@ -18,13 +19,14 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 	const [state] = useAtom(globalState);
 	const myId = state.userId;
 	const { openModal } = useModal();
+	const deleteComment = useDeleteStudyComment(studyId, comment.id);
 
 	const onClickReport = () => {
 		openModal(ModalKeyEnum.ReportModal, studyId);
 	};
 
 	const onClickDelete = () => {
-		// TODO:
+		deleteComment.mutate();
 	};
 
 	return (

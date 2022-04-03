@@ -3,7 +3,7 @@ import { days, frequencies, places } from '@src/app/modal/StudyFilterModal';
 import Chip from '@src/components/common/chip/Chip';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import categories from '@src/const';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { IoAdd, IoRemove } from 'react-icons/io5';
 import './index.scss';
@@ -45,6 +45,12 @@ const StudySelect = ({
 	selectedPlaces,
 	setSelectedPlaces,
 }: StudySelectProps): JSX.Element => {
+	useEffect(() => {
+		const initialSubCategoryCode = categories.find((categoryItem) => categoryItem.code === selectedMainCategoryCode)
+			?.subCategories[0].code;
+		setSelectedSubCategoryCode(Number(initialSubCategoryCode));
+	}, [selectedMainCategoryCode]);
+
 	return (
 		<>
 			<Box className="study-select-body-row mt2rem">

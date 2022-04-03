@@ -23,6 +23,24 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedTitle, setSelectedTitle] = useState<string>('');
 	const [selectedContent, setSelectedContent] = useState<string>('');
 
+	console.log(
+		'selectedMainCategoryCode, ',
+		selectedMainCategoryCode,
+		'selectedSubCategoryCode',
+		selectedSubCategoryCode
+	);
+
+	console.log(
+		!(
+			selectedDate &&
+			selectedCapacity &&
+			selectedSubCategoryCode &&
+			selectedFrequencies &&
+			selectedDays &&
+			selectedPlaces
+		)
+	);
+
 	const handleNextBtn = useCallback(() => {
 		setCurrentStep((step) => step + 1);
 	}, [currentStep]);
@@ -109,7 +127,18 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 				/>
 			</Box>
 		);
-	}, [currentStep, selectedMainCategoryCode]);
+	}, [
+		currentStep,
+		selectedMainCategoryCode,
+		selectedDate,
+		selectedCapacity,
+		selectedSubCategoryCode,
+		selectedFrequencies,
+		selectedDays,
+		selectedPlaces,
+		selectedTitle,
+		selectedContent,
+	]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>

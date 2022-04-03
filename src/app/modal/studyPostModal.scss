@@ -43,5 +43,8 @@
             align-items: center !important;
             border-radius: .75rem !important;
         }
+        &-item-con-selected{
+            border: 2px solid $primaryColor;
+        }
     }
 }

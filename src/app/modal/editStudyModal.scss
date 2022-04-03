@@ -1,4 +1,5 @@
 @import '@scss/variables';
+@import '@scss/mixins';
 
 @mixin title{
     font-weight: bold !important;
@@ -97,6 +98,9 @@
             @include round-btn();
             background-color: #ffffff !important;
             border: 1px solid $primaryColor !important;
+        }
+        &-btn-disabled{
+            @include disabled-btn();
         }
         &-content{
             &-header{

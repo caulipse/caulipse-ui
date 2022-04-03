@@ -10,15 +10,15 @@ const Footer: React.FC = () => (
 				<Button className="footer-title" variant="text">
 					서비스 피드백
 				</Button>
-				<Button className="footer-title" variant="text">
+				<Button className="footer-title mh3rem" variant="text">
 					About Us
 				</Button>
 				<Button className="footer-title" variant="text">
 					Instagram
 				</Button>
 			</Box>
-			<Box className="footer-title mt_719rem">E-mail: {config.mail}</Box>
-			<Button className="footer-title mt_75rem mb3rem" variant="text">
+			<Box className="footer-subtitle mt_719rem">E-mail: {config.mail}</Box>
+			<Button className="footer-subtitle mt_75rem mb3rem" variant="text">
 				개인정보처리방침
 			</Button>
 		</Box>

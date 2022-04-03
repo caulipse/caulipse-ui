@@ -26,6 +26,12 @@
     color: #636363 !important;
     z-index: -1 !important;
   }
+  &-subtitle{
+    font-size: .75rem !important;
+    font-weight: normal !important;
+    color: #929699 !important;
+    z-index: -1 !important;
+  }
 }
 .mt_719rem{
   margin-top: .719rem !important;
@@ -35,4 +41,7 @@
 }
 .mb3rem{
   margin-bottom: 3rem !important;
+}
+.mh3rem{
+  margin:0 3rem !important;
 }

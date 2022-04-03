@@ -13,7 +13,10 @@ import StudySelect from '../study/studyModal/studySelect';
 import './studyPostModal.scss';
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const postStudy = usePostStudy();
+	const postStudy = usePostStudy(() => {
+		onClose(false);
+		window.location.reload();
+	});
 
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(0);

@@ -29,3 +29,21 @@
 .secondary-snackbar-container {
     background: $secondaryColor;
 }
+
+.post-study-snackbar{
+    &-con{
+        padding: 3.5rem 2.5rem !important;
+        background-image: linear-gradient(187deg, #306eea 89%, #2f6feb 89%, #1897fd -18%) !important;
+    }
+    &-text{
+        color: #ffffff !important;
+        font-size: 1.25rem !important;
+        line-height: 1.688rem !important;
+        font-weight: bold !important;
+    }
+    &-subtext{
+        color: #ffffff !important;
+        font-size: .75rem !important;
+        line-height: 1rem !important;
+    }
+}

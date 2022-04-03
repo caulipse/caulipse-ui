@@ -15,4 +15,20 @@
         width: 1.5rem !important;
         height: 1.5rem !important;
     }
+    &-category-header{
+        background-color: $primaryColor !important;
+        padding: 4rem 1.25rem 2rem 1.25rem !important;
+        &-text{
+            font-size: 1rem !important;
+            color: #ffffff !important;
+            line-height: 1.875rem !important;
+        }
+        &-bold-text{
+            font-size: 1.25rem !important;
+            font-weight: bold !important;
+            line-height: 1.875rem !important;
+            color: #ffffff !important;
+            margin-top: .25rem !important;
+        }
+    }
 }

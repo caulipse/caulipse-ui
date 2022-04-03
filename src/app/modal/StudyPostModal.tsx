@@ -14,6 +14,10 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 					<Box>Logo</Box>
 					<Box className="study-post-modal-icon" />
 				</Box>
+				<Box className="study-post-modal-category-header">
+					<Box className="study-post-modal-category-header-text">카테고리를 선택해주세요</Box>
+					<Box className="study-post-modal-category-header-bold-text">어떤 스터디를 모집할까요?</Box>
+				</Box>
 			</>
 		</Modal>
 	);

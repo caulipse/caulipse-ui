@@ -4,6 +4,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import categories from '@src/const';
+import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
@@ -12,6 +13,8 @@ import StudySelect from '../study/studyModal/studySelect';
 import './studyPostModal.scss';
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const postStudy = usePostStudy();
+
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(0);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -30,6 +33,18 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const handlePrevBtn = useCallback(() => {
 		setCurrentStep((step) => step - 1);
 	}, [currentStep]);
+
+	const handlePostStudy = () => {
+		postStudy.mutate({
+			title: selectedTitle,
+			studyAbout: selectedContent,
+			weekday: selectedDays[0],
+			frequency: selectedFrequencies,
+			location: selectedPlaces[0],
+			capacity: selectedCapacity,
+			categoryCode: selectedSubCategoryCode,
+		});
+	};
 
 	const Header = useCallback(() => {
 		return (
@@ -91,8 +106,8 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 				/>
 				<CommonButton
 					type={ButtonTypeEnum.primary}
-					title="다음"
-					onClick={handleNextBtn}
+					title={currentStep === 2 ? '글 등록하기!' : '다음'}
+					onClick={currentStep === 2 ? handlePostStudy : handleNextBtn}
 					className="study-post-modal-cta-btn flex2"
 					disabled={
 						currentStep === 1

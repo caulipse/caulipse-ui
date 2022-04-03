@@ -46,10 +46,10 @@ const StudySelect = ({
 }: StudySelectProps): JSX.Element => {
 	return (
 		<>
-			<Box className="edit-study-modal-body-row">
-				<Box className="edit-study-modal-body-col">
-					<Box className="edit-study-modal-title">모집 마감일</Box>
-					<Box className="edit-study-modal-subtitle">23:59분 이후 마감됩니다</Box>
+			<Box className="study-select-body-row">
+				<Box className="study-select-body-col">
+					<Box className="study-select-title">모집 마감일</Box>
+					<Box className="study-select-subtitle">23:59분 이후 마감됩니다</Box>
 				</Box>
 				<Box>
 					<ReactDatePicker
@@ -57,33 +57,33 @@ const StudySelect = ({
 						dropdownMode="select"
 						selected={selectedDate}
 						onChange={(date: Date) => setSelectedDate(date)}
-						className="edit-study-modal-date-picker"
+						className="study-select-date-picker"
 						dateFormat="yyyy/MM/dd"
 					/>
 				</Box>
 			</Box>
-			<Box className="edit-study-modal-body-divider" />
-			<Box className="edit-study-modal-body-row">
-				<Box className="edit-study-modal-body-col">
-					<Box className="edit-study-modal-title">스터디 정원</Box>
-					<Box className="edit-study-modal-subtitle">모집자를 포함한 수입니다</Box>
+			<Box className="study-select-body-divider" />
+			<Box className="study-select-body-row">
+				<Box className="study-select-body-col">
+					<Box className="study-select-title">스터디 정원</Box>
+					<Box className="study-select-subtitle">모집자를 포함한 수입니다</Box>
 				</Box>
-				<Box className="edit-study-modal-body-row">
+				<Box className="study-select-body-row">
 					<IoRemove
-						className="edit-study-modal-body-round-outline-btn"
+						className="study-select-body-round-outline-btn"
 						color="#1574e3"
 						onClick={() => setSelectedCapacity((value) => (value > 2 ? value - 1 : value))}
 					/>
-					<Box className="edit-study-modal-title mh1rem">{selectedCapacity}</Box>
+					<Box className="study-select-title mh1rem">{selectedCapacity}</Box>
 					<IoAdd
-						className="edit-study-modal-body-round-btn"
+						className="study-select-body-round-btn"
 						color="#ffffff"
 						onClick={() => setSelectedCapacity((value) => value + 1)}
 					/>
 				</Box>
 			</Box>
-			<Box className="edit-study-modal-title mt2rem">카테고리</Box>
-			<Box className="edit-study-modal-body-row mt1rem">
+			<Box className="study-select-title mt2rem">카테고리</Box>
+			<Box className="study-select-body-row mt1rem">
 				<CommonTextField
 					className="profile-edit-grade-select"
 					value={selectedMainCategoryCode}
@@ -111,9 +111,9 @@ const StudySelect = ({
 						))}
 				</CommonTextField>
 			</Box>
-			<Box className="edit-study-modal-body-divider" />
+			<Box className="study-select-body-divider" />
 			<Container className="study-filter-modal-row">
-				<span className="edit-study-modal-title">스터디 정원</span>
+				<span className="study-select-title">스터디 정원</span>
 				<Grid container spacing={1}>
 					{frequencies.map((item) => {
 						const handleClick = () => {
@@ -128,7 +128,7 @@ const StudySelect = ({
 				</Grid>
 			</Container>
 			<Container className="study-filter-modal-row">
-				<span className="edit-study-modal-title">요일</span>
+				<span className="study-select-title">요일</span>
 				<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-days">
 					{days.map((item) => {
 						const isSelected = selectedDays.includes(item);
@@ -144,8 +144,8 @@ const StudySelect = ({
 				</Container>
 			</Container>
 			<Container className="study-filter-modal-row">
-				<span className="edit-study-modal-title">장소{'\t'}</span>
-				<span className="edit-study-modal-subtitle">최대 3개까지 선택 가능합니다</span>
+				<span className="study-select-title">장소{'\t'}</span>
+				<span className="study-select-subtitle">최대 3개까지 선택 가능합니다</span>
 				<Container className="study-filter-modal-row-flex-container study-filter-modal-row-flex-container-places">
 					{places.map((item) => {
 						const isSelected = selectedPlaces.includes(item);

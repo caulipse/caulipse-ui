@@ -72,36 +72,6 @@
         &-con{
             padding: 1.469rem 1.25rem !important;
         }
-        &-row{
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-        }
-        &-col{
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
-        }
-        &-divider{
-            background-color: #f2f2f2 !important;
-            height: .5rem !important;
-            width: calc(100% + 2.5rem) !important;
-            margin: 1.5rem 0 !important;
-            margin-left: -1.25rem !important;
-        }
-        &-round-btn{
-            @include round-btn();
-            background-color: $primaryColor !important;
-        }
-        &-round-outline-btn{
-            @include round-btn();
-            background-color: #ffffff !important;
-            border: 1px solid $primaryColor !important;
-        }
-        &-btn-disabled{
-            @include disabled-btn();
-        }
         &-content{
             &-header{
                 display: flex !important;
@@ -115,18 +85,7 @@
             }
         }
     }
-    &-date-picker{
-        padding: .625rem !important;
-        border-radius: .375rem !important;
-        border: 1px solid #e2e2e2 !important;
-        font-size: 1rem !important;
-        color: #212b36 !important;
-        &:focus{
-            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12) !important;
-            border: solid 1px #b4b4b4 !important;
-            outline: none !important;
-        }
-    }
+    
     &-cta-btn{
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12) !important;
         margin: 4.125rem 1.25rem 2rem 1.25rem !important;

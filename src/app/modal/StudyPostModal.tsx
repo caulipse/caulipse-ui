@@ -56,6 +56,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 					title="확인"
 					onClick={handleNextBtn}
 					className="study-post-modal-cta-btn"
+					disabled={!selectedMainCategoryCode}
 				/>
 			</>
 		</Modal>

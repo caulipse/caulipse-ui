@@ -21,7 +21,7 @@ const StudyContent = ({
 }: StudyContentProps): JSX.Element => {
 	return (
 		<>
-			<Box className="study-content-body-content-header">
+			<Box className="study-content-body-content-header mt2rem">
 				<Box className="study-content-title">제목</Box>
 				<Box className="study-content-subtitle">
 					({selectedTitle.length}/{TITLE_MAX})

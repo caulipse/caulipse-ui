@@ -29,9 +29,6 @@
         @include subtitle();
     }
     &-body{
-        &-con{
-            padding: 1.469rem 1.25rem !important;
-        }
         &-row{
             display: flex !important;
             flex-direction: row !important;
@@ -72,4 +69,10 @@
             outline: none !important;
         }
     }
+}
+.mt2rem{
+    margin-top: 2rem !important;
+}
+.mh1rem{
+    margin: 0 1rem !important;
 }

@@ -11,13 +11,21 @@
             padding: 1rem .75rem !important;
         }
     }
+    &-body{
+        &-con{
+            padding: 0 2rem !important;
+        }
+    }
     &-icon{
         width: 1.5rem !important;
         height: 1.5rem !important;
     }
-    &-category-header{
-        background-color: $primaryColor !important;
-        padding: 4rem 1.25rem 2rem 1.25rem !important;
+    &-category{
+        &-header{
+            margin: 0 -2rem !important;
+            background-color: $primaryColor !important;
+            padding: 4rem 1.25rem 2rem 1.25rem !important;
+        }
         &-text{
             font-size: 1rem !important;
             color: #ffffff !important;
@@ -33,7 +41,7 @@
     }
     &-category{
         &-grid-con{
-            padding: 2rem !important;
+            padding: 2rem  0 !important;
         }
         &-item-con{
             display: flex !important;

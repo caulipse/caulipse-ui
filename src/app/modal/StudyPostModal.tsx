@@ -41,8 +41,8 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		return (
 			<>
 				<Box className="study-post-modal-category-header">
-					<Box className="study-post-modal-category-header-text">카테고리를 선택해주세요</Box>
-					<Box className="study-post-modal-category-header-bold-text">어떤 스터디를 모집할까요?</Box>
+					<Box className="study-post-modal-category-text">카테고리를 선택해주세요</Box>
+					<Box className="study-post-modal-category-bold-text">어떤 스터디를 모집할까요?</Box>
 				</Box>
 				<Grid container className="study-post-modal-category-grid-con">
 					{categories.map((item) => (
@@ -66,33 +66,36 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
 				<Header />
-				{currentStep === 0 ? (
-					<MainCategorySelect />
-				) : currentStep === 1 ? (
-					<StudySelect
-						selectedDate={selectedDate}
-						setSelectedDate={setSelectedDate}
-						selectedCapacity={selectedCapacity}
-						setSelectedCapacity={setSelectedCapcity}
-						selectedMainCategoryCode={selectedMainCategoryCode}
-						setSelectedMainCategoryCode={setSelectedMainCategoryCode}
-						selectedSubCategoryCode={selectedSubCategoryCode}
-						setSelectedSubCategoryCode={setSelectedSubCategoryCode}
-						selectedFrequencies={selectedFrequencies}
-						setSelectedFrequencies={setSelectedFrequencies}
-						selectedDays={selectedDays}
-						setSelectedDays={setSelectedDays}
-						selectedPlaces={selectedPlaces}
-						setSelectedPlaces={setSelectedPlaces}
-					/>
-				) : (
-					<StudyContent
-						selectedContent={selectedContent}
-						selectedTitle={selectedTitle}
-						setSelectedTitle={setSelectedTitle}
-						setSelectedContent={setSelectedContent}
-					/>
-				)}
+				<Box className="study-post-modal-body-con">
+					{currentStep === 0 ? (
+						<MainCategorySelect />
+					) : currentStep === 1 ? (
+						<StudySelect
+							selectedDate={selectedDate}
+							setSelectedDate={setSelectedDate}
+							selectedCapacity={selectedCapacity}
+							setSelectedCapacity={setSelectedCapcity}
+							selectedMainCategoryCode={selectedMainCategoryCode}
+							setSelectedMainCategoryCode={setSelectedMainCategoryCode}
+							selectedSubCategoryCode={selectedSubCategoryCode}
+							setSelectedSubCategoryCode={setSelectedSubCategoryCode}
+							selectedFrequencies={selectedFrequencies}
+							setSelectedFrequencies={setSelectedFrequencies}
+							selectedDays={selectedDays}
+							setSelectedDays={setSelectedDays}
+							selectedPlaces={selectedPlaces}
+							setSelectedPlaces={setSelectedPlaces}
+						/>
+					) : (
+						<StudyContent
+							selectedContent={selectedContent}
+							selectedTitle={selectedTitle}
+							setSelectedTitle={setSelectedTitle}
+							setSelectedContent={setSelectedContent}
+						/>
+					)}
+				</Box>
+
 				<CommonButton
 					type={ButtonTypeEnum.primary}
 					title="확인"

@@ -46,7 +46,7 @@ const StudySelect = ({
 }: StudySelectProps): JSX.Element => {
 	return (
 		<>
-			<Box className="study-select-body-row">
+			<Box className="study-select-body-row mt2rem">
 				<Box className="study-select-body-col">
 					<Box className="study-select-title">모집 마감일</Box>
 					<Box className="study-select-subtitle">23:59분 이후 마감됩니다</Box>

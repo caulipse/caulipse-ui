@@ -6,7 +6,6 @@ import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import './editStudyModal.scss';
 import 'react-datepicker/dist/react-datepicker.css';
-import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { useAtom } from 'jotai';
@@ -14,13 +13,12 @@ import globalState from '@src/state';
 import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
 import { getMainCategoryCode } from '../shared/utils/category';
 import StudySelect from '../study/studyModal/studySelect';
+import StudyContent from '../study/studyModal/studyContent';
 
 const EDIT_STUDY_TAB_ENUM = {
 	TAG: '태그 수정',
 	CONTENT: '글 수정',
 };
-const TITLE_MAX = 40;
-const CONTENT_MAX = 500;
 
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [state] = useAtom(globalState);
@@ -86,49 +84,6 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		);
 	}, [currentTab]);
 
-	const renderContentEdit = useCallback(() => {
-		return (
-			<>
-				<Box className="edit-study-modal-body-content-header">
-					<Box className="edit-study-modal-title">제목</Box>
-					<Box className="edit-study-modal-subtitle">
-						({selectedTitle.length}/{TITLE_MAX})
-					</Box>
-				</Box>
-				<CommonTextField
-					className="edit-study-modal-body-content-title-input"
-					value={selectedTitle}
-					onChange={(e) => setSelectedTitle(e.target.value)}
-					textFieldProps={{
-						variant: 'outlined',
-						minRows: 1,
-						placeholder: '제목을 입력해 주세요.',
-						multiline: true,
-						inputProps: { maxLength: TITLE_MAX },
-					}}
-				/>
-				<Box className="edit-study-modal-body-content-header mt2rem">
-					<Box className="edit-study-modal-title">본문</Box>
-					<Box className="edit-study-modal-subtitle">
-						({selectedContent.length}/{CONTENT_MAX})
-					</Box>
-				</Box>
-				<CommonTextField
-					className="edit-study-modal-body-content-title-input"
-					value={selectedContent}
-					onChange={(e) => setSelectedContent(e.target.value)}
-					textFieldProps={{
-						variant: 'outlined',
-						minRows: 5,
-						placeholder: '본문을 입력해 주세요.',
-						multiline: true,
-						inputProps: { maxLength: CONTENT_MAX },
-					}}
-				/>
-			</>
-		);
-	}, [selectedTitle, selectedContent]);
-
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
@@ -152,7 +107,12 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							setSelectedPlaces={setSelectedPlaces}
 						/>
 					) : (
-						renderContentEdit()
+						<StudyContent
+							selectedContent={selectedContent}
+							selectedTitle={selectedTitle}
+							setSelectedTitle={setSelectedTitle}
+							setSelectedContent={setSelectedContent}
+						/>
 					)}
 				</Box>
 				<CommonButton

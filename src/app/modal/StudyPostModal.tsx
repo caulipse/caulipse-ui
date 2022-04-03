@@ -31,11 +31,13 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		return (
 			<Box className="study-post-modal-header-con">
 				<IoClose className="study-post-modal-icon" color="#ffffff" onClick={() => onClose(false)} />
-				<Box>Logo</Box>
+				<Box className="study-post-modal-header-title">
+					{currentStep === 0 ? 'Logo' : `세부조건 (${currentStep + 1}/3)`}
+				</Box>
 				<Box className="study-post-modal-icon" />
 			</Box>
 		);
-	}, []);
+	}, [currentStep]);
 
 	const MainCategorySelect = useCallback(() => {
 		return (

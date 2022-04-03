@@ -18,6 +18,7 @@ import globalState from '@src/state';
 import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
 import { days, frequencies, places } from './StudyFilterModal';
 import { getMainCategoryCode } from '../shared/utils/category';
+import StudySelect from '../study/studyModal/studySelect';
 
 registerLocale('ko', ko);
 
@@ -278,7 +279,26 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			<>
 				{renderHeader()}
 				<Box className="edit-study-modal-body-con">
-					{currentTab === EDIT_STUDY_TAB_ENUM.TAG ? renderTagEdit() : renderContentEdit()}
+					{currentTab === EDIT_STUDY_TAB_ENUM.TAG ? (
+						<StudySelect
+							selectedDate={selectedDate}
+							setSelectedDate={setSelectedDate}
+							selectedCapacity={selectedCapacity}
+							setSelectedCapacity={setSelectedCapcity}
+							selectedMainCategoryCode={selectedMainCategoryCode}
+							setSelectedMainCategoryCode={setSelectedMainCategoryCode}
+							selectedSubCategoryCode={selectedSubCategoryCode}
+							setSelectedSubCategoryCode={setSelectedSubCategoryCode}
+							selectedFrequencies={selectedFrequencies}
+							setSelectedFrequencies={setSelectedFrequencies}
+							selectedDays={selectedDays}
+							setSelectedDays={setSelectedDays}
+							selectedPlaces={selectedPlaces}
+							setSelectedPlaces={setSelectedPlaces}
+						/>
+					) : (
+						renderContentEdit()
+					)}
 				</Box>
 				<CommonButton
 					type={ButtonTypeEnum.primary}

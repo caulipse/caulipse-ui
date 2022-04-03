@@ -2,7 +2,6 @@
 .footer{
   &-con {
     width: 100% !important;
-    height: 9.438rem !important;
   }
   &-wrap{
     display: flex !important;
@@ -25,6 +24,7 @@
     font-size: .75rem !important;
     font-weight: 500 !important;
     color: #636363 !important;
+    z-index: -1 !important;
   }
 }
 .mt_719rem{

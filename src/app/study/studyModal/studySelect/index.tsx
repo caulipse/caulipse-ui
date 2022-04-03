@@ -4,9 +4,12 @@ import Chip from '@src/components/common/chip/Chip';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import categories from '@src/const';
 import React from 'react';
-import ReactDatePicker from 'react-datepicker';
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { IoAdd, IoRemove } from 'react-icons/io5';
 import './index.scss';
+import ko from 'date-fns/locale/ko';
+
+registerLocale('ko', ko);
 
 interface StudySelectProps {
 	selectedDate: Date;

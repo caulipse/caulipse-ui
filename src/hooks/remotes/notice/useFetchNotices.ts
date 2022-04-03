@@ -8,7 +8,7 @@ export default (offset?: number, limit?: number) => {
 		const res = await API.getNotices(offset, limit);
 		return res.data;
 	};
-	return useQuery(QUERY_KEY.FETCH_NOTICES, fetcher, {
+	return useQuery([QUERY_KEY.FETCH_NOTICES, offset], fetcher, {
 		onError: (e) => {
 			console.log(e);
 		},

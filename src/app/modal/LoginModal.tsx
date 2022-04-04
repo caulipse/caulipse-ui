@@ -4,17 +4,25 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import './loginModal.scss';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
+	const [emailHelperText, setEmailHelperText] = useState<string>('');
+	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
-	const handleLogin = () => {
+	const handleLogin = useCallback(() => {
 		// TODO: handleLogin
-	};
+		if (!email) {
+			setEmailHelperText('이메일을 입력해 주세요.');
+		}
+		if (!password) {
+			setPasswordHelperText('비밀번호를 입력해 주세요.');
+		}
+	}, [email, password]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
@@ -28,7 +36,9 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 						value={email}
 						label="포탈 이메일"
 						onChange={(e) => setEmail(e.target.value)}
+						type={emailHelperText ? 'error' : 'default'}
 						textFieldProps={{ type: 'email' }}
+						helperText={emailHelperText}
 					/>
 					<CommonTextField
 						className="login-modal-body-pw-input"
@@ -36,6 +46,8 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 						label="비밀번호"
 						onChange={(e) => setPassword(e.target.value)}
 						textFieldProps={{ type: 'password' }}
+						type={passwordHelperText ? 'error' : 'default'}
+						helperText={passwordHelperText}
 					/>
 					<CommonButton className="mt1_5rem" type={ButtonTypeEnum.primary} title="로그인" onClick={handleLogin} />
 					<Box className="login-modal-body-btns-con">

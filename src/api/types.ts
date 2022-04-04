@@ -57,7 +57,7 @@ export interface UserProfile {
 	links: string[];
 	onBreak: boolean;
 	categories: string[];
-	// Todo: 유저 프로필 사진
+	image: string;
 }
 
 export interface User {

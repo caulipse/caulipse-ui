@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 import React, { useMemo, useState } from 'react';
-import { IoAdd, IoClose, IoSettings } from 'react-icons/io5';
+import { IoAdd, IoClose, IoSettingsSharp } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
 import { getSubCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
-import { Box, ButtonBase, Container, InputAdornment, FormHelperText } from '@material-ui/core';
+import { Box, ButtonBase, Container, InputAdornment } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
@@ -51,11 +54,12 @@ const MyProfileEditPresenter = ({
 	const [currentShortIntro, setCurrentShortIntro] = useState<string>(shortIntro ?? '');
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
+	const [currentProfileImage, setCurrentProfileImage] = useState<string>(imgSrc);
 
 	const { openModal } = useModal();
 
 	const handleUpdateProfile = () => {
-		const filteredArray = new Array(2).fill('').map((item, index) => {
+		const filteredArray = new Array(3).fill('').map((item, index) => {
 			return currentUrls?.[index]?.url ?? '';
 		});
 
@@ -68,11 +72,16 @@ const MyProfileEditPresenter = ({
 			bio: currentShortIntro,
 			links: filteredArray,
 			userAbout: currentLongIntro,
+			image: currentProfileImage,
 		});
 	};
 
 	const changeProfileImg = () => {
-		console.log('changeProfileImg');
+		openModal(ModalKeyEnum.EditProfileImageModal, {
+			callback: (paramImage: string) => {
+				setCurrentProfileImage(paramImage);
+			},
+		});
 	};
 	const changeCategories = () => {
 		openModal(ModalKeyEnum.MyCategoryModal);
@@ -146,9 +155,13 @@ const MyProfileEditPresenter = ({
 	return (
 		<Box className="profile-edit-container" component="form">
 			<Box className="profile-edit-image-container">
-				<img className="profile-edit-image-img" src={imgSrc} alt="profile" />
+				<img
+					className="profile-edit-image-img"
+					src={require(`@src/assets/img/profileImg/${currentProfileImage}`).default}
+					alt={imgSrc}
+				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>
-					<IoSettings className="profile-edit-image-icon-size" color="#ffffff" />
+					<IoSettingsSharp className="profile-edit-icon" color="#ffffff" />
 				</ButtonBase>
 			</Box>
 			<CommonTextField
@@ -206,7 +219,7 @@ const MyProfileEditPresenter = ({
 						endAdornment: (
 							<InputAdornment position="end">
 								<button type="button">
-									<IoSettings className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
+									<IoSettingsSharp className="profile-edit-icon" color="#adb1ba" onClick={changeCategories} />
 								</button>
 							</InputAdornment>
 						),

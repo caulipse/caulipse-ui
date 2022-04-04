@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 import React from 'react';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { useHistory } from 'react-router-dom';
@@ -8,7 +11,6 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import { Box, ButtonBase } from '@material-ui/core';
 
-const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
 
 interface MyHeaderPresenterProps {
@@ -29,7 +31,11 @@ const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): 
 			<Box className="my-header-content-container">
 				<Box className="my-header-body-container">
 					<ButtonBase className="my-header-profile-photo-btn" onClick={showProfileSheet}>
-						<img className="my-header-profile-photo" src={sampleImgUrl} alt="사용자 프로필 사진" />
+						<img
+							className="my-header-profile-photo"
+							src={require(`@src/assets/img/profileImg/${userProfile.image}`).default}
+							alt={userProfile.image}
+						/>
 					</ButtonBase>
 					<Box className="my-header-row-container">
 						<Box className="my-header-text-container">

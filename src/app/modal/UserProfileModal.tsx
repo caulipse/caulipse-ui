@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import React, { useState } from 'react';
 import './userProfileModal.scss';
@@ -14,8 +18,6 @@ const BOTTOMSHEET_MINHEIGHT = 350;
 interface UserProfileModalProps extends IModalContainerCommonProps {
 	params: any;
 }
-
-const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 
 const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX.Element => {
 	const { width: windowWidth, height: windowHeight } = useWindowDimensions();
@@ -46,8 +48,8 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				<div className="profile-bottom-sheet-top-short-about">{userProfile?.bio}</div>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
-					src={sampleImgUrl}
-					alt="프로필 이미지"
+					src={require(`@src/assets/img/profileImg/${userProfile?.image}`).default}
+					alt={userProfile?.image}
 				/>
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>
 				<div className="profile-bottom-sheet-short-about">{userProfile?.bio}</div>

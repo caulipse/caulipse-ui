@@ -1,0 +1,59 @@
+@import '@scss/mixins';
+
+.edit-profile-image-modal{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 1.25rem !important;
+    }
+    &-header{
+        &-con{
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-top: 1.5rem !important;
+            margin-bottom: 4rem !important;
+        }
+        &-title{
+            font-size: 1.25rem !important;
+            font-weight: bold !important;
+            line-height: 1.563rem !important;
+            color: #101010 !important;
+        }
+        &-close{
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+        }
+    }
+    &-img{
+        display: flex !important;
+        width: 66.66% !important;
+        max-width: 30vw !important;
+        max-height: 100% !important;
+        aspect-ratio: 1 !important;
+    }
+    &-img-con{
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: auto !important;
+        aspect-ratio: 1 !important;
+        border-radius: .625rem !important;
+    }
+    &-img-con-selected{
+        border: 2px #0170f2 solid !important;
+    }
+    &-cta-btn{
+        display: flex !important;
+        position: fixed !important;
+        bottom: 2rem !important;
+        width: calc(100% - 2.5rem) !important;
+        @include desktop{
+            position: static !important;
+            width: 100% !important;
+            margin: auto !important;
+            margin-bottom: 2rem !important;
+        }
+    }
+}

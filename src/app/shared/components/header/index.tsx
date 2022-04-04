@@ -92,7 +92,7 @@ const Header: React.FC = () => {
 				<IconButton onClick={clickNotices}>
 					<IoMegaphone className="header-icon desktop-visible" />
 				</IconButton>
-				<Button onClick={() => history.push('/login')}>
+				<Button onClick={() => openModal(ModalKeyEnum.LoginModal)}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>
 			</div>
@@ -108,8 +108,14 @@ const Header: React.FC = () => {
 					button
 					key={drawerItem.title}
 					disableGutters
-					component="a"
+					component={drawerItem?.handlePress ? 'button' : 'a'}
 					href={drawerItem.route}
+					onClick={() => {
+						if (drawerItem?.handlePress) {
+							console.log('!!!!');
+							// drawerItem.handlePress();
+						}
+					}}
 					divider={drawerItemIdx === drawerItemLength - 1 && drawerSubListIdx !== drawerSubListLength - 1}
 				>
 					<ListItemText

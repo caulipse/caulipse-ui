@@ -7,6 +7,7 @@ enum ModalKeyEnum {
 	EditStudyModal = 'EditStudyModal',
 	EditProfileImageModal = 'EditProfileImageModal',
 	HostStudyMoreModal = 'HostStudyMoreModal',
+	LoginModal = 'LoginModal',
 	MyCategoryModal = 'MyCategoryModal',
 	NotificationModal = 'NotificationModal',
 	ReportModal = 'ReportModal',

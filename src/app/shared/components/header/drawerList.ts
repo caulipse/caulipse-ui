@@ -1,4 +1,6 @@
+import ModalKeyEnum from '@src/components/common/modal/enum';
 import config from '@src/config';
+import useModal from '@src/hooks/modal/useModal';
 
 const SAMPLE_ID = 'sample-id';
 
@@ -6,6 +8,7 @@ export interface DrawerButtonProps {
 	title: string;
 	route: string;
 	isBold?: boolean;
+	handlePress?: () => void;
 }
 export const drawerList: DrawerButtonProps[][] = [
 	[
@@ -45,7 +48,17 @@ export const drawerList: DrawerButtonProps[][] = [
 	],
 ];
 export const drawerListBeforeLogin: DrawerButtonProps[][] = [
-	[{ title: '로그인 / 회원가입', route: '/login', isBold: true }],
+	[
+		{
+			title: '로그인 / 회원가입',
+			route: '/login',
+			isBold: true,
+			handlePress: (): void => {
+				const { openModal } = useModal();
+				openModal(ModalKeyEnum.LoginModal);
+			},
+		},
+	],
 	[
 		{
 			title: '공지사항',

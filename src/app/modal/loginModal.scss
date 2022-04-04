@@ -40,5 +40,24 @@
             @include text-input();
             margin-top: .5rem !important;
         }
+        &-btns-con{
+            display: flex !important;
+            flex-direction: row !important;
+            margin-top: 1.5rem !important;
+            align-items: center !important;
+        }
+        &-text-btn{
+            font-size: .875rem !important;
+            color: #101010 !important;
+        }
+        &-vertical-divider{
+            width: 0.063rem !important;
+            height: 1rem !important;
+            background-color: #101010 !important;
+            margin: 0 1.125rem !important;
+        }
     }
+}
+.mt1_5rem{
+    margin-top: 1.5rem !important;
 }

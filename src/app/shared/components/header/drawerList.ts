@@ -6,9 +6,9 @@ const SAMPLE_ID = 'sample-id';
 
 export interface DrawerButtonProps {
 	title: string;
-	route: string;
+	route?: string;
 	isBold?: boolean;
-	handlePress?: () => void;
+	isLogin?: boolean;
 }
 export const drawerList: DrawerButtonProps[][] = [
 	[
@@ -51,12 +51,8 @@ export const drawerListBeforeLogin: DrawerButtonProps[][] = [
 	[
 		{
 			title: '로그인 / 회원가입',
-			route: '/login',
 			isBold: true,
-			handlePress: (): void => {
-				const { openModal } = useModal();
-				openModal(ModalKeyEnum.LoginModal);
-			},
+			isLogin: true,
 		},
 	],
 	[

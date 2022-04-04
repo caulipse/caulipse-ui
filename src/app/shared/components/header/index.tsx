@@ -108,12 +108,12 @@ const Header: React.FC = () => {
 					button
 					key={drawerItem.title}
 					disableGutters
-					component={drawerItem?.handlePress ? 'button' : 'a'}
-					href={drawerItem.route}
+					component={drawerItem?.isLogin ? 'button' : 'a'}
+					href={drawerItem?.route}
 					onClick={() => {
-						if (drawerItem?.handlePress) {
-							console.log('!!!!');
-							// drawerItem.handlePress();
+						if (drawerItem?.isLogin) {
+							setIsDrawerOpen(false);
+							openModal(ModalKeyEnum.LoginModal);
 						}
 					}}
 					divider={drawerItemIdx === drawerItemLength - 1 && drawerSubListIdx !== drawerSubListLength - 1}

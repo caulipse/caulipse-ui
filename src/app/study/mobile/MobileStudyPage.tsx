@@ -10,16 +10,18 @@ import { studyListState } from '@src/state';
 import { MainCategoryType, CategoryType } from '@src/types';
 import { Container } from '@material-ui/core';
 import './index.scss';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@src/components/common/modal/enum';
 
 const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [state, setState] = useAtom(studyListState);
+	const { openModal } = useModal();
 
 	const { filterOption } = state;
 
 	const onClickCreate = () => {
-		// TODO
-		// 스터디 등록 모달 연결
+		openModal(ModalKeyEnum.StudyPostModal);
 	};
 
 	useEffect(() => {

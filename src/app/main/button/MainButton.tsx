@@ -2,15 +2,17 @@ import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import { IoChevronForward } from 'react-icons/io5';
 import './index.scss';
+import useModal from '@src/hooks/modal/useModal';
+import ModalKeyEnum from '@src/components/common/modal/enum';
 
 interface IMainButtonProps {
 	isDesktop?: boolean;
 }
 
 const MainButton = ({ isDesktop = false }: IMainButtonProps) => {
+	const { openModal } = useModal();
 	const onClick = () => {
-		// TODO
-		// 스터디 모집 페이지 이동
+		openModal(ModalKeyEnum.StudyPostModal);
 	};
 	return isDesktop ? (
 		<Container className="desktop-main-button" onClick={onClick}>

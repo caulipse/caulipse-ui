@@ -4,19 +4,24 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
+import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import React, { useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [loginSuccess, setLoginSuccess] = useState<boolean | undefined>();
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
+	const postLogin = usePostLogin(setLoginSuccess);
+	const { openSnackbar } = useSnackbar();
+
 	const handleLogin = useCallback(() => {
-		// TODO: handleLogin
 		if (!email) {
 			setEmailHelperText('이메일을 입력해 주세요.');
 		} else if (!validateEmail(email)) {
@@ -25,7 +30,22 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		if (!password) {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 		}
+		postLogin.mutate({ email, password });
 	}, [email, password]);
+
+	useEffect(() => {
+		if (loginSuccess === undefined) {
+			return;
+		}
+
+		if (loginSuccess) {
+			onClose(false);
+		} else {
+			setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
+			setPasswordHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
+			setLoginSuccess(undefined);
+		}
+	}, [loginSuccess]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>

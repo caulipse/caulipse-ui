@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 import { IRequestLogin } from '@api/request/user';
 import API from '@src/api';
 
-export default () => {
+export default (setSuccess: React.Dispatch<React.SetStateAction<boolean | undefined>>) => {
 	const mutation = async (request: IRequestLogin) => {
 		const res = await API.login(request);
 		return res.data;
@@ -11,9 +11,11 @@ export default () => {
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
 			console.log(response);
+			setSuccess(true);
 		},
 		onError: (e: Error) => {
 			console.error(e.message);
+			setSuccess(false);
 		},
 	});
 };

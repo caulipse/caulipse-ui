@@ -6,6 +6,8 @@ import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import globalState from '@src/state';
+import { useAtom } from 'jotai';
 import React, { useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { validateEmail } from '../shared/utils/validation';
@@ -20,17 +22,22 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 
 	const postLogin = usePostLogin(setLoginSuccess);
 	const { openSnackbar } = useSnackbar();
+	const [state, setState] = useAtom(globalState);
 
 	const handleLogin = useCallback(() => {
+		let canLogin = true;
 		if (!email) {
 			setEmailHelperText('이메일을 입력해 주세요.');
+			canLogin = false;
 		} else if (!validateEmail(email)) {
 			setEmailHelperText('이메일 형식이 잘못되었습니다.');
+			canLogin = false;
 		}
 		if (!password) {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
+			canLogin = false;
 		}
-		postLogin.mutate({ email, password });
+		if (canLogin) postLogin.mutate({ email, password });
 	}, [email, password]);
 
 	useEffect(() => {
@@ -39,6 +46,9 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		}
 
 		if (loginSuccess) {
+			setState({
+				...state,
+			});
 			onClose(false);
 		} else {
 			setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');

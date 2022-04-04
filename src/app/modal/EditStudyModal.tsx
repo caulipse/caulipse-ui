@@ -105,6 +105,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							setSelectedDays={setSelectedDays}
 							selectedPlaces={selectedPlaces}
 							setSelectedPlaces={setSelectedPlaces}
+							initialMembersCount={initialStudyData.membersCount}
 						/>
 					) : (
 						<StudyContent

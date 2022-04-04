@@ -37,7 +37,12 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 						label="포탈 이메일"
 						onChange={(e) => setEmail(e.target.value)}
 						type={emailHelperText ? 'error' : 'default'}
-						textFieldProps={{ type: 'email' }}
+						textFieldProps={{
+							type: 'email',
+							onFocus: () => {
+								setEmailHelperText('');
+							},
+						}}
 						helperText={emailHelperText}
 					/>
 					<CommonTextField
@@ -45,7 +50,12 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 						value={password}
 						label="비밀번호"
 						onChange={(e) => setPassword(e.target.value)}
-						textFieldProps={{ type: 'password' }}
+						textFieldProps={{
+							type: 'password',
+							onFocus: () => {
+								setPasswordHelperText('');
+							},
+						}}
 						type={passwordHelperText ? 'error' : 'default'}
 						helperText={passwordHelperText}
 					/>

@@ -7,7 +7,6 @@ import getCookie from '@shared/utils/getCookie';
 import useModal from '@src/hooks/modal/useModal';
 import './App.scss';
 import { Footer, Header } from './app/shared/components';
-import LoginPage from './pages/login';
 import ProfilePage from './pages/profile';
 import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
@@ -40,7 +39,6 @@ const MainContainer = (): JSX.Element => {
 					<Route exact path="/study/:category" component={StudyPage} />
 					<Route exact path="/study" component={StudyPage} />
 					<Route path="/profile" component={ProfilePage} />
-					<Route exact path="/login" component={LoginPage} />
 					<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
 					<Route exact path="/" component={MainPage} />
 					<Redirect path="*" to="/" />

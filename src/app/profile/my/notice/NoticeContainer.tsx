@@ -7,7 +7,7 @@ import { Notice } from '@src/api/types';
 import NoticePresenter from './NoticePresenter';
 
 const NoticeContainer = (): JSX.Element => {
-	const limit = 12;
+	const limit = 15;
 	const [offset, setOffset] = useState<number>(0);
 	const [notices, setNotices] = useState<Notice[]>([] as Notice[]);
 	const { data, isLoading } = useFetchNotices(offset, limit);

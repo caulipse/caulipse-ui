@@ -80,9 +80,11 @@ const StudySelect = ({
 				</Box>
 				<Box className="study-select-body-row">
 					<IoRemove
-						className={classNames("study-select-body-round-outline-btn", {"study-select-body-btn-disabled":selectedCapacity > initialMembersCount ?? 2}})
+						className={classNames('study-select-body-round-outline-btn', {
+							'study-select-body-btn-disabled': selectedCapacity <= (initialMembersCount ?? 2),
+						})}
 						color="#1574e3"
-						onClick={() => setSelectedCapacity((value) => (value > initialMembersCount ?? 2 ? value - 1 : value))}
+						onClick={() => setSelectedCapacity((value) => (value > (initialMembersCount ?? 2) ? value - 1 : value))}
 					/>
 					<Box className="study-select-title mh1rem">{selectedCapacity}</Box>
 					<IoAdd

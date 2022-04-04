@@ -6,6 +6,7 @@ import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import React, { useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
@@ -18,6 +19,8 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		// TODO: handleLogin
 		if (!email) {
 			setEmailHelperText('이메일을 입력해 주세요.');
+		} else if (!validateEmail(email)) {
+			setEmailHelperText('이메일 형식이 잘못되었습니다.');
 		}
 		if (!password) {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');

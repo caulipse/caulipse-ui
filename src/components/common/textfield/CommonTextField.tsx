@@ -56,6 +56,7 @@ const CommonTextField = ({
 			{helperText && type !== 'default' && (
 				<FormHelperText
 					className={classNames(
+						'common-text-field-helper',
 						{ 'common-text-field-helper-success': type === 'success' },
 						{ 'common-text-field-helper-error': type === 'error' }
 					)}

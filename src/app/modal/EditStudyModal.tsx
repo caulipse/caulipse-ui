@@ -119,9 +119,13 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 					</Box>
 					<Box className="edit-study-modal-body-row">
 						<IoRemove
-							className="edit-study-modal-body-round-outline-btn"
+							className={classNames('edit-study-modal-body-round-outline-btn', {
+								'edit-study-modal-body-btn-disabled': selectedCapacity <= initialStudyData.membersCount ?? 2,
+							})}
 							color="#1574e3"
-							onClick={() => setSelectedCapcity((value) => (value > 2 ? value - 1 : value))}
+							onClick={() =>
+								setSelectedCapcity((value) => (value > initialStudyData.membersCount ?? 2 ? value - 1 : value))
+							}
 						/>
 						<Box className="edit-study-modal-title mh1rem">{selectedCapacity}</Box>
 						<IoAdd

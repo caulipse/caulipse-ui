@@ -33,7 +33,7 @@ const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): 
 					<ButtonBase className="my-header-profile-photo-btn" onClick={showProfileSheet}>
 						<img
 							className="my-header-profile-photo"
-							src={require(`@src/assets/img/profileImg/${userProfile.image}`).default}
+							src={userProfile.image ?? require(`@src/assets/img/profileImg/${userProfile.image}`).default}
 							alt={userProfile.image}
 						/>
 					</ButtonBase>

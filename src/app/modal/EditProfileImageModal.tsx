@@ -44,7 +44,7 @@ const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): J
 								>
 									<img
 										className="edit-profile-image-modal-img"
-										src={require(`@src/assets/img/profileImg/${item}`).default}
+										src={item ?? require(`@src/assets/img/profileImg/${item}`).default}
 										alt={item}
 									/>
 								</Button>

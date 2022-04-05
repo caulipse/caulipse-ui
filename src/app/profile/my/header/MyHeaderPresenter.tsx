@@ -11,7 +11,7 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import { Box, ButtonBase } from '@material-ui/core';
 
-const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
+const exampleId = '28464dc7-7537-4b91-9d52-764b6de32122';
 
 interface MyHeaderPresenterProps {
 	userProfile: UserProfile;
@@ -33,8 +33,8 @@ const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): 
 					<ButtonBase className="my-header-profile-photo-btn" onClick={showProfileSheet}>
 						<img
 							className="my-header-profile-photo"
-							src={userProfile.image ?? require(`@src/assets/img/profileImg/${userProfile.image}`).default}
-							alt={userProfile.image}
+							src={userProfile.image ? require(`@src/assets/img/profileImg/${userProfile.image}`).default : ''}
+							alt={userProfile.image ?? ''}
 						/>
 					</ButtonBase>
 					<Box className="my-header-row-container">

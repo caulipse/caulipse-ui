@@ -157,7 +157,7 @@ const MyProfileEditPresenter = ({
 			<Box className="profile-edit-image-container">
 				<img
 					className="profile-edit-image-img"
-					src={require(`@src/assets/img/profileImg/${currentProfileImage}`).default}
+					src={currentProfileImage ?? require(`@src/assets/img/profileImg/${currentProfileImage}`).default}
 					alt={imgSrc}
 				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>

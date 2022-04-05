@@ -48,7 +48,7 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				<div className="profile-bottom-sheet-top-short-about">{userProfile?.bio}</div>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
-					src={require(`@src/assets/img/profileImg/${userProfile?.image}`).default}
+					src={userProfile?.image ?? require(`@src/assets/img/profileImg/${userProfile?.image}`).default}
 					alt={userProfile?.image}
 				/>
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>

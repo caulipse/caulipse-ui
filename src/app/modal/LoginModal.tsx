@@ -8,7 +8,7 @@ import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import globalState from '@src/state';
 import { useAtom } from 'jotai';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
@@ -23,6 +23,12 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const postLogin = usePostLogin(setLoginSuccess);
 	const { openSnackbar } = useSnackbar();
 	const [state, setState] = useAtom(globalState);
+
+	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
+		if (e.key === 'Enter') {
+			handleLogin();
+		}
+	};
 
 	const handleLogin = useCallback(() => {
 		let canLogin = true;
@@ -75,6 +81,7 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 							onFocus: () => {
 								setEmailHelperText('');
 							},
+							onKeyPress,
 						}}
 						helperText={emailHelperText}
 					/>
@@ -88,6 +95,7 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 							onFocus: () => {
 								setPasswordHelperText('');
 							},
+							onKeyPress,
 						}}
 						type={passwordHelperText ? 'error' : 'default'}
 						helperText={passwordHelperText}

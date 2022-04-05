@@ -35,14 +35,17 @@
             }
         }
     }
-    &-helper-success{
+    &-helper{
+        display: flex !important;
+        align-self: flex-start !important;
+        margin-left: .5rem !important;
         font-size: .75rem !important;
         line-height: 1.25rem !important;
+    }
+    &-helper-success{
         color: $primaryColor !important;
     }
     &-helper-error{
-        font-size: .75rem !important;
-        line-height: 1.25rem !important;
         color: #ec6666 !important;
     }
 }

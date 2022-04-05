@@ -1,4 +1,5 @@
 import { FormHelperText, TextField, TextFieldProps } from '@material-ui/core';
+import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import classNames from 'classnames';
 import React from 'react';
 import './index.scss';
@@ -26,6 +27,8 @@ const CommonTextField = ({
 	type = 'default',
 	helperText,
 }: CommonTextFieldProps): JSX.Element => {
+	const { width } = useWindowDimensions();
+
 	return (
 		<>
 			<TextField
@@ -40,7 +43,7 @@ const CommonTextField = ({
 				label={label}
 				value={value}
 				onChange={onChange}
-				margin="dense"
+				margin={width > 1024 ? 'normal' : 'dense'}
 				InputProps={{ disableUnderline: true }}
 				InputLabelProps={{
 					style: { color: type === 'default' ? '#b4b4b4' : type === 'error' ? '#ec6666' : '#1574e3' },
@@ -53,6 +56,7 @@ const CommonTextField = ({
 			{helperText && type !== 'default' && (
 				<FormHelperText
 					className={classNames(
+						'common-text-field-helper',
 						{ 'common-text-field-helper-success': type === 'success' },
 						{ 'common-text-field-helper-error': type === 'error' }
 					)}

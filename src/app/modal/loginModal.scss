@@ -1,0 +1,63 @@
+@mixin text-input{
+    width: 100% !important;
+}
+
+.login-modal{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        background-color: #f9f9f9 !important;
+        height: 100% !important;
+        flex:1 !important;
+    }
+    &-close-icon{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        align-self: flex-end !important;
+        margin-right: .75rem !important;
+        margin-top: .625rem !important;
+    }
+    &-body{
+        &-con{
+            display: flex !important;
+            flex:1 !important;
+            flex-direction: column !important;
+            padding: 0 1.25rem !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        &-subtitle{
+            font-size: .875rem !important;
+            color: #929699 !important;
+            text-align: center;
+            margin-top: 1.5rem !important;
+        }
+        &-login-input{
+            @include text-input();
+            margin-top: 3.5rem !important;
+        }
+        &-pw-input{
+            @include text-input();
+            margin-top: .5rem !important;
+        }
+        &-btns-con{
+            display: flex !important;
+            flex-direction: row !important;
+            margin-top: 1.5rem !important;
+            align-items: center !important;
+        }
+        &-text-btn{
+            font-size: .875rem !important;
+            color: #101010 !important;
+        }
+        &-vertical-divider{
+            width: 0.063rem !important;
+            height: 1rem !important;
+            background-color: #101010 !important;
+            margin: 0 1.125rem !important;
+        }
+    }
+}
+.mt1_5rem{
+    margin-top: 1.5rem !important;
+}

@@ -31,7 +31,7 @@ interface MyProfileEditPresenterProps {
 	longIntro: string;
 }
 
-const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
+const exampleId = '28464dc7-7537-4b91-9d52-764b6de32122';
 
 const MyProfileEditPresenter = ({
 	imgSrc,
@@ -157,8 +157,8 @@ const MyProfileEditPresenter = ({
 			<Box className="profile-edit-image-container">
 				<img
 					className="profile-edit-image-img"
-					src={currentProfileImage ?? require(`@src/assets/img/profileImg/${currentProfileImage}`).default}
-					alt={imgSrc}
+					src={currentProfileImage ? require(`@src/assets/img/profileImg/${currentProfileImage}`).default : ''}
+					alt={currentProfileImage ?? ''}
 				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>
 					<IoSettingsSharp className="profile-edit-icon" color="#ffffff" />

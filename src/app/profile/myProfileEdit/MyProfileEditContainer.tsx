@@ -4,7 +4,7 @@ import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import React from 'react';
 import MyProfileEditPresenter, { UrlInterface } from './MyProfileEditPresenter';
 
-const exampleId = '0357501b-8887-42e1-9dde-8344e0de60b0';
+const exampleId = '28464dc7-7537-4b91-9d52-764b6de32122';
 
 const MyProfileEditContainer = (): JSX.Element => {
 	const { data, isLoading } = useFetchUserProfile(exampleId);

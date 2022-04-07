@@ -27,7 +27,7 @@ const Location = () => {
 
 const MainContainer = (): JSX.Element => {
 	return (
-		<Router>
+		<Router forceRefresh>
 			<Location />
 			<Header />
 			<Switch>
@@ -45,11 +45,13 @@ const MainContainer = (): JSX.Element => {
 
 const RootContainer = (): JSX.Element => {
 	return (
-		<Switch>
-			<Route exact path="/reset-password" component={ResetPwPage} />
-			<Route path="/" component={MainContainer} />
-			<Redirect path="*" to="/" />
-		</Switch>
+		<Router forceRefresh>
+			<Switch>
+				<Route exact path="/reset-password" component={ResetPwPage} />
+				<Route path="/" component={MainContainer} />
+				<Redirect path="*" to="/" />
+			</Switch>
+		</Router>
 	);
 };
 
@@ -62,15 +64,13 @@ const App = (): JSX.Element => {
 	const Component = loadable(() => import(`@modal/${key}`));
 
 	return (
-		<Router>
-			<div>
-				<div className="main-con">
-					<RootContainer />
-				</div>
-				{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}
-				{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} params={params} />}
+		<div>
+			<div className="main-con">
+				<RootContainer />
 			</div>
-		</Router>
+			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}
+			{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} params={params} />}
+		</div>
 	);
 };
 

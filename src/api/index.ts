@@ -13,6 +13,7 @@ import {
 
 const client = axios.create({
 	baseURL: `${config.server}/api`,
+	withCredentials: true,
 });
 
 const API = {
@@ -38,7 +39,7 @@ const API = {
 	},
 	// 스터디 문의글 삭제
 	deleteStudyComment(request: IRequestDeleteStudyComment) {
-		return client.post(`/study/${request.id}/comment/${request.commentId}`, request);
+		return client.delete(`/study/${request.id}/comment/${request.commentId}`);
 	},
 	// 스터디 문의글의 나도 궁금해요 카운트
 	getStudyCommentMetoo(id: string, commentId: string) {

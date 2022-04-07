@@ -6,7 +6,8 @@ const getCookie = (params: string) => {
 	if (start !== -1) {
 		start += key.length;
 		let end = cookie.indexOf(';', start);
-		if (end === -1) {
+
+		if (end !== -1) {
 			end = cookie.length;
 			value = cookie.substring(start, end);
 		}

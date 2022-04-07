@@ -7,7 +7,7 @@ const Footer: React.FC = () => (
 	<Box className="footer-con">
 		<Box className="footer-wrap">
 			<Box className="footer-row">
-				<Button className="footer-title" variant="text">
+				<Button className="footer-title" variant="text" href={`mailto:${config.mail}`}>
 					서비스 피드백
 				</Button>
 				<Button className="footer-title mh3rem" variant="text">

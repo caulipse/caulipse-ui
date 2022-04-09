@@ -1,0 +1,16 @@
+@import '@scss/variables';
+
+.reset-pw{
+    &-header-con{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background-color: $primaryColor !important;
+        padding: .625rem .75rem !important;
+    }
+    &-icon{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+    }
+}

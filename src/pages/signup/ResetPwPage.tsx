@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
@@ -9,6 +9,10 @@ import './index.scss';
 const ResetPwPage = (): JSX.Element => {
 	const [email, setEmail] = useState<string>('');
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
+
+	const handleNavigatePrivacyPolicy = () => {
+		// TODO: 개인정보처리방침 이동
+	};
 
 	const handleChangePw = () => {
 		// TODO: 변경 이메일 발송 로직
@@ -53,6 +57,9 @@ const ResetPwPage = (): JSX.Element => {
 					className="mt4rem"
 				/>
 			</Box>
+			<Button variant="text" onClick={handleNavigatePrivacyPolicy} className="reset-pw-privacy-policy">
+				개인정보처리방침
+			</Button>
 		</Box>
 	);
 };

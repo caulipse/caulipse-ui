@@ -1,9 +1,10 @@
 import { Box, Button, Typography } from '@material-ui/core';
+import { validateEmail } from '@src/app/shared/utils/validation';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
-import React, { KeyboardEvent, useState } from 'react';
-import { IoArrowBack, IoClose } from 'react-icons/io5';
+import React, { KeyboardEvent, useCallback, useState } from 'react';
+import { IoArrowBack } from 'react-icons/io5';
 import './index.scss';
 
 const ResetPwPage = (): JSX.Element => {
@@ -14,9 +15,14 @@ const ResetPwPage = (): JSX.Element => {
 		// TODO: 개인정보처리방침 이동
 	};
 
-	const handleChangePw = () => {
+	const handleChangePw = useCallback(() => {
+		if (!email) {
+			setEmailHelperText('이메일을 입력해 주세요.');
+		} else if (!validateEmail(email)) {
+			setEmailHelperText('이메일 형식이 잘못되었습니다.');
+		}
 		// TODO: 변경 이메일 발송 로직
-	};
+	}, [email]);
 
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
 		if (e.key === 'Enter') {
@@ -56,6 +62,7 @@ const ResetPwPage = (): JSX.Element => {
 						type={ButtonTypeEnum.primary}
 						onClick={handleChangePw}
 						className="mt4rem"
+						disabled={!email}
 					/>
 				</Box>
 			</Box>

@@ -21,6 +21,13 @@
         height: 1.5rem !important;
     }
     &-body{
+        &-align-self{
+            display: flex !important;
+            align-self: center !important;
+            flex: 1 !important;
+            width: 100% !important;
+            max-width: $maxContentWidth !important;
+        }
         &-con{
             display: flex !important;
             flex: 1 !important;
@@ -28,7 +35,6 @@
             justify-content: center !important;
             align-items: center !important;
             padding: 0 1.25rem !important;
-            max-width: $maxContentWidth !important;
         }
         &-title{
             font-size: 1.25rem !important;

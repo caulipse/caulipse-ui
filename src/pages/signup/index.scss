@@ -1,6 +1,13 @@
 @import '@scss/variables';
 
 .reset-pw{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        flex:1 !important;
+        height: 100vh !important;
+        width: 100% !important;
+    }
     &-header-con{
         display: flex !important;
         flex-direction: row !important;
@@ -13,4 +20,35 @@
         width: 1.5rem !important;
         height: 1.5rem !important;
     }
+    &-body{
+        &-con{
+            display: flex !important;
+            flex: 1 !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 0 1.25rem !important;
+            max-width: $maxContentWidth !important;
+        }
+        &-title{
+            font-size: 1.25rem !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            color: #212b36 !important;
+        }
+        &-subtitle{
+            font-size: .875rem !important;
+            color: #929699 !important;
+            text-align: center !important;
+            margin-top: 1rem !important;
+        }
+        &-input{
+            width: 100% !important;
+            margin-top: 3rem !important;
+            align-self: stretch !important;
+        }
+    }
+}
+.mt4rem{
+    margin-top: 4rem !important;
 }

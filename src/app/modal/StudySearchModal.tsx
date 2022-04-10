@@ -23,6 +23,7 @@ const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						onChange={(e) => setSearchTest(e.target.value)}
 						onClick={(e) => e.stopPropagation()}
 						fullWidth
+						type="search"
 						InputProps={{
 							endAdornment: (
 								<InputAdornment position="end">

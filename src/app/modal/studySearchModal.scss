@@ -39,5 +39,14 @@
     }
     &-input{
         padding: .5rem 0 !important;
+        .MuiInput-root{
+            &:hover{
+                border-bottom-color: #212b36 !important;
+            }
+            &.Mui-focused{
+                border-bottom-color: #212b36 !important;
+            }
+        }
+        
     }
 }

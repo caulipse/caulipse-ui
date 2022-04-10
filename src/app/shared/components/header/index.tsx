@@ -5,7 +5,7 @@ import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import {
 	IoBookmark,
 	IoBookmarkOutline,
@@ -19,6 +19,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
 
+const exampleId = 'sample-id';
+
 const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
@@ -30,6 +32,14 @@ const Header: React.FC = () => {
 	const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
 	const logout = usePatchLogout();
+
+	const isGnbWhite = useMemo(() => {
+		return locationPathName === `/profile/${exampleId}`;
+	}, [locationPathName]);
+
+	const iconColor = useMemo(() => {
+		return isGnbWhite ? '#101010' : '#ffffff';
+	}, [isGnbWhite]);
 
 	const handleLogout = () => {
 		logout.mutate();
@@ -60,17 +70,17 @@ const Header: React.FC = () => {
 		if (state.login) {
 			return (
 				<div className="header-icons-con">
-					<IoSearch onClick={clickSearchIcon} className="header-icon" />
-					<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" />
-					<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" />
-					<IoMenu onClick={openDrawer} className="header-icon desktop-visible" />
+					<IoSearch onClick={clickSearchIcon} className="header-icon" color={iconColor} />
+					<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
+					<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" color={iconColor} />
+					<IoMenu onClick={openDrawer} className="header-icon desktop-visible" color={iconColor} />
 				</div>
 			);
 		}
 
 		return (
 			<div className="header-icons-con">
-				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" />
+				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" color={iconColor} />
 				<Button onClick={() => openModal(ModalKeyEnum.LoginModal)}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>
@@ -109,8 +119,8 @@ const Header: React.FC = () => {
 	}, [drawerList, drawerListBeforeLogin, state.login]);
 
 	return (
-		<header className="header-con">
-			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" />
+		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
+			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 			<Link to="/">
 				<Typography className="header-logo">서비스 로고</Typography>
 			</Link>

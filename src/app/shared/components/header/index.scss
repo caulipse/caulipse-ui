@@ -57,16 +57,22 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 !important;
     align-items: center;
     position: sticky;
     top:0;
     z-index: 3;
     height: $header-height !important;
+    padding: 0 .75rem !important;
   }
   &-icon{
     width:1.5rem;
     height:1.5rem;
     color:#ffffff;
+    margin-right: .5rem !important;
+    &:hover{
+      cursor: pointer !important;
+    }
   }
   &-login{
     font-size: .875rem;
@@ -117,4 +123,12 @@
 }
 .font-bold{
   font-weight: bold;
+}
+.mr0-mobile{
+  @include mobile{
+    margin-right: 0 !important;
+  }
+  @include tablet{
+    margin-right: 0 !important;
+  }
 }

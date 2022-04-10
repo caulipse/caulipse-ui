@@ -50,48 +50,19 @@ const Header: React.FC = () => {
 	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
 	const HeaderRightComponent = () => {
 		if (state.login) {
-			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
-				return (
-					<div>
-						<IconButton onClick={clickNotices}>
-							<IoMegaphone className="header-icon desktop-visible" />
-						</IconButton>
-						<IconButton onClick={clickSearchIcon}>
-							<IoSearch className="header-icon" />
-						</IconButton>
-						<IconButton onClick={clickNotification}>
-							<IoNotifications className="header-icon" />
-						</IconButton>
-						<IconButton onClick={openDrawer}>
-							<IoMenu className="header-icon desktop-visible" />
-						</IconButton>
-					</div>
-				);
-			}
-
 			return (
-				<IconButton onClick={clickNotification}>
-					<IoNotifications className="header-icon" />
-				</IconButton>
-			);
-		}
-
-		if (locationPathName.startsWith('/study/detail')) {
-			return <div />;
-		}
-		if (locationPathName.startsWith('/study')) {
-			return (
-				<IconButton onClick={clickSearchIcon}>
-					<IoSearch className="header-icon" />
-				</IconButton>
+				<div>
+					<IoMegaphone onClick={clickNotices} className="header-icon desktop-visible" />
+					<IoSearch onClick={clickSearchIcon} className="header-icon" />
+					<IoNotifications onClick={clickNotification} className="header-icon mr0-mobile" />
+					<IoMenu onClick={openDrawer} className="header-icon desktop-visible" />
+				</div>
 			);
 		}
 
 		return (
 			<div>
-				<IconButton onClick={clickNotices}>
-					<IoMegaphone className="header-icon desktop-visible" />
-				</IconButton>
+				<IoMegaphone onClick={clickNotices} className="header-icon desktop-visible" />
 				<Button onClick={() => openModal(ModalKeyEnum.LoginModal)}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>
@@ -131,9 +102,7 @@ const Header: React.FC = () => {
 
 	return (
 		<header className="header-con">
-			<IconButton onClick={openDrawer}>
-				<IoMenu className="header-icon mobile-visible" />
-			</IconButton>
+			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" />
 			<Link to="/">
 				<Typography className="header-logo">서비스 로고</Typography>
 			</Link>

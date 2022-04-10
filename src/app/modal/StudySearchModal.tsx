@@ -1,12 +1,15 @@
+import { Box } from '@material-ui/core';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import React from 'react';
-import Popup from 'reactjs-popup';
+import './studySearchModal.scss';
 
-const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element | false => {
 	return (
-		<Popup open={open} onClose={() => onClose(false)} position="top center">
-			<div>studysearch</div>
-		</Popup>
+		open && (
+			<Box className="study-search-modal-overlay" onClick={() => onClose(false)}>
+				<div>studysearch</div>
+			</Box>
+		)
 	);
 };
 

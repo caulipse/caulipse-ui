@@ -1,11 +1,21 @@
 import { Box, InputAdornment, TextField } from '@material-ui/core';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
-import React, { useState } from 'react';
-import { IoArrowBack, IoClose, IoSearch } from 'react-icons/io5';
+import React, { KeyboardEvent, useState } from 'react';
+import { IoClose, IoSearch } from 'react-icons/io5';
 import './studySearchModal.scss';
 
 const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element | false => {
 	const [searchText, setSearchTest] = useState<string>('');
+
+	const handleSearch = () => {
+		// TODO: Search Logic
+	};
+
+	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
+		if (e.key === 'Enter') {
+			handleSearch();
+		}
+	};
 
 	return (
 		open && (
@@ -22,12 +32,13 @@ const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						value={searchText}
 						onChange={(e) => setSearchTest(e.target.value)}
 						onClick={(e) => e.stopPropagation()}
+						onKeyPress={onKeyPress}
 						fullWidth
 						type="search"
 						InputProps={{
 							endAdornment: (
 								<InputAdornment position="end">
-									<button type="button">
+									<button type="button" onClick={handleSearch}>
 										<IoSearch className="study-search-modal-icon" color="#212b36" />
 									</button>
 								</InputAdornment>

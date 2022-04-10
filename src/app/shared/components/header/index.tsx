@@ -6,7 +6,7 @@ import globalState from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useState } from 'react';
-import { IoMegaphone, IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
+import { IoBookmark, IoBookmarkOutline, IoMegaphone, IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
@@ -35,8 +35,8 @@ const Header: React.FC = () => {
 		setIsDrawerOpen(false);
 	};
 
-	const clickNotices = () => {
-		history.push('/profile/notice');
+	const clickBookmark = () => {
+		history.push('/profile/studies/bookmark');
 	};
 
 	const clickSearchIcon = () => {
@@ -51,18 +51,18 @@ const Header: React.FC = () => {
 	const HeaderRightComponent = () => {
 		if (state.login) {
 			return (
-				<div>
-					<IoMegaphone onClick={clickNotices} className="header-icon desktop-visible" />
+				<div className="header-icons-con">
 					<IoSearch onClick={clickSearchIcon} className="header-icon" />
 					<IoNotifications onClick={clickNotification} className="header-icon mr0-mobile" />
+					<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" />
 					<IoMenu onClick={openDrawer} className="header-icon desktop-visible" />
 				</div>
 			);
 		}
 
 		return (
-			<div>
-				<IoMegaphone onClick={clickNotices} className="header-icon desktop-visible" />
+			<div className="header-icons-con">
+				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" />
 				<Button onClick={() => openModal(ModalKeyEnum.LoginModal)}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>

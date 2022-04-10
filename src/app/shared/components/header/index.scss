@@ -57,8 +57,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 !important;
-    align-items: center;
+    align-items: center !important;
     position: sticky;
     top:0;
     z-index: 3;
@@ -73,6 +72,11 @@
     &:hover{
       cursor: pointer !important;
     }
+  }
+  &-icons-con{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
   }
   &-login{
     font-size: .875rem;

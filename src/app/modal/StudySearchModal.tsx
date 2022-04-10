@@ -1,7 +1,7 @@
-import { Box, TextField } from '@material-ui/core';
+import { Box, InputAdornment, TextField } from '@material-ui/core';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import React, { useState } from 'react';
-import { IoArrowBack, IoClose } from 'react-icons/io5';
+import { IoArrowBack, IoClose, IoSearch } from 'react-icons/io5';
 import './studySearchModal.scss';
 
 const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element | false => {
@@ -23,6 +23,15 @@ const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 						onChange={(e) => setSearchTest(e.target.value)}
 						onClick={(e) => e.stopPropagation()}
 						fullWidth
+						InputProps={{
+							endAdornment: (
+								<InputAdornment position="end">
+									<button type="button">
+										<IoSearch className="study-search-modal-icon" color="#212b36" />
+									</button>
+								</InputAdornment>
+							),
+						}}
 					/>
 				</Box>
 			</Box>

@@ -29,13 +29,6 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 
 	return (
 		<div className="account-info-container">
-			<div className="account-info-header-container">
-				<button type="button" onClick={() => history.goBack()}>
-					<IoArrowBack color="#f2f2f2" className="account-info-header-icn" />
-				</button>
-				<div className="account-info-header-title">계정 정보</div>
-				<div className="account-info-header-icn" />
-			</div>
 			<div className="account-info-body-wrapper mt4rem">
 				<div className="account-info-body-container">
 					<button type="button" className="account-info-body-account-container">

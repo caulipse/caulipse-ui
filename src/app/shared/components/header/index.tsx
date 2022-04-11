@@ -5,11 +5,21 @@ import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
-import React, { useCallback, useState } from 'react';
-import { IoMegaphone, IoMenu, IoNotifications, IoSearch } from 'react-icons/io5';
+import React, { useCallback, useMemo, useState } from 'react';
+import {
+	IoBookmark,
+	IoBookmarkOutline,
+	IoMegaphone,
+	IoMenu,
+	IoNotifications,
+	IoNotificationsOutline,
+	IoSearch,
+} from 'react-icons/io5';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
+
+const exampleId = 'sample-id';
 
 const Header: React.FC = () => {
 	const history = useHistory();
@@ -23,6 +33,14 @@ const Header: React.FC = () => {
 
 	const logout = usePatchLogout();
 
+	const isGnbWhite = useMemo(() => {
+		return locationPathName === `/profile/${exampleId}`;
+	}, [locationPathName]);
+
+	const iconColor = useMemo(() => {
+		return isGnbWhite ? '#101010' : '#ffffff';
+	}, [isGnbWhite]);
+
 	const handleLogout = () => {
 		logout.mutate();
 	};
@@ -35,8 +53,8 @@ const Header: React.FC = () => {
 		setIsDrawerOpen(false);
 	};
 
-	const clickNotices = () => {
-		history.push('/profile/notice');
+	const clickBookmark = () => {
+		history.push('/profile/studies/bookmark');
 	};
 
 	const clickSearchIcon = () => {
@@ -50,48 +68,19 @@ const Header: React.FC = () => {
 	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
 	const HeaderRightComponent = () => {
 		if (state.login) {
-			if (locationPathName.startsWith('/study') && !locationPathName.startsWith('/study/detail')) {
-				return (
-					<div>
-						<IconButton onClick={clickNotices}>
-							<IoMegaphone className="header-icon desktop-visible" />
-						</IconButton>
-						<IconButton onClick={clickSearchIcon}>
-							<IoSearch className="header-icon" />
-						</IconButton>
-						<IconButton onClick={clickNotification}>
-							<IoNotifications className="header-icon" />
-						</IconButton>
-						<IconButton onClick={openDrawer}>
-							<IoMenu className="header-icon desktop-visible" />
-						</IconButton>
-					</div>
-				);
-			}
-
 			return (
-				<IconButton onClick={clickNotification}>
-					<IoNotifications className="header-icon" />
-				</IconButton>
-			);
-		}
-
-		if (locationPathName.startsWith('/study/detail')) {
-			return <div />;
-		}
-		if (locationPathName.startsWith('/study')) {
-			return (
-				<IconButton onClick={clickSearchIcon}>
-					<IoSearch className="header-icon" />
-				</IconButton>
+				<div className="header-icons-con">
+					<IoSearch onClick={clickSearchIcon} className="header-icon" color={iconColor} />
+					<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
+					<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" color={iconColor} />
+					<IoMenu onClick={openDrawer} className="header-icon desktop-visible" color={iconColor} />
+				</div>
 			);
 		}
 
 		return (
-			<div>
-				<IconButton onClick={clickNotices}>
-					<IoMegaphone className="header-icon desktop-visible" />
-				</IconButton>
+			<div className="header-icons-con">
+				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" color={iconColor} />
 				<Button onClick={() => openModal(ModalKeyEnum.LoginModal)}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>
@@ -130,10 +119,8 @@ const Header: React.FC = () => {
 	}, [drawerList, drawerListBeforeLogin, state.login]);
 
 	return (
-		<header className="header-con">
-			<IconButton onClick={openDrawer}>
-				<IoMenu className="header-icon mobile-visible" />
-			</IconButton>
+		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
+			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 			<Link to="/">
 				<Typography className="header-logo">서비스 로고</Typography>
 			</Link>

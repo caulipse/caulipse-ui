@@ -57,16 +57,28 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: center !important;
     position: sticky;
     top:0;
     z-index: 3;
     height: $header-height !important;
+    padding: 0 .75rem !important;
+  }
+  &-bg-white{
+    background-color: #ffffff !important;
   }
   &-icon{
     width:1.5rem;
     height:1.5rem;
-    color:#ffffff;
+    margin-right: .5rem !important;
+    &:hover{
+      cursor: pointer !important;
+    }
+  }
+  &-icons-con{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
   }
   &-login{
     font-size: .875rem;
@@ -117,4 +129,12 @@
 }
 .font-bold{
   font-weight: bold;
+}
+.mr0-mobile{
+  @include mobile{
+    margin-right: 0 !important;
+  }
+  @include tablet{
+    margin-right: 0 !important;
+  }
 }

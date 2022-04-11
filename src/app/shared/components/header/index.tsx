@@ -40,7 +40,7 @@ const Header: React.FC = () => {
 	};
 
 	const clickSearchIcon = () => {
-		console.log('clickSearchIcon');
+		openModal(ModalKeyEnum.StudySearchModal);
 	};
 
 	const clickNotification = () => {

@@ -10,8 +10,8 @@ import { UserProfile } from '@src/api/types';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import { Box, ButtonBase } from '@material-ui/core';
-
-const exampleId = '28464dc7-7537-4b91-9d52-764b6de32122';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 interface MyHeaderPresenterProps {
 	userProfile: UserProfile;
@@ -20,10 +20,11 @@ interface MyHeaderPresenterProps {
 
 const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): JSX.Element => {
 	const history = useHistory();
+	const [state, setState] = useAtom(globalState);
 	const { openModal } = useModal();
 
 	const showProfileSheet = () => {
-		openModal(ModalKeyEnum.UserProfileModal, { userId: exampleId });
+		openModal(ModalKeyEnum.UserProfileModal, { userId: state.userId });
 	};
 
 	return (

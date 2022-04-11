@@ -13,6 +13,8 @@ import { Box, ButtonBase, Container, InputAdornment } from '@material-ui/core';
 import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 export interface UrlInterface {
 	urlId: number;
@@ -31,8 +33,6 @@ interface MyProfileEditPresenterProps {
 	longIntro: string;
 }
 
-const exampleId = '28464dc7-7537-4b91-9d52-764b6de32122';
-
 const MyProfileEditPresenter = ({
 	imgSrc,
 	nickname,
@@ -45,6 +45,7 @@ const MyProfileEditPresenter = ({
 	longIntro,
 }: MyProfileEditPresenterProps): JSX.Element => {
 	const updateProfile = usePatchUserProfile();
+	const [state, setState] = useAtom(globalState);
 
 	const [accUrlId, setAccUrlId] = useState<number>(urls.length);
 	const [currentNickname, setCurrentNickname] = useState<string>(nickname);
@@ -64,7 +65,7 @@ const MyProfileEditPresenter = ({
 		});
 
 		updateProfile.mutate({
-			userId: exampleId,
+			userId: state.userId,
 			userName: currentNickname,
 			dept: currentMajor,
 			grade: String(currentGrade),

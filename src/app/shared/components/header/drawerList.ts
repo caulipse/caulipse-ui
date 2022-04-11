@@ -1,8 +1,4 @@
-import ModalKeyEnum from '@src/components/common/modal/enum';
 import config from '@src/config';
-import useModal from '@src/hooks/modal/useModal';
-
-const SAMPLE_ID = 'sample-id';
 
 export interface DrawerButtonProps {
 	title: string;
@@ -14,7 +10,7 @@ export const drawerList: DrawerButtonProps[][] = [
 	[
 		{
 			title: '마이 페이지',
-			route: `/profile/${SAMPLE_ID}`,
+			route: '/profile',
 			isBold: true,
 		},
 		{

@@ -19,7 +19,7 @@ const ProfileContainer = ({ path }: ProfileContainerProps): JSX.Element => {
 			<Route exact path={`${path}/notice/:noticeId`} component={NoticeDetailPage} />
 			<Route exact path={`${path}/accountinfo`} component={AccountInfoPage} />
 			<Route path={`${path}/studies`} component={ProfileStudies} />
-			<Route exact path={`${path}/:userId`} component={MyPage} />
+			<Route exact path={`${path}`} component={MyPage} />
 		</Switch>
 	);
 };

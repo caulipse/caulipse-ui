@@ -1,0 +1,35 @@
+.search-result{
+    &-header{
+        &-con{
+            background-color: #ffffff !important;
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.08) !important;
+            padding: 1.5rem 1.25rem 1rem 1.25rem !important;
+        }
+        &-text-con{
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding-bottom: .594rem !important;
+            border-bottom: 1px #212b36 solid !important;
+        }
+        &-text{
+            font-size: .875rem !important;
+            color: #4c4c4c !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 1 !important;
+            -webkit-box-orient: vertical !important;
+            word-wrap:break-word !important; 
+            margin-right: .5rem !important;
+        }
+    }
+    &-icon{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        &:hover{
+            cursor: pointer !important;
+        }
+    }
+}

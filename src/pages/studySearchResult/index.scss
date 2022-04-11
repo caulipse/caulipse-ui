@@ -4,6 +4,7 @@
             background-color: #ffffff !important;
             box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.08) !important;
             padding: 1.5rem 1.25rem 1rem 1.25rem !important;
+            margin-bottom: 1.875rem !important;
         }
         &-text-con{
             display: flex !important;
@@ -24,6 +25,12 @@
             word-wrap:break-word !important; 
             margin-right: .5rem !important;
         }
+    }
+    &-divider{
+        background-color: #929699 !important;
+        width: calc(100% - 1.5rem) !important;
+        height: 1px !important;
+        margin: 0 .75rem !important;
     }
     &-icon{
         width: 1.5rem !important;

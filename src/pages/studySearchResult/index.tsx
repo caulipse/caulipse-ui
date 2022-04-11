@@ -1,4 +1,5 @@
 import { Box } from '@material-ui/core';
+import StudySortFilterContainer from '@src/app/study/studySortFilter/StudySortFilterContainer';
 import React from 'react';
 import { IoClose } from 'react-icons/io5';
 import { useLocation, useHistory } from 'react-router-dom';
@@ -21,6 +22,8 @@ const StudySearchResultPage = (): JSX.Element => {
 					<IoClose className="search-result-icon" color="#4c4c4c" onClick={() => history.goBack()} />
 				</Box>
 			</Box>
+			<StudySortFilterContainer />
+			<Box className="search-result-divider" />
 		</>
 	);
 };

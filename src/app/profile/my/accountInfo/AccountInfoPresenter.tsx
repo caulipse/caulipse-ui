@@ -16,7 +16,7 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 	const logout = usePatchLogout();
 
 	const changePw = () => {
-		console.log('changePw');
+		history.push('/reset-password');
 	};
 
 	const handleLogout = () => {

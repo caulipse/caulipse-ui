@@ -12,6 +12,7 @@ import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
 import MainPage from './pages/main';
 import globalState from './state';
+import ResetPwPage from './pages/signup/ResetPwPage';
 
 const Location = () => {
 	const { pathname } = useLocation();
@@ -25,6 +26,36 @@ const Location = () => {
 };
 
 const MainContainer = (): JSX.Element => {
+	return (
+		<Router forceRefresh>
+			<Location />
+			<Header />
+			<Switch>
+				<Route exact path="/study/:category" component={StudyPage} />
+				<Route exact path="/study" component={StudyPage} />
+				<Route path="/profile" component={ProfilePage} />
+				<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
+				<Route exact path="/" component={MainPage} />
+				<Redirect path="*" to="/" />
+			</Switch>
+			<Footer />
+		</Router>
+	);
+};
+
+const RootContainer = (): JSX.Element => {
+	return (
+		<Router forceRefresh>
+			<Switch>
+				<Route exact path="/reset-password" component={ResetPwPage} />
+				<Route path="/" component={MainContainer} />
+				<Redirect path="*" to="/" />
+			</Switch>
+		</Router>
+	);
+};
+
+const App = (): JSX.Element => {
 	const [state] = useAtom(globalState);
 	const { open: snackbarOpen, message, type } = state.snackbar;
 	const { open: modalOpen, key, params } = state.modal;
@@ -35,29 +66,11 @@ const MainContainer = (): JSX.Element => {
 	return (
 		<div>
 			<div className="main-con">
-				<Switch>
-					<Route exact path="/study/:category" component={StudyPage} />
-					<Route exact path="/study" component={StudyPage} />
-					<Route path="/profile" component={ProfilePage} />
-					<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
-					<Route exact path="/" component={MainPage} />
-					<Redirect path="*" to="/" />
-				</Switch>
+				<RootContainer />
 			</div>
 			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}
 			{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} params={params} />}
 		</div>
-	);
-};
-
-const App = (): JSX.Element => {
-	return (
-		<Router>
-			<Location />
-			<Header />
-			<MainContainer />
-			<Footer />
-		</Router>
 	);
 };
 

@@ -3,6 +3,7 @@ import { IRequestLogin } from '@api/request/user';
 import API from '@src/api';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
+import { IPostLogin } from '@src/api/response/login';
 
 export default (setSuccess: React.Dispatch<React.SetStateAction<boolean | undefined>>) => {
 	const [state, setState] = useAtom(globalState);
@@ -13,7 +14,7 @@ export default (setSuccess: React.Dispatch<React.SetStateAction<boolean | undefi
 	};
 
 	return useMutation(mutation, {
-		onSuccess: (response: any) => {
+		onSuccess: (response: IPostLogin) => {
 			console.log(response);
 			setSuccess(true);
 			setState({ ...state, userId: response?.userId });

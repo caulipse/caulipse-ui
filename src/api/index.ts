@@ -182,6 +182,17 @@ const API = {
 	getAppliedStudies() {
 		return client.get('/user/study/applied');
 	},
+	getSearchStudies(keyword: string, frequency?: string, weekday?: string, location?: string, orderBy?: string) {
+		return client.get('/study', {
+			params: {
+				keyword,
+				frequency,
+				weekday,
+				location,
+				order_by: orderBy,
+			},
+		});
+	},
 };
 
 export default API;

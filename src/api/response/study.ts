@@ -21,3 +21,8 @@ export interface IResponseGetMyStudies {
 }
 
 export type IResponseGetAppiedStudies = AppliedStudy[];
+
+export interface IResponseGetSearchStudies {
+	message: string;
+	studies: Study[];
+}

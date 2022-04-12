@@ -1,3 +1,6 @@
+@import '@scss/mixins';
+@import '@scss/variables';
+
 .search-result{
     &-header{
         &-con{
@@ -37,6 +40,38 @@
         height: 1.5rem !important;
         &:hover{
             cursor: pointer !important;
+        }
+    }
+    &-recruit-btn{
+        display: none !important;
+        @include desktop{
+            display: flex !important;
+            flex:1 !important;
+            margin-right: 1.5rem !important;
+            margin-top: 4.5rem !important;
+            padding: 1.8rem !important;
+            color: $primaryColor !important;
+            background-color: $primaryLightColor !important;
+            border-radius: .5rem !important;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16) !important;
+            font-size: .833rem !important;
+            font-weight: bold !important;
+            text-align: left !important;
+        }
+    }
+    @include desktop{
+        &-desktop{
+            &-con{
+                display: flex !important;
+                flex-direction: row !important;
+                max-width: $desktopMaxContentWidth !important;
+                align-items: flex-start !important;
+            }
+            &-content-con{
+                display: flex !important;
+                flex: 4 !important;
+                flex-direction: column !important;
+            }
         }
     }
 }

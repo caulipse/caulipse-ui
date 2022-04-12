@@ -1,10 +1,10 @@
-import { Box } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import StudyCardContainer from '@src/app/shared/components/card/StudyCardContainer';
 import StudySortFilterContainer from '@src/app/study/studySortFilter/StudySortFilterContainer';
 import Loader from '@src/components/common/loader/Loader';
 import useFetchSearchResult from '@src/hooks/remotes/study/useFetchSearchResult';
 import React from 'react';
-import { IoClose } from 'react-icons/io5';
+import { IoArrowForward, IoChevronForward, IoClose } from 'react-icons/io5';
 import { useLocation, useHistory } from 'react-router-dom';
 import './index.scss';
 
@@ -28,15 +28,26 @@ const StudySearchResultPage = (): JSX.Element => {
 					<IoClose className="search-result-icon" color="#4c4c4c" onClick={() => history.goBack()} />
 				</Box>
 			</Box>
-			<StudySortFilterContainer />
-			<Box className="search-result-divider" />
-			{data?.studies.map((item, index, { length }) => {
-				return (
-					<div key={item.id} className="mt1_5rem">
-						<StudyCardContainer study={item} />
-					</div>
-				);
-			})}
+			<Box className="search-result-desktop-con">
+				<Button
+					className="search-result-recruit-btn"
+					variant="contained"
+					endIcon={<IoChevronForward className="search-result-icon" color="#0170f2" />}
+				>
+					지금 바로 스터디원을 모집해보세요!
+				</Button>
+				<Box className="search-result-desktop-content-con">
+					<StudySortFilterContainer />
+					<Box className="search-result-divider" />
+					{data?.studies.map((item) => {
+						return (
+							<div key={item.id} className="mt1_5rem">
+								<StudyCardContainer study={item} />
+							</div>
+						);
+					})}
+				</Box>
+			</Box>
 		</>
 	);
 };

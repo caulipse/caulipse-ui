@@ -1,5 +1,8 @@
 import { Box } from '@material-ui/core';
+import StudyCardContainer from '@src/app/shared/components/card/StudyCardContainer';
 import StudySortFilterContainer from '@src/app/study/studySortFilter/StudySortFilterContainer';
+import Loader from '@src/components/common/loader/Loader';
+import useFetchSearchResult from '@src/hooks/remotes/study/useFetchSearchResult';
 import React from 'react';
 import { IoClose } from 'react-icons/io5';
 import { useLocation, useHistory } from 'react-router-dom';
@@ -13,6 +16,9 @@ const StudySearchResultPage = (): JSX.Element => {
 	const location = useLocation<StudySearchResultPageProps>();
 	const history = useHistory();
 	const searchKeyword = location.state?.searchKeyword;
+	const { data, isLoading } = useFetchSearchResult(searchKeyword ?? '');
+
+	if (isLoading) return <Loader />;
 
 	return (
 		<>
@@ -24,6 +30,13 @@ const StudySearchResultPage = (): JSX.Element => {
 			</Box>
 			<StudySortFilterContainer />
 			<Box className="search-result-divider" />
+			{data?.studies.map((item, index, { length }) => {
+				return (
+					<div key={item.id} className="mt1_5rem">
+						<StudyCardContainer study={item} />
+					</div>
+				);
+			})}
 		</>
 	);
 };

@@ -183,7 +183,7 @@ const API = {
 		return client.get('/user/study/applied');
 	},
 	getSearchStudies(keyword: string, frequency?: string, weekday?: string, location?: string, orderBy?: string) {
-		return client.get('/study', {
+		return client.get('/study/search', {
 			params: {
 				keyword,
 				frequency,

@@ -1,5 +1,6 @@
 import { Box, Button } from '@material-ui/core';
 import StudyCardContainer from '@src/app/shared/components/card/StudyCardContainer';
+import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import StudySortFilterContainer from '@src/app/study/studySortFilter/StudySortFilterContainer';
 import Loader from '@src/components/common/loader/Loader';
 import useFetchSearchResult from '@src/hooks/remotes/study/useFetchSearchResult';
@@ -39,13 +40,23 @@ const StudySearchResultPage = (): JSX.Element => {
 				<Box className="search-result-desktop-content-con">
 					<StudySortFilterContainer />
 					<Box className="search-result-divider" />
-					{data?.studies.map((item) => {
-						return (
-							<div key={item.id} className="mt1_5rem">
-								<StudyCardContainer study={item} />
-							</div>
-						);
-					})}
+					{data?.studies ? (
+						data.studies.map((item) => {
+							return (
+								<div key={item.id} className="mt1_5rem">
+									<StudyCardContainer study={item} />
+								</div>
+							);
+						})
+					) : (
+						<EmptyComponent
+							title="검색 결과가 없습니다."
+							buttonText="스터디 찾아보기"
+							onClick={() => {
+								history.push('/');
+							}}
+						/>
+					)}
 				</Box>
 			</Box>
 		</>

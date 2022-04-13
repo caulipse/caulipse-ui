@@ -6,6 +6,7 @@ import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
+import { differenceInDays } from 'date-fns';
 import React, { useCallback } from 'react';
 import { IoEllipsisVertical } from 'react-icons/io5';
 import './index.scss';
@@ -49,7 +50,9 @@ const RecruitingStudiesPresenter = ({
 					views={item.views}
 					bookmarks={item.bookmarkCount}
 					className={index === length - 1 ? '' : 'mb16'}
-					leftTopComponent={<Box className="recruiting-studies-chip">D-18</Box>}
+					leftTopComponent={
+						<Box className="recruiting-studies-chip">D-{differenceInDays(new Date(item.dueDate), new Date())}</Box>
+					}
 					rightTopComponent={
 						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
 					}

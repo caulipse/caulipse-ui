@@ -31,6 +31,7 @@ export interface Study {
 	views: number;
 	weekday: string;
 	bookmarkCount: number;
+	dueDate: string;
 }
 
 export interface StudyUser {

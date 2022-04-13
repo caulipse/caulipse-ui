@@ -7,6 +7,7 @@ interface StudyInfoConntainerProps {
 	bookmarkCount: number;
 	title: string;
 	studyAbout: string;
+	dueDate: string;
 }
 const StudyInfoContentContainer = ({
 	createdAt,
@@ -14,6 +15,7 @@ const StudyInfoContentContainer = ({
 	bookmarkCount,
 	title,
 	studyAbout,
+	dueDate,
 }: StudyInfoConntainerProps): JSX.Element => {
 	return (
 		<StudyInfoContentPresenter
@@ -22,6 +24,7 @@ const StudyInfoContentContainer = ({
 			bookmarkCount={bookmarkCount}
 			title={title}
 			studyAbout={studyAbout}
+			dueDate={dueDate}
 		/>
 	);
 };

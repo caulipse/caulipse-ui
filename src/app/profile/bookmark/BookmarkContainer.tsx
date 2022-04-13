@@ -8,7 +8,6 @@ const BookmarkContainer = (): JSX.Element => {
 	const bookmarks = data?.bookmarks;
 
 	const openedBookmarks = bookmarks?.filter((item) => new Date(item.dueDate) >= new Date());
-
 	const closedBookmarks = bookmarks?.filter((item) => new Date(item.dueDate) < new Date());
 
 	return (

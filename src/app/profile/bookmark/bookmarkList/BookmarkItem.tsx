@@ -7,6 +7,7 @@ import ProgressBar from '@src/components/common/progress/ProgressBar';
 import classNames from 'classnames';
 import useDeleteBookmark from '@src/hooks/remotes/bookmark/useDeleteBookmark';
 import { Box } from '@material-ui/core';
+import { differenceInDays } from 'date-fns';
 
 interface BookmarkItemProps {
 	item: Study;
@@ -18,7 +19,7 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 	const deleteBookmark = useDeleteBookmark(item.id);
 
 	const LeftTopComponent = useCallback(() => {
-		return <Box className="bookmark-item-chip">D-18</Box>;
+		return <Box className="bookmark-item-chip">D-{differenceInDays(new Date(item.dueDate), new Date())}</Box>;
 	}, []);
 
 	const RightTopComponent = useCallback(() => {

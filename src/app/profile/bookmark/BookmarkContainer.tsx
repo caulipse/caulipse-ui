@@ -7,13 +7,19 @@ const BookmarkContainer = (): JSX.Element => {
 	const { isLoading, data } = useFetchBookmarks();
 	const bookmarks = data?.bookmarks;
 
-	// TODO: 마감여부
+	const openedBookmarks = bookmarks?.filter((item) => new Date(item.dueDate) >= new Date());
+
+	const closedBookmarks = bookmarks?.filter((item) => new Date(item.dueDate) < new Date());
+
 	return (
 		<div>
 			{isLoading ? (
 				<Loader />
 			) : (
-				bookmarks && <BookmarkPresenter recruitedBookmarks={bookmarks} recruitingBookmarks={bookmarks} />
+				openedBookmarks &&
+				closedBookmarks && (
+					<BookmarkPresenter recruitedBookmarks={openedBookmarks} recruitingBookmarks={closedBookmarks} />
+				)
 			)}
 		</div>
 	);

@@ -20,7 +20,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(0);
-	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [selectedDate, setSelectedDate] = useState<Date>(new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000));
 	const [selectedCapacity, setSelectedCapcity] = useState<number>(2);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(0);
 	const [selectedFrequencies, setSelectedFrequencies] = useState<string>('');

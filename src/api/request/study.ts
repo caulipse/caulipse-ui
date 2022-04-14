@@ -6,6 +6,7 @@ export interface IRequestPostStudy {
 	location: string;
 	capacity: number;
 	categoryCode: number;
+	dueDate: string;
 }
 
 type IRequestPatchStudyData = Partial<IRequestPostStudy>;

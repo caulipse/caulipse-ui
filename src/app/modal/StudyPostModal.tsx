@@ -6,6 +6,7 @@ import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import categories from '@src/const';
 import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
+import { format } from 'date-fns';
 import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import StudyContent from '../study/studyModal/studyContent';
@@ -46,6 +47,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			location: selectedPlaces[0],
 			capacity: selectedCapacity,
 			categoryCode: selectedSubCategoryCode,
+			dueDate: format(selectedDate, 'yyyy-MM-dd 00:00:00'),
 		});
 	};
 

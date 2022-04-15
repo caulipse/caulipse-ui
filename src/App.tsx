@@ -12,7 +12,7 @@ import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
 import MainPage from './pages/main';
 import globalState from './state';
-import ResetPwPage from './pages/signup/ResetPwPage';
+import ResetPwPage from './pages/signup/resetPwPage';
 import StudySearchResultPage from './pages/studySearchResult';
 
 const Location = () => {

@@ -155,6 +155,7 @@ const StudyDetailPage = (): JSX.Element => {
 										title={studyData.title}
 										studyAbout={studyData.studyAbout}
 										capacity={studyData.capacity}
+										dueDate={studyData.dueDate}
 										initialIndex={initialIndex}
 										isHost={isHost}
 									/>

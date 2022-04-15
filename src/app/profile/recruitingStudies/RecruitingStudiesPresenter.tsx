@@ -2,6 +2,7 @@ import { Box } from '@material-ui/core';
 import { Study } from '@src/api/types';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
+import { getDday } from '@src/app/shared/utils/date';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import ModalKeyEnum from '@src/components/common/modal/enum';
@@ -49,7 +50,7 @@ const RecruitingStudiesPresenter = ({
 					views={item.views}
 					bookmarks={item.bookmarkCount}
 					className={index === length - 1 ? '' : 'mb16'}
-					leftTopComponent={<Box className="recruiting-studies-chip">D-18</Box>}
+					leftTopComponent={<Box className="recruiting-studies-chip">{getDday(item.dueDate)}</Box>}
 					rightTopComponent={
 						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
 					}

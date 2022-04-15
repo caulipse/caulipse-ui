@@ -38,7 +38,6 @@ const MainContainer = (): JSX.Element => {
 				<Route exact path="/study" component={StudyPage} />
 				<Route path="/profile" component={ProfilePage} />
 				<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
-				<Route exact path="/signup" component={SignUpPage} />
 				<Route exact path="/" component={MainPage} />
 				<Redirect path="*" to="/" />
 			</Switch>
@@ -52,6 +51,7 @@ const RootContainer = (): JSX.Element => {
 		<Router forceRefresh>
 			<Switch>
 				<Route exact path="/reset-password" component={ResetPwPage} />
+				<Route exact path="/signup" component={SignUpPage} />
 				<Route path="/" component={MainContainer} />
 				<Redirect path="*" to="/" />
 			</Switch>

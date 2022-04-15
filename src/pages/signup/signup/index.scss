@@ -2,7 +2,10 @@
 
 .sign-up{
     &-con{
-
+        display: flex !important;
+        flex-direction: column !important;
+        flex:1 !important;
+        height: 100vh !important;
     }
     &-header{
         &-con{
@@ -25,6 +28,23 @@
         height: 1.5rem !important;
         &:hover{
             cursor: pointer !important;
+        }
+    }
+    &-body{
+        &-con{
+            display: flex !important;
+            flex: 1 !important;
+            flex-direction: column !important;
+            max-width: $maxContentWidth !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin: auto !important;
+        }
+        &-text{
+            margin-top: .25rem !important;
+            font-size: .875rem !important;
+            color: #929699 !important;
         }
     }
 }

@@ -30,6 +30,11 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		history.push('/reset-password');
 	};
 
+	const signUp = () => {
+		onClose(false);
+		history.push('/signup');
+	};
+
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
 		if (e.key === 'Enter') {
 			handleLogin();
@@ -108,7 +113,7 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 					/>
 					<CommonButton className="mt1_5rem" type={ButtonTypeEnum.primary} title="로그인" onClick={handleLogin} />
 					<Box className="login-modal-body-btns-con">
-						<Button className="login-modal-body-text-btn" variant="text">
+						<Button className="login-modal-body-text-btn" variant="text" onClick={signUp}>
 							회원가입
 						</Button>
 						<Box className="login-modal-body-vertical-divider" />

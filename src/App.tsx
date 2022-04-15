@@ -14,6 +14,7 @@ import MainPage from './pages/main';
 import globalState from './state';
 import ResetPwPage from './pages/signup/resetPwPage';
 import StudySearchResultPage from './pages/studySearchResult';
+import SignUpPage from './pages/signup/signup';
 
 const Location = () => {
 	const { pathname } = useLocation();
@@ -37,6 +38,7 @@ const MainContainer = (): JSX.Element => {
 				<Route exact path="/study" component={StudyPage} />
 				<Route path="/profile" component={ProfilePage} />
 				<Route exact path="/study/detail/:studyId" component={StudyDetailPage} />
+				<Route exact path="/signup" component={SignUpPage} />
 				<Route exact path="/" component={MainPage} />
 				<Redirect path="*" to="/" />
 			</Switch>

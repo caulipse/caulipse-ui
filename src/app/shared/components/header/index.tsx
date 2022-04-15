@@ -3,18 +3,11 @@ import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
+import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
-import {
-	IoBookmark,
-	IoBookmarkOutline,
-	IoMegaphone,
-	IoMenu,
-	IoNotifications,
-	IoNotificationsOutline,
-	IoSearch,
-} from 'react-icons/io5';
+import { IoBookmarkOutline, IoMenu, IoNotificationsOutline, IoSearch } from 'react-icons/io5';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
@@ -126,7 +119,7 @@ const Header: React.FC = () => {
 		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
 			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 			<Link to="/">
-				<Typography className="header-logo">서비스 로고</Typography>
+				<LogoFullWidthWhite width="200" height="200" />
 			</Link>
 			<HeaderRightComponent />
 			<SwipeableDrawer

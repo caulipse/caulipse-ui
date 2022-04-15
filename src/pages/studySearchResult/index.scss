@@ -1,0 +1,84 @@
+@import '@scss/mixins';
+@import '@scss/variables';
+
+.search-result{
+    &-header{
+        &-con{
+            background-color: #ffffff !important;
+            box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.08) !important;
+            padding: 1.5rem 1.25rem 1rem 1.25rem !important;
+            margin-bottom: 1.875rem !important;
+        }
+        &-text-con{
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding-bottom: .594rem !important;
+            border-bottom: 1px #212b36 solid !important;
+        }
+        &-text{
+            font-size: .875rem !important;
+            color: #4c4c4c !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 1 !important;
+            -webkit-box-orient: vertical !important;
+            word-wrap:break-word !important; 
+            margin-right: .5rem !important;
+        }
+    }
+    &-divider{
+        background-color: #929699 !important;
+        width: calc(100% - 1.5rem) !important;
+        height: 1px !important;
+        margin: 0 .75rem !important;
+    }
+    &-icon{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        &:hover{
+            cursor: pointer !important;
+        }
+    }
+    &-recruit-btn{
+        display: none !important;
+        @include desktop{
+            display: flex !important;
+            flex:1 !important;
+            margin-right: 1.5rem !important;
+            margin-top: 4.5rem !important;
+            padding: 1.8rem !important;
+            color: $primaryColor !important;
+            background-color: $primaryLightColor !important;
+            border-radius: .5rem !important;
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16) !important;
+            font-size: .833rem !important;
+            font-weight: bold !important;
+            text-align: left !important;
+            margin-left: 1.25rem !important;
+        }
+    }
+    @include desktop{
+        &-desktop{
+            &-con{
+                display: flex !important;
+                flex-direction: row !important;
+                max-width: $desktopMaxContentWidth !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+                margin: auto !important;
+            }
+            &-content-con{
+                display: flex !important;
+                flex: 4 !important;
+                flex-direction: column !important;
+                margin-right: 1.25rem !important;
+            }
+        }
+    }
+}
+.mt1_5rem{
+    margin-top: 1.5rem !important;
+}

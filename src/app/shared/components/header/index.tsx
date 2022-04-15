@@ -58,7 +58,11 @@ const Header: React.FC = () => {
 	};
 
 	const clickSearchIcon = () => {
-		openModal(ModalKeyEnum.StudySearchModal);
+		openModal(ModalKeyEnum.StudySearchModal, {
+			onSearch: (searchKeyword: string) => {
+				history.push({ pathname: '/study/search', state: { searchKeyword } });
+			},
+		});
 	};
 
 	const clickNotification = () => {

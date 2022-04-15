@@ -1,15 +1,20 @@
 import { Box, InputAdornment, TextField } from '@material-ui/core';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
-import React, { KeyboardEvent, useState } from 'react';
+import globalState from '@src/state';
+import { useAtom } from 'jotai';
+import React, { KeyboardEvent, useCallback, useState } from 'react';
 import { IoClose, IoSearch } from 'react-icons/io5';
 import './studySearchModal.scss';
 
 const StudySearchModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element | false => {
+	const [state, setState] = useAtom(globalState);
+
 	const [searchText, setSearchTest] = useState<string>('');
 
-	const handleSearch = () => {
-		// TODO: Search Logic
-	};
+	const handleSearch = useCallback(() => {
+		onClose(false);
+		state.modal.params.onSearch(searchText);
+	}, [searchText]);
 
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
 		if (e.key === 'Enter') {

@@ -10,7 +10,6 @@ import globalState from '@src/state';
 import { useAtom } from 'jotai';
 import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
 import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
 
@@ -23,11 +22,10 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 
 	const postLogin = usePostLogin(setLoginSuccess);
 	const { openSnackbar } = useSnackbar();
-	const history = useHistory();
 	const [state, setState] = useAtom(globalState);
+	const history = state.modal.params?.history;
 
 	const resetPw = () => {
-		// TODO: 주소 바뀌지 않는데 확인해 보기
 		onClose(false);
 		history.push('/reset-password');
 	};

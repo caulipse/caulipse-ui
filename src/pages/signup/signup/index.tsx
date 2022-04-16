@@ -17,6 +17,10 @@ const SignUpPage = (): JSX.Element => {
 	const [grade, setGrade] = useState<number>(1);
 	const [onBreak, setOnBreak] = useState<boolean>(false);
 
+	const handleSignUpComplete = () => {
+		/// TODO: 가입 완료 로직
+	};
+
 	return (
 		<Box className="sign-up-con">
 			<Box className="sign-up-header-con">
@@ -42,6 +46,7 @@ const SignUpPage = (): JSX.Element => {
 					setGrade={setGrade}
 					setDept={setDept}
 					setOnBreak={setOnBreak}
+					handleSignUpComplete={handleSignUpComplete}
 				/>
 			)}
 		</Box>

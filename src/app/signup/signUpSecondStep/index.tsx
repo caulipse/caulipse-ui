@@ -1,6 +1,8 @@
 import { Box } from '@material-ui/core';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import './index.scss';
 
 interface SignUpSecondStepProps {
@@ -12,6 +14,7 @@ interface SignUpSecondStepProps {
 	setDept: React.Dispatch<React.SetStateAction<string>>;
 	setGrade: React.Dispatch<React.SetStateAction<number>>;
 	setOnBreak: React.Dispatch<React.SetStateAction<boolean>>;
+	handleSignUpComplete: () => void;
 }
 
 const SignUpSecondStep = ({
@@ -23,7 +26,10 @@ const SignUpSecondStep = ({
 	setDept,
 	setGrade,
 	setOnBreak,
+	handleSignUpComplete,
 }: SignUpSecondStepProps): JSX.Element => {
+	const [deptHelperText, setDeptHelperText] = useState<string>('');
+
 	return (
 		<Box className="signup-second-step-con">
 			<Box className="signup-second-step-title">📚중앙인의 스터디, 중대본!</Box>
@@ -40,8 +46,8 @@ const SignUpSecondStep = ({
 				label="단과대"
 				value={dept}
 				onChange={(e) => setDept(e.target.value)}
-				// type={isMajorError ? 'error' : 'default'}
-				// helperText="최소 2글자입니다."
+				type={deptHelperText ? 'error' : 'default'}
+				helperText="최소 2글자입니다."
 			/>
 			<Box className="profile-edit-row-container mt1_5rem">
 				<CommonTextField
@@ -67,6 +73,12 @@ const SignUpSecondStep = ({
 					<option value={1}>휴학중</option>
 				</CommonTextField>
 			</Box>
+			<CommonButton
+				className="signup-second-step-cta-btn"
+				type={ButtonTypeEnum.primary}
+				title="가입완료!"
+				onClick={handleSignUpComplete}
+			/>
 		</Box>
 	);
 };

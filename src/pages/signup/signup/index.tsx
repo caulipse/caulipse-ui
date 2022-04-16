@@ -12,6 +12,10 @@ const SignUpPage = (): JSX.Element => {
 	const [step, setStep] = useState<number>(1);
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
+	const [nickname, setNickName] = useState<string>('');
+	const [dept, setDept] = useState<string>('');
+	const [grade, setGrade] = useState<number>(1);
+	const [onBreak, setOnBreak] = useState<boolean>(false);
 
 	return (
 		<Box className="sign-up-con">
@@ -29,7 +33,16 @@ const SignUpPage = (): JSX.Element => {
 					goToNextStep={() => setStep(2)}
 				/>
 			) : (
-				<SignUpSecondStep />
+				<SignUpSecondStep
+					nickname={nickname}
+					dept={dept}
+					grade={grade}
+					onBreak={onBreak}
+					setNickName={setNickName}
+					setGrade={setGrade}
+					setDept={setDept}
+					setOnBreak={setOnBreak}
+				/>
 			)}
 		</Box>
 	);

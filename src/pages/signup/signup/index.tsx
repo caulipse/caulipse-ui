@@ -95,6 +95,7 @@ const SignUpPage = (): JSX.Element => {
 						type={ButtonTypeEnum.primary}
 						title="가입하기"
 						onClick={handleNavigateSignUp}
+						disabled={!email || !password}
 					/>
 					<CommonButton
 						className="sign-up-body-reset-pw-btn mt_75rem"

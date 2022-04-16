@@ -12,19 +12,31 @@ interface SignUpFirstStepProps {
 	setEmail: React.Dispatch<React.SetStateAction<string>>;
 	password: string;
 	setPassword: React.Dispatch<React.SetStateAction<string>>;
+	goToNextStep: () => void;
 }
 
-const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirstStepProps): JSX.Element => {
+const SignUpFirstStep = ({
+	email,
+	setEmail,
+	password,
+	setPassword,
+	goToNextStep,
+}: SignUpFirstStepProps): JSX.Element => {
 	const history = useHistory();
 
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
 	const handleNavigateSignUp = () => {
+		let emailSuccess = false;
+		let pwSuccess = false;
+
 		if (!email) {
 			setEmailHelperText('이메일을 입력해 주세요.');
 		} else if (!validateEmail(email) || !validateCAUEmail(email)) {
 			setEmailHelperText('이메일 양식이 올바르지 않습니다. 중앙대 이메일을 사용해주세요.');
+		} else {
+			emailSuccess = true;
 		}
 
 		// TODO: 사용중인 이메일 체크하기
@@ -33,9 +45,13 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 		} else if (!validatePassword(password)) {
 			setPasswordHelperText('비밀번호는 영문, 숫자, 특수문자를 혼합한 8자 이상이어야 합니다.');
+		} else {
+			pwSuccess = true;
 		}
 
-		// TODO: 가입하기
+		if (emailSuccess && pwSuccess) {
+			goToNextStep();
+		}
 	};
 
 	const handleNavigateResetPw = () => {

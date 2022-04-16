@@ -31,6 +31,29 @@ const SignUpSecondStep = ({
 	const [nicknameHelperText, setNicknameHelperText] = useState<string>('');
 	const [deptHelperText, setDeptHelperText] = useState<string>('');
 
+	const handleClickCTA = () => {
+		let nickNameSuccess = false;
+		let deptSuccess = false;
+
+		if (!nickname) {
+			setNicknameHelperText('닉네임을 입력해 주세요.');
+		} else {
+			nickNameSuccess = true;
+		}
+
+		if (!dept) {
+			setDeptHelperText('단과대를 입력해 주세요.');
+		} else if (dept.length < 2) {
+			setDeptHelperText('최소 2글자입니다.');
+		} else {
+			deptSuccess = true;
+		}
+
+		if (nickNameSuccess && deptSuccess) {
+			handleSignUpComplete();
+		}
+	};
+
 	return (
 		<Box className="signup-second-step-con">
 			<Box className="signup-second-step-title">📚중앙인의 스터디, 중대본!</Box>
@@ -40,6 +63,9 @@ const SignUpSecondStep = ({
 				label="닉네임"
 				value={nickname}
 				onChange={(e) => setNickName(e.target.value)}
+				type={nicknameHelperText ? 'error' : 'default'}
+				helperText={nicknameHelperText}
+				textFieldProps={{ onFocus: () => setNicknameHelperText('') }}
 			/>
 			<CommonTextField
 				className="mt1_5rem"
@@ -48,7 +74,8 @@ const SignUpSecondStep = ({
 				value={dept}
 				onChange={(e) => setDept(e.target.value)}
 				type={deptHelperText ? 'error' : 'default'}
-				helperText="최소 2글자입니다."
+				helperText={deptHelperText}
+				textFieldProps={{ onFocus: () => setDeptHelperText('') }}
 			/>
 			<Box className="profile-edit-row-container mt1_5rem">
 				<CommonTextField
@@ -78,8 +105,8 @@ const SignUpSecondStep = ({
 				className="signup-second-step-cta-btn"
 				type={ButtonTypeEnum.primary}
 				title="가입완료!"
-				onClick={handleSignUpComplete}
-				disabled={!nickname && !dept}
+				onClick={handleClickCTA}
+				disabled={!nickname || !dept}
 			/>
 		</Box>
 	);

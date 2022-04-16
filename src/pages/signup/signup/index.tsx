@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from '@material-ui/core';
-import { validateCAUEmail, validateEmail } from '@src/app/shared/utils/validation';
+import { validateCAUEmail, validateEmail, validatePassword } from '@src/app/shared/utils/validation';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
@@ -16,13 +16,21 @@ const SignUpPage = (): JSX.Element => {
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
 	const handleNavigateSignUp = () => {
-		// TODO: 가입하기
 		if (!email) {
 			setEmailHelperText('이메일을 입력해 주세요.');
 		} else if (!validateEmail(email) || !validateCAUEmail(email)) {
 			setEmailHelperText('이메일 양식이 올바르지 않습니다. 중앙대 이메일을 사용해주세요.');
 		}
+
 		// TODO: 사용중인 이메일 체크하기
+
+		if (!password) {
+			setPasswordHelperText('비밀번호를 입력해 주세요.');
+		} else if (!validatePassword(password)) {
+			setPasswordHelperText('비밀번호는 영문, 숫자, 특수문자를 혼합한 8자 이상이어야 합니다.');
+		}
+
+		// TODO: 가입하기
 	};
 
 	const handleNavigateResetPw = () => {

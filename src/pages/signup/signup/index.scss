@@ -47,6 +47,8 @@
             color: #929699 !important;
         }
         &-align-self-stretch{
+            display: flex !important;
+            flex-direction: column !important;
             align-self: stretch !important;
             width: auto !important;
             margin: 0 1.25rem !important;

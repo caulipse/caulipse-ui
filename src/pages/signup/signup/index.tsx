@@ -49,49 +49,51 @@ const SignUpPage = (): JSX.Element => {
 			<Box className="sign-up-body-con">
 				<Typography>로고</Typography>
 				<Box className="sign-up-body-text">중앙대 이메일로 간편하게 가입해보세요:)</Box>
-				<CommonTextField
-					className="sign-up-body-align-self-stretch mt3_5rem"
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					type={emailHelperText ? 'error' : 'default'}
-					textFieldProps={{
-						type: 'email',
-						onFocus: () => {
-							setEmailHelperText('');
-						},
-						onKeyPress,
-					}}
-					helperText={emailHelperText}
-					label="포탈 이메일"
-					placeholder="포탈 이메일을 입력해주세요."
-				/>
-				<CommonTextField
-					className="sign-up-body-align-self-stretch mt_5rem"
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					type={passwordHelperText ? 'error' : 'default'}
-					textFieldProps={{
-						type: 'password',
-						onFocus: () => {
-							setPasswordHelperText('');
-						},
-						onKeyPress,
-					}}
-					helperText={passwordHelperText}
-					label="비밀번호"
-					placeholder="사용하실 비밀번호를 입력해주세요."
-				/>
-				<CommonButton
-					className="sign-up-body-align-self-stretch mt1_5rem"
-					type={ButtonTypeEnum.primary}
-					title="가입하기"
-					onClick={handleNavigateSignUp}
-				/>
-				<CommonButton
-					className="sign-up-body-align-self-stretch sign-up-body-reset-pw-btn mt_75rem"
-					title="비밀번호를 잊어버리셨나요?"
-					onClick={handleNavigateResetPw}
-				/>
+				<Box className="sign-up-body-align-self-stretch">
+					<CommonTextField
+						className="mt3_5rem"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						type={emailHelperText ? 'error' : 'default'}
+						textFieldProps={{
+							type: 'email',
+							onFocus: () => {
+								setEmailHelperText('');
+							},
+							onKeyPress,
+						}}
+						helperText={emailHelperText}
+						label="포탈 이메일"
+						placeholder="포탈 이메일을 입력해주세요."
+					/>
+					<CommonTextField
+						className="mt_5rem"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						type={passwordHelperText ? 'error' : 'default'}
+						textFieldProps={{
+							type: 'password',
+							onFocus: () => {
+								setPasswordHelperText('');
+							},
+							onKeyPress,
+						}}
+						helperText={passwordHelperText}
+						label="비밀번호"
+						placeholder="사용하실 비밀번호를 입력해주세요."
+					/>
+					<CommonButton
+						className="mt1_5rem"
+						type={ButtonTypeEnum.primary}
+						title="가입하기"
+						onClick={handleNavigateSignUp}
+					/>
+					<CommonButton
+						className="sign-up-body-reset-pw-btn mt_75rem"
+						title="비밀번호를 잊어버리셨나요?"
+						onClick={handleNavigateResetPw}
+					/>
+				</Box>
 			</Box>
 			<Button variant="text" onClick={handleNavigatePrivacyPolicy} className="reset-pw-privacy-policy">
 				개인정보처리방침

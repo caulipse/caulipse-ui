@@ -28,6 +28,7 @@ const SignUpSecondStep = ({
 	setOnBreak,
 	handleSignUpComplete,
 }: SignUpSecondStepProps): JSX.Element => {
+	const [nicknameHelperText, setNicknameHelperText] = useState<string>('');
 	const [deptHelperText, setDeptHelperText] = useState<string>('');
 
 	return (
@@ -78,6 +79,7 @@ const SignUpSecondStep = ({
 				type={ButtonTypeEnum.primary}
 				title="가입완료!"
 				onClick={handleSignUpComplete}
+				disabled={!nickname && !dept}
 			/>
 		</Box>
 	);

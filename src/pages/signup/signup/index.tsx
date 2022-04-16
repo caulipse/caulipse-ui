@@ -1,4 +1,6 @@
 import { Box, Typography } from '@material-ui/core';
+import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import React, { KeyboardEvent, useState } from 'react';
 import { IoArrowBack } from 'react-icons/io5';
@@ -12,9 +14,17 @@ const SignUpPage = (): JSX.Element => {
 	const [password, setPassword] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
+	const handleSignUp = () => {
+		// TODO: 가입하기
+	};
+
+	const handleResetPw = () => {
+		history.push('/reset-password');
+	};
+
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
 		if (e.key === 'Enter') {
-			// handleChangePw();
+			handleSignUp();
 		}
 	};
 
@@ -29,6 +39,7 @@ const SignUpPage = (): JSX.Element => {
 				<Typography>로고</Typography>
 				<Box className="sign-up-body-text">중앙대 이메일로 간편하게 가입해보세요:)</Box>
 				<CommonTextField
+					className="sign-up-body-align-self-stretch mt3_5rem"
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					type={emailHelperText ? 'error' : 'default'}
@@ -44,6 +55,7 @@ const SignUpPage = (): JSX.Element => {
 					placeholder="포탈 이메일을 입력해주세요."
 				/>
 				<CommonTextField
+					className="sign-up-body-align-self-stretch mt_5rem"
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 					type={passwordHelperText ? 'error' : 'default'}
@@ -57,6 +69,17 @@ const SignUpPage = (): JSX.Element => {
 					helperText={passwordHelperText}
 					label="비밀번호"
 					placeholder="사용하실 비밀번호를 입력해주세요."
+				/>
+				<CommonButton
+					className="sign-up-body-align-self-stretch mt1_5rem"
+					type={ButtonTypeEnum.primary}
+					title="가입하기"
+					onClick={handleSignUp}
+				/>
+				<CommonButton
+					className="sign-up-body-align-self-stretch sign-up-body-reset-pw-btn mt_75rem"
+					title="비밀번호를 잊어버리셨나요?"
+					onClick={handleResetPw}
 				/>
 			</Box>
 		</Box>

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
@@ -14,17 +14,21 @@ const SignUpPage = (): JSX.Element => {
 	const [password, setPassword] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
-	const handleSignUp = () => {
+	const handleNavigateSignUp = () => {
 		// TODO: 가입하기
 	};
 
-	const handleResetPw = () => {
+	const handleNavigateResetPw = () => {
 		history.push('/reset-password');
+	};
+
+	const handleNavigatePrivacyPolicy = () => {
+		// TODO: 개인정보처리방침 이동
 	};
 
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
 		if (e.key === 'Enter') {
-			handleSignUp();
+			handleNavigateSignUp();
 		}
 	};
 
@@ -74,14 +78,17 @@ const SignUpPage = (): JSX.Element => {
 					className="sign-up-body-align-self-stretch mt1_5rem"
 					type={ButtonTypeEnum.primary}
 					title="가입하기"
-					onClick={handleSignUp}
+					onClick={handleNavigateSignUp}
 				/>
 				<CommonButton
 					className="sign-up-body-align-self-stretch sign-up-body-reset-pw-btn mt_75rem"
 					title="비밀번호를 잊어버리셨나요?"
-					onClick={handleResetPw}
+					onClick={handleNavigateResetPw}
 				/>
 			</Box>
+			<Button variant="text" onClick={handleNavigatePrivacyPolicy} className="reset-pw-privacy-policy">
+				개인정보처리방침
+			</Button>
 		</Box>
 	);
 };

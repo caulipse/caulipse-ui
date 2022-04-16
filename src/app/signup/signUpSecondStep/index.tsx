@@ -2,7 +2,8 @@ import { Box } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
-import React, { useMemo, useState } from 'react';
+import useFetchNicknameDuplicate from '@src/hooks/remotes/user/useFetchNicknameDuplicate';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 
 interface SignUpSecondStepProps {
@@ -30,10 +31,15 @@ const SignUpSecondStep = ({
 }: SignUpSecondStepProps): JSX.Element => {
 	const [nicknameHelperText, setNicknameHelperText] = useState<string>('');
 	const [deptHelperText, setDeptHelperText] = useState<string>('');
+	const [duplicateEnabled, setDuplicatedEnabled] = useState<boolean>(false);
+	const [clientValidation, setClientValidation] = useState<boolean>(false);
 
-	const handleClickCTA = () => {
+	const { data, isLoading } = useFetchNicknameDuplicate(nickname, duplicateEnabled);
+
+	const handleClickCTA = async () => {
 		let nickNameSuccess = false;
 		let deptSuccess = false;
+		setDuplicatedEnabled(true);
 
 		if (!nickname) {
 			setNicknameHelperText('닉네임을 입력해 주세요.');
@@ -49,10 +55,21 @@ const SignUpSecondStep = ({
 			deptSuccess = true;
 		}
 
-		if (nickNameSuccess && deptSuccess) {
-			handleSignUpComplete();
-		}
+		setClientValidation(nickNameSuccess && deptSuccess);
 	};
+
+	useEffect(() => {
+		if (!isLoading && clientValidation) {
+			if (data?.data) {
+				console.log('!!!');
+				handleSignUpComplete();
+			} else {
+				console.log('xxx');
+				setNicknameHelperText('이미 존재하는 닉네임이에요 :(');
+			}
+			setDuplicatedEnabled(false);
+		}
+	}, [isLoading, clientValidation, data]);
 
 	return (
 		<Box className="signup-second-step-con">

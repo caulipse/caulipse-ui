@@ -5,8 +5,8 @@ import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
 import LogoFullWidth from '@src/assets/img/logo/logoFullWidth.svg';
-import LogoDefaultWhiteBg from '@src/assets/img/logo/logoDefaultWhiteBg.svg';
-import LogoDefaultBlueBg from '@src/assets/img/logo/logoDefaultBlueBg.svg';
+import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
+import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import LogoDefaultVertical from '@src/assets/img/logo/logoDefaultVertical.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
@@ -138,7 +138,7 @@ const Header: React.FC = () => {
 						className="header-logo desktop-visible"
 					/>
 					<img
-						src={isGnbWhite ? LogoDefaultBlueBg : LogoDefaultWhiteBg}
+						src={isGnbWhite ? logoDefaultBlue : logoDefaultWhite}
 						alt="로고"
 						className="header-logo mobile-visible"
 					/>

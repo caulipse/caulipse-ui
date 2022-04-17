@@ -3,23 +3,18 @@ import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
+import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
+import LogoFullWidth from '@src/assets/img/logo/logoFullWidth.svg';
+import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
+import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
+import LogoDefaultVertical from '@src/assets/img/logo/logoDefaultVertical.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
-import {
-	IoBookmark,
-	IoBookmarkOutline,
-	IoMegaphone,
-	IoMenu,
-	IoNotifications,
-	IoNotificationsOutline,
-	IoSearch,
-} from 'react-icons/io5';
+import { IoBookmarkOutline, IoMenu, IoNotificationsOutline, IoSearch } from 'react-icons/io5';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
-
-const exampleId = 'sample-id';
 
 const Header: React.FC = () => {
 	const history = useHistory();
@@ -34,7 +29,11 @@ const Header: React.FC = () => {
 	const logout = usePatchLogout();
 
 	const isGnbWhite = useMemo(() => {
-		return locationPathName === `/profile/${exampleId}`;
+		return locationPathName === '/profile';
+	}, [locationPathName]);
+
+	const isMainPage = useMemo(() => {
+		return locationPathName === '/';
 	}, [locationPathName]);
 
 	const iconColor = useMemo(() => {
@@ -123,33 +122,52 @@ const Header: React.FC = () => {
 	}, [drawerList, drawerListBeforeLogin, state.login]);
 
 	return (
-		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
-			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
-			<Link to="/">
-				<Typography className="header-logo">서비스 로고</Typography>
-			</Link>
-			<HeaderRightComponent />
-			<SwipeableDrawer
-				anchor="left"
-				open={isDrawerOpen}
-				onOpen={openDrawer}
-				onClose={closeDrawer}
-				disableBackdropTransition={!iOS}
-				disableDiscovery={iOS}
-			>
-				<div className="drawer-container">
-					<div>이미지 들어갈 영역</div>
-					<List disablePadding component="nav">
-						{renderDrawerList()}
-					</List>
-				</div>
-				{state.login && (
-					<Button fullWidth onClick={handleLogout}>
-						<Box className="drawer-logout-text">로그아웃</Box>
-					</Button>
+		<div className="header-bg">
+			<header
+				className={classNames(
+					'header-con',
+					{ 'header-bg-white': isGnbWhite },
+					{ 'header-desktop-max-width-1280px': isMainPage }
 				)}
-			</SwipeableDrawer>
-		</header>
+			>
+				<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
+				<Link to="/">
+					<img
+						src={isGnbWhite ? LogoFullWidth : LogoFullWidthWhite}
+						alt="로고"
+						className="header-logo desktop-visible"
+					/>
+					<img
+						src={isGnbWhite ? logoDefaultBlue : logoDefaultWhite}
+						alt="로고"
+						className="header-logo mobile-visible"
+					/>
+				</Link>
+				<HeaderRightComponent />
+				<SwipeableDrawer
+					anchor="left"
+					open={isDrawerOpen}
+					onOpen={openDrawer}
+					onClose={closeDrawer}
+					disableBackdropTransition={!iOS}
+					disableDiscovery={iOS}
+				>
+					<div className="drawer-container">
+						<Box className="drawer-logo-con">
+							<img src={LogoDefaultVertical} alt="로고" className="drawer-logo" />
+						</Box>
+						<List disablePadding component="nav">
+							{renderDrawerList()}
+						</List>
+					</div>
+					{state.login && (
+						<Button fullWidth onClick={handleLogout}>
+							<Box className="drawer-logout-text">로그아웃</Box>
+						</Button>
+					)}
+				</SwipeableDrawer>
+			</header>
+		</div>
 	);
 };
 

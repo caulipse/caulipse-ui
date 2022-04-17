@@ -8,15 +8,6 @@
   .mobile-visible{
     display: none;
   }
-  .header{
-    &-logo{
-      position: absolute !important;
-      left: 0 !important;
-      top: 50% !important;
-      transform: translate(0, -50%) !important;
-      margin-left: .75rem !important;
-    }
-  }
 }
 @include tablet{
   .desktop-visible{
@@ -24,14 +15,6 @@
   }
   .mobile-visible{
     
-  }
-  .header{
-    &-logo{
-      position: absolute !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-    }
   }
 }
 @include mobile{
@@ -41,19 +24,14 @@
   .mobile-visible{
 
   }
-  .header{
-    &-logo{
-      position: absolute !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-    }
-  }
 }
 
 .header{
+  &-bg{
+    background-color: $primaryColor !important;
+    width: 100% !important;
+  }
   &-con {
-    background-color: $primaryColor;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -63,9 +41,18 @@
     z-index: 3;
     height: $header-height !important;
     padding: 0 .75rem !important;
+    max-width: $desktopMaxContentWidth !important;
+    align-self: center !important;
+    margin: auto !important;
+  }
+  &-desktop-max-width-1280px{
+    max-width: 1280px !important;
   }
   &-bg-white{
     background-color: #ffffff !important;
+  }
+  &-logo{
+    height: 2rem !important;
   }
   &-icon{
     width:1.5rem;
@@ -93,11 +80,19 @@
     align-items: flex-start;
     width:14.25rem;
     flex:1;
-    padding: 2rem 0.5rem 0 0.5rem;
     > nav{
       width: 100%;
       flex:1;
     }
+  }
+  &-logo-con{
+    background-color: $primaryColor !important;
+    padding: 4.25rem 2.625rem 1rem 1.5rem !important;
+    width: 100% !important;
+    margin-bottom: 1.5rem !important;
+  }
+  &-logo{
+    height: 3.375rem !important;
   }
   &-title{
     font-size: 1rem;

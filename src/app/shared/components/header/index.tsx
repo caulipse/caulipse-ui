@@ -3,7 +3,8 @@ import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
-import { ReactComponent as LogoFullWidthWhite } from '@src/assets/img/logo/logoFullWidthWhite.svg';
+import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
+import LogoDefaultWhiteBg from '@src/assets/img/logo/logoDefaultWhiteBg.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -119,7 +120,8 @@ const Header: React.FC = () => {
 		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
 			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 			<Link to="/">
-				<LogoFullWidthWhite />
+				<img src={LogoFullWidthWhite} alt="로고" className="header-logo desktop-visible" />
+				<img src={LogoDefaultWhiteBg} alt="로고" className="header-logo mobile-visible" />
 			</Link>
 			<HeaderRightComponent />
 			<SwipeableDrawer

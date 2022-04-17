@@ -31,6 +31,10 @@ const Header: React.FC = () => {
 		return locationPathName === '/profile';
 	}, [locationPathName]);
 
+	const isMainPage = useMemo(() => {
+		return locationPathName === '/';
+	}, [locationPathName]);
+
 	const iconColor = useMemo(() => {
 		return isGnbWhite ? '#101010' : '#ffffff';
 	}, [isGnbWhite]);
@@ -118,7 +122,13 @@ const Header: React.FC = () => {
 
 	return (
 		<div className="header-bg">
-			<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
+			<header
+				className={classNames(
+					'header-con',
+					{ 'header-bg-white': isGnbWhite },
+					{ 'header-desktop-max-width-1280px': isMainPage }
+				)}
+			>
 				<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 				<Link to="/">
 					<img

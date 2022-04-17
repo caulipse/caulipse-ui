@@ -45,7 +45,6 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				style={{ height: isPopup ? 'auto' : bottomSheetHeight }}
 				onScroll={handleScroll}
 			>
-				<div className="profile-bottom-sheet-top-short-about">{userProfile?.bio}</div>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
 					src={userProfile?.image ? require(`@src/assets/img/profileImg/${userProfile?.image}`).default : ''}

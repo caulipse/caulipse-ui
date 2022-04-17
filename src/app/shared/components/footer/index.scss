@@ -1,4 +1,6 @@
 @import '../../../../scss/variables';
+@import '../../../../scss/mixins';
+
 .footer{
   &-con {
     width: 100% !important;
@@ -11,6 +13,13 @@
     max-width: $maxContentWidth !important;
     margin: auto !important;
   }
+  &-logo{
+    display: none !important;
+    @include desktop{
+      display: inline !important;
+      height: 4.5rem !important;
+    }
+  }
   &-row{
     display: flex !important;
     flex-direction: row !important;
@@ -19,6 +28,9 @@
     margin-top: 2rem !important;
     padding-bottom: .719rem !important;
     border-bottom: 1px #929699 solid !important;
+    @include desktop{
+      margin-top: 1.125rem !important;
+    }
   }
   &-title{
     font-size: .75rem !important;

@@ -4,7 +4,9 @@ import useModal from '@src/hooks/modal/useModal';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
 import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
+import LogoFullWidth from '@src/assets/img/logo/logoFullWidth.svg';
 import LogoDefaultWhiteBg from '@src/assets/img/logo/logoDefaultWhiteBg.svg';
+import LogoDefaultBlueBg from '@src/assets/img/logo/logoDefaultBlueBg.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -12,8 +14,6 @@ import { IoBookmarkOutline, IoMenu, IoNotificationsOutline, IoSearch } from 'rea
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { drawerList, drawerListBeforeLogin } from './drawerList';
 import './index.scss';
-
-const exampleId = 'sample-id';
 
 const Header: React.FC = () => {
 	const history = useHistory();
@@ -28,7 +28,7 @@ const Header: React.FC = () => {
 	const logout = usePatchLogout();
 
 	const isGnbWhite = useMemo(() => {
-		return locationPathName === `/profile/${exampleId}`;
+		return locationPathName === '/profile';
 	}, [locationPathName]);
 
 	const iconColor = useMemo(() => {
@@ -120,8 +120,12 @@ const Header: React.FC = () => {
 		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
 			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 			<Link to="/">
-				<img src={LogoFullWidthWhite} alt="로고" className="header-logo desktop-visible" />
-				<img src={LogoDefaultWhiteBg} alt="로고" className="header-logo mobile-visible" />
+				<img src={isGnbWhite ? LogoFullWidth : LogoFullWidthWhite} alt="로고" className="header-logo desktop-visible" />
+				<img
+					src={isGnbWhite ? LogoDefaultBlueBg : LogoDefaultWhiteBg}
+					alt="로고"
+					className="header-logo mobile-visible"
+				/>
 			</Link>
 			<HeaderRightComponent />
 			<SwipeableDrawer

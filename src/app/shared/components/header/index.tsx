@@ -7,6 +7,7 @@ import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
 import LogoFullWidth from '@src/assets/img/logo/logoFullWidth.svg';
 import LogoDefaultWhiteBg from '@src/assets/img/logo/logoDefaultWhiteBg.svg';
 import LogoDefaultBlueBg from '@src/assets/img/logo/logoDefaultBlueBg.svg';
+import LogoDefaultVertical from '@src/assets/img/logo/logoDefaultVertical.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -152,7 +153,9 @@ const Header: React.FC = () => {
 					disableDiscovery={iOS}
 				>
 					<div className="drawer-container">
-						<div>이미지 들어갈 영역</div>
+						<Box className="drawer-logo-con">
+							<img src={LogoDefaultVertical} alt="로고" className="drawer-logo" />
+						</Box>
 						<List disablePadding component="nav">
 							{renderDrawerList()}
 						</List>

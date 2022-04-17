@@ -84,7 +84,7 @@ const Header: React.FC = () => {
 		return (
 			<div className="header-icons-con">
 				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" color={iconColor} />
-				<Button onClick={() => openModal(ModalKeyEnum.LoginModal)}>
+				<Button onClick={() => openModal(ModalKeyEnum.LoginModal, { history })}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>
 			</div>
@@ -105,7 +105,7 @@ const Header: React.FC = () => {
 					onClick={() => {
 						if (drawerItem?.isLogin) {
 							setIsDrawerOpen(false);
-							openModal(ModalKeyEnum.LoginModal);
+							openModal(ModalKeyEnum.LoginModal, { history });
 						}
 					}}
 					divider={drawerItemIdx === drawerItemLength - 1 && drawerSubListIdx !== drawerSubListLength - 1}

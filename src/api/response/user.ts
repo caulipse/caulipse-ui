@@ -15,3 +15,8 @@ export interface IResponseGetUser {
 	message: string;
 	data: User;
 }
+
+export interface IResponseNicknameDuplicate {
+	message: string;
+	data: boolean;
+}

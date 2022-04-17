@@ -1,0 +1,45 @@
+@import '@scss/variables';
+
+.sign-up{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        flex:1 !important;
+        height: 100vh !important;
+    }
+    &-header{
+        &-con{
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            flex-direction: row !important;
+            padding: .625rem .75rem !important;
+            background-color: $primaryColor !important;
+        }
+        &-title{
+            font-size: 1rem !important;
+            font-weight: bold !important;
+            line-height: 1.563rem !important;
+            color: #ffffff !important;
+        }
+    }
+    &-icon{
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        &:hover{
+            cursor: pointer !important;
+        }
+    }
+}
+.mt3_5rem{
+    margin-top: 3.5rem !important;
+}
+.mt1_5rem{
+    margin-top: 1.5rem !important;
+}
+.mt_75rem{
+    margin-top: .75rem !important;
+}
+.mt_5rem{
+    margin-top: .5rem !important;
+}

@@ -5,9 +5,12 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import React, { KeyboardEvent, useCallback, useState } from 'react';
 import { IoArrowBack } from 'react-icons/io5';
+import { useHistory } from 'react-router-dom';
 import './index.scss';
 
 const ResetPwPage = (): JSX.Element => {
+	const history = useHistory();
+
 	const [email, setEmail] = useState<string>('');
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 
@@ -33,7 +36,7 @@ const ResetPwPage = (): JSX.Element => {
 	return (
 		<Box className="reset-pw-con">
 			<Box className="reset-pw-header-con">
-				<IoArrowBack className="reset-pw-icon" color="#fff" />
+				<IoArrowBack className="reset-pw-icon" color="#fff" onClick={() => history.goBack()} />
 				<Typography>로고</Typography>
 				<Box className="reset-pw-icon" />
 			</Box>

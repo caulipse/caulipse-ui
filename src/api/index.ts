@@ -182,6 +182,7 @@ const API = {
 	getAppliedStudies() {
 		return client.get('/user/study/applied');
 	},
+	// 스터디 검색
 	getSearchStudies(keyword: string, frequency?: string, weekday?: string, location?: string, orderBy?: string) {
 		return client.get('/study/search', {
 			params: {
@@ -190,6 +191,14 @@ const API = {
 				weekday,
 				location,
 				order_by: orderBy,
+			},
+		});
+	},
+	// 닉네임 중복 검사
+	getNicknameDuplicate(nickname: string) {
+		return client.get('user/profile/duplicate', {
+			params: {
+				username: nickname,
 			},
 		});
 	},

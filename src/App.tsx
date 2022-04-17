@@ -12,8 +12,9 @@ import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
 import MainPage from './pages/main';
 import globalState from './state';
-import ResetPwPage from './pages/signup/ResetPwPage';
+import ResetPwPage from './pages/signup/resetPwPage';
 import StudySearchResultPage from './pages/studySearchResult';
+import SignUpPage from './pages/signup/signup';
 
 const Location = () => {
 	const { pathname } = useLocation();
@@ -50,6 +51,7 @@ const RootContainer = (): JSX.Element => {
 		<Router forceRefresh>
 			<Switch>
 				<Route exact path="/reset-password" component={ResetPwPage} />
+				<Route exact path="/signup" component={SignUpPage} />
 				<Route path="/" component={MainContainer} />
 				<Redirect path="*" to="/" />
 			</Switch>

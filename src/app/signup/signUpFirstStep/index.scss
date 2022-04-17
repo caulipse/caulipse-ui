@@ -1,0 +1,42 @@
+@import '@scss/variables';
+
+.signup-first-step{
+    &-con{
+        display: flex !important;
+        flex: 1 !important;
+        flex-direction: column !important;
+        max-width: $maxContentWidth !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: auto !important;
+    }
+    &-text{
+        margin-top: .25rem !important;
+        font-size: .875rem !important;
+        color: #929699 !important;
+    }
+    &-align-self-stretch{
+        display: flex !important;
+        flex-direction: column !important;
+        align-self: stretch !important;
+        width: auto !important;
+        margin: 0 1.25rem !important;
+    }
+    &-reset-pw-btn{
+        background-color: #f9f9f9 !important;
+        color: #929699 !important;
+    }
+}
+.mt3_5rem{
+    margin-top: 3.5rem !important;
+}
+.mt1_5rem{
+    margin-top: 1.5rem !important;
+}
+.mt_75rem{
+    margin-top: .75rem !important;
+}
+.mt_5rem{
+    margin-top: .5rem !important;
+}

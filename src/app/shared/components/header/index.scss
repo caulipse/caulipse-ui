@@ -27,8 +27,11 @@
 }
 
 .header{
+  &-bg{
+    background-color: $primaryColor !important;
+    width: 100% !important;
+  }
   &-con {
-    background-color: $primaryColor;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -38,6 +41,9 @@
     z-index: 3;
     height: $header-height !important;
     padding: 0 .75rem !important;
+    max-width: $desktopMaxContentWidth !important;
+    align-self: center !important;
+    margin: auto !important;
   }
   &-bg-white{
     background-color: #ffffff !important;

@@ -117,38 +117,44 @@ const Header: React.FC = () => {
 	}, [drawerList, drawerListBeforeLogin, state.login]);
 
 	return (
-		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
-			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
-			<Link to="/">
-				<img src={isGnbWhite ? LogoFullWidth : LogoFullWidthWhite} alt="로고" className="header-logo desktop-visible" />
-				<img
-					src={isGnbWhite ? LogoDefaultBlueBg : LogoDefaultWhiteBg}
-					alt="로고"
-					className="header-logo mobile-visible"
-				/>
-			</Link>
-			<HeaderRightComponent />
-			<SwipeableDrawer
-				anchor="left"
-				open={isDrawerOpen}
-				onOpen={openDrawer}
-				onClose={closeDrawer}
-				disableBackdropTransition={!iOS}
-				disableDiscovery={iOS}
-			>
-				<div className="drawer-container">
-					<div>이미지 들어갈 영역</div>
-					<List disablePadding component="nav">
-						{renderDrawerList()}
-					</List>
-				</div>
-				{state.login && (
-					<Button fullWidth onClick={handleLogout}>
-						<Box className="drawer-logout-text">로그아웃</Box>
-					</Button>
-				)}
-			</SwipeableDrawer>
-		</header>
+		<div className="header-bg">
+			<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
+				<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
+				<Link to="/">
+					<img
+						src={isGnbWhite ? LogoFullWidth : LogoFullWidthWhite}
+						alt="로고"
+						className="header-logo desktop-visible"
+					/>
+					<img
+						src={isGnbWhite ? LogoDefaultBlueBg : LogoDefaultWhiteBg}
+						alt="로고"
+						className="header-logo mobile-visible"
+					/>
+				</Link>
+				<HeaderRightComponent />
+				<SwipeableDrawer
+					anchor="left"
+					open={isDrawerOpen}
+					onOpen={openDrawer}
+					onClose={closeDrawer}
+					disableBackdropTransition={!iOS}
+					disableDiscovery={iOS}
+				>
+					<div className="drawer-container">
+						<div>이미지 들어갈 영역</div>
+						<List disablePadding component="nav">
+							{renderDrawerList()}
+						</List>
+					</div>
+					{state.login && (
+						<Button fullWidth onClick={handleLogout}>
+							<Box className="drawer-logout-text">로그아웃</Box>
+						</Button>
+					)}
+				</SwipeableDrawer>
+			</header>
+		</div>
 	);
 };
 

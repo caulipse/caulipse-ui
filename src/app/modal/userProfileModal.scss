@@ -18,16 +18,6 @@
         overflow-y: scroll;
         max-height: calc(100vh - 12.75rem);
     }
-    &-top-short-about{
-      position: fixed;
-      margin-top: calc((100vh - 21.875rem)/(-2)) !important;
-      z-index: 2;
-      font-size: 1rem;
-      font-weight: bold;
-      line-height: 1.75rem;
-      color: #ffffff;
-      margin: 0px 2rem;
-    }
     &-profile-img{
         display: flex;
         position: fixed;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import axios from 'axios';
 import config from '@src/config';
 import { IFilterOption, IPaginationOption } from '@src/app/study/types';

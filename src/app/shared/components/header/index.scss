@@ -8,15 +8,6 @@
   .mobile-visible{
     display: none;
   }
-  .header{
-    &-logo{
-      position: absolute !important;
-      left: 0 !important;
-      top: 50% !important;
-      transform: translate(0, -50%) !important;
-      margin-left: .75rem !important;
-    }
-  }
 }
 @include tablet{
   .desktop-visible{
@@ -25,14 +16,6 @@
   .mobile-visible{
     
   }
-  .header{
-    &-logo{
-      position: absolute !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-    }
-  }
 }
 @include mobile{
   .desktop-visible{
@@ -40,14 +23,6 @@
   }
   .mobile-visible{
 
-  }
-  .header{
-    &-logo{
-      position: absolute !important;
-      top: 50% !important;
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-    }
   }
 }
 
@@ -69,6 +44,17 @@
   }
   &-logo{
     height: 2rem !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    @include desktop{
+      position: absolute !important;
+      left: 0 !important;
+      top: 50% !important;
+      transform: translate(0, -50%) !important;
+      margin-left: .75rem !important;
+    }
   }
   &-icon{
     width:1.5rem;

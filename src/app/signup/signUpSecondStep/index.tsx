@@ -61,10 +61,8 @@ const SignUpSecondStep = ({
 	useEffect(() => {
 		if (!isLoading && clientValidation) {
 			if (data?.data) {
-				console.log('!!!');
 				handleSignUpComplete();
 			} else {
-				console.log('xxx');
 				setNicknameHelperText('이미 존재하는 닉네임이에요 :(');
 			}
 			setDuplicatedEnabled(false);

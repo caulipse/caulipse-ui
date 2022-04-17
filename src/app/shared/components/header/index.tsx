@@ -3,7 +3,7 @@ import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
 import globalState from '@src/state';
-import LogoFullWidthWhite from '@src/assets/img/logo/logoFullWidthWhite.svg';
+import { ReactComponent as LogoFullWidthWhite } from '@src/assets/img/logo/logoFullWidthWhite.svg';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
 		<header className={classNames('header-con', { 'header-bg-white': isGnbWhite })}>
 			<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 			<Link to="/">
-				<LogoFullWidthWhite width="200" height="200" />
+				<LogoFullWidthWhite />
 			</Link>
 			<HeaderRightComponent />
 			<SwipeableDrawer

@@ -37,7 +37,6 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^6.2.1",
     "@types/loadable__component": "^5.13.4",
     "@types/psl": "^1.1.0",
     "@types/react": "^17.0.0",

@@ -7,6 +7,8 @@
     margin-bottom: 2.5rem;
     max-width: 100% !important;
     background-image: url('../../../../assets/img/illustration/mainBg.svg');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     > div { 
         display: flex !important;
         padding: 0 !important;

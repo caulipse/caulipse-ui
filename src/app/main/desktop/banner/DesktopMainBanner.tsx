@@ -4,6 +4,7 @@ import { Container, Typography, Grid } from '@material-ui/core';
 import MainCategoryItem from '@src/app/main/MainCategoryItem';
 import categories from '@src/const';
 import { useHistory } from 'react-router-dom';
+import girlWithLaptop from '@src/assets/img/illustration/girlWithLaptop.png';
 import './index.scss';
 
 const DesktopMainBanner = (): JSX.Element => {
@@ -35,7 +36,9 @@ const DesktopMainBanner = (): JSX.Element => {
 						<MainCategoryItem key={category.code} category={category} onClick={onClick} isDesktop />
 					))}
 				</Grid>
-				<Container className="desktop-main-banner-image-container">이미지 영역</Container>
+				<Container className="desktop-main-banner-image-container">
+					<img src={girlWithLaptop} alt="" />
+				</Container>
 			</Container>
 		</Container>
 	);

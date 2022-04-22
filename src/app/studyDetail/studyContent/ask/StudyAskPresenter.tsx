@@ -1,6 +1,8 @@
 import { Comment } from '@src/api/types';
 import InputBase from '@src/app/shared/components/input/InputBase';
 import usePostStudyComment from '@src/hooks/remotes/comment/usePostStudyComment';
+import globalState from '@src/state';
+import { useAtom } from 'jotai';
 import React from 'react';
 import CommentList from './comments/CommentList';
 import './styles.scss';
@@ -14,6 +16,7 @@ interface StudyAskPresenterProps {
 }
 const StudyAskPresenter = ({ studyId, content, setContent, comments, hostId }: StudyAskPresenterProps): JSX.Element => {
 	const postComment = usePostStudyComment();
+	const [state] = useAtom(globalState);
 
 	const writeComment = () => {
 		postComment.mutate({
@@ -25,14 +28,16 @@ const StudyAskPresenter = ({ studyId, content, setContent, comments, hostId }: S
 
 	return (
 		<div className="studyAskContainer">
-			<div className="studyAskInputContainer">
-				<InputBase
-					placeholder="궁금한 점들을 물어보세요!"
-					content={content}
-					setContent={setContent}
-					onSubmit={writeComment}
-				/>
-			</div>
+			{state.login && (
+				<div className="studyAskInputContainer">
+					<InputBase
+						placeholder="궁금한 점들을 물어보세요!"
+						content={content}
+						setContent={setContent}
+						onSubmit={writeComment}
+					/>
+				</div>
+			)}
 			<div className="StudyCommentsListContainer">
 				<div className="StudyCommentsListInfo">
 					<div className="StudyCommentListTitle">문의글</div>

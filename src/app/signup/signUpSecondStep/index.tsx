@@ -5,6 +5,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import useFetchNicknameDuplicate from '@src/hooks/remotes/user/useFetchNicknameDuplicate';
 import React, { useEffect, useState } from 'react';
+import girlWithLongHair from '@src/assets/img/illustration/girlWithLongHair.svg';
 import './index.scss';
 
 interface SignUpSecondStepProps {
@@ -119,6 +120,7 @@ const SignUpSecondStep = ({
 					<option value={1}>휴학중</option>
 				</CommonTextField>
 			</Box>
+			<img src={girlWithLongHair} alt="" className="signup-second-step-illustration" />
 			<CommonButton
 				className="signup-second-step-cta-btn"
 				type={ButtonTypeEnum.primary}

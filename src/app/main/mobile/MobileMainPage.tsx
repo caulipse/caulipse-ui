@@ -79,7 +79,7 @@ const MobileMainPage = (): JSX.Element => {
 				{studies?.map((study) => (
 					<StudyCardContainer study={study} key={study.id} />
 				))}
-				<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+				<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 			</Container>
 			<MainButton />
 		</>

@@ -5,9 +5,10 @@
     height: 26.125rem;
     padding: 4.813rem calc((100% - 1280px)/2) 2rem !important;
     color: #fff;
-    background: $primaryColor;
     margin-bottom: 2.5rem;
     max-width: 100% !important;
+    background-image: url('../../../../assets/img/illustration/mainBg.svg');
+    background-color: red !important;
     > div { 
         display: flex !important;
         padding: 0 !important;

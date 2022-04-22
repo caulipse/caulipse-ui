@@ -68,7 +68,6 @@ const Header: React.FC = () => {
 		openModal(ModalKeyEnum.NotificationModal);
 	};
 
-	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
 	const HeaderRightComponent = () => {
 		if (state.login) {
 			return (

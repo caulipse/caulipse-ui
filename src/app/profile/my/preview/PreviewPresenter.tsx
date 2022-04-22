@@ -2,6 +2,7 @@ import { Box } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './index.scss';
+import BookWithTwoGirls from '@src/assets/img/illustration/bookWithTwoGirls.svg';
 
 interface PreviewPresenterProps {
 	bookmarkNum: number;
@@ -27,8 +28,7 @@ const PreviewPresenter = ({ bookmarkNum, applyNum, recruitNum }: PreviewPresente
 	return (
 		<Box className="preview-container">
 			<Box className="preview-title">내 스터디 활동</Box>
-			{/* 이미지로 변경하기 */}
-			<div className="preview-img" />
+			<img className="preview-img" src={BookWithTwoGirls} alt="" />
 			<div className="preview-content-container">
 				<button type="button" onClick={navigateToBookmark}>
 					<div className="preview-item">

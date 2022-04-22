@@ -35,7 +35,8 @@
     }
     &-img{
         display: flex !important;
-        flex:1 !important;
+        height: 10.11rem !important;
+        width: auto !important;
         @include desktop{
             display: none !important;
         }

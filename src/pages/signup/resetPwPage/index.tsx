@@ -5,7 +5,8 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import React, { KeyboardEvent, useCallback, useState } from 'react';
 import { IoArrowBack } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import './index.scss';
 
 const ResetPwPage = (): JSX.Element => {
@@ -37,7 +38,9 @@ const ResetPwPage = (): JSX.Element => {
 		<Box className="reset-pw-con">
 			<Box className="reset-pw-header-con">
 				<IoArrowBack className="reset-pw-icon" color="#fff" onClick={() => history.goBack()} />
-				<Typography>로고</Typography>
+				<Link to="/">
+					<img src={logoDefaultWhite} alt="로고" className="header-logo" />
+				</Link>
 				<Box className="reset-pw-icon" />
 			</Box>
 			<Box className="reset-pw-body-align-self">

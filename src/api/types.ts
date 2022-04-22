@@ -14,22 +14,26 @@ export interface Host {
 	token: string;
 }
 
+export type frequencyEnum = 'once' | 'twice' | 'more';
+export type weekdayEnum = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+export type locationEnum = 'no_contact' | 'room' | 'library' | 'study_cafe' | 'cafe' | 'loc1' | 'loc2' | 'else';
+
 export interface Study {
 	HOST_ID: string;
 	capacity: number;
 	categoryCode: string;
 	createdAt: string;
-	frequency: string;
+	frequency: frequencyEnum;
 	hostId?: Host;
 	id: string;
 	isOpen: boolean;
-	location: string;
+	location: locationEnum;
 	membersCount: number;
 	studyAbout: string;
 	title: string;
 	vacancy: number;
 	views: number;
-	weekday: string;
+	weekday: weekdayEnum;
 	bookmarkCount: number;
 	dueDate: string;
 }

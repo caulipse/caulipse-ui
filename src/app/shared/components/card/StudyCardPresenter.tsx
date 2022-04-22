@@ -7,6 +7,7 @@ import useWindowDimensions from '@src/hooks/useWindowDimensions';
 
 import './index.scss';
 import { getDday } from '../../utils/date';
+import { frequencyMapper, locationMapper, weekdayMapper } from '../../utils/studyMapper';
 
 interface PresenterProps {
 	study: Study;
@@ -28,7 +29,7 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => {
 			</Container>
 			<Typography className="study-card-title">{study.title}</Typography>
 			<Typography className="study-card-tag">
-				#{study.frequency} #{study.weekday} #{study.location}
+				#{frequencyMapper[study.frequency]} #{weekdayMapper[study.weekday]} #{locationMapper[study.location]}
 			</Typography>
 			<ProgressBar max={study.capacity} current={study.membersCount} />
 		</Container>

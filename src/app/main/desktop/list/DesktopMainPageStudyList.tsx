@@ -43,11 +43,11 @@ const DesktopMainPageStudyList = (): JSX.Element => {
 
 	return (
 		<Container className="desktop-main-page-study-list-container">
-			<Typography>곧 마감이되는 스터디들이에요!</Typography>
+			<Typography>곧 마감이 되는 스터디들이에요!</Typography>
 			{studies?.map((study) => (
 				<StudyCardContainer study={study} key={study.id} />
 			))}
-			<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+			<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 		</Container>
 	);
 };

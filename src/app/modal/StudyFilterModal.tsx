@@ -12,19 +12,12 @@ import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import Switch from '@common/switch/Switch';
 import './studyFilterModal.scss';
+import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
+import { frequencyMapper, locationMapper, weekdayMapper } from '../shared/utils/studyMapper';
 
-export const frequencies = ['1회', '주 2-4회', '주 5회 이상'];
-export const days = ['월', '화', '수', '목', '금', '토', '일'];
-export const places = [
-	'중앙도서관',
-	'학교 스터디룸',
-	'일반카페',
-	'스터디카페',
-	'서울대입구, 낙성대',
-	'흑석, 상도',
-	'비대면',
-	'기타',
-];
+export const frequencies = Object.keys(frequencyMapper) as frequencyEnum[];
+export const days = Object.keys(weekdayMapper) as weekdayEnum[];
+export const places = Object.keys(locationMapper) as locationEnum[];
 
 // TODO
 // 마감항목 표시 버튼 디자인 완료되면 반영 필요
@@ -80,7 +73,11 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 								};
 								return (
 									<Grid key={item} item xs={4} className="modal-chip-item">
-										<Chip label={item} selected={filter?.frequency?.includes(item)} onClick={handleClick} />
+										<Chip
+											label={frequencyMapper[item]}
+											selected={filter?.frequency?.includes(item)}
+											onClick={handleClick}
+										/>
 									</Grid>
 								);
 							})}
@@ -94,7 +91,12 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 									onChange('weekday', item);
 								};
 								return (
-									<Chip key={item} label={item} selected={filter?.weekday?.includes(item)} onClick={handleClick} />
+									<Chip
+										key={item}
+										label={weekdayMapper[item]}
+										selected={filter?.weekday?.includes(item)}
+										onClick={handleClick}
+									/>
 								);
 							})}
 						</Container>
@@ -108,7 +110,12 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 									onChange('location', item);
 								};
 								return (
-									<Chip key={item} label={item} selected={filter?.location?.includes(item)} onClick={handleClick} />
+									<Chip
+										key={item}
+										label={locationMapper[item]}
+										selected={filter?.location?.includes(item)}
+										onClick={handleClick}
+									/>
 								);
 							})}
 						</Container>

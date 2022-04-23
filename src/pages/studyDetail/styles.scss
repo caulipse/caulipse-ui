@@ -79,6 +79,8 @@
 
 .desktop-cta{
   &-container{
+    display: none !important;
+
     @include desktop{
       display: flex !important;
       flex: 1 !important;

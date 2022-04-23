@@ -68,7 +68,6 @@ const Header: React.FC = () => {
 		openModal(ModalKeyEnum.NotificationModal);
 	};
 
-	// TODO: 검색결과 리스트 페이지 url 나오면 조건에 추가
 	const HeaderRightComponent = () => {
 		if (state.login) {
 			return (
@@ -122,14 +121,8 @@ const Header: React.FC = () => {
 	}, [drawerList, drawerListBeforeLogin, state.login]);
 
 	return (
-		<div className="header-bg">
-			<header
-				className={classNames(
-					'header-con',
-					{ 'header-bg-white': isGnbWhite },
-					{ 'header-desktop-max-width-1280px': isMainPage }
-				)}
-			>
+		<div className={classNames('header-bg', { 'header-bg-white': isGnbWhite })}>
+			<header className={classNames('header-con', { 'header-desktop-max-width-1280px': isMainPage })}>
 				<IoMenu onClick={openDrawer} className="header-icon mobile-visible" color={iconColor} />
 				<Link to="/">
 					<img

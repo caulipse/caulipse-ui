@@ -3,7 +3,9 @@
 .mobile-main-page-main-category-container {
     padding: 2.5rem 2rem !important; 
     height: 42.563rem;
-    background: $primaryColor;
+    background-image: url('../../../assets/img/illustration/mainBg.svg');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     border-bottom: 1px solid #e2e2e2;
     margin-bottom: 1.5rem;
     position: relative;

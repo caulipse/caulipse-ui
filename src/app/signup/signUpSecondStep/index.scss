@@ -18,6 +18,12 @@
         margin: auto !important;
         width: calc(100% - 2.5rem) !important;
     }
+    &-illustration{
+        position: absolute !important;
+        bottom: 0 !important;
+        right: 1.25rem !important;
+        height: 15.625rem !important;
+    }
 }
 .mt2_5rem{
     margin-top: 2.5rem !important;

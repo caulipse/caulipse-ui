@@ -1,28 +1,17 @@
 @import "../../../../scss/mixins";
 @import "../../../../scss/variables";
 
-@include desktop{
-  .desktop-visible{
-
+.desktop-visible{
+  display: none !important;
+  @include desktop{
+    display: block !important;
   }
-  .mobile-visible{
-    display: none;
-  }
+  
 }
-@include tablet{
-  .desktop-visible{
+.mobile-visible{
+  display: block !important;
+  @include desktop{
     display: none !important;
-  }
-  .mobile-visible{
-    
-  }
-}
-@include mobile{
-  .desktop-visible{
-    display: none !important;
-  }
-  .mobile-visible{
-
   }
 }
 

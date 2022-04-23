@@ -5,6 +5,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import React, { KeyboardEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import './index.scss';
 
 interface SignUpFirstStepProps {
@@ -71,7 +72,7 @@ const SignUpFirstStep = ({
 	return (
 		<>
 			<Box className="signup-first-step-con">
-				<Typography>로고</Typography>
+				<img src={logoDefaultBlue} alt="로고" className="signup-first-step-logo" />{' '}
 				<Box className="signup-first-step-text">중앙대 이메일로 간편하게 가입해보세요:)</Box>
 				<Box className="signup-first-step-align-self-stretch">
 					<CommonTextField

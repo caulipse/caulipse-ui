@@ -7,6 +7,7 @@ import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import globalState from '@src/state';
+import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import { useAtom } from 'jotai';
 import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
@@ -79,7 +80,7 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 			<Box className="login-modal-con">
 				<IoClose className="login-modal-close-icon" color="#212b36" onClick={() => onClose(false)} />
 				<Box className="login-modal-body-con">
-					<Typography>중대본</Typography>
+					<img src={logoDefaultBlue} alt="로고" className="login-modal-logo" />
 					<Box className="login-modal-body-subtitle">스터디, 중앙대 안에서 찾아보세요!</Box>
 					<CommonTextField
 						className="login-modal-body-login-input"

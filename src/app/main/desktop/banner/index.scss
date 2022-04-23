@@ -2,12 +2,13 @@
 
 .desktop-main-banner {
     width: 100% !important;
-    height: 26.125rem;
-    padding: 4.813rem calc((100% - 1280px)/2) 2rem !important;
+    padding: 4.813rem calc((100% - 1280px)/2) 0rem !important;
     color: #fff;
-    background: $primaryColor;
     margin-bottom: 2.5rem;
     max-width: 100% !important;
+    background-image: url('../../../../assets/img/illustration/mainBg.svg');
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     > div { 
         display: flex !important;
         padding: 0 !important;
@@ -27,6 +28,10 @@
 
 .desktop-main-banner-image-container {
     padding: 0 !important;
-    width: 24.5rem !important;
+    width: 24.375rem !important;
     margin-left: 6.688rem !important;
+}
+
+.desktop-main-banner-image{
+    width: 24.375rem !important;
 }

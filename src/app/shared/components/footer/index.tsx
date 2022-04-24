@@ -2,12 +2,10 @@ import { Box, Button } from '@material-ui/core';
 import React from 'react';
 import './index.scss';
 import config from '@src/config';
-import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 
 const Footer: React.FC = () => (
 	<Box className="footer-con">
 		<Box className="footer-wrap">
-			<img src={logoDefaultBlue} alt="로고" className="footer-logo" />
 			<Box className="footer-row">
 				<Button className="footer-title" variant="text" href={`mailto:${config.mail}`}>
 					서비스 피드백

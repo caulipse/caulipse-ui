@@ -39,6 +39,10 @@ const StudyDetailPage = (): JSX.Element => {
 	}, [exampleUserId, studyData]);
 
 	const onClick = () => {
+		if (!state.login) {
+			openModal(ModalKeyEnum.LoginModal);
+			return;
+		}
 		if (isHost) {
 			openModal(ModalKeyEnum.StudyCloseModal);
 		} else {
@@ -64,6 +68,10 @@ const StudyDetailPage = (): JSX.Element => {
 	};
 
 	const onClickPostBookmark = () => {
+		if (!state.login) {
+			openModal(ModalKeyEnum.LoginModal);
+			return;
+		}
 		postBookmark.mutate();
 	};
 

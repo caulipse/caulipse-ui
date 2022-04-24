@@ -6,7 +6,7 @@ import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterCont
 import SubCategoryContainer from '@src/app/study/mobile/subCategory/SubCategoryContainer';
 import SubCategoryCollapsedPresenter from '@src/app/study/mobile/subCategory/SubCategoryCollapsedPresenter';
 import { useAtom } from 'jotai';
-import { studyListState } from '@src/state';
+import globalState, { studyListState } from '@src/state';
 import { MainCategoryType, CategoryType } from '@src/types';
 import { Container } from '@material-ui/core';
 import './index.scss';
@@ -16,11 +16,16 @@ import ModalKeyEnum from '@src/components/common/modal/enum';
 const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [state, setState] = useAtom(studyListState);
+	const [gState] = useAtom(globalState);
 	const { openModal } = useModal();
 
 	const { filterOption } = state;
 
 	const onClickCreate = () => {
+		if (!gState.login) {
+			openModal(ModalKeyEnum.LoginModal);
+			return;
+		}
 		openModal(ModalKeyEnum.StudyPostModal);
 	};
 

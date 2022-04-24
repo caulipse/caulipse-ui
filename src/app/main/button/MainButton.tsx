@@ -4,6 +4,8 @@ import { IoChevronForward } from 'react-icons/io5';
 import './index.scss';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
 
 interface IMainButtonProps {
 	isDesktop?: boolean;
@@ -11,7 +13,12 @@ interface IMainButtonProps {
 
 const MainButton = ({ isDesktop = false }: IMainButtonProps) => {
 	const { openModal } = useModal();
+	const [state] = useAtom(globalState);
 	const onClick = () => {
+		if (!state.login) {
+			openModal(ModalKeyEnum.LoginModal);
+			return;
+		}
 		openModal(ModalKeyEnum.StudyPostModal);
 	};
 	return isDesktop ? (

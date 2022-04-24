@@ -162,7 +162,7 @@ const StudyDetailPage = (): JSX.Element => {
 								)}
 							</div>
 						</div>
-						{state.login && <CTAButtons />}
+						<CTAButtons />
 					</div>
 				</div>
 			)}

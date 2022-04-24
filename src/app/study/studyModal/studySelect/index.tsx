@@ -10,6 +10,8 @@ import './index.scss';
 import ko from 'date-fns/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
 import classNames from 'classnames';
+import { frequencyMapper, locationMapper, weekdayMapper } from '@src/app/shared/utils/studyMapper';
+import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
 
 registerLocale('ko', ko);
 
@@ -22,12 +24,12 @@ interface StudySelectProps {
 	setSelectedMainCategoryCode: React.Dispatch<React.SetStateAction<number>>;
 	selectedSubCategoryCode: number;
 	setSelectedSubCategoryCode: React.Dispatch<React.SetStateAction<number>>;
-	selectedFrequencies: string;
-	setSelectedFrequencies: React.Dispatch<React.SetStateAction<string>>;
-	selectedDays: string[];
-	setSelectedDays: React.Dispatch<React.SetStateAction<string[]>>;
-	selectedPlaces: string[];
-	setSelectedPlaces: React.Dispatch<React.SetStateAction<string[]>>;
+	selectedFrequencies: frequencyEnum | '';
+	setSelectedFrequencies: React.Dispatch<React.SetStateAction<frequencyEnum | ''>>;
+	selectedDays: weekdayEnum[];
+	setSelectedDays: React.Dispatch<React.SetStateAction<weekdayEnum[]>>;
+	selectedPlaces: locationEnum[];
+	setSelectedPlaces: React.Dispatch<React.SetStateAction<locationEnum[]>>;
 	initialMembersCount?: number;
 }
 
@@ -49,8 +51,8 @@ const StudySelect = ({
 	initialMembersCount,
 }: StudySelectProps): JSX.Element => {
 	useEffect(() => {
-		const initialSubCategoryCode = categories.find((categoryItem) => categoryItem.code === selectedMainCategoryCode)
-			?.subCategories[0].code;
+		const initialSubCategoryCode = categories.find((categoryItem) => categoryItem?.code === selectedMainCategoryCode)
+			?.subCategories[0]?.code;
 		setSelectedSubCategoryCode(Number(initialSubCategoryCode));
 	}, [selectedMainCategoryCode]);
 
@@ -103,7 +105,7 @@ const StudySelect = ({
 					textFieldProps={{ select: true, variant: 'outlined', SelectProps: { native: true } }}
 				>
 					{categories.map((mainCategoryItem) => (
-						<option key={mainCategoryItem.code} value={mainCategoryItem.code}>
+						<option key={mainCategoryItem?.code} value={mainCategoryItem?.code}>
 							{mainCategoryItem.label}
 						</option>
 					))}
@@ -115,9 +117,9 @@ const StudySelect = ({
 					textFieldProps={{ select: true, variant: 'outlined', SelectProps: { native: true } }}
 				>
 					{categories
-						.find((mainCategoryItem) => mainCategoryItem.code === Number(selectedMainCategoryCode))
+						.find((mainCategoryItem) => mainCategoryItem?.code === Number(selectedMainCategoryCode))
 						?.subCategories.map((subCategoryItem) => (
-							<option key={subCategoryItem.code} value={subCategoryItem.code}>
+							<option key={subCategoryItem?.code} value={subCategoryItem?.code}>
 								{subCategoryItem.label}
 							</option>
 						))}
@@ -125,7 +127,7 @@ const StudySelect = ({
 			</Box>
 			<Box className="study-select-body-divider" />
 			<Container className="study-filter-modal-row">
-				<span className="study-select-title">스터디 정원</span>
+				<span className="study-select-title">스터디 빈도</span>
 				<Grid container spacing={1}>
 					{frequencies.map((item) => {
 						const handleClick = () => {
@@ -133,7 +135,7 @@ const StudySelect = ({
 						};
 						return (
 							<Grid key={item} item xs={4} className="modal-chip-item">
-								<Chip label={item} selected={item === selectedFrequencies} onClick={handleClick} />
+								<Chip label={frequencyMapper[item]} selected={item === selectedFrequencies} onClick={handleClick} />
 							</Grid>
 						);
 					})}
@@ -151,7 +153,7 @@ const StudySelect = ({
 								setSelectedDays((arr) => [...arr, item]);
 							}
 						};
-						return <Chip key={item} label={item} selected={isSelected} onClick={handleClick} />;
+						return <Chip key={item} label={weekdayMapper[item]} selected={isSelected} onClick={handleClick} />;
 					})}
 				</Container>
 			</Container>
@@ -170,7 +172,7 @@ const StudySelect = ({
 								setSelectedPlaces((arr) => [...arr.slice(1, 3), item]);
 							}
 						};
-						return <Chip key={item} selected={isSelected} label={item} onClick={handleClick} />;
+						return <Chip key={item} selected={isSelected} label={locationMapper[item]} onClick={handleClick} />;
 					})}
 				</Container>
 			</Container>

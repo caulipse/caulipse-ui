@@ -1,4 +1,5 @@
 import { Box, Button, Grid } from '@material-ui/core';
+import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
@@ -24,9 +25,9 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000));
 	const [selectedCapacity, setSelectedCapcity] = useState<number>(2);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(0);
-	const [selectedFrequencies, setSelectedFrequencies] = useState<string>('');
-	const [selectedDays, setSelectedDays] = useState<string[]>([] as string[]);
-	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([] as string[]);
+	const [selectedFrequencies, setSelectedFrequencies] = useState<frequencyEnum | ''>('');
+	const [selectedDays, setSelectedDays] = useState<weekdayEnum[]>([] as weekdayEnum[]);
+	const [selectedPlaces, setSelectedPlaces] = useState<locationEnum[]>([] as locationEnum[]);
 	const [selectedTitle, setSelectedTitle] = useState<string>('');
 	const [selectedContent, setSelectedContent] = useState<string>('');
 

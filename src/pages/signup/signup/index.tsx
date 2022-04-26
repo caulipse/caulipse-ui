@@ -6,11 +6,14 @@ import QueryString from 'qs';
 import { IoArrowBack } from 'react-icons/io5';
 import { useHistory, useLocation } from 'react-router-dom';
 import './index.scss';
+import usePostUserProfile from '@src/hooks/remotes/user/usePostUserProfile';
 
 const SignUpPage = (): JSX.Element => {
 	const history = useHistory();
 	const location = useLocation();
 	const id = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.id;
+
+	const postUserProfile = usePostUserProfile();
 
 	const [step, setStep] = useState<number>(1);
 	const [email, setEmail] = useState<string>('');
@@ -22,6 +25,13 @@ const SignUpPage = (): JSX.Element => {
 
 	const handleSignUpComplete = () => {
 		/// TODO: 가입 완료 로직
+		if (id) {
+			postUserProfile
+				.mutateAsync({ userId: String(id), userName: nickname, dept, grade: String(grade), onBreak })
+				.then((result) => {
+					console.log('result, ', result);
+				});
+		}
 	};
 
 	useEffect(() => {

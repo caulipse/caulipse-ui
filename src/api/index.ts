@@ -130,6 +130,12 @@ const API = {
 	patchUser(request: IRequestPatchUser) {
 		return client.patch(`/user/${request.id}`, request);
 	},
+	// 회원 role 수정
+	patchUserRole(userId: string, token: string) {
+		return client.patch(`/user/${userId}/role`, {
+			token,
+		});
+	},
 	// 사용자의 알림 목록을 읽어옵니다.
 	getUserNotifications() {
 		return client.get(`/user/notification`);

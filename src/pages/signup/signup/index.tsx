@@ -7,13 +7,16 @@ import { IoArrowBack } from 'react-icons/io5';
 import { useHistory, useLocation } from 'react-router-dom';
 import './index.scss';
 import usePostUserProfile from '@src/hooks/remotes/user/usePostUserProfile';
+import usePatchUserRole from '@src/hooks/remotes/user/usePatchUserRole';
 
 const SignUpPage = (): JSX.Element => {
 	const history = useHistory();
 	const location = useLocation();
 	const id = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.id;
+	const token = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.token;
 
 	const postUserProfile = usePostUserProfile();
+	const patchUserRole = usePatchUserRole();
 
 	const [step, setStep] = useState<number>(1);
 	const [email, setEmail] = useState<string>('');
@@ -24,15 +27,16 @@ const SignUpPage = (): JSX.Element => {
 	const [onBreak, setOnBreak] = useState<boolean>(false);
 
 	const handleSignUpComplete = () => {
-		/// TODO: 가입 완료 로직
 		if (id) {
-			postUserProfile
-				.mutateAsync({ userId: String(id), userName: nickname, dept, grade: String(grade), onBreak })
-				.then((result) => {
-					console.log('result, ', result);
-				});
+			postUserProfile.mutate({ userId: String(id), userName: nickname, dept, grade: String(grade), onBreak });
 		}
 	};
+
+	useEffect(() => {
+		if (postUserProfile.isSuccess && id) {
+			patchUserRole.mutate({ userId: String(id), token: String(token) });
+		}
+	}, [postUserProfile.isSuccess, id]);
 
 	useEffect(() => {
 		if (id) {

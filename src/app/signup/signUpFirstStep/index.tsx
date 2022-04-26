@@ -7,6 +7,7 @@ import React, { KeyboardEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import './index.scss';
+import usePostSignup from '@src/hooks/remotes/user/usePostSignUp';
 
 interface SignUpFirstStepProps {
 	email: string;
@@ -24,6 +25,7 @@ const SignUpFirstStep = ({
 	goToNextStep,
 }: SignUpFirstStepProps): JSX.Element => {
 	const history = useHistory();
+	const postSignup = usePostSignup();
 
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
@@ -51,7 +53,8 @@ const SignUpFirstStep = ({
 		}
 
 		if (emailSuccess && pwSuccess) {
-			goToNextStep();
+			// goToNextStep();
+			postSignup.mutate({ email, password });
 		}
 	};
 

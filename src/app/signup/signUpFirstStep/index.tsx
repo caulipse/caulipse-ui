@@ -17,13 +17,7 @@ interface SignUpFirstStepProps {
 	goToNextStep: () => void;
 }
 
-const SignUpFirstStep = ({
-	email,
-	setEmail,
-	password,
-	setPassword,
-	goToNextStep,
-}: SignUpFirstStepProps): JSX.Element => {
+const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirstStepProps): JSX.Element => {
 	const history = useHistory();
 	const postSignup = usePostSignup();
 
@@ -53,7 +47,6 @@ const SignUpFirstStep = ({
 		}
 
 		if (emailSuccess && pwSuccess) {
-			// goToNextStep();
 			postSignup.mutate({ email, password });
 		}
 	};

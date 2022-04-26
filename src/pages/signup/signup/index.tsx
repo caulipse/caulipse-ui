@@ -1,13 +1,16 @@
 import { Box, Typography } from '@material-ui/core';
 import SignUpFirstStep from '@src/app/signup/signUpFirstStep';
 import SignUpSecondStep from '@src/app/signup/signUpSecondStep';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import QueryString from 'qs';
 import { IoArrowBack } from 'react-icons/io5';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './index.scss';
 
 const SignUpPage = (): JSX.Element => {
 	const history = useHistory();
+	const location = useLocation();
+	const id = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.id;
 
 	const [step, setStep] = useState<number>(1);
 	const [email, setEmail] = useState<string>('');
@@ -20,6 +23,12 @@ const SignUpPage = (): JSX.Element => {
 	const handleSignUpComplete = () => {
 		/// TODO: 가입 완료 로직
 	};
+
+	useEffect(() => {
+		if (id) {
+			setStep(2);
+		}
+	}, [id]);
 
 	return (
 		<Box className="sign-up-con">

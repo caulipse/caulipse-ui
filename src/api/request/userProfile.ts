@@ -11,3 +11,9 @@ export interface IRequestPatchUserRole {
 export interface IRequestPatchResetPwMail {
 	email: string;
 }
+
+export interface IRequestPatchResetPw {
+	id: string;
+	email: string;
+	password: string;
+}

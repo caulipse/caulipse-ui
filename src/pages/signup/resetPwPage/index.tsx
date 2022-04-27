@@ -10,10 +10,12 @@ import QueryString from 'qs';
 import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import './index.scss';
 import usePatchResetPwMail from '@src/hooks/remotes/user/usePatchResetPwMail';
+import usePatchResetPw from '@src/hooks/remotes/user/usePatchResetPw';
 
 const ResetPwPage = (): JSX.Element => {
 	const history = useHistory();
 	const patchResetPwMail = usePatchResetPwMail();
+	const patchResetPw = usePatchResetPw();
 	const location = useLocation();
 	const id = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.id;
 	const paramEmail = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.email;
@@ -46,6 +48,8 @@ const ResetPwPage = (): JSX.Element => {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 		} else if (!validatePassword(password)) {
 			setPasswordHelperText('비밀번호는 영문, 숫자, 특수문자를 혼합한 8자 이상이어야 합니다.');
+		} else {
+			patchResetPw.mutate({ id: String(id), email: String(paramEmail), password });
 		}
 	}, [password]);
 

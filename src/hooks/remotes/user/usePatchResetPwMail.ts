@@ -10,6 +10,8 @@ export default () => {
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
 			console.log(response);
+			// eslint-disable-next-line no-alert
+			window.alert(`중앙대학교 포탈로 인증 메일이 발송되었습니다.${'\n'}인증 후 비밀번호 재설정을 계속해 주세요.`);
 		},
 		onError: (e: Error) => {
 			console.error(e.message);

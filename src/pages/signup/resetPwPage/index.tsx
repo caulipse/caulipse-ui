@@ -3,14 +3,16 @@ import { validateEmail } from '@src/app/shared/utils/validation';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
-import React, { KeyboardEvent, useCallback, useState } from 'react';
+import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
 import { IoArrowBack } from 'react-icons/io5';
 import { Link, useHistory } from 'react-router-dom';
 import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import './index.scss';
+import usePatchResetPwMail from '@src/hooks/remotes/user/usePatchResetPwMail';
 
 const ResetPwPage = (): JSX.Element => {
 	const history = useHistory();
+	const patchResetPwMail = usePatchResetPwMail();
 
 	const [email, setEmail] = useState<string>('');
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
@@ -24,8 +26,9 @@ const ResetPwPage = (): JSX.Element => {
 			setEmailHelperText('이메일을 입력해 주세요.');
 		} else if (!validateEmail(email)) {
 			setEmailHelperText('이메일 형식이 잘못되었습니다.');
+		} else {
+			patchResetPwMail.mutate({ email });
 		}
-		// TODO: 변경 이메일 발송 로직
 	}, [email]);
 
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
@@ -33,6 +36,19 @@ const ResetPwPage = (): JSX.Element => {
 			handleChangePw();
 		}
 	};
+
+	useEffect(() => {
+		if (patchResetPwMail.isError) {
+			const errorMsg = patchResetPwMail.error?.message;
+			if (errorMsg.includes('400')) {
+				setEmailHelperText('이메일 입력이 잘못 되었습니다.');
+			} else if (errorMsg.includes('404')) {
+				setEmailHelperText('가입되지 않은 이메일입니다.');
+			} else {
+				setEmailHelperText('에러가 발생했습니다.');
+			}
+		}
+	}, [patchResetPwMail.isError, patchResetPwMail.error]);
 
 	return (
 		<Box className="reset-pw-con">

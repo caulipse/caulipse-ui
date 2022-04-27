@@ -209,6 +209,10 @@ const API = {
 			},
 		});
 	},
+	// 비밀번호 재설정 메일 보내기
+	patchResetPwMail(email: string) {
+		return client.patch('/user/password', { email });
+	},
 };
 
 export default API;

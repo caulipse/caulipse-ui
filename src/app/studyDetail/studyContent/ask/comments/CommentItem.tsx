@@ -52,6 +52,10 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 								className="comment-item-comment-write"
 								type="button"
 								onClick={() => {
+									if (!state.login) {
+										openModal(ModalKeyEnum.LoginModal);
+										return;
+									}
 									if (setShowCommentInput) setShowCommentInput(true);
 								}}
 							>

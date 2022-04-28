@@ -1,22 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="88" viewBox="0 0 120 88">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #fff;
-        font-size: 18px;
-        font-family: esamanruBold, esamanru;
-      }
-
-      .cls-2 {
-        fill: none;
-        opacity: 0.852;
-      }
-    </style>
-  </defs>
-  <g id="그룹_10571" data-name="그룹 10571" transform="translate(3203 8336)">
-    <text id="스터디_중앙대_안에서_찾아보세요_" data-name="스터디, 
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="104" viewBox="0 0 150 104">
+  <text id="스터디_중앙대_안에서_찾아보세요_" data-name="스터디, 
 중앙대 안에서 
-찾아보세요!" class="cls-1" transform="translate(-3203 -8318)"><tspan x="0" y="0">스터디, </tspan><tspan x="0" y="32">중앙대 안에서 </tspan><tspan x="0" y="64">찾아보세요!</tspan></text>
-    <rect id="사각형_7151" data-name="사각형 7151" class="cls-2" width="120" height="88" transform="translate(-3203 -8336)"/>
-  </g>
+찾아보세요!" transform="translate(150 20)" fill="#fff" font-size="24" font-family="esamanruBold, esamanru"><tspan x="-81.96" y="0">스터디, </tspan><tspan x="-150" y="38">중앙대 안에서 </tspan><tspan x="-121.728" y="76">찾아보세요!</tspan></text>
 </svg>

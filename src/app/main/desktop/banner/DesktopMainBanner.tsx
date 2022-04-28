@@ -4,7 +4,7 @@ import { Container, Typography, Grid } from '@material-ui/core';
 import MainCategoryItem from '@src/app/main/MainCategoryItem';
 import categories from '@src/const';
 import { useHistory } from 'react-router-dom';
-import girlWithLaptop from '@src/assets/img/illustration/girlWithLaptop.png';
+import girlWithLaptop from '@src/assets/img/illustration/girlWithLaptop.svg';
 import './index.scss';
 
 const DesktopMainBanner = (): JSX.Element => {

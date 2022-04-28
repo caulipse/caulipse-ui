@@ -28,7 +28,7 @@ const MyProfileEditContainer = (): JSX.Element => {
 							onBreak={userProfile.onBreak}
 							categories={userProfile.categories}
 							shortIntro={userProfile.bio}
-							urls={userProfile.links.reduce((acc, linkItem, linkIdx) => {
+							urls={userProfile?.links.reduce((acc, linkItem, linkIdx) => {
 								if (linkItem) {
 									return [
 										...acc,

@@ -11,6 +11,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
 import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
+import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
 import { getMainCategoryCode } from '../shared/utils/category';
 import StudySelect from '../study/studyModal/studySelect';
 import StudyContent from '../study/studyModal/studyContent';
@@ -32,9 +33,9 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		getMainCategoryCode(initialStudyData.categoryCode)
 	);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(initialStudyData.categoryCode);
-	const [selectedFrequencies, setSelectedFrequencies] = useState<string>(initialStudyData.frequency);
-	const [selectedDays, setSelectedDays] = useState<string[]>([initialStudyData.weekday]);
-	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([initialStudyData.location]);
+	const [selectedFrequencies, setSelectedFrequencies] = useState<frequencyEnum | ''>(initialStudyData.frequency);
+	const [selectedDays, setSelectedDays] = useState<weekdayEnum[]>([initialStudyData.weekday]);
+	const [selectedPlaces, setSelectedPlaces] = useState<locationEnum[]>([initialStudyData.location]);
 	const [selectedTitle, setSelectedTitle] = useState<string>(initialStudyData.title);
 	const [selectedContent, setSelectedContent] = useState<string>(initialStudyData.studyAbout);
 

@@ -1,4 +1,5 @@
 import { Box, Button, Grid } from '@material-ui/core';
+import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
@@ -6,6 +7,7 @@ import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import categories from '@src/const';
 import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
+import { format } from 'date-fns';
 import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import StudyContent from '../study/studyModal/studyContent';
@@ -20,12 +22,12 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(0);
-	const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+	const [selectedDate, setSelectedDate] = useState<Date>(new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000));
 	const [selectedCapacity, setSelectedCapcity] = useState<number>(2);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(0);
-	const [selectedFrequencies, setSelectedFrequencies] = useState<string>('');
-	const [selectedDays, setSelectedDays] = useState<string[]>([] as string[]);
-	const [selectedPlaces, setSelectedPlaces] = useState<string[]>([] as string[]);
+	const [selectedFrequencies, setSelectedFrequencies] = useState<frequencyEnum | ''>('');
+	const [selectedDays, setSelectedDays] = useState<weekdayEnum[]>([] as weekdayEnum[]);
+	const [selectedPlaces, setSelectedPlaces] = useState<locationEnum[]>([] as locationEnum[]);
 	const [selectedTitle, setSelectedTitle] = useState<string>('');
 	const [selectedContent, setSelectedContent] = useState<string>('');
 
@@ -46,6 +48,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			location: selectedPlaces[0],
 			capacity: selectedCapacity,
 			categoryCode: selectedSubCategoryCode,
+			dueDate: format(selectedDate, 'yyyy-MM-dd 00:00:00'),
 		});
 	};
 

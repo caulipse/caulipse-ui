@@ -1,13 +1,16 @@
-const CracoAlias = require("craco-alias");
+const CracoAlias = require('craco-alias');
 
 module.exports = {
-  plugins: [
-    {
-      plugin: CracoAlias,
-      options: {
-        source: "tsconfig",
-        tsConfigPath: "tsconfig.paths.json",
-      },
-    },
-  ],
+	babel: {
+		plugins: process.env.NODE_ENV === 'production' && ['transform-remove-console'],
+	},
+	plugins: [
+		{
+			plugin: CracoAlias,
+			options: {
+				source: 'tsconfig',
+				tsConfigPath: 'tsconfig.paths.json',
+			},
+		},
+	],
 };

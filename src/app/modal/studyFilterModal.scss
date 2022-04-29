@@ -1,9 +1,16 @@
 @import "@scss/variables";
 
+.study-filter-modal {
+    height: 35rem;
+}
+
 .study-filter-modal-title-container {
     display: flex !important;
     justify-content: center;
     align-items: center;
+    .study-filter-modal-title {
+        font-size: 1.25rem !important;
+    }
 }
 
 .study-filter-modal-row {

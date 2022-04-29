@@ -56,10 +56,10 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	return (
 		<Modal open={open} onClose={onClose} height="44.25rem">
 			<Container className="modal-root-container modal-space-between-container">
-				<Container>
+				<Container className="study-filter-modal">
 					<Container className="modal-title-container study-filter-modal-title-container">
 						<CloseButton align={IconAlignEnum.left} onClick={() => onClose(false)} />
-						<span>세부 필터</span>
+						<span className="study-filter-modal-title">세부 필터</span>
 						<span className="study-filter-modal-clear-button" onClick={onClickCancel}>
 							초기화
 						</span>

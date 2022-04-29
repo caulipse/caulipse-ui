@@ -71,6 +71,7 @@ const StudySelect = ({
 						onChange={(date: Date) => setSelectedDate(date)}
 						className="study-select-date-picker"
 						dateFormat="yyyy/MM/dd"
+						minDate={new Date()}
 					/>
 				</Box>
 			</Box>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import config from '@src/config';
 import { IFilterOption, IPaginationOption } from '@src/app/study/types';
 import { IRequestLogin, IRequestSignUp, IRequestPatchUser } from './request/user';
-import { IRequestPostUserProfile, IRequestPatchUserProfile } from './request/userProfile';
+import { IRequestPostUserProfile, IRequestPatchUserProfile, IRequestPatchResetPw } from './request/userProfile';
 import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
 import { IRequestPostStudyUser, IRequestPatchStudyUser, IRequestPatchStudyUserByHost } from './request/studyUser';
 import {
@@ -207,6 +207,17 @@ const API = {
 			params: {
 				username: nickname,
 			},
+		});
+	},
+	// 비밀번호 재설정 메일 보내기
+	patchResetPwMail(email: string) {
+		return client.patch('/user/password', { email });
+	},
+	// 비밀번호 수정
+	patchResetPw(request: IRequestPatchResetPw) {
+		return client.patch(`/user/${request.id}/password`, {
+			email: request.email,
+			password: request.password,
 		});
 	},
 };

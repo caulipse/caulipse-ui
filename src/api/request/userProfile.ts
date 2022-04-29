@@ -8,3 +8,12 @@ export interface IRequestPatchUserRole {
 	userId: string;
 	token: string;
 }
+export interface IRequestPatchResetPwMail {
+	email: string;
+}
+
+export interface IRequestPatchResetPw {
+	id: string;
+	email: string;
+	password: string;
+}

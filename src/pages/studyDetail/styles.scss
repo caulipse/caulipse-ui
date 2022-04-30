@@ -19,9 +19,10 @@
     width:100% !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+    background-position: center !important;
     @include desktop{
       max-width: none !important;
-      background-color: transparent !important;
+      background-color: transparent !important;  
     }
     .study-desktop{
       &-header-container{
@@ -33,6 +34,7 @@
           width: 100% !important;
           background-repeat: no-repeat !important;
           background-size: cover !important;
+          background-position: center !important;
         }
       }
       &-header-wrapper{

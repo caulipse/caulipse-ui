@@ -19,7 +19,11 @@ const NotificationModal = ({ open, onClose }: IModalContainerCommonProps): JSX.E
 	const renderNotifications = useCallback(() => {
 		if (isLoading) return <Loader />;
 		if (data?.length === 0) {
-			return <Box className="notification-modal-empty-text">알림이 없습니다.</Box>;
+			return (
+				<Box className="notification-modal-empty-text-con">
+					<Box className="notification-modal-empty-text">알림이 없습니다.</Box>
+				</Box>
+			);
 		}
 		return data ? (
 			<List className="notification-modal-list">

@@ -9,7 +9,7 @@
 .notification-modal{
     &-desktop-container{
         display: flex !important;
-        position: fixed !important;
+        position: absolute !important;
         top: 5rem !important;
         right: 0 !important;
         background-color: #ffffff !important;
@@ -55,7 +55,7 @@
         border-right: .625rem solid transparent;
         border-top: .625rem solid transparent;
         border-bottom: .625rem solid white;
-        right: .75rem;
+        right: 4.75rem;
         top: -1.25rem;
       }
 }

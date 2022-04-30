@@ -18,7 +18,7 @@
     max-width: $mobileMaxContentWidth !important;
     width:100% !important;
     background-repeat: no-repeat !important;
-    background-size: 100% !important;
+    background-size: cover !important;
     @include desktop{
       max-width: none !important;
       background-color: transparent !important;
@@ -31,6 +31,8 @@
           margin: auto !important;
           background-color: $primaryColor !important;
           width: 100% !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
         }
       }
       &-header-wrapper{

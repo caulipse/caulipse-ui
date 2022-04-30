@@ -15,6 +15,9 @@ import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
+import { getMainCategoryCode } from '@src/app/shared/utils/category';
+import useWindowDimensions from '@src/hooks/useWindowDimensions';
+
 import bgLanguage from '@src/assets/img/category/imageMobile/language.png';
 import bgCertificate from '@src/assets/img/category/imageMobile/certificate.png';
 import bgDaily from '@src/assets/img/category/imageMobile/daily.png';
@@ -22,7 +25,14 @@ import bgEmployment from '@src/assets/img/category/imageMobile/employment.png';
 import bgExam from '@src/assets/img/category/imageMobile/exam.png';
 import bgProgramming from '@src/assets/img/category/imageMobile/programming.png';
 import bgCompetition from '@src/assets/img/category/imageMobile/competition.png';
-import { getMainCategoryCode } from '@src/app/shared/utils/category';
+
+import bgLanguageFullWidth from '@src/assets/img/category/imageDesktopFullWidth/language.png';
+import bgCertificateFullWidth from '@src/assets/img/category/imageDesktopFullWidth/certificate.png';
+import bgDailyFullWidth from '@src/assets/img/category/imageDesktopFullWidth/daily.png';
+import bgEmploymentFullWidth from '@src/assets/img/category/imageDesktopFullWidth/employment.png';
+import bgExamFullWidth from '@src/assets/img/category/imageDesktopFullWidth/exam.png';
+import bgProgrammingFullWidth from '@src/assets/img/category/imageDesktopFullWidth/programming.png';
+import bgCompetitionFullWidth from '@src/assets/img/category/imageDesktopFullWidth/competition.png';
 
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
@@ -49,6 +59,27 @@ const categoryImageMapper = (code: number) => {
 	}
 };
 
+const categoryImageMapperFullWidth = (code: number) => {
+	switch (code) {
+		case 100:
+			return bgLanguageFullWidth;
+		case 200:
+			return bgEmploymentFullWidth;
+		case 300:
+			return bgProgrammingFullWidth;
+		case 400:
+			return bgExamFullWidth;
+		case 500:
+			return bgCertificateFullWidth;
+		case 600:
+			return bgDailyFullWidth;
+		case 700:
+			return bgCompetitionFullWidth;
+		default:
+			return bgDailyFullWidth;
+	}
+};
+
 const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
 	const postBookmark = usePostBookmark(studyId);
@@ -60,6 +91,11 @@ const StudyDetailPage = (): JSX.Element => {
 	const { openModal } = useModal();
 	const { openSnackbar } = useSnackbar();
 	const [state] = useAtom(globalState);
+	const { width } = useWindowDimensions();
+
+	const isDesktop = useMemo(() => {
+		return width > 1024;
+	}, [width]);
 
 	const isHost = useMemo(() => {
 		return state.userId === studyData?.HOST_ID;
@@ -165,13 +201,28 @@ const StudyDetailPage = (): JSX.Element => {
 				<div className="studyDetailContainer">
 					<div
 						className="studyDetailBg"
-						style={{
-							background: `linear-gradient(rgba(0, 40, 87, 0.6), rgba(0, 40, 87, 0.6)), url(${categoryImageMapper(
-								getMainCategoryCode(Number(studyData?.categoryCode))
-							)})`,
-						}}
+						style={
+							isDesktop
+								? {}
+								: {
+										background: `linear-gradient(rgba(0, 40, 87, 0.6), rgba(0, 40, 87, 0.6)), url(${categoryImageMapper(
+											getMainCategoryCode(Number(studyData?.categoryCode))
+										)})`,
+								  }
+						}
 					>
-						<div className="study-desktop-header-container">
+						<div
+							className="study-desktop-header-container"
+							style={
+								isDesktop
+									? {
+											background: `linear-gradient(rgba(0, 40, 87, 0.6), rgba(0, 40, 87, 0.6)), url(${categoryImageMapperFullWidth(
+												getMainCategoryCode(Number(studyData?.categoryCode))
+											)})`,
+									  }
+									: {}
+							}
+						>
 							<div className="study-desktop-header-wrapper">
 								<StudyDetailHeader />
 								{studyData && (

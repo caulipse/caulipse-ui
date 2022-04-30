@@ -2,7 +2,7 @@ import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyConten
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useCallback, useMemo } from 'react';
 import { IoBookmarkOutline, IoEllipsisVertical, IoPencil, IoShareSocialOutline } from 'react-icons/io5';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useHistory } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import useModal from '@src/hooks/modal/useModal';
 import './styles.scss';
@@ -32,6 +32,7 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const { openModal } = useModal();
 	const { openSnackbar } = useSnackbar();
+	const history = useHistory();
 	const [state] = useAtom(globalState);
 
 	const isHost = useMemo(() => {
@@ -40,7 +41,7 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const onClick = () => {
 		if (!state.login) {
-			openModal(ModalKeyEnum.LoginModal);
+			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 			return;
 		}
 		if (isHost) {
@@ -69,7 +70,7 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const onClickPostBookmark = () => {
 		if (!state.login) {
-			openModal(ModalKeyEnum.LoginModal);
+			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 			return;
 		}
 		postBookmark.mutate();

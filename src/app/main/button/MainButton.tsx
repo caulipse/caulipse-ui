@@ -6,6 +6,8 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
+import { useHistory } from 'react-router-dom';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 
 interface IMainButtonProps {
 	isDesktop?: boolean;
@@ -13,10 +15,12 @@ interface IMainButtonProps {
 
 const MainButton = ({ isDesktop = false }: IMainButtonProps) => {
 	const { openModal } = useModal();
+	const history = useHistory();
+	const { openSnackbar } = useSnackbar();
 	const [state] = useAtom(globalState);
 	const onClick = () => {
 		if (!state.login) {
-			openModal(ModalKeyEnum.LoginModal);
+			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 			return;
 		}
 		openModal(ModalKeyEnum.StudyPostModal);

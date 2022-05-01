@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
+import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import MainButton from '../button/MainButton';
 import './index.scss';
 
@@ -22,7 +23,7 @@ const MobileMainPage = (): JSX.Element => {
 	const { filterOption, paginationOption } = state;
 	const { pageNo } = paginationOption;
 
-	const { data, isLoading } = fetchStudies('최근 등록순', filterOption, paginationOption);
+	const { data, isLoading } = fetchStudies(Object.keys(orderByMapper)[0], filterOption, paginationOption);
 
 	const totalPage = useMemo(() => {
 		return data?.pages ?? 0;

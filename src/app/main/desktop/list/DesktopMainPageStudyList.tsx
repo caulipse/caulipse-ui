@@ -7,6 +7,7 @@ import { Study } from '@api/types';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
+import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import './index.scss';
 
 const DesktopMainPageStudyList = (): JSX.Element => {
@@ -15,7 +16,7 @@ const DesktopMainPageStudyList = (): JSX.Element => {
 	const { filterOption, paginationOption } = state;
 	const { pageNo } = paginationOption;
 
-	const { data, isLoading } = fetchStudies('최근 등록순', filterOption, paginationOption);
+	const { data, isLoading } = fetchStudies(Object.keys(orderByMapper)[0], filterOption, paginationOption);
 
 	const totalPage = useMemo(() => {
 		return data?.pages ?? 0;

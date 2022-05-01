@@ -8,10 +8,7 @@ export interface IResponseGetStudies {
 	total: number;
 }
 
-export interface IResponseGetStudy {
-	message: string;
-	study: Study;
-}
+export type IResponseGetStudy = Study;
 
 export type IResponseGetStudyUsers = StudyUser[];
 

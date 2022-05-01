@@ -6,8 +6,8 @@ import RecruitingStudiesPresenter from './RecruitingStudiesPresenter';
 const RecruitingStudiesContainer = (): JSX.Element => {
 	const { data, isLoading } = useFetchMyStudies();
 
-	const openedRecruitingStudies = data?.studies.filter((item) => new Date(item.dueDate) >= new Date());
-	const closedRecruitingStudies = data?.studies.filter((item) => new Date(item.dueDate) < new Date());
+	const openedRecruitingStudies = data?.filter((item) => new Date(item.dueDate) >= new Date());
+	const closedRecruitingStudies = data?.filter((item) => new Date(item.dueDate) < new Date());
 
 	if (isLoading) return <Loader />;
 

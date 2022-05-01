@@ -12,10 +12,7 @@ export type IResponseGetStudy = Study;
 
 export type IResponseGetStudyUsers = StudyUser[];
 
-export interface IResponseGetMyStudies {
-	message: string;
-	studies: Study[];
-}
+export type IResponseGetMyStudies = Study[];
 
 export type IResponseGetAppiedStudies = AppliedStudy[];
 

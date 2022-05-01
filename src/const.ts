@@ -1,5 +1,6 @@
 import { MainCategoryType } from './types';
 import { STUDY_SORT_OPTION_ENUM } from './enum';
+import { orderByMapper } from './app/shared/utils/studyMapper';
 
 export const isDesktop = window.screen.width > 1024;
 
@@ -169,12 +170,19 @@ export const categories: MainCategoryType[] = [
 	},
 ];
 
-export const sortOptions = [
-	{ value: STUDY_SORT_OPTION_ENUM.CREATED_AT_DESC, label: '최신순' },
-	{ value: STUDY_SORT_OPTION_ENUM.CREATED_AT_ASC, label: '오래된 순' },
-	{ value: STUDY_SORT_OPTION_ENUM.VACANCY_DESC, label: '남은 인원: 많은 순' },
-	{ value: STUDY_SORT_OPTION_ENUM.VACANCY_ASC, label: '남은 인원: 적은 순' },
-];
+// export const sortOptions = [
+// 	{ value: STUDY_SORT_OPTION_ENUM.CREATED_AT_DESC, label: '최신순' },
+// 	{ value: STUDY_SORT_OPTION_ENUM.CREATED_AT_ASC, label: '오래된 순' },
+// 	{ value: STUDY_SORT_OPTION_ENUM.VACANCY_DESC, label: '남은 인원: 많은 순' },
+// 	{ value: STUDY_SORT_OPTION_ENUM.VACANCY_ASC, label: '남은 인원: 적은 순' },
+// ];
+
+export const sortOptions = Object.entries(orderByMapper).map(([key, value]) => {
+	return {
+		value: key,
+		label: value,
+	};
+});
 
 // FIXME 수정
 export default categories;

@@ -14,15 +14,10 @@ const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element
 	const { userId, modal } = state;
 
 	const { data } = useFetchStudy(modal?.params);
-	const { study } = data!;
+	const study = data;
 
-	const {
-		REPORT_TYPE_ENUM_0,
-		REPORT_TYPE_ENUM_1,
-		REPORT_TYPE_ENUM_2,
-		REPORT_TYPE_ENUM_3,
-		REPORT_TYPE_ENUM_4,
-	} = REPORT_TYPE_ENUM;
+	const { REPORT_TYPE_ENUM_0, REPORT_TYPE_ENUM_1, REPORT_TYPE_ENUM_2, REPORT_TYPE_ENUM_3, REPORT_TYPE_ENUM_4 } =
+		REPORT_TYPE_ENUM;
 
 	const [value, setValue] = useState(REPORT_TYPE_ENUM_0);
 	const onClick = () => {
@@ -33,7 +28,7 @@ const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element
 		setValue((evt.target as HTMLInputElement).value as REPORT_TYPE_ENUM);
 	};
 
-	const content = `mailto:${config.mail}?subject=[신고] ${value}&body=* [${study.title}]%0D%0A* 신고자_${userId}%0D%0A* 신고대상_${study.HOST_ID}`;
+	const content = `mailto:${config.mail}?subject=[신고] ${value}&body=* [${study?.title}]%0D%0A* 신고자_${userId}%0D%0A* 신고대상_${study?.HOST_ID}`;
 
 	return (
 		<SimpleModal open={open} onClose={onClose} title="신고" height="24.688rem" footer={false}>

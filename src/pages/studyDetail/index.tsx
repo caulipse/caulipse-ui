@@ -84,7 +84,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
 	const postBookmark = usePostBookmark(studyId);
 	const { data, isLoading } = useFetchStudy(studyId);
-	const studyData = data?.study;
+	const studyData = data;
 	const location = useLocation<StudyDetailPageLocationInterface>();
 	const initialIndex = location.state?.initialIndex ?? 1;
 

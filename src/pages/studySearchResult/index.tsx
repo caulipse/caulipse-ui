@@ -51,8 +51,8 @@ const StudySearchResultPage = (): JSX.Element => {
 				<Box className="search-result-desktop-content-con">
 					<StudySortFilterContainer />
 					<Box className="search-result-divider" />
-					{data?.studies ? (
-						data.studies.map((item) => {
+					{data ? (
+						data?.map((item) => {
 							return (
 								<div key={item.id} className="mt1_5rem">
 									<StudyCardContainer study={item} />

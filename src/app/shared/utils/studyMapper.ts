@@ -24,3 +24,10 @@ export const locationMapper = {
 	loc2: '서울대입구, 낙성대',
 	else: '기타',
 };
+
+export const orderByMapper = {
+	latest: '최근 등록순',
+	small_vacancy: '남은 모집인원: 적은 순',
+	large_vacancy: '남은 모집인원: 많은 순',
+	oldest: '오래된 순',
+};

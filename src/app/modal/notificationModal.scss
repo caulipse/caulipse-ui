@@ -9,7 +9,7 @@
 .notification-modal{
     &-desktop-container{
         display: flex !important;
-        position: fixed !important;
+        position: absolute !important;
         top: 5rem !important;
         right: 0 !important;
         background-color: #ffffff !important;
@@ -20,14 +20,16 @@
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.08) !important;
         border-radius: 1rem !important;
     }
-    &-empty-text{
-        @include text();
+    &-empty-text-con{
         display: flex !important;
         flex-direction: column !important;
-        text-align: center !important;
-        min-height: 9rem !important;
         justify-content: center !important;
-        align-self: center !important;
+        min-height: 9rem !important;
+        width: 100% !important;
+    }
+    &-empty-text{
+        @include text();
+        text-align: center !important;
     }
     &-list{
         width: 100% !important;
@@ -53,7 +55,7 @@
         border-right: .625rem solid transparent;
         border-top: .625rem solid transparent;
         border-bottom: .625rem solid white;
-        right: .75rem;
+        right: 4.75rem;
         top: -1.25rem;
       }
 }

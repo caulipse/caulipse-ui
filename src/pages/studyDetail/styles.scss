@@ -126,6 +126,7 @@
     background-color: white;
     max-width: $mobileMaxContentWidth;
     box-shadow: 0 -10px 20px 0 rgba(0, 0, 0, 0.08);  
+    z-index: 2 !important;
     @include desktop{
       display: none !important;
     }

@@ -15,12 +15,14 @@
   width: 100% !important;
   align-items: center !important;
   .studyDetailBg{
-    background-color: $primaryColor !important;
     max-width: $mobileMaxContentWidth !important;
     width:100% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
     @include desktop{
       max-width: none !important;
-      background-color: transparent !important;
+      background-color: transparent !important;  
     }
     .study-desktop{
       &-header-container{
@@ -30,6 +32,9 @@
           margin: auto !important;
           background-color: $primaryColor !important;
           width: 100% !important;
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+          background-position: center !important;
         }
       }
       &-header-wrapper{

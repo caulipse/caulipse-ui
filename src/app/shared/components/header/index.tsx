@@ -8,6 +8,8 @@ import LogoFullWidth from '@src/assets/img/logo/logoFullWidth.svg';
 import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import LogoDefaultVertical from '@src/assets/img/logo/logoDefaultVertical.svg';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useCallback, useMemo, useState } from 'react';
@@ -20,6 +22,7 @@ const Header: React.FC = () => {
 	const history = useHistory();
 	const locationPathName = useLocation().pathname;
 	const { openModal } = useModal();
+	const { openSnackbar } = useSnackbar();
 	const [state] = useAtom(globalState);
 
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -83,7 +86,7 @@ const Header: React.FC = () => {
 		return (
 			<div className="header-icons-con">
 				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" color={iconColor} />
-				<Button onClick={() => openModal(ModalKeyEnum.LoginModal, { history })}>
+				<Button onClick={() => openModal(ModalKeyEnum.LoginModal, { history, openSnackbar })}>
 					<Typography className="header-login">로그인</Typography>
 				</Button>
 			</div>
@@ -104,7 +107,7 @@ const Header: React.FC = () => {
 					onClick={() => {
 						if (drawerItem?.isLogin) {
 							setIsDrawerOpen(false);
-							openModal(ModalKeyEnum.LoginModal, { history });
+							openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 						}
 					}}
 					divider={drawerItemIdx === drawerItemLength - 1 && drawerSubListIdx !== drawerSubListLength - 1}

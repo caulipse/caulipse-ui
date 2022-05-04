@@ -5,7 +5,6 @@ import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
-import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import globalState from '@src/state';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import { useAtom } from 'jotai';
@@ -22,9 +21,9 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
 	const postLogin = usePostLogin(setLoginSuccess);
-	const { openSnackbar } = useSnackbar();
 	const [state, setState] = useAtom(globalState);
 	const history = state.modal.params?.history;
+	const openSnackbar = state.modal.params?.openSnackbar;
 
 	const resetPw = () => {
 		onClose(false);
@@ -68,6 +67,7 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 				...state,
 			});
 			onClose(false);
+			openSnackbar('로그인에 성공하였습니다.');
 		} else {
 			setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
 			setPasswordHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');

@@ -12,18 +12,22 @@ import { Container } from '@material-ui/core';
 import './index.scss';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
+import { useHistory } from 'react-router-dom';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 
 const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [state, setState] = useAtom(studyListState);
 	const [gState] = useAtom(globalState);
 	const { openModal } = useModal();
+	const history = useHistory();
+	const { openSnackbar } = useSnackbar();
 
 	const { filterOption } = state;
 
 	const onClickCreate = () => {
 		if (!gState.login) {
-			openModal(ModalKeyEnum.LoginModal);
+			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 			return;
 		}
 		openModal(ModalKeyEnum.StudyPostModal);

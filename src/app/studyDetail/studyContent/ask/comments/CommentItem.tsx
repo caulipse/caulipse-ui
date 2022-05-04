@@ -7,6 +7,8 @@ import { Comment } from '@src/api/types';
 import { useAtom } from 'jotai';
 import globalState from '@src/state';
 import useDeleteStudyComment from '@src/hooks/remotes/comment/useDeleteStudyComment';
+import { useHistory } from 'react-router-dom';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 
 interface CommentItemProps {
 	comment: Comment;
@@ -19,6 +21,8 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 	const [state] = useAtom(globalState);
 	const myId = state.userId;
 	const { openModal } = useModal();
+	const history = useHistory();
+	const { openSnackbar } = useSnackbar();
 	const deleteComment = useDeleteStudyComment(studyId, comment.id);
 
 	const onClickReport = () => {
@@ -53,7 +57,7 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 								type="button"
 								onClick={() => {
 									if (!state.login) {
-										openModal(ModalKeyEnum.LoginModal);
+										openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 										return;
 									}
 									if (setShowCommentInput) setShowCommentInput(true);

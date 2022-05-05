@@ -2,7 +2,7 @@
 
 .desktop-main-banner {
     width: 100% !important;
-    padding: 4.813rem calc((100% - 1280px)/2) 0rem !important;
+    padding: 4.813rem calc((100% - 1280px)/2) 3rem !important;
     color: #fff;
     margin-bottom: 2.5rem;
     max-width: 100% !important;
@@ -15,13 +15,14 @@
         margin: 0 !important;
     }
     > p {
-        font-size: 1.438rem !important;
+        font-size: 2.375rem !important;
         font-weight: bold !important;
-        margin-bottom: 1.5rem !important; 
+        margin: 0 !important; 
     }
 }
 
 .desktop-main-banner-category-container {
+    margin-top: 3.375rem;
     padding: 0 !important;
     width: 29rem !important;
 }

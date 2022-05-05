@@ -29,7 +29,8 @@ const DesktopMainBanner = (): JSX.Element => {
 
 	return (
 		<Container className="desktop-main-banner">
-			<Typography>어떤 스터디 찾으세요?</Typography>
+			<Typography>스터디, 중앙대</Typography>
+			<Typography>안에서 찾아보세요!</Typography>
 			<Container>
 				<Grid container className="desktop-main-banner-category-container">
 					{categoryArr.map((category) => (

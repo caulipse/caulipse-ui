@@ -1,18 +1,24 @@
 @import "@scss/variables";
 
 .desktop-main-banner {
+    display: flex !important;
     width: 100% !important;
-    padding: 4.813rem calc((100% - 1280px)/2) 3rem !important;
+    padding: 4.813rem calc((100% - 1280px)/2) 0 !important;
     color: #fff;
     margin-bottom: 2.5rem;
     max-width: 100% !important;
     background-image: url('../../../../assets/img/illustration/mainBg.svg');
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    > div { 
-        display: flex !important;
+}
+
+.desktop-main-banner-title-container {
+    display: flex !important;
+    flex-direction: column;
+    padding: 0 0 3rem 0 !important;
+    margin: 0 !important;
+    > div {
         padding: 0 !important;
-        margin: 0 !important;
     }
     > p {
         font-size: 2.375rem !important;
@@ -28,9 +34,10 @@
 }
 
 .desktop-main-banner-image-container {
+    display: flex !important;
     padding: 0 !important;
     width: 24.375rem !important;
-    margin-left: 6.688rem !important;
+    margin-left: 6.375rem !important;
 }
 
 .desktop-main-banner-image{

@@ -166,7 +166,12 @@ export const categories: MainCategoryType[] = [
 		label: '공모전',
 		path: 'competition',
 		code: 700,
-		subCategories: [],
+		subCategories: [
+			{
+				label: '공모전',
+				code: 701,
+			},
+		],
 	},
 ];
 

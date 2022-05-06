@@ -15,9 +15,6 @@ interface IGlobalStateProps {
 
 const globalState = atom({
 	login: !!getCookie('accessToken'),
-	// FIXME
-	// 로그인 기능 구현 이후 수정 필요
-	userId: '28464dc7-7537-4b91-9d52-764b6de32122',
 	snackbar: {
 		open: false,
 		message: '',

@@ -14,7 +14,7 @@ import usePatchUserProfile from '@src/hooks/remotes/user/usePatchUserProfile';
 import classNames from 'classnames';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { userState as globalUserState } from '@src/state';
 
 export interface UrlInterface {
 	urlId: number;
@@ -45,7 +45,7 @@ const MyProfileEditPresenter = ({
 	longIntro,
 }: MyProfileEditPresenterProps): JSX.Element => {
 	const updateProfile = usePatchUserProfile();
-	const [state, setState] = useAtom(globalState);
+	const [userState] = useAtom(globalUserState);
 
 	const [accUrlId, setAccUrlId] = useState<number>(urls.length);
 	const [currentNickname, setCurrentNickname] = useState<string>(nickname);
@@ -65,7 +65,7 @@ const MyProfileEditPresenter = ({
 		});
 
 		updateProfile.mutate({
-			userId: state.userId,
+			userId: userState.userId,
 			userName: currentNickname,
 			dept: currentMajor,
 			grade: String(currentGrade),

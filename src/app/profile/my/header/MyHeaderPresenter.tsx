@@ -11,7 +11,7 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import { Box, ButtonBase } from '@material-ui/core';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { userState as globalUserState } from '@src/state';
 
 interface MyHeaderPresenterProps {
 	userProfile: UserProfile;
@@ -20,11 +20,11 @@ interface MyHeaderPresenterProps {
 
 const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): JSX.Element => {
 	const history = useHistory();
-	const [state, setState] = useAtom(globalState);
+	const [userState] = useAtom(globalUserState);
 	const { openModal } = useModal();
 
 	const showProfileSheet = () => {
-		openModal(ModalKeyEnum.UserProfileModal, { userId: state.userId });
+		openModal(ModalKeyEnum.UserProfileModal, { userId: userState.userId });
 	};
 
 	return (

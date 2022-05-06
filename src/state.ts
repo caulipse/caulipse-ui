@@ -5,6 +5,7 @@ import { IGlobalModalProps } from '@common/modal/types';
 import { IStudyListState } from '@src/app/study/types';
 import { sortOptions } from '@src/const';
 import { CategoryType } from '@src/types';
+import { atomWithStorage } from 'jotai/utils';
 
 interface IGlobalStateProps {
 	login: boolean;
@@ -40,5 +41,9 @@ export const studyListState = atom({
 		pageNo: 1,
 	},
 } as IStudyListState);
+
+export const userState = atomWithStorage('userState', {
+	userId: '',
+});
 
 export default globalState;

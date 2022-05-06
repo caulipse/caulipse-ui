@@ -19,6 +19,8 @@
   &-bg{
     background-color: $primaryColor !important;
     width: 100% !important;
+    position: sticky !important;
+    top: 0 !important;
   }
   &-con {
     display: flex;

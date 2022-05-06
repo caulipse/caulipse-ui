@@ -12,7 +12,7 @@ https://app.zeplin.io/project/60ab2c1eda632a27c275f616
 ## Conventions
 
 ### 폴더 및 파일 네이밍
-* 컴포넡트 파일: Pascal Case
+* 컴포넌트 파일: Pascal Case
 * 디렉토리 및 기타 파일: Camel Case
 
 ### Naming

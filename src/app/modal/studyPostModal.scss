@@ -58,6 +58,7 @@
                 align-items: center !important;
                 border-radius: .75rem !important;
                 margin-bottom: 1rem !important;
+                background-size: contain !important;
             }
             &-con-selected{
                 border: 4px solid $primaryColor;

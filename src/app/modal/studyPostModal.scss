@@ -2,6 +2,11 @@
 @import '@scss/mixins';
 
 .study-post-modal{
+    &-flex{
+        display: flex !important;
+        flex: 1 !important;
+        flex-direction: column !important;
+    }
     &-header{
         &-con{
             display: flex !important;
@@ -73,10 +78,10 @@
     }
     &-cta{
         &-con{
+            display: flex !important;
             position: fixed !important;
             width: 100% !important;
-            bottom:2rem !important;
-            display: flex !important;
+            bottom: 2rem !important;
             flex-direction: row !important;
             align-items: center !important;
             margin: 2rem 0 !important;

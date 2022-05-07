@@ -142,7 +142,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		}
 
 		return (
-			<Box className="study-post-modal-cta-con">
+			<>
 				<CommonButton
 					type={ButtonTypeEnum.secondary}
 					title="이전"
@@ -167,7 +167,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							: !(selectedTitle && selectedContent)
 					}
 				/>
-			</Box>
+			</>
 		);
 	}, [
 		currentStep,
@@ -185,37 +185,39 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
-				<Header />
-				<Box className="study-post-modal-body-con">
-					{currentStep === 0 ? (
-						<MainCategorySelect />
-					) : currentStep === 1 ? (
-						<StudySelect
-							selectedDate={selectedDate}
-							setSelectedDate={setSelectedDate}
-							selectedCapacity={selectedCapacity}
-							setSelectedCapacity={setSelectedCapcity}
-							selectedMainCategoryCode={selectedMainCategoryCode}
-							setSelectedMainCategoryCode={setSelectedMainCategoryCode}
-							selectedSubCategoryCode={selectedSubCategoryCode}
-							setSelectedSubCategoryCode={setSelectedSubCategoryCode}
-							selectedFrequencies={selectedFrequencies}
-							setSelectedFrequencies={setSelectedFrequencies}
-							selectedDays={selectedDays}
-							setSelectedDays={setSelectedDays}
-							selectedPlaces={selectedPlaces}
-							setSelectedPlaces={setSelectedPlaces}
-						/>
-					) : (
-						<StudyContent
-							selectedContent={selectedContent}
-							selectedTitle={selectedTitle}
-							setSelectedTitle={setSelectedTitle}
-							setSelectedContent={setSelectedContent}
-						/>
-					)}
+				<Box className="study-post-modal-flex">
+					<Header />
+					<Box className="study-post-modal-body-con">
+						{currentStep === 0 ? (
+							<MainCategorySelect />
+						) : currentStep === 1 ? (
+							<StudySelect
+								selectedDate={selectedDate}
+								setSelectedDate={setSelectedDate}
+								selectedCapacity={selectedCapacity}
+								setSelectedCapacity={setSelectedCapcity}
+								selectedMainCategoryCode={selectedMainCategoryCode}
+								setSelectedMainCategoryCode={setSelectedMainCategoryCode}
+								selectedSubCategoryCode={selectedSubCategoryCode}
+								setSelectedSubCategoryCode={setSelectedSubCategoryCode}
+								selectedFrequencies={selectedFrequencies}
+								setSelectedFrequencies={setSelectedFrequencies}
+								selectedDays={selectedDays}
+								setSelectedDays={setSelectedDays}
+								selectedPlaces={selectedPlaces}
+								setSelectedPlaces={setSelectedPlaces}
+							/>
+						) : (
+							<StudyContent
+								selectedContent={selectedContent}
+								selectedTitle={selectedTitle}
+								setSelectedTitle={setSelectedTitle}
+								setSelectedContent={setSelectedContent}
+							/>
+						)}
+					</Box>
 				</Box>
-				{renderCtaBtn()}
+				<Box className="study-post-modal-cta-con">{renderCtaBtn()}</Box>
 			</>
 		</Modal>
 	);

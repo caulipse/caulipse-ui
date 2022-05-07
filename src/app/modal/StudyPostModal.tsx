@@ -11,9 +11,38 @@ import classNames from 'classnames';
 import { format } from 'date-fns';
 import React, { useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+import bgLanguageSquare from '@src/assets/img/category/imageSquare/language.png';
+import bgCertificateSquare from '@src/assets/img/category/imageSquare/certificate.png';
+import bgDailySquare from '@src/assets/img/category/imageSquare/daily.png';
+import bgEmploymentSquare from '@src/assets/img/category/imageSquare/employment.png';
+import bgExamSquare from '@src/assets/img/category/imageSquare/exam.png';
+import bgProgrammingSquare from '@src/assets/img/category/imageSquare/programming.png';
+import bgCompetitionSquare from '@src/assets/img/category/imageSquare/competition.png';
+import bgTotalSquare from '@src/assets/img/category/imageSquare/total.png';
 import StudyContent from '../study/studyModal/studyContent';
 import StudySelect from '../study/studyModal/studySelect';
 import './studyPostModal.scss';
+
+const categoryImageMapper = (code: number) => {
+	switch (code) {
+		case 100:
+			return bgLanguageSquare;
+		case 200:
+			return bgEmploymentSquare;
+		case 300:
+			return bgProgrammingSquare;
+		case 400:
+			return bgExamSquare;
+		case 500:
+			return bgCertificateSquare;
+		case 600:
+			return bgDailySquare;
+		case 700:
+			return bgCompetitionSquare;
+		default:
+			return bgTotalSquare;
+	}
+};
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const postStudy = usePostStudy(() => {
@@ -84,8 +113,13 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 								className={classNames('study-post-modal-category-item-con', {
 									'study-post-modal-category-item-con-selected': item.code === selectedMainCategoryCode,
 								})}
+								style={{
+									background: `linear-gradient(rgba(0, 40, 87, 0.6), rgba(0, 40, 87, 0.6)), url(${categoryImageMapper(
+										item.code
+									)})`,
+								}}
 							>
-								<Box>{item.label}</Box>
+								<Box className="study-post-modal-category-item-text">{item.label}</Box>
 							</Button>
 						</Grid>
 					))}

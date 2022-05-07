@@ -5,6 +5,7 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import categories from '@src/const';
+import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
 import { format } from 'date-fns';
@@ -57,7 +58,11 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			<Box className="study-post-modal-header-con">
 				<IoClose className="study-post-modal-icon" color="#ffffff" onClick={() => onClose(false)} />
 				<Box className="study-post-modal-header-title">
-					{currentStep === 0 ? 'Logo' : `세부조건 (${currentStep + 1}/3)`}
+					{currentStep === 0 ? (
+						<img src={logoDefaultWhite} alt="" className="header-logo" />
+					) : (
+						`세부조건 (${currentStep + 1}/3)`
+					)}
 				</Box>
 				<Box className="study-post-modal-icon" />
 			</Box>

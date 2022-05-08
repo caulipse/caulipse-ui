@@ -73,9 +73,9 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		postStudy.mutate({
 			title: selectedTitle,
 			studyAbout: selectedContent,
-			weekday: selectedDays[0],
+			weekday: selectedDays,
 			frequency: selectedFrequencies,
-			location: selectedPlaces[0],
+			location: selectedPlaces,
 			capacity: selectedCapacity,
 			categoryCode: selectedSubCategoryCode,
 			dueDate: format(selectedDate, 'yyyy-MM-dd 00:00:00'),

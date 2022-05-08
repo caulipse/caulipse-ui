@@ -46,10 +46,10 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 				capacity: selectedCapacity,
 				categoryCode: selectedSubCategoryCode,
 				// createdAt: selectedDate,
-				location: selectedPlaces[0],
+				location: selectedPlaces,
 				studyAbout: selectedContent,
 				title: selectedTitle,
-				weekday: selectedDays[0],
+				weekday: selectedDays,
 				frequency: selectedFrequencies,
 			},
 		});

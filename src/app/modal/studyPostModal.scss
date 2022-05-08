@@ -2,6 +2,11 @@
 @import '@scss/mixins';
 
 .study-post-modal{
+    &-flex{
+        display: flex !important;
+        flex: 1 !important;
+        flex-direction: column !important;
+    }
     &-header{
         &-con{
             display: flex !important;
@@ -49,24 +54,34 @@
         &-grid-con{
             padding: 2rem  0 !important;
         }
-        &-item-con{
-            display: flex !important;
-            width: calc(100% - 1rem) !important;
-            aspect-ratio: 1 !important;
-            justify-content: center !important;
-            align-items: center !important;
-            border-radius: .75rem !important;
-        }
-        &-item-con-selected{
-            border: 2px solid $primaryColor;
+        &-item{
+            &-con{
+                display: flex !important;
+                width: calc(100% - 1rem) !important;
+                aspect-ratio: 1 !important;
+                justify-content: center !important;
+                align-items: center !important;
+                border-radius: .75rem !important;
+                margin-bottom: 1rem !important;
+                background-size: contain !important;
+            }
+            &-con-selected{
+                border: 4px solid $primaryColor;
+            }
+            &-text{
+                font-size: .875rem !important;
+                line-height: .813rem !important;
+                color: #f9f9f9 !important;
+                font-weight: bold !important;
+            }
         }
     }
     &-cta{
         &-con{
+            display: flex !important;
             position: fixed !important;
             width: 100% !important;
-            bottom:2rem !important;
-            display: flex !important;
+            bottom: 2rem !important;
             flex-direction: row !important;
             align-items: center !important;
             margin: 2rem 0 !important;

@@ -5,14 +5,44 @@ import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import categories from '@src/const';
+import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
 import { format } from 'date-fns';
 import React, { useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
+import bgLanguageSquare from '@src/assets/img/category/imageSquare/language.png';
+import bgCertificateSquare from '@src/assets/img/category/imageSquare/certificate.png';
+import bgDailySquare from '@src/assets/img/category/imageSquare/daily.png';
+import bgEmploymentSquare from '@src/assets/img/category/imageSquare/employment.png';
+import bgExamSquare from '@src/assets/img/category/imageSquare/exam.png';
+import bgProgrammingSquare from '@src/assets/img/category/imageSquare/programming.png';
+import bgCompetitionSquare from '@src/assets/img/category/imageSquare/competition.png';
+import bgTotalSquare from '@src/assets/img/category/imageSquare/total.png';
 import StudyContent from '../study/studyModal/studyContent';
 import StudySelect from '../study/studyModal/studySelect';
 import './studyPostModal.scss';
+
+const categoryImageMapper = (code: number) => {
+	switch (code) {
+		case 100:
+			return bgLanguageSquare;
+		case 200:
+			return bgEmploymentSquare;
+		case 300:
+			return bgProgrammingSquare;
+		case 400:
+			return bgExamSquare;
+		case 500:
+			return bgCertificateSquare;
+		case 600:
+			return bgDailySquare;
+		case 700:
+			return bgCompetitionSquare;
+		default:
+			return bgTotalSquare;
+	}
+};
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const postStudy = usePostStudy(() => {
@@ -64,7 +94,11 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			<Box className="study-post-modal-header-con">
 				<IoClose className="study-post-modal-icon" color="#ffffff" onClick={() => onClose(false)} />
 				<Box className="study-post-modal-header-title">
-					{currentStep === 0 ? 'Logo' : `세부조건 (${currentStep + 1}/3)`}
+					{currentStep === 0 ? (
+						<img src={logoDefaultWhite} alt="" className="header-logo" />
+					) : (
+						`세부조건 (${currentStep + 1}/3)`
+					)}
 				</Box>
 				<Box className="study-post-modal-icon" />
 			</Box>
@@ -86,8 +120,13 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 								className={classNames('study-post-modal-category-item-con', {
 									'study-post-modal-category-item-con-selected': item.code === selectedMainCategoryCode,
 								})}
+								style={{
+									background: `linear-gradient(rgba(0, 40, 87, 0.6), rgba(0, 40, 87, 0.6)), url(${categoryImageMapper(
+										item.code
+									)})`,
+								}}
 							>
-								<Box>{item.label}</Box>
+								<Box className="study-post-modal-category-item-text">{item.label}</Box>
 							</Button>
 						</Grid>
 					))}
@@ -110,7 +149,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		}
 
 		return (
-			<Box className="study-post-modal-cta-con">
+			<>
 				<CommonButton
 					type={ButtonTypeEnum.secondary}
 					title="이전"
@@ -135,7 +174,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							: !(selectedTitle && selectedContent)
 					}
 				/>
-			</Box>
+			</>
 		);
 	}, [
 		currentStep,
@@ -153,37 +192,39 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>
 			<>
-				<Header />
-				<Box className="study-post-modal-body-con">
-					{currentStep === 0 ? (
-						<MainCategorySelect />
-					) : currentStep === 1 ? (
-						<StudySelect
-							selectedDate={selectedDate}
-							setSelectedDate={setSelectedDate}
-							selectedCapacity={selectedCapacity}
-							setSelectedCapacity={setSelectedCapcity}
-							selectedMainCategoryCode={selectedMainCategoryCode}
-							setSelectedMainCategoryCode={setSelectedMainCategoryCode}
-							selectedSubCategoryCode={selectedSubCategoryCode}
-							setSelectedSubCategoryCode={setSelectedSubCategoryCode}
-							selectedFrequencies={selectedFrequencies}
-							setSelectedFrequencies={setSelectedFrequencies}
-							selectedDays={selectedDays}
-							setSelectedDays={setSelectedDays}
-							selectedPlaces={selectedPlaces}
-							setSelectedPlaces={setSelectedPlaces}
-						/>
-					) : (
-						<StudyContent
-							selectedContent={selectedContent}
-							selectedTitle={selectedTitle}
-							setSelectedTitle={setSelectedTitle}
-							setSelectedContent={setSelectedContent}
-						/>
-					)}
+				<Box className="study-post-modal-flex">
+					<Header />
+					<Box className="study-post-modal-body-con">
+						{currentStep === 0 ? (
+							<MainCategorySelect />
+						) : currentStep === 1 ? (
+							<StudySelect
+								selectedDate={selectedDate}
+								setSelectedDate={setSelectedDate}
+								selectedCapacity={selectedCapacity}
+								setSelectedCapacity={setSelectedCapcity}
+								selectedMainCategoryCode={selectedMainCategoryCode}
+								setSelectedMainCategoryCode={setSelectedMainCategoryCode}
+								selectedSubCategoryCode={selectedSubCategoryCode}
+								setSelectedSubCategoryCode={setSelectedSubCategoryCode}
+								selectedFrequencies={selectedFrequencies}
+								setSelectedFrequencies={setSelectedFrequencies}
+								selectedDays={selectedDays}
+								setSelectedDays={setSelectedDays}
+								selectedPlaces={selectedPlaces}
+								setSelectedPlaces={setSelectedPlaces}
+							/>
+						) : (
+							<StudyContent
+								selectedContent={selectedContent}
+								selectedTitle={selectedTitle}
+								setSelectedTitle={setSelectedTitle}
+								setSelectedContent={setSelectedContent}
+							/>
+						)}
+					</Box>
 				</Box>
-				{renderCtaBtn()}
+				<Box className="study-post-modal-cta-con">{renderCtaBtn()}</Box>
 			</>
 		</Modal>
 	);

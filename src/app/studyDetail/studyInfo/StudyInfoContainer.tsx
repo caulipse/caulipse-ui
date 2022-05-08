@@ -4,12 +4,14 @@ import StudyInfoPresenter from './StudyInfoPresenter';
 
 interface StudyInfoContainerProps {
 	categoryCode: string;
-	weekday: weekdayEnum;
+	weekdays: weekdayEnum[];
 	frequency: frequencyEnum;
-	location: locationEnum;
+	locations: locationEnum[];
 }
-const StudyInfoContainer = ({ categoryCode, weekday, frequency, location }: StudyInfoContainerProps): JSX.Element => {
-	return <StudyInfoPresenter categoryCode={categoryCode} weekday={weekday} frequency={frequency} location={location} />;
+const StudyInfoContainer = ({ categoryCode, weekdays, frequency, locations }: StudyInfoContainerProps): JSX.Element => {
+	return (
+		<StudyInfoPresenter categoryCode={categoryCode} weekdays={weekdays} frequency={frequency} locations={locations} />
+	);
 };
 
 export default StudyInfoContainer;

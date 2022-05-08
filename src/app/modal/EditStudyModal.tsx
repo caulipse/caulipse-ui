@@ -34,8 +34,8 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	);
 	const [selectedSubCategoryCode, setSelectedSubCategoryCode] = useState<number>(initialStudyData.categoryCode);
 	const [selectedFrequencies, setSelectedFrequencies] = useState<frequencyEnum | ''>(initialStudyData.frequency);
-	const [selectedDays, setSelectedDays] = useState<weekdayEnum[]>([initialStudyData.weekday]);
-	const [selectedPlaces, setSelectedPlaces] = useState<locationEnum[]>([initialStudyData.location]);
+	const [selectedDays, setSelectedDays] = useState<weekdayEnum[]>(initialStudyData.weekday);
+	const [selectedPlaces, setSelectedPlaces] = useState<locationEnum[]>(initialStudyData.location);
 	const [selectedTitle, setSelectedTitle] = useState<string>(initialStudyData.title);
 	const [selectedContent, setSelectedContent] = useState<string>(initialStudyData.studyAbout);
 

@@ -8,7 +8,7 @@ import categories from '@src/const';
 import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
 import { format } from 'date-fns';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import StudyContent from '../study/studyModal/studyContent';
 import StudySelect from '../study/studyModal/studySelect';
@@ -51,6 +51,13 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			dueDate: format(selectedDate, 'yyyy-MM-dd 00:00:00'),
 		});
 	};
+
+	useEffect(() => {
+		if (postStudy.isError) {
+			// eslint-disable-next-line no-alert
+			window.alert('게시물 등록에 실패하였습니다.');
+		}
+	}, [postStudy.isError]);
 
 	const Header = useCallback(() => {
 		return (

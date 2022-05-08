@@ -98,7 +98,7 @@ export const categories: MainCategoryType[] = [
 		],
 	},
 	{
-		label: '고시/공무원',
+		label: '고시공무원',
 		path: 'exam',
 		code: 400,
 		subCategories: [

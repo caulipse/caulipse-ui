@@ -35,22 +35,39 @@
     display: inline-block !important;
     height: fit-content;
     margin-bottom: .75rem !important;
+    > div {
+        position: relative;
+        padding: 0 !important;
+    }
     p {
-        font-size: .938rem !important;
-        font-weight: normal !important;
+        font-size: 1.125rem !important;
+        font-weight: bold !important;
         color: #fff;
-        margin-top: .25rem;
+        position: absolute;
+        top: 2.563rem;
+        text-align: center;
     }
 }
 
 .desktop-main-category-item-container {
     padding: 0 !important;
-    width: 6.125rem !important;
     margin: 0 !important;
+    > div {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(2, 27, 56, 0.6);
+        position: absolute;
+        top: 0;
+        left: 6px;
+        padding: 0 !important;
+        width: 6.75rem; 
+        height: 6.75rem; 
+        border-radius: 1rem;
+    }
 }
 
 .desktop-main-category-item-img {
-    background: #fff;
-    height: 6.125rem; 
+    width: 6.75rem; 
+    height: 6.75rem; 
     border-radius: 1rem;
 }

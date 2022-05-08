@@ -9,13 +9,11 @@ interface IMainCategoryItemProps {
 	isDesktop?: boolean;
 }
 
-// FIXME
-// 백엔드에 이미지 데이터 추가되면 div -> img 태그로 변경 필요
-
 const MainCategoryItem = ({ category, onClick, isDesktop = false }: IMainCategoryItemProps): JSX.Element => {
 	const handleClick = () => {
 		onClick(category);
 	};
+
 	return (
 		<Grid
 			item
@@ -23,10 +21,23 @@ const MainCategoryItem = ({ category, onClick, isDesktop = false }: IMainCategor
 			className={isDesktop ? 'desktop-main-category-item-grid' : 'mobile-main-category-item-grid'}
 			onClick={handleClick}
 		>
-			<Container className={isDesktop ? 'desktop-main-category-item-container' : 'mobile-main-category-item-container'}>
-				<div className={isDesktop ? 'desktop-main-category-item-img' : 'mobile-main-category-item-img'} />
-				<Typography>{category.label}</Typography>
-			</Container>
+			{isDesktop ? (
+				<Container className="desktop-main-category-item-container">
+					<img
+						className="desktop-main-category-item-img "
+						src={require(`@src/assets/img/category/imageDesktop/${category.label}.png`).default}
+						alt={category.label}
+					/>
+					<Container>
+						<Typography>{category.code === 400 ? '고시/공무원' : category.label}</Typography>
+					</Container>
+				</Container>
+			) : (
+				<Container className="mobile-main-category-item-container">
+					<div className="mobile-main-category-item-img" />
+					<Typography>{category.label}</Typography>
+				</Container>
+			)}
 		</Grid>
 	);
 };

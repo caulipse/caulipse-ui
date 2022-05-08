@@ -5,6 +5,7 @@ import { IGlobalModalProps } from '@common/modal/types';
 import { IStudyListState } from '@src/app/study/types';
 import { sortOptions } from '@src/const';
 import { CategoryType } from '@src/types';
+import { atomWithStorage } from 'jotai/utils';
 
 interface IGlobalStateProps {
 	login: boolean;
@@ -15,9 +16,6 @@ interface IGlobalStateProps {
 
 const globalState = atom({
 	login: !!getCookie('accessToken'),
-	// FIXME
-	// 로그인 기능 구현 이후 수정 필요
-	userId: '28464dc7-7537-4b91-9d52-764b6de32122',
 	snackbar: {
 		open: false,
 		message: '',
@@ -43,5 +41,9 @@ export const studyListState = atom({
 		pageNo: 1,
 	},
 } as IStudyListState);
+
+export const userState = atomWithStorage('userState', {
+	userId: '',
+});
 
 export default globalState;

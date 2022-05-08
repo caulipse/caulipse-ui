@@ -14,7 +14,7 @@ import { Button, ButtonGroup, IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { userState as globalUserState } from '@src/state';
 import { getMainCategoryCode } from '@src/app/shared/utils/category';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 
@@ -92,6 +92,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
 	const history = useHistory();
 	const [state] = useAtom(globalState);
+	const [userState] = useAtom(globalUserState);
 	const { width } = useWindowDimensions();
 
 	const isDesktop = useMemo(() => {
@@ -99,7 +100,7 @@ const StudyDetailPage = (): JSX.Element => {
 	}, [width]);
 
 	const isHost = useMemo(() => {
-		return state.userId === studyData?.HOST_ID;
+		return userState.userId === studyData?.HOST_ID;
 	}, [studyData]);
 
 	const onClick = () => {

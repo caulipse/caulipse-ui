@@ -1,14 +1,14 @@
 import { Container } from '@material-ui/core';
 import Loader from '@src/components/common/loader/Loader';
 import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
-import globalState from '@src/state';
+import { userState as globalUserState } from '@src/state';
 import { useAtom } from 'jotai';
 import React from 'react';
 import MyProfileEditPresenter, { UrlInterface } from './MyProfileEditPresenter';
 
 const MyProfileEditContainer = (): JSX.Element => {
-	const [state, setState] = useAtom(globalState);
-	const { data, isLoading } = useFetchUserProfile(state.userId);
+	const [userState] = useAtom(globalUserState);
+	const { data, isLoading } = useFetchUserProfile(userState.userId);
 	const userProfile = data?.userProfile;
 
 	const urlInitialValue: Array<UrlInterface> = [];

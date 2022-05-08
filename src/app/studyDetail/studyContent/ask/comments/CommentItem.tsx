@@ -5,7 +5,7 @@ import ModalKeyEnum from '@common/modal/enum';
 import format from 'date-fns/format';
 import { Comment } from '@src/api/types';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { userState as globalUserState } from '@src/state';
 import useDeleteStudyComment from '@src/hooks/remotes/comment/useDeleteStudyComment';
 import { useHistory } from 'react-router-dom';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
@@ -19,7 +19,8 @@ interface CommentItemProps {
 
 const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentItemProps): JSX.Element => {
 	const [state] = useAtom(globalState);
-	const myId = state.userId;
+	const [userState] = useAtom(globalUserState);
+	const myId = userState.userId;
 	const { openModal } = useModal();
 	const history = useHistory();
 	const { openSnackbar } = useSnackbar();

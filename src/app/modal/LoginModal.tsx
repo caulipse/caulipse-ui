@@ -5,7 +5,7 @@ import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
-import globalState from '@src/state';
+import globalState, { userState as globalUserState } from '@src/state';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import { useAtom } from 'jotai';
 import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
@@ -14,14 +14,14 @@ import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [loginSuccess, setLoginSuccess] = useState<boolean | undefined>();
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
-	const postLogin = usePostLogin(setLoginSuccess);
+	const postLogin = usePostLogin();
 	const [state, setState] = useAtom(globalState);
+	const [userState, setUserState] = useAtom(globalUserState);
 	const history = state.modal.params?.history;
 	const openSnackbar = state.modal.params?.openSnackbar;
 
@@ -58,22 +58,14 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	}, [email, password]);
 
 	useEffect(() => {
-		if (loginSuccess === undefined) {
-			return;
-		}
-
-		if (loginSuccess) {
-			setState({
-				...state,
-			});
-			onClose(false);
+		if (postLogin.isSuccess && postLogin.data) {
+			setUserState({ ...userState, userId: postLogin.data.userId });
 			openSnackbar('로그인에 성공하였습니다.');
-		} else {
+		} else if (postLogin.isError) {
 			setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
 			setPasswordHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
-			setLoginSuccess(undefined);
 		}
-	}, [loginSuccess]);
+	}, [postLogin.isSuccess, postLogin.isError, postLogin.data]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>

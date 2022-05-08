@@ -180,7 +180,7 @@ const StudyDetailPage = (): JSX.Element => {
 				</div>
 			</div>
 		);
-	}, [onClick]);
+	}, [onClick, isHost]);
 
 	const DeskTopCTAButtons = useCallback(() => {
 		return (
@@ -188,12 +188,12 @@ const StudyDetailPage = (): JSX.Element => {
 				<Button className="desktop-cta-apply" onClick={onClick}>
 					{isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
 				</Button>
-				<Button className="desktop-cta-bookmark" onClick={onClickPostBookmark}>
-					북마크하기
+				<Button className="desktop-cta-bookmark" onClick={onClickEdit}>
+					수정하기
 				</Button>
 			</ButtonGroup>
 		);
-	}, []);
+	}, [isHost]);
 
 	return (
 		<>

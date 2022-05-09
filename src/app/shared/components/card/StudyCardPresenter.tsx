@@ -29,7 +29,8 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => {
 			</Container>
 			<Typography className="study-card-title">{study.title}</Typography>
 			<Typography className="study-card-tag">
-				#{frequencyMapper[study.frequency]} #{weekdayMapper[study.weekday]} #{locationMapper[study.location]}
+				#{frequencyMapper[study.frequency]} #{study.weekday.map((weekdayItem) => weekdayMapper[weekdayItem]).join(',')}{' '}
+				#{study.location.map((locationItem) => locationMapper[locationItem]).join(',')}
 			</Typography>
 			<ProgressBar max={study.capacity} current={study.membersCount} />
 		</Container>

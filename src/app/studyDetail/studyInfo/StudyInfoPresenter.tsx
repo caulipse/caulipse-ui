@@ -6,11 +6,11 @@ import './styles.scss';
 
 interface StudyInfoPresenterProps {
 	categoryCode: string;
-	weekday: weekdayEnum;
+	weekdays: weekdayEnum[];
 	frequency: frequencyEnum;
-	location: locationEnum;
+	locations: locationEnum[];
 }
-const StudyInfoPresenter = ({ categoryCode, weekday, frequency, location }: StudyInfoPresenterProps): JSX.Element => {
+const StudyInfoPresenter = ({ categoryCode, weekdays, frequency, locations }: StudyInfoPresenterProps): JSX.Element => {
 	return (
 		<div className="StudyInfoContainer">
 			<div className="categoryTextContainer">
@@ -24,7 +24,7 @@ const StudyInfoPresenter = ({ categoryCode, weekday, frequency, location }: Stud
 			<div className="study-sub-info-container">
 				<div className="mr16">
 					<div className="study-sub-info-title">요일</div>
-					<div className="study-sub-info-content">{weekdayMapper[weekday]}</div>
+					<div className="study-sub-info-content">{weekdays.map((item) => weekdayMapper[item]).join(',')}</div>
 				</div>
 				<div className="mr16">
 					<div className="study-sub-info-title">빈도</div>
@@ -32,7 +32,15 @@ const StudyInfoPresenter = ({ categoryCode, weekday, frequency, location }: Stud
 				</div>
 				<div>
 					<div className="study-sub-info-title">장소</div>
-					<div className="study-sub-info-content">{locationMapper[location]}</div>
+					<div className="study-sub-info-content-con">
+						{locations.map((locationItem) => {
+							return (
+								<div key={locationItem} className="study-sub-info-content">
+									{locationMapper[locationItem]}
+								</div>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</div>

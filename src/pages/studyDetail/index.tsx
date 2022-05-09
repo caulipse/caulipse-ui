@@ -83,8 +83,7 @@ const categoryImageMapperFullWidth = (code: number) => {
 const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
 	const postBookmark = usePostBookmark(studyId);
-	const { data, isLoading } = useFetchStudy(studyId);
-	const studyData = data;
+	const { data: studyData, isLoading } = useFetchStudy(studyId);
 	const location = useLocation<StudyDetailPageLocationInterface>();
 	const initialIndex = location.state?.initialIndex ?? 1;
 
@@ -180,7 +179,7 @@ const StudyDetailPage = (): JSX.Element => {
 				</div>
 			</div>
 		);
-	}, [onClick]);
+	}, [onClick, isHost]);
 
 	const DeskTopCTAButtons = useCallback(() => {
 		return (
@@ -188,12 +187,12 @@ const StudyDetailPage = (): JSX.Element => {
 				<Button className="desktop-cta-apply" onClick={onClick}>
 					{isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
 				</Button>
-				<Button className="desktop-cta-bookmark" onClick={onClickPostBookmark}>
-					북마크하기
+				<Button className="desktop-cta-bookmark" onClick={onClickEdit}>
+					수정하기
 				</Button>
 			</ButtonGroup>
 		);
-	}, []);
+	}, [isHost]);
 
 	return (
 		<>
@@ -230,9 +229,9 @@ const StudyDetailPage = (): JSX.Element => {
 								{studyData && (
 									<StudyInfoContainer
 										categoryCode={studyData.categoryCode}
-										weekday={studyData.weekday}
+										weekdays={studyData.weekday}
 										frequency={studyData.frequency}
-										location={studyData.location}
+										locations={studyData.location}
 									/>
 								)}
 							</div>

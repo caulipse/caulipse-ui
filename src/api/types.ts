@@ -27,13 +27,13 @@ export interface Study {
 	hostId?: Host;
 	id: string;
 	isOpen: boolean;
-	location: locationEnum;
+	location: locationEnum[];
 	membersCount: number;
 	studyAbout: string;
 	title: string;
 	vacancy: number;
 	views: number;
-	weekday: weekdayEnum;
+	weekday: weekdayEnum[];
 	bookmarkCount: number;
 	dueDate: string;
 }

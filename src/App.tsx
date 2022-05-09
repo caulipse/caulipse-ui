@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import loadable from '@loadable/component';
@@ -11,7 +11,7 @@ import ProfilePage from './pages/profile';
 import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
 import MainPage from './pages/main';
-import globalState from './state';
+import globalState, { userState as globalUserState } from './state';
 import ResetPwPage from './pages/signup/resetPwPage';
 import StudySearchResultPage from './pages/studySearchResult';
 import SignUpPage from './pages/signup/signup';
@@ -19,10 +19,14 @@ import SignUpPage from './pages/signup/signup';
 const Location = () => {
 	const { pathname } = useLocation();
 	const [state, setState] = useAtom(globalState);
+	const [userState, setUserState] = useAtom(globalUserState);
 	const accessToken = getCookie('accessToken');
 
 	useEffect(() => {
 		setState({ ...state, login: !!accessToken });
+		if (!accessToken) {
+			setUserState({ ...userState, userId: '' });
+		}
 	}, [pathname, accessToken]);
 	return null;
 };

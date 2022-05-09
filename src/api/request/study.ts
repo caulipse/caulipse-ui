@@ -1,9 +1,11 @@
+import { locationEnum, weekdayEnum } from '../types';
+
 export interface IRequestPostStudy {
 	title: string;
 	studyAbout: string;
-	weekday: string;
+	weekday: weekdayEnum[];
 	frequency: string;
-	location: string;
+	location: locationEnum[];
 	capacity: number;
 	categoryCode: number;
 	dueDate: string;

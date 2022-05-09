@@ -5,6 +5,8 @@ import MainCategoryItem from '@src/app/main/MainCategoryItem';
 import categories from '@src/const';
 import { useHistory } from 'react-router-dom';
 import girlWithLaptop from '@src/assets/img/illustration/girlWithLaptop.svg';
+import mainTitle from '@src/assets/img/illustration/mainTitle.svg';
+
 import './index.scss';
 
 const DesktopMainBanner = (): JSX.Element => {
@@ -30,8 +32,7 @@ const DesktopMainBanner = (): JSX.Element => {
 	return (
 		<Container className="desktop-main-banner">
 			<Container className="desktop-main-banner-title-container">
-				<Typography>스터디, 중앙대</Typography>
-				<Typography>안에서 찾아보세요!</Typography>
+				<img src={mainTitle} alt="" />
 				<Container>
 					<Grid container className="desktop-main-banner-category-container">
 						{categoryArr.map((category) => (

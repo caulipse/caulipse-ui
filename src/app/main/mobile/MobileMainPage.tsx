@@ -12,6 +12,8 @@ import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
 import { orderByMapper } from '@src/app/shared/utils/studyMapper';
+import mobileGirlWithLaptop from '@src/assets/img/illustration/mobileGirlWithLaptop.svg';
+import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.svg';
 import MainButton from '../button/MainButton';
 import './index.scss';
 
@@ -68,6 +70,11 @@ const MobileMainPage = (): JSX.Element => {
 
 	return (
 		<>
+			<Container className="mobile-main-page-image-container">
+				<img className="mobile-main-page-title" src={mobileMainTitle} alt="" />
+				<img className="mobile-main-page-image" src={mobileGirlWithLaptop} alt="" />
+				<MainButton />
+			</Container>
 			<Container className="mobile-main-page-main-category-container">
 				<Grid container className="mobile-main-page-main-category-grid">
 					{categoryArr.map((category) => (
@@ -80,9 +87,8 @@ const MobileMainPage = (): JSX.Element => {
 				{studies?.map((study) => (
 					<StudyCardContainer study={study} key={study.id} />
 				))}
-				<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+				<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 			</Container>
-			<MainButton />
 		</>
 	);
 };

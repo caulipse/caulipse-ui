@@ -1,10 +1,26 @@
 @import "@scss/variables";
 
+.mobile-main-page-image-container {
+    background: linear-gradient(to top, #306eea 95%, #3877ec 73%, #81c7ff 12%);
+    position: relative;
+    padding: 0 !important;
+    height: 38.25rem;
+}
+
+.mobile-main-page-image {
+    position: absolute;
+    bottom: 6.313rem;
+}
+
+.mobile-main-page-title {
+    position: absolute;
+    top: 4rem;
+    right: .5rem;
+}
+
 .mobile-main-page-main-category-container {
     padding: 2.5rem 2rem !important; 
     height: 42.563rem;
-    background-image: url('../../../assets/img/illustration/mainBg.svg');
-    background-repeat: no-repeat !important;
     background-size: cover !important;
     border-bottom: 1px solid #e2e2e2;
     margin-bottom: 1.5rem;

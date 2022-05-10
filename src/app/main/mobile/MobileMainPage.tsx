@@ -83,7 +83,7 @@ const MobileMainPage = (): JSX.Element => {
 				</Grid>
 			</Container>
 			<Container className="mobile-main-page-study-list-container">
-				<Typography>곧 마감이 되는 스터디들이에요!</Typography>
+				<Typography>🔥 서둘러요, 곧 마감이에요! 🔥</Typography>
 				{studies?.map((study) => (
 					<StudyCardContainer study={study} key={study.id} />
 				))}

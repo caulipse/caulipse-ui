@@ -31,21 +31,19 @@
 
 .mobile-main-button {
     display: flex !important;
-    cursor: pointer;
-    position: fixed !important;
+    position: absolute;
+    bottom: 1.25rem;
     left: 1rem;
-    bottom: 2.125rem;
+    cursor: pointer;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.12);
     border-radius: .5rem;
-    border: 1px solid $primaryColor;
     background: #fff;
-    color: $primaryColor;
     width: calc(100% - 2rem) !important;
     height: 5.063rem;
-    padding: 1rem 1.5rem 1rem 1.313rem !important;
-    z-index: 1 !important;
+    padding: 1rem 1.5rem 1rem 1.25rem !important;
     svg {
         align-self: center;
+        color: #b4b4b4;
     }
 }
 
@@ -60,4 +58,5 @@
 .mobile-main-button-text {
     font-size: .75rem !important;
     margin-top: .5rem !important;
+    color: #4c4c4c;
 }

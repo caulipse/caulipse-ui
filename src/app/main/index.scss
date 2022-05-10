@@ -1,32 +1,5 @@
 @import "@scss/variables";
 
-// mobile
-.mobile-main-category-item-grid {
-    cursor: pointer;
-    padding: 0 !important;
-    text-align: center;
-    display: inline-block !important;
-    height: fit-content;
-    margin-bottom: 1.5rem !important;
-    p {
-        font-size: .875rem !important;
-        font-weight: normal !important;
-        color: #fff;
-        margin-top: .938rem;
-    }
-}
-
-.mobile-main-category-item-container {
-    padding: 0 !important;
-    width: 5.5rem !important;
-}
-
-.mobile-main-category-item-img {
-    background: #fff;
-    height: 5.5rem; 
-    border-radius: 12px;
-}
-
 // desktop
 .desktop-main-category-item-grid {
     cursor: pointer;

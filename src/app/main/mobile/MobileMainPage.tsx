@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useRef, useEffect, RefObject } from 'react';
 import { MainCategoryType, CategoryType } from '@src/types';
 import { Container, Typography, Grid } from '@material-ui/core';
-import MainCategoryItem from '@src/app/main/MainCategoryItem';
 import categories from '@src/const';
 import Loader from '@common/loader/Loader';
 import StudyCardContainer from '@src/app/shared/components/card/StudyCardContainer';
@@ -15,6 +14,8 @@ import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import mobileGirlWithLaptop from '@src/assets/img/illustration/mobileGirlWithLaptop.svg';
 import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.svg';
 import MainButton from '../button/MainButton';
+import MainCategoryItem from './MainCategoryItem';
+
 import './index.scss';
 
 const MobileMainPage = (): JSX.Element => {
@@ -76,11 +77,12 @@ const MobileMainPage = (): JSX.Element => {
 				<MainButton />
 			</Container>
 			<Container className="mobile-main-page-main-category-container">
-				<Grid container className="mobile-main-page-main-category-grid">
+				<Typography>📚 어떤 스터디 찾으세요?</Typography>
+				<Container className="mobile-main-page-main-category-item-container">
 					{categoryArr.map((category) => (
 						<MainCategoryItem key={category.code} category={category} onClick={onClick} />
 					))}
-				</Grid>
+				</Container>
 			</Container>
 			<Container className="mobile-main-page-study-list-container">
 				<Typography>🔥 서둘러요, 곧 마감이에요! 🔥</Typography>

@@ -1,21 +1,42 @@
 @import "@scss/variables";
 
-.mobile-main-page-main-category-container {
-    padding: 2.5rem 2rem !important; 
-    height: 42.563rem;
-    background-image: url('../../../assets/img/illustration/mainBg.svg');
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    border-bottom: 1px solid #e2e2e2;
-    margin-bottom: 1.5rem;
+.mobile-main-page-image-container {
+    background: linear-gradient(to top, #306eea 95%, #3877ec 73%, #81c7ff 12%);
     position: relative;
+    padding: 0 !important;
+    height: 38.25rem;
 }
 
-.mobile-main-page-main-category-grid {
-    width: calc(100% - 4rem) !important;
+.mobile-main-page-image {
     position: absolute;
-    bottom: 0;
-    padding-bottom: 1rem;
+    bottom: 6.313rem;
+}
+
+.mobile-main-page-title {
+    position: absolute;
+    top: 4rem;
+    right: .5rem;
+}
+
+.mobile-main-page-main-category-container {
+    background: #fff;
+    margin: .5rem 0;
+    > p {
+        font-weight: bold;
+        font-size: .875rem;
+    }
+    padding: 1.5rem 1rem 1rem !important; 
+    height: 9.438rem;
+}
+
+.mobile-main-page-main-category-item-container {
+    padding: 0 !important;
+    margin-top: 1.5rem;
+    display: flex !important;
+    overflow-x: scroll;
+    > div + div {
+        margin-left: .5rem !important;
+    }
 }
 
 .mobile-main-page-study-list-container {
@@ -30,4 +51,35 @@
     }
     background: #fff;
     padding: 1.5rem .25rem !important; 
+}
+
+// MainCategoryItem
+
+.mobile-main-category-item-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 6.75rem !important;  
+    position: relative;
+    > div {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(2, 27, 56, 0.6);
+        position: absolute;
+        top: 0;
+        padding: 0 !important;
+        width: 6.75rem; 
+        height: 4rem; 
+        border-radius: 1rem;
+    }
+}
+
+.mobile-main-category-item-img {
+    width: 6.75rem; 
+    height: 4rem; 
+    border-radius: 1rem;
+}
+
+.mobile-main-category-item-title {
+    color: #fff;
+    align-items: center !important;
 }

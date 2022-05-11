@@ -6,10 +6,13 @@
     padding: 0 !important;
 }
 
-.desktop-study-list-content {
+.dekstop-study-list-content-container {
     display: flex !important;
-    background: #fffbf7;
-    padding: 1.5rem .688rem 1.5rem .875rem !important;
-    margin-top: 1.75rem;
+    padding: 0 !important;
+    margin-top: 4.75rem;
+}
+
+.desktop-study-list-content {
+    padding: 0 !important;
     border-radius: .5rem;
 }

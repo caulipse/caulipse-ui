@@ -5,10 +5,9 @@
     display: flex !important;
     justify-content: space-between;
     height: 3rem;
-    padding: .5rem .75rem !important;
-    @include desktop {
-        margin-top: 1.625rem;
-    }
+    padding: 0 !important;
+    border-bottom: 1px solid #929699;
+    margin-bottom: 1.969rem;
 }
 
 .study-sort-filter-presenter-container-sort {

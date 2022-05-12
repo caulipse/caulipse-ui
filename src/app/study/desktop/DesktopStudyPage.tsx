@@ -33,11 +33,11 @@ const MobileStudyPage = (): JSX.Element => {
 		<Container className="dekstop-study-list-container">
 			<DesktopMainCategoryContainer onChange={setMainCategory} />
 			{mainCategory && <DesktopSubCategoryContainer mainCategory={mainCategory} />}
-			<Container>
-				<StudySortFilterContainer />
+			<Container className="dekstop-study-list-content-container">
+				<DesktopStudySidebar />
 				<Container className="desktop-study-list-content">
+					<StudySortFilterContainer />
 					<StudyList />
-					<DesktopStudySidebar />
 				</Container>
 			</Container>
 		</Container>

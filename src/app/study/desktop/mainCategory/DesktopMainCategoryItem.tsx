@@ -17,8 +17,13 @@ const DesktopMainCategoryItem = ({ category, onClick }: IDesktopMainCategoryItem
 	};
 	return (
 		<Container className="study-page-desktop-main-category-item-container" onClick={handleClick}>
-			<Container className="study-page-desktop-main-category-item-img">
-				<Typography>{category.label}</Typography>
+			<img
+				className="study-page-desktop-main-category-item-img"
+				src={require(`@src/assets/img/category/imageDesktop/${category.label}.png`).default}
+				alt={category.label}
+			/>
+			<Container className="study-page-desktop-main-category-item-title-container">
+				<Typography>{category.code === 400 ? '고시/공무원' : category.label}</Typography>
 			</Container>
 		</Container>
 	);

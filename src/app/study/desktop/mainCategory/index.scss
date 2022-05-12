@@ -1,14 +1,13 @@
 @import "@scss/variables";
 
 .desktop-main-category-presenter-container {
-    background: $primaryColor;
+    background: #fff;
     display: flex !important;
     max-width: 100% !important;
-    height: 10.875rem;
+    height: 11.5rem;
     align-items: center;
-    padding: 2.875rem calc((100% - 56.875rem) / 2) 1.875rem !important; 
+    padding: 2.75rem 0 !important; 
     overflow-y: hidden;
-    overflow-x: scroll;
     margin: 0 auto !important;
     justify-content: center;
     div + div {
@@ -20,19 +19,34 @@
     cursor: pointer;
     padding: 0 !important;
     text-align: center;
-    width: 6.125rem !important;
+    width: 9.75rem !important;
     margin: 0 .8125rem !important;
+    position: relative;
     p {
-        font-size: .875rem !important;
+        font-size: 1.125rem !important;
         font-weight: bold !important;
     }
 }
 
+.study-page-desktop-main-category-item-title-container {
+    color: #fff;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(2, 27, 56, 0.6);
+    position: absolute;
+    top: 0;
+    padding: 0 !important;
+    width: 9.75rem; 
+    height: 6rem; 
+    border-radius: .75rem;
+}
+
 .study-page-desktop-main-category-item-img {
     background: #fff;
-    width: 6.125rem !important;
-    height: 6.125rem; 
-    border-radius: 1rem;
+    width: 9.75rem !important;
+    height: 6rem; 
+    border-radius: .75rem;
     display: flex !important;
     justify-content: center;
     align-items: center;

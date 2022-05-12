@@ -21,7 +21,9 @@ const WithdrawModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Eleme
 			footer={false}
 		>
 			<Container className="simple-modal-content-container">
-				<Typography style={{ color: '#636363', textAlign: 'center', fontSize: '0.75rem' }}>문구 미정</Typography>
+				<Typography style={{ color: '#636363', textAlign: 'center', fontSize: '0.75rem' }}>
+					계정 탈퇴 시, 영구적으로 복구가 불가능합니다.
+				</Typography>
 				<Container style={{ padding: 0, marginTop: '2rem', display: 'flex' }}>
 					<Button className="simple-modal-rounded-button cancel" onClick={() => onClose(false)}>
 						취소

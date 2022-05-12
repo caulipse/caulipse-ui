@@ -115,10 +115,7 @@ const StudyDetailPage = (): JSX.Element => {
 	};
 
 	const onClickMore = () => {
-		// FIXME
-		// 더보기 모달에 접근하려는 사용자가 모집자인지 신청자인지를 구분하는 임시 플래그성 변수
-		// API 연동 이후 수정 필요
-		if (localStorage.getItem('host') === 'host') {
+		if (isHost) {
 			openModal(ModalKeyEnum.HostStudyMoreModal, studyId);
 		} else {
 			openModal(ModalKeyEnum.UserStudyMoreModal, studyId);

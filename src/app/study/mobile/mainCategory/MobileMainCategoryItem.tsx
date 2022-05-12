@@ -8,9 +8,6 @@ interface IMobileMainCategoryItemProps {
 	onClick: (category: MainCategoryType) => void;
 }
 
-// FIXME
-// 백엔드에 이미지 데이터 추가되면 div -> img 태그로 변경 필요
-
 const MobileMainCategoryItem = ({ category, onClick }: IMobileMainCategoryItemProps): JSX.Element => {
 	const handleClick = () => {
 		onClick(category);

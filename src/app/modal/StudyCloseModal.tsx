@@ -3,28 +3,34 @@ import { Button, Container, Typography } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import { useAtom } from 'jotai';
+import globalState from '@src/state';
+import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
+import useCloseStudy from '@src/hooks/remotes/study/useCloseStudy';
 
 const StudyCloseModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const onClick = () => {
-		// TODO
-		// 스터디 마감 API 연동
-	};
-	// TODO dummy data API 연동
+	const [state] = useAtom(globalState);
+	const { modal } = state;
+	const { data } = useFetchStudy(modal.params);
+	const closeStudy = useCloseStudy();
 
-	// FIXME dummy data
-	const current = 4;
-	const total = 5;
+	const onClick = () => {
+		closeStudy.mutate(modal.params);
+	};
+
 	return (
 		<SimpleModal
 			open={open}
 			onClose={onClose}
-			title={`모집 마감 (${current} / ${total})`}
+			title={`모집 마감 (${data?.membersCount} / ${data?.capacity})`}
 			height="12.688rem"
 			footer={false}
 		>
 			<Container className="simple-modal-content-container">
 				<Typography style={{ color: '#636363', textAlign: 'center', fontSize: '0.75rem' }}>
-					아직 {total - current}자리가 남았네요.. 정말 마감하시겠어요?
+					{data?.capacity === data?.membersCount
+						? `${data?.title} 의 모집을 마감합니다.`
+						: `아직 ${data ? data?.capacity - data?.membersCount : 0}자리가 남았어요. 이대로 마감할까요?`}
 				</Typography>
 				<Container style={{ padding: 0, marginTop: '2rem', display: 'flex' }}>
 					<Button className="simple-modal-rounded-button cancel" onClick={() => onClose(false)}>

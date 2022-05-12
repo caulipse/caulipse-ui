@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState, useMemo } from 'react';
+import React, { ChangeEvent, useCallback, useEffect, useState, useMemo } from 'react';
 import './applyModal.scss';
 import { Container } from '@material-ui/core';
 import Modal from '@common/modal/Modal';
@@ -9,13 +9,15 @@ import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import usePostStudyUser from '@src/hooks/remotes/studyUser/usePostStudyUser';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { userState as globalUserState } from '@src/state';
 import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 
 const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const postStudyUser = usePostStudyUser();
 	const [state] = useAtom(globalState);
-	const { modal, userId } = state;
+	const [userState] = useAtom(globalUserState);
+	const { modal } = state;
+	const { userId } = userState;
 	const { data } = useFetchUserProfile(userId);
 
 	const [value, setValue] = useState(
@@ -23,7 +25,13 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	);
 	const [isPublic, setIsPublic] = useState(false);
 
-	const onClick = useCallback(() => {
+	useEffect(() => {
+		if (data?.userProfile?.bio) {
+			setValue(data?.userProfile?.bio);
+		}
+	}, [data]);
+
+	const onClick = () => {
 		onClose(false);
 		postStudyUser.mutate({
 			id: modal.params,
@@ -31,7 +39,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 				tempBio: value,
 			},
 		});
-	}, []);
+	};
 
 	const onChangeValue = useCallback((evt: ChangeEvent<HTMLTextAreaElement>) => {
 		setValue(evt.target.value);

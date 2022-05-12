@@ -110,7 +110,7 @@ const StudyDetailPage = (): JSX.Element => {
 		if (isHost) {
 			openModal(ModalKeyEnum.StudyCloseModal);
 		} else {
-			openModal(ModalKeyEnum.ApplyModal);
+			openModal(ModalKeyEnum.ApplyModal, studyId);
 		}
 	};
 

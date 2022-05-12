@@ -86,6 +86,10 @@ const API = {
 	deleteStudy(id: string) {
 		return client.delete(`/study/${id}`);
 	},
+	// 스터디 마감
+	closeStudy(id: string) {
+		return client.patch(`/study/${id}/close`);
+	},
 	// 현재 참가 중인 사용자 목록을 읽어옵니다.
 	getStudyParticipants(id: string) {
 		return client.get(`/study/user/${id}/participants`);

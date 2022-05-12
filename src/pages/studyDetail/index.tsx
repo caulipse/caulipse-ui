@@ -108,17 +108,14 @@ const StudyDetailPage = (): JSX.Element => {
 			return;
 		}
 		if (isHost) {
-			openModal(ModalKeyEnum.StudyCloseModal);
+			openModal(ModalKeyEnum.StudyCloseModal, studyId);
 		} else {
 			openModal(ModalKeyEnum.ApplyModal, studyId);
 		}
 	};
 
 	const onClickMore = () => {
-		// FIXME
-		// 더보기 모달에 접근하려는 사용자가 모집자인지 신청자인지를 구분하는 임시 플래그성 변수
-		// API 연동 이후 수정 필요
-		if (localStorage.getItem('host') === 'host') {
+		if (isHost) {
 			openModal(ModalKeyEnum.HostStudyMoreModal, studyId);
 		} else {
 			openModal(ModalKeyEnum.UserStudyMoreModal, studyId);
@@ -172,7 +169,7 @@ const StudyDetailPage = (): JSX.Element => {
 					)}
 					<div className="study-apply-btn-wrapper">
 						<CommonButton
-							title={isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+							title={isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 							onClick={onClick}
 						/>
 					</div>
@@ -185,7 +182,7 @@ const StudyDetailPage = (): JSX.Element => {
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
 				<Button className="desktop-cta-apply" onClick={onClick}>
-					{isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+					{isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={onClickEdit}>
 					수정하기

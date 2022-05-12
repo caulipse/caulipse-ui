@@ -22,9 +22,9 @@ const RecruitingStudiesPresenter = ({
 }: RecruitingStudiesPresenterProps): JSX.Element => {
 	const { openModal } = useModal();
 
-	const closeStudy = useCallback((event: any) => {
+	const closeStudy = useCallback((event: any, id: string) => {
 		event.preventDefault();
-		openModal(ModalKeyEnum.StudyCloseModal);
+		openModal(ModalKeyEnum.StudyCloseModal, id);
 	}, []);
 
 	const onClickMore = useCallback((event: any) => {
@@ -57,7 +57,7 @@ const RecruitingStudiesPresenter = ({
 					bottomComponent={
 						<div className="mt1rem">
 							<CommonButton
-								onClick={closeStudy}
+								onClick={(evt) => closeStudy(evt, item.id)}
 								title={`마감하기(${item.membersCount}/${item.capacity})`}
 								type={ButtonTypeEnum.primary}
 							/>

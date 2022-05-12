@@ -172,7 +172,7 @@ const StudyDetailPage = (): JSX.Element => {
 					)}
 					<div className="study-apply-btn-wrapper">
 						<CommonButton
-							title={isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+							title={isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 							onClick={onClick}
 						/>
 					</div>
@@ -185,7 +185,7 @@ const StudyDetailPage = (): JSX.Element => {
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
 				<Button className="desktop-cta-apply" onClick={onClick}>
-					{isHost ? `모집 마감 (${studyData?.vacancy}/${studyData?.capacity})` : '신청하기'}
+					{isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={onClickEdit}>
 					수정하기

@@ -19,6 +19,7 @@ export default () => {
 			console.log(response);
 			openSnackbar('로그아웃되었습니다.');
 			setUserState({ ...userState, userId: '' });
+			history.push('/');
 		},
 		onError: (e: Error) => {
 			console.error(e.message);

@@ -78,7 +78,7 @@ const SignUpSecondStep = ({
 			<Box className="signup-second-step-title">📚중앙인의 스터디, 중대본!</Box>
 			<CommonTextField
 				className="mt2_5rem"
-				placeholder="닉네임은 2~12자입니다."
+				placeholder="닉네임은 2~10자입니다."
 				label="닉네임"
 				value={nickname}
 				onChange={(e) => setNickName(e.target.value)}

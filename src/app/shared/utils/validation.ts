@@ -11,6 +11,6 @@ export const validatePassword = (password: string): boolean => {
 	return !!password.match(validRegex);
 };
 export const validateNickname = (nickname: string): boolean => {
-	const validRegex = /^[a-zA-Zㄱ-힣0-9-_.]{2,12}$/;
+	const validRegex = /^[a-zA-Zㄱ-힣0-9-_.]{2,10}$/;
 	return !!nickname.match(validRegex);
 };

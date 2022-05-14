@@ -8,15 +8,18 @@ import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import categories from '@src/const';
 import { CategoryType } from '@src/types';
+import { useAtom } from 'jotai';
+import globalState, { userState as globalUserState } from '@src/state';
 
 const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	// TODO
-	// 관심 카테고리 조회 API 연동
+	const [state] = useAtom(globalState);
+	const setCategories = state.modal.params?.setCategories;
+
 	const [value, setValue] = useState<CategoryType[]>([]);
 
 	const onClick = () => {
-		// TODO
-		// 관심 카테고리 수정 API 연동
+		setCategories(value);
+		onClose(false);
 	};
 
 	const onChangeValue = (category: CategoryType) => {

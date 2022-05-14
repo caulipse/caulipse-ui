@@ -6,7 +6,7 @@ import { IoAdd, IoClose, IoSettingsSharp } from 'react-icons/io5';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import './index.scss';
-import { getSubCategoryLabel } from '@src/app/shared/utils/category';
+import { getMainCategoryLabel } from '@src/app/shared/utils/category';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { Box, ButtonBase, Container, InputAdornment } from '@material-ui/core';
@@ -56,6 +56,7 @@ const MyProfileEditPresenter = ({
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
 	const [currentProfileImage, setCurrentProfileImage] = useState<string>(imgSrc);
+	const [currentCategoryCodes, setCurrentCategoryCodes] = useState<string[]>(categories);
 
 	const { openModal } = useModal();
 
@@ -74,6 +75,7 @@ const MyProfileEditPresenter = ({
 			links: filteredArray,
 			userAbout: currentLongIntro,
 			image: currentProfileImage,
+			categories: currentCategoryCodes,
 		});
 	};
 
@@ -84,9 +86,15 @@ const MyProfileEditPresenter = ({
 			},
 		});
 	};
+
 	const changeCategories = () => {
-		openModal(ModalKeyEnum.MyCategoryModal);
+		openModal(ModalKeyEnum.MyCategoryModal, {
+			setCategories: (value: any) => {
+				setCurrentCategoryCodes(value.map((item: any) => item.code));
+			},
+		});
 	};
+
 	const addUrl = () => {
 		if (currentUrls?.length >= 3) return;
 		setCurrentUrls([
@@ -141,13 +149,7 @@ const MyProfileEditPresenter = ({
 		);
 	};
 
-	const categoriesText = useMemo(() => {
-		const resultCategories = categories.length > 2 ? categories.slice(0, 2) : categories;
-		const filiteredCategoryList = resultCategories?.map((item) => getSubCategoryLabel(Number(item)));
-		return categories.length > 2
-			? `${filiteredCategoryList.join(',')} 외 ${categories.length - 2}개`
-			: filiteredCategoryList.join(',');
-	}, [categories]);
+	const categoriesText = currentCategoryCodes.map((item) => getMainCategoryLabel(Number(item))).join(',');
 
 	const isMajorError = useMemo(() => {
 		return currentMajor?.length < 2;

@@ -9,6 +9,7 @@ import globalState, { userState as globalUserState } from '@src/state';
 import useDeleteStudyComment from '@src/hooks/remotes/comment/useDeleteStudyComment';
 import { useHistory } from 'react-router-dom';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import { getProfileImgs } from '@src/app/shared/utils/profileImg';
 
 interface CommentItemProps {
 	comment: Comment;
@@ -38,14 +39,17 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 		<div className={`comment-item-container ${comment.isNested ? 'comment-item-nested-bg' : ''}`}>
 			<img
 				className="comment-item-img"
-				// src={comment.profilePicture}
+				src={
+					getProfileImgs().includes(comment.user.image) &&
+					require(`@src/assets/img/profileImg/${comment.user.image}`).default
+				}
 				width={comment.isNested ? 24 : 32}
 				height={comment.isNested ? 24 : 32}
 				alt=""
 			/>
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">
-					<div className="comment-item-username">{comment.USER_ID}</div>
+					<div className="comment-item-username">{comment.user.userName}</div>
 					{comment.USER_ID === hostId && <div className="comment-item-leader">모집장</div>}
 					<div className="comment-item-createdat">{format(new Date(comment.createdAt), 'yy.MM.dd HH:mm')}</div>
 				</div>
@@ -76,9 +80,9 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 							{comment.USER_ID === myId ? '삭제' : '신고'}
 						</button>
 					</div>
-					<button type="button" className={comment.isNested ? 'comment-item-helpful' : 'comment-item-curious'}>
-						{/* {comment.isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes} */}
-					</button>
+					{/* <button type="button" className={comment.isNested ? 'comment-item-helpful' : 'comment-item-curious'}>
+						{comment.isNested ? '도움이 됐어요' : '저도 궁금해요'} {comment.likes}
+					</button> */}
 				</div>
 			</div>
 		</div>

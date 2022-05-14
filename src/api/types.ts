@@ -89,7 +89,7 @@ export interface Comment {
 	id: string;
 	isNested: boolean;
 	study: Study;
-	user: User;
+	user: UserProfile;
 }
 
 export interface Notification {

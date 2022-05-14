@@ -10,11 +10,19 @@ export const getSubCategoryLabel = (categoryCode: number): string => {
 	return result.label;
 };
 
-export const getMainCategoryLabel = (subCategoryCode: number): string => {
-	const mainCategory = categories.find((categoryItem) => {
-		return categoryItem.subCategories.find((subCategoryItem) => subCategoryItem.code === subCategoryCode);
+export const getMainCategoryLabel = (code: number): string => {
+	const mainCategoryFromMainCode = categories.find((categoryItem) => {
+		return categoryItem.code === code;
 	});
-	return mainCategory?.label ?? '';
+
+	if (mainCategoryFromMainCode) {
+		return mainCategoryFromMainCode.label;
+	}
+
+	const mainCategoryFromSubCode = categories.find((categoryItem) => {
+		return categoryItem.subCategories.find((subCategoryItem) => subCategoryItem.code === code);
+	});
+	return mainCategoryFromSubCode?.label ?? '';
 };
 
 export const getMainCategoryCode = (subCategoryCode: number): number => {

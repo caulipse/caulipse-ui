@@ -56,6 +56,7 @@ const MyProfileEditPresenter = ({
 	const [currentUrls, setCurrentUrls] = useState<UrlInterface[]>(urls ?? []);
 	const [currentLongIntro, setCurrentLongIntro] = useState<string>(longIntro);
 	const [currentProfileImage, setCurrentProfileImage] = useState<string>(imgSrc);
+	const [currentCategories, setCurrentCategories] = useState<any[]>(categories);
 
 	const { openModal } = useModal();
 
@@ -84,9 +85,11 @@ const MyProfileEditPresenter = ({
 			},
 		});
 	};
+
 	const changeCategories = () => {
-		openModal(ModalKeyEnum.MyCategoryModal);
+		openModal(ModalKeyEnum.MyCategoryModal, { setCategories: setCurrentCategories });
 	};
+
 	const addUrl = () => {
 		if (currentUrls?.length >= 3) return;
 		setCurrentUrls([
@@ -142,12 +145,13 @@ const MyProfileEditPresenter = ({
 	};
 
 	const categoriesText = useMemo(() => {
-		const resultCategories = categories.length > 2 ? categories.slice(0, 2) : categories;
-		const filiteredCategoryList = resultCategories?.map((item) => getSubCategoryLabel(Number(item)));
-		return categories.length > 2
-			? `${filiteredCategoryList.join(',')} 외 ${categories.length - 2}개`
-			: filiteredCategoryList.join(',');
-	}, [categories]);
+		return currentCategories.length > 2
+			? `${currentCategories
+					.slice(0, 2)
+					.map((item) => item.label)
+					.join(',')} 외 ${currentCategories.length - 2}개`
+			: currentCategories.map((item) => item.label).join(',');
+	}, [currentCategories]);
 
 	const isMajorError = useMemo(() => {
 		return currentMajor?.length < 2;

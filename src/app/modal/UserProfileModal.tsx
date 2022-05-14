@@ -12,7 +12,7 @@ import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import useModal from '@src/hooks/modal/useModal';
 import Loader from '@src/components/common/loader/Loader';
 import ProfileLink from '../profile/my/profile/profileLink/ProfileLink';
-import { getSubCategoryLabel } from '../shared/utils/category';
+import { getMainCategoryLabel, getSubCategoryLabel } from '../shared/utils/category';
 
 const BOTTOMSHEET_MINHEIGHT = 350;
 interface UserProfileModalProps extends IModalContainerCommonProps {
@@ -55,7 +55,7 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				<div className="profile-bottom-sheet-tag-container">
 					{userProfile?.categories?.map((tagItem, tagIndex) => (
 						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>
-							{getSubCategoryLabel(Number(tagItem))}
+							{getMainCategoryLabel(Number(tagItem))}
 						</div>
 					))}
 				</div>

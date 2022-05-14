@@ -1,6 +1,3 @@
 import { Comment } from '../types';
 
-export interface IResponseGetStudyComments {
-	message: string;
-	comments: Comment[];
-}
+export type IResponseGetStudyComments = Comment[];

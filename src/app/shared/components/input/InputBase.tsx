@@ -1,6 +1,10 @@
 import { Box, Button, Input } from '@material-ui/core';
+import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
+import { userState as globalUserState } from '@src/state';
 import classNames from 'classnames';
+import { useAtom } from 'jotai';
 import React, { useRef, useState } from 'react';
+import { getProfileImgs } from '../../utils/profileImg';
 import './inputBase.scss';
 
 const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
@@ -14,6 +18,9 @@ interface InputBaseProps {
 }
 
 const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProps): JSX.Element => {
+	const [userState, setUserState] = useAtom(globalUserState);
+	const { data, isLoading } = useFetchUserProfile(userState.userId);
+
 	const [isFocused, setIsFocused] = useState<boolean>(false);
 	const isDisabled = content.length <= 8;
 
@@ -23,7 +30,19 @@ const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProp
 
 	return (
 		<Box className="inputbase-container">
-			<img className="inputbase-img" src={sampleImgUrl} alt="프로필 이미지" width={40} height={40} />
+			{data && (
+				<img
+					className="inputbase-img"
+					src={
+						getProfileImgs().includes(data?.userProfile.image)
+							? require(`@src/assets/img/profileImg/${data?.userProfile.image}`).default
+							: ''
+					}
+					alt=""
+					width={40}
+					height={40}
+				/>
+			)}
 			<Box className="inputbase-column-container">
 				<Input
 					className="inputbase-input"

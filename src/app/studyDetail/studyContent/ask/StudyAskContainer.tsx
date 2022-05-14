@@ -14,14 +14,8 @@ const StudyAskContainer = ({ studyId, hostId }: StudyAskContainerProps): JSX.Ele
 
 	if (isLoading) return <Loader />;
 
-	return data?.comments ? (
-		<StudyAskPresenter
-			hostId={hostId}
-			studyId={studyId}
-			content={content}
-			setContent={setContent}
-			comments={data.comments}
-		/>
+	return data ? (
+		<StudyAskPresenter hostId={hostId} studyId={studyId} content={content} setContent={setContent} comments={data} />
 	) : (
 		<div />
 	);

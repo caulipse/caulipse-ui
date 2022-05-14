@@ -68,11 +68,16 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 					<div className="profile-bottom-sheet-hashtag-bold-text">#{userProfile?.onBreak ? '휴학중' : '재학중'}</div>
 				</div>
 				<div className="profile-bottom-sheet-link-container">
-					{userProfile?.links?.map((linkItem, linkIndex) => (
-						<div key={linkItem} className={linkIndex === 0 ? '' : 'mt8'}>
-							<ProfileLink link={linkItem} />
-						</div>
-					))}
+					{userProfile?.links?.map((linkItem, linkIndex) => {
+						if (linkItem) {
+							return (
+								<div key={linkItem} className={linkIndex === 0 ? '' : 'mt8'}>
+									<ProfileLink link={linkItem} />
+								</div>
+							);
+						}
+						return <div key={linkItem}/>;
+					})}
 				</div>
 				<div className="profile-bottom-sheet-divider" />
 				<div className="profile-bottom-sheet-about-title">저는요..</div>

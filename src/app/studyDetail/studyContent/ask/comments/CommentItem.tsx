@@ -40,8 +40,9 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 			<img
 				className="comment-item-img"
 				src={
-					getProfileImgs().includes(comment.user.image) &&
-					require(`@src/assets/img/profileImg/${comment.user.image}`).default
+					getProfileImgs().includes(comment.user.image)
+						? require(`@src/assets/img/profileImg/${comment.user.image}`).default
+						: ''
 				}
 				width={comment.isNested ? 24 : 32}
 				height={comment.isNested ? 24 : 32}

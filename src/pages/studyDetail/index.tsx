@@ -184,8 +184,8 @@ const StudyDetailPage = (): JSX.Element => {
 				<Button className="desktop-cta-apply" onClick={onClick}>
 					{isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 				</Button>
-				<Button className="desktop-cta-bookmark" onClick={onClickEdit}>
-					수정하기
+				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>
+					{isHost ? '수정하기' : '북마크 추가'}
 				</Button>
 			</ButtonGroup>
 		);

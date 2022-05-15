@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { snackbarState } from '@src/state';
 import { SnackbarTypeEnum } from '@common/snackbar/types';
 
 const useSnackbar = () => {
-	const [state, setState] = useAtom(globalState);
+	const [state, setState] = useAtom(snackbarState);
 	let tid: any;
 
 	const openSnackbar = (message: string, type?: SnackbarTypeEnum) => {
-		setState({ ...state, snackbar: { open: true, message, type } });
+		setState({ ...state, open: true, message, type });
 		tid = setTimeout(() => {
 			closeSnackbar();
 		}, 6000);
 	};
 
 	const closeSnackbar = () => {
-		setState({ ...state, snackbar: { open: false, message: '' } });
+		setState({ ...state, open: false, message: '' });
 		clearTimeout(tid);
 	};
+
+	useEffect(() => {
+		return () => {
+			if (tid) clearTimeout(tid);
+		};
+	}, []);
 
 	return { openSnackbar, closeSnackbar };
 };

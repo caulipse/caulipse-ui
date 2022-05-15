@@ -1,14 +1,14 @@
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Button } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
-import globalState, { userState as globalUserState } from '@src/state';
+import { userState as globalUserState, modalState } from '@src/state';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import { useAtom } from 'jotai';
-import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
+import React, { KeyboardEvent, useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
@@ -20,10 +20,9 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
 	const postLogin = usePostLogin();
-	const [state, setState] = useAtom(globalState);
+	const [state] = useAtom(modalState);
 	const [userState, setUserState] = useAtom(globalUserState);
-	const history = state.modal.params?.history;
-	const openSnackbar = state.modal.params?.openSnackbar;
+	const history = state.params?.history;
 
 	const resetPw = () => {
 		onClose(false);
@@ -54,18 +53,22 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 			canLogin = false;
 		}
-		if (canLogin) postLogin.mutate({ email, password });
-	}, [email, password]);
-
-	useEffect(() => {
-		if (postLogin.isSuccess && postLogin.data) {
-			setUserState({ ...userState, userId: postLogin.data.userId });
-			openSnackbar('로그인에 성공하였습니다.');
-		} else if (postLogin.isError) {
-			setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
-			setPasswordHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
+		if (canLogin) {
+			postLogin.mutate(
+				{ email, password },
+				{
+					onSuccess: (res) => {
+						setUserState({ ...userState, userId: res?.userId });
+					},
+					onError: (err) => {
+						setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
+						setPasswordHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');
+						console.info(err);
+					},
+				}
+			);
 		}
-	}, [postLogin.isSuccess, postLogin.isError, postLogin.data]);
+	}, [email, password]);
 
 	return (
 		<Modal open={open} onClose={onClose} isFullHeight>

@@ -6,6 +6,7 @@ import { IStudyListState } from '@src/app/study/types';
 import { sortOptions } from '@src/const';
 import { CategoryType } from '@src/types';
 import { atomWithStorage } from 'jotai/utils';
+import ModalKeyEnum from '@common/modal/enum';
 
 interface IGlobalStateProps {
 	login: boolean;
@@ -14,19 +15,33 @@ interface IGlobalStateProps {
 	modal: IGlobalModalProps;
 }
 
+interface IModalStateProps {
+	open: boolean;
+	key?: ModalKeyEnum | '';
+	params?: any;
+}
+
+interface ISnackbarStateProps {
+	open: boolean;
+	message: string;
+	type?: SnackbarTypeEnum;
+}
+
 const globalState = atom({
 	login: !!getCookie('accessToken'),
-	snackbar: {
-		open: false,
-		message: '',
-		type: SnackbarTypeEnum.primary,
-	},
-	modal: {
-		open: false,
-		key: '',
-		params: {},
-	},
 } as IGlobalStateProps);
+
+export const modalState = atom({
+	open: false,
+	key: '',
+	params: {},
+} as IModalStateProps);
+
+export const snackbarState = atom({
+	open: false,
+	message: '',
+	type: SnackbarTypeEnum.primary,
+} as ISnackbarStateProps);
 
 export const studyListState = atom({
 	sortOption: sortOptions[0],

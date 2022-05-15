@@ -20,3 +20,5 @@ export interface IResponseNicknameDuplicate {
 	message: string;
 	data: boolean;
 }
+
+export type IResponseEmailDuplicate = IResponseNicknameDuplicate;

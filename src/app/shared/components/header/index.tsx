@@ -72,18 +72,14 @@ const Header: React.FC = () => {
 	};
 
 	const HeaderRightComponent = () => {
-		if (state.login) {
-			return (
-				<div className="header-icons-con">
-					<IoSearch onClick={clickSearchIcon} className="header-icon" color={iconColor} />
-					<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
-					<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" color={iconColor} />
-					<IoMenu onClick={openDrawer} className="header-icon desktop-visible" color={iconColor} />
-				</div>
-			);
-		}
-
-		return (
+		return state.login ? (
+			<div className="header-icons-con">
+				<IoSearch onClick={clickSearchIcon} className="header-icon" color={iconColor} />
+				<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
+				<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" color={iconColor} />
+				<IoMenu onClick={openDrawer} className="header-icon desktop-visible" color={iconColor} />
+			</div>
+		) : (
 			<div className="header-icons-con">
 				<IoSearch onClick={clickSearchIcon} className="header-icon desktop-visible" color={iconColor} />
 				<Button onClick={() => openModal(ModalKeyEnum.LoginModal, { history, openSnackbar })}>

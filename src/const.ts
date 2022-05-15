@@ -45,7 +45,7 @@ export const categories: MainCategoryType[] = [
 		code: 200,
 		subCategories: [
 			{
-				label: '면접 준비',
+				label: '전공필기',
 				code: 201,
 			},
 			{
@@ -53,16 +53,12 @@ export const categories: MainCategoryType[] = [
 				code: 202,
 			},
 			{
-				label: 'NCS',
+				label: '면접',
 				code: 203,
 			},
 			{
-				label: 'GSAT',
-				code: 204,
-			},
-			{
 				label: '기타',
-				code: 205,
+				code: 204,
 			},
 		],
 	},
@@ -130,16 +126,20 @@ export const categories: MainCategoryType[] = [
 		code: 500,
 		subCategories: [
 			{
-				label: 'afpk, cfp',
+				label: '금융일반',
 				code: 501,
 			},
 			{
-				label: '산업기사',
+				label: '통계',
 				code: 502,
 			},
 			{
-				label: '기타',
+				label: '이공계열',
 				code: 503,
+			},
+			{
+				label: '기타',
+				code: 504,
 			},
 		],
 	},

@@ -1,14 +1,20 @@
 @import "@scss/variables";
 
 .mobile-main-category-presenter-container {
-    background: $primaryColor;
+    background-color: #fff;
     display: flex !important;
-    padding: 1rem 1.5rem .75rem !important;
-    height: 8.313rem;
+    padding: 1.25rem 1rem !important;
+    height: 6.5rem;
     div + div {
-        margin-left: .75rem;
+        margin-left: .5rem;
     }
     overflow: auto;
+}
+
+.mobile-main-category-item-img {
+    width: 6.5rem; 
+    height: 4rem; 
+    border-radius: .75rem;
 }
 
 .study-page-mobile-main-category-item-container {
@@ -16,18 +22,22 @@
     padding: 0 !important;
     text-align: center;
     display: inline-block !important;
-    width: 6.125rem !important;
-    p {
-        font-size: .75rem !important;
-        font-weight: bold !important;
-        color: #fff;
-        margin-top: .5rem;
+    position: relative;
+    > div {
+        display: flex;
+        justify-content: center;
+        background-color: rgba(2, 27, 56, 0.6);
+        position: absolute;
+        top: 0;
+        padding: 0 !important;
+        width: 6.75rem; 
+        height: 4rem; 
+        border-radius: .75rem;
+        > p {
+            color: #fff;
+            font-size: .75rem;
+            font-weight: bold;
+            align-self: center;
+        }
     }
-}
-
-.study-page-mobile-main-category-item-img {
-    background: #fff;
-    width: 6.125rem;
-    height: 4.375rem; 
-    border-radius: .75rem;
 }

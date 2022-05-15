@@ -12,6 +12,7 @@ import ModalKeyEnum from '@src/components/common/modal/enum';
 import { Box, ButtonBase } from '@material-ui/core';
 import { useAtom } from 'jotai';
 import { userState as globalUserState } from '@src/state';
+import defaultImg from '@src/assets/img/profileImg/default.svg';
 
 interface MyHeaderPresenterProps {
 	userProfile: UserProfile;
@@ -34,7 +35,7 @@ const MyHeaderPresenter = ({ userProfile, userEmail }: MyHeaderPresenterProps): 
 					<ButtonBase className="my-header-profile-photo-btn" onClick={showProfileSheet}>
 						<img
 							className="my-header-profile-photo"
-							src={userProfile.image ? require(`@src/assets/img/profileImg/${userProfile.image}`).default : ''}
+							src={userProfile.image ? require(`@src/assets/img/profileImg/${userProfile.image}`).default : defaultImg}
 							alt={userProfile.image ?? ''}
 						/>
 					</ButtonBase>

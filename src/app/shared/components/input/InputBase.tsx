@@ -3,11 +3,11 @@ import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import { userState as globalUserState } from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
+import defaultImg from '@src/assets/img/profileImg/default.svg';
 import React, { useRef, useState } from 'react';
 import { getProfileImgs } from '../../utils/profileImg';
 import './inputBase.scss';
 
-const sampleImgUrl = 'https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171__480.jpg';
 const MAX_LENGTH = 500;
 
 interface InputBaseProps {
@@ -36,7 +36,7 @@ const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProp
 					src={
 						getProfileImgs().includes(data?.userProfile.image)
 							? require(`@src/assets/img/profileImg/${data?.userProfile.image}`).default
-							: ''
+							: defaultImg
 					}
 					alt=""
 					width={40}

@@ -11,6 +11,7 @@ import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import useModal from '@src/hooks/modal/useModal';
 import Loader from '@src/components/common/loader/Loader';
+import defaultImg from '@src/assets/img/profileImg/default.svg';
 import ProfileLink from '../profile/my/profile/profileLink/ProfileLink';
 import { getMainCategoryLabel, getSubCategoryLabel } from '../shared/utils/category';
 
@@ -47,7 +48,7 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 			>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
-					src={userProfile?.image ? require(`@src/assets/img/profileImg/${userProfile?.image}`).default : ''}
+					src={userProfile?.image ? require(`@src/assets/img/profileImg/${userProfile?.image}`).default : defaultImg}
 					alt={userProfile?.image ?? ''}
 				/>
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>
@@ -76,7 +77,7 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 								</div>
 							);
 						}
-						return <div key={linkItem}/>;
+						return <div key={linkItem} />;
 					})}
 				</div>
 				<div className="profile-bottom-sheet-divider" />

@@ -1,5 +1,5 @@
 export const frequencyMapper = {
-	once: '1회',
+	once: '주 1회',
 	twice: '주 2~4회',
 	more: '주 5회 이상',
 };

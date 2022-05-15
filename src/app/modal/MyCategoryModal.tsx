@@ -9,11 +9,11 @@ import '@common/modal/common.scss';
 import categories from '@src/const';
 import { CategoryType } from '@src/types';
 import { useAtom } from 'jotai';
-import globalState, { userState as globalUserState } from '@src/state';
+import { modalState } from '@src/state';
 
 const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [state] = useAtom(globalState);
-	const setCategories = state.modal.params?.setCategories;
+	const [state] = useAtom(modalState);
+	const setCategories = state.params?.setCategories;
 
 	const [value, setValue] = useState<CategoryType[]>([]);
 

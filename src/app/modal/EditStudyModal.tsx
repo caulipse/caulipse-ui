@@ -9,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { modalState } from '@src/state';
 import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
 import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
 import { getMainCategoryCode } from '../shared/utils/category';
@@ -22,8 +22,8 @@ const EDIT_STUDY_TAB_ENUM = {
 };
 
 const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [state] = useAtom(globalState);
-	const initialStudyData = state.modal.params?.studyData;
+	const [state] = useAtom(modalState);
+	const initialStudyData = state.params?.studyData;
 	const patchStudy = usePatchStudy();
 
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);

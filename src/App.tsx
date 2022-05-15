@@ -11,7 +11,11 @@ import ProfilePage from './pages/profile';
 import StudyPage from './pages/study';
 import StudyDetailPage from './pages/studyDetail';
 import MainPage from './pages/main';
-import globalState, { userState as globalUserState } from './state';
+import globalState, {
+	userState as globalUserState,
+	modalState as globalModalState,
+	snackbarState as globalSnackbarState,
+} from './state';
 import ResetPwPage from './pages/signup/resetPwPage';
 import StudySearchResultPage from './pages/studySearchResult';
 import SignUpPage from './pages/signup/signup';
@@ -65,8 +69,10 @@ const RootContainer = (): JSX.Element => {
 
 const App = (): JSX.Element => {
 	const [state] = useAtom(globalState);
-	const { open: snackbarOpen, message, type } = state.snackbar;
-	const { open: modalOpen, key, params } = state.modal;
+	const [modalState] = useAtom(globalModalState);
+	const [snackbarState] = useAtom(globalSnackbarState);
+	const { open: snackbarOpen, message, type } = snackbarState;
+	const { open: modalOpen, key, params } = modalState;
 	const { closeModal } = useModal();
 
 	const Component = loadable(() => import(`@modal/${key}`));

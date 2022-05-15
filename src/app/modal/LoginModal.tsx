@@ -5,7 +5,7 @@ import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import usePostLogin from '@src/hooks/remotes/user/usePostLogin';
-import globalState, { userState as globalUserState } from '@src/state';
+import { userState as globalUserState, modalState } from '@src/state';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import { useAtom } from 'jotai';
 import React, { KeyboardEvent, useCallback, useState } from 'react';
@@ -20,9 +20,9 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
 	const postLogin = usePostLogin();
-	const [state] = useAtom(globalState);
+	const [state] = useAtom(modalState);
 	const [userState, setUserState] = useAtom(globalUserState);
-	const history = state.modal.params?.history;
+	const history = state.params?.history;
 
 	const resetPw = () => {
 		onClose(false);

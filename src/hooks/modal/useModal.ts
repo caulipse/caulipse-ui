@@ -1,17 +1,17 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { modalState } from '@src/state';
 import ModalKeyEnum from '@common/modal/enum';
 
 const useModal = () => {
-	const [state, setState] = useAtom(globalState);
+	const [state, setState] = useAtom(modalState);
 
 	const openModal = (key: ModalKeyEnum, params?: any) => {
-		setState({ ...state, modal: { open: true, key, params } });
+		setState({ ...state, open: true, key, params });
 	};
 
 	const closeModal = () => {
-		setState({ ...state, modal: { open: false, key: '', params: {} } });
+		setState({ ...state, open: false, key: '', params: {} });
 	};
 
 	return { openModal, closeModal };

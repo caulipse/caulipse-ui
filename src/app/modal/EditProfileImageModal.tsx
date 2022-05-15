@@ -6,7 +6,7 @@ import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import Modal from '@src/components/common/modal/Modal';
 import { IModalContainerCommonProps } from '@src/components/common/modal/types';
-import globalState from '@src/state';
+import { modalState } from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
 import React, { useState } from 'react';
@@ -16,8 +16,8 @@ import './editProfileImageModal.scss';
 
 const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [selectedImage, setSelectedImage] = useState<string>('');
-	const [state] = useAtom(globalState);
-	const callback = state.modal.params?.callback;
+	const [state] = useAtom(modalState);
+	const callback = state.params?.callback;
 
 	const handleClick = () => {
 		callback(selectedImage);

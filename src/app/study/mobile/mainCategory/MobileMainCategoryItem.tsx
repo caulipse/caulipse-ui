@@ -14,8 +14,14 @@ const MobileMainCategoryItem = ({ category, onClick }: IMobileMainCategoryItemPr
 	};
 	return (
 		<Container className="study-page-mobile-main-category-item-container" onClick={handleClick}>
-			<div className="study-page-mobile-main-category-item-img" />
-			<Typography>{category.label}</Typography>
+			<img
+				className="mobile-main-category-item-img"
+				src={require(`@src/assets/img/category/imageDesktop/${category.label}.png`).default}
+				alt={category.label}
+			/>
+			<Container>
+				<Typography>{category.code === 400 ? '고시/공무원' : category.label}</Typography>
+			</Container>
 		</Container>
 	);
 };

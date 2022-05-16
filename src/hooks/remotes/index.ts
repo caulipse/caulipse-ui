@@ -14,6 +14,7 @@ enum QUERY_KEY {
 	FETCH_APPLIED_STUDIES = 'fetchAppliedStudies',
 	FETCH_SEARCH_STUDIES = 'fetchSearchStudies',
 	FETCH_NICKNAME_DUPLICATE = 'fetchNicknameDuplicate',
+	FETCH_EMAIL_DUPLICATE = 'fetchEmailDuplicate',
 }
 
 export default QUERY_KEY;

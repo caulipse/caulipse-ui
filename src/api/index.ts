@@ -213,6 +213,14 @@ const API = {
 			},
 		});
 	},
+	// 이메일 중복 검사
+	getEmailDuplicate(email: string) {
+		return client.get('user/duplicate', {
+			params: {
+				email,
+			},
+		});
+	},
 	// 비밀번호 재설정 메일 보내기
 	patchResetPwMail(email: string) {
 		return client.patch('/user/password', { email });

@@ -8,12 +8,14 @@ import { useHistory, useLocation } from 'react-router-dom';
 import './index.scss';
 import usePostUserProfile from '@src/hooks/remotes/user/usePostUserProfile';
 import usePatchUserRole from '@src/hooks/remotes/user/usePatchUserRole';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 
 const SignUpPage = (): JSX.Element => {
 	const history = useHistory();
 	const location = useLocation();
 	const id = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.id;
 	const token = QueryString.parse(location?.search, { ignoreQueryPrefix: true })?.token;
+	const { openSnackbar } = useSnackbar();
 
 	const postUserProfile = usePostUserProfile();
 	const patchUserRole = usePatchUserRole();
@@ -28,7 +30,14 @@ const SignUpPage = (): JSX.Element => {
 
 	const handleSignUpComplete = () => {
 		if (id) {
-			postUserProfile.mutate({ userId: String(id), userName: nickname, dept, grade: String(grade), onBreak });
+			postUserProfile.mutate(
+				{ userId: String(id), userName: nickname, dept, grade: String(grade), onBreak },
+				{
+					onSuccess: () => {
+						openSnackbar('회원가입에 성공하였습니다.');
+					},
+				}
+			);
 		}
 	};
 

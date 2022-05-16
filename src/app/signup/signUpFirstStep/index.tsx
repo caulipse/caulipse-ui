@@ -3,11 +3,13 @@ import { validateCAUEmail, validateEmail, validatePassword } from '@src/app/shar
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
-import React, { KeyboardEvent, useState } from 'react';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import './index.scss';
 import usePostSignup from '@src/hooks/remotes/user/usePostSignUp';
+import useFetchEmailDuplicate from '@src/hooks/remotes/user/useFetchEmailDuplicate';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 
 interface SignUpFirstStepProps {
 	email: string;
@@ -20,11 +22,16 @@ interface SignUpFirstStepProps {
 const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirstStepProps): JSX.Element => {
 	const history = useHistory();
 	const postSignup = usePostSignup();
+	const { openSnackbar } = useSnackbar();
 
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
+	const [clientSuccess, setClientSuccess] = useState<boolean>(false);
+	const [emailValidationEnabled, setEmailValidationEnabled] = useState<boolean>(false);
 
-	const handleNavigateSignUp = () => {
+	const { data, isLoading } = useFetchEmailDuplicate(email, emailValidationEnabled);
+
+	const handleNavigateSignUp = async () => {
 		let emailSuccess = false;
 		let pwSuccess = false;
 
@@ -36,8 +43,6 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 			emailSuccess = true;
 		}
 
-		// TODO: 사용중인 이메일 체크하기
-
 		if (!password) {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 		} else if (!validatePassword(password)) {
@@ -46,9 +51,8 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 			pwSuccess = true;
 		}
 
-		if (emailSuccess && pwSuccess) {
-			postSignup.mutate({ email, password });
-		}
+		setEmailValidationEnabled(true);
+		setClientSuccess(emailSuccess && pwSuccess);
 	};
 
 	const handleNavigateResetPw = () => {
@@ -64,6 +68,19 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 			handleNavigateSignUp();
 		}
 	};
+
+	useEffect(() => {
+		if (!isLoading && clientSuccess) {
+			if (data?.data) {
+				openSnackbar('이메일을 보냈습니다.');
+				postSignup.mutate({ email, password });
+			} else {
+				setEmailHelperText(data?.message ?? '이미 존재하는 이메일입니다.');
+			}
+			setClientSuccess(false);
+			setEmailValidationEnabled(false);
+		}
+	}, [clientSuccess, data, email, password]);
 
 	return (
 		<>

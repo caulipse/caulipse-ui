@@ -92,7 +92,7 @@ const API = {
 	},
 	// 현재 참가 중인 사용자 목록을 읽어옵니다.
 	getStudyParticipants(id: string) {
-		return client.get(`/study/user/${id}/participants`);
+		return client.get(`/study/${id}/user/participants`);
 	},
 	// 현재 참가 신청 중인 사용자 목록을 읽어옵니다.
 	getStudyUsers(id: string) {
@@ -100,7 +100,7 @@ const API = {
 	},
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {
-		return client.post(`/study/user/${request.id}`, request.data);
+		return client.post(`/study/${request.id}/user`, request.data);
 	},
 	// 참가신청 현황 수정
 	patchStudyUser(request: IRequestPatchStudyUser) {
@@ -112,7 +112,7 @@ const API = {
 	},
 	// 참가신청 수락 / 거절
 	patchStudyUserByHost(request: IRequestPatchStudyUserByHost) {
-		return client.patch(`/study/user/${request.id}/accept`, request.data);
+		return client.patch(`/study/${request.id}/user/accept`, request.data);
 	},
 	// 로그인
 	login(request: IRequestLogin) {

@@ -112,7 +112,7 @@ const API = {
 	},
 	// 참가신청 수락 / 거절
 	patchStudyUserByHost(request: IRequestPatchStudyUserByHost) {
-		return client.patch(`/study/user/${request.id}/accept`, request.data);
+		return client.patch(`/study/${request.id}/user/accept`, request.data);
 	},
 	// 로그인
 	login(request: IRequestLogin) {

@@ -15,6 +15,7 @@ import classNames from 'classnames';
 import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import { useAtom } from 'jotai';
 import { userState as globalUserState } from '@src/state';
+import defaultImg from '@src/assets/img/profileImg/default.svg';
 
 export interface UrlInterface {
 	urlId: number;
@@ -160,7 +161,7 @@ const MyProfileEditPresenter = ({
 			<Box className="profile-edit-image-container">
 				<img
 					className="profile-edit-image-img"
-					src={currentProfileImage ? require(`@src/assets/img/profileImg/${currentProfileImage}`).default : ''}
+					src={currentProfileImage ? require(`@src/assets/img/profileImg/${currentProfileImage}`).default : defaultImg}
 					alt={currentProfileImage ?? ''}
 				/>
 				<ButtonBase className="profile-edit-image-icon-container" onClick={changeProfileImg}>

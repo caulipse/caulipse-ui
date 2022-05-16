@@ -10,6 +10,7 @@ import useDeleteStudyComment from '@src/hooks/remotes/comment/useDeleteStudyComm
 import { useHistory } from 'react-router-dom';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { getProfileImgs } from '@src/app/shared/utils/profileImg';
+import defaultImg from '@src/assets/img/profileImg/default.svg';
 
 interface CommentItemProps {
 	comment: Comment;
@@ -42,7 +43,7 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 				src={
 					getProfileImgs().includes(comment.user.image)
 						? require(`@src/assets/img/profileImg/${comment.user.image}`).default
-						: ''
+						: defaultImg
 				}
 				width={comment.isNested ? 24 : 32}
 				height={comment.isNested ? 24 : 32}

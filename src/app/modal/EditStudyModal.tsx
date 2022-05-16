@@ -12,6 +12,7 @@ import { useAtom } from 'jotai';
 import { modalState } from '@src/state';
 import usePatchStudy from '@src/hooks/remotes/study/usePatchStudy';
 import { frequencyEnum, locationEnum, weekdayEnum } from '@src/api/types';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { getMainCategoryCode } from '../shared/utils/category';
 import StudySelect from '../study/studyModal/studySelect';
 import StudyContent from '../study/studyModal/studyContent';
@@ -25,6 +26,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [state] = useAtom(modalState);
 	const initialStudyData = state.params?.studyData;
 	const patchStudy = usePatchStudy();
+	const { openSnackbar } = useSnackbar();
 
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date(initialStudyData.createdAt));
@@ -40,19 +42,26 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	const [selectedContent, setSelectedContent] = useState<string>(initialStudyData.studyAbout);
 
 	const handleEdit = () => {
-		patchStudy.mutate({
-			id: initialStudyData.id,
-			data: {
-				capacity: selectedCapacity,
-				categoryCode: selectedSubCategoryCode,
-				// createdAt: selectedDate,
-				location: selectedPlaces,
-				studyAbout: selectedContent,
-				title: selectedTitle,
-				weekday: selectedDays,
-				frequency: selectedFrequencies,
+		patchStudy.mutate(
+			{
+				id: initialStudyData.id,
+				data: {
+					capacity: selectedCapacity,
+					categoryCode: selectedSubCategoryCode,
+					// createdAt: selectedDate,
+					location: selectedPlaces,
+					studyAbout: selectedContent,
+					title: selectedTitle,
+					weekday: selectedDays,
+					frequency: selectedFrequencies,
+				},
 			},
-		});
+			{
+				onSuccess: () => {
+					openSnackbar('스터디 모집글 수정 완료');
+				},
+			}
+		);
 	};
 
 	const renderHeader = useCallback(() => {

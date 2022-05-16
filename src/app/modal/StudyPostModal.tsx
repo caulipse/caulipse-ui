@@ -19,6 +19,7 @@ import bgExamSquare from '@src/assets/img/category/imageSquare/exam.png';
 import bgProgrammingSquare from '@src/assets/img/category/imageSquare/programming.png';
 import bgCompetitionSquare from '@src/assets/img/category/imageSquare/competition.png';
 import bgTotalSquare from '@src/assets/img/category/imageSquare/total.png';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import StudyContent from '../study/studyModal/studyContent';
 import StudySelect from '../study/studyModal/studySelect';
 import './studyPostModal.scss';
@@ -45,10 +46,8 @@ const categoryImageMapper = (code: number) => {
 };
 
 const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const postStudy = usePostStudy(() => {
-		onClose(false);
-		window.location.reload();
-	});
+	const postStudy = usePostStudy();
+	const { openSnackbar } = useSnackbar();
 
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(0);
@@ -70,16 +69,25 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	}, [currentStep]);
 
 	const handlePostStudy = () => {
-		postStudy.mutate({
-			title: selectedTitle,
-			studyAbout: selectedContent,
-			weekday: selectedDays,
-			frequency: selectedFrequencies,
-			location: selectedPlaces,
-			capacity: selectedCapacity,
-			categoryCode: selectedSubCategoryCode,
-			dueDate: format(selectedDate, 'yyyy-MM-dd 00:00:00'),
-		});
+		postStudy.mutate(
+			{
+				title: selectedTitle,
+				studyAbout: selectedContent,
+				weekday: selectedDays,
+				frequency: selectedFrequencies,
+				location: selectedPlaces,
+				capacity: selectedCapacity,
+				categoryCode: selectedSubCategoryCode,
+				dueDate: format(selectedDate, 'yyyy-MM-dd 00:00:00'),
+			},
+			{
+				onSuccess: () => {
+					onClose(false);
+					window.location.reload();
+					openSnackbar('스터디 모집글 등록 완료');
+				},
+			}
+		);
 	};
 
 	useEffect(() => {

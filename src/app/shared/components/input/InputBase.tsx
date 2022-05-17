@@ -3,6 +3,7 @@ import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import { userState as globalUserState } from '@src/state';
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
+import ProfileImage from '@src/components/common/profileImage';
 import defaultImg from '@src/assets/img/profileImg/default.svg';
 import React, { useRef, useState } from 'react';
 import { getProfileImgs } from '../../utils/profileImg';
@@ -31,16 +32,12 @@ const InputBase = ({ placeholder, content, setContent, onSubmit }: InputBaseProp
 	return (
 		<Box className="inputbase-container">
 			{data && (
-				<img
-					className="inputbase-img"
-					src={
-						getProfileImgs().includes(data?.userProfile.image)
-							? require(`@src/assets/img/profileImg/${data?.userProfile.image}`).default
-							: defaultImg
-					}
-					alt=""
+				<ProfileImage
+					userId={userState.userId}
+					userImage={data?.userProfile.image}
 					width={40}
 					height={40}
+					className="inputbase-img"
 				/>
 			)}
 			<Box className="inputbase-column-container">

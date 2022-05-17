@@ -54,11 +54,15 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>
 				<div className="profile-bottom-sheet-short-about">{userProfile?.bio}</div>
 				<div className="profile-bottom-sheet-tag-container">
-					{userProfile?.categories?.map((tagItem, tagIndex) => (
-						<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>
-							{getMainCategoryLabel(Number(tagItem))}
-						</div>
-					))}
+					{userProfile?.categories?.map((tagItem, tagIndex) =>
+						tagItem ? (
+							<div key={tagItem} className={`profile-bottom-sheet-tag-item ${tagIndex === 0 ? '' : 'ml12'}`}>
+								{getMainCategoryLabel(Number(tagItem))}
+							</div>
+						) : (
+							<div />
+						)
+					)}
 				</div>
 				<div className="profile-bottom-sheet-divider" />
 				<div className="profile-bottom-sheet-hashtag-container">

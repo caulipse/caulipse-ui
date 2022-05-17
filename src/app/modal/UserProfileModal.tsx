@@ -14,6 +14,7 @@ import Loader from '@src/components/common/loader/Loader';
 import defaultImg from '@src/assets/img/profileImg/default.svg';
 import ProfileLink from '../profile/my/profile/profileLink/ProfileLink';
 import { getMainCategoryLabel, getSubCategoryLabel } from '../shared/utils/category';
+import { getProfileImgs } from '../shared/utils/profileImg';
 
 const BOTTOMSHEET_MINHEIGHT = 350;
 interface UserProfileModalProps extends IModalContainerCommonProps {
@@ -48,7 +49,11 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 			>
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
-					src={userProfile?.image ? require(`@src/assets/img/profileImg/${userProfile?.image}`).default : defaultImg}
+					src={
+						getProfileImgs().includes(userProfile?.image ?? '')
+							? require(`@src/assets/img/profileImg/${userProfile?.image}`).default
+							: defaultImg
+					}
 					alt={userProfile?.image ?? ''}
 				/>
 				<div className="profile-bottom-sheet-name">{userProfile?.userName}</div>

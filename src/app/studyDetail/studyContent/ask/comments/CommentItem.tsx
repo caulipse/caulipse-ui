@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { getProfileImgs } from '@src/app/shared/utils/profileImg';
 import defaultImg from '@src/assets/img/profileImg/default.svg';
+import ProfileImage from '@src/components/common/profileImage';
 
 interface CommentItemProps {
 	comment: Comment;
@@ -38,16 +39,12 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 
 	return (
 		<div className={`comment-item-container ${comment.isNested ? 'comment-item-nested-bg' : ''}`}>
-			<img
-				className="comment-item-img"
-				src={
-					getProfileImgs().includes(comment.user.image)
-						? require(`@src/assets/img/profileImg/${comment.user.image}`).default
-						: defaultImg
-				}
+			<ProfileImage
+				userId={comment.user.userId}
+				userImage={comment.user.image}
 				width={comment.isNested ? 24 : 32}
 				height={comment.isNested ? 24 : 32}
-				alt=""
+				className="comment-item-img"
 			/>
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">

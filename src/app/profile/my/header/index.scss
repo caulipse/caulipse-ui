@@ -49,6 +49,7 @@
         height: 3rem;
         border-radius: 3rem;
         border: 1px solid $primaryColor; 
+        background-color: white;
         @include desktop{
             width: 6.181rem !important;
             height: 6.181rem !important;

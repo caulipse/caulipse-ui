@@ -10,8 +10,10 @@ import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import { useAtom } from 'jotai';
 import React, { KeyboardEvent, useCallback, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
-import { validateEmail } from '../shared/utils/validation';
 import './loginModal.scss';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import useModal from '@src/hooks/modal/useModal';
+import { validateEmail } from '../shared/utils/validation';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [email, setEmail] = useState<string>('');
@@ -19,6 +21,8 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
 
+	const { openSnackbar } = useSnackbar();
+	const { closeModal } = useModal();
 	const postLogin = usePostLogin();
 	const [state] = useAtom(modalState);
 	const [userState, setUserState] = useAtom(globalUserState);
@@ -59,6 +63,8 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 				{
 					onSuccess: (res) => {
 						setUserState({ ...userState, userId: res?.userId });
+						openSnackbar('로그인에 성공하였습니다.');
+						closeModal();
 					},
 					onError: (err) => {
 						setEmailHelperText('가입하지 않은 아이디거나, 잘못된 비밀번호입니다.');

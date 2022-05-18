@@ -9,14 +9,15 @@ import { IModalContainerCommonProps } from '@common/modal/types';
 import '@common/modal/common.scss';
 import usePostStudyUser from '@src/hooks/remotes/studyUser/usePostStudyUser';
 import { useAtom } from 'jotai';
-import globalState, { userState as globalUserState } from '@src/state';
+import { userState as globalUserState, modalState as globalModalState } from '@src/state';
 import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 
 const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const postStudyUser = usePostStudyUser();
-	const [state] = useAtom(globalState);
 	const [userState] = useAtom(globalUserState);
-	const { modal } = state;
+	const [modalState] = useAtom(globalModalState);
+
+	const { params } = modalState;
 	const { userId } = userState;
 	const { data } = useFetchUserProfile(userId);
 
@@ -34,7 +35,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const onClick = () => {
 		onClose(false);
 		postStudyUser.mutate({
-			id: modal.params,
+			id: params,
 			data: {
 				tempBio: value,
 			},

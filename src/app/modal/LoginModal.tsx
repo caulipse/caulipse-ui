@@ -14,6 +14,7 @@ import './loginModal.scss';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import useModal from '@src/hooks/modal/useModal';
 import { validateEmail } from '../shared/utils/validation';
+import { sha256 } from 'js-sha256';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [email, setEmail] = useState<string>('');
@@ -59,7 +60,7 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 		}
 		if (canLogin) {
 			postLogin.mutate(
-				{ email, password },
+				{ email, password: sha256(password) },
 				{
 					onSuccess: (res) => {
 						setUserState({ ...userState, userId: res?.userId });

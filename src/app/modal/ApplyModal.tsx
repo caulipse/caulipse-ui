@@ -70,7 +70,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 						<Switch onChange={onChangeIsPublic} checked={isPublic} />
 					</Container>
 					<Container className="apply-modal-helper-text-container">
-						<span>이 부분 유도 텍스트 들어가는 곳</span>
+						<span>전공을 통해 자신을 어필해보세요!</span>
 					</Container>
 				</Container>
 				<Container>

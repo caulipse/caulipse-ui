@@ -4,16 +4,17 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { modalState as globalModalState } from '@src/state';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import config from '@src/config';
 import { REPORT_TYPE_ENUM } from '@src/enum';
 
 const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [state] = useAtom(globalState);
-	const { userId, modal } = state;
+	const [modalState] = useAtom(globalModalState);
+	const { userId } = state;
 
-	const { data } = useFetchStudy(modal?.params);
+	const { data } = useFetchStudy(modalState?.params);
 	const study = data;
 
 	const { REPORT_TYPE_ENUM_0, REPORT_TYPE_ENUM_1, REPORT_TYPE_ENUM_2, REPORT_TYPE_ENUM_3, REPORT_TYPE_ENUM_4 } =

@@ -33,6 +33,8 @@ import bgEmploymentFullWidth from '@src/assets/img/category/imageDesktopFullWidt
 import bgExamFullWidth from '@src/assets/img/category/imageDesktopFullWidth/exam.png';
 import bgProgrammingFullWidth from '@src/assets/img/category/imageDesktopFullWidth/programming.png';
 import bgCompetitionFullWidth from '@src/assets/img/category/imageDesktopFullWidth/competition.png';
+import { isFuture, isPast, isToday } from 'date-fns';
+import classNames from 'classnames';
 
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
@@ -101,6 +103,14 @@ const StudyDetailPage = (): JSX.Element => {
 	const isHost = useMemo(() => {
 		return userState.userId === studyData?.HOST_ID;
 	}, [studyData]);
+
+	const applyDisabled: boolean = useMemo(() => {
+		return Boolean(
+			studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate))
+		);
+	}, [studyData]);
+
+	console.log('applyDisabled, ', applyDisabled);
 
 	const onClick = () => {
 		if (!state.login) {
@@ -171,6 +181,7 @@ const StudyDetailPage = (): JSX.Element => {
 						<CommonButton
 							title={isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 							onClick={onClick}
+							disabled={applyDisabled}
 						/>
 					</div>
 				</div>
@@ -181,7 +192,11 @@ const StudyDetailPage = (): JSX.Element => {
 	const DeskTopCTAButtons = useCallback(() => {
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
-				<Button className="desktop-cta-apply" onClick={onClick}>
+				<Button
+					className={classNames('desktop-cta-apply', { 'desktop-cta-apply-disabled': applyDisabled })}
+					onClick={onClick}
+					disabled={applyDisabled}
+				>
 					{isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>
@@ -189,7 +204,7 @@ const StudyDetailPage = (): JSX.Element => {
 				</Button>
 			</ButtonGroup>
 		);
-	}, [isHost]);
+	}, [isHost, applyDisabled]);
 
 	return (
 		<>

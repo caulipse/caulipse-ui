@@ -110,8 +110,6 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [studyData]);
 
-	console.log('applyDisabled, ', applyDisabled);
-
 	const onClick = () => {
 		if (!state.login) {
 			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });

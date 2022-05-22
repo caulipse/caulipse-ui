@@ -4,18 +4,17 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { modalState } from '@src/state';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import useCloseStudy from '@src/hooks/remotes/study/useCloseStudy';
 
 const StudyCloseModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [state] = useAtom(globalState);
-	const { modal } = state;
-	const { data } = useFetchStudy(modal.params);
+	const [state] = useAtom(modalState);
+	const { data } = useFetchStudy(state.params);
 	const closeStudy = useCloseStudy();
 
 	const onClick = () => {
-		closeStudy.mutate(modal.params);
+		closeStudy.mutate(state.params);
 	};
 
 	return (

@@ -7,17 +7,25 @@ import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { SnackbarTypeEnum } from '@common/snackbar/types';
 import useDeleteStudyUser from '@src/hooks/remotes/studyUser/useDeleteStudyUser';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import { modalState } from '@src/state';
 
 const ApplyCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
 	const deleteStudyUser = useDeleteStudyUser();
-	const [state] = useAtom(globalState);
-	const { modal } = state;
+	const [state] = useAtom(modalState);
+
+	console.log('state, ', state);
+
 	const onClick = () => {
-		deleteStudyUser.mutate(modal.params);
-		onClose(false);
-		openSnackbar('스터디 신청을 취소하였습니다', SnackbarTypeEnum.secondary);
+		deleteStudyUser.mutate(state.params, {
+			onSuccess: () => {
+				onClose(false);
+				openSnackbar('스터디 신청을 취소하였습니다.', SnackbarTypeEnum.secondary);
+			},
+			onError: () => {
+				openSnackbar('스터디 신청에 실패하였습니다.', SnackbarTypeEnum.secondary);
+			},
+		});
 	};
 	return (
 		<SimpleModal

@@ -20,7 +20,7 @@ const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 	};
 	const onClickCancel = () => {
 		onClose(false);
-		openModal(ModalKeyEnum.ApplyCancelModal);
+		openModal(ModalKeyEnum.ApplyCancelModal, state.params);
 	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">

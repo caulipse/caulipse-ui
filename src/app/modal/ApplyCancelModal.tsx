@@ -7,25 +7,33 @@ import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { SnackbarTypeEnum } from '@common/snackbar/types';
 import useDeleteStudyUser from '@src/hooks/remotes/studyUser/useDeleteStudyUser';
 import { useAtom } from 'jotai';
-import { modalState } from '@src/state';
+import { modalState, userState as globalUserState } from '@src/state';
+import { useQueryClient } from 'react-query';
+import QUERY_KEY from '@src/hooks/remotes';
 
 const ApplyCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
 	const deleteStudyUser = useDeleteStudyUser();
 	const [state] = useAtom(modalState);
+	const [userState] = useAtom(globalUserState);
 
-	console.log('state, ', state);
+	const client = useQueryClient();
 
 	const onClick = () => {
-		deleteStudyUser.mutate(state.params, {
-			onSuccess: () => {
-				onClose(false);
-				openSnackbar('스터디 신청을 취소하였습니다.', SnackbarTypeEnum.secondary);
-			},
-			onError: () => {
-				openSnackbar('스터디 신청 취소에 실패하였습니다.', SnackbarTypeEnum.secondary);
-			},
-		});
+		deleteStudyUser.mutate(
+			{ studyId: state.params, userId: userState.userId },
+			{
+				onSuccess: () => {
+					onClose(false);
+					openSnackbar('스터디 신청을 취소하였습니다.', SnackbarTypeEnum.secondary);
+					client.refetchQueries(`${QUERY_KEY.FETCH_STUDY}/${state.params}`);
+				},
+				onError: () => {
+					onClose(false);
+					openSnackbar('스터디 신청 취소에 실패하였습니다.', SnackbarTypeEnum.secondary);
+				},
+			}
+		);
 	};
 	return (
 		<SimpleModal

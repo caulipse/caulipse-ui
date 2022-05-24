@@ -5,7 +5,12 @@ import { IFilterOption, IPaginationOption } from '@src/app/study/types';
 import { IRequestLogin, IRequestSignUp, IRequestPatchUser } from './request/user';
 import { IRequestPostUserProfile, IRequestPatchUserProfile, IRequestPatchResetPw } from './request/userProfile';
 import { IRequestPostStudy, IRequestPatchStudy } from './request/study';
-import { IRequestPostStudyUser, IRequestPatchStudyUser, IRequestPatchStudyUserByHost } from './request/studyUser';
+import {
+	IRequestPostStudyUser,
+	IRequestPatchStudyUser,
+	IRequestPatchStudyUserByHost,
+	IRequestDeleteStudyUser,
+} from './request/studyUser';
 import {
 	IRequestPostStudyComment,
 	IRequestPatchStudyComment,
@@ -107,8 +112,8 @@ const API = {
 		return client.patch(`/study/user/${request.id}`, request);
 	},
 	// 참가신청 취소
-	deleteStudyUser(id: string) {
-		return client.delete(`/study/user/${id}`);
+	deleteStudyUser(request: IRequestDeleteStudyUser) {
+		return client.delete(`/study/${request.studyId}/user/${request.userId}`);
 	},
 	// 참가신청 수락 / 거절
 	patchStudyUserByHost(request: IRequestPatchStudyUserByHost) {

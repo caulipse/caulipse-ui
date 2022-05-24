@@ -23,7 +23,7 @@ const ApplyCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 				openSnackbar('스터디 신청을 취소하였습니다.', SnackbarTypeEnum.secondary);
 			},
 			onError: () => {
-				openSnackbar('스터디 신청에 실패하였습니다.', SnackbarTypeEnum.secondary);
+				openSnackbar('스터디 신청 취소에 실패하였습니다.', SnackbarTypeEnum.secondary);
 			},
 		});
 	};

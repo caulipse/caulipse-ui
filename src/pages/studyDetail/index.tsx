@@ -35,6 +35,7 @@ import bgProgrammingFullWidth from '@src/assets/img/category/imageDesktopFullWid
 import bgCompetitionFullWidth from '@src/assets/img/category/imageDesktopFullWidth/competition.png';
 import { isFuture, isPast, isToday } from 'date-fns';
 import classNames from 'classnames';
+import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
 
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
@@ -86,6 +87,8 @@ const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
 	const postBookmark = usePostBookmark(studyId);
 	const { data: studyData, isLoading } = useFetchStudy(studyId);
+	const { data: studyParticipantsData, isLoading: isStudyParticipantsLoading } = useFetchStudyParticipants(studyId);
+
 	const location = useLocation<StudyDetailPageLocationInterface>();
 	const initialIndex = location.state?.initialIndex ?? 1;
 
@@ -110,6 +113,10 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [studyData]);
 
+	const isAppliedUser = useMemo(() => {
+		return !!studyParticipantsData?.find((participantItem) => participantItem.userId === userState.userId);
+	}, [studyParticipantsData, userState]);
+
 	const onClick = () => {
 		if (!state.login) {
 			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
@@ -117,6 +124,8 @@ const StudyDetailPage = (): JSX.Element => {
 		}
 		if (isHost) {
 			openModal(ModalKeyEnum.StudyCloseModal, studyId);
+		} else if (isAppliedUser) {
+			openModal(ModalKeyEnum.ApplyCancelModal, studyId);
 		} else {
 			openModal(ModalKeyEnum.ApplyModal, studyId);
 		}
@@ -177,7 +186,13 @@ const StudyDetailPage = (): JSX.Element => {
 					)}
 					<div className="study-apply-btn-wrapper">
 						<CommonButton
-							title={isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
+							title={
+								isHost
+									? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})`
+									: isAppliedUser
+									? '신청 취소'
+									: '신청하기'
+							}
 							onClick={onClick}
 							disabled={applyDisabled}
 						/>
@@ -195,14 +210,18 @@ const StudyDetailPage = (): JSX.Element => {
 					onClick={onClick}
 					disabled={applyDisabled}
 				>
-					{isHost ? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})` : '신청하기'}
+					{isHost
+						? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})`
+						: isAppliedUser
+						? '신청 취소'
+						: '신청하기'}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>
 					{isHost ? '수정하기' : '북마크 추가'}
 				</Button>
 			</ButtonGroup>
 		);
-	}, [isHost, applyDisabled]);
+	}, [isHost, applyDisabled, isAppliedUser]);
 
 	return (
 		<>

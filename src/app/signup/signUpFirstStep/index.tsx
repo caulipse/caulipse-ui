@@ -72,7 +72,6 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 	useEffect(() => {
 		if (!isLoading && clientSuccess) {
 			if (data?.data) {
-				openSnackbar('이메일을 보냈습니다.');
 				postSignup.mutate({ email, password });
 			} else {
 				setEmailHelperText(data?.message ?? '이미 존재하는 이메일입니다.');

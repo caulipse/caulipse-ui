@@ -11,6 +11,7 @@ export default (id: string) => {
 
 	return useQuery(`${QUERY_KEY.FETCH_STUDY_PARTICIPANTS}/${id}`, fetcher, {
 		onError: (e) => {
+			window.alert('스터디 참가자 중인 사용자 목록 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

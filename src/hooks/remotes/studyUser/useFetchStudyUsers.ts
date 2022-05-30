@@ -12,6 +12,7 @@ export default (id: string) => {
 
 	return useQuery(`${QUERY_KEY.FETCH_STUDY_USERS}/${id}`, fetcher, {
 		onError: (e) => {
+			window.alert('참가신청 수락대기 중인 인원 목록 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

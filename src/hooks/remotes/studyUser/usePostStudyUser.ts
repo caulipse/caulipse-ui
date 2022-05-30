@@ -13,6 +13,7 @@ export default () => {
 			console.log(response);
 		},
 		onError: (e: Error) => {
+			window.alert('스터디 참가 신청에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

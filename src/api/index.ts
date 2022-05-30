@@ -192,7 +192,7 @@ const API = {
 	},
 	// 모집중인 스터디
 	getMyStudies() {
-		return client.get('/study/my-study');
+		return client.get('/user/study');
 	},
 	// 신청 스터디
 	getAppliedStudies() {

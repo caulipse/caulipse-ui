@@ -10,6 +10,7 @@ export default () => {
 	};
 	return useQuery(QUERY_KEY.FETCH_MY_STUDIES, fetcher, {
 		onError: (e) => {
+			window.alert('모집 중인 스터디 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

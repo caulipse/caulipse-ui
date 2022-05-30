@@ -10,6 +10,7 @@ export default (offset?: number, limit?: number) => {
 	};
 	return useQuery([QUERY_KEY.FETCH_NOTICES, offset], fetcher, {
 		onError: (e) => {
+			window.alert('공지사항 목록 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

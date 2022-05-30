@@ -10,6 +10,7 @@ export default () => {
 	};
 	return useQuery(QUERY_KEY.FETCH_BOOKMARKS, fetcher, {
 		onError: (e) => {
+			window.alert('북마크를 불러오는 데 실패하였습니다.');
 			console.log(e);
 		},
 	});

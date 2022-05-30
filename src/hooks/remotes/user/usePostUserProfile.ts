@@ -13,6 +13,7 @@ export default () => {
 			console.log(response);
 		},
 		onError: (e: Error) => {
+			window.alert('유저 프로필 생성에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

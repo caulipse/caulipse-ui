@@ -10,6 +10,7 @@ export default (keyword: string, frequency?: string, weekday?: string, location?
 	};
 	return useQuery([QUERY_KEY.FETCH_SEARCH_STUDIES, { keyword, frequency, weekday, location, orderBy }], fetcher, {
 		onError: (e) => {
+			window.alert('스터디 검색 결과 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

@@ -22,6 +22,7 @@ export default () => {
 			history.push('/');
 		},
 		onError: (e: Error) => {
+			window.alert('로그아웃에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

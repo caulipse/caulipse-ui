@@ -10,6 +10,7 @@ export default (studyId: string) => {
 	};
 	return useQuery(QUERY_KEY.FETCH_STUDY_COMMENTS, fetcher, {
 		onError: (e) => {
+			window.alert('댓글 목록 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

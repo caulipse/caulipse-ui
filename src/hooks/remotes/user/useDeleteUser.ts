@@ -23,6 +23,7 @@ export default () => {
 			history.push('/');
 		},
 		onError: (e: Error) => {
+			window.alert('탈퇴에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

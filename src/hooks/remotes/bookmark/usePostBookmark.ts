@@ -16,6 +16,7 @@ export default (studyId: string) => {
 			console.log(response);
 		},
 		onError: (e: Error) => {
+			window.alert('북마크 신청에 실패하였습니다.');
 			console.log(e.message);
 		},
 	});

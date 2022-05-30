@@ -20,6 +20,7 @@ export default () => {
 			openSnackbar('회원가입이 완료되었습니다.');
 		},
 		onError: (e: Error) => {
+			window.alert('회원가입에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

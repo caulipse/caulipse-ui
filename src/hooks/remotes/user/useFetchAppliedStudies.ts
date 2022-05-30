@@ -10,6 +10,7 @@ export default () => {
 	};
 	return useQuery(QUERY_KEY.FETCH_APPLIED_STUDIES, fetcher, {
 		onError: (e) => {
+			window.alert('신청 스터디 목록 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

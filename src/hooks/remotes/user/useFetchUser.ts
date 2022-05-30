@@ -10,6 +10,7 @@ export default () => {
 	};
 	return useQuery(`${QUERY_KEY.FETCH_USER}`, fetcher, {
 		onError: (e) => {
+			window.alert('유저 정보 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

@@ -20,6 +20,7 @@ export default () => {
 			openSnackbar('스터디 모집을 마감했습니다.');
 		},
 		onError: (e: Error) => {
+			window.alert('스터디 마감에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

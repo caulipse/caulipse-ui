@@ -19,6 +19,7 @@ export default () => {
 			history.push('/');
 		},
 		onError: (e: Error) => {
+			window.alert('비밀번호 변경에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

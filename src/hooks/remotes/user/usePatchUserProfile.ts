@@ -16,10 +16,11 @@ export default () => {
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
 			history.goBack();
-			openSnackbar('적용완료');
+			openSnackbar('유저 프로필 수정에 성공하였습니다.');
 			console.log(response);
 		},
 		onError: (e: Error) => {
+			window.alert('유저 프로필 수정에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

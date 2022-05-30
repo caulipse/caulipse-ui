@@ -17,6 +17,7 @@ export default () => {
 
 		// },
 		onError: (e: Error) => {
+			window.alert('로그인에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

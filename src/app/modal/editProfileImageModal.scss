@@ -26,6 +26,11 @@
             height: 1.5rem !important;
         }
     }
+    &-img-list{
+        display:grid !important;
+        grid-template-columns:1fr 1fr 1fr !important;
+        margin-bottom: 4rem !important;
+    }
     &-img{
         display: flex !important;
         width: 66.66% !important;
@@ -41,6 +46,7 @@
         aspect-ratio: 1 !important;
         border-radius: .625rem !important;
     }
+
     &-img-con-selected{
         border: 2px #0170f2 solid !important;
     }

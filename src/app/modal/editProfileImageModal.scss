@@ -50,7 +50,7 @@
         bottom: 2rem !important;
         width: calc(100% - 2.5rem) !important;
         @include desktop{
-            position: static !important;
+            position: sticky !important;
             width: 100% !important;
             margin: auto !important;
             margin-bottom: 2rem !important;

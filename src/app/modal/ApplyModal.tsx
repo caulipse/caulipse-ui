@@ -11,12 +11,14 @@ import usePostStudyUser from '@src/hooks/remotes/studyUser/usePostStudyUser';
 import { useAtom } from 'jotai';
 import { userState as globalUserState, modalState as globalModalState } from '@src/state';
 import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import { SnackbarTypeEnum } from '@common/snackbar/types';
 
 const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const postStudyUser = usePostStudyUser();
 	const [userState] = useAtom(globalUserState);
 	const [modalState] = useAtom(globalModalState);
-
+	const { openSnackbar } = useSnackbar();
 	const { params } = modalState;
 	const { userId } = userState;
 	const { data } = useFetchUserProfile(userId);
@@ -40,6 +42,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 				tempBio: value,
 			},
 		});
+		openSnackbar('스터디 신청을 완료하였습니다', SnackbarTypeEnum.secondary);
 	};
 
 	const onChangeValue = useCallback((evt: ChangeEvent<HTMLTextAreaElement>) => {

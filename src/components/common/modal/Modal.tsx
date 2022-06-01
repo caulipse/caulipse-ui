@@ -17,7 +17,7 @@ const Content = ({ children, height, isDesktop }: IContentProps) => {
 	return (
 		<Container
 			className="modal-container"
-			style={{ minWidth: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height }}
+			style={{ minWidth: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height, overflowY: 'auto' }}
 		>
 			{children}
 		</Container>

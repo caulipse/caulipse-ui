@@ -44,8 +44,11 @@ const MyBtns = (): JSX.Element => {
 		<div className="my-btns-container">
 			{navigations?.map((item) => (
 				<button type="button" key={item.label} onClick={() => handleClick(item.label)}>
-					{item.label === ASK ? (
-						<a href={`mailto:${config.mail}`} className="navigation-item-container">
+					{item.label === ASK || item.label === TERMS ? (
+						<a
+							href={item.label === ASK ? `mailto:${config.mail}` : config.privacyPolicy}
+							className="navigation-item-container"
+						>
 							<div className="navigation-item-label">{item.label}</div>
 							<IoChevronForward size={24} color="#b1b1b1" />
 						</a>

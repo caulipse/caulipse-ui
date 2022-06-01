@@ -10,6 +10,7 @@ import './index.scss';
 import usePostSignup from '@src/hooks/remotes/user/usePostSignUp';
 import useFetchEmailDuplicate from '@src/hooks/remotes/user/useFetchEmailDuplicate';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import config from '@src/config';
 
 interface SignUpFirstStepProps {
 	email: string;
@@ -57,10 +58,6 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 
 	const handleNavigateResetPw = () => {
 		history.push('/reset-password');
-	};
-
-	const handleNavigatePrivacyPolicy = () => {
-		// TODO: 개인정보처리방침 이동
 	};
 
 	const onKeyPress = (e: KeyboardEvent<HTMLImageElement>) => {
@@ -133,9 +130,9 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 					/>
 				</Box>
 			</Box>
-			<Button variant="text" onClick={handleNavigatePrivacyPolicy} className="reset-pw-privacy-policy">
+			<a href={config.privacyPolicy} className="reset-pw-privacy-policy">
 				개인정보처리방침
-			</Button>
+			</a>
 		</>
 	);
 };

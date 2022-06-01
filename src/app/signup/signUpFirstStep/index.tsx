@@ -10,6 +10,7 @@ import './index.scss';
 import usePostSignup from '@src/hooks/remotes/user/usePostSignUp';
 import useFetchEmailDuplicate from '@src/hooks/remotes/user/useFetchEmailDuplicate';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import { sha256 } from 'js-sha256';
 import config from '@src/config';
 
 interface SignUpFirstStepProps {
@@ -69,7 +70,8 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 	useEffect(() => {
 		if (!isLoading && clientSuccess) {
 			if (data?.data) {
-				postSignup.mutate({ email, password });
+				openSnackbar('이메일을 보냈습니다.');
+				postSignup.mutate({ email, password: sha256(password) });
 			} else {
 				setEmailHelperText(data?.message ?? '이미 존재하는 이메일입니다.');
 			}

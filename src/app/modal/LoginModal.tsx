@@ -13,8 +13,8 @@ import { IoClose } from 'react-icons/io5';
 import './loginModal.scss';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import useModal from '@src/hooks/modal/useModal';
-import { validateEmail } from '../shared/utils/validation';
 import { sha256 } from 'js-sha256';
+import { validateEmail } from '../shared/utils/validation';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [email, setEmail] = useState<string>('');

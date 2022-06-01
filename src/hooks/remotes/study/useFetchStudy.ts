@@ -11,6 +11,7 @@ export default (id: string) => {
 
 	return useQuery(`${QUERY_KEY.FETCH_STUDY}/${id}`, fetcher, {
 		onError: (e) => {
+			window.alert('스터디 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

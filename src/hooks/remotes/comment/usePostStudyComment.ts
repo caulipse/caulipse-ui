@@ -20,6 +20,7 @@ export default () => {
 			console.log(response);
 		},
 		onError: (e: Error) => {
+			window.alert('댓글 작성에 실패하였습니다.');
 			console.log(e.message);
 		},
 	});

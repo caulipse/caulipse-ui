@@ -13,6 +13,7 @@ export default () => {
 			console.log(response);
 		},
 		onError: (e: Error) => {
+			window.alert('참가신청 수락/거절에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

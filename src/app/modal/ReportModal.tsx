@@ -4,26 +4,24 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { userState as globalUserState, modalState as globalModalState } from '@src/state';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import config from '@src/config';
 import { REPORT_TYPE_ENUM } from '@src/enum';
 
 const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [state] = useAtom(globalState);
-	const { userId, modal } = state;
+	const [userState] = useAtom(globalUserState);
+	const [modalState] = useAtom(globalModalState);
+	const { userId } = userState;
 
-	const { data } = useFetchStudy(modal?.params);
+	const { data } = useFetchStudy(modalState?.params);
 	const study = data;
 
 	const { REPORT_TYPE_ENUM_0, REPORT_TYPE_ENUM_1, REPORT_TYPE_ENUM_2, REPORT_TYPE_ENUM_3, REPORT_TYPE_ENUM_4 } =
 		REPORT_TYPE_ENUM;
 
 	const [value, setValue] = useState(REPORT_TYPE_ENUM_0);
-	const onClick = () => {
-		// TODO
-		// 신고 API 연동
-	};
+
 	const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
 		setValue((evt.target as HTMLInputElement).value as REPORT_TYPE_ENUM);
 	};
@@ -75,11 +73,7 @@ const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element
 						취소
 					</Button>
 					<a href={content} style={{ width: '100%', marginLeft: '1rem' }}>
-						<Button
-							className="simple-modal-rounded-button secondary horizon"
-							style={{ marginLeft: 0 }}
-							onClick={onClick}
-						>
+						<Button className="simple-modal-rounded-button secondary horizon" style={{ marginLeft: 0 }}>
 							신고
 						</Button>
 					</a>

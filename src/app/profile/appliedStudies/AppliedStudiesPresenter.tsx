@@ -59,7 +59,7 @@ const AppliedStudiesPresenter = ({
 						color="#929699"
 						onClick={(event: any) => {
 							event.preventDefault();
-							openModal(ModalKeyEnum.UserStudyMoreModal);
+							openModal(ModalKeyEnum.UserStudyMoreModal, item.id);
 						}}
 					/>
 				);

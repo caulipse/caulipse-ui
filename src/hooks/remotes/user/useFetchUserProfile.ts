@@ -10,6 +10,7 @@ export default (id: string) => {
 	};
 	return useQuery(`${QUERY_KEY.FETCH_USER_PROFILE}/${id}`, fetcher, {
 		onError: (e) => {
+			window.alert('유저 프로필 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

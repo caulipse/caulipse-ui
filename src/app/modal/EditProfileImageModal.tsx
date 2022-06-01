@@ -32,28 +32,27 @@ const EditProfileImageModal = ({ open, onClose }: IModalContainerCommonProps): J
 					<Box className="edit-profile-image-modal-header-title">프로필 이미지</Box>
 					<IoClose className="edit-profile-image-modal-header-close" color="#212b36" onClick={() => onClose(false)} />
 				</Box>
-				<ImageList cols={3}>
+				<Box className="edit-profile-image-modal-img-list">
 					{getProfileImgs().map((item: string) => {
 						return (
-							<ImageListItem key={item}>
-								<Button
-									className={classNames('edit-profile-image-modal-img-con', {
-										'edit-profile-image-modal-img-con-selected': item === selectedImage,
-									})}
-									onClick={() => setSelectedImage(item)}
-								>
-									{item && (
-										<img
-											className="edit-profile-image-modal-img"
-											src={require(`@src/assets/img/profileImg/${item}`).default}
-											alt={item}
-										/>
-									)}
-								</Button>
-							</ImageListItem>
+							<Button
+								key={item}
+								className={classNames('edit-profile-image-modal-img-con', {
+									'edit-profile-image-modal-img-con-selected': item === selectedImage,
+								})}
+								onClick={() => setSelectedImage(item)}
+							>
+								{item && (
+									<img
+										className="edit-profile-image-modal-img"
+										src={require(`@src/assets/img/profileImg/${item}`).default}
+										alt={item}
+									/>
+								)}
+							</Button>
 						);
 					})}
-				</ImageList>
+				</Box>
 				<CommonButton
 					className="edit-profile-image-modal-cta-btn"
 					type={ButtonTypeEnum.secondary}

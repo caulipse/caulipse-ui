@@ -106,8 +106,12 @@ export interface Notification {
 
 export interface AppliedStudy {
 	bookmarkCount: number;
+	capacity: number;
 	createdAt: string;
+	dueDate: string;
 	id: string;
+	isAccepted: boolean;
 	title: string;
 	views: number;
+	membersCount: number;
 }

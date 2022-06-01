@@ -105,6 +105,10 @@
     background-color: #1574e3 !important;
     padding: 3.2rem 0 !important;
   }
+  &-apply-disabled{
+    color: #b4b4b4 !important;
+    background-color: #ececec !important;
+  }
   &-bookmark{
     @include desktop-cta-btn();
     color: #393939 !important;

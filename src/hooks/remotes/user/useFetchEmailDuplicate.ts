@@ -11,6 +11,7 @@ export default (email: string, enabled: boolean) => {
 	return useQuery(`${QUERY_KEY.FETCH_EMAIL_DUPLICATE}`, fetcher, {
 		enabled,
 		onError: (e) => {
+			window.alert('이메일 중복 체크에 실패하였습니다.');
 			console.log(e);
 		},
 	});

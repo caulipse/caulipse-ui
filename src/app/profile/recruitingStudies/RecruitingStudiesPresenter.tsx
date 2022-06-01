@@ -24,7 +24,7 @@ const RecruitingStudiesPresenter = ({
 
 	const closeStudy = useCallback((event: any, id: string) => {
 		event.preventDefault();
-		openModal(ModalKeyEnum.StudyCloseModal, id);
+		openModal(ModalKeyEnum.StudyCloseModal, { id });
 	}, []);
 
 	const onClickMore = useCallback((event: any) => {

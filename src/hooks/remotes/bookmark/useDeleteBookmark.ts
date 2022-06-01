@@ -19,6 +19,7 @@ export default (id: string) => {
 			openSnackbar('북마크 목록이 삭제되었습니다.');
 		},
 		onError: (e: Error) => {
+			window.alert('북마크 삭제에 실패하였습니다.');
 			console.error(e.message);
 		},
 	});

@@ -10,6 +10,7 @@ export default (id: string) => {
 	};
 	return useQuery(`${QUERY_KEY.FETCH_NOTICE}/${id}`, fetcher, {
 		onError: (e) => {
+			window.alert('공지사항 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

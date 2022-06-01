@@ -11,6 +11,7 @@ import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import './index.scss';
 import usePatchResetPwMail from '@src/hooks/remotes/user/usePatchResetPwMail';
 import usePatchResetPw from '@src/hooks/remotes/user/usePatchResetPw';
+import config from '@src/config';
 
 const ResetPwPage = (): JSX.Element => {
 	const history = useHistory();
@@ -28,10 +29,6 @@ const ResetPwPage = (): JSX.Element => {
 	const isAfterEmailVerification = useMemo(() => {
 		return id && paramEmail;
 	}, [id, paramEmail]);
-
-	const handleNavigatePrivacyPolicy = () => {
-		// TODO: 개인정보처리방침 이동
-	};
 
 	const handleChangePwBeforeMail = useCallback(() => {
 		if (!email) {
@@ -136,10 +133,9 @@ const ResetPwPage = (): JSX.Element => {
 					/>
 				</Box>
 			</Box>
-
-			<Button variant="text" onClick={handleNavigatePrivacyPolicy} className="reset-pw-privacy-policy">
+			<a href={config.privacyPolicy} className="reset-pw-privacy-policy">
 				개인정보처리방침
-			</Button>
+			</a>
 		</Box>
 	);
 };

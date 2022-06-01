@@ -4,8 +4,9 @@
 .study-post-modal{
     &-flex{
         display: flex !important;
-        flex: 1 !important;
         flex-direction: column !important;
+        margin-bottom: 4rem !important;
+        height: 100% !important;
     }
     &-header{
         &-con{
@@ -79,15 +80,12 @@
     &-cta{
         &-con{
             display: flex !important;
-            position: fixed !important;
+            position: sticky !important;
             width: 100% !important;
             bottom: 2rem !important;
             flex-direction: row !important;
             align-items: center !important;
             margin: 2rem 0 !important;
-            @include desktop{
-                position: static !important;
-            }
         }
         &-btn{
             display: flex !important;
@@ -102,4 +100,7 @@
 }
 .flex2{
     flex: 2 !important;
+}
+.mb4rem{
+    height:1000px
 }

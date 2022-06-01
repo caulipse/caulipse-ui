@@ -6,22 +6,21 @@ import SimpleModal from '@common/modal/SimpleModal';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { modalState } from '@src/state';
 
 const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openModal } = useModal();
-	const [state] = useAtom(globalState);
-	const { modal } = state;
+	const [state] = useAtom(modalState);
 
 	// TODO
 	// api 로 신청자 여부를 확인하여 신청자가 아닐 경우 "신청취소" 버튼은 숨김 처리해야함.
 	const onClickReport = () => {
 		onClose(false);
-		openModal(ModalKeyEnum.ReportModal, modal.params);
+		openModal(ModalKeyEnum.ReportModal, state.params);
 	};
 	const onClickCancel = () => {
 		onClose(false);
-		openModal(ModalKeyEnum.ApplyCancelModal);
+		openModal(ModalKeyEnum.ApplyCancelModal, state.params);
 	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">

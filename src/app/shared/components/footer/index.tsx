@@ -18,9 +18,9 @@ const Footer: React.FC = () => (
 				</Button>
 			</Box>
 			<Box className="footer-subtitle mt_719rem">E-mail: {config.mail}</Box>
-			<Button className="footer-subtitle mt_75rem mb3rem" variant="text">
+			<a href={config.privacyPolicy} className="footer-subtitle mt_75rem mb3rem">
 				개인정보처리방침
-			</Button>
+			</a>
 		</Box>
 	</Box>
 );

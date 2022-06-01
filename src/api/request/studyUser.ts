@@ -17,3 +17,8 @@ export interface IRequestPatchStudyUserByHost {
 	id: string;
 	data: IRequestPatchStudyUserByHostBody;
 }
+
+export interface IRequestDeleteStudyUser {
+	studyId: string;
+	userId: string;
+}

@@ -34,6 +34,7 @@ export default (orderBy: string, filter?: IFilterOption, pagination?: IPaginatio
 
 	return useQuery(queryKey, fetcher, {
 		onError: (e) => {
+			window.alert('스터디 목록 조회에 실패하였습니다.');
 			console.log(e);
 		},
 	});

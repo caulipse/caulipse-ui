@@ -14,7 +14,6 @@ const StudyList = (): JSX.Element => {
 
 	const { filterOption, sortOption, paginationOption } = state;
 
-	console.log('sortoption, ', sortOption);
 	const { pageNo } = paginationOption;
 
 	const { data, isLoading } = fetchStudies(sortOption?.value, filterOption, paginationOption);
@@ -58,7 +57,7 @@ const StudyList = (): JSX.Element => {
 					</div>
 				</div>
 			</div>
-			<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+			<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 		</div>
 	);
 };

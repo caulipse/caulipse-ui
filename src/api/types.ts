@@ -24,7 +24,7 @@ export interface Study {
 	categoryCode: string;
 	createdAt: string;
 	frequency: frequencyEnum;
-	hostId?: Host;
+	hostId: UserProfile;
 	id: string;
 	isOpen: boolean;
 	location: locationEnum[];

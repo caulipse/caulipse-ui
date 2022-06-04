@@ -271,7 +271,7 @@ const StudyDetailPage = (): JSX.Element => {
 								{studyData && (
 									<StudyContentContainer
 										studyId={studyData.id}
-										hostId={studyData.HOST_ID}
+										hostId={studyData.hostId}
 										createdAt={studyData.createdAt}
 										views={studyData.views}
 										bookmarkCount={studyData.bookmarkCount}

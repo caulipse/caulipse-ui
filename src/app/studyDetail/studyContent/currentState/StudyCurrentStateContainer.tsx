@@ -3,32 +3,31 @@ import useFetchStudyUsers from '@src/hooks/remotes/studyUser/useFetchStudyUsers'
 import Loader from '@src/components/common/loader/Loader';
 import useFetchUserProfile from '@src/hooks/remotes/user/useFetchUserProfile';
 import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
-import API from '@src/api';
+import { UserProfile } from '@src/api/types';
 import StudyCurrentStatePresenter from './StudyCurrentStatePresenter';
 
 interface StudyCurrentStateContainerProps {
 	studyId: string;
-	hostId: string;
+	host: UserProfile;
 	capacity: number;
 	isHost: boolean;
 }
 
 const StudyCurrentStateContainer = ({
 	studyId,
-	hostId,
+	host,
 	capacity,
 	isHost,
 }: StudyCurrentStateContainerProps): JSX.Element => {
 	const { data: studyParticipantsData, isLoading: isStudyParticipantsLoading } = useFetchStudyParticipants(studyId);
-	const { data: hostData, isLoading: isHostLoading } = useFetchUserProfile(hostId);
 	const waitingStudyUser = isHost ? useFetchStudyUsers(studyId) : null;
 
-	if (isStudyParticipantsLoading || isHostLoading || waitingStudyUser?.isLoading) return <Loader />;
+	if (isStudyParticipantsLoading || waitingStudyUser?.isLoading) return <Loader />;
 
 	// TODO: 수락 대기중 api 추가
-	return studyParticipantsData && hostData ? (
+	return studyParticipantsData ? (
 		<StudyCurrentStatePresenter
-			host={hostData.userProfile}
+			host={host}
 			studyUsers={studyParticipantsData}
 			waitingStudyUsers={waitingStudyUser?.data}
 			capacity={capacity}

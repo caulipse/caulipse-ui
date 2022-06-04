@@ -8,9 +8,17 @@ interface StudyUserItemContainerProps {
 	studyUser: StudyUser;
 	isHost: boolean;
 	isAccepted?: boolean;
+	capacity?: number | undefined;
+	accepetedUserLength?: number | undefined;
 }
 
-const StudyUserItemContainer = ({ studyUser, isHost, isAccepted = true }: StudyUserItemContainerProps): JSX.Element => {
+const StudyUserItemContainer = ({
+	studyUser,
+	isHost,
+	isAccepted = true,
+	capacity,
+	accepetedUserLength,
+}: StudyUserItemContainerProps): JSX.Element => {
 	const { openModal } = useModal();
 	const onClick = () => {
 		openModal(ModalKeyEnum.ApproveCancelModal, studyUser);
@@ -18,7 +26,14 @@ const StudyUserItemContainer = ({ studyUser, isHost, isAccepted = true }: StudyU
 
 	return (
 		<>
-			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} isHost={isHost} isAccepted={isAccepted} />
+			<StudyUserItemPresenter
+				studyUser={studyUser}
+				onClick={onClick}
+				isHost={isHost}
+				isAccepted={isAccepted}
+				capacity={capacity}
+				accepetedUserLength={accepetedUserLength}
+			/>
 		</>
 	);
 };

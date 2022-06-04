@@ -12,6 +12,8 @@ interface StudyUserItemPresenterProps {
 	onClick: () => void;
 	isHost: boolean;
 	isAccepted: boolean;
+	capacity?: number | undefined;
+	accepetedUserLength?: number | undefined;
 }
 
 // TODO: userName, profilePicture 서버에서 값 내려주면 확인하기
@@ -20,11 +22,16 @@ const StudyUserItemPresenter = ({
 	onClick,
 	isHost,
 	isAccepted,
+	capacity,
+	accepetedUserLength,
 }: StudyUserItemPresenterProps): JSX.Element => {
 	const { openModal } = useModal();
 
 	const handleAccept = () => {
-		openModal(ModalKeyEnum.StudyApproveModal);
+		openModal(ModalKeyEnum.StudyApproveModal, {
+			current: accepetedUserLength,
+			total: capacity,
+		});
 	};
 
 	return (

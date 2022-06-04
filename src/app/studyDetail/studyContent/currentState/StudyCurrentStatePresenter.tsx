@@ -32,7 +32,13 @@ const StudyCurrentStatePresenter = ({
 							{waitingStudyUsers?.map((studyUser: StudyUser, studyUserIndex: number) => {
 								return (
 									<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
-										<StudyUserItemContainer studyUser={studyUser} isHost={isHost} isAccepted={false} />
+										<StudyUserItemContainer
+											studyUser={studyUser}
+											isHost={isHost}
+											isAccepted={false}
+											capacity={capacity}
+											accepetedUserLength={studyUsers.length + 1}
+										/>
 									</div>
 								);
 							})}

@@ -21,9 +21,10 @@ const DesktopSubCategoryContainer = (): JSX.Element => {
 				},
 			});
 		} else {
+			const categoryFilter = filterOption?.categoryCode?.filter((item) => item.code % 100);
 			setState({
 				...state,
-				filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.concat(category) },
+				filterOption: { ...filterOption, categoryCode: categoryFilter?.concat(category) },
 			});
 		}
 	};

@@ -31,3 +31,10 @@ export const getMainCategoryCode = (subCategoryCode: number): number => {
 	});
 	return mainCategory?.code ?? 100;
 };
+
+export const getMainCategoryCodeFromLabel = (mainCategoryLabel: string): number => {
+	const mainCategory = categories.find((categoryItem) => {
+		return categoryItem.path === mainCategoryLabel;
+	});
+	return mainCategory?.code ?? 0;
+};

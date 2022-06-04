@@ -50,6 +50,7 @@ export interface StudyUser {
 }
 
 export interface UserProfile {
+	USER_ID?: string;
 	userId: string;
 	userName: string;
 	dept: string;

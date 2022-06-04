@@ -67,7 +67,7 @@ const API = {
 				frequency: filter?.frequency?.[0],
 				location: filter?.location?.join(','),
 				weekday: filter?.weekday?.join(','),
-				categoryCode: filter?.categoryCode?.[0]?.code,
+				categoryCode: filter?.categoryCode?.join(','),
 				limit: pagination?.limit ?? 15,
 				pageNo: pagination?.pageNo ?? 1,
 			},

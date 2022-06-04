@@ -3,36 +3,30 @@ import StudyList from '@src/app/study/studyList/StudyList';
 import DesktopMainCategoryContainer from '@src/app/study/desktop/mainCategory/DesktopMainCategoryContainer';
 import StudySortFilterContainer from '@study/studySortFilter/StudySortFilterContainer';
 import DesktopSubCategoryContainer from '@src/app/study/desktop/subCategory/DesktopSubCategoryContainer';
-import { useAtom } from 'jotai';
-import { studyListState } from '@src/state';
-import { MainCategoryType, CategoryType } from '@src/types';
+import { MainCategoryType } from '@src/types';
 import { Container } from '@material-ui/core';
 import DesktopStudySidebar from '@src/app/study/desktop/sidebar/DesktopStudySidebar';
+import { useHistory, useLocation } from 'react-router-dom';
 import './index.scss';
 
 const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
-	const [state, setState] = useAtom(studyListState);
+	const history = useHistory();
+	const location = useLocation();
+	const { pathname } = location;
 
-	const { filterOption } = state;
+	const path = pathname.split('study/')[1];
 
 	useEffect(() => {
-		// TODO
-		// API 연동
-		setState({ ...state, filterOption: { ...filterOption, categoryCode: [] as CategoryType[] } });
+		if (mainCategory) {
+			history.push(`/study/${mainCategory.path}`);
+		}
 	}, [mainCategory]);
-
-	const onClick = (category: CategoryType) => {
-		setState({
-			...state,
-			filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.filter((item) => item !== category) },
-		});
-	};
 
 	return (
 		<Container className="dekstop-study-list-container">
 			<DesktopMainCategoryContainer onChange={setMainCategory} />
-			{mainCategory && <DesktopSubCategoryContainer mainCategory={mainCategory} />}
+			{path && <DesktopSubCategoryContainer />}
 			<Container className="dekstop-study-list-content-container">
 				<DesktopStudySidebar />
 				<Container className="desktop-study-list-content">

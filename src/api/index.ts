@@ -61,14 +61,12 @@ const API = {
 	},
 	// 스터디 목록 조회
 	getStudies(orderBy?: string, filter?: IFilterOption, pagination?: IPaginationOption) {
-		// FIXME
-		// 멀티 필터 가능하도록 수정
 		return client.get('/study', {
 			params: {
 				order_by: orderBy,
 				frequency: filter?.frequency?.[0],
-				location: filter?.location?.[0],
-				weekday: filter?.weekday?.[0],
+				location: filter?.location?.join(','),
+				weekday: filter?.weekday?.join(','),
 				categoryCode: filter?.categoryCode?.[0]?.code,
 				limit: pagination?.limit ?? 15,
 				pageNo: pagination?.pageNo ?? 1,

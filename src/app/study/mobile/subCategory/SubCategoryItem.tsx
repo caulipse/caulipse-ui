@@ -26,7 +26,7 @@ const SubCategoryItem = ({
 	};
 
 	// FIXME
-	const count = 10;
+	// const count = 10;
 	return withClose ? (
 		<Container className="sub-category-collpsed-item-container" onClick={handleClick}>
 			<Chip onClick={handleClick} label={category.label} selected={selected} type={ChipTypeEnum.secondary} withClose />
@@ -34,7 +34,7 @@ const SubCategoryItem = ({
 	) : (
 		<Grid container item xs={6} className="sub-category-item-container" onClick={handleClick}>
 			<Chip onClick={handleClick} label={category.label} selected={selected} type={ChipTypeEnum.secondary} />
-			<span className={classnames('sub-category-item-span', { selected })}>{count}</span>
+			{/* <span className={classnames('sub-category-item-span', { selected })}>{count}</span> */}
 		</Grid>
 	);
 };

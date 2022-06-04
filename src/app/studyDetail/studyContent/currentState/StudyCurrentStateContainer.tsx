@@ -24,7 +24,6 @@ const StudyCurrentStateContainer = ({
 
 	if (isStudyParticipantsLoading || waitingStudyUser?.isLoading) return <Loader />;
 
-	// TODO: 수락 대기중 api 추가
 	return studyParticipantsData ? (
 		<StudyCurrentStatePresenter
 			host={host}

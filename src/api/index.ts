@@ -99,7 +99,7 @@ const API = {
 	},
 	// 현재 참가 신청 중인 사용자 목록을 읽어옵니다.
 	getStudyUsers(id: string) {
-		return client.get(`/study/user/${id}`);
+		return client.get(`/study/${id}/user`);
 	},
 	// 스터디 참가 신청
 	postStudyUser(request: IRequestPostStudyUser) {
@@ -107,7 +107,7 @@ const API = {
 	},
 	// 참가신청 현황 수정
 	patchStudyUser(request: IRequestPatchStudyUser) {
-		return client.patch(`/study/user/${request.id}`, request);
+		return client.patch(`/study/${request.id}/user`, request);
 	},
 	// 참가신청 취소
 	deleteStudyUser(request: IRequestDeleteStudyUser) {

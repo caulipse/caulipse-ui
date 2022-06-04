@@ -7,6 +7,9 @@ import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
 import { Study } from '@api/types';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
+import { useLocation } from 'react-router-dom';
+import { getMainCategoryCodeFromLabel } from '@src/app/shared/utils/category';
+
 import './index.scss';
 
 const StudyList = (): JSX.Element => {
@@ -15,6 +18,13 @@ const StudyList = (): JSX.Element => {
 	const { filterOption, sortOption, paginationOption } = state;
 
 	const { pageNo } = paginationOption;
+
+	const { pathname } = useLocation();
+	const label = pathname.split('study/')[1];
+
+	const code = useMemo(() => {
+		return getMainCategoryCodeFromLabel(label);
+	}, [label]);
 
 	const { data, isLoading } = fetchStudies(sortOption?.value, filterOption, paginationOption);
 
@@ -42,7 +52,25 @@ const StudyList = (): JSX.Element => {
 
 	useEffect(() => {
 		if (isOnScreen && pageNo && pageNo < totalPage) {
-			setState({ ...state, paginationOption: { ...state?.paginationOption, pageNo: pageNo + 1 } });
+			if (!code) {
+				setState({ ...state, paginationOption: { ...state?.paginationOption, pageNo: pageNo + 1 } });
+			} else {
+				const category = { label, code };
+				const categoryFilter = state?.filterOption?.categoryCode?.concat(category);
+				setState({
+					...state,
+					filterOption: { ...state?.filterOption, categoryCode: categoryFilter },
+					paginationOption: { ...state?.paginationOption, pageNo: pageNo + 1 },
+				});
+			}
+		} else {
+			if (!code) return;
+			const category = { label, code };
+			const categoryFilter = state?.filterOption?.categoryCode?.concat(category);
+			setState({
+				...state,
+				filterOption: { ...state?.filterOption, categoryCode: categoryFilter },
+			});
 		}
 	}, [isOnScreen]);
 

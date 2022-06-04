@@ -16,14 +16,10 @@ const StudyUserItemContainer = ({ studyUser, isHost, isAccepted = true }: StudyU
 		openModal(ModalKeyEnum.ApproveCancelModal, studyUser);
 	};
 
-	// TODO
-	// Link 버그 수정
 	return (
 		<>
-			{/* <Link to={`/user/${studyUser?.userId}`}> */}
 			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} isHost={isHost} isAccepted={isAccepted} />
 		</>
-		//  </Link>
 	);
 };
 

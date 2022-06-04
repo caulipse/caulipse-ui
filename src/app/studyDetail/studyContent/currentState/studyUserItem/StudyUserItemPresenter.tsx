@@ -5,6 +5,7 @@ import './styles.scss';
 import { Box, Button } from '@material-ui/core';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
+import ProfileImage from '@src/components/common/profileImage';
 
 interface StudyUserItemPresenterProps {
 	studyUser: StudyUser;
@@ -33,8 +34,10 @@ const StudyUserItemPresenter = ({
 					<IoEllipsisVertical size={24} color="#b1b1b1" />
 				</button>
 			)}
-			<img className="study-user-item-img" src={studyUser.profilePicture} alt="" width={40} height={40} />
-			<div className="study-user-item-username">{studyUser.userName}</div>
+			<div className="study-user-item-img-con">
+				<ProfileImage userId={studyUser.userId} userImage={studyUser.image} width={40} height={40} />
+				<div className="study-user-item-username">{studyUser.username}</div>
+			</div>
 			{/* TODO: 수락 대기중인 경우에 날짜 표시 */}
 			{isAccepted ? (
 				<div className="study-user-item-intro">{studyUser.tempBio}</div>

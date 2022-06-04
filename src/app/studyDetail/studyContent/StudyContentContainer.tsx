@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { UserProfile } from '@src/api/types';
 import React, { useState } from 'react';
 import StudyAskContainer from './ask/StudyAskContainer';
 import StudyCurrentStateContainer from './currentState/StudyCurrentStateContainer';
@@ -7,7 +8,7 @@ import './styles.scss';
 
 interface StudyContentContainerProps {
 	studyId: string;
-	hostId: string;
+	hostId: UserProfile;
 	createdAt: string;
 	views: number;
 	bookmarkCount: number;
@@ -47,8 +48,8 @@ const StudyContentContainer = ({
 				/>
 			);
 		if (i === 2)
-			return <StudyCurrentStateContainer studyId={studyId} hostId={hostId} capacity={capacity} isHost={isHost} />;
-		if (i === 3) return <StudyAskContainer studyId={studyId} hostId={hostId} />;
+			return <StudyCurrentStateContainer studyId={studyId} host={hostId} capacity={capacity} isHost={isHost} />;
+		if (i === 3) return <StudyAskContainer studyId={studyId} hostId={hostId.userId} />;
 
 		return <div />;
 	};

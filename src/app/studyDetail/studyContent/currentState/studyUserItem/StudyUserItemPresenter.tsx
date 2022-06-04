@@ -5,12 +5,19 @@ import './styles.scss';
 import { Box, Button } from '@material-ui/core';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
+import ProfileImage from '@src/components/common/profileImage';
+import usePatchStudyUserAccept from '@src/hooks/remotes/studyUser/usePatchStudyUserAccept';
+import { useQueryClient } from 'react-query';
+import QUERY_KEY from '@src/hooks/remotes';
 
 interface StudyUserItemPresenterProps {
 	studyUser: StudyUser;
 	onClick: () => void;
 	isHost: boolean;
 	isAccepted: boolean;
+	capacity?: number | undefined;
+	accepetedUserLength?: number | undefined;
+	studyId?: string | undefined;
 }
 
 // TODO: userName, profilePicture 서버에서 값 내려주면 확인하기
@@ -19,11 +26,34 @@ const StudyUserItemPresenter = ({
 	onClick,
 	isHost,
 	isAccepted,
+	capacity,
+	accepetedUserLength,
+	studyId,
 }: StudyUserItemPresenterProps): JSX.Element => {
 	const { openModal } = useModal();
+	const accpetUser = usePatchStudyUserAccept();
+	const client = useQueryClient();
 
 	const handleAccept = () => {
-		openModal(ModalKeyEnum.StudyApproveModal);
+		accpetUser.mutate(
+			{
+				id: studyId!,
+				data: {
+					accept: true,
+					userId: studyUser.userId,
+				},
+			},
+			{
+				onSuccess: () => {
+					openModal(ModalKeyEnum.StudyApproveModal, {
+						current: accepetedUserLength,
+						total: capacity,
+					});
+					client.refetchQueries(QUERY_KEY.FETCH_STUDY_USERS);
+					client.refetchQueries(QUERY_KEY.FETCH_STUDY_PARTICIPANTS);
+				},
+			}
+		);
 	};
 
 	return (
@@ -33,8 +63,10 @@ const StudyUserItemPresenter = ({
 					<IoEllipsisVertical size={24} color="#b1b1b1" />
 				</button>
 			)}
-			<img className="study-user-item-img" src={studyUser.profilePicture} alt="" width={40} height={40} />
-			<div className="study-user-item-username">{studyUser.userName}</div>
+			<div className="study-user-item-img-con">
+				<ProfileImage userId={studyUser.userId} userImage={studyUser.image} width={40} height={40} />
+				<div className="study-user-item-username">{studyUser.username}</div>
+			</div>
 			{/* TODO: 수락 대기중인 경우에 날짜 표시 */}
 			{isAccepted ? (
 				<div className="study-user-item-intro">{studyUser.tempBio}</div>

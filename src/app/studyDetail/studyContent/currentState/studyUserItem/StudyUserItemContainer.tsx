@@ -8,22 +8,36 @@ interface StudyUserItemContainerProps {
 	studyUser: StudyUser;
 	isHost: boolean;
 	isAccepted?: boolean;
+	capacity?: number | undefined;
+	accepetedUserLength?: number | undefined;
+	studyId?: string | undefined;
 }
 
-const StudyUserItemContainer = ({ studyUser, isHost, isAccepted = true }: StudyUserItemContainerProps): JSX.Element => {
+const StudyUserItemContainer = ({
+	studyUser,
+	isHost,
+	isAccepted = true,
+	capacity,
+	accepetedUserLength,
+	studyId,
+}: StudyUserItemContainerProps): JSX.Element => {
 	const { openModal } = useModal();
 	const onClick = () => {
 		openModal(ModalKeyEnum.ApproveCancelModal, studyUser);
 	};
 
-	// TODO
-	// Link 버그 수정
 	return (
 		<>
-			{/* <Link to={`/user/${studyUser?.userId}`}> */}
-			<StudyUserItemPresenter studyUser={studyUser} onClick={onClick} isHost={isHost} isAccepted={isAccepted} />
+			<StudyUserItemPresenter
+				studyUser={studyUser}
+				onClick={onClick}
+				isHost={isHost}
+				isAccepted={isAccepted}
+				capacity={capacity}
+				accepetedUserLength={accepetedUserLength}
+				studyId={studyId}
+			/>
 		</>
-		//  </Link>
 	);
 };
 

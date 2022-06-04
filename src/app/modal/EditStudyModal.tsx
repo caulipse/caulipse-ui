@@ -30,7 +30,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 
 	const [currentTab, setCurrentTab] = useState(EDIT_STUDY_TAB_ENUM.TAG);
 	const [selectedDate, setSelectedDate] = useState<Date>(new Date(initialStudyData.createdAt));
-	const [selectedCapacity, setSelectedCapcity] = useState<number>(initialStudyData.capacity);
+	const [selectedCapacity, setSelectedcapacity] = useState<number>(initialStudyData.capacity);
 	const [selectedMainCategoryCode, setSelectedMainCategoryCode] = useState<number>(
 		getMainCategoryCode(initialStudyData.categoryCode)
 	);
@@ -104,7 +104,7 @@ const EditStudyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 							selectedDate={selectedDate}
 							setSelectedDate={setSelectedDate}
 							selectedCapacity={selectedCapacity}
-							setSelectedCapacity={setSelectedCapcity}
+							setSelectedCapacity={setSelectedcapacity}
 							selectedMainCategoryCode={selectedMainCategoryCode}
 							setSelectedMainCategoryCode={setSelectedMainCategoryCode}
 							selectedSubCategoryCode={selectedSubCategoryCode}

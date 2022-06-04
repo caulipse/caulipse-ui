@@ -13,7 +13,7 @@ const StudyUserHostItemPresenter = ({ user }: StudyUserHostItemPresenterProps): 
 			{user ? (
 				<>
 					<ProfileImage
-						userId={user.userId}
+						userId={user?.USER_ID ?? user.userId}
 						userImage={user.image}
 						width={40}
 						height={40}

@@ -16,8 +16,11 @@
       right: 1.5rem;
     }
   }
-  &-img{
-    border-radius: 50px;
+  &-img-con{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   &-username{
     margin-top: 1rem;

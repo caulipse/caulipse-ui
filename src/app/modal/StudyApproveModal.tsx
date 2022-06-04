@@ -3,20 +3,22 @@ import { Button, Container, Typography } from '@material-ui/core';
 import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
+import { modalState } from '@src/state';
+import { useAtom } from 'jotai';
 
 const StudyApproveModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const [state] = useAtom(modalState);
+
 	const onClick = () => {
 		onClose(false);
 	};
-	// TODO dummy data API 연동
 
-	const current = 4;
-	const total = 6;
-	const isCompleted = false;
+	const { current = 0 } = state.params;
+	const { total = 0 } = state.params;
 
-	// const isCompleted = useMemo(() => {
-	// 	return current === total;
-	// }, [current, total]);
+	const isCompleted = useMemo(() => {
+		return current === total;
+	}, [current, total]);
 
 	return (
 		<SimpleModal

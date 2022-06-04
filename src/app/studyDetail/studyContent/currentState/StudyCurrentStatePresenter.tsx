@@ -10,6 +10,7 @@ interface StudyCurrentStatePresenterProps {
 	host: UserProfile;
 	capacity: number;
 	isHost: boolean;
+	studyId?: string | undefined;
 }
 
 const StudyCurrentStatePresenter = ({
@@ -18,6 +19,7 @@ const StudyCurrentStatePresenter = ({
 	capacity,
 	isHost,
 	waitingStudyUsers,
+	studyId,
 }: StudyCurrentStatePresenterProps): JSX.Element => {
 	return (
 		<div className="studyCurrentStateContainer">
@@ -32,7 +34,14 @@ const StudyCurrentStatePresenter = ({
 							{waitingStudyUsers?.map((studyUser: StudyUser, studyUserIndex: number) => {
 								return (
 									<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
-										<StudyUserItemContainer studyUser={studyUser} isHost={isHost} isAccepted={false} />
+										<StudyUserItemContainer
+											studyUser={studyUser}
+											isHost={isHost}
+											isAccepted={false}
+											capacity={capacity}
+											accepetedUserLength={studyUsers.length + 1}
+											studyId={studyId}
+										/>
 									</div>
 								);
 							})}

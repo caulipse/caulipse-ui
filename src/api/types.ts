@@ -24,7 +24,7 @@ export interface Study {
 	categoryCode: string;
 	createdAt: string;
 	frequency: frequencyEnum;
-	hostId?: Host;
+	hostId: UserProfile;
 	id: string;
 	isOpen: boolean;
 	location: locationEnum[];
@@ -39,17 +39,15 @@ export interface Study {
 }
 
 export interface StudyUser {
+	image: string;
 	studyId: string;
 	userId: string;
-	isAccepted: number;
+	username: string;
 	tempBio: string;
-	// TODO API 확인 필요. 실제 response 에 아래 필드는 누락되어 있음
-	userName?: string;
-	shortIntro?: string;
-	profilePicture?: string;
 }
 
 export interface UserProfile {
+	USER_ID?: string;
 	userId: string;
 	userName: string;
 	dept: string;

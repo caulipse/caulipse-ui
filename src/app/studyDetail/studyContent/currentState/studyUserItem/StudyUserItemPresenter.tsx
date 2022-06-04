@@ -6,6 +6,7 @@ import { Box, Button } from '@material-ui/core';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import ProfileImage from '@src/components/common/profileImage';
+import usePatchStudyUserAccept from '@src/hooks/remotes/studyUser/usePatchStudyUserAccept';
 
 interface StudyUserItemPresenterProps {
 	studyUser: StudyUser;
@@ -14,6 +15,7 @@ interface StudyUserItemPresenterProps {
 	isAccepted: boolean;
 	capacity?: number | undefined;
 	accepetedUserLength?: number | undefined;
+	studyId?: string | undefined;
 }
 
 // TODO: userName, profilePicture 서버에서 값 내려주면 확인하기
@@ -24,14 +26,29 @@ const StudyUserItemPresenter = ({
 	isAccepted,
 	capacity,
 	accepetedUserLength,
+	studyId,
 }: StudyUserItemPresenterProps): JSX.Element => {
 	const { openModal } = useModal();
+	const accpetUser = usePatchStudyUserAccept();
 
 	const handleAccept = () => {
-		openModal(ModalKeyEnum.StudyApproveModal, {
-			current: accepetedUserLength,
-			total: capacity,
-		});
+		accpetUser.mutate(
+			{
+				id: studyId!,
+				data: {
+					accept: true,
+					userId: studyUser.userId,
+				},
+			},
+			{
+				onSuccess: () => {
+					openModal(ModalKeyEnum.StudyApproveModal, {
+						current: accepetedUserLength,
+						total: capacity,
+					});
+				},
+			}
+		);
 	};
 
 	return (

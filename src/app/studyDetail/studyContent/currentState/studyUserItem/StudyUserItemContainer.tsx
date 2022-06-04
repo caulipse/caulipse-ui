@@ -10,6 +10,7 @@ interface StudyUserItemContainerProps {
 	isAccepted?: boolean;
 	capacity?: number | undefined;
 	accepetedUserLength?: number | undefined;
+	studyId?: string | undefined;
 }
 
 const StudyUserItemContainer = ({
@@ -18,6 +19,7 @@ const StudyUserItemContainer = ({
 	isAccepted = true,
 	capacity,
 	accepetedUserLength,
+	studyId,
 }: StudyUserItemContainerProps): JSX.Element => {
 	const { openModal } = useModal();
 	const onClick = () => {
@@ -33,6 +35,7 @@ const StudyUserItemContainer = ({
 				isAccepted={isAccepted}
 				capacity={capacity}
 				accepetedUserLength={accepetedUserLength}
+				studyId={studyId}
 			/>
 		</>
 	);

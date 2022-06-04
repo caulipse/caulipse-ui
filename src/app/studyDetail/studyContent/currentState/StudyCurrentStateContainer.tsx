@@ -31,6 +31,7 @@ const StudyCurrentStateContainer = ({
 			waitingStudyUsers={waitingStudyUser?.data}
 			capacity={capacity}
 			isHost={isHost}
+			studyId={studyId}
 		/>
 	) : (
 		<div />

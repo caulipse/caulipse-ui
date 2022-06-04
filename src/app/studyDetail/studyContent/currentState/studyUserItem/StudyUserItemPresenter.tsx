@@ -7,6 +7,8 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import ProfileImage from '@src/components/common/profileImage';
 import usePatchStudyUserAccept from '@src/hooks/remotes/studyUser/usePatchStudyUserAccept';
+import { useQueryClient } from 'react-query';
+import QUERY_KEY from '@src/hooks/remotes';
 
 interface StudyUserItemPresenterProps {
 	studyUser: StudyUser;
@@ -30,6 +32,7 @@ const StudyUserItemPresenter = ({
 }: StudyUserItemPresenterProps): JSX.Element => {
 	const { openModal } = useModal();
 	const accpetUser = usePatchStudyUserAccept();
+	const client = useQueryClient();
 
 	const handleAccept = () => {
 		accpetUser.mutate(
@@ -46,6 +49,8 @@ const StudyUserItemPresenter = ({
 						current: accepetedUserLength,
 						total: capacity,
 					});
+					client.refetchQueries(QUERY_KEY.FETCH_STUDY_USERS);
+					client.refetchQueries(QUERY_KEY.FETCH_STUDY_PARTICIPANTS);
 				},
 			}
 		);

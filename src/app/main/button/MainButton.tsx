@@ -36,8 +36,12 @@ const MainButton = ({ isDesktop = false }: IMainButtonProps) => {
 	) : (
 		<Container className="mobile-main-button" onClick={onClick}>
 			<Container className="main-button-container">
-				<Typography className="mobile-main-button-title">중대본 시작하기</Typography>
-				<Typography className="mobile-main-button-text">편하고 빠르게 스터디를 시작해보세요!</Typography>
+				<Typography className="mobile-main-button-title">
+					{!state.login ? '중대본 시작하기' : '스터디 모집하기'}
+				</Typography>
+				<Typography className="mobile-main-button-text">
+					{!state.login ? '편하고 빠르게 스터디를 시작해보세요 :)' : '지금 바로 중앙대에서 스터디원을 모집해보세요!'}
+				</Typography>
 			</Container>
 			<IoChevronForward />
 		</Container>

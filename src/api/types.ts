@@ -44,6 +44,7 @@ export interface StudyUser {
 	userId: string;
 	username: string;
 	tempBio: string;
+	createdAt?: string;
 }
 
 export interface UserProfile {

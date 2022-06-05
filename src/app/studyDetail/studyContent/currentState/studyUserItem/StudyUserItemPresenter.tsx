@@ -9,6 +9,7 @@ import ProfileImage from '@src/components/common/profileImage';
 import usePatchStudyUserAccept from '@src/hooks/remotes/studyUser/usePatchStudyUserAccept';
 import { useQueryClient } from 'react-query';
 import QUERY_KEY from '@src/hooks/remotes';
+import { format } from 'date-fns/esm';
 
 interface StudyUserItemPresenterProps {
 	studyUser: StudyUser;
@@ -20,7 +21,6 @@ interface StudyUserItemPresenterProps {
 	studyId?: string | undefined;
 }
 
-// TODO: userName, profilePicture 서버에서 값 내려주면 확인하기
 const StudyUserItemPresenter = ({
 	studyUser,
 	onClick,
@@ -72,6 +72,7 @@ const StudyUserItemPresenter = ({
 				<div className="study-user-item-intro">{studyUser.tempBio}</div>
 			) : (
 				<Box>
+					<div className="study-user-item-intro">{format(new Date(studyUser?.createdAt ?? ''), 'yy-MM-dd')}</div>
 					<Button className="study-user-item-accept-btn" variant="contained" onClick={handleAccept} disableElevation>
 						신청 수락
 					</Button>

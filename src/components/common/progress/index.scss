@@ -28,12 +28,3 @@
         @include text(#939699);
     }
 }
-
-
-::-webkit-progress-bar {
-    background-color: #ececec;
-}
-
-::-webkit-progress-value {
-    background-image: linear-gradient(to right, #ffe2ec -18%, #f78819 112%, #73787e 112%);
-}

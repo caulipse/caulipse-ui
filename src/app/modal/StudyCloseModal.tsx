@@ -10,11 +10,11 @@ import useCloseStudy from '@src/hooks/remotes/study/useCloseStudy';
 
 const StudyCloseModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [state] = useAtom(modalState);
-	const { data } = useFetchStudy(state.params);
+	const { data } = useFetchStudy(state.params.id);
 	const closeStudy = useCloseStudy();
 
 	const onClick = () => {
-		closeStudy.mutate(state.params);
+		closeStudy.mutate(state.params.id);
 	};
 
 	return (

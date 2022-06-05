@@ -26,7 +26,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const [value, setValue] = useState(
 		data?.userProfile?.bio ?? '시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.'
 	);
-	const [isPublic, setIsPublic] = useState(false);
+	const [isPublic, setIsPublic] = useState(true);
 
 	useEffect(() => {
 		if (data?.userProfile?.bio) {
@@ -78,7 +78,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 					</Container>
 				</Container>
 				<Container>
-					<CommonButton title="신청하기!" onClick={onClick} disabled={disabled} />
+					<CommonButton title="신청하기" onClick={onClick} disabled={disabled} />
 				</Container>
 			</Container>
 		</Modal>

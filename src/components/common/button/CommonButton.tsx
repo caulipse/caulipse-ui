@@ -15,7 +15,12 @@ const CommonButton = ({
 	return (
 		<Button
 			disableFocusRipple
-			className={classnames('common-button', { 'secondary-button': type === ButtonTypeEnum.secondary }, className)}
+			className={classnames(
+				'common-button',
+				{ 'secondary-button': type === ButtonTypeEnum.secondary },
+				{ 'tertiary-button': type === ButtonTypeEnum.tertiary },
+				className
+			)}
 			style={style}
 			disabled={disabled}
 			onClick={onClick}

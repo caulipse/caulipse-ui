@@ -104,8 +104,10 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 				<Box className="study-post-modal-header-title">
 					{currentStep === 0 ? (
 						<img src={logoDefaultWhite} alt="" className="header-logo" />
-					) : (
+					) : currentStep === 1 ? (
 						`세부조건 (${currentStep + 1}/3)`
+					) : (
+						'글 작성 (3/3)'
 					)}
 				</Box>
 				<Box className="study-post-modal-icon" />
@@ -148,7 +150,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			return (
 				<CommonButton
 					type={ButtonTypeEnum.primary}
-					title="확인"
+					title="다음"
 					onClick={handleNextBtn}
 					className="study-post-modal-cta-btn"
 					disabled={!selectedMainCategoryCode}
@@ -159,14 +161,14 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		return (
 			<>
 				<CommonButton
-					type={ButtonTypeEnum.secondary}
+					type={ButtonTypeEnum.tertiary}
 					title="이전"
 					onClick={handlePrevBtn}
 					className="study-post-modal-cta-btn flex1"
 				/>
 				<CommonButton
 					type={ButtonTypeEnum.primary}
-					title={currentStep === 2 ? '글 등록하기!' : '다음'}
+					title={currentStep === 2 ? '등록하기' : '다음'}
 					onClick={currentStep === 2 ? handlePostStudy : handleNextBtn}
 					className="study-post-modal-cta-btn flex2"
 					disabled={

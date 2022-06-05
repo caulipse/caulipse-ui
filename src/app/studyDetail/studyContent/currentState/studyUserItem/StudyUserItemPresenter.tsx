@@ -46,7 +46,7 @@ const StudyUserItemPresenter = ({
 			{
 				onSuccess: () => {
 					openModal(ModalKeyEnum.StudyApproveModal, {
-						current: accepetedUserLength,
+						current: accepetedUserLength ?? 0 + 2, // 모집자 + 추가된 사람까지 포함해서 2명 더하기
 						total: capacity,
 					});
 					client.refetchQueries(QUERY_KEY.FETCH_STUDY_USERS);

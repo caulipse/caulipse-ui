@@ -161,7 +161,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		return (
 			<>
 				<CommonButton
-					type={ButtonTypeEnum.secondary}
+					type={ButtonTypeEnum.tertiary}
 					title="이전"
 					onClick={handlePrevBtn}
 					className="study-post-modal-cta-btn flex1"

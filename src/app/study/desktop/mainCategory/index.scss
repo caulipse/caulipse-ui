@@ -3,13 +3,16 @@
 .desktop-main-category-presenter-container {
     background: #fff;
     display: flex !important;
+    flex-direction: row !important;
     max-width: 100% !important;
     height: 11.5rem;
     align-items: center;
     padding: 2.75rem 0 !important; 
     overflow-y: hidden;
+    overflow-x: scroll;
     margin: 0 auto !important;
     justify-content: center;
+    padding-left: 14rem !important;
     div + div {
         margin-left: 1rem;
     }
@@ -28,12 +31,16 @@
     }
 }
 
+.study-page-desktop-main-category-item-selected{
+    border: solid 4px $primaryColor !important;
+}
+
 .study-page-desktop-main-category-item-title-container {
     color: #fff;
     display: flex !important;
     align-items: center;
     justify-content: center;
-    background-color: rgba(2, 27, 56, 0.6);
+    background-color: rgba(2, 11, 25, 0.4) !important;
     position: absolute;
     top: 0;
     padding: 0 !important;

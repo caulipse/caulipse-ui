@@ -12,7 +12,7 @@ import { studyListState } from '@src/state';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
 import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import mobileGirlWithLaptop from '@src/assets/img/illustration/mobileGirlWithLaptop.svg';
-import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.svg';
+import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.png';
 import MainButton from '../button/MainButton';
 import MainCategoryItem from './MainCategoryItem';
 
@@ -77,7 +77,7 @@ const MobileMainPage = (): JSX.Element => {
 				<MainButton />
 			</Container>
 			<Container className="mobile-main-page-main-category-container">
-				<Typography>📚 어떤 스터디 찾으세요?</Typography>
+				<Typography>지금은 베타서비스 기간입니다🙌 많은 의견 부탁드려요</Typography>
 				<Container className="mobile-main-page-main-category-item-container">
 					{categoryArr.map((category) => (
 						<MainCategoryItem key={category.code} category={category} onClick={onClick} />
@@ -89,7 +89,7 @@ const MobileMainPage = (): JSX.Element => {
 				{studies?.map((study) => (
 					<StudyCardContainer study={study} key={study.id} />
 				))}
-				<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+				<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 			</Container>
 		</>
 	);

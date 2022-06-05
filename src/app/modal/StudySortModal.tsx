@@ -24,7 +24,7 @@ const StudySortModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	};
 
 	return (
-		<SimpleModal open={open} onClose={onClick} title="정렬 기준" height="25.125rem">
+		<SimpleModal open={open} onClose={onClick} title="정렬 기준">
 			<Container className="simple-modal-content-container">
 				<RadioGroup value={selectedOption} onChange={onChange}>
 					{sortOptions.map((option) => {

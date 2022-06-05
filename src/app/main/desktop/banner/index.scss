@@ -7,7 +7,7 @@
     color: #fff;
     margin-bottom: 2.5rem;
     max-width: 100% !important;
-    background-image: url('../../../../assets/img/illustration/mainBg.svg');
+    background-image: linear-gradient(176deg, #306eea 10%, #3877ec 29%, #81c7ff 82%);
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
@@ -25,6 +25,11 @@
         font-weight: bold !important;
         margin: 0 !important; 
     }
+}
+
+.desktop-main-banner-title-img{
+    width:19.438rem !important;
+    height: auto !important;
 }
 
 .desktop-main-banner-category-container {

@@ -44,7 +44,7 @@ const DesktopMainPageStudyList = (): JSX.Element => {
 
 	return (
 		<Container className="desktop-main-page-study-list-container">
-			<Typography>곧 마감이 되는 스터디들이에요!</Typography>
+			<Typography>지금은 베타서비스 기간입니다🙌 많은 의견 부탁드려요</Typography>
 			{studies?.map((study) => (
 				<StudyCardContainer study={study} key={study.id} />
 			))}

@@ -22,13 +22,15 @@ const DesktopMainSidebar = (): JSX.Element => {
 		<Container className="desktop-main-sidebar">
 			<MainButton isDesktop />
 			<Container className="desktop-main-sidebar-container">
-				<Container className="desktop-main-sidebar-item-container">
-					<Container>
-						<Typography className="desktop-main-sidebar-item-container-text">이클래스 바로가기</Typography>
-						<Typography className="desktop-main-sidebar-item-container-title">중앙대 이클래스</Typography>
+				<a href="https://eclass3.cau.ac.kr/">
+					<Container className="desktop-main-sidebar-item-container">
+						<Container>
+							<Typography className="desktop-main-sidebar-item-container-text">이클래스 바로가기</Typography>
+							<Typography className="desktop-main-sidebar-item-container-title">중앙대 이클래스</Typography>
+						</Container>
+						<IoChevronForward />
 					</Container>
-					<IoChevronForward />
-				</Container>
+				</a>
 				<hr className="desktop-main-sidebar-item-divider" />
 				<Container className="desktop-main-sidebar-item-container">
 					<Container>

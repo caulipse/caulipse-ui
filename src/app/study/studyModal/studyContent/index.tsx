@@ -22,7 +22,7 @@ const StudyContent = ({
 	return (
 		<>
 			<Box className="study-content-body-content-header mt2rem">
-				<Box className="study-content-title">제목</Box>
+				<Box className="study-content-title">모집글 제목</Box>
 				<Box className="study-content-subtitle">
 					({selectedTitle.length}/{TITLE_MAX})
 				</Box>
@@ -34,13 +34,13 @@ const StudyContent = ({
 				textFieldProps={{
 					variant: 'outlined',
 					minRows: 1,
-					placeholder: '제목을 입력해 주세요.',
+					placeholder: '스터디 제목을 입력해주세요.',
 					multiline: true,
 					inputProps: { maxLength: TITLE_MAX },
 				}}
 			/>
 			<Box className="study-content-body-content-header mt2rem">
-				<Box className="study-content-title">본문</Box>
+				<Box className="study-content-title">모집글 본문</Box>
 				<Box className="study-content-subtitle">
 					({selectedContent.length}/{CONTENT_MAX})
 				</Box>
@@ -52,7 +52,7 @@ const StudyContent = ({
 				textFieldProps={{
 					variant: 'outlined',
 					minRows: 5,
-					placeholder: '본문을 입력해 주세요.',
+					placeholder: '모집글 본문을 작성해주세요',
 					multiline: true,
 					inputProps: { maxLength: CONTENT_MAX },
 				}}

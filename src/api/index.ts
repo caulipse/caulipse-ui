@@ -61,13 +61,14 @@ const API = {
 	},
 	// 스터디 목록 조회
 	getStudies(orderBy?: string, filter?: IFilterOption, pagination?: IPaginationOption) {
+		const categoryCodes = filter?.categoryCode?.map((item) => item.code);
 		return client.get('/study', {
 			params: {
 				order_by: orderBy,
 				frequency: filter?.frequency?.[0],
 				location: filter?.location?.join(','),
 				weekday: filter?.weekday?.join(','),
-				categoryCode: filter?.categoryCode?.join(','),
+				categoryCode: categoryCodes?.join(','),
 				limit: pagination?.limit ?? 15,
 				pageNo: pagination?.pageNo ?? 1,
 			},

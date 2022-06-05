@@ -32,7 +32,7 @@ const StudyCardPresenter = ({ study }: PresenterProps): JSX.Element => {
 				#{frequencyMapper[study.frequency]} #{study.weekday.map((weekdayItem) => weekdayMapper[weekdayItem]).join(',')}{' '}
 				#{study.location.map((locationItem) => locationMapper[locationItem]).join(',')}
 			</Typography>
-			<ProgressBar max={study.capacity} current={study.membersCount} />
+			<ProgressBar max={study.capacity} current={study.membersCount + 1} />
 		</Container>
 	);
 };

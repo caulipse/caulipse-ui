@@ -76,8 +76,7 @@ const AppliedStudiesPresenter = ({
 					className={classNames({ 'mb-438rem': index !== length - 1 })}
 					leftTopComponent={<LeftTopComponent />}
 					rightTopComponent={<RightTopComponent />}
-					// ProgressBar에 current와 max 값
-					bottomComponent={isOpen ? <ProgressBar current={4} max={8} /> : <div />}
+					bottomComponent={isOpen ? <ProgressBar current={item.membersCount + 1} max={item.capacity} /> : <div />}
 				/>
 			);
 		});

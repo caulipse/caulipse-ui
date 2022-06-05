@@ -23,9 +23,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 	const { userId } = userState;
 	const { data } = useFetchUserProfile(userId);
 
-	const [value, setValue] = useState(
-		data?.userProfile?.bio ?? '시와 별 이름을 가을로 위로무에 하나에 있습니다. 새겨지는 같이 어머니 있습니다.'
-	);
+	const [value, setValue] = useState(data?.userProfile?.bio ?? '');
 	const [isPublic, setIsPublic] = useState(true);
 
 	useEffect(() => {
@@ -68,7 +66,13 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 					<Container className="apply-modal-sub-title-container">
 						<span>한줄 소개글</span>
 					</Container>
-					<textarea maxLength={60} className="text-area" value={value} onChange={onChangeValue} />
+					<textarea
+						placeholder="신청자 카드에서 보여지는 소개글입니다."
+						maxLength={60}
+						className="text-area"
+						value={value}
+						onChange={onChangeValue}
+					/>
 					<Container className="apply-modal-sub-title-container space-between">
 						<span>학과정보 공개</span>
 						<Switch onChange={onChangeIsPublic} checked={isPublic} />

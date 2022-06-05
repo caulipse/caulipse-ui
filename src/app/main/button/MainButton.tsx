@@ -28,7 +28,7 @@ const MainButton = ({ isDesktop = false }: IMainButtonProps) => {
 	return isDesktop ? (
 		<Container className="desktop-main-button" onClick={onClick}>
 			<Container className="main-button-container">
-				<Typography className="desktop-main-button-text">스터디를 모집해 보세요!</Typography>
+				<Typography className="desktop-main-button-text">지금 바로 스터디</Typography>
 				<Typography className="desktop-main-button-title">스터디 모집하기</Typography>
 			</Container>
 			<IoChevronForward size={24} />

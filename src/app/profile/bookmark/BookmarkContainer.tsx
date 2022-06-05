@@ -7,13 +7,8 @@ import BookmarkPresenter from './BookmarkPresenter';
 const BookmarkContainer = (): JSX.Element => {
 	const { isLoading, data: bookmarks } = useFetchBookmarks();
 
-	const openedBookmarks = bookmarks?.filter(
-		(item) =>
-			isToday(new Date(item?.dueDate)) || (!isToday(new Date(item?.dueDate)) && isFuture(new Date(item?.dueDate)))
-	);
-	const closedBookmarks = bookmarks?.filter(
-		(item) => !isToday(new Date(item?.dueDate)) && isPast(new Date(item?.dueDate))
-	);
+	const openedBookmarks = bookmarks?.filter((item) => item.isOpen);
+	const closedBookmarks = bookmarks?.filter((item) => !item.isOpen);
 
 	return (
 		<div>

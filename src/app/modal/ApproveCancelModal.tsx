@@ -7,27 +7,45 @@ import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import { SnackbarTypeEnum } from '@common/snackbar/types';
 import usePatchStudyUserAccept from '@src/hooks/remotes/studyUser/usePatchStudyUserAccept';
 import { useAtom } from 'jotai';
-import globalState from '@src/state';
+import globalState, { modalState } from '@src/state';
+import { useQueryClient } from 'react-query';
+import useDeleteStudyUser from '@src/hooks/remotes/studyUser/useDeleteStudyUser';
+import QUERY_KEY from '@src/hooks/remotes';
 
 const ApproveCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openSnackbar } = useSnackbar();
-	const [state] = useAtom(globalState);
-	const { modal } = state;
-	const patchStudyUserAccept = usePatchStudyUserAccept();
+	const [modal] = useAtom(modalState);
+
+	const client = useQueryClient();
+
+	const deleteStudyUser = useDeleteStudyUser();
 	const onClick = () => {
-		patchStudyUserAccept.mutate({
-			id: modal.params.studyId,
-			data: {
-				accept: false,
-				userId: modal.params.userId,
-			},
-		});
-		onClose(false);
-		openSnackbar('스터디 수락을 취소하였습니다', SnackbarTypeEnum.secondary);
+		deleteStudyUser.mutate(
+			{ studyId: modal.params.studyId, userId: modal.params.userId },
+			{
+				onSuccess: () => {
+					onClose(false);
+					openSnackbar('스터디 수락 취소하였습니다.', SnackbarTypeEnum.secondary);
+					client.refetchQueries(`${QUERY_KEY.FETCH_STUDY}/${modal.params.studyId}`);
+				},
+				onError: () => {
+					onClose(false);
+					openSnackbar('스터디 신청 취소에 실패하였습니다.', SnackbarTypeEnum.secondary);
+				},
+			}
+		);
+		// patchStudyUserAccept.mutate({
+		// 	id: modal.params.studyId,
+		// 	data: {
+		// 		accept: false,
+		// 		userId: modal.params.userId,
+		// 	},
+		// });
+		// onClose(false);
+		// openSnackbar('스터디 수락을 취소하였습니다', SnackbarTypeEnum.secondary);
 	};
 
-	// TODO
-	const nickname = 'dummy';
+	const nickname = modal.params.username;
 	return (
 		<SimpleModal
 			open={open}

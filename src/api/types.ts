@@ -112,4 +112,5 @@ export interface AppliedStudy {
 	title: string;
 	views: number;
 	membersCount: number;
+	isOpen: number | boolean;
 }

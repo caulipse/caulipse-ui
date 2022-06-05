@@ -148,7 +148,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			return (
 				<CommonButton
 					type={ButtonTypeEnum.primary}
-					title="확인"
+					title="다음"
 					onClick={handleNextBtn}
 					className="study-post-modal-cta-btn"
 					disabled={!selectedMainCategoryCode}

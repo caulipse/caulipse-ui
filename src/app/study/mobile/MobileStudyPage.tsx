@@ -69,12 +69,13 @@ const MobileStudyPage = (): JSX.Element => {
 		});
 	};
 
+	const categories = filterOption?.categoryCode?.filter((item) => item.code % 100);
 	return (
 		<Container className="study-list-container">
 			<MobileMainCategoryContainer onChange={setMainCategory} />
 			{collapse ? (
 				filterOption?.categoryCode?.length && (
-					<SubCategoryCollapsedPresenter selectedSubCategories={filterOption?.categoryCode} onClick={onClick} />
+					<SubCategoryCollapsedPresenter selectedSubCategories={categories} onClick={onClick} />
 				)
 			) : (
 				<SubCategoryContainer />

@@ -14,7 +14,9 @@ const SubCategoryCollapsedContainer = (): JSX.Element => {
 			filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.filter((item) => item !== category) },
 		});
 	};
-	return <SubCategoryCollapsedPresenter selectedSubCategories={filterOption?.categoryCode} onClick={onClick} />;
+
+	const categories = filterOption?.categoryCode?.filter((item) => item.code % 100);
+	return <SubCategoryCollapsedPresenter selectedSubCategories={categories} onClick={onClick} />;
 };
 
 export default SubCategoryCollapsedContainer;

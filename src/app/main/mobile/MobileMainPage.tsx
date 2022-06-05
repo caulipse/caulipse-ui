@@ -12,7 +12,7 @@ import { studyListState } from '@src/state';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
 import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import mobileGirlWithLaptop from '@src/assets/img/illustration/mobileGirlWithLaptop.svg';
-import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.svg';
+import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.png';
 import MainButton from '../button/MainButton';
 import MainCategoryItem from './MainCategoryItem';
 
@@ -89,7 +89,7 @@ const MobileMainPage = (): JSX.Element => {
 				{studies?.map((study) => (
 					<StudyCardContainer study={study} key={study.id} />
 				))}
-				<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+				<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 			</Container>
 		</>
 	);

@@ -55,7 +55,7 @@ const BookmarkItem = ({ item, isBlurred, isBottomMargin = false }: BookmarkItemP
 			createdAt={item.createdAt}
 			views={item.views}
 			bookmarks={0}
-			bottomComponent={isBlurred ? undefined : <ProgressBar current={item.membersCount} max={item.capacity} />}
+			bottomComponent={isBlurred ? undefined : <ProgressBar current={item.membersCount + 1} max={item.capacity} />}
 			className={classNames({ 'mb-438rem': isBottomMargin })}
 		/>
 	);

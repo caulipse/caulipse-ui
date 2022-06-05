@@ -56,20 +56,28 @@ const StudyList = (): JSX.Element => {
 				setState({ ...state, paginationOption: { ...state?.paginationOption, pageNo: pageNo + 1 } });
 			} else {
 				const category = { label, code };
+				const duplicate = state?.filterOption?.categoryCode?.find((item) => item.code === code);
 				const categoryFilter = state?.filterOption?.categoryCode?.concat(category);
 				setState({
 					...state,
-					filterOption: { ...state?.filterOption, categoryCode: categoryFilter },
+					filterOption: {
+						...state?.filterOption,
+						categoryCode: duplicate ? state?.filterOption?.categoryCode : categoryFilter,
+					},
 					paginationOption: { ...state?.paginationOption, pageNo: pageNo + 1 },
 				});
 			}
 		} else {
 			if (!code) return;
 			const category = { label, code };
+			const duplicate = state?.filterOption?.categoryCode?.find((item) => item.code === code);
 			const categoryFilter = state?.filterOption?.categoryCode?.concat(category);
 			setState({
 				...state,
-				filterOption: { ...state?.filterOption, categoryCode: categoryFilter },
+				filterOption: {
+					...state?.filterOption,
+					categoryCode: duplicate ? state?.filterOption?.categoryCode : categoryFilter,
+				},
 			});
 		}
 	}, [isOnScreen]);

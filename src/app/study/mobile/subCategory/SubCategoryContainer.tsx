@@ -2,16 +2,14 @@ import React from 'react';
 import { CategoryType, MainCategoryType } from '@src/types';
 import { useAtom } from 'jotai';
 import { studyListState } from '@src/state';
+import { useLocation } from 'react-router-dom';
+import categories from '@src/const';
 import SubCategoryPresenter from './SubCategoryPresenter';
 
-interface ISubCategoryPresenterProps {
-	mainCategory: MainCategoryType | undefined;
-}
-
-const SubCategoryContainer = ({ mainCategory }: ISubCategoryPresenterProps): JSX.Element => {
+const SubCategoryContainer = (): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
 	const { filterOption } = state;
-
+	const { pathname } = useLocation();
 	const onChange = (category: CategoryType) => {
 		if (filterOption?.categoryCode?.includes(category)) {
 			setState({
@@ -22,13 +20,14 @@ const SubCategoryContainer = ({ mainCategory }: ISubCategoryPresenterProps): JSX
 				},
 			});
 		} else {
+			const categoryFilter = filterOption?.categoryCode?.filter((item) => item.code % 100);
 			setState({
 				...state,
-				filterOption: { ...filterOption, categoryCode: filterOption?.categoryCode?.concat(category) },
+				filterOption: { ...filterOption, categoryCode: categoryFilter?.concat(category) },
 			});
 		}
 	};
-
+	const mainCategory = categories.find((category) => category.path === pathname.split('study/')[1]);
 	return <SubCategoryPresenter onChange={onChange} mainCategory={mainCategory} />;
 };
 

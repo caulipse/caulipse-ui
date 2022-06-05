@@ -19,11 +19,12 @@ const DesktopSubCategoryItem = ({ category, onClick, selected = false }: IDeskto
 	};
 
 	// FIXME
-	const count = 10;
+	// API 개발이 필요하여 6/5 배포에서는 스펙아웃
+	// const count = 10;
 	return (
 		<Grid container item xs={4} className="desktop-sub-category-item-container" onClick={handleClick}>
 			<Chip onClick={handleClick} label={category.label} selected={selected} type={ChipTypeEnum.secondary} />
-			<span className={classnames('desktop-sub-category-item-span', { selected })}>{count}</span>
+			{/* <span className={classnames('desktop-sub-category-item-span', { selected })}>{count}</span> */}
 		</Grid>
 	);
 };

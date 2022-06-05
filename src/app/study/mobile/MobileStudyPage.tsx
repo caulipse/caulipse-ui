@@ -12,15 +12,14 @@ import { Container } from '@material-ui/core';
 import './index.scss';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@src/components/common/modal/enum';
-import { useHistory } from 'react-router-dom';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const MobileStudyPage = (): JSX.Element => {
 	const [mainCategory, setMainCategory] = useState<MainCategoryType>();
 	const [state, setState] = useAtom(studyListState);
 	const [gState] = useAtom(globalState);
 	const { openModal } = useModal();
-	const history = useHistory();
 	const { openSnackbar } = useSnackbar();
 
 	const { filterOption } = state;
@@ -33,10 +32,16 @@ const MobileStudyPage = (): JSX.Element => {
 		openModal(ModalKeyEnum.StudyPostModal);
 	};
 
+	const history = useHistory();
+	const location = useLocation();
+	const { pathname } = location;
+
+	const path = pathname.split('study/')[1];
+
 	useEffect(() => {
-		// TODO
-		// API 연동
-		setState({ ...state, filterOption: { ...filterOption, categoryCode: [] as CategoryType[] } });
+		if (mainCategory) {
+			history.push(`/study/${mainCategory.path}`);
+		}
 	}, [mainCategory]);
 
 	const element = useRef(null);
@@ -64,15 +69,16 @@ const MobileStudyPage = (): JSX.Element => {
 		});
 	};
 
+	const categories = filterOption?.categoryCode?.filter((item) => item.code % 100);
 	return (
 		<Container className="study-list-container">
 			<MobileMainCategoryContainer onChange={setMainCategory} />
 			{collapse ? (
 				filterOption?.categoryCode?.length && (
-					<SubCategoryCollapsedPresenter selectedSubCategories={filterOption?.categoryCode} onClick={onClick} />
+					<SubCategoryCollapsedPresenter selectedSubCategories={categories} onClick={onClick} />
 				)
 			) : (
-				<SubCategoryContainer mainCategory={mainCategory} />
+				<SubCategoryContainer />
 			)}
 			<br ref={element} className="sub-category-presenter-container-ref" />
 			<StudyCreateButton onClick={onClickCreate} />

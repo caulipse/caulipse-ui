@@ -7,14 +7,9 @@ import AppliedStudiesPresenter from './AppliedStudiesPresenter';
 const AppliedStudiesContainer = (): JSX.Element => {
 	const { data, isLoading } = useFetchAppliedStudies();
 
-	const openedAppliedStudies = data?.filter(
-		(item) =>
-			isToday(new Date(item?.dueDate)) || (!isToday(new Date(item?.dueDate)) && isFuture(new Date(item?.dueDate)))
-	);
+	const openedAppliedStudies = data?.filter((item) => Boolean(item.isOpen));
 
-	const closedAppliedStudies = data?.filter(
-		(item) => !isToday(new Date(item?.dueDate)) && isPast(new Date(item?.dueDate))
-	);
+	const closedAppliedStudies = data?.filter((item) => !item.isOpen);
 
 	if (isLoading) return <Loader />;
 

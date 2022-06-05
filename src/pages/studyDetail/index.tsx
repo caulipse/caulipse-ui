@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import StudyContentContainer from '@src/app/studyDetail/studyContent/StudyContentContainer';
 import StudyInfoContainer from '@src/app/studyDetail/studyInfo/StudyInfoContainer';
 import React, { useCallback, useMemo } from 'react';
@@ -173,6 +174,16 @@ const StudyDetailPage = (): JSX.Element => {
 	}, [url, onClickShare, onClickMore]);
 
 	const CTAButtons = useCallback(() => {
+		if (!studyData?.isOpen) {
+			return (
+				<div className="study-apply-btn-container">
+					<div className="study-apply-btn-padding-container">
+						<CommonButton title="마감된 스터디입니다." onClick={() => {}} disabled />
+					</div>
+				</div>
+			);
+		}
+
 		return (
 			<div className="study-apply-btn-container">
 				<div className="study-apply-btn-padding-container">
@@ -200,9 +211,19 @@ const StudyDetailPage = (): JSX.Element => {
 				</div>
 			</div>
 		);
-	}, [onClick, isHost]);
+	}, [onClick, isHost, studyData?.isOpen]);
 
 	const DeskTopCTAButtons = useCallback(() => {
+		if (!studyData?.isOpen) {
+			return (
+				<ButtonGroup orientation="vertical" className="desktop-cta-container">
+					<Button className="desktop-cta-apply desktop-cta-apply-disabled" onClick={() => {}} disabled>
+						마감된 스터디
+					</Button>
+				</ButtonGroup>
+			);
+		}
+
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
 				<Button
@@ -221,7 +242,7 @@ const StudyDetailPage = (): JSX.Element => {
 				</Button>
 			</ButtonGroup>
 		);
-	}, [isHost, applyDisabled, isAppliedUser]);
+	}, [isHost, applyDisabled, isAppliedUser, studyData?.isOpen]);
 
 	return (
 		<>

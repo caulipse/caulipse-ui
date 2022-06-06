@@ -51,15 +51,7 @@ const StudySearchResultPage = (): JSX.Element => {
 				<Box className="search-result-desktop-content-con">
 					<StudySortFilterContainer />
 					<Box className="search-result-divider" />
-					{data ? (
-						data?.map((item) => {
-							return (
-								<div key={item.id} className="mt1_5rem">
-									<StudyCardContainer study={item} />
-								</div>
-							);
-						})
-					) : (
+					{data?.length === 0 ? (
 						<EmptyComponent
 							title="검색 결과가 없습니다."
 							buttonText="스터디 찾아보기"
@@ -67,6 +59,14 @@ const StudySearchResultPage = (): JSX.Element => {
 								history.push('/');
 							}}
 						/>
+					) : (
+						data?.map((item) => {
+							return (
+								<div key={item.id} className="mt1_5rem">
+									<StudyCardContainer study={item} />
+								</div>
+							);
+						})
 					)}
 				</Box>
 			</Box>

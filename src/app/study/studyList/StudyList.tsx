@@ -11,6 +11,7 @@ import { useLocation } from 'react-router-dom';
 import { getMainCategoryCodeFromLabel } from '@src/app/shared/utils/category';
 
 import './index.scss';
+import EmptyMessage from '../emptyMessage';
 
 const StudyList = (): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
@@ -87,13 +88,15 @@ const StudyList = (): JSX.Element => {
 			<div className="studyList-wrap">
 				<div className="studyList-listAndBoards-con">
 					<div className="studyList">
-						{studies?.map((study) => (
-							<StudyCardContainer study={study} key={study.id} />
-						))}
+						{studies?.length === 0 ? (
+							<EmptyMessage />
+						) : (
+							studies?.map((study) => <StudyCardContainer study={study} key={study.id} />)
+						)}
 					</div>
 				</div>
 			</div>
-			<Container ref={(target as unknown) as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
+			<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 		</div>
 	);
 };

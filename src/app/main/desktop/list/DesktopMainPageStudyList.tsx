@@ -9,6 +9,7 @@ import { studyListState } from '@src/state';
 import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
 import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import './index.scss';
+import EmptyMessage from '@src/app/study/emptyMessage';
 
 const DesktopMainPageStudyList = (): JSX.Element => {
 	const [state, setState] = useAtom(studyListState);
@@ -45,9 +46,11 @@ const DesktopMainPageStudyList = (): JSX.Element => {
 	return (
 		<Container className="desktop-main-page-study-list-container">
 			<Typography>👷🏻 지금은 베타서비스 기간입니다. 많은 의견 부탁드려요! 😀</Typography>
-			{studies?.map((study) => (
-				<StudyCardContainer study={study} key={study.id} />
-			))}
+			{studies.length === 0 ? (
+				<EmptyMessage />
+			) : (
+				studies?.map((study) => <StudyCardContainer study={study} key={study.id} />)
+			)}
 			<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 		</Container>
 	);

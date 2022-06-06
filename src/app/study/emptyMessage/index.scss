@@ -1,0 +1,24 @@
+.empty-message{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 5rem 3.625rem 8.563rem !important;
+    }
+    &-img{
+        width:5rem !important;
+        height: 5rem !important;
+    }
+    &-text{
+        font-weight: bold !important;
+        font-size: 1.125rem !important;
+        color: #212b36 !important;
+        margin-top: 2rem !important;
+    }
+    &-subtext{
+        font-size: .75rem !important;
+        color: #212b36 !important;
+        margin-top: .75rem !important;
+    }
+}

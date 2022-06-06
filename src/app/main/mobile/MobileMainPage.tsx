@@ -13,6 +13,7 @@ import useIntersectionObserver from '@src/hooks/common/useIntersectionObserver';
 import { orderByMapper } from '@src/app/shared/utils/studyMapper';
 import mobileGirlWithLaptop from '@src/assets/img/illustration/mobileGirlWithLaptop.svg';
 import mobileMainTitle from '@src/assets/img/illustration/mobileMainTitle.png';
+import EmptyMessage from '@src/app/study/emptyMessage';
 import MainButton from '../button/MainButton';
 import MainCategoryItem from './MainCategoryItem';
 
@@ -86,9 +87,11 @@ const MobileMainPage = (): JSX.Element => {
 			</Container>
 			<Container className="mobile-main-page-study-list-container">
 				<Typography>🔥 서둘러요, 곧 마감이에요! 🔥</Typography>
-				{studies?.map((study) => (
-					<StudyCardContainer study={study} key={study.id} />
-				))}
+				{studies?.length === 0 ? (
+					<EmptyMessage />
+				) : (
+					studies?.map((study) => <StudyCardContainer study={study} key={study.id} />)
+				)}
 				<Container ref={target as unknown as RefObject<HTMLDivElement> | null}>{isLoading && <Loader />}</Container>
 			</Container>
 		</>

@@ -10,12 +10,22 @@ const Footer: React.FC = () => (
 				<Button className="footer-title" variant="text" href={`mailto:${config.mail}`}>
 					서비스 피드백
 				</Button>
-				<Button className="footer-title mh3rem" variant="text">
+				<a
+					className="footer-title mh3rem"
+					target="_blank"
+					href="https://curved-watchmaker-491.notion.site/192d070ffe1043a0bd6108c9f99f0ff9"
+					rel="noreferrer"
+				>
 					About Us
-				</Button>
-				<Button className="footer-title" variant="text">
+				</a>
+				<a
+					className="footer-title"
+					target="_blank"
+					href="https://www.instagram.com/study.cau_official/"
+					rel="noreferrer"
+				>
 					Instagram
-				</Button>
+				</a>
 			</Box>
 			<Box className="footer-subtitle mt_719rem">E-mail: {config.mail}</Box>
 			<a href={config.privacyPolicy} className="footer-subtitle mt_75rem mb3rem">

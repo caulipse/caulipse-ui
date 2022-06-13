@@ -19,10 +19,15 @@ const Content = ({ children, height, isDesktop, HeaderComponent, FooterComponent
 	return (
 		<Container
 			className="modal-container"
-			style={{ minWidth: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height, overflowY: 'auto' }}
+			style={{
+				minWidth: isDesktop ? '20rem' : '100%',
+				height: isDesktop ? 'auto' : height,
+				overflowY: 'auto',
+			}}
 		>
 			<Box className="modal-content-header">{HeaderComponent}</Box>
 			{children}
+			<Box style={{ marginBottom: FooterComponent ? '10rem' : 0 }} />
 			<Box className="modal-content-footer">{FooterComponent}</Box>
 		</Container>
 	);

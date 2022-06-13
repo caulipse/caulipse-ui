@@ -6,6 +6,8 @@ export interface IModalProps {
 	children: JSX.Element;
 	height?: string;
 	isFullHeight?: boolean;
+	HeaderComponent?: React.ReactNode;
+	FooterComponent?: React.ReactNode;
 }
 
 export interface ISimpleModalProps extends IModalProps {

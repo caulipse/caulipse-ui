@@ -37,3 +37,15 @@
         display: none !important;
     }
 }
+
+.modal-content{
+    &-header{
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100 !important;
+    }
+    &-footer{
+        position: sticky !important;
+        bottom: 2rem !important;
+    }
+}

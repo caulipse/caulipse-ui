@@ -1,30 +1,47 @@
-import React, { useMemo } from 'react';
+import React, { Fragment, useMemo, useRef } from 'react';
 import './index.scss';
-import { BottomSheet } from 'react-spring-bottom-sheet';
-import { Container, Dialog } from '@material-ui/core';
+import { Box, Container, Dialog } from '@material-ui/core';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import classNames from 'classnames';
 import { IModalProps } from './types';
+import BottomSheet from '../bottomsheet';
 
 export interface IContentProps {
 	children: JSX.Element;
 	height?: string;
 	isDesktop: boolean;
 	isFullHeight?: boolean;
+	HeaderComponent?: React.ReactNode;
+	FooterComponent?: React.ReactNode;
 }
 
-const Content = ({ children, height, isDesktop }: IContentProps) => {
+const Content = ({ children, height, isDesktop, HeaderComponent, FooterComponent }: IContentProps) => {
 	return (
 		<Container
 			className="modal-container"
-			style={{ minWidth: isDesktop ? '20rem' : '100%', height: isDesktop ? 'auto' : height, overflowY: 'auto' }}
+			style={{
+				minWidth: isDesktop ? '20rem' : '100%',
+				height: isDesktop ? 'auto' : height,
+				overflowY: 'auto',
+			}}
 		>
+			<Box className="modal-content-header">{HeaderComponent}</Box>
 			{children}
+			<Box style={{ marginBottom: FooterComponent ? '5rem' : 0 }} />
+			<Box className="modal-content-footer">{FooterComponent}</Box>
 		</Container>
 	);
 };
 
-const Modal = ({ open, onClose, children, height, isFullHeight = false }: IModalProps): JSX.Element => {
+const Modal = ({
+	open,
+	onClose,
+	children,
+	height,
+	isFullHeight = false,
+	HeaderComponent,
+	FooterComponent,
+}: IModalProps): JSX.Element => {
 	const { width } = useWindowDimensions();
 
 	const isDesktop = useMemo(() => {
@@ -33,17 +50,23 @@ const Modal = ({ open, onClose, children, height, isFullHeight = false }: IModal
 
 	return isDesktop ? (
 		<Dialog open={open}>
-			<Content height={height} isDesktop={isDesktop}>
+			<Content
+				height={height}
+				isDesktop={isDesktop}
+				HeaderComponent={HeaderComponent}
+				FooterComponent={FooterComponent}
+			>
 				{children}
 			</Content>
 		</Dialog>
 	) : (
-		<BottomSheet
-			open={open}
-			onDismiss={() => onClose(false)}
-			className={classNames('modal-bottom-sheet', { 'simple-modal-full-width': isFullHeight })}
-		>
-			<Content height={isFullHeight ? '100vh' : height} isDesktop={isDesktop}>
+		<BottomSheet open={open} onDismiss={() => onClose(false)}>
+			<Content
+				height={isFullHeight ? '100vh' : height}
+				isDesktop={isDesktop}
+				HeaderComponent={HeaderComponent}
+				FooterComponent={FooterComponent}
+			>
 				{children}
 			</Content>
 		</BottomSheet>

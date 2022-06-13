@@ -1,0 +1,52 @@
+@keyframes slideUp {
+    from {
+        transform: translate(0px, 100vh);
+    }
+    to {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(0px, 100vh);
+    }
+}
+
+.bottom-sheet{
+    &-con{
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        z-index: 300 !important;
+    }
+    &-bg{
+        display: flex !important;
+        flex: 1 !important;
+    }
+    &-content{
+        &-con{
+            flex-direction: column !important;
+            bottom: 0 !important;
+            border-radius: '20px 20px 0px 0px' !important;
+            overflow-y: auto !important;
+            background-color: #ffffff !important;
+            width: 100% !important;
+        }
+        &-open{
+            animation: slideUp 0.3s ease forwards !important;
+        }
+        &-close{
+            animation: slideDown 0.3s ease forwards !important;
+        }
+    }
+    
+}

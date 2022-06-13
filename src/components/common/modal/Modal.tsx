@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { Fragment, useMemo, useRef } from 'react';
 import './index.scss';
 import { Box, Container, Dialog } from '@material-ui/core';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
@@ -27,7 +27,7 @@ const Content = ({ children, height, isDesktop, HeaderComponent, FooterComponent
 		>
 			<Box className="modal-content-header">{HeaderComponent}</Box>
 			{children}
-			<Box style={{ marginBottom: FooterComponent ? '10rem' : 0 }} />
+			<Box style={{ marginBottom: FooterComponent ? '5rem' : 0 }} />
 			<Box className="modal-content-footer">{FooterComponent}</Box>
 		</Container>
 	);

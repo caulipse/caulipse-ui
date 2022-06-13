@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import './index.scss';
-import { BottomSheet } from 'react-spring-bottom-sheet';
 import { Container, Dialog } from '@material-ui/core';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import classNames from 'classnames';
 import { IModalProps } from './types';
+import BottomSheet from '../bottomsheet';
 
 export interface IContentProps {
 	children: JSX.Element;
@@ -41,7 +41,7 @@ const Modal = ({ open, onClose, children, height, isFullHeight = false }: IModal
 		<BottomSheet
 			open={open}
 			onDismiss={() => onClose(false)}
-			className={classNames('modal-bottom-sheet', { 'simple-modal-full-width': isFullHeight })}
+			// className={classNames('modal-bottom-sheet', { 'simple-modal-full-width': isFullHeight })}
 		>
 			<Content height={isFullHeight ? '100vh' : height} isDesktop={isDesktop}>
 				{children}

@@ -84,6 +84,18 @@ const App = (): JSX.Element => {
 			</div>
 			{snackbarOpen && <Snackbar open={snackbarOpen} message={message} type={type} />}
 			{modalOpen && Component && <Component open={modalOpen} onClose={closeModal} params={params} />}
+			{process.env.NODE_ENV === 'production' && (
+				<>
+					<script type="text/javascript" src="//wcs.naver.net/wcslog.js" />
+					<script type="text/javascript">
+						{`if(!wcs_add) var wcs_add = {};
+						wcs_add["wa"] = "98ff4a969b85a8";
+						if(window.wcs) {
+							wcs_do();
+						}`}
+					</script>
+				</>
+			)}
 		</div>
 	);
 };

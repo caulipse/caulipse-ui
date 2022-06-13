@@ -200,10 +200,15 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 	]);
 
 	return (
-		<Modal open={open} onClose={onClose} isFullHeight>
+		<Modal
+			open={open}
+			onClose={onClose}
+			isFullHeight
+			HeaderComponent={<Header />}
+			FooterComponent={<>{renderCtaBtn()}</>}
+		>
 			<>
 				<Box className="study-post-modal-flex">
-					<Header />
 					<Box className="study-post-modal-body-con">
 						{currentStep === 0 ? (
 							<MainCategorySelect />
@@ -234,7 +239,6 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 						)}
 					</Box>
 				</Box>
-				<Box className="study-post-modal-cta-con">{renderCtaBtn()}</Box>
 			</>
 		</Modal>
 	);

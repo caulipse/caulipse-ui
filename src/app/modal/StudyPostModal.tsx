@@ -205,7 +205,7 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			onClose={onClose}
 			isFullHeight
 			HeaderComponent={<Header />}
-			FooterComponent={<>{renderCtaBtn()}</>}
+			FooterComponent={<Box className="study-post-modal-cta-con">{renderCtaBtn()}</Box>}
 		>
 			<>
 				<Box className="study-post-modal-flex">

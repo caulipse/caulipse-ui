@@ -16,8 +16,10 @@ export default () => {
 	return useMutation(mutation, {
 		onSuccess: (response: any) => {
 			console.log(response);
-			history.push('/');
 			openSnackbar('회원가입이 완료되었습니다.');
+			setTimeout(() => {
+				history.replace('/');
+			}, 1000);
 		},
 		onError: (e: Error) => {
 			window.alert('회원가입에 실패하였습니다.');

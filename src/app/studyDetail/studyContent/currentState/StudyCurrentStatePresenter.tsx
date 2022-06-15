@@ -23,7 +23,6 @@ const StudyCurrentStatePresenter = ({
 	waitingStudyUsers,
 	studyId,
 }: StudyCurrentStatePresenterProps): JSX.Element => {
-	console.info(studyUsers);
 	return (
 		<div className="studyCurrentStateContainer">
 			<div className="mh20">

@@ -31,8 +31,7 @@ const AppliedStudiesPresenter = ({
 
 	const renderAppliedStudies = (isOpen: boolean) => {
 		return (isOpen ? openedAppliedStudies : closedAppliedStudies).map((item, index, { length }) => {
-			// TODO: 참가 여부에 따라서 다르게 표시
-			const isAccepted = index % 2 === 0;
+			const { isAccepted } = item;
 
 			const LeftTopComponent = () => {
 				if (isOpen) {

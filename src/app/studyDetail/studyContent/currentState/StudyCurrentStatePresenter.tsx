@@ -1,5 +1,7 @@
 import React from 'react';
 import { StudyUser, UserProfile } from '@api/types';
+import EmptyMessage from '@src/app/studyDetail/studyContent/currentState/emptyMessage';
+
 import StudyUserHostItemContainer from './studyUserHostItem/StudyUserHostItemContainer';
 import StudyUserItemContainer from './studyUserItem/StudyUserItemContainer';
 import './styles.scss';
@@ -57,15 +59,19 @@ const StudyCurrentStatePresenter = ({
 				<div className="studyHost">
 					<StudyUserHostItemContainer user={host} />
 				</div>
-				<div className="studyUserListContainer">
-					{studyUsers.map((studyUser: StudyUser, studyUserIndex: number) => {
-						return (
-							<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
-								<StudyUserItemContainer studyUser={studyUser} isHost={isHost} />
-							</div>
-						);
-					})}
-				</div>
+				{studyUsers?.length ? (
+					<div className="studyUserListContainer">
+						{studyUsers.map((studyUser: StudyUser, studyUserIndex: number) => {
+							return (
+								<div key={studyUser.userId} className={studyUserIndex === 0 ? '' : 'ml8'}>
+									<StudyUserItemContainer studyUser={studyUser} isHost={isHost} />
+								</div>
+							);
+						})}
+					</div>
+				) : (
+					<EmptyMessage />
+				)}
 				<div className="mb8rem" />
 			</div>
 		</div>

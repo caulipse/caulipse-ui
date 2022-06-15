@@ -10,18 +10,18 @@ import useCloseStudy from '@src/hooks/remotes/study/useCloseStudy';
 
 const StudyCloseModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [state] = useAtom(modalState);
-	const { data } = useFetchStudy(state.params.id);
+	const { data } = useFetchStudy(state.params);
 	const closeStudy = useCloseStudy();
 
 	const onClick = () => {
-		closeStudy.mutate(state.params.id);
+		closeStudy.mutate(state.params);
 	};
 
 	return (
 		<SimpleModal
 			open={open}
 			onClose={onClose}
-			title={`모집 마감 (${data?.membersCount} / ${data?.capacity})`}
+			title={`모집 마감 (${data ? data?.membersCount + 1 : 0} / ${data?.capacity})`}
 			height="12.688rem"
 			footer={false}
 		>
@@ -29,7 +29,7 @@ const StudyCloseModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Ele
 				<Typography style={{ color: '#636363', textAlign: 'center', fontSize: '0.75rem' }}>
 					{data?.capacity === data?.membersCount
 						? `${data?.title} 의 모집을 마감합니다.`
-						: `아직 ${data ? data?.capacity - data?.membersCount : 0}자리가 남았어요. 이대로 마감할까요?`}
+						: `아직 ${data ? data?.capacity - data?.membersCount - 1 : 0}자리가 남았어요. 이대로 마감할까요?`}
 				</Typography>
 				<Container style={{ padding: 0, marginTop: '2rem', display: 'flex' }}>
 					<Button className="simple-modal-rounded-button cancel" onClick={() => onClose(false)}>

@@ -48,7 +48,7 @@ const SignUpFirstStep = ({ email, setEmail, password, setPassword }: SignUpFirst
 		if (!password) {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 		} else if (!validatePassword(password)) {
-			setPasswordHelperText('비밀번호는 영문, 숫자, 특수문자를 혼합한 8자 이상이어야 합니다.');
+			setPasswordHelperText('비밀번호는 영문, 숫자를 혼합한 8자 이상이어야 합니다.');
 		} else {
 			pwSuccess = true;
 		}

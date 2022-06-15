@@ -108,15 +108,16 @@ const StudyDetailPage = (): JSX.Element => {
 		return userState.userId === studyData?.HOST_ID;
 	}, [studyData]);
 
-	const applyDisabled: boolean = useMemo(() => {
-		return Boolean(
-			studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate))
-		);
-	}, [studyData]);
-
 	const isAppliedUser = useMemo(() => {
 		return !!studyParticipantsData?.find((participantItem) => participantItem.userId === userState.userId);
 	}, [studyParticipantsData, userState]);
+
+	const applyDisabled: boolean = useMemo(() => {
+		return Boolean(
+			studyData?.applied ||
+				(studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate)))
+		);
+	}, [studyData]);
 
 	const onClick = () => {
 		if (!state.login) {
@@ -199,8 +200,8 @@ const StudyDetailPage = (): JSX.Element => {
 						<CommonButton
 							title={
 								isHost
-									? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})`
-									: isAppliedUser
+									? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
+									: isAppliedUser || studyData?.applied
 									? '신청 취소'
 									: '신청하기'
 							}
@@ -232,8 +233,8 @@ const StudyDetailPage = (): JSX.Element => {
 					disabled={applyDisabled}
 				>
 					{isHost
-						? `모집 마감 (${studyData?.membersCount}/${studyData?.capacity})`
-						: isAppliedUser
+						? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
+						: isAppliedUser || studyData?.applied
 						? '신청 취소'
 						: '신청하기'}
 				</Button>

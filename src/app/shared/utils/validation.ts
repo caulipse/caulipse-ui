@@ -7,7 +7,7 @@ export const validateCAUEmail = (email: string): boolean => {
 	return !!email.match(validRegex);
 };
 export const validatePassword = (password: string): boolean => {
-	const validRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+	const validRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/;
 	return !!password.match(validRegex);
 };
 export const validateNickname = (nickname: string): boolean => {

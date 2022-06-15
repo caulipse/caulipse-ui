@@ -12,17 +12,19 @@ import { deleteAllCookies } from '../shared/utils/deleteAllCookies';
 const WithdrawModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const deleteUser = useDeleteUser();
 
-	const { openSnackbar } = useSnackbar();
 	const [userState, setUserState] = useAtom(globalUserState);
+	const [modalState] = useAtom(globalModalState);
 
 	const onClick = () => {
 		deleteUser.mutate(undefined, {
 			onSuccess: (response: any) => {
-				openSnackbar('탈퇴가 완료되었습니다.');
 				deleteAllCookies();
 				setUserState({ ...userState, userId: '' });
 				onClose(false);
-				window.location.assign('/');
+				modalState.params?.showWithdrawSnackbar();
+				setTimeout(() => {
+					window.location.assign('/');
+				}, 1000);
 			},
 			onError: (e: any) => {
 				window.alert('탈퇴에 실패하였습니다.');

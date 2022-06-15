@@ -4,12 +4,30 @@ import '@common/modal/common.scss';
 import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import useDeleteUser from '@src/hooks/remotes/user/useDeleteUser';
+import { useAtom } from 'jotai';
+import { userState as globalUserState, modalState as globalModalState } from '@src/state';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import { deleteAllCookies } from '../shared/utils/deleteAllCookies';
 
 const WithdrawModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const deleteUser = useDeleteUser();
 
+	const { openSnackbar } = useSnackbar();
+	const [userState, setUserState] = useAtom(globalUserState);
+
 	const onClick = () => {
-		deleteUser.mutate();
+		deleteUser.mutate(undefined, {
+			onSuccess: (response: any) => {
+				openSnackbar('탈퇴가 완료되었습니다.');
+				deleteAllCookies();
+				setUserState({ ...userState, userId: '' });
+				onClose(false);
+				window.location.assign('/');
+			},
+			onError: (e: any) => {
+				window.alert('탈퇴에 실패하였습니다.');
+			},
+		});
 	};
 	return (
 		<SimpleModal

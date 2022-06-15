@@ -36,6 +36,7 @@ export interface Study {
 	weekday: weekdayEnum[];
 	bookmarkCount: number;
 	dueDate: string;
+	applied: boolean;
 }
 
 export interface StudyUser {

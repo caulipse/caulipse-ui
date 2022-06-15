@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import usePatchLogout from '@src/hooks/remotes/user/usePatchLogout';
+import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 
 interface AccountInfoPresenterProps {
 	userId: string;
@@ -14,6 +15,7 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 	const history = useHistory();
 	const { openModal } = useModal();
 	const logout = usePatchLogout();
+	const { openSnackbar } = useSnackbar();
 
 	const changePw = () => {
 		history.push('/reset-password');
@@ -23,8 +25,12 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 		logout.mutate();
 	};
 
+	const showWithdrawSnackbar = () => {
+		openSnackbar('탈퇴가 완료되었습니다.');
+	};
+
 	const withDraw = () => {
-		openModal(ModalKeyEnum.WithdrawModal);
+		openModal(ModalKeyEnum.WithdrawModal, { showWithdrawSnackbar });
 	};
 
 	return (

@@ -9,7 +9,7 @@ import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import usePostStudy from '@src/hooks/remotes/study/usePostStudy';
 import classNames from 'classnames';
 import { format } from 'date-fns';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { IoClose } from 'react-icons/io5';
 import bgLanguageSquare from '@src/assets/img/category/imageSquare/language.png';
 import bgCertificateSquare from '@src/assets/img/category/imageSquare/certificate.png';
@@ -89,13 +89,6 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			}
 		);
 	};
-
-	useEffect(() => {
-		if (postStudy.isError) {
-			// eslint-disable-next-line no-alert
-			window.alert('게시물 등록에 실패하였습니다.');
-		}
-	}, [postStudy.isError]);
 
 	const Header = useCallback(() => {
 		return (
@@ -199,6 +192,17 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		selectedContent,
 	]);
 
+	const bodyRef = useRef<HTMLDivElement | null>(null);
+
+	useEffect(() => {
+		window.addEventListener('scroll', () => {
+			// console.log('bodyRef.current, ', );
+		});
+		if (bodyRef.current) {
+			bodyRef.current.scrollIntoView();
+		}
+	}, [currentStep]);
+
 	return (
 		<Modal
 			open={open}
@@ -207,39 +211,37 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 			HeaderComponent={<Header />}
 			FooterComponent={<Box className="study-post-modal-cta-con">{renderCtaBtn()}</Box>}
 		>
-			<>
-				<Box className="study-post-modal-flex">
-					<Box className="study-post-modal-body-con">
-						{currentStep === 0 ? (
-							<MainCategorySelect />
-						) : currentStep === 1 ? (
-							<StudySelect
-								selectedDate={selectedDate}
-								setSelectedDate={setSelectedDate}
-								selectedCapacity={selectedCapacity}
-								setSelectedCapacity={setSelectedcapacity}
-								selectedMainCategoryCode={selectedMainCategoryCode}
-								setSelectedMainCategoryCode={setSelectedMainCategoryCode}
-								selectedSubCategoryCode={selectedSubCategoryCode}
-								setSelectedSubCategoryCode={setSelectedSubCategoryCode}
-								selectedFrequencies={selectedFrequencies}
-								setSelectedFrequencies={setSelectedFrequencies}
-								selectedDays={selectedDays}
-								setSelectedDays={setSelectedDays}
-								selectedPlaces={selectedPlaces}
-								setSelectedPlaces={setSelectedPlaces}
-							/>
-						) : (
-							<StudyContent
-								selectedContent={selectedContent}
-								selectedTitle={selectedTitle}
-								setSelectedTitle={setSelectedTitle}
-								setSelectedContent={setSelectedContent}
-							/>
-						)}
-					</Box>
-				</Box>
-			</>
+			{/* <div ref={bodyRef} className="study-post-modal-flex"> */}
+			<Box className="study-post-modal-body-con">
+				{currentStep === 0 ? (
+					<MainCategorySelect />
+				) : currentStep === 1 ? (
+					<StudySelect
+						selectedDate={selectedDate}
+						setSelectedDate={setSelectedDate}
+						selectedCapacity={selectedCapacity}
+						setSelectedCapacity={setSelectedcapacity}
+						selectedMainCategoryCode={selectedMainCategoryCode}
+						setSelectedMainCategoryCode={setSelectedMainCategoryCode}
+						selectedSubCategoryCode={selectedSubCategoryCode}
+						setSelectedSubCategoryCode={setSelectedSubCategoryCode}
+						selectedFrequencies={selectedFrequencies}
+						setSelectedFrequencies={setSelectedFrequencies}
+						selectedDays={selectedDays}
+						setSelectedDays={setSelectedDays}
+						selectedPlaces={selectedPlaces}
+						setSelectedPlaces={setSelectedPlaces}
+					/>
+				) : (
+					<StudyContent
+						selectedContent={selectedContent}
+						selectedTitle={selectedTitle}
+						setSelectedTitle={setSelectedTitle}
+						setSelectedContent={setSelectedContent}
+					/>
+				)}
+			</Box>
+			{/* </div> */}
 		</Modal>
 	);
 };

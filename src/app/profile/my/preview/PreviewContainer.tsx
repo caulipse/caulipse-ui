@@ -12,9 +12,9 @@ const PreviewContainer = (): JSX.Element => {
 	return (
 		<div>
 			<PreviewPresenter
-				bookmarkNum={bookmarkData?.length ?? 0}
-				applyNum={appliedStudyData?.length ?? 0}
-				recruitNum={recruitingStudyData?.length ?? 0}
+				bookmarkNum={bookmarkData?.filter((item) => item.isOpen)?.length ?? 0}
+				applyNum={appliedStudyData?.filter((item) => item.isOpen)?.length ?? 0}
+				recruitNum={recruitingStudyData?.filter((item) => item.isOpen)?.length ?? 0}
 			/>
 		</div>
 	);

@@ -90,13 +90,6 @@ const StudyPostModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Elem
 		);
 	};
 
-	useEffect(() => {
-		if (postStudy.isError) {
-			// eslint-disable-next-line no-alert
-			window.alert('게시물 등록에 실패하였습니다.');
-		}
-	}, [postStudy.isError]);
-
 	const Header = useCallback(() => {
 		return (
 			<Box className="study-post-modal-header-con">

@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo, useRef } from 'react';
+import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import './index.scss';
 import { Box, Container, Dialog } from '@material-ui/core';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
@@ -16,20 +16,34 @@ export interface IContentProps {
 }
 
 const Content = ({ children, height, isDesktop, HeaderComponent, FooterComponent }: IContentProps) => {
+	const childrenRef = useRef<HTMLDivElement | null>(null);
+	const { height: windowHeight } = useWindowDimensions();
+
+	const [childrenHeight, setChildrenHeight] = useState<number>(0);
+
+	useEffect(() => {
+		setChildrenHeight(childrenRef.current?.offsetHeight ?? 0);
+	}, []);
+
 	return (
-		<Container
-			className="modal-container"
-			style={{
-				minWidth: isDesktop ? '20rem' : '100%',
-				height: isDesktop ? 'auto' : height,
-				overflowY: 'auto',
-			}}
-		>
-			<Box className="modal-content-header">{HeaderComponent}</Box>
-			{children}
-			<Box style={{ marginBottom: FooterComponent ? '5rem' : 0 }} />
-			<Box className="modal-content-footer">{FooterComponent}</Box>
-		</Container>
+		<>
+			<Container
+				innerRef={childrenRef}
+				className="modal-container"
+				style={{
+					minWidth: isDesktop ? '20rem' : '100%',
+					height: isDesktop ? 'auto' : height || 'auto',
+					overflowY: 'auto',
+				}}
+			>
+				<Box className="modal-content-header">{HeaderComponent}</Box>
+				<div ref={childrenRef}>{children}</div>
+			</Container>
+			<>
+				<Box style={{ marginBottom: FooterComponent && childrenHeight > windowHeight ? '5rem' : 0 }} />
+				<Box className="modal-content-footer">{FooterComponent}</Box>
+			</>
+		</>
 	);
 };
 

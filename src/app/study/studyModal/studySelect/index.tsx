@@ -63,7 +63,7 @@ const StudySelect = ({
 					<Box className="study-select-title">모집 마감일</Box>
 					<Box className="study-select-subtitle">23시 59분에 마감됩니다</Box>
 				</Box>
-				<Box>
+				<Box className="study-select-date-picker-con">
 					<ReactDatePicker
 						locale="ko"
 						dropdownMode="select"

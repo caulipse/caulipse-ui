@@ -61,13 +61,19 @@
             @include disabled-btn();
         }
     }
+    &-date-picker-con{
+        display: flex !important;
+        align-items: flex-end !important;
+        justify-content: flex-end !important;
+        width: 40% !important;
+    }
     &-date-picker{
         padding: .625rem !important;
         border-radius: .375rem !important;
         border: 1px solid #e2e2e2 !important;
         font-size: 1rem !important;
         color: #212b36 !important;
-        width: 9.5rem !important;
+        align-self: flex-end !important;
         &:focus{
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12) !important;
             border: solid 1px #b4b4b4 !important;

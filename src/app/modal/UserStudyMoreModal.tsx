@@ -8,6 +8,7 @@ import ModalKeyEnum from '@common/modal/enum';
 import { useAtom } from 'jotai';
 import { modalState, userState as globalUserState } from '@src/state';
 import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
+import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 
 const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openModal } = useModal();
@@ -15,6 +16,7 @@ const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 	const [userState] = useAtom(globalUserState);
 
 	const { data: studyParticipantsData } = useFetchStudyParticipants(state.params);
+	const { data: studyData } = useFetchStudy(state?.params);
 
 	const isAppliedUser = useMemo(() => {
 		return !!studyParticipantsData?.find((participantItem) => participantItem.userId === userState.userId);
@@ -31,7 +33,7 @@ const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">
 			<Container className="simple-modal-content-container">
-				{isAppliedUser && (
+				{(isAppliedUser || studyData?.applied) && (
 					<Button className="simple-modal-button secondary" onClick={onClickCancel}>
 						신청 취소
 					</Button>

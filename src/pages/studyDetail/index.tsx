@@ -11,8 +11,10 @@ import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
-import { Button, ButtonGroup, IconButton } from '@material-ui/core';
+import { Button, ButtonGroup, Container, IconButton, Typography } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
+
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 import { useAtom } from 'jotai';
 import globalState, { userState as globalUserState } from '@src/state';
@@ -37,6 +39,8 @@ import bgCompetitionFullWidth from '@src/assets/img/category/imageDesktopFullWid
 import { isFuture, isPast, isToday } from 'date-fns';
 import classNames from 'classnames';
 import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
+
+import { differenceInDays } from 'date-fns';
 
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
@@ -114,12 +118,12 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const applyDisabled: boolean = useMemo(() => {
 		return Boolean(
-			studyData?.applied ||
-				(studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate)))
+			studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate))
 		);
 	}, [studyData]);
 
 	const onClick = () => {
+		if (studyData?.applied) return;
 		if (!state.login) {
 			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 			return;
@@ -174,16 +178,10 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [url, onClickShare, onClickMore]);
 
+	const dDay = differenceInDays(new Date(studyData?.dueDate ?? ''), new Date());
+
 	const CTAButtons = useCallback(() => {
-		if (!studyData?.isOpen) {
-			return (
-				<div className="study-apply-btn-container">
-					<div className="study-apply-btn-padding-container">
-						<CommonButton title="마감된 스터디입니다." onClick={() => {}} disabled />
-					</div>
-				</div>
-			);
-		}
+		if (!studyData?.isOpen || dDay < 0) return null;
 
 		return (
 			<div className="study-apply-btn-container">
@@ -201,12 +199,15 @@ const StudyDetailPage = (): JSX.Element => {
 							title={
 								isHost
 									? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
-									: isAppliedUser || studyData?.applied
-									? '신청 취소'
+									: isAppliedUser
+									? '참가 완료'
+									: studyData?.applied
+									? '신청 수락 대기중'
 									: '신청하기'
 							}
 							onClick={onClick}
 							disabled={applyDisabled}
+							type={isAppliedUser || studyData?.applied ? ButtonTypeEnum.secondary : ButtonTypeEnum.primary}
 						/>
 					</div>
 				</div>
@@ -215,31 +216,39 @@ const StudyDetailPage = (): JSX.Element => {
 	}, [onClick, isHost, studyData?.isOpen]);
 
 	const DeskTopCTAButtons = useCallback(() => {
-		if (!studyData?.isOpen) {
-			return (
-				<ButtonGroup orientation="vertical" className="desktop-cta-container">
-					<Button className="desktop-cta-apply desktop-cta-apply-disabled" onClick={() => {}} disabled>
-						마감된 스터디
-					</Button>
-				</ButtonGroup>
-			);
-		}
+		if (!studyData?.isOpen || dDay < 0) return null;
 
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
 				<Button
-					className={classNames('desktop-cta-apply', { 'desktop-cta-apply-disabled': applyDisabled })}
+					className={classNames('desktop-cta-apply', {
+						'desktop-cta-apply-disabled': applyDisabled,
+						'desktop-cta-apply-secondary': studyData?.applied,
+					})}
 					onClick={onClick}
 					disabled={applyDisabled}
 				>
-					{isHost
-						? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
-						: isAppliedUser || studyData?.applied
-						? '신청 취소'
-						: '신청하기'}
+					{isHost ? (
+						`모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
+					) : isAppliedUser ? (
+						<>
+							<span>이미 신청한 스터디입니다.</span>
+							<Typography>참가 완료</Typography>
+						</>
+					) : studyData?.applied ? (
+						<Container>
+							<span>이미 신청한 스터디입니다.</span>
+							<Typography>신청 수락 대기중</Typography>
+						</Container>
+					) : (
+						<>
+							<span>지금 바로 스터디</span>
+							<Typography>신청하기</Typography>
+						</>
+					)}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>
-					{isHost ? '수정하기' : '북마크 추가'}
+					{isHost ? '수정하기' : isAppliedUser || studyData?.applied ? '북마크 추가' : '북마크'}
 				</Button>
 			</ButtonGroup>
 		);
@@ -303,6 +312,7 @@ const StudyDetailPage = (): JSX.Element => {
 										dueDate={studyData.dueDate}
 										initialIndex={initialIndex}
 										isHost={isHost}
+										isOpen={studyData.isOpen}
 									/>
 								)}
 							</div>

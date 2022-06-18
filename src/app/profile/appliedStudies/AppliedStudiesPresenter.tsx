@@ -85,7 +85,7 @@ const AppliedStudiesPresenter = ({
 		<div className="applied-studies-container">
 			<div className="applied-studies-title mt2rem mb16">신청중 ({openedAppliedStudies?.length})</div>
 			{openedAppliedStudies?.length === 0 ? (
-				<EmptyComponent title="신청중인 스터디가 없습니다" buttonText="스터디 찾아보기" onClick={findStudies} />
+				<EmptyComponent title="아직 신청중인 스터디가 없어요 :(" buttonText="스터디 찾아보기" onClick={findStudies} />
 			) : (
 				renderAppliedStudies(true)
 			)}

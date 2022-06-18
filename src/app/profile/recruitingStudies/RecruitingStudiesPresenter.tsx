@@ -27,9 +27,9 @@ const RecruitingStudiesPresenter = ({
 		openModal(ModalKeyEnum.StudyCloseModal, { id });
 	}, []);
 
-	const onClickMore = useCallback((event: any) => {
+	const onClickMore = useCallback((event: any, id: string) => {
 		event.preventDefault();
-		openModal(ModalKeyEnum.UserStudyMoreModal);
+		openModal(ModalKeyEnum.HostStudyMoreModal, id);
 	}, []);
 
 	const registerStudy = useCallback(() => {
@@ -38,7 +38,9 @@ const RecruitingStudiesPresenter = ({
 
 	const renderOpenedRecruitingStudies = useCallback(() => {
 		if (openedRecruitingStudies?.length === 0) {
-			return <EmptyComponent title="모집중인 스터디가 없네요" buttonText="스터디 등록하기" onClick={registerStudy} />;
+			return (
+				<EmptyComponent title="모집중인 스터디가 없어요 :(" buttonText="스터디 등록하기" onClick={registerStudy} />
+			);
 		}
 		return openedRecruitingStudies?.map((item, index, { length }) => {
 			return (
@@ -52,13 +54,19 @@ const RecruitingStudiesPresenter = ({
 					className={index === length - 1 ? '' : 'mb16'}
 					leftTopComponent={<Box className="recruiting-studies-chip">{getDday(item.dueDate)}</Box>}
 					rightTopComponent={
-						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
+						<IoEllipsisVertical
+							onClick={(evt) => {
+								onClickMore(evt, item.id);
+							}}
+							className="recruiting-studies-icon"
+							color="#b1b1b1"
+						/>
 					}
 					bottomComponent={
 						<div className="mt1rem">
 							<CommonButton
 								onClick={(evt) => closeStudy(evt, item.id)}
-								title={`마감하기(${item.membersCount}/${item.capacity})`}
+								title={`마감하기(${item.membersCount + 1}/${item.capacity})`}
 								type={ButtonTypeEnum.primary}
 							/>
 						</div>
@@ -82,7 +90,14 @@ const RecruitingStudiesPresenter = ({
 					isTitleBlur
 					className={index === length - 1 ? '' : 'mb16'}
 					rightComponent={
-						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" size={24} color="#b1b1b1" />
+						<IoEllipsisVertical
+							onClick={(evt) => {
+								onClickMore(evt, item.id);
+							}}
+							className="recruiting-studies-icon"
+							size={24}
+							color="#b1b1b1"
+						/>
 					}
 				/>
 			);

@@ -12,6 +12,7 @@
         border-color: #e5e5e5;
         border-radius: .625rem;
         width: 100% !important;
+        box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.08);
     }
     &-button{
         padding: .625rem 3.563rem !important;
@@ -20,6 +21,7 @@
         background-color: $primaryLightColor !important;
         color: $primaryColor !important;
         margin-top: 1rem !important;
+        font-weight: bold !important;
     }
     &-text{
         font-size: 0.688rem;

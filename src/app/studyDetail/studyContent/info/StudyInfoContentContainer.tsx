@@ -8,6 +8,7 @@ interface StudyInfoConntainerProps {
 	title: string;
 	studyAbout: string;
 	dueDate: string;
+	isOpen: boolean;
 }
 const StudyInfoContentContainer = ({
 	createdAt,
@@ -16,6 +17,7 @@ const StudyInfoContentContainer = ({
 	title,
 	studyAbout,
 	dueDate,
+	isOpen,
 }: StudyInfoConntainerProps): JSX.Element => {
 	return (
 		<StudyInfoContentPresenter
@@ -25,6 +27,7 @@ const StudyInfoContentContainer = ({
 			title={title}
 			studyAbout={studyAbout}
 			dueDate={dueDate}
+			isOpen={isOpen}
 		/>
 	);
 };

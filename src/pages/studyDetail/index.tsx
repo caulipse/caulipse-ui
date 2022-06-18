@@ -13,6 +13,8 @@ import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
 import { Button, ButtonGroup, IconButton } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
+import { ButtonTypeEnum } from '@src/components/common/button/types';
+
 import usePostBookmark from '@src/hooks/remotes/bookmark/usePostBookmark';
 import { useAtom } from 'jotai';
 import globalState, { userState as globalUserState } from '@src/state';
@@ -116,12 +118,12 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const applyDisabled: boolean = useMemo(() => {
 		return Boolean(
-			studyData?.applied ||
-				(studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate)))
+			studyData?.dueDate && !isToday(new Date(studyData?.dueDate)) && isPast(new Date(studyData?.dueDate))
 		);
 	}, [studyData]);
 
 	const onClick = () => {
+		if (studyData?.applied) return;
 		if (!state.login) {
 			openModal(ModalKeyEnum.LoginModal, { history, openSnackbar });
 			return;
@@ -205,6 +207,7 @@ const StudyDetailPage = (): JSX.Element => {
 							}
 							onClick={onClick}
 							disabled={applyDisabled}
+							type={isAppliedUser || studyData?.applied ? ButtonTypeEnum.secondary : ButtonTypeEnum.primary}
 						/>
 					</div>
 				</div>

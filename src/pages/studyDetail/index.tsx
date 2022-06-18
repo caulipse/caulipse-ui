@@ -38,6 +38,8 @@ import { isFuture, isPast, isToday } from 'date-fns';
 import classNames from 'classnames';
 import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
 
+import { differenceInDays } from 'date-fns';
+
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
 }
@@ -174,10 +176,10 @@ const StudyDetailPage = (): JSX.Element => {
 		);
 	}, [url, onClickShare, onClickMore]);
 
+	const dDay = differenceInDays(new Date(studyData?.dueDate ?? ''), new Date());
+
 	const CTAButtons = useCallback(() => {
-		if (!studyData?.isOpen) {
-			return null;
-		}
+		if (!studyData?.isOpen || dDay < 0) return null;
 
 		return (
 			<div className="study-apply-btn-container">
@@ -211,15 +213,7 @@ const StudyDetailPage = (): JSX.Element => {
 	}, [onClick, isHost, studyData?.isOpen]);
 
 	const DeskTopCTAButtons = useCallback(() => {
-		if (!studyData?.isOpen) {
-			return (
-				<ButtonGroup orientation="vertical" className="desktop-cta-container">
-					<Button className="desktop-cta-apply desktop-cta-apply-disabled" onClick={() => {}} disabled>
-						마감된 스터디
-					</Button>
-				</ButtonGroup>
-			);
-		}
+		if (!studyData?.isOpen || dDay < 0) return null;
 
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">

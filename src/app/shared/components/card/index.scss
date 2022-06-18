@@ -83,10 +83,12 @@ progress {
   
   ::-webkit-progress-bar {
     background-color: #ececec;
+    border-radius: .125rem;
   }
   
   ::-webkit-progress-value {
     background-image: linear-gradient(to right, #98d0ff 6%, #1480ff 97% ) !important;
+    border-radius: .125rem;
   }
 
 .study-card-tag {

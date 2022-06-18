@@ -176,13 +176,7 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const CTAButtons = useCallback(() => {
 		if (!studyData?.isOpen) {
-			return (
-				<div className="study-apply-btn-container">
-					<div className="study-apply-btn-padding-container">
-						<CommonButton title="마감된 스터디입니다." onClick={() => {}} disabled />
-					</div>
-				</div>
-			);
+			return null;
 		}
 
 		return (

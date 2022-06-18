@@ -49,8 +49,8 @@ const StudySearchResultPage = (): JSX.Element => {
 					지금 바로 스터디원을 모집해보세요!
 				</Button>
 				<Box className="search-result-desktop-content-con">
-					<StudySortFilterContainer />
-					<Box className="search-result-divider" />
+					{/* <StudySortFilterContainer /> */}
+					{/* <Box className="search-result-divider" /> */}
 					{data?.length === 0 ? (
 						<EmptyComponent
 							title="검색 결과가 없습니다."

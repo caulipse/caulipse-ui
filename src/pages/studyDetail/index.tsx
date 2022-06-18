@@ -231,20 +231,20 @@ const StudyDetailPage = (): JSX.Element => {
 					{isHost ? (
 						`모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
 					) : isAppliedUser ? (
-						<>
+						<Container>
 							<span>이미 신청한 스터디입니다.</span>
 							<Typography>참가 완료</Typography>
-						</>
+						</Container>
 					) : studyData?.applied ? (
 						<Container>
 							<span>이미 신청한 스터디입니다.</span>
 							<Typography>신청 수락 대기중</Typography>
 						</Container>
 					) : (
-						<>
+						<Container>
 							<span>지금 바로 스터디</span>
 							<Typography>신청하기</Typography>
-						</>
+						</Container>
 					)}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>

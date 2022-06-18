@@ -25,12 +25,12 @@ const ApplyCancelModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 			{
 				onSuccess: () => {
 					onClose(false);
-					openSnackbar('스터디 신청을 취소하였습니다.', SnackbarTypeEnum.secondary);
+					openSnackbar('스터디 신청을 취소하였습니다.');
 					client.refetchQueries(`${QUERY_KEY.FETCH_STUDY}/${state.params}`);
 				},
 				onError: () => {
 					onClose(false);
-					openSnackbar('스터디 신청 취소에 실패하였습니다.', SnackbarTypeEnum.secondary);
+					openSnackbar('스터디 신청 취소에 실패하였습니다. :(', SnackbarTypeEnum.secondary);
 				},
 			}
 		);

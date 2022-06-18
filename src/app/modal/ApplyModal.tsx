@@ -40,7 +40,7 @@ const ApplyModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 				tempBio: value,
 			},
 		});
-		openSnackbar('스터디 신청을 완료하였습니다', SnackbarTypeEnum.secondary);
+		openSnackbar('스터디 신청을 완료하였습니다');
 	};
 
 	const onChangeValue = useCallback((evt: ChangeEvent<HTMLTextAreaElement>) => {

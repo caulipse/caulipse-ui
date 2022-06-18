@@ -58,7 +58,7 @@ const RecruitingStudiesPresenter = ({
 						<div className="mt1rem">
 							<CommonButton
 								onClick={(evt) => closeStudy(evt, item.id)}
-								title={`마감하기(${item.membersCount}/${item.capacity})`}
+								title={`마감하기(${item.membersCount + 1}/${item.capacity})`}
 								type={ButtonTypeEnum.primary}
 							/>
 						</div>

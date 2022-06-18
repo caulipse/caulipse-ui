@@ -16,7 +16,7 @@ const StudyDeleteModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 	const onClick = () => {
 		deleteStudy.mutate(state?.params);
 		onClose(false);
-		openSnackbar('모집글이 삭제되었습니다', SnackbarTypeEnum.secondary);
+		openSnackbar('모집글이 삭제되었습니다');
 	};
 	return (
 		<SimpleModal

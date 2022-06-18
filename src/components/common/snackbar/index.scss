@@ -2,6 +2,12 @@
 
 .snackbar {
     &.MuiSnackbar-anchorOriginBottomCenter{
+        top: -55rem !important;
+    }
+}
+
+.secondary-snackbar {
+    &.MuiSnackbar-anchorOriginBottomCenter{
         bottom: 8.563rem !important;
     }
 }
@@ -13,9 +19,11 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    background: $primaryColor;
-    color: #fff;
+    background: #fff;
+    color: #101010;
     border-radius: 6px;
+    box-shadow: 0 7px 20px 0 rgba(0, 0, 0, 0.12);
+    border: 1px solid #101010;
     span {
         font-size: .875rem;
         font-weight: 500;
@@ -27,7 +35,9 @@
 }
 
 .secondary-snackbar-container {
-    background: $secondaryColor;
+    background: #ff0051;
+    color: #fff;
+    border: none;
 }
 
 .post-study-snackbar{

@@ -51,7 +51,7 @@ const MyCategoryModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Ele
 						})}
 					</Grid>
 				</Container>
-				<Container>
+				<Container style={{ marginTop: '2rem' }}>
 					<CommonButton title="확인" onClick={onClick} />
 				</Container>
 			</Container>

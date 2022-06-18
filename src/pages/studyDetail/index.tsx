@@ -11,7 +11,7 @@ import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 import Loader from '@src/components/common/loader/Loader';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import ModalKeyEnum from '@common/modal/enum';
-import { Button, ButtonGroup, IconButton } from '@material-ui/core';
+import { Button, ButtonGroup, Container, IconButton, Typography } from '@material-ui/core';
 import CommonButton from '@src/components/common/button/CommonButton';
 import { ButtonTypeEnum } from '@src/components/common/button/types';
 
@@ -221,18 +221,34 @@ const StudyDetailPage = (): JSX.Element => {
 		return (
 			<ButtonGroup orientation="vertical" className="desktop-cta-container">
 				<Button
-					className={classNames('desktop-cta-apply', { 'desktop-cta-apply-disabled': applyDisabled })}
+					className={classNames('desktop-cta-apply', {
+						'desktop-cta-apply-disabled': applyDisabled,
+						'desktop-cta-apply-secondary': studyData?.applied,
+					})}
 					onClick={onClick}
 					disabled={applyDisabled}
 				>
-					{isHost
-						? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
-						: isAppliedUser || studyData?.applied
-						? '이미 신청한 스터디입니다.'
-						: '신청하기'}
+					{isHost ? (
+						`모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
+					) : isAppliedUser ? (
+						<>
+							<span>이미 신청한 스터디입니다.</span>
+							<Typography>참가 완료</Typography>
+						</>
+					) : studyData?.applied ? (
+						<Container>
+							<span>이미 신청한 스터디입니다.</span>
+							<Typography>신청 수락 대기중</Typography>
+						</Container>
+					) : (
+						<>
+							<span>지금 바로 스터디</span>
+							<Typography>신청하기</Typography>
+						</>
+					)}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>
-					{isHost ? '수정하기' : '북마크 추가'}
+					{isHost ? '수정하기' : isAppliedUser || studyData?.applied ? '북마크 추가' : '북마크'}
 				</Button>
 			</ButtonGroup>
 		);

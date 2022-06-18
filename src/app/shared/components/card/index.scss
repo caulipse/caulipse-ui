@@ -47,6 +47,10 @@
     }
 }
 
+.study-card-date-disabled {
+    @include disabled-btn();
+}
+
 .study-card-category {
     color: $primaryColor;
     font-weight: bold !important;

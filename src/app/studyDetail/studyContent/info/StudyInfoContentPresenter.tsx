@@ -11,6 +11,7 @@ interface StudyInfoContentPresenterProps {
 	title: string;
 	studyAbout: string;
 	dueDate: string;
+	isOpen: boolean;
 }
 
 const StudyInfoContentPresenter = ({
@@ -20,13 +21,13 @@ const StudyInfoContentPresenter = ({
 	title,
 	studyAbout,
 	dueDate,
+	isOpen,
 }: StudyInfoContentPresenterProps): JSX.Element => {
 	const dDay = differenceInDays(new Date(dueDate), new Date());
-
 	return (
 		<div className="content">
 			<div className="mh20">
-				{dDay >= 0 ? (
+				{dDay >= 0 && isOpen ? (
 					<div className="diff-date-container">
 						<div className="diff-date-d-day">{getDday(dueDate)}</div>
 						<div className="diff-date-text">모집마감까지 ({format(new Date(dueDate), 'MM.dd')})</div>

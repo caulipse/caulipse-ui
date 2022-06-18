@@ -18,6 +18,7 @@ interface StudyContentContainerProps {
 	initialIndex: number;
 	isHost: boolean;
 	dueDate: string;
+	isOpen: boolean;
 }
 
 const StudyContentContainer = ({
@@ -32,6 +33,7 @@ const StudyContentContainer = ({
 	initialIndex,
 	isHost,
 	dueDate,
+	isOpen,
 }: StudyContentContainerProps): JSX.Element => {
 	const [index, setIndex] = useState<number>(initialIndex);
 
@@ -45,6 +47,7 @@ const StudyContentContainer = ({
 					title={title}
 					studyAbout={studyAbout}
 					dueDate={dueDate}
+					isOpen={isOpen}
 				/>
 			);
 		if (i === 2)

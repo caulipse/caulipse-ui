@@ -296,6 +296,7 @@ const StudyDetailPage = (): JSX.Element => {
 										dueDate={studyData.dueDate}
 										initialIndex={initialIndex}
 										isHost={isHost}
+										isOpen={studyData.isOpen}
 									/>
 								)}
 							</div>

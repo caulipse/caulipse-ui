@@ -121,10 +121,10 @@ const StudyFilterModal = ({ open, onClose }: IModalContainerCommonProps): JSX.El
 								})}
 							</Container>
 						</Container>
-						<Container className="study-filter-modal-hide-row">
+						{/* <Container className="study-filter-modal-hide-row">
 							<span className="study-filter-modal-hide-row-title">마감항목 숨기기</span>
 							<Switch onChange={onChangeIsHide} checked={isHide} />
-						</Container>
+						</Container> */}
 					</Container>
 					<CommonButton type={ButtonTypeEnum.secondary} title="적용" onClick={onClick} />
 				</Container>

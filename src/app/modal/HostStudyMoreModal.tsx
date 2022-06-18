@@ -7,6 +7,7 @@ import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 
 const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
+	const { openModal } = useModal();
 	const onClickChange = () => {
 		// TODO
 		// 모집글 변경 Flow 연결
@@ -14,7 +15,6 @@ const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 
 	const onClickDelete = () => {
 		onClose(false);
-		const { openModal } = useModal();
 		openModal(ModalKeyEnum.StudyDeleteModal);
 	};
 	return (

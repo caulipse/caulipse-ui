@@ -5,17 +5,22 @@ import SimpleModal from '@common/modal/SimpleModal';
 import { IModalContainerCommonProps } from '@common/modal/types';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
+import { useAtom } from 'jotai';
+import { modalState as globalModalState } from '@src/state';
+import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 
 const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openModal } = useModal();
+	const [modalState] = useAtom(globalModalState);
+	const { data } = useFetchStudy(modalState?.params);
+
 	const onClickChange = () => {
-		// TODO
-		// 모집글 변경 Flow 연결
+		openModal(ModalKeyEnum.EditStudyModal, { studyData: data });
 	};
 
 	const onClickDelete = () => {
 		onClose(false);
-		openModal(ModalKeyEnum.StudyDeleteModal);
+		openModal(ModalKeyEnum.StudyDeleteModal, modalState?.params);
 	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="14rem">

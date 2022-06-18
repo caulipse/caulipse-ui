@@ -27,9 +27,9 @@ const RecruitingStudiesPresenter = ({
 		openModal(ModalKeyEnum.StudyCloseModal, { id });
 	}, []);
 
-	const onClickMore = useCallback((event: any) => {
+	const onClickMore = useCallback((event: any, id: string) => {
 		event.preventDefault();
-		openModal(ModalKeyEnum.UserStudyMoreModal);
+		openModal(ModalKeyEnum.HostStudyMoreModal, id);
 	}, []);
 
 	const registerStudy = useCallback(() => {
@@ -52,7 +52,13 @@ const RecruitingStudiesPresenter = ({
 					className={index === length - 1 ? '' : 'mb16'}
 					leftTopComponent={<Box className="recruiting-studies-chip">{getDday(item.dueDate)}</Box>}
 					rightTopComponent={
-						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" color="#b1b1b1" />
+						<IoEllipsisVertical
+							onClick={(evt) => {
+								onClickMore(evt, item.id);
+							}}
+							className="recruiting-studies-icon"
+							color="#b1b1b1"
+						/>
 					}
 					bottomComponent={
 						<div className="mt1rem">
@@ -82,7 +88,14 @@ const RecruitingStudiesPresenter = ({
 					isTitleBlur
 					className={index === length - 1 ? '' : 'mb16'}
 					rightComponent={
-						<IoEllipsisVertical onClick={onClickMore} className="recruiting-studies-icon" size={24} color="#b1b1b1" />
+						<IoEllipsisVertical
+							onClick={(evt) => {
+								onClickMore(evt, item.id);
+							}}
+							className="recruiting-studies-icon"
+							size={24}
+							color="#b1b1b1"
+						/>
 					}
 				/>
 			);

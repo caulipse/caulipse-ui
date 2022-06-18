@@ -201,8 +201,10 @@ const StudyDetailPage = (): JSX.Element => {
 							title={
 								isHost
 									? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
-									: isAppliedUser || studyData?.applied
-									? '신청 취소'
+									: isAppliedUser
+									? '참가 완료'
+									: studyData?.applied
+									? '신청 수락 대기중'
 									: '신청하기'
 							}
 							onClick={onClick}
@@ -235,7 +237,7 @@ const StudyDetailPage = (): JSX.Element => {
 					{isHost
 						? `모집 마감 (${studyData?.membersCount + 1}/${studyData?.capacity})`
 						: isAppliedUser || studyData?.applied
-						? '신청 취소'
+						? '이미 신청한 스터디입니다.'
 						: '신청하기'}
 				</Button>
 				<Button className="desktop-cta-bookmark" onClick={isHost ? onClickEdit : onClickPostBookmark}>

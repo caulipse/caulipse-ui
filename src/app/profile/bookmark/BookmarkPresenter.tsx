@@ -21,7 +21,7 @@ const BookmarkPresenter = ({ recruitingBookmarks, recruitedBookmarks }: Bookmark
 			<div className="bookmarkStudiesTitle">북마크 ({recruitedBookmarks.length})</div>
 			{recruitingBookmarks?.length === 0 ? (
 				<EmptyComponent
-					title="이런, 북마크한 스터디가 없어요."
+					title="아직 북마크한 스터디가 없어요 :("
 					buttonText="스터디 찾아보기"
 					onClick={() => {
 						history.push('/');

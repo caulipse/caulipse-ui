@@ -38,7 +38,9 @@ const RecruitingStudiesPresenter = ({
 
 	const renderOpenedRecruitingStudies = useCallback(() => {
 		if (openedRecruitingStudies?.length === 0) {
-			return <EmptyComponent title="모집중인 스터디가 없네요" buttonText="스터디 등록하기" onClick={registerStudy} />;
+			return (
+				<EmptyComponent title="모집중인 스터디가 없어요 :(" buttonText="스터디 등록하기" onClick={registerStudy} />
+			);
 		}
 		return openedRecruitingStudies?.map((item, index, { length }) => {
 			return (

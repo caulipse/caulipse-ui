@@ -56,7 +56,7 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 				</div>
 				<div className="profile-bottom-sheet-divider" />
 				<div className="profile-bottom-sheet-hashtag-container">
-					<div className="profile-bottom-sheet-hashtag-bold-text">#{userProfile?.dept}</div>
+					<div className="profile-bottom-sheet-hashtag-bold-text">#{userProfile?.dept}&nbsp;</div>
 					<div className="profile-bottom-sheet-hashtag-bold-text">#{userProfile?.grade}학년&nbsp;</div>
 					<div className="profile-bottom-sheet-hashtag-bold-text">#{userProfile?.onBreak ? '휴학중' : '재학중'}</div>
 				</div>

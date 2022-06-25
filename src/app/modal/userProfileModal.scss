@@ -18,6 +18,8 @@
         padding: 0 1.5rem;
         overflow-y: scroll;
         max-height: calc(100vh - 12.75rem);
+        overflow-x: hidden !important;
+
     }
     &-profile-img{
         display: flex;

@@ -3,7 +3,7 @@
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
-import React, { useState } from 'react';
+import React from 'react';
 import './userProfileModal.scss';
 import 'reactjs-popup/dist/index.css';
 import Modal from '@src/components/common/modal/Modal';
@@ -13,17 +13,15 @@ import useModal from '@src/hooks/modal/useModal';
 import Loader from '@src/components/common/loader/Loader';
 import defaultImg from '@src/assets/img/profileImg/default.svg';
 import ProfileLink from '../profile/my/profile/profileLink/ProfileLink';
-import { getMainCategoryLabel, getSubCategoryLabel } from '../shared/utils/category';
+import { getMainCategoryLabel } from '../shared/utils/category';
 import { getProfileImgs } from '../shared/utils/profileImg';
 
-const BOTTOMSHEET_MINHEIGHT = 350;
 interface UserProfileModalProps extends IModalContainerCommonProps {
 	params: any;
 }
 
 const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX.Element => {
-	const { width: windowWidth, height: windowHeight } = useWindowDimensions();
-	const [bottomSheetHeight, setBottomSheetHeight] = useState<number>(334);
+	const { width: windowWidth } = useWindowDimensions();
 	const isPopup = windowWidth > 1024;
 	const userId = params?.userId;
 	const { closeModal } = useModal();
@@ -32,21 +30,8 @@ const UserProfileModal = ({ open, onClose, params }: UserProfileModalProps): JSX
 	const userProfile = fetchedData.data?.userProfile;
 
 	const Content = () => {
-		const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-			if (isPopup) return;
-			if (e.currentTarget.scrollTop > 0) {
-				setBottomSheetHeight(windowHeight - 102);
-			} else {
-				setBottomSheetHeight(BOTTOMSHEET_MINHEIGHT);
-			}
-		};
-
 		return (
-			<div
-				className="profile-bottom-sheet-container"
-				style={{ height: isPopup ? 'auto' : bottomSheetHeight }}
-				onScroll={handleScroll}
-			>
+			<div className="profile-bottom-sheet-container">
 				<img
 					className={`profile-bottom-sheet-profile-img${isPopup ? '-popup' : ''}`}
 					src={

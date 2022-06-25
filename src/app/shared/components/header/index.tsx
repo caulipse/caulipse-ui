@@ -79,7 +79,7 @@ const Header: React.FC = () => {
 				<IoSearch onClick={clickSearchIcon} className="header-icon" color={iconColor} />
 				<Box className="header-noti-con">
 					<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
-					<Box className="header-noti-dot" />
+					{!!notificationData?.length && <Box className="header-noti-dot" />}
 				</Box>
 				<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" color={iconColor} />
 				<IoMenu onClick={openDrawer} className="header-icon desktop-visible" color={iconColor} />

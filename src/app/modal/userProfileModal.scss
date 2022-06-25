@@ -8,6 +8,7 @@
   align-self: center;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.16);
   background-color: white !important;
+  margin-top: 2rem !important;
 }
 
 .profile-bottom-sheet{
@@ -19,13 +20,9 @@
         overflow-y: scroll;
         max-height: calc(100vh - 12.75rem);
         overflow-x: hidden !important;
-
+        z-index: 3000 !important;
     }
     &-profile-img{
-        display: flex;
-        position: fixed;
-        top:0;
-        margin-top: -2rem;
         @include profile-img();
     }
     &-profile-img-popup{
@@ -33,6 +30,7 @@
       height: 4rem;
       aspect-ratio: 1;
       border-radius: 2rem;
+      margin-top: 2rem !important;
     }
     &-name{
         font-size: 1.25rem;

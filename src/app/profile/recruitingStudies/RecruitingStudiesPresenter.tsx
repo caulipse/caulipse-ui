@@ -31,7 +31,6 @@ const RecruitingStudiesPresenter = ({
 	}, []);
 
 	const registerStudy = useCallback(() => {
-		// TODO: 스터디 등록하기 페이지 가도록 추가하기
 		openModal(ModalKeyEnum.StudyPostModal);
 	}, []);
 

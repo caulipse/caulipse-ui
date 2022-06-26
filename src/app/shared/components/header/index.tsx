@@ -9,6 +9,7 @@ import logoDefaultWhite from '@src/assets/img/logo/logoDefaultWhite.svg';
 import logoDefaultBlue from '@src/assets/img/logo/logoDefaultBlue.svg';
 import LogoDefaultVertical from '@src/assets/img/logo/logoDefaultVertical.svg';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
+import useFetchNotifications from '@src/hooks/remotes/notification/useFetchNotifications';
 
 import classNames from 'classnames';
 import { useAtom } from 'jotai';
@@ -24,6 +25,7 @@ const Header: React.FC = () => {
 	const { openModal } = useModal();
 	const { openSnackbar } = useSnackbar();
 	const [state] = useAtom(globalState);
+	const { data: notificationData, isLoading: isNotificationLoading } = useFetchNotifications();
 
 	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
@@ -75,7 +77,10 @@ const Header: React.FC = () => {
 		return state.login ? (
 			<div className="header-icons-con">
 				<IoSearch onClick={clickSearchIcon} className="header-icon" color={iconColor} />
-				<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
+				<Box className="header-noti-con">
+					<IoNotificationsOutline onClick={clickNotification} className="header-icon mr0-mobile" color={iconColor} />
+					{!!notificationData?.length && <Box className="header-noti-dot" />}
+				</Box>
 				<IoBookmarkOutline onClick={clickBookmark} className="header-icon desktop-visible" color={iconColor} />
 				<IoMenu onClick={openDrawer} className="header-icon desktop-visible" color={iconColor} />
 			</div>

@@ -41,13 +41,13 @@ const AccountInfoPresenter = ({ userId }: AccountInfoPresenterProps): JSX.Elemen
 						<div className="account-info-body-account-title">계정 이메일</div>
 						<div className="account-info-body-account-id">{userId}</div>
 					</button>
-					<button type="button" className="account-info-body-change-pw-container" onClick={changePw}>
+					<a href="/reset-password" className="account-info-body-change-pw-container">
 						<div className="account-info-column">
 							<div className="account-info-body-change-pw-title">비밀번호 변경</div>
 							<div className="account-info-body-change-pw-text">등록된 비밀번호를 변경합니다.</div>
 						</div>
 						<IoChevronForward className="account-info-header-icn e2e2e2" />
-					</button>
+					</a>
 					<button type="button" className="account-info-body-logout" onClick={handleLogout}>
 						<div>로그아웃</div>
 						<IoChevronForward className="account-info-header-icn e2e2e2" />

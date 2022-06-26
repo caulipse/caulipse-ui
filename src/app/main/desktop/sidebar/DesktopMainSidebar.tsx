@@ -1,23 +1,10 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
 import { IoChevronForward } from 'react-icons/io5';
 import MainButton from '@src/app/main/button/MainButton';
 import './index.scss';
 
 const DesktopMainSidebar = (): JSX.Element => {
-	const history = useHistory();
-
-	const onClickEClass = () => {
-		// TODO
-		// 이클래스 이동
-	};
-
-	const onClickGuide = () => {
-		// TODO
-		// 가이드 이동
-	};
-
 	return (
 		<Container className="desktop-main-sidebar">
 			<MainButton isDesktop />

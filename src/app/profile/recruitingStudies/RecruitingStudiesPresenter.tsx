@@ -3,8 +3,6 @@ import { Study } from '@src/api/types';
 import EmptyComponent from '@src/app/shared/components/emptyComponents';
 import MyStudyCard from '@src/app/shared/components/myStudyCard';
 import { getDday } from '@src/app/shared/utils/date';
-import CommonButton from '@src/components/common/button/CommonButton';
-import { ButtonTypeEnum } from '@src/components/common/button/types';
 import ModalKeyEnum from '@src/components/common/modal/enum';
 import useModal from '@src/hooks/modal/useModal';
 import React, { useCallback } from 'react';
@@ -33,7 +31,7 @@ const RecruitingStudiesPresenter = ({
 	}, []);
 
 	const registerStudy = useCallback(() => {
-		// TODO: 스터디 등록하기 페이지 가도록 추가하기
+		openModal(ModalKeyEnum.StudyPostModal);
 	}, []);
 
 	const renderOpenedRecruitingStudies = useCallback(() => {
@@ -61,15 +59,6 @@ const RecruitingStudiesPresenter = ({
 							className="recruiting-studies-icon"
 							color="#b1b1b1"
 						/>
-					}
-					bottomComponent={
-						<div className="mt1rem">
-							<CommonButton
-								onClick={(evt) => closeStudy(evt, item.id)}
-								title={`마감하기(${item.membersCount + 1}/${item.capacity})`}
-								type={ButtonTypeEnum.primary}
-							/>
-						</div>
 					}
 				/>
 			);

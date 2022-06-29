@@ -18,7 +18,7 @@ export default () => {
 			console.log(response);
 			openSnackbar('회원가입이 완료되었습니다.');
 			setTimeout(() => {
-				history.replace('/');
+				history.replace('/', { initial: true });
 			}, 1000);
 		},
 		onError: (e: Error) => {

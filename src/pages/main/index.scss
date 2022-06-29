@@ -6,3 +6,46 @@
     max-width: 100% !important;
     overflow-x: hidden !important;
 }
+
+.sign-up-modal{
+    &-con{
+        padding: 4.5rem 1.25rem 2rem !important;
+        background-color: #ffffff !important;;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+    }
+    &-img{
+        width: 11.75rem !important;
+        height: 11.75rem !important;
+        box-shadow: 0 -8px 20px 0 rgba(0, 0, 0, 0.08);
+        border-radius: 11.75rem !important;
+        padding: 1.5rem !important;
+    }
+    &-text{
+        font-size: 1.25rem !important;
+        font-weight: bold !important;
+        font-stretch: normal !important;
+        font-style: normal !important;
+        line-height: 1.35 !important;
+        letter-spacing: normal !important;
+        text-align: center !important;
+        margin: 3rem 0 0.5rem !important;
+        color: #212b36 !important;
+    }
+    &-subtext{
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        text-align: center;
+        color: #929699 !important;
+    }
+    &-cta{
+        margin-top: 3rem !important;
+    }
+}

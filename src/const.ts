@@ -114,10 +114,6 @@ export const categories: MainCategoryType[] = [
 				label: '행정, 언론',
 				code: 404,
 			},
-			{
-				label: '기타 (게임,보안 등)',
-				code: 405,
-			},
 		],
 	},
 	{

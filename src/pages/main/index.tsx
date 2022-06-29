@@ -5,13 +5,15 @@ import MobileMainPage from '@src/app/main/mobile/MobileMainPage';
 import DesktopMainPage from '@src/app/main/desktop/DesktopMainPage';
 import useWindowDimensions from '@src/hooks/useWindowDimensions';
 import './index.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Modal from '@src/components/common/modal/Modal';
 import girlWithLongHair from '@src/assets/img/illustration/girlWithLongHair.svg';
 import CommonButton from '@src/components/common/button/CommonButton';
 import BookWithTwoGirls from '@src/assets/img/illustration/bookWithTwoGirls.svg';
 
 const MainPage = (): JSX.Element => {
+	const history = useHistory();
+
 	const signUpContent = {
 		1: {
 			img: girlWithLongHair,
@@ -29,6 +31,7 @@ const MainPage = (): JSX.Element => {
 			btnText: '지금 바로 작성하기',
 			onClick: () => {
 				setOpen(false);
+				history.replace('/profile/edit');
 			},
 		},
 	};
@@ -38,7 +41,7 @@ const MainPage = (): JSX.Element => {
 	const { initial = 'false' } = useParams<{ initial?: 'true' | 'false' }>();
 
 	const [step, setStep] = useState<1 | 2>(1);
-	const [open, setOpen] = useState<boolean>(initial !== 'true');
+	const [open, setOpen] = useState<boolean>(initial === 'true');
 
 	return (
 		<>

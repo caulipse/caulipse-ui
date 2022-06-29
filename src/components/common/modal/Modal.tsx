@@ -37,7 +37,9 @@ const Content = ({ children, height, isDesktop, HeaderComponent, FooterComponent
 				}}
 			>
 				<Box className="modal-content-header">{HeaderComponent}</Box>
-				<div ref={childrenRef}>{children}</div>
+				<div style={{ height: '100%' }} ref={childrenRef}>
+					{children}
+				</div>
 			</Container>
 			<>
 				<Box style={{ marginBottom: FooterComponent && childrenHeight > windowHeight ? '5rem' : 0 }} />

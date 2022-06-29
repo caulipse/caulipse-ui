@@ -25,8 +25,6 @@ const SubCategoryItem = ({
 		onClick(category);
 	};
 
-	// FIXME
-	// const count = 10;
 	return withClose ? (
 		<Container className="sub-category-collpsed-item-container" onClick={handleClick}>
 			<Chip onClick={handleClick} label={category.label} selected={selected} type={ChipTypeEnum.secondary} withClose />

@@ -9,27 +9,49 @@ import { useParams } from 'react-router-dom';
 import Modal from '@src/components/common/modal/Modal';
 import girlWithLongHair from '@src/assets/img/illustration/girlWithLongHair.svg';
 import CommonButton from '@src/components/common/button/CommonButton';
+import BookWithTwoGirls from '@src/assets/img/illustration/bookWithTwoGirls.svg';
 
 const MainPage = (): JSX.Element => {
+	const signUpContent = {
+		1: {
+			img: girlWithLongHair,
+			text: '회원가입을 축하합니다!',
+			subtext: '보람찬 스터디 활동을 응원합니다 :)',
+			btnText: '다음',
+			onClick: () => {
+				setStep(2);
+			},
+		},
+		2: {
+			img: BookWithTwoGirls,
+			text: '내 프로필 완성하기',
+			subtext: '관심사, 한줄 소개글을 통해 자신을 표현해 보세요!',
+			btnText: '지금 바로 작성하기',
+			onClick: () => {
+				setOpen(false);
+			},
+		},
+	};
+
 	const { width } = useWindowDimensions();
 	const desktop = width > 1024;
-
-	const [step, setStep] = useState<number>(1);
-
 	const { initial = 'false' } = useParams<{ initial?: 'true' | 'false' }>();
+
+	const [step, setStep] = useState<1 | 2>(1);
+	const [open, setOpen] = useState<boolean>(initial !== 'true');
 
 	return (
 		<>
 			<Container className="main-page-container">{desktop ? <DesktopMainPage /> : <MobileMainPage />}</Container>
-			{initial !== 'true' && (
+			{open && (
 				<Modal open onClose={() => {}}>
 					<Box className="sign-up-modal-con">
-						<img src={girlWithLongHair} className="sign-up-modal-img" alt="회원가입 이미지" />
-						<Box className="sign-up-modal-text">회원가입을 축하합니다.</Box>
-						<Box className="sign-up-modal-subtext">보람찬 스터디활동을 응원합니다 :)</Box>
+						<img src={signUpContent[step].img} className="sign-up-modal-img" alt="회원가입 이미지" />
+						<Box className="sign-up-modal-text">{signUpContent[step].text}</Box>
+						<Box className="sign-up-modal-subtext">{signUpContent[step].subtext}</Box>
 						<CommonButton
-							onClick={() => setStep((curStep) => curStep + 1)}
-							title="다음"
+							onClick={signUpContent[step].onClick}
+							title={signUpContent[step].btnText}
 							className="sign-up-modal-cta"
 						/>
 					</Box>

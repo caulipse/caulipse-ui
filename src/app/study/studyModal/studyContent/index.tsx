@@ -4,7 +4,7 @@ import React from 'react';
 import './index.scss';
 
 const TITLE_MAX = 40;
-const CONTENT_MAX = 500;
+const CONTENT_MAX = 2000;
 
 interface StudyContentProps {
 	selectedTitle: string;

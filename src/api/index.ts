@@ -79,8 +79,8 @@ const API = {
 		return client.post(`/study`, request);
 	},
 	// 스터디 아이디에 해당하는 스터디 정보 조회
-	getStudy(id: string) {
-		return client.get(`/study/${id}`);
+	getStudy(id: string, login: boolean) {
+		return client.get(`/study/${id}${login ? '/login' : ''}`);
 	},
 	// 스터디 정보 업데이트
 	patchStudy(request: IRequestPatchStudy) {

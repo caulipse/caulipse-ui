@@ -3,9 +3,9 @@ import API from '@src/api';
 import { IResponseGetStudy } from '@api/response/study';
 import QUERY_KEY from '@src/hooks/remotes';
 
-export default (id: string) => {
+export default (id: string, login: boolean) => {
 	const fetcher = async (): Promise<IResponseGetStudy> => {
-		const res = await API.getStudy(id);
+		const res = await API.getStudy(id, login);
 		return res.data;
 	};
 

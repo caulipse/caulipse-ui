@@ -6,13 +6,15 @@ import { IModalContainerCommonProps } from '@common/modal/types';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import { useAtom } from 'jotai';
-import { modalState as globalModalState } from '@src/state';
+import globalState, { modalState as globalModalState } from '@src/state';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 
 const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openModal } = useModal();
 	const [modalState] = useAtom(globalModalState);
-	const { data } = useFetchStudy(modalState?.params);
+	const [state] = useAtom(globalState);
+
+	const { data } = useFetchStudy(modalState?.params, state.login);
 
 	const onClickChange = () => {
 		openModal(ModalKeyEnum.EditStudyModal, { studyData: data });

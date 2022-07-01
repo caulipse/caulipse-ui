@@ -36,11 +36,9 @@ import bgEmploymentFullWidth from '@src/assets/img/category/imageDesktopFullWidt
 import bgExamFullWidth from '@src/assets/img/category/imageDesktopFullWidth/exam.png';
 import bgProgrammingFullWidth from '@src/assets/img/category/imageDesktopFullWidth/programming.png';
 import bgCompetitionFullWidth from '@src/assets/img/category/imageDesktopFullWidth/competition.png';
-import { isFuture, isPast, isToday } from 'date-fns';
+import { isFuture, isPast, isToday, differenceInDays } from 'date-fns';
 import classNames from 'classnames';
 import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
-
-import { differenceInDays } from 'date-fns';
 
 interface StudyDetailPageLocationInterface {
 	initialIndex?: number;
@@ -91,7 +89,11 @@ const categoryImageMapperFullWidth = (code: number) => {
 const StudyDetailPage = (): JSX.Element => {
 	const { studyId } = useParams<{ studyId: string }>();
 	const postBookmark = usePostBookmark(studyId);
-	const { data: studyData, isLoading } = useFetchStudy(studyId);
+
+	const [state] = useAtom(globalState);
+	const [userState] = useAtom(globalUserState);
+
+	const { data: studyData, isLoading } = useFetchStudy(studyId, state.login);
 	const { data: studyParticipantsData, isLoading: isStudyParticipantsLoading } = useFetchStudyParticipants(studyId);
 
 	const location = useLocation<StudyDetailPageLocationInterface>();
@@ -100,8 +102,7 @@ const StudyDetailPage = (): JSX.Element => {
 	const { openModal } = useModal();
 	const { openSnackbar } = useSnackbar();
 	const history = useHistory();
-	const [state] = useAtom(globalState);
-	const [userState] = useAtom(globalUserState);
+
 	const { width } = useWindowDimensions();
 
 	const isDesktop = useMemo(() => {

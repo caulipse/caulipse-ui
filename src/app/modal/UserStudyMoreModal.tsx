@@ -6,17 +6,18 @@ import SimpleModal from '@common/modal/SimpleModal';
 import useModal from '@src/hooks/modal/useModal';
 import ModalKeyEnum from '@common/modal/enum';
 import { useAtom } from 'jotai';
-import { modalState, userState as globalUserState } from '@src/state';
+import globalState, { modalState as globalModalState, userState as globalUserState } from '@src/state';
 import useFetchStudyParticipants from '@src/hooks/remotes/studyUser/useFetchStudyParticipants';
 import useFetchStudy from '@src/hooks/remotes/study/useFetchStudy';
 
 const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const { openModal } = useModal();
-	const [state] = useAtom(modalState);
+	const [modalState] = useAtom(globalModalState);
 	const [userState] = useAtom(globalUserState);
+	const [state] = useAtom(globalState);
 
-	const { data: studyParticipantsData } = useFetchStudyParticipants(state.params);
-	const { data: studyData } = useFetchStudy(state?.params);
+	const { data: studyParticipantsData } = useFetchStudyParticipants(modalState.params);
+	const { data: studyData } = useFetchStudy(modalState?.params, state.login);
 
 	const isAppliedUser = useMemo(() => {
 		return !!studyParticipantsData?.find((participantItem) => participantItem.userId === userState.userId);
@@ -24,11 +25,11 @@ const UserStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 
 	const onClickReport = () => {
 		onClose(false);
-		openModal(ModalKeyEnum.ReportModal, state.params);
+		openModal(ModalKeyEnum.ReportModal, modalState.params);
 	};
 	const onClickCancel = () => {
 		onClose(false);
-		openModal(ModalKeyEnum.ApplyCancelModal, state.params);
+		openModal(ModalKeyEnum.ApplyCancelModal, modalState.params);
 	};
 	return (
 		<SimpleModal open={open} onClose={onClose} height="12.5rem">

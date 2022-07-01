@@ -45,7 +45,7 @@ const DesktopMainPageStudyList = (): JSX.Element => {
 
 	return (
 		<Container className="desktop-main-page-study-list-container">
-			<Typography>👷🏻 지금은 베타서비스 기간입니다. 많은 의견 부탁드려요! 😀</Typography>
+			<Typography>🔥서둘러요, 곧 마감이에요!🔥</Typography>
 			{studies.length === 0 ? (
 				<EmptyMessage />
 			) : (

@@ -78,7 +78,7 @@ const MobileMainPage = (): JSX.Element => {
 				<MainButton />
 			</Container>
 			<Container className="mobile-main-page-main-category-container">
-				<Typography>👷🏻 지금은 베타서비스 기간입니다. 많은 의견 부탁드려요! 😀</Typography>
+				<Typography>🔥서둘러요, 곧 마감이에요!🔥</Typography>
 				<Container className="mobile-main-page-main-category-item-container">
 					{categoryArr.map((category) => (
 						<MainCategoryItem key={category.code} category={category} onClick={onClick} />

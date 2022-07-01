@@ -32,8 +32,8 @@ const API = {
 		return client.delete(`/study/${id}/bookmark`);
 	},
 	// 스터디 문의글 목록 조회
-	getStudyComments(id: string) {
-		return client.get(`/study/${id}/comment`);
+	getStudyComments(id: string, login: boolean) {
+		return client.get(`/study/${id}/comment/${login ? '/login' : ''}`);
 	},
 	// 스터디 문의글 등록
 	postStudyComment(request: IRequestPostStudyComment) {

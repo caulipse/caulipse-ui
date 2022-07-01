@@ -14,7 +14,7 @@ const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 	const [modalState] = useAtom(globalModalState);
 	const [state] = useAtom(globalState);
 
-	const { data } = useFetchStudy(modalState?.params, state.login);
+	const { data } = useFetchStudy(modalState?.params?.studyId, state.login);
 
 	const onClickChange = () => {
 		openModal(ModalKeyEnum.EditStudyModal, { studyData: data });
@@ -27,9 +27,11 @@ const HostStudyMoreModal = ({ open, onClose }: IModalContainerCommonProps): JSX.
 	return (
 		<SimpleModal open={open} onClose={onClose} height="14rem">
 			<Container className="simple-modal-content-container">
-				<Button className="simple-modal-button primary" onClick={onClickChange}>
-					모집글 수정
-				</Button>
+				{modalState?.params?.isEditable && (
+					<Button className="simple-modal-button primary" onClick={onClickChange}>
+						모집글 수정
+					</Button>
+				)}
 				<Button className="simple-modal-button secondary" onClick={onClickDelete}>
 					모집글 삭제
 				</Button>

@@ -140,7 +140,7 @@ const StudyDetailPage = (): JSX.Element => {
 
 	const onClickMore = () => {
 		if (isHost) {
-			openModal(ModalKeyEnum.HostStudyMoreModal, studyId);
+			openModal(ModalKeyEnum.HostStudyMoreModal, { studyId, isEditable: studyData?.isOpen });
 		} else {
 			openModal(ModalKeyEnum.UserStudyMoreModal, studyId);
 		}

@@ -32,8 +32,8 @@ const API = {
 		return client.delete(`/study/${id}/bookmark`);
 	},
 	// 스터디 문의글 목록 조회
-	getStudyComments(id: string) {
-		return client.get(`/study/${id}/comment`);
+	getStudyComments(id: string, login: boolean) {
+		return client.get(`/study/${id}/comment/${login ? '/login' : ''}`);
 	},
 	// 스터디 문의글 등록
 	postStudyComment(request: IRequestPostStudyComment) {
@@ -79,8 +79,8 @@ const API = {
 		return client.post(`/study`, request);
 	},
 	// 스터디 아이디에 해당하는 스터디 정보 조회
-	getStudy(id: string) {
-		return client.get(`/study/${id}`);
+	getStudy(id: string, login: boolean) {
+		return client.get(`/study/${id}${login ? '/login' : ''}`);
 	},
 	// 스터디 정보 업데이트
 	patchStudy(request: IRequestPatchStudy) {

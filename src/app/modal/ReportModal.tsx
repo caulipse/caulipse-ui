@@ -12,9 +12,10 @@ import { REPORT_TYPE_ENUM } from '@src/enum';
 const ReportModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
 	const [userState] = useAtom(globalUserState);
 	const [modalState] = useAtom(globalModalState);
+	const [state] = useAtom(globalState);
 	const { userId } = userState;
 
-	const { data } = useFetchStudy(modalState?.params);
+	const { data } = useFetchStudy(modalState?.params, state.login);
 	const study = data;
 
 	const { REPORT_TYPE_ENUM_0, REPORT_TYPE_ENUM_1, REPORT_TYPE_ENUM_2, REPORT_TYPE_ENUM_3, REPORT_TYPE_ENUM_4 } =

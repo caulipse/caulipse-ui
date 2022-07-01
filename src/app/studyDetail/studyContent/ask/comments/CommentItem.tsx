@@ -40,15 +40,15 @@ const CommentItem = ({ comment, hostId, setShowCommentInput, studyId }: CommentI
 	return (
 		<div className={`comment-item-container ${comment.isNested ? 'comment-item-nested-bg' : ''}`}>
 			<ProfileImage
-				userId={comment.user.userId}
-				userImage={comment.user.image}
+				userId={comment.user?.userId}
+				userImage={comment.user?.image}
 				width={comment.isNested ? 24 : 32}
 				height={comment.isNested ? 24 : 32}
 				className="comment-item-img"
 			/>
 			<div className="comment-item-column-container">
 				<div className="comment-item-row-container">
-					<div className="comment-item-username">{comment.user.userName}</div>
+					<div className="comment-item-username">{comment.user?.userName ?? '식제된 문의글'}</div>
 					{comment.USER_ID === hostId && <div className="comment-item-leader">모집장</div>}
 					<div className="comment-item-createdat">{format(new Date(comment.createdAt), 'yy.MM.dd HH:mm')}</div>
 				</div>

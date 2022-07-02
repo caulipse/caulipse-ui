@@ -13,11 +13,12 @@ import { IoClose } from 'react-icons/io5';
 import './loginModal.scss';
 import useSnackbar from '@src/hooks/snackbar/useSnackbar';
 import useModal from '@src/hooks/modal/useModal';
+import useEmailInput from '@src/hooks/common/useEmailInput';
 import { sha256 } from 'js-sha256';
 import { validateEmail } from '../shared/utils/validation';
 
 const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element => {
-	const [email, setEmail] = useState<string>('');
+	const [email, setEmail, emailValidation] = useEmailInput('');
 	const [password, setPassword] = useState<string>('');
 	const [emailHelperText, setEmailHelperText] = useState<string>('');
 	const [passwordHelperText, setPasswordHelperText] = useState<string>('');
@@ -47,11 +48,8 @@ const LoginModal = ({ open, onClose }: IModalContainerCommonProps): JSX.Element 
 
 	const handleLogin = useCallback(() => {
 		let canLogin = true;
-		if (!email) {
-			setEmailHelperText('이메일을 입력해 주세요.');
-			canLogin = false;
-		} else if (!validateEmail(email)) {
-			setEmailHelperText('이메일 형식이 잘못되었습니다.');
+		if (emailValidation) {
+			setEmailHelperText(emailValidation);
 			canLogin = false;
 		}
 		if (!password) {

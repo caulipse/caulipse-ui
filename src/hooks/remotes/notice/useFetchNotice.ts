@@ -1,10 +1,10 @@
 import API from '@src/api';
-import { getNoticeInterface } from '@src/api/response/notice';
+import { Notice } from '@src/api/types';
 import { useQuery } from 'react-query';
 import QUERY_KEY from '@src/hooks/remotes';
 
 export default (id: string) => {
-	const fetcher = async (): Promise<getNoticeInterface> => {
+	const fetcher = async (): Promise<Notice> => {
 		const res = await API.getNotice(id);
 		return res.data;
 	};

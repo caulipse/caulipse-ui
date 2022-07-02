@@ -12,7 +12,7 @@ const NoticeDetailContainer = ({ noticeId }: NoticeDetailContainerProps): JSX.El
 
 	if (isLoading) return <Loader />;
 
-	return data?.notice ? <NoticeDetailPresenter notice={data.notice} /> : <div />;
+	return data ? <NoticeDetailPresenter notice={data} /> : <div />;
 };
 
 export default NoticeDetailContainer;

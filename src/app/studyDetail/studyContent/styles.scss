@@ -5,6 +5,7 @@
   background-color: white;
   border-radius: .75rem .75rem 0 0 !important;
   box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.08) !important;
+  white-space: pre-wrap;
   @include desktop{
     flex: 4 !important;
     border-radius: .75rem !important;

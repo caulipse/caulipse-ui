@@ -19,13 +19,15 @@ const DesktopMainSidebar = (): JSX.Element => {
 					</Container>
 				</a>
 				<hr className="desktop-main-sidebar-item-divider" />
-				<Container className="desktop-main-sidebar-item-container">
-					<Container>
-						<Typography className="desktop-main-sidebar-item-container-text">안녕하세요 중대본입니다 :)</Typography>
-						<Typography className="desktop-main-sidebar-item-container-title">중대본 알아보기</Typography>
+				<a href="https://curved-watchmaker-491.notion.site/192d070ffe1043a0bd6108c9f99f0ff9">
+					<Container className="desktop-main-sidebar-item-container">
+						<Container>
+							<Typography className="desktop-main-sidebar-item-container-text">안녕하세요 중대본입니다 :)</Typography>
+							<Typography className="desktop-main-sidebar-item-container-title">중대본 알아보기</Typography>
+						</Container>
+						<IoChevronForward />
 					</Container>
-					<IoChevronForward />
-				</Container>
+				</a>
 			</Container>
 		</Container>
 	);

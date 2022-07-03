@@ -46,7 +46,7 @@ const SignUpSecondStep = ({
 		if (!nickname) {
 			setNicknameHelperText('닉네임을 입력해 주세요.');
 		} else if (!validateNickname(nickname)) {
-			setNicknameHelperText('닉네임은 한글, 영문, 특수문자 (- _ .) 포함하여 2 ~ 12글자로 입력해주세요.');
+			setNicknameHelperText('2 ~ 12글자로 입력해주세요.');
 		} else {
 			nickNameSuccess = true;
 		}

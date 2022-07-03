@@ -16,6 +16,7 @@ import CommonTextField from '@src/components/common/textfield/CommonTextField';
 import { useAtom } from 'jotai';
 import { userState as globalUserState } from '@src/state';
 import defaultImg from '@src/assets/img/profileImg/default.svg';
+import { validateNickname } from '@src/app/shared/utils/validation';
 
 export interface UrlInterface {
 	urlId: number;
@@ -59,12 +60,24 @@ const MyProfileEditPresenter = ({
 	const [currentProfileImage, setCurrentProfileImage] = useState<string>(imgSrc);
 	const [currentCategoryCodes, setCurrentCategoryCodes] = useState<string[]>(categories);
 
+	const [nicknameHelperText, setNicknameHelperText] = useState('');
+
 	const { openModal } = useModal();
 
 	const handleUpdateProfile = () => {
 		const filteredArray = new Array(3).fill('').map((item, index) => {
 			return currentUrls?.[index]?.url ?? '';
 		});
+
+		if (!currentNickname) {
+			setNicknameHelperText('닉네임을 입력해 주세요.');
+			return;
+		}
+
+		if (!validateNickname(currentNickname)) {
+			setNicknameHelperText('2 ~ 12글자로 입력해주세요.');
+			return;
+		}
 
 		updateProfile.mutate({
 			userId: userState.userId,
@@ -174,6 +187,9 @@ const MyProfileEditPresenter = ({
 				label="닉네임"
 				value={currentNickname}
 				onChange={(e) => setCurrentNickname(e.target.value)}
+				type={nicknameHelperText ? 'error' : 'default'}
+				helperText={nicknameHelperText}
+				textFieldProps={{ onFocus: () => setNicknameHelperText('') }}
 			/>
 			<Box className={classNames('profile-edit-row-container', 'mt40')}>
 				<Box className="profile-edit-title">🙋‍♂️ 저는요..</Box>

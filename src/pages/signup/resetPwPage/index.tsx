@@ -45,7 +45,7 @@ const ResetPwPage = (): JSX.Element => {
 		if (!password) {
 			setPasswordHelperText('비밀번호를 입력해 주세요.');
 		} else if (!validatePassword(password)) {
-			setPasswordHelperText('비밀번호는 영문, 숫자를 혼합한 8자 이상이어야 합니다.');
+			setPasswordHelperText('영문, 숫자를 혼합한 8자 이상이어야 합니다.');
 		} else {
 			patchResetPw.mutate({ id: String(id), email: String(paramEmail), password: sha256(password) });
 		}
